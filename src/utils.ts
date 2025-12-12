@@ -1,0 +1,84 @@
+import type { WildcardMatch, WildcardBlock } from './types.js';
+
+const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*)["']?/g;
+const IAM_EXPLICIT_PATTERN = /["']([a-zA-Z0-9-]+:[a-zA-Z][a-zA-Z0-9]*)["']/g;
+
+export function findPotentialWildcardActions(line: string): string[] {
+  return [...line.matchAll(IAM_WILDCARD_PATTERN)]
+    .map((match) => match[1])
+    .filter((action): action is string => action !== undefined);
+}
+
+export function findExplicitActions(line: string): string[] {
+  return [...line.matchAll(IAM_EXPLICIT_PATTERN)]
+    .map((match) => match[1])
+    .filter((action): action is string => action !== undefined && !action.includes('*'));
+}
+
+export function groupIntoConsecutiveBlocks(matches: readonly WildcardMatch[]): WildcardBlock[] {
+  if (matches.length === 0) return [];
+
+  const sorted = matches.toSorted((a, b) =>
+    a.file.localeCompare(b.file) || a.line - b.line
+  );
+
+  const blocks: WildcardBlock[] = [];
+  let current = {
+    file: sorted[0]!.file,
+    startLine: sorted[0]!.line,
+    endLine: sorted[0]!.line,
+    actions: new Set([sorted[0]!.action]),
+  };
+
+  for (const match of sorted.slice(1)) {
+    const isConsecutive = match.file === current.file && match.line <= current.endLine + 1;
+
+    if (isConsecutive) {
+      current.actions.add(match.action);
+      current.endLine = Math.max(current.endLine, match.line);
+    } else {
+      blocks.push({ ...current, actions: [...current.actions] });
+      current = {
+        file: match.file,
+        startLine: match.line,
+        endLine: match.line,
+        actions: new Set([match.action]),
+      };
+    }
+  }
+
+  blocks.push({ ...current, actions: [...current.actions] });
+  return blocks;
+}
+
+export function formatComment(
+  originalActions: readonly string[],
+  expandedActions: readonly string[],
+  redundantActions?: readonly string[],
+): string {
+  const header = originalActions.length === 1
+    ? `\`${originalActions[0]}\` expands to ${expandedActions.length} action(s):`
+    : `${originalActions.length} wildcard patterns expand to ${expandedActions.length} action(s):`;
+
+  const patterns = originalActions.length > 1
+    ? `\n**Patterns:**\n${originalActions.map((a) => `- \`${a}\``).join('\n')}`
+    : '';
+
+  const warning = redundantActions && redundantActions.length > 0
+    ? `\n\n**⚠️ Redundant actions detected:**\nThe following explicit actions are already covered by the wildcard pattern(s) above:\n${redundantActions.map((a) => `- \`${a}\``).join('\n')}`
+    : '';
+
+  const actions = expandedActions.map((a) => `"${a}"`).join('\n');
+
+  return `**🔍 IAM Wildcard Expansion**
+
+${header}${patterns}${warning}
+
+<details>
+<summary>Click to expand</summary>
+
+\`\`\`
+${actions}
+\`\`\`
+</details>`;
+}

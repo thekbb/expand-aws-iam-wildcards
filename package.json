@@ -1,0 +1,41 @@
+{
+  "name": "expand-iam-wildcards-action",
+  "version": "1.0.0",
+  "description": "GitHub Action to expand IAM wildcard actions in PR comments",
+  "type": "module",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist --no-source-map-register --license licenses.txt && rm -f dist/licenses.txt dist/package.json",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "generate-iam-data": "npx tsx scripts/generate-iam-data.ts",
+    "update-iam-data": "npm update @cloud-copilot/iam-expand && npm run generate-iam-data"
+  },
+  "keywords": [
+    "github-action",
+    "aws",
+    "iam",
+    "security"
+  ],
+  "author": {
+    "name": "Kevin Behrens",
+    "email": "kevin@thekbb.net"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "~1.11.1",
+    "@actions/github": "~6.0.1"
+  },
+  "devDependencies": {
+    "@cloud-copilot/iam-expand": "~0.11.44",
+    "@types/node": "~20.17.12",
+    "@vercel/ncc": "~0.38.1",
+    "tsx": "~4.19.2",
+    "typescript": "~5.3.2",
+    "vitest": "~2.1.8"
+  }
+}

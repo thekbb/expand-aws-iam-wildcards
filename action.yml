@@ -1,0 +1,20 @@
+name: 'Expand AWS IAM Wildcards'
+description: 'Adds inline PR comments expanding AWS IAM wildcard actions in changeset to show all matched actions.'
+author: 'Kevin Behrens <kevin@thekbb.net>'
+
+branding:
+  icon: 'eye'
+  color: 'blue'
+
+inputs:
+  github-token:
+    description: 'GitHub token for API access'
+    required: true
+  file-patterns:
+    description: 'Glob patterns for files to scan (comma-separated)'
+    required: false
+    default: '**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

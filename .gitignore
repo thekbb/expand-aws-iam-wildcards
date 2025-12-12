@@ -1,7 +1,14 @@
-# Dependencies
 node_modules/
 
-dist/
+# Build artifacts (only keep dist/index.js)
+dist/*.map
+dist/*.cjs
+dist/*.js
+!dist/index.js
+dist/*.d.ts
+dist/licenses.txt
+dist/package.json
+dist/sourcemap*
 
 # IDE
 .idea/
@@ -10,7 +17,7 @@ dist/
 *.swp
 *.swo
 
-# OS
+# MacOS
 .DS_Store
 
 # Logs
