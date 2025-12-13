@@ -1,5 +1,5 @@
 name: 'Expand AWS IAM Wildcards'
-description: 'Helps PR reviewers understand IAM wildcards by expanding them in inline comments, linking each matched action to AWS documentation.'
+description: 'Helps reviewers by expanding IAM wildcards in changesets via inline PR comments linking to AWS docs.'
 author: 'Kevin Behrens <kevin@thekbb.net>'
 
 branding:
