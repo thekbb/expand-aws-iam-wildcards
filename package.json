@@ -1,6 +1,7 @@
 {
   "name": "expand-iam-wildcards-action",
   "version": "1.0.0",
+  "packageManager": "npm@10.8.0",
   "description": "GitHub Action to expand IAM wildcard actions in PR comments",
   "type": "module",
   "main": "dist/index.js",
