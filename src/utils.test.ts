@@ -222,8 +222,8 @@ describe('formatComment', () => {
 
     expect(result).toContain('**🔍 IAM Wildcard Expansion**');
     expect(result).toContain('`s3:Get*` expands to 2 action(s):');
-    expect(result).toContain('"s3:GetObject"');
-    expect(result).toContain('"s3:GetBucket"');
+    expect(result).toContain('s3:GetObject');
+    expect(result).toContain('s3:GetBucket');
     expect(result).not.toContain('<details>'); // Below threshold
   });
 
@@ -239,12 +239,13 @@ describe('formatComment', () => {
     expect(result).toContain('- `s3:Put*`');
   });
 
-  it('includes all expanded actions', () => {
+  it('includes all expanded actions with links', () => {
     const expanded = ['s3:GetObject', 's3:GetBucket', 's3:GetObjectAcl'];
     const result = formatComment(['s3:Get*'], expanded);
 
     for (const action of expanded) {
-      expect(result).toContain(`"${action}"`);
+      expect(result).toContain(action);
+      expect(result).toContain('docs.aws.amazon.com'); // Should have links
     }
   });
 

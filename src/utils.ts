@@ -1,4 +1,5 @@
 import type { WildcardMatch, WildcardBlock } from './types.js';
+import { formatActionWithLink } from './docs.js';
 
 const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*)["']?/g;
 const IAM_EXPLICIT_PATTERN = /["']([a-zA-Z0-9-]+:[a-zA-Z][a-zA-Z0-9]*)["']/g;
@@ -75,19 +76,16 @@ export function formatComment(
     ? `\n\n**⚠️ Redundant actions detected:**\nThe following explicit actions are already covered by the wildcard pattern(s) above:\n${redundantActions.map((a) => `- \`${a}\``).join('\n')}`
     : '';
 
-  const actionsList = expandedActions.map((a) => `"${a}"`).join('\n');
+  const actionsList = expandedActions.map((a) => `- ${formatActionWithLink(a)}`).join('\n');
 
   const actionsBlock = expandedActions.length > collapseThreshold
     ? `<details>
 <summary>Click to expand</summary>
 
-\`\`\`
 ${actionsList}
-\`\`\`
+
 </details>`
-    : `\`\`\`
-${actionsList}
-\`\`\``;
+    : actionsList;
 
   return `**🔍 IAM Wildcard Expansion**
 
