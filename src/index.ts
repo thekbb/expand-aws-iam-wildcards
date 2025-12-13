@@ -5,8 +5,9 @@ import type { ReviewComment, WildcardBlock } from './types.js';
 import { extractFromDiff } from './diff.js';
 import { groupIntoConsecutiveBlocks, formatComment, type FormatOptions } from './utils.js';
 import { expandIamAction } from './expand.js';
+import { matchesPatterns } from './patterns.js';
 
-const COMMENT_MARKER = '**🔍 IAM Wildcard Expansion**';
+const COMMENT_MARKER = '**IAM Wildcard Expansion**';
 
 function expandWildcards(actions: readonly string[]): Map<string, string[]> {
   const expanded = new Map<string, string[]>();
@@ -104,6 +105,10 @@ async function run(): Promise<void> {
   try {
     const token = core.getInput('github-token', { required: true });
     const collapseThreshold = parseInt(core.getInput('collapse-threshold') || '5', 10);
+    const filePatterns = core.getInput('file-patterns')
+      .split(',')
+      .map((p) => p.trim())
+      .filter(Boolean);
     const octokit = github.getOctokit(token);
     const { context } = github;
 
@@ -124,11 +129,22 @@ async function run(): Promise<void> {
       core.info(`Deleted ${deletedCount} existing comment(s) from previous runs`);
     }
 
-    const { data: files } = await octokit.rest.pulls.listFiles({
+    const { data: allFiles } = await octokit.rest.pulls.listFiles({
       owner,
       repo,
       pull_number: pullNumber,
     });
+
+    const files = filePatterns.length > 0
+      ? allFiles.filter((f) => matchesPatterns(f.filename, filePatterns))
+      : allFiles;
+
+    if (files.length === 0) {
+      core.info('No files matched the configured patterns.');
+      return;
+    }
+
+    core.info(`Scanning ${files.length} file(s) matching patterns`);
 
     const { wildcardMatches, explicitActions } = extractFromDiff(files);
     if (wildcardMatches.length === 0) {

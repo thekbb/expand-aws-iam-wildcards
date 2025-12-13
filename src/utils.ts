@@ -90,7 +90,7 @@ ${actionsList}
 </details>`
     : actionsList;
 
-  return `**🔍 IAM Wildcard Expansion**
+  return `**IAM Wildcard Expansion**
 
 ${header}${patterns}${warning}
 

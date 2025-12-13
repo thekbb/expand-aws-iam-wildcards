@@ -220,7 +220,7 @@ describe('formatComment', () => {
   it('formats single wildcard expansion', () => {
     const result = formatComment(['s3:Get*'], ['s3:GetObject', 's3:GetBucket']);
 
-    expect(result).toContain('**🔍 IAM Wildcard Expansion**');
+    expect(result).toContain('**IAM Wildcard Expansion**');
     expect(result).toContain('`s3:Get*` expands to 2 action(s):');
     expect(result).toContain('s3:GetObject');
     expect(result).toContain('s3:GetBucket');
