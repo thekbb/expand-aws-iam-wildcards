@@ -76,7 +76,7 @@ export function formatComment(
     ? `\n\n**⚠️ Redundant actions detected:**\nThe following explicit actions are already covered by the wildcard pattern(s) above:\n${redundantActions.map((a) => `- \`${a}\``).join('\n')}`
     : '';
 
-  const actionsList = expandedActions.map((a) => `- ${formatActionWithLink(a)}`).join('\n');
+  const actionsList = expandedActions.map((a) => `1. ${formatActionWithLink(a)}`).join('\n');
 
   const actionsBlock = expandedActions.length > collapseThreshold
     ? `<details>
