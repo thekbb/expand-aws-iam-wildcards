@@ -23,12 +23,15 @@ export function groupIntoConsecutiveBlocks(matches: readonly WildcardMatch[]): W
     a.file.localeCompare(b.file) || a.line - b.line
   );
 
+  const first = sorted[0];
+  if (!first) return [];
+
   const blocks: WildcardBlock[] = [];
   let current = {
-    file: sorted[0]!.file,
-    startLine: sorted[0]!.line,
-    endLine: sorted[0]!.line,
-    actions: new Set([sorted[0]!.action]),
+    file: first.file,
+    startLine: first.line,
+    endLine: first.line,
+    actions: new Set([first.action]),
   };
 
   for (const match of sorted.slice(1)) {
