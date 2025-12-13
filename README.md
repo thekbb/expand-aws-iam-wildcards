@@ -1,7 +1,7 @@
 # Expand IAM Wildcards Action
 
 [![CI](https://github.com/thekbb/expand-iam-wildcards/actions/workflows/ci.yml/badge.svg)](https://github.com/thekbb/expand-iam-wildcards/actions/workflows/ci.yml)
-[![GitHub release](https://img.shields.io/github/v/release/thekbb/expand-iam-wildcards)](https://github.com/thekbb/expand-iam-wildcards/releases)
+[![GitHub tag](https://img.shields.io/github/v/tag/thekbb/expand-iam-wildcards)](https://github.com/thekbb/expand-iam-wildcards/tags)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A GitHub Action that automatically detects AWS IAM wildcard actions in pull requests and posts inline comments showing
