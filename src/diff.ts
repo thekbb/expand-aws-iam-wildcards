@@ -1,10 +1,5 @@
-import type { WildcardMatch } from './types.js';
+import type { PullRequestFile, WildcardMatch } from './types.js';
 import { findPotentialWildcardActions, findExplicitActions } from './utils.js';
-
-interface PatchedFile {
-  readonly filename: string;
-  readonly patch?: string;
-}
 
 export interface DiffResults {
   readonly wildcardMatches: WildcardMatch[];
@@ -16,7 +11,7 @@ export function parseHunkHeader(line: string): number | null {
   return match?.[1] ? parseInt(match[1], 10) : null;
 }
 
-export function extractFromDiff(files: readonly PatchedFile[]): DiffResults {
+export function extractFromDiff(files: readonly PullRequestFile[]): DiffResults {
   const wildcardMatches: WildcardMatch[] = [];
   const explicitActions: string[] = [];
 

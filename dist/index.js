@@ -54276,9 +54276,7 @@ function matchesPatterns(filename, patterns) {
     return patterns.some((pattern) => minimatch_default()(filename, pattern));
 }
 
-;// CONCATENATED MODULE: ./src/index.ts
-
-
+;// CONCATENATED MODULE: ./src/action.ts
 
 
 
@@ -54288,10 +54286,10 @@ function expandWildcards(actions) {
     const expanded = new Map();
     for (const action of actions) {
         const result = expandIamAction(action);
-        const isValidExpansion = result.length > 1 || (result.length === 1 && result[0] !== action);
+        const isValidExpansion = result.length > 1 ||
+            (result.length === 1 && result[0]?.toLowerCase() !== action.toLowerCase());
         if (isValidExpansion) {
             expanded.set(action, result);
-            core.info(`Expanded ${action} to ${result.length} actions`);
         }
     }
     return expanded;
@@ -54327,6 +54325,58 @@ function createReviewComments(blocks, expandedActions, redundantActions, collaps
         };
     });
 }
+function processFiles(files, filePatterns, collapseThreshold) {
+    const filteredFiles = filePatterns.length > 0
+        ? files.filter((f) => matchesPatterns(f.filename, filePatterns))
+        : files;
+    if (filteredFiles.length === 0) {
+        return {
+            comments: [],
+            redundantActions: [],
+            stats: { filesScanned: 0, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+        };
+    }
+    const { wildcardMatches, explicitActions } = extractFromDiff(filteredFiles);
+    if (wildcardMatches.length === 0) {
+        return {
+            comments: [],
+            redundantActions: [],
+            stats: { filesScanned: filteredFiles.length, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+        };
+    }
+    const blocks = groupIntoConsecutiveBlocks(wildcardMatches);
+    const uniqueActions = [...new Set(wildcardMatches.map((m) => m.action))];
+    const expandedActions = expandWildcards(uniqueActions);
+    if (expandedActions.size === 0) {
+        return {
+            comments: [],
+            redundantActions: [],
+            stats: {
+                filesScanned: filteredFiles.length,
+                wildcardsFound: wildcardMatches.length,
+                blocksCreated: blocks.length,
+                actionsExpanded: 0,
+            },
+        };
+    }
+    const redundantActions = findRedundantActions(explicitActions, expandedActions);
+    const comments = createReviewComments(blocks, expandedActions, redundantActions, collapseThreshold);
+    return {
+        comments,
+        redundantActions,
+        stats: {
+            filesScanned: filteredFiles.length,
+            wildcardsFound: wildcardMatches.length,
+            blocksCreated: blocks.length,
+            actionsExpanded: expandedActions.size,
+        },
+    };
+}
+
+;// CONCATENATED MODULE: ./src/index.ts
+
+
+
 async function deleteExistingComments(octokit, owner, repo, pullNumber) {
     const reviewComments = await octokit.paginate(octokit.rest.pulls.listReviewComments, { owner, repo, pull_number: pullNumber, per_page: 100 });
     const ourComments = reviewComments.filter((c) => c.body.includes(COMMENT_MARKER));
@@ -54357,46 +54407,33 @@ async function run() {
         const pullNumber = context.payload.pull_request.number;
         const commitSha = context.payload.pull_request.head.sha;
         core.info(`Analyzing PR #${pullNumber} in ${owner}/${repo}`);
-        // Delete existing comments from previous runs
         const deletedCount = await deleteExistingComments(octokit, owner, repo, pullNumber);
         if (deletedCount > 0) {
             core.info(`Deleted ${deletedCount} existing comment(s) from previous runs`);
         }
-        const { data: allFiles } = await octokit.rest.pulls.listFiles({
+        const { data: files } = await octokit.rest.pulls.listFiles({
             owner,
             repo,
             pull_number: pullNumber,
         });
-        const files = filePatterns.length > 0
-            ? allFiles.filter((f) => matchesPatterns(f.filename, filePatterns))
-            : allFiles;
-        if (files.length === 0) {
+        const { comments, redundantActions, stats } = processFiles(files, filePatterns, collapseThreshold);
+        if (stats.filesScanned === 0) {
             core.info('No files matched the configured patterns.');
             return;
         }
-        core.info(`Scanning ${files.length} file(s) matching patterns`);
-        const { wildcardMatches, explicitActions } = extractFromDiff(files);
-        if (wildcardMatches.length === 0) {
+        core.info(`Scanned ${stats.filesScanned} file(s)`);
+        if (stats.wildcardsFound === 0) {
             core.info('No IAM wildcard actions found in the changes.');
             return;
         }
-        core.info(`Found ${wildcardMatches.length} IAM wildcard action(s)`);
-        if (explicitActions.length > 0) {
-            core.info(`Found ${explicitActions.length} explicit action(s)`);
-        }
-        const blocks = groupIntoConsecutiveBlocks(wildcardMatches);
-        core.info(`Grouped into ${blocks.length} block(s)`);
-        const uniqueActions = [...new Set(wildcardMatches.map((m) => m.action))];
-        const expandedActions = expandWildcards(uniqueActions);
-        if (expandedActions.size === 0) {
+        core.info(`Found ${stats.wildcardsFound} wildcard(s), grouped into ${stats.blocksCreated} block(s)`);
+        if (stats.actionsExpanded === 0) {
             core.info('No wildcard actions could be expanded.');
             return;
         }
-        const redundantActions = findRedundantActions(explicitActions, expandedActions);
         if (redundantActions.length > 0) {
             core.warning(`Found ${redundantActions.length} redundant action(s): ${redundantActions.join(', ')}`);
         }
-        const comments = createReviewComments(blocks, expandedActions, redundantActions, collapseThreshold);
         if (comments.length === 0) {
             core.info('No comments to post.');
             return;
