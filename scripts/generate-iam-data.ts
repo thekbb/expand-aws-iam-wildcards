@@ -1,6 +1,6 @@
 /**
  * Generates a static list of all IAM actions at build time.
- * Run with: npx ts-node scripts/generate-iam-data.ts
+ * Run with: npm run generate-iam-data
  */
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join } from 'path';

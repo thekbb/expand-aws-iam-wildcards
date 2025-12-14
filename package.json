@@ -14,7 +14,7 @@
     "lint:md": "markdownlint '**/*.md' --ignore node_modules",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "generate-iam-data": "npx tsx scripts/generate-iam-data.ts",
+    "generate-iam-data": "tsx scripts/generate-iam-data.ts",
     "update-iam-data": "npm update @cloud-copilot/iam-expand && npm run generate-iam-data"
   },
   "keywords": [
