@@ -16,3 +16,8 @@ export interface ReviewComment {
   readonly line: number;
   readonly body: string;
 }
+
+export interface PullRequestFile {
+  readonly filename: string;
+  readonly patch?: string;
+}
