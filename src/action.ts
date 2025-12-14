@@ -12,7 +12,7 @@ export function expandWildcards(actions: readonly string[]): Map<string, string[
   for (const action of actions) {
     const result = expandIamAction(action);
     const isValidExpansion = result.length > 1 ||
-      (result.length === 1 && result[0].toLowerCase() !== action.toLowerCase());
+      (result.length === 1 && result[0]?.toLowerCase() !== action.toLowerCase());
 
     if (isValidExpansion) {
       expanded.set(action, result);
