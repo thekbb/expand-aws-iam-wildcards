@@ -1,31 +1,42 @@
-# Expand IAM Wildcards Action
+# Expand AWS IAM Wildcards
 
 [![CI](https://github.com/thekbb/expand-aws-iam-wildcards/actions/workflows/ci.yml/badge.svg)](https://github.com/thekbb/expand-aws-iam-wildcards/actions/workflows/ci.yml)
-[![GitHub tag](https://img.shields.io/github/v/tag/thekbb/expand-aws-iam-wildcards)](https://github.com/thekbb/expand-aws-iam-wildcards/tags)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/thekbb/expand-aws-iam-wildcards/branch/main/graph/badge.svg)](https://codecov.io/gh/thekbb/expand-aws-iam-wildcards)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A GitHub Action that automatically detects AWS IAM wildcard actions in pull requests and posts inline comments showing
-the actions each wildcard expands to.
+Automatically expands IAM wildcard actions in PR diffs and posts inline comments showing what
+each wildcard matches, with links to AWS docs.
 
-## Why?
+The goal is to make it easier and faster for reviewers to understand changes to security posture.
 
-IAM policies with wildcards like `s3:Get*` or `ec2:Describe*` can grant far more permissions than
-intended. This action helps reviewers understand the full scope of permissions being granted by
-expanding wildcards into their complete list of matching actions, with handy links to the docs.
+## Quick Start
 
-TL;DR: Make it easier for reviewers to quickly determine what a `*` in an AWS action does.
+```yaml
+# .github/workflows/iam-wildcards.yml
+name: Expand IAM Wildcards
+on: [pull_request]
 
-## Example
+permissions:
+  pull-requests: write
 
-When a PR introduces a line like:
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: thekbb/expand-aws-iam-wildcards@v1
+```
+
+That's it. When a PR adds `s3:Get*`, reviewers see an inline comment listing every matching action with links to AWS documentation.
+
+## What It Does
+
+When your PR introduces:
 
 ```hcl
 "s3:Get*Tagging",
 ```
 
-The action will post an inline comment showing the S3 actions that match:
-Each action is a link to the AWS documentation for that action.
+The action posts an inline comment:
 
 > **IAM Wildcard Expansion**
 >
@@ -35,137 +46,74 @@ Each action is a link to the AWS documentation for that action.
 > 2. [`s3:getjobtagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
 > 3. [`s3:getobjecttagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
 > 4. [`s3:getobjectversiontagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 5. [`s3:getstoragelenstagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
+> 5. [`s3:getstoragelensconfigurationtagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
 
-### Consecutive Lines Are Grouped
-
-If wildcards appear on consecutive lines (common in IAM policies), they're combined into a single comment
-with a sorted, deduplicated list:
-
-```hcl
-Action = [
-  "s3:Get*Tagging",
-  "s3:Put*Tagging",
-]
-```
-
-Results in one comment:
-
-> **IAM Wildcard Expansion**
->
-> 2 wildcard patterns expand to 10 action(s):
->
-> **Patterns:**
->
-> - `s3:Get*Tagging`
-> - `s3:Put*Tagging`
->
-> 1. [`s3:getbuckettagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 2. [`s3:getjobtagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 3. [`s3:getobjecttagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 4. [`s3:getobjectversiontagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 5. [`s3:getstoragelenstagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 6. [`s3:putbuckettagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 7. [`s3:putjobtagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 8. [`s3:putobjecttagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 9. [`s3:putobjectversiontagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 10. [`s3:putstoragelenstagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-
-## Usage
-
-Add this workflow to your repository at:
-
-```shell
-.github/workflows/iam-wildcards.yml
-```
-
-```yaml
-name: Expand IAM Wildcards
-
-on:
-  pull_request:
-    types: [opened, synchronize]
-
-permissions:
-  contents: read
-  pull-requests: write
-
-jobs:
-  expand-wildcards:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Expand IAM Wildcards
-        uses: thekbb/expand-aws-iam-wildcards@v1
-```
-
-### Terraform Only
-
-To scan only Terraform files:
-
-```yaml
-jobs:
-  expand-wildcards:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Expand IAM Wildcards
-        uses: thekbb/expand-aws-iam-wildcards@v1
-        with:
-          file-patterns: '**/*.tf'
-```
+Consecutive wildcards are grouped into a single comment. Expanded actions link to AWS documentation.
 
 ## Inputs
 
-| Input | Description | Required | Default |
-| ----- | ----------- | -------- | ------- |
-| `github-token` | GitHub token for API access | No | `${{ github.token }}` |
-| `file-patterns` | Glob patterns for files to scan (comma-separated) | No | See below |
-| `collapse-threshold` | Number of expanded actions before collapsing | No | `5` |
+| Name                  | Description                                          | Default                         |
+| --------------------- |------------------------------------------------------| ------------------------------- |
+| `github-token`        | GitHub token for API access                          | `${{ github.token }}`           |
+| `file-patterns`       | Glob patterns to scan (comma-separated)              | See below                       |
+| `collapse-threshold`  | Number of actions before collapsing into `<details>` | `5`                             |
 
 Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 
-## Supported File Types
+## Usage Examples
 
-The action scans the following file types by default:
+### Terraform Only
 
-- JSON files (`.json`) - IAM policies, CloudFormation templates
-- YAML files (`.yaml`, `.yml`) - CloudFormation, SAM templates
-- Terraform files (`.tf`)
-- TypeScript/JavaScript files (`.ts`, `.js`) - CDK code
+```yaml
+- uses: thekbb/expand-aws-iam-wildcards@v1
+  with:
+    file-patterns: '**/*.tf'
+```
+
+### CloudFormation Only
+
+```yaml
+- uses: thekbb/expand-aws-iam-wildcards@v1
+  with:
+    file-patterns: '**/*.yaml,**/*.yml,**/*.json'
+```
+
+### Higher Collapse Threshold
+
+```yaml
+- uses: thekbb/expand-aws-iam-wildcards@v1
+  with:
+    collapse-threshold: '10'
+```
 
 ## How It Works
 
-1. When a PR is opened or updated, the action fetches the diff
-2. It scans added/modified lines for patterns matching IAM actions with wildcards (e.g., `service:Action*`)
-3. Uses [@cloud-copilot/iam-expand](https://github.com/cloud-copilot/iam-expand) to expand wildcards into specific actions
-4. Posts inline review comments on the relevant lines
+1. Fetches the PR diff
+2. Scans added lines for IAM wildcard patterns (`service:Action*`)
+3. Expands wildcards using [@cloud-copilot/iam-expand](https://github.com/cloud-copilot/iam-expand)
+4. Posts inline review comments with links to AWS docs
 
-## Development
+## Security & Trust
 
-### Prerequisites
+- **Minimal permissions** - only needs `pull-requests: write`
+- **No secrets required** - uses default `github.token`
+- **No external calls** - IAM data bundled at build time (automatically updated weekly)
+- **Auditable** - ~500 lines of TypeScript, `dist/index.js` committed
 
-- Node.js 20+
-- npm
+For strict environments, pin to a full semver or SHA:
 
-### Setup
-
-```bash
-npm install
+```yaml
+uses: thekbb/expand-aws-iam-wildcards@v1.1.4
 ```
 
-### Build
-
-```bash
-npm run build
+```yaml
+uses: thekbb/expand-aws-iam-wildcards@daedd61e3
 ```
 
-The built action is output to the `dist/` directory, which should be committed.
+## Contributing
 
-### Type Check
-
-```bash
-npm run typecheck
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup.
 
 ## Credits
 
-This action uses [@cloud-copilot/iam-expand](https://github.com/cloud-copilot/iam-expand) for expanding IAM wildcard actions.
+Uses [@cloud-copilot/iam-expand](https://github.com/cloud-copilot/iam-expand) for wildcard expansion.
