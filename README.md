@@ -56,6 +56,7 @@ Results in one comment:
 > 2 wildcard patterns expand to 10 action(s):
 >
 > **Patterns:**
+>
 > - `s3:Get*Tagging`
 > - `s3:Put*Tagging`
 >
@@ -115,10 +116,12 @@ jobs:
 ## Inputs
 
 | Input | Description | Required | Default |
-|------|-------------|----------|---------|
+| ----- | ----------- | -------- | ------- |
 | `github-token` | GitHub token for API access | No | `${{ github.token }}` |
-| `file-patterns` | Glob patterns for files to scan (comma-separated) | No | `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js` |
-| `collapse-threshold` | Number of expanded actions before collapsing into `<details>` | No | `5` |
+| `file-patterns` | Glob patterns for files to scan (comma-separated) | No | See below |
+| `collapse-threshold` | Number of expanded actions before collapsing | No | `5` |
+
+Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 
 ## Supported File Types
 

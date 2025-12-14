@@ -11,6 +11,7 @@
   "scripts": {
     "build": "ncc build src/index.ts -o dist --no-source-map-register --license licenses.txt && rm -f dist/licenses.txt dist/package.json",
     "lint": "eslint .",
+    "lint:md": "markdownlint '**/*.md' --ignore node_modules",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "generate-iam-data": "npx tsx scripts/generate-iam-data.ts",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@cloud-copilot/iam-expand": "~0.11.45",
+    "markdownlint-cli": "~0.47.0",
     "@eslint/js": "^9.39.2",
     "@types/minimatch": "^5.1.2",
     "@types/node": "~20.17.12",
