@@ -62,7 +62,7 @@ async function run(): Promise<void> {
       pull_number: pullNumber,
     });
 
-    const { comments, redundantActions, stats } = processFiles(files, filePatterns, collapseThreshold);
+    const { comments, redundantActions, stats } = await processFiles(files, filePatterns, collapseThreshold);
 
     if (stats.filesScanned === 0) {
       core.info('No files matched the configured patterns.');

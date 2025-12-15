@@ -15,26 +15,26 @@ describe('COMMENT_MARKER', () => {
 });
 
 describe('expandWildcards', () => {
-  it('expands valid wildcard actions', () => {
-    const result = expandWildcards(['s3:Get*']);
+  it('expands valid wildcard actions', async () => {
+    const result = await expandWildcards(['s3:Get*']);
     expect(result.size).toBeGreaterThan(0);
     expect(result.has('s3:Get*')).toBe(true);
     const expanded = result.get('s3:Get*') ?? [];
     expect(expanded.length).toBeGreaterThan(1);
   });
 
-  it('does not include actions that do not expand', () => {
-    const result = expandWildcards(['s3:GetObject']);
+  it('does not include actions that do not expand', async () => {
+    const result = await expandWildcards(['s3:GetObject']);
     expect(result.has('s3:GetObject')).toBe(false);
   });
 
-  it('handles unknown service prefixes gracefully', () => {
-    const result = expandWildcards(['unknownservice:*']);
+  it('handles unknown service prefixes gracefully', async () => {
+    const result = await expandWildcards(['unknownservice:*']);
     expect(result.has('unknownservice:*')).toBe(false);
   });
 
-  it('expands multiple wildcards', () => {
-    const result = expandWildcards(['s3:Get*', 'ec2:Describe*']);
+  it('expands multiple wildcards', async () => {
+    const result = await expandWildcards(['s3:Get*', 'ec2:Describe*']);
     expect(result.size).toBe(2);
     expect(result.has('s3:Get*')).toBe(true);
     expect(result.has('ec2:Describe*')).toBe(true);
@@ -162,91 +162,91 @@ describe('processFiles', () => {
   const makePatch = (lines: string[]) =>
     lines.map((line, i) => `@@ -0,0 +${i + 1} @@\n+${line}`).join('\n');
 
-  it('returns empty result for no matching files', () => {
+  it('returns empty result for no matching files', async () => {
     const files: PullRequestFile[] = [
       { filename: 'README.md', patch: '+some content' },
     ];
 
-    const result = processFiles(files, ['**/*.tf'], 5);
+    const result = await processFiles(files, ['**/*.tf'], 5);
 
     expect(result.comments).toEqual([]);
     expect(result.stats.filesScanned).toBe(0);
   });
 
-  it('returns empty result for files with no wildcards', () => {
+  it('returns empty result for files with no wildcards', async () => {
     const files: PullRequestFile[] = [
       { filename: 'policy.tf', patch: makePatch(['"s3:GetObject"']) },
     ];
 
-    const result = processFiles(files, [], 5);
+    const result = await processFiles(files, [], 5);
 
     expect(result.comments).toEqual([]);
     expect(result.stats.filesScanned).toBe(1);
     expect(result.stats.wildcardsFound).toBe(0);
   });
 
-  it('returns empty result when wildcards found but none expand', () => {
+  it('returns empty result when wildcards found but none expand', async () => {
     const files: PullRequestFile[] = [
       { filename: 'policy.tf', patch: makePatch(['"unknownservice:Get*"']) },
     ];
 
-    const result = processFiles(files, [], 5);
+    const result = await processFiles(files, [], 5);
 
     expect(result.comments).toEqual([]);
     expect(result.stats.wildcardsFound).toBe(1);
     expect(result.stats.actionsExpanded).toBe(0);
   });
 
-  it('processes files with wildcards and creates comments', () => {
+  it('processes files with wildcards and creates comments', async () => {
     const files: PullRequestFile[] = [
       { filename: 'policy.tf', patch: makePatch(['"s3:Get*"']) },
     ];
 
-    const result = processFiles(files, [], 5);
+    const result = await processFiles(files, [], 5);
 
     expect(result.comments.length).toBeGreaterThan(0);
     expect(result.stats.wildcardsFound).toBe(1);
     expect(result.stats.actionsExpanded).toBe(1);
   });
 
-  it('filters files by patterns', () => {
+  it('filters files by patterns', async () => {
     const files: PullRequestFile[] = [
       { filename: 'policy.tf', patch: makePatch(['"s3:Get*"']) },
       { filename: 'policy.json', patch: makePatch(['"s3:Put*"']) },
     ];
 
-    const result = processFiles(files, ['**/*.tf'], 5);
+    const result = await processFiles(files, ['**/*.tf'], 5);
 
     expect(result.stats.filesScanned).toBe(1);
   });
 
-  it('detects redundant actions', () => {
+  it('detects redundant actions', async () => {
     const files: PullRequestFile[] = [
       { filename: 'policy.tf', patch: makePatch(['"s3:Get*"', '"s3:GetObject"']) },
     ];
 
-    const result = processFiles(files, [], 5);
+    const result = await processFiles(files, [], 5);
 
     expect(result.redundantActions.length).toBeGreaterThan(0);
   });
 
-  it('scans all files when no patterns provided', () => {
+  it('scans all files when no patterns provided', async () => {
     const files: PullRequestFile[] = [
       { filename: 'a.tf', patch: makePatch(['"s3:Get*"']) },
       { filename: 'b.json', patch: makePatch(['"ec2:Describe*"']) },
     ];
 
-    const result = processFiles(files, [], 5);
+    const result = await processFiles(files, [], 5);
 
     expect(result.stats.filesScanned).toBe(2);
   });
 
-  it('handles files without patches', () => {
+  it('handles files without patches', async () => {
     const files: PullRequestFile[] = [
       { filename: 'policy.tf' },
     ];
 
-    const result = processFiles(files, [], 5);
+    const result = await processFiles(files, [], 5);
 
     expect(result.comments).toEqual([]);
     expect(result.stats.filesScanned).toBe(1);

@@ -1,16 +1,16 @@
 import type { PullRequestFile, ReviewComment, WildcardBlock } from './types.js';
 import { extractFromDiff } from './diff.js';
 import { groupIntoConsecutiveBlocks, formatComment, type FormatOptions } from './utils.js';
-import { expandIamAction } from './expand.js';
 import { matchesPatterns } from './patterns.js';
+import {expandIamActions} from "@cloud-copilot/iam-expand";
 
 export const COMMENT_MARKER = '**IAM Wildcard Expansion**';
 
-export function expandWildcards(actions: readonly string[]): Map<string, string[]> {
+export async function expandWildcards(actions: readonly string[]): Promise<Map<string, string[]>> {
   const expanded = new Map<string, string[]>();
 
   for (const action of actions) {
-    const result = expandIamAction(action);
+    const result = await expandIamActions(action);
     const isValidExpansion = result.length > 1 ||
       (result.length === 1 && result[0]?.toLowerCase() !== action.toLowerCase());
 
@@ -85,11 +85,11 @@ export interface ProcessingResult {
   readonly stats: ProcessingStats;
 }
 
-export function processFiles(
+export async function processFiles(
   files: readonly PullRequestFile[],
   filePatterns: readonly string[],
   collapseThreshold: number,
-): ProcessingResult {
+): Promise<ProcessingResult> {
   const filteredFiles = filePatterns.length > 0
     ? files.filter((f) => matchesPatterns(f.filename, filePatterns))
     : files;
@@ -114,7 +114,7 @@ export function processFiles(
 
   const blocks = groupIntoConsecutiveBlocks(wildcardMatches);
   const uniqueActions = [...new Set(wildcardMatches.map((m) => m.action))];
-  const expandedActions = expandWildcards(uniqueActions);
+  const expandedActions = await expandWildcards(uniqueActions);
 
   if (expandedActions.size === 0) {
     return {

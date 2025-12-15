@@ -13,9 +13,7 @@
     "lint": "eslint .",
     "lint:md": "markdownlint '**/*.md' --ignore node_modules",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "generate-iam-data": "tsx scripts/generate-iam-data.ts",
-    "update-iam-data": "npm update @cloud-copilot/iam-expand && npm run generate-iam-data"
+    "test": "vitest run"
   },
   "keywords": [
     "github-action",
@@ -30,17 +28,17 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "~2.0.1",
-    "@actions/github": "~6.0.1"
+    "@actions/github": "~6.0.1",
+    "@cloud-copilot/iam-expand": "~0.11.45"
   },
   "devDependencies": {
-    "@cloud-copilot/iam-expand": "~0.11.45",
-    "markdownlint-cli": "~0.47.0",
     "@eslint/js": "^9.39.2",
     "@types/minimatch": "^5.1.2",
     "@types/node": "~20.17.12",
     "@vercel/ncc": "~0.38.1",
     "@vitest/coverage-v8": "^4.0.15",
     "eslint": "^9.39.2",
+    "markdownlint-cli": "~0.47.0",
     "tsx": "~4.21.0",
     "typescript": "~5.3.2",
     "typescript-eslint": "^8.49.0",
