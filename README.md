@@ -7,7 +7,9 @@
 Automatically expands IAM wildcard actions in PR diffs and posts inline comments showing what
 each wildcard matches, with links to AWS docs.
 
-The goal is to make it easier and faster for reviewers to understand changes to security posture.
+The goal is to make it easier and faster for reviewers to understand changes to security posture with inline comments like this:
+
+![screenshot](images/pr-comment-screenshot.png)
 
 ## Quick Start
 
