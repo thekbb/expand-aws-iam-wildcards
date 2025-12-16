@@ -1,0 +1,876 @@
+{
+  "acceptgrant": {
+    "name": "AcceptGrant",
+    "description": "Grants permission to accept a grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "grant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "checkinlicense": {
+    "name": "CheckInLicense",
+    "description": "Grants permission to check in license entitlements back to pool",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "checkoutborrowlicense": {
+    "name": "CheckoutBorrowLicense",
+    "description": "Grants permission to check out license entitlements for borrow use case",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "checkoutlicense": {
+    "name": "CheckoutLicense",
+    "description": "Grants permission to check out license entitlements",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "creategrant": {
+    "name": "CreateGrant",
+    "description": "Grants permission to create a new grant for license",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "creategrantversion": {
+    "name": "CreateGrantVersion",
+    "description": "Grants permission to create new version of grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "grant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlicense": {
+    "name": "CreateLicense",
+    "description": "Grants permission to create a new license",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlicenseassetgroup": {
+    "name": "CreateLicenseAssetGroup",
+    "description": "Grants permission to create a license asset group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlicenseassetruleset": {
+    "name": "CreateLicenseAssetRuleset",
+    "description": "Grants permission to create a license asset ruleset",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlicenseconfiguration": {
+    "name": "CreateLicenseConfiguration",
+    "description": "Grants permission to create a new license configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlicenseconversiontaskforresource": {
+    "name": "CreateLicenseConversionTaskForResource",
+    "description": "Grants permission to create a license conversion task for a resource",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlicensemanagerreportgenerator": {
+    "name": "CreateLicenseManagerReportGenerator",
+    "description": "Grants permission to create a report generator for supported license manager resources",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlicenseversion": {
+    "name": "CreateLicenseVersion",
+    "description": "Grants permission to create new version of license",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtoken": {
+    "name": "CreateToken",
+    "description": "Grants permission to create a new token for license",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegrant": {
+    "name": "DeleteGrant",
+    "description": "Grants permission to delete a grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "grant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelicense": {
+    "name": "DeleteLicense",
+    "description": "Grants permission to delete a license",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelicenseassetgroup": {
+    "name": "DeleteLicenseAssetGroup",
+    "description": "Grants permission to delete a license asset group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelicenseassetruleset": {
+    "name": "DeleteLicenseAssetRuleset",
+    "description": "Grants permission to delete a license asset ruleset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelicenseconfiguration": {
+    "name": "DeleteLicenseConfiguration",
+    "description": "Grants permission to permanently delete a license configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelicensemanagerreportgenerator": {
+    "name": "DeleteLicenseManagerReportGenerator",
+    "description": "Grants permission to delete a report generator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-generator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetoken": {
+    "name": "DeleteToken",
+    "description": "Grants permission to delete token",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "extendlicenseconsumption": {
+    "name": "ExtendLicenseConsumption",
+    "description": "Grants permission to extend consumption period of already checkout license entitlements",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaccesstoken": {
+    "name": "GetAccessToken",
+    "description": "Grants permission to get access token",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgrant": {
+    "name": "GetGrant",
+    "description": "Grants permission to get a grant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "grant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlicense": {
+    "name": "GetLicense",
+    "description": "Grants permission to get a license",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlicenseassetgroup": {
+    "name": "GetLicenseAssetGroup",
+    "description": "Grants permission to get a license asset group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlicenseassetruleset": {
+    "name": "GetLicenseAssetRuleset",
+    "description": "Grants permission to get a license asset ruleset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlicenseconfiguration": {
+    "name": "GetLicenseConfiguration",
+    "description": "Grants permission to get a license configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "license-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlicenseconversiontask": {
+    "name": "GetLicenseConversionTask",
+    "description": "Grants permission to retrieve a license conversion task",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlicensemanagerreportgenerator": {
+    "name": "GetLicenseManagerReportGenerator",
+    "description": "Grants permission to get a report generator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "report-generator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlicenseusage": {
+    "name": "GetLicenseUsage",
+    "description": "Grants permission to get a license usage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicesettings": {
+    "name": "GetServiceSettings",
+    "description": "Grants permission to get service settings",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassetsforlicenseassetgroup": {
+    "name": "ListAssetsForLicenseAssetGroup",
+    "description": "Grants permission to list assets for a license asset group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassociationsforlicenseconfiguration": {
+    "name": "ListAssociationsForLicenseConfiguration",
+    "description": "Grants permission to list associations for a selected license configuration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributedgrants": {
+    "name": "ListDistributedGrants",
+    "description": "Grants permission to list distributed grants",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfailuresforlicenseconfigurationoperations": {
+    "name": "ListFailuresForLicenseConfigurationOperations",
+    "description": "Grants permission to list the license configuration operations that failed",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicenseassetgroups": {
+    "name": "ListLicenseAssetGroups",
+    "description": "Grants permission to list license asset groups",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicenseassetrulesets": {
+    "name": "ListLicenseAssetRulesets",
+    "description": "Grants permission to list license asset rulesets",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicenseconfigurations": {
+    "name": "ListLicenseConfigurations",
+    "description": "Grants permission to list license configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicenseconfigurationsfororganization": {
+    "name": "ListLicenseConfigurationsForOrganization",
+    "description": "Grants permission to list license configurations for organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicenseconversiontasks": {
+    "name": "ListLicenseConversionTasks",
+    "description": "Grants permission to list license conversion tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicensemanagerreportgenerators": {
+    "name": "ListLicenseManagerReportGenerators",
+    "description": "Grants permission to list report generators",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicensespecificationsforresource": {
+    "name": "ListLicenseSpecificationsForResource",
+    "description": "Grants permission to list license specifications associated with a selected resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicenseversions": {
+    "name": "ListLicenseVersions",
+    "description": "Grants permission to list license versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicenses": {
+    "name": "ListLicenses",
+    "description": "Grants permission to list licenses",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreceivedgrants": {
+    "name": "ListReceivedGrants",
+    "description": "Grants permission to list received grants",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreceivedgrantsfororganization": {
+    "name": "ListReceivedGrantsForOrganization",
+    "description": "Grants permission to list received grants for organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreceivedlicenses": {
+    "name": "ListReceivedLicenses",
+    "description": "Grants permission to list received licenses",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreceivedlicensesfororganization": {
+    "name": "ListReceivedLicensesForOrganization",
+    "description": "Grants permission to list received licenses for organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourceinventory": {
+    "name": "ListResourceInventory",
+    "description": "Grants permission to list resource inventory",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a selected resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "grant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "report-generator",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtokens": {
+    "name": "ListTokens",
+    "description": "Grants permission to list tokens",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listusageforlicenseconfiguration": {
+    "name": "ListUsageForLicenseConfiguration",
+    "description": "Grants permission to list usage records for selected license configuration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectgrant": {
+    "name": "RejectGrant",
+    "description": "Grants permission to reject a grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "grant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a selected resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "grant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "report-generator",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a selected resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "grant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "report-generator",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatelicenseassetgroup": {
+    "name": "UpdateLicenseAssetGroup",
+    "description": "Grants permission to update a license asset group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelicenseassetruleset": {
+    "name": "UpdateLicenseAssetRuleset",
+    "description": "Grants permission to update a license asset ruleset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelicenseconfiguration": {
+    "name": "UpdateLicenseConfiguration",
+    "description": "Grants permission to update an existing license configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelicensemanagerreportgenerator": {
+    "name": "UpdateLicenseManagerReportGenerator",
+    "description": "Grants permission to update a report generator for supported license manager resources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-generator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelicensespecificationsforresource": {
+    "name": "UpdateLicenseSpecificationsForResource",
+    "description": "Grants permission to updates license specifications for a selected resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservicesettings": {
+    "name": "UpdateServiceSettings",
+    "description": "Grants permission to updates service settings",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

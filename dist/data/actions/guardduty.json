@@ -1,0 +1,1099 @@
+{
+  "acceptadministratorinvitation": {
+    "name": "AcceptAdministratorInvitation",
+    "description": "Grants permission to accept invitations to become a GuardDuty member account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "acceptinvitation": {
+    "name": "AcceptInvitation",
+    "description": "Grants permission to accept invitations to become a GuardDuty member account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "archivefindings": {
+    "name": "ArchiveFindings",
+    "description": "Grants permission to archive GuardDuty findings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdetector": {
+    "name": "CreateDetector",
+    "description": "Grants permission to create a detector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfilter": {
+    "name": "CreateFilter",
+    "description": "Grants permission to create GuardDuty filters. A filters defines finding attributes and conditions used to filter findings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createipset": {
+    "name": "CreateIPSet",
+    "description": "Grants permission to create an IPSet",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:DeleteRolePolicy",
+      "iam:PutRolePolicy"
+    ]
+  },
+  "createmalwareprotectionplan": {
+    "name": "CreateMalwareProtectionPlan",
+    "description": "Grants permission to create a new Malware Protection plan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmembers": {
+    "name": "CreateMembers",
+    "description": "Grants permission to create GuardDuty member accounts, where the account used to create a member becomes the GuardDuty administrator account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createpublishingdestination": {
+    "name": "CreatePublishingDestination",
+    "description": "Grants permission to create a publishing destination",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "s3:GetObject",
+      "s3:ListBucket"
+    ]
+  },
+  "createsamplefindings": {
+    "name": "CreateSampleFindings",
+    "description": "Grants permission to create sample findings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createthreatentityset": {
+    "name": "CreateThreatEntitySet",
+    "description": "Grants permission to create GuardDuty ThreatEntitySets, where a ThreatEntitySet consists of known malicious IP addresses and/or domains used by GuardDuty to generate findings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "createthreatintelset": {
+    "name": "CreateThreatIntelSet",
+    "description": "Grants permission to create GuardDuty ThreatIntelSets, where a ThreatIntelSet consists of known malicious IP addresses used by GuardDuty to generate findings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtrustedentityset": {
+    "name": "CreateTrustedEntitySet",
+    "description": "Grants permission to create a TrustedEntitySet",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "declineinvitations": {
+    "name": "DeclineInvitations",
+    "description": "Grants permission to decline invitations to become a GuardDuty member account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedetector": {
+    "name": "DeleteDetector",
+    "description": "Grants permission to delete GuardDuty detectors",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "detector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefilter": {
+    "name": "DeleteFilter",
+    "description": "Grants permission to delete GuardDuty filters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteipset": {
+    "name": "DeleteIPSet",
+    "description": "Grants permission to delete GuardDuty IPSets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinvitations": {
+    "name": "DeleteInvitations",
+    "description": "Grants permission to delete invitations to become a GuardDuty member account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemalwareprotectionplan": {
+    "name": "DeleteMalwareProtectionPlan",
+    "description": "Grants permission to delete a Malware Protection plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "malwareprotectionplan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemembers": {
+    "name": "DeleteMembers",
+    "description": "Grants permission to delete GuardDuty member accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepublishingdestination": {
+    "name": "DeletePublishingDestination",
+    "description": "Grants permission to delete a publishing destination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "publishingDestination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletethreatentityset": {
+    "name": "DeleteThreatEntitySet",
+    "description": "Grants permission to delete GuardDuty ThreatEntitySets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "threatentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletethreatintelset": {
+    "name": "DeleteThreatIntelSet",
+    "description": "Grants permission to delete GuardDuty ThreatIntelSets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "threatintelset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetrustedentityset": {
+    "name": "DeleteTrustedEntitySet",
+    "description": "Grants permission to delete GuardDuty TrustedEntitySets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trustedentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemalwarescans": {
+    "name": "DescribeMalwareScans",
+    "description": "Grants permission to retrieve details about malware scans",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeorganizationconfiguration": {
+    "name": "DescribeOrganizationConfiguration",
+    "description": "Grants permission to retrieve details about the delegated administrator associated with a GuardDuty detector",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describepublishingdestination": {
+    "name": "DescribePublishingDestination",
+    "description": "Grants permission to retrieve details about a publishing destination",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "publishingDestination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableorganizationadminaccount": {
+    "name": "DisableOrganizationAdminAccount",
+    "description": "Grants permission to disable the organization delegated administrator for GuardDuty",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatefromadministratoraccount": {
+    "name": "DisassociateFromAdministratorAccount",
+    "description": "Grants permission to disassociate a GuardDuty member account from its GuardDuty administrator account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatefrommasteraccount": {
+    "name": "DisassociateFromMasterAccount",
+    "description": "Grants permission to disassociate a GuardDuty member account from its GuardDuty administrator account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatemembers": {
+    "name": "DisassociateMembers",
+    "description": "Grants permission to disassociate GuardDuty member accounts from their administrator GuardDuty account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableorganizationadminaccount": {
+    "name": "EnableOrganizationAdminAccount",
+    "description": "Grants permission to enable an organization delegated administrator for GuardDuty",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getadministratoraccount": {
+    "name": "GetAdministratorAccount",
+    "description": "Grants permission to retrieve details of the GuardDuty administrator account associated with a member account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcoveragestatistics": {
+    "name": "GetCoverageStatistics",
+    "description": "Grants permission to list Amazon GuardDuty coverage statistics for the specified GuardDuty account in a Region",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "detector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdetector": {
+    "name": "GetDetector",
+    "description": "Grants permission to retrieve GuardDuty detectors",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "detector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfilter": {
+    "name": "GetFilter",
+    "description": "Grants permission to retrieve GuardDuty filters",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfindings": {
+    "name": "GetFindings",
+    "description": "Grants permission to retrieve GuardDuty findings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfindingsstatistics": {
+    "name": "GetFindingsStatistics",
+    "description": "Grants permission to retrieve a list of GuardDuty finding statistics",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getipset": {
+    "name": "GetIPSet",
+    "description": "Grants permission to retrieve GuardDuty IPSets",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinvitationscount": {
+    "name": "GetInvitationsCount",
+    "description": "Grants permission to retrieve the count of all GuardDuty invitations sent to a specified account, which does not include the accepted invitation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmalwareprotectionplan": {
+    "name": "GetMalwareProtectionPlan",
+    "description": "Grants permission to retrieve a Malware Protection plan details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "malwareprotectionplan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmalwarescan": {
+    "name": "GetMalwareScan",
+    "description": "Grants permission to retrieve a malware scan's details",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmalwarescansettings": {
+    "name": "GetMalwareScanSettings",
+    "description": "Grants permission to retrieve the malware scan settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmasteraccount": {
+    "name": "GetMasterAccount",
+    "description": "Grants permission to retrieve details of the GuardDuty administrator account associated with a member account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmemberdetectors": {
+    "name": "GetMemberDetectors",
+    "description": "Grants permission to describe which data sources are enabled for member accounts detectors",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmembers": {
+    "name": "GetMembers",
+    "description": "Grants permission to retrieve the member accounts associated with an administrator account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getorganizationstatistics": {
+    "name": "GetOrganizationStatistics",
+    "description": "Grants permission to retrieve GuardDuty protection plan coverage statistics for member accounts in a Region",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getremainingfreetrialdays": {
+    "name": "GetRemainingFreeTrialDays",
+    "description": "Grants permission to provide the number of days left for each data source used in the free trial period",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getthreatentityset": {
+    "name": "GetThreatEntitySet",
+    "description": "Grants permission to retrieve GuardDuty ThreatEntitySets",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "threatentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getthreatintelset": {
+    "name": "GetThreatIntelSet",
+    "description": "Grants permission to retrieve GuardDuty ThreatIntelSets",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "threatintelset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettrustedentityset": {
+    "name": "GetTrustedEntitySet",
+    "description": "Grants permission to retrieve GuardDuty TrustedEntitySets",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trustedentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getusagestatistics": {
+    "name": "GetUsageStatistics",
+    "description": "Grants permission to list Amazon GuardDuty usage statistics over the last 30 days for the specified detector ID",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invitemembers": {
+    "name": "InviteMembers",
+    "description": "Grants permission to invite other AWS accounts to enable GuardDuty and become GuardDuty member accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcoverage": {
+    "name": "ListCoverage",
+    "description": "Grants permission to list all the resource details for a given account in a Region",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "detector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdetectors": {
+    "name": "ListDetectors",
+    "description": "Grants permission to retrieve a list of GuardDuty detectors",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfilters": {
+    "name": "ListFilters",
+    "description": "Grants permission to retrieve a list of GuardDuty filters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfindings": {
+    "name": "ListFindings",
+    "description": "Grants permission to retrieve a list of GuardDuty findings",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listipsets": {
+    "name": "ListIPSets",
+    "description": "Grants permission to retrieve a list of GuardDuty IPSets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinvitations": {
+    "name": "ListInvitations",
+    "description": "Grants permission to retrieve a list of all of the GuardDuty membership invitations that were sent to an AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmalwareprotectionplans": {
+    "name": "ListMalwareProtectionPlans",
+    "description": "Grants permission to retrieve a list of Malware Protection plans",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmalwarescans": {
+    "name": "ListMalwareScans",
+    "description": "Grants permission to retrieve a list of malware scans",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmembers": {
+    "name": "ListMembers",
+    "description": "Grants permission to retrieve a list of GuardDuty member accounts associated with an administrator account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listorganizationadminaccounts": {
+    "name": "ListOrganizationAdminAccounts",
+    "description": "Grants permission to list details about the organization delegated administrator for GuardDuty",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpublishingdestinations": {
+    "name": "ListPublishingDestinations",
+    "description": "Grants permission to retrieve a list of publishing destinations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to retrieve a list of tags associated with a GuardDuty resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "detector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "filter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ipset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "malwareprotectionplan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "publishingDestination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "threatentityset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "threatintelset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trustedentityset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthreatentitysets": {
+    "name": "ListThreatEntitySets",
+    "description": "Grants permission to retrieve a list of GuardDuty ThreatEntitySets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthreatintelsets": {
+    "name": "ListThreatIntelSets",
+    "description": "Grants permission to retrieve a list of GuardDuty ThreatIntelSets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtrustedentitysets": {
+    "name": "ListTrustedEntitySets",
+    "description": "Grants permission to retrieve a list of GuardDuty TrustedEntitySets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendobjectmalwarescan": {
+    "name": "SendObjectMalwareScan",
+    "description": "Grants permission to initiate a new object malware scan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendsecuritytelemetry": {
+    "name": "SendSecurityTelemetry",
+    "description": "Grants permission to send security telemetry for a specific GuardDuty account in a Region",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmalwarescan": {
+    "name": "StartMalwareScan",
+    "description": "Grants permission to initiate a new malware scan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmonitoringmembers": {
+    "name": "StartMonitoringMembers",
+    "description": "Grants permission to a GuardDuty administrator account to monitor findings from GuardDuty member accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopmonitoringmembers": {
+    "name": "StopMonitoringMembers",
+    "description": "Grants permission to disable monitoring findings from member accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a GuardDuty resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "detector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "filter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ipset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "malwareprotectionplan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "publishingDestination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "threatentityset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "threatintelset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trustedentityset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "unarchivefindings": {
+    "name": "UnarchiveFindings",
+    "description": "Grants permission to unarchive GuardDuty findings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a GuardDuty resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "detector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "filter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ipset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "malwareprotectionplan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "publishingDestination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "threatentityset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "threatintelset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trustedentityset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatedetector": {
+    "name": "UpdateDetector",
+    "description": "Grants permission to update GuardDuty detectors",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "detector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefilter": {
+    "name": "UpdateFilter",
+    "description": "Grants permission to updates GuardDuty filters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefindingsfeedback": {
+    "name": "UpdateFindingsFeedback",
+    "description": "Grants permission to update findings feedback to mark GuardDuty findings as useful or not useful",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateipset": {
+    "name": "UpdateIPSet",
+    "description": "Grants permission to update GuardDuty IPSets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:DeleteRolePolicy",
+      "iam:PutRolePolicy"
+    ]
+  },
+  "updatemalwareprotectionplan": {
+    "name": "UpdateMalwareProtectionPlan",
+    "description": "Grants permission to update the Malware Protection plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "malwareprotectionplan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemalwarescansettings": {
+    "name": "UpdateMalwareScanSettings",
+    "description": "Grants permission to update the malware scan settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatememberdetectors": {
+    "name": "UpdateMemberDetectors",
+    "description": "Grants permission to update which data sources are enabled for member accounts detectors",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateorganizationconfiguration": {
+    "name": "UpdateOrganizationConfiguration",
+    "description": "Grants permission to update the delegated administrator configuration associated with a GuardDuty detector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepublishingdestination": {
+    "name": "UpdatePublishingDestination",
+    "description": "Grants permission to update a publishing destination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "publishingDestination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject",
+      "s3:ListBucket"
+    ]
+  },
+  "updatethreatentityset": {
+    "name": "UpdateThreatEntitySet",
+    "description": "Grants permission to update GuardDuty ThreatEntitySets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "threatentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "updatethreatintelset": {
+    "name": "UpdateThreatIntelSet",
+    "description": "Grants permission to updates the GuardDuty ThreatIntelSets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "threatintelset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:DeleteRolePolicy",
+      "iam:PutRolePolicy"
+    ]
+  },
+  "updatetrustedentityset": {
+    "name": "UpdateTrustedEntitySet",
+    "description": "Grants permission to update GuardDuty TrustedEntitySets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trustedentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  }
+}

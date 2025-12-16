@@ -1,0 +1,97 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by tag of the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by tag of the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by tag of the key",
+    "type": "ArrayOfString"
+  },
+  "swf:activitytype.name": {
+    "key": "swf:activityType.name",
+    "description": "Filters access by the name of the activity type",
+    "type": "String"
+  },
+  "swf:activitytype.version": {
+    "key": "swf:activityType.version",
+    "description": "Filters access by the version of the activity type",
+    "type": "String"
+  },
+  "swf:defaulttasklist.name": {
+    "key": "swf:defaultTaskList.name",
+    "description": "Filters access by the name of the default task list",
+    "type": "String"
+  },
+  "swf:name": {
+    "key": "swf:name",
+    "description": "Filters access by the name of activities or workflows",
+    "type": "String"
+  },
+  "swf:tagfilter.tag": {
+    "key": "swf:tagFilter.tag",
+    "description": "Filters access by the value of tagFilter.tag",
+    "type": "String"
+  },
+  "swf:taglist.member.0": {
+    "key": "swf:tagList.member.0",
+    "description": "Filters access by the specified tag",
+    "type": "String"
+  },
+  "swf:taglist.member.1": {
+    "key": "swf:tagList.member.1",
+    "description": "Filters access by the specified tag",
+    "type": "String"
+  },
+  "swf:taglist.member.2": {
+    "key": "swf:tagList.member.2",
+    "description": "Filters access by the specified tag",
+    "type": "String"
+  },
+  "swf:taglist.member.3": {
+    "key": "swf:tagList.member.3",
+    "description": "Filters access by the specified tag",
+    "type": "String"
+  },
+  "swf:taglist.member.4": {
+    "key": "swf:tagList.member.4",
+    "description": "Filters access by the specified tag",
+    "type": "String"
+  },
+  "swf:tasklist.name": {
+    "key": "swf:taskList.name",
+    "description": "Filters access by the name of the tasklist",
+    "type": "String"
+  },
+  "swf:typefilter.name": {
+    "key": "swf:typeFilter.name",
+    "description": "Filters access by the name of the type filter",
+    "type": "String"
+  },
+  "swf:typefilter.version": {
+    "key": "swf:typeFilter.version",
+    "description": "Filters access by the version of the type filter",
+    "type": "String"
+  },
+  "swf:version": {
+    "key": "swf:version",
+    "description": "Filters access by the version of activities or workflows",
+    "type": "String"
+  },
+  "swf:workflowtype.name": {
+    "key": "swf:workflowType.name",
+    "description": "Filters access by the name of the workflow type",
+    "type": "String"
+  },
+  "swf:workflowtype.version": {
+    "key": "swf:workflowType.version",
+    "description": "Filters access by the version of the workflow type",
+    "type": "String"
+  }
+}

@@ -1,0 +1,502 @@
+{
+  "acceptconnection": {
+    "name": "AcceptConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to accept a request to connect this account to an Amazon CodeCatalyst space",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "associateiamroletoconnection": {
+    "name": "AssociateIamRoleToConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate an IAM role to a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "associateidentitycenterapplicationtospace": {
+    "name": "AssociateIdentityCenterApplicationToSpace",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate an IAM Identity Center application with an Amazon CodeCatalyst space",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "associateidentitytoidentitycenterapplication": {
+    "name": "AssociateIdentityToIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate an identity with an IAM Identity Center application for an Amazon CodeCatalyst space",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "batchassociateidentitiestoidentitycenterapplication": {
+    "name": "BatchAssociateIdentitiesToIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate multiple identities with an IAM Identity Center application for an Amazon CodeCatalyst space",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "batchdisassociateidentitiesfromidentitycenterapplication": {
+    "name": "BatchDisassociateIdentitiesFromIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to disassociate multiple identities from an IAM Identity Center application for an Amazon CodeCatalyst space",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createidentitycenterapplication": {
+    "name": "CreateIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an IAM Identity Center application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createspace": {
+    "name": "CreateSpace",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an Amazon CodeCatalyst space",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createspaceadminroleassignment": {
+    "name": "CreateSpaceAdminRoleAssignment",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an administrator role assignment for a given Amazon CodeCatalyst space and IAM Identity Center application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteconnection": {
+    "name": "DeleteConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteidentitycenterapplication": {
+    "name": "DeleteIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete an IAM Identity Center application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "disassociateiamrolefromconnection": {
+    "name": "DisassociateIamRoleFromConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to disassociate an IAM role from a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "disassociateidentitycenterapplicationfromspace": {
+    "name": "DisassociateIdentityCenterApplicationFromSpace",
+    "isPermissionOnly": true,
+    "description": "Grants permission to disassociate an IAM Identity Center application from an Amazon CodeCatalyst space",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "disassociateidentityfromidentitycenterapplication": {
+    "name": "DisassociateIdentityFromIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to disassociate an identity from an IAM Identity Center application for an Amazon CodeCatalyst space",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getbillingauthorization": {
+    "name": "GetBillingAuthorization",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe the billing authorization for a connection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getconnection": {
+    "name": "GetConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get a connection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getidentitycenterapplication": {
+    "name": "GetIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get information about an IAM Identity Center application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getpendingconnection": {
+    "name": "GetPendingConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get a pending request to connect this account to an Amazon CodeCatalyst space",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnections": {
+    "name": "ListConnections",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list connections that are not pending",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listiamrolesforconnection": {
+    "name": "ListIamRolesForConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list IAM roles associated with a connection",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listidentitycenterapplications": {
+    "name": "ListIdentityCenterApplications",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view a list of all IAM Identity Center applications in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listidentitycenterapplicationsforspace": {
+    "name": "ListIdentityCenterApplicationsForSpace",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view a list of IAM Identity Center applications by Amazon CodeCatalyst space",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listspacesforidentitycenterapplication": {
+    "name": "ListSpacesForIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view a list of Amazon CodeCatalyst spaces by IAM Identity Center application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list tags for an Amazon CodeCatalyst resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity-center-applications",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putbillingauthorization": {
+    "name": "PutBillingAuthorization",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create or update the billing authorization for a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "rejectconnection": {
+    "name": "RejectConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to reject a request to connect this account to an Amazon CodeCatalyst space",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "synchronizeidentitycenterapplication": {
+    "name": "SynchronizeIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to synchronize an IAM Identity Center application with the backing identity store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to tag an Amazon CodeCatalyst resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity-center-applications",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to untag an Amazon CodeCatalyst resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "connections",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity-center-applications",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateidentitycenterapplication": {
+    "name": "UpdateIdentityCenterApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update an IAM Identity Center application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-center-applications",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

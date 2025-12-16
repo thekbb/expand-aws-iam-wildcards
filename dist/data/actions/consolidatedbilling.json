@@ -1,0 +1,20 @@
+{
+  "getaccountbillingrole": {
+    "name": "GetAccountBillingRole",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get account role (Payer, Linked, Regular)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlinkedaccounts": {
+    "name": "ListLinkedAccounts",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get list of member/linked accounts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

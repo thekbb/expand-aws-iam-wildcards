@@ -1,0 +1,23 @@
+{
+  "connector": {
+    "key": "Connector",
+    "arn": "arn:${Partition}:pca-connector-ad:${Region}:${Account}:connector/${ConnectorId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "directoryregistration": {
+    "key": "DirectoryRegistration",
+    "arn": "arn:${Partition}:pca-connector-ad:${Region}:${Account}:directory-registration/${DirectoryId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "template": {
+    "key": "Template",
+    "arn": "arn:${Partition}:pca-connector-ad:${Region}:${Account}:connector/${ConnectorId}/template/${TemplateId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

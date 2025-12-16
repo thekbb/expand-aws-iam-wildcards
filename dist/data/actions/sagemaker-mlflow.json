@@ -1,0 +1,910 @@
+{
+  "accessui": {
+    "name": "AccessUI",
+    "description": "Grants permission to access the MLflow UI",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createexperiment": {
+    "name": "CreateExperiment",
+    "description": "Grants permission to create an MLflow experiment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmodelversion": {
+    "name": "CreateModelVersion",
+    "description": "Grants permission to create a new model version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createregisteredmodel": {
+    "name": "CreateRegisteredModel",
+    "description": "Grants permission to create a registered model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createrun": {
+    "name": "CreateRun",
+    "description": "Grants permission to create a new run within an experiment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteexperiment": {
+    "name": "DeleteExperiment",
+    "description": "Grants permission to mark an MLflow experiment for deletion",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteloggedmodel": {
+    "name": "DeleteLoggedModel",
+    "description": "Grants permission to delete a logged model in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteloggedmodeltag": {
+    "name": "DeleteLoggedModelTag",
+    "description": "Grants permission to delete a tag for a logged model in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemodelversion": {
+    "name": "DeleteModelVersion",
+    "description": "Grants permission to delete a model version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemodelversiontag": {
+    "name": "DeleteModelVersionTag",
+    "description": "Grants permission to delete a model version tag",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteregisteredmodel": {
+    "name": "DeleteRegisteredModel",
+    "description": "Grants permission to delete a registered model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteregisteredmodelalias": {
+    "name": "DeleteRegisteredModelAlias",
+    "description": "Grants permission to delete a registered model alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteregisteredmodeltag": {
+    "name": "DeleteRegisteredModelTag",
+    "description": "Grants permission to delete a registered model tag",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterun": {
+    "name": "DeleteRun",
+    "description": "Grants permission to mark a run for deletion",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetag": {
+    "name": "DeleteTag",
+    "description": "Grants permission to delete a tag on a run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetracetag": {
+    "name": "DeleteTraceTag",
+    "description": "Grants permission to delete a trace tag in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetraces": {
+    "name": "DeleteTraces",
+    "description": "Grants permission to delete traces in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "endtrace": {
+    "name": "EndTrace",
+    "description": "Grants permission to end a trace in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "finalizeloggedmodel": {
+    "name": "FinalizeLoggedModel",
+    "description": "Grants permission to set status for a logged model in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdownloaduriformodelversionartifacts": {
+    "name": "GetDownloadURIForModelVersionArtifacts",
+    "description": "Grants permission to get a URI to download model artifacts for a specific model version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexperiment": {
+    "name": "GetExperiment",
+    "description": "Grants permission to get metadata for an MLflow experiment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexperimentbyname": {
+    "name": "GetExperimentByName",
+    "description": "Grants permission to get metadata for an MLflow experiment by name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlatestmodelversions": {
+    "name": "GetLatestModelVersions",
+    "description": "Grants permission to get the latest model versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getloggedmodel": {
+    "name": "GetLoggedModel",
+    "description": "Grants permission to get a logged model in MLflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmetrichistory": {
+    "name": "GetMetricHistory",
+    "description": "Grants permission to get a list of all values for the specified metric for a given run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmodelversion": {
+    "name": "GetModelVersion",
+    "description": "Grants permission to get a model version by model name and version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmodelversionbyalias": {
+    "name": "GetModelVersionByAlias",
+    "description": "Grants permission to get model version by alias in MLflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getregisteredmodel": {
+    "name": "GetRegisteredModel",
+    "description": "Grants permission to get a registered model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrun": {
+    "name": "GetRun",
+    "description": "Grants permission to get metadata, metrics, parameters, and tags for a run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettraceinfo": {
+    "name": "GetTraceInfo",
+    "description": "Grants permission to get information about a trace in MLflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listartifacts": {
+    "name": "ListArtifacts",
+    "description": "Grants permission to list artifacts for a run",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listloggedmodelartifacts": {
+    "name": "ListLoggedModelArtifacts",
+    "description": "Grants permission to list artifacts for a logged model in MLflow",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "logbatch": {
+    "name": "LogBatch",
+    "description": "Grants permission to log a batch of metrics, parameters, and tags for a run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "loginputs": {
+    "name": "LogInputs",
+    "description": "Grants permission to log inputs for a run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "logloggedmodelparams": {
+    "name": "LogLoggedModelParams",
+    "description": "Grants permission to log params for a logged model in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "logmetric": {
+    "name": "LogMetric",
+    "description": "Grants permission to log a metric for a run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "logmodel": {
+    "name": "LogModel",
+    "description": "Grants permission to log the model associated with a run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "logoutputs": {
+    "name": "LogOutputs",
+    "description": "Grants permission to log outputs, such as models, for a run in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "logparam": {
+    "name": "LogParam",
+    "description": "Grants permission to log a parameter tracked during a run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "renameregisteredmodel": {
+    "name": "RenameRegisteredModel",
+    "description": "Grants permission to rename a registered model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restoreexperiment": {
+    "name": "RestoreExperiment",
+    "description": "Grants permission to restore an experiment marked for deletion",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restorerun": {
+    "name": "RestoreRun",
+    "description": "Grants permission to restore a deleted run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchexperiments": {
+    "name": "SearchExperiments",
+    "description": "Grants permission to search for MLflow experiments",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchloggedmodels": {
+    "name": "SearchLoggedModels",
+    "description": "Grants permission to search for logged models in MLflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchmodelversions": {
+    "name": "SearchModelVersions",
+    "description": "Grants permission to search for a model version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchregisteredmodels": {
+    "name": "SearchRegisteredModels",
+    "description": "Grants permission to search for registered models in MLflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchruns": {
+    "name": "SearchRuns",
+    "description": "Grants permission to search for runs that satisfy expressions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchtraces": {
+    "name": "SearchTraces",
+    "description": "Grants permission to search for traces in MLflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setexperimenttag": {
+    "name": "SetExperimentTag",
+    "description": "Grants permission to set a tag on an experiment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setloggedmodeltags": {
+    "name": "SetLoggedModelTags",
+    "description": "Grants permission to set tags for a logged model in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setmodelversiontag": {
+    "name": "SetModelVersionTag",
+    "description": "Grants permission to set a tag for the model version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setregisteredmodelalias": {
+    "name": "SetRegisteredModelAlias",
+    "description": "Grants permission to set a registered model alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setregisteredmodeltag": {
+    "name": "SetRegisteredModelTag",
+    "description": "Grants permission to set a tag for a registered model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "settag": {
+    "name": "SetTag",
+    "description": "Grants permission to set a tag on a run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "settracetag": {
+    "name": "SetTraceTag",
+    "description": "Grants permission to set a trace tag in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttrace": {
+    "name": "StartTrace",
+    "description": "Grants permission to start a trace in MLflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "transitionmodelversionstage": {
+    "name": "TransitionModelVersionStage",
+    "description": "Grants permission to transition a model version to a particular stage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateexperiment": {
+    "name": "UpdateExperiment",
+    "description": "Grants permission to update the metadata for an MLflow experiment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemodelversion": {
+    "name": "UpdateModelVersion",
+    "description": "Grants permission to update the model version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateregisteredmodel": {
+    "name": "UpdateRegisteredModel",
+    "description": "Grants permission to update a registered model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterun": {
+    "name": "UpdateRun",
+    "description": "Grants permission to update run metadata",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-tracking-server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

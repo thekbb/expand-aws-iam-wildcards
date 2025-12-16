@@ -1,0 +1,10 @@
+{
+  "getrhelurl": {
+    "name": "GetRhelURL",
+    "description": "Grants permission to access the Red Hat Knowledgebase portal",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

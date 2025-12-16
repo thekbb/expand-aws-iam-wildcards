@@ -1,0 +1,34 @@
+{
+  "job": {
+    "key": "Job",
+    "arn": "arn:${Partition}:mediaconvert:${Region}:${Account}:jobs/${JobId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "queue": {
+    "key": "Queue",
+    "arn": "arn:${Partition}:mediaconvert:${Region}:${Account}:queues/${QueueName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "preset": {
+    "key": "Preset",
+    "arn": "arn:${Partition}:mediaconvert:${Region}:${Account}:presets/${PresetName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "jobtemplate": {
+    "key": "JobTemplate",
+    "arn": "arn:${Partition}:mediaconvert:${Region}:${Account}:jobTemplates/${JobTemplateName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "certificateassociation": {
+    "key": "CertificateAssociation",
+    "arn": "arn:${Partition}:mediaconvert:${Region}:${Account}:certificates/${CertificateArn}"
+  }
+}

@@ -1,0 +1,770 @@
+{
+  "associatecustomdomain": {
+    "name": "AssociateCustomDomain",
+    "description": "Grants permission to associate your own domain name with the AWS App Runner subdomain URL of your App Runner service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatewebacl": {
+    "name": "AssociateWebAcl",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate the service with an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "webacl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createautoscalingconfiguration": {
+    "name": "CreateAutoScalingConfiguration",
+    "description": "Grants permission to create an AWS App Runner automatic scaling configuration resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoscalingconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconnection": {
+    "name": "CreateConnection",
+    "description": "Grants permission to create an AWS App Runner connection resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createobservabilityconfiguration": {
+    "name": "CreateObservabilityConfiguration",
+    "description": "Grants permission to create an AWS App Runner observability configuration resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "observabilityconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createservice": {
+    "name": "CreateService",
+    "description": "Grants permission to create an AWS App Runner service resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "autoscalingconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "observabilityconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcconnector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "apprunner:ConnectionArn",
+      "apprunner:AutoScalingConfigurationArn",
+      "apprunner:ObservabilityConfigurationArn",
+      "apprunner:VpcConnectorArn"
+    ],
+    "dependentActions": []
+  },
+  "createvpcconnector": {
+    "name": "CreateVpcConnector",
+    "description": "Grants permission to create an AWS App Runner VPC connector resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpcconnector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createvpcingressconnection": {
+    "name": "CreateVpcIngressConnection",
+    "description": "Grants permission to create an AWS App Runner VpcIngressConnection resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpcingressconnection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "apprunner:ServiceArn",
+      "apprunner:VpcId",
+      "apprunner:VpcEndpointId"
+    ],
+    "dependentActions": []
+  },
+  "deleteautoscalingconfiguration": {
+    "name": "DeleteAutoScalingConfiguration",
+    "description": "Grants permission to delete an AWS App Runner automatic scaling configuration resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoscalingconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnection": {
+    "name": "DeleteConnection",
+    "description": "Grants permission to delete an AWS App Runner connection resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteobservabilityconfiguration": {
+    "name": "DeleteObservabilityConfiguration",
+    "description": "Grants permission to delete an AWS App Runner observability configuration resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "observabilityconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservice": {
+    "name": "DeleteService",
+    "description": "Grants permission to delete an AWS App Runner service resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevpcconnector": {
+    "name": "DeleteVpcConnector",
+    "description": "Grants permission to delete an AWS App Runner VPC connector resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpcconnector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevpcingressconnection": {
+    "name": "DeleteVpcIngressConnection",
+    "description": "Grants permission to delete an AWS App Runner VpcIngressConnection resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpcingressconnection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeautoscalingconfiguration": {
+    "name": "DescribeAutoScalingConfiguration",
+    "description": "Grants permission to retrieve the description of an AWS App Runner automatic scaling configuration resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "autoscalingconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecustomdomains": {
+    "name": "DescribeCustomDomains",
+    "description": "Grants permission to retrieve descriptions of custom domain names associated with an AWS App Runner service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeobservabilityconfiguration": {
+    "name": "DescribeObservabilityConfiguration",
+    "description": "Grants permission to retrieve the description of an AWS App Runner observability configuration resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "observabilityconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeoperation": {
+    "name": "DescribeOperation",
+    "description": "Grants permission to retrieve the description of an operation that occurred on an AWS App Runner service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeservice": {
+    "name": "DescribeService",
+    "description": "Grants permission to retrieve the description of an AWS App Runner service resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevpcconnector": {
+    "name": "DescribeVpcConnector",
+    "description": "Grants permission to retrieve the description of an AWS App Runner VPC connector resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vpcconnector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevpcingressconnection": {
+    "name": "DescribeVpcIngressConnection",
+    "description": "Grants permission to retrieve the description of an AWS App Runner VpcIngressConnection resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vpcingressconnection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describewebaclforservice": {
+    "name": "DescribeWebAclForService",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get the AWS WAF web ACL that is associated with an AWS App Runner service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatecustomdomain": {
+    "name": "DisassociateCustomDomain",
+    "description": "Grants permission to disassociate a custom domain name from an AWS App Runner service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatewebacl": {
+    "name": "DisassociateWebAcl",
+    "isPermissionOnly": true,
+    "description": "Grants permission to disassociate the service with an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassociatedservicesforwebacl": {
+    "name": "ListAssociatedServicesForWebAcl",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the services that are associated with an AWS WAF web ACL",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "webacl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautoscalingconfigurations": {
+    "name": "ListAutoScalingConfigurations",
+    "description": "Grants permission to retrieve a list of AWS App Runner automatic scaling configurations in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnections": {
+    "name": "ListConnections",
+    "description": "Grants permission to retrieve a list of AWS App Runner connections in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listobservabilityconfigurations": {
+    "name": "ListObservabilityConfigurations",
+    "description": "Grants permission to retrieve a list of AWS App Runner observability configurations in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoperations": {
+    "name": "ListOperations",
+    "description": "Grants permission to retrieve a list of operations that occurred on an AWS App Runner service resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservices": {
+    "name": "ListServices",
+    "description": "Grants permission to retrieve a list of running AWS App Runner services in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicesforautoscalingconfiguration": {
+    "name": "ListServicesForAutoScalingConfiguration",
+    "description": "Grants permission to retrieve a list of associated AppRunner services of an AWS App Runner automatic scaling configuration in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "autoscalingconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags associated with an AWS App Runner resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "autoscalingconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "observabilityconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcconnector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvpcconnectors": {
+    "name": "ListVpcConnectors",
+    "description": "Grants permission to retrieve a list of AWS App Runner VPC connectors in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvpcingressconnections": {
+    "name": "ListVpcIngressConnections",
+    "description": "Grants permission to retrieve a list of AWS App Runner VpcIngressConnections in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "pauseservice": {
+    "name": "PauseService",
+    "description": "Grants permission to pause an active AWS App Runner service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resumeservice": {
+    "name": "ResumeService",
+    "description": "Grants permission to resume an active AWS App Runner service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdeployment": {
+    "name": "StartDeployment",
+    "description": "Grants permission to initiate a manual deployemnt to an AWS App Runner service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to, or update tag values of, an AWS App Runner resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "autoscalingconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "observabilityconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcconnector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcingressconnection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from an AWS App Runner resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "autoscalingconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "observabilityconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcconnector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcingressconnection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatedefaultautoscalingconfiguration": {
+    "name": "UpdateDefaultAutoScalingConfiguration",
+    "description": "Grants permission to update an AWS App Runner automatic scaling configuration to be the default in your AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoscalingconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservice": {
+    "name": "UpdateService",
+    "description": "Grants permission to update an AWS App Runner service resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "autoscalingconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "observabilityconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcconnector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apprunner:ConnectionArn",
+      "apprunner:AutoScalingConfigurationArn",
+      "apprunner:ObservabilityConfigurationArn",
+      "apprunner:VpcConnectorArn"
+    ],
+    "dependentActions": []
+  },
+  "updatevpcingressconnection": {
+    "name": "UpdateVpcIngressConnection",
+    "description": "Grants permission to update an AWS App Runner VpcIngressConnection resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpcingressconnection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apprunner:VpcId",
+      "apprunner:VpcEndpointId"
+    ],
+    "dependentActions": []
+  }
+}

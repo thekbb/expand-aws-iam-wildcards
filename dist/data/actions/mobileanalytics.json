@@ -1,0 +1,26 @@
+{
+  "getfinancialreports": {
+    "name": "GetFinancialReports",
+    "description": "Grant access to financial metrics for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreports": {
+    "name": "GetReports",
+    "description": "Grant access to standard metrics for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putevents": {
+    "name": "PutEvents",
+    "description": "The PutEvents operation records one or more events",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

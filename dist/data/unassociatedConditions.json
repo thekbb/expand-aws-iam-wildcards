@@ -1,0 +1,29 @@
+{
+  "identitycenter": [
+    "sso"
+  ],
+  "catalog": [
+    "aws-marketplace"
+  ],
+  "accounts.google.com": [
+    "sts"
+  ],
+  "cognito-identity.amazonaws.com": [
+    "sts"
+  ],
+  "graph.facebook.com": [
+    "sts"
+  ],
+  "saml": [
+    "sts"
+  ],
+  "www.amazon.com": [
+    "sts"
+  ],
+  "cognito-identity-auth": [
+    "cognito-identity"
+  ],
+  "cognito-identity-unauth": [
+    "cognito-identity"
+  ]
+}

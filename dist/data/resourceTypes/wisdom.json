@@ -1,0 +1,80 @@
+{
+  "aiagent": {
+    "key": "AIAgent",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:ai-agent/${AssistantId}/${AIAgentId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "aiprompt": {
+    "key": "AIPrompt",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:ai-prompt/${AssistantId}/${AIPromptId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "aiguardrail": {
+    "key": "AIGuardrail",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:ai-guardrail/${AssistantId}/${AIGuardrailId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "assistant": {
+    "key": "Assistant",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:assistant/${AssistantId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "assistantassociation": {
+    "key": "AssistantAssociation",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:association/${AssistantId}/${AssistantAssociationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "content": {
+    "key": "Content",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:content/${KnowledgeBaseId}/${ContentId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "contentassociation": {
+    "key": "ContentAssociation",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:content-association/${KnowledgeBaseId}/${ContentId}/${ContentAssociationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "knowledgebase": {
+    "key": "KnowledgeBase",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:knowledge-base/${KnowledgeBaseId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "messagetemplate": {
+    "key": "MessageTemplate",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:message-template/${KnowledgeBaseId}/${MessageTemplateId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "wisdom:MessageTemplate/RoutingProfileArn"
+    ]
+  },
+  "session": {
+    "key": "Session",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:session/${AssistantId}/${SessionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "quickresponse": {
+    "key": "QuickResponse",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:quick-response/${KnowledgeBaseId}/${QuickResponseId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

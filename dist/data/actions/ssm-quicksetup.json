@@ -1,0 +1,193 @@
+{
+  "createconfigurationmanager": {
+    "name": "CreateConfigurationManager",
+    "description": "Grants permission to create a Quick Setup configuration manager resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteconfigurationmanager": {
+    "name": "DeleteConfigurationManager",
+    "description": "Grants permission to delete a configuration manager",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconfiguration": {
+    "name": "GetConfiguration",
+    "description": "Grants permission to get Quick Setup configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconfigurationmanager": {
+    "name": "GetConfigurationManager",
+    "description": "Grants permission to get a configuration manager",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicesettings": {
+    "name": "GetServiceSettings",
+    "description": "Grants permission to get settings configured for Quick Setup in the requesting AWS account and AWS Region",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconfigurationmanagers": {
+    "name": "ListConfigurationManagers",
+    "description": "Grants permission to list Quick Setup configuration managers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconfigurations": {
+    "name": "ListConfigurations",
+    "description": "Grants permission to list Quick Setup configurations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listquicksetuptypes": {
+    "name": "ListQuickSetupTypes",
+    "description": "Grants permission to list the available Quick Setup types",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags assigned to the resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to Assign key-value pairs of metadata to AWS resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateconfigurationdefinition": {
+    "name": "UpdateConfigurationDefinition",
+    "description": "Grants permission to update a Quick Setup configuration definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconfigurationmanager": {
+    "name": "UpdateConfigurationManager",
+    "description": "Grants permission to update a Quick Setup configuration manager",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservicesettings": {
+    "name": "UpdateServiceSettings",
+    "description": "Grants permission to update settings configured for Quick Setup",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

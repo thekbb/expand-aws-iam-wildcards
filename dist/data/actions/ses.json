@@ -1,0 +1,3420 @@
+{
+  "createconfigurationset": {
+    "name": "CreateConfigurationSet",
+    "description": "Grants permission to create a new configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dedicated-ip-pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mailmanager-archive",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createconfigurationseteventdestination": {
+    "name": "CreateConfigurationSetEventDestination",
+    "description": "Grants permission to create a configuration set event destination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "creatededicatedippool": {
+    "name": "CreateDedicatedIpPool",
+    "description": "Grants permission to create a new pool of dedicated IP addresses",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dedicated-ip-pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createdeliverabilitytestreport": {
+    "name": "CreateDeliverabilityTestReport",
+    "description": "Grants permission to create a new predictive inbox placement test",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createemailidentity": {
+    "name": "CreateEmailIdentity",
+    "description": "Grants permission to start the process of verifying an email identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteconfigurationset": {
+    "name": "DeleteConfigurationSet",
+    "description": "Grants permission to delete an existing configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteconfigurationseteventdestination": {
+    "name": "DeleteConfigurationSetEventDestination",
+    "description": "Grants permission to delete an event destination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletededicatedippool": {
+    "name": "DeleteDedicatedIpPool",
+    "description": "Grants permission to delete a dedicated IP pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dedicated-ip-pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteemailidentity": {
+    "name": "DeleteEmailIdentity",
+    "description": "Grants permission to delete an email identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccount": {
+    "name": "GetAccount",
+    "description": "Grants permission to get information about the email-sending status and capabilities for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getblacklistreports": {
+    "name": "GetBlacklistReports",
+    "description": "Grants permission to retrieve a list of the deny lists on which your dedicated IP addresses or tracked domains appear",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getconfigurationset": {
+    "name": "GetConfigurationSet",
+    "description": "Grants permission to get information about an existing configuration set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getconfigurationseteventdestinations": {
+    "name": "GetConfigurationSetEventDestinations",
+    "description": "Grants permission to retrieve a list of event destinations that are associated with a configuration set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getdedicatedip": {
+    "name": "GetDedicatedIp",
+    "description": "Grants permission to get information about a dedicated IP address",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getdedicatedips": {
+    "name": "GetDedicatedIps",
+    "description": "Grants permission to list the dedicated IP addresses a dedicated IP pool",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dedicated-ip-pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getdeliverabilitydashboardoptions": {
+    "name": "GetDeliverabilityDashboardOptions",
+    "description": "Grants permission to get the status of the Deliverability dashboard",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getdeliverabilitytestreport": {
+    "name": "GetDeliverabilityTestReport",
+    "description": "Grants permission to retrieve the results of a predictive inbox placement test",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "deliverability-test-report",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getdomaindeliverabilitycampaign": {
+    "name": "GetDomainDeliverabilityCampaign",
+    "description": "Grants permission to retrieve all the deliverability data for a specific campaign",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getdomainstatisticsreport": {
+    "name": "GetDomainStatisticsReport",
+    "description": "Grants permission to retrieve inbox placement and engagement rates for the domains that you use to send email",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getemailidentity": {
+    "name": "GetEmailIdentity",
+    "description": "Grants permission to get information about a specific identity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listconfigurationsets": {
+    "name": "ListConfigurationSets",
+    "description": "Grants permission to list all of the configuration sets for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listdedicatedippools": {
+    "name": "ListDedicatedIpPools",
+    "description": "Grants permission to list all of the dedicated IP pools for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listdeliverabilitytestreports": {
+    "name": "ListDeliverabilityTestReports",
+    "description": "Grants permission to retrieve the list of the predictive inbox placement tests that you've performed, regardless of their statuses, for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listdomaindeliverabilitycampaigns": {
+    "name": "ListDomainDeliverabilityCampaigns",
+    "description": "Grants permission to list deliverability data for campaigns that used a specific domain to send email during a specified time range",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listemailidentities": {
+    "name": "ListEmailIdentities",
+    "description": "Grants permission to list the email identities for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to retrieve a list of the tags (keys and values) that are associated with a specific resource for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dedicated-ip-pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deliverability-test-report",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putaccountdedicatedipwarmupattributes": {
+    "name": "PutAccountDedicatedIpWarmupAttributes",
+    "description": "Grants permission to enable or disable the automatic warm-up feature for dedicated IP addresses",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putaccountsendingattributes": {
+    "name": "PutAccountSendingAttributes",
+    "description": "Grants permission to enable or disable the ability to send email for your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putconfigurationsetdeliveryoptions": {
+    "name": "PutConfigurationSetDeliveryOptions",
+    "description": "Grants permission to associate a configuration set with a dedicated IP pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dedicated-ip-pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putconfigurationsetreputationoptions": {
+    "name": "PutConfigurationSetReputationOptions",
+    "description": "Grants permission to enable or disable collection of reputation metrics for emails that you send using a particular configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putconfigurationsetsendingoptions": {
+    "name": "PutConfigurationSetSendingOptions",
+    "description": "Grants permission to enable or disable email sending for messages that use a particular configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putconfigurationsettrackingoptions": {
+    "name": "PutConfigurationSetTrackingOptions",
+    "description": "Grants permission to specify a custom domain to use for open and click tracking elements in email that you send for a particular configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putdedicatedipinpool": {
+    "name": "PutDedicatedIpInPool",
+    "description": "Grants permission to move a dedicated IP address to an existing dedicated IP pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dedicated-ip-pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putdedicatedipwarmupattributes": {
+    "name": "PutDedicatedIpWarmupAttributes",
+    "description": "Grants permission to put Dedicated IP warm up attributes",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putdeliverabilitydashboardoption": {
+    "name": "PutDeliverabilityDashboardOption",
+    "description": "Grants permission to enable or disable the Deliverability dashboard",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putemailidentitydkimattributes": {
+    "name": "PutEmailIdentityDkimAttributes",
+    "description": "Grants permission to enable or disable DKIM authentication for an email identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putemailidentityfeedbackattributes": {
+    "name": "PutEmailIdentityFeedbackAttributes",
+    "description": "Grants permission to enable or disable feedback forwarding for an email identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putemailidentitymailfromattributes": {
+    "name": "PutEmailIdentityMailFromAttributes",
+    "description": "Grants permission to enable or disable the custom MAIL FROM domain configuration for an email identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "sendemail": {
+    "name": "SendEmail",
+    "description": "Grants permission to send an email message",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:FeedbackAddress",
+      "ses:FromAddress",
+      "ses:FromDisplayName",
+      "ses:Recipients",
+      "ses:MultiRegionEndpointId",
+      "ses:TenantName"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags (keys and values) to a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dedicated-ip-pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deliverability-test-report",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags (keys and values) from a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dedicated-ip-pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deliverability-test-report",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateconfigurationseteventdestination": {
+    "name": "UpdateConfigurationSetEventDestination",
+    "description": "Grants permission to update the configuration of an event destination for a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "clonereceiptruleset": {
+    "name": "CloneReceiptRuleSet",
+    "description": "Grants permission to create a receipt rule set by cloning an existing one",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "createconfigurationsettrackingoptions": {
+    "name": "CreateConfigurationSetTrackingOptions",
+    "description": "Grants permission to creates an association between a configuration set and a custom domain for open and click event tracking",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "createcustomverificationemailtemplate": {
+    "name": "CreateCustomVerificationEmailTemplate",
+    "description": "Grants permission to create a new custom verification email template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-verification-email-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "createreceiptfilter": {
+    "name": "CreateReceiptFilter",
+    "description": "Grants permission to create a new IP address filter",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "createreceiptrule": {
+    "name": "CreateReceiptRule",
+    "description": "Grants permission to create a receipt rule",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "createreceiptruleset": {
+    "name": "CreateReceiptRuleSet",
+    "description": "Grants permission to create an empty receipt rule set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "createtemplate": {
+    "name": "CreateTemplate",
+    "description": "Grants permission to creates an email template",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deleteconfigurationsettrackingoptions": {
+    "name": "DeleteConfigurationSetTrackingOptions",
+    "description": "Grants permission to delete an association between a configuration set and a custom domain for open and click event tracking",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deletecustomverificationemailtemplate": {
+    "name": "DeleteCustomVerificationEmailTemplate",
+    "description": "Grants permission to delete an existing custom verification email template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-verification-email-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deleteidentity": {
+    "name": "DeleteIdentity",
+    "description": "Grants permission to delete the specified identity",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deleteidentitypolicy": {
+    "name": "DeleteIdentityPolicy",
+    "description": "Grants permission to delete the specified sending authorization policy for the given identity (an email address or a domain)",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deletereceiptfilter": {
+    "name": "DeleteReceiptFilter",
+    "description": "Grants permission to delete the specified IP address filter",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deletereceiptrule": {
+    "name": "DeleteReceiptRule",
+    "description": "Grants permission to delete the specified receipt rule",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deletereceiptruleset": {
+    "name": "DeleteReceiptRuleSet",
+    "description": "Grants permission to delete the specified receipt rule set and all of the receipt rules it contains",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deletetemplate": {
+    "name": "DeleteTemplate",
+    "description": "Grants permission to delete an email template",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deleteverifiedemailaddress": {
+    "name": "DeleteVerifiedEmailAddress",
+    "description": "Grants permission to delete the specified email address from the list of verified addresses",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "describeactivereceiptruleset": {
+    "name": "DescribeActiveReceiptRuleSet",
+    "description": "Grants permission to return the metadata and receipt rules for the receipt rule set that is currently active",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "describeconfigurationset": {
+    "name": "DescribeConfigurationSet",
+    "description": "Grants permission to return the details of the specified configuration set",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "describereceiptrule": {
+    "name": "DescribeReceiptRule",
+    "description": "Grants permission to return the details of the specified receipt rule",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "describereceiptruleset": {
+    "name": "DescribeReceiptRuleSet",
+    "description": "Grants permission to return the details of the specified receipt rule set",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getaccountsendingenabled": {
+    "name": "GetAccountSendingEnabled",
+    "description": "Grants permission to return the email sending status of your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getcustomverificationemailtemplate": {
+    "name": "GetCustomVerificationEmailTemplate",
+    "description": "Grants permission to return the custom email verification template for the template name you specify",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "custom-verification-email-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getidentitydkimattributes": {
+    "name": "GetIdentityDkimAttributes",
+    "description": "Grants permission to return the current status of Easy DKIM signing for an entity",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getidentitymailfromdomainattributes": {
+    "name": "GetIdentityMailFromDomainAttributes",
+    "description": "Grants permission to return the custom MAIL FROM attributes for a list of identities (email addresses and/or domains)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getidentitynotificationattributes": {
+    "name": "GetIdentityNotificationAttributes",
+    "description": "Grants permission to return a structure describing identity notification attributes for a list of verified identities (email addresses and/or domains),",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getidentitypolicies": {
+    "name": "GetIdentityPolicies",
+    "description": "Grants permission to return the requested sending authorization policies for the given identity (an email address or a domain)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getidentityverificationattributes": {
+    "name": "GetIdentityVerificationAttributes",
+    "description": "Grants permission to return the verification status and (for domain identities) the verification token for a list of identities",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getsendquota": {
+    "name": "GetSendQuota",
+    "description": "Grants permission to return the user's current sending limits",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getsendstatistics": {
+    "name": "GetSendStatistics",
+    "description": "Grants permission to returns the user's sending statistics",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "gettemplate": {
+    "name": "GetTemplate",
+    "description": "Grants permission to return the template object, which includes the subject line, HTML par, and text part for the template you specify",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listcustomverificationemailtemplates": {
+    "name": "ListCustomVerificationEmailTemplates",
+    "description": "Grants permission to list all of the existing custom verification email templates for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listidentities": {
+    "name": "ListIdentities",
+    "description": "Grants permission to list the email identities for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listidentitypolicies": {
+    "name": "ListIdentityPolicies",
+    "description": "Grants permission to list all of the email templates for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listreceiptfilters": {
+    "name": "ListReceiptFilters",
+    "description": "Grants permission to list the IP address filters associated with your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listreceiptrulesets": {
+    "name": "ListReceiptRuleSets",
+    "description": "Grants permission to list the receipt rule sets that exist under your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listtemplates": {
+    "name": "ListTemplates",
+    "description": "Grants permission to list the email templates present in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listverifiedemailaddresses": {
+    "name": "ListVerifiedEmailAddresses",
+    "description": "Grants permission to list all of the email addresses that have been verified in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putidentitypolicy": {
+    "name": "PutIdentityPolicy",
+    "description": "Grants permission to add or update a sending authorization policy for the specified identity (an email address or a domain)",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "reorderreceiptruleset": {
+    "name": "ReorderReceiptRuleSet",
+    "description": "Grants permission to reorder the receipt rules within a receipt rule set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "sendbounce": {
+    "name": "SendBounce",
+    "description": "Grants permission to generate and send a bounce message to the sender of an email you received through Amazon SES",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:FromAddress"
+    ],
+    "dependentActions": []
+  },
+  "sendbulktemplatedemail": {
+    "name": "SendBulkTemplatedEmail",
+    "description": "Grants permission to compose an email message to multiple destinations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:FeedbackAddress",
+      "ses:FromAddress",
+      "ses:FromDisplayName",
+      "ses:Recipients"
+    ],
+    "dependentActions": []
+  },
+  "sendcustomverificationemail": {
+    "name": "SendCustomVerificationEmail",
+    "description": "Grants permission to add an email address to the list of identities and attempts to verify it",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-verification-email-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "sendrawemail": {
+    "name": "SendRawEmail",
+    "description": "Grants permission to send an email message, with header and content specified by the client",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:FeedbackAddress",
+      "ses:FromAddress",
+      "ses:FromDisplayName",
+      "ses:Recipients"
+    ],
+    "dependentActions": []
+  },
+  "sendtemplatedemail": {
+    "name": "SendTemplatedEmail",
+    "description": "Grants permission to compose an email message using an email template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:FeedbackAddress",
+      "ses:FromAddress",
+      "ses:FromDisplayName",
+      "ses:Recipients"
+    ],
+    "dependentActions": []
+  },
+  "setactivereceiptruleset": {
+    "name": "SetActiveReceiptRuleSet",
+    "description": "Grants permission to set the specified receipt rule set as the active receipt rule set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "setidentitydkimenabled": {
+    "name": "SetIdentityDkimEnabled",
+    "description": "Grants permission to enable or disable Easy DKIM signing of email sent from an identity",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "setidentityfeedbackforwardingenabled": {
+    "name": "SetIdentityFeedbackForwardingEnabled",
+    "description": "Grants permission to enable or disable whether Amazon SES forwards bounce and complaint notifications for an identity (an email address or a domain)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "setidentityheadersinnotificationsenabled": {
+    "name": "SetIdentityHeadersInNotificationsEnabled",
+    "description": "Grants permission to set whether Amazon SES includes the original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified type for a given identity (an email address or a domain)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "setidentitymailfromdomain": {
+    "name": "SetIdentityMailFromDomain",
+    "description": "Grants permission to enable or disable the custom MAIL FROM domain setup for a verified identity",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "setidentitynotificationtopic": {
+    "name": "SetIdentityNotificationTopic",
+    "description": "Grants permission to set an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications for a verified identity",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "setreceiptruleposition": {
+    "name": "SetReceiptRulePosition",
+    "description": "Grants permission to set the position of the specified receipt rule in the receipt rule set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "testrendertemplate": {
+    "name": "TestRenderTemplate",
+    "description": "Grants permission to create a preview of the MIME content of an email when provided with a template and a set of replacement data",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updateaccountsendingenabled": {
+    "name": "UpdateAccountSendingEnabled",
+    "description": "Grants permission to enable or disable email sending for your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updateconfigurationsetreputationmetricsenabled": {
+    "name": "UpdateConfigurationSetReputationMetricsEnabled",
+    "description": "Grants permission to enable or disable the publishing of reputation metrics for emails sent using a specific configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updateconfigurationsetsendingenabled": {
+    "name": "UpdateConfigurationSetSendingEnabled",
+    "description": "Grants permission  to enable or disable email sending for messages sent using a specific configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updateconfigurationsettrackingoptions": {
+    "name": "UpdateConfigurationSetTrackingOptions",
+    "description": "Grants permission to modify an association between a configuration set and a custom domain for open and click event tracking",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updatecustomverificationemailtemplate": {
+    "name": "UpdateCustomVerificationEmailTemplate",
+    "description": "Grants permission to update an existing custom verification email template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-verification-email-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updatereceiptrule": {
+    "name": "UpdateReceiptRule",
+    "description": "Grants permission to update a receipt rule",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updatetemplate": {
+    "name": "UpdateTemplate",
+    "description": "Grants permission to update an email template",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "verifydomaindkim": {
+    "name": "VerifyDomainDkim",
+    "description": "Grants permission to return a set of DKIM tokens for a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "verifydomainidentity": {
+    "name": "VerifyDomainIdentity",
+    "description": "Grants permission to verify a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "verifyemailaddress": {
+    "name": "VerifyEmailAddress",
+    "description": "Grants permission to verify an email address",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "verifyemailidentity": {
+    "name": "VerifyEmailIdentity",
+    "description": "Grants permission to verify an email identity",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "allowvendedlogdeliveryforresource": {
+    "name": "AllowVendedLogDeliveryForResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to configure vended log delivery for Mail Manager resources",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-ingress-point",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mailmanager-rule-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createaddoninstance": {
+    "name": "CreateAddonInstance",
+    "description": "Grants permission to create an addon instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ses:AddonSubscriptionArn"
+    ],
+    "dependentActions": []
+  },
+  "createaddonsubscription": {
+    "name": "CreateAddonSubscription",
+    "description": "Grants permission to create an addon subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createaddresslist": {
+    "name": "CreateAddressList",
+    "description": "Grants permission to create an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createaddresslistimportjob": {
+    "name": "CreateAddressListImportJob",
+    "description": "Grants permission to create an import job on an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createarchive": {
+    "name": "CreateArchive",
+    "description": "Grants permission to create an archive",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createingresspoint": {
+    "name": "CreateIngressPoint",
+    "description": "Grants permission to create an ingress point",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ses:MailManagerRuleSetArn",
+      "ses:MailManagerTrafficPolicyArn"
+    ],
+    "dependentActions": [
+      "ec2:DescribeVpcEndpoints",
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "createrelay": {
+    "name": "CreateRelay",
+    "description": "Grants permission to create a SMTP relay",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createruleset": {
+    "name": "CreateRuleSet",
+    "description": "Grants permission to create a rule set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtrafficpolicy": {
+    "name": "CreateTrafficPolicy",
+    "description": "Grants permission to create a traffic policy",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteaddoninstance": {
+    "name": "DeleteAddonInstance",
+    "description": "Grants permission to delete an addon instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "addon-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteaddonsubscription": {
+    "name": "DeleteAddonSubscription",
+    "description": "Grants permission to delete an addon subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "addon-subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteaddresslist": {
+    "name": "DeleteAddressList",
+    "description": "Grants permission to delete an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletearchive": {
+    "name": "DeleteArchive",
+    "description": "Grants permission to delete an archive",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteingresspoint": {
+    "name": "DeleteIngressPoint",
+    "description": "Grants permission to delete an ingress point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-ingress-point",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleterelay": {
+    "name": "DeleteRelay",
+    "description": "Grants permission to delete a SMTP relay",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-smtp-relay",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteruleset": {
+    "name": "DeleteRuleSet",
+    "description": "Grants permission to delete a rule set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-rule-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletetrafficpolicy": {
+    "name": "DeleteTrafficPolicy",
+    "description": "Grants permission to delete a traffic point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-traffic-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deregistermemberfromaddresslist": {
+    "name": "DeregisterMemberFromAddressList",
+    "description": "Grants permission to remove a member from an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaddoninstance": {
+    "name": "GetAddonInstance",
+    "description": "Grants permission to get information about an addon instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "addon-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaddonsubscription": {
+    "name": "GetAddonSubscription",
+    "description": "Grants permission to get information about an addon subscription",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "addon-subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaddresslist": {
+    "name": "GetAddressList",
+    "description": "Grants permission to get information about an address list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaddresslistimportjob": {
+    "name": "GetAddressListImportJob",
+    "description": "Grants permission to get information about an import job on an address list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getarchive": {
+    "name": "GetArchive",
+    "description": "Grants permission to get information about an archive",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getarchiveexport": {
+    "name": "GetArchiveExport",
+    "description": "Grants permission to get information about an archive export",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getarchivemessage": {
+    "name": "GetArchiveMessage",
+    "description": "Grants permission to retrieve archived message",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getarchivemessagecontent": {
+    "name": "GetArchiveMessageContent",
+    "description": "Grants permission to retrieve archived message content",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getarchivesearch": {
+    "name": "GetArchiveSearch",
+    "description": "Grants permission to get information about a search",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getarchivesearchresults": {
+    "name": "GetArchiveSearchResults",
+    "description": "Grants permission to get information about search results",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getingresspoint": {
+    "name": "GetIngressPoint",
+    "description": "Grants permission to get information about an ingress point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-ingress-point",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getmemberofaddresslist": {
+    "name": "GetMemberOfAddressList",
+    "description": "Grants permission to get information about a member in an address list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getrelay": {
+    "name": "GetRelay",
+    "description": "Grants permission to get information about a SMTP relay",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-smtp-relay",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getruleset": {
+    "name": "GetRuleSet",
+    "description": "Grants permission to get information about a rule set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-rule-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "gettrafficpolicy": {
+    "name": "GetTrafficPolicy",
+    "description": "Grants permission to get information about a traffic policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-traffic-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listaddoninstances": {
+    "name": "ListAddonInstances",
+    "description": "Grants permission to list all of the addon instances associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaddonsubscriptions": {
+    "name": "ListAddonSubscriptions",
+    "description": "Grants permission to list all of the addon subscriptions associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaddresslistimportjobs": {
+    "name": "ListAddressListImportJobs",
+    "description": "Grants permission to list all of the import jobs associated with an address list",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listaddresslists": {
+    "name": "ListAddressLists",
+    "description": "Grants permission to list all of the address lists associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listarchiveexports": {
+    "name": "ListArchiveExports",
+    "description": "Grants permission to list all of the archive exports associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listarchivesearches": {
+    "name": "ListArchiveSearches",
+    "description": "Grants permission to list all of the archive searches associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listarchives": {
+    "name": "ListArchives",
+    "description": "Grants permission to list all of the archives associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listingresspoints": {
+    "name": "ListIngressPoints",
+    "description": "Grants permission to list all of the ingress points associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmembersofaddresslist": {
+    "name": "ListMembersOfAddressList",
+    "description": "Grants permission to list all of the members associated with an address list",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listrelays": {
+    "name": "ListRelays",
+    "description": "Grants permission to list all of the SMTP relays associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrulesets": {
+    "name": "ListRuleSets",
+    "description": "Grants permission to list all of the rule sets associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtrafficpolicies": {
+    "name": "ListTrafficPolicies",
+    "description": "Grants permission to list all of the traffic policies associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registermembertoaddresslist": {
+    "name": "RegisterMemberToAddressList",
+    "description": "Grants permission to add a member to an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startaddresslistimportjob": {
+    "name": "StartAddressListImportJob",
+    "description": "Grants permission to start an import job on an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startarchiveexport": {
+    "name": "StartArchiveExport",
+    "description": "Grants permission to start an archive export",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startarchivesearch": {
+    "name": "StartArchiveSearch",
+    "description": "Grants permission to start an archive search",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopaddresslistimportjob": {
+    "name": "StopAddressListImportJob",
+    "description": "Grants permission to stop an ongoing import job on an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "stoparchiveexport": {
+    "name": "StopArchiveExport",
+    "description": "Grants permission to stop archive export",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoparchivesearch": {
+    "name": "StopArchiveSearch",
+    "description": "Grants permission to stop archive search",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatearchive": {
+    "name": "UpdateArchive",
+    "description": "Grants permission to update an archive",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateingresspoint": {
+    "name": "UpdateIngressPoint",
+    "description": "Grants permission to update an ingress point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-ingress-point",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "ses:MailManagerTrafficPolicyArn",
+      "ses:MailManagerRuleSetArn"
+    ],
+    "dependentActions": []
+  },
+  "updaterelay": {
+    "name": "UpdateRelay",
+    "description": "Grants permission to update a SMTP relay",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-smtp-relay",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateruleset": {
+    "name": "UpdateRuleSet",
+    "description": "Grants permission to update a rule set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-rule-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatetrafficpolicy": {
+    "name": "UpdateTrafficPolicy",
+    "description": "Grants permission to update a traffic policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-traffic-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "batchgetmetricdata": {
+    "name": "BatchGetMetricData",
+    "description": "Grants permission to get metric data on your activity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "cancelexportjob": {
+    "name": "CancelExportJob",
+    "description": "Grants permission to cancel an export job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "export-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:ExportSourceType"
+    ],
+    "dependentActions": []
+  },
+  "createcontact": {
+    "name": "CreateContact",
+    "description": "Grants permission to create a contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createcontactlist": {
+    "name": "CreateContactList",
+    "description": "Grants permission to create a contact list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createemailidentitypolicy": {
+    "name": "CreateEmailIdentityPolicy",
+    "description": "Grants permission to create the specified sending authorization policy for the given identity",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createemailtemplate": {
+    "name": "CreateEmailTemplate",
+    "description": "Grants permission to create an email template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "createexportjob": {
+    "name": "CreateExportJob",
+    "description": "Grants permission to create an export job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:ExportSourceType"
+    ],
+    "dependentActions": []
+  },
+  "createimportjob": {
+    "name": "CreateImportJob",
+    "description": "Grants permission to creates an import job for a data destination",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "createmultiregionendpoint": {
+    "name": "CreateMultiRegionEndpoint",
+    "description": "Grants permission to create a new multi-region endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "createtenant": {
+    "name": "CreateTenant",
+    "description": "Grants permission to create a new tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createtenantresourceassociation": {
+    "name": "CreateTenantResourceAssociation",
+    "description": "Grants permission to associate a SES resource to a tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletecontact": {
+    "name": "DeleteContact",
+    "description": "Grants permission to delete a contact from a contact list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletecontactlist": {
+    "name": "DeleteContactList",
+    "description": "Grants permission to delete a contact list with all of its contacts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteemailidentitypolicy": {
+    "name": "DeleteEmailIdentityPolicy",
+    "description": "Grants permission to delete the specified sending authorization policy for the given identity (an email address or a domain)",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteemailtemplate": {
+    "name": "DeleteEmailTemplate",
+    "description": "Grants permission to delete an email template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deletemultiregionendpoint": {
+    "name": "DeleteMultiRegionEndpoint",
+    "description": "Grants permission to delete a multi-region endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multi-region-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletesuppresseddestination": {
+    "name": "DeleteSuppressedDestination",
+    "description": "Grants permission to remove an email address from the suppression list for your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deletetenant": {
+    "name": "DeleteTenant",
+    "description": "Grants permission to delete a tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletetenantresourceassociation": {
+    "name": "DeleteTenantResourceAssociation",
+    "description": "Grants permission to remove an associated SES resource from a tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getcontact": {
+    "name": "GetContact",
+    "description": "Grants permission to return a contact from a contact list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contact-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getcontactlist": {
+    "name": "GetContactList",
+    "description": "Grants permission to return contact list metadata",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contact-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getdedicatedippool": {
+    "name": "GetDedicatedIpPool",
+    "description": "Grants permission to get information about a dedicated IP pool",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dedicated-ip-pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getemailidentitypolicies": {
+    "name": "GetEmailIdentityPolicies",
+    "description": "Grants permission to return the requested sending authorization policies for the given identity (an email address or a domain)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getemailtemplate": {
+    "name": "GetEmailTemplate",
+    "description": "Grants permission to return the template object, which includes the subject line, HTML part, and text part for the template you specify",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getexportjob": {
+    "name": "GetExportJob",
+    "description": "Grants permission to get information about an export job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "export-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:ExportSourceType"
+    ],
+    "dependentActions": []
+  },
+  "getimportjob": {
+    "name": "GetImportJob",
+    "description": "Grants permission to provide information about an import job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "import-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getmessageinsights": {
+    "name": "GetMessageInsights",
+    "description": "Grants permission to provide insights about a message",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "getmultiregionendpoint": {
+    "name": "GetMultiRegionEndpoint",
+    "description": "Grants permission to get information about a multi-region endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multi-region-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getreputationentity": {
+    "name": "GetReputationEntity",
+    "description": "Grants permission to retrieve information about a reputation entity's status",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getsuppresseddestination": {
+    "name": "GetSuppressedDestination",
+    "description": "Grants permission to retrieve information about a specific email address that's on the suppression list for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "gettenant": {
+    "name": "GetTenant",
+    "description": "Grants permission to get information about a tenant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listcontactlists": {
+    "name": "ListContactLists",
+    "description": "Grants permission to list all of the contact lists available for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listcontacts": {
+    "name": "ListContacts",
+    "description": "Grants permission to list the contacts present in a specific contact list",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "contact-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listemailtemplates": {
+    "name": "ListEmailTemplates",
+    "description": "Grants permission to list all of the email templates for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listexportjobs": {
+    "name": "ListExportJobs",
+    "description": "Grants permission to list all the exports jobs for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:ExportSourceType"
+    ],
+    "dependentActions": []
+  },
+  "listimportjobs": {
+    "name": "ListImportJobs",
+    "description": "Grants permission to list all of the import jobs for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listmultiregionendpoints": {
+    "name": "ListMultiRegionEndpoints",
+    "description": "Grants permission to list all of the multi-region endpoints for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listrecommendations": {
+    "name": "ListRecommendations",
+    "description": "Grants permission to list recommendations for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listreputationentities": {
+    "name": "ListReputationEntities",
+    "description": "Grants permission to retrieve a list of reputation entities",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listresourcetenants": {
+    "name": "ListResourceTenants",
+    "description": "Grants permission to list all the tenants associated to a SES resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listsuppresseddestinations": {
+    "name": "ListSuppressedDestinations",
+    "description": "Grants permission to list email addresses that are on the suppression list for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listtenantresources": {
+    "name": "ListTenantResources",
+    "description": "Grants permission to list all the resources associated to a tenant",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtenants": {
+    "name": "ListTenants",
+    "description": "Grants permission to list all the tenants for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putaccountdetails": {
+    "name": "PutAccountDetails",
+    "description": "Grants permission to update your account details",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putaccountsuppressionattributes": {
+    "name": "PutAccountSuppressionAttributes",
+    "description": "Grants permission to change the settings for the account-level suppression list",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putaccountvdmattributes": {
+    "name": "PutAccountVdmAttributes",
+    "description": "Grants permission to change the settings for VDM for your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "putconfigurationsetarchivingoptions": {
+    "name": "PutConfigurationSetArchivingOptions",
+    "description": "Grants permission to associate a configuration set with a Mail Manager archive",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mailmanager-archive",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putconfigurationsetsuppressionoptions": {
+    "name": "PutConfigurationSetSuppressionOptions",
+    "description": "Grants permission to specify the account suppression list preferences for a particular configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putconfigurationsetvdmoptions": {
+    "name": "PutConfigurationSetVdmOptions",
+    "description": "Grants permission to override account-level VDM settings for a particular configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putdedicatedippoolscalingattributes": {
+    "name": "PutDedicatedIpPoolScalingAttributes",
+    "description": "Grants permission to transition a dedicated IP pool from Standard to Managed",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dedicated-ip-pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putemailidentityconfigurationsetattributes": {
+    "name": "PutEmailIdentityConfigurationSetAttributes",
+    "description": "Grants permission to associate a configuration set with an email identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putemailidentitydkimsigningattributes": {
+    "name": "PutEmailIdentityDkimSigningAttributes",
+    "description": "Grants permission to configure or change the DKIM authentication settings for an email domain identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putsuppresseddestination": {
+    "name": "PutSuppressedDestination",
+    "description": "Grants permission to add an email address to the suppression list",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "replicateemailidentitydkimsigningkey": {
+    "name": "ReplicateEmailIdentityDkimSigningKey",
+    "isPermissionOnly": true,
+    "description": "Grants permission to replicate email identity DKIM signing key",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ReplicaRegion"
+    ],
+    "dependentActions": []
+  },
+  "sendbulkemail": {
+    "name": "SendBulkEmail",
+    "description": "Grants permission to compose an email message to multiple destinations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "ses:MultiRegionEndpointId",
+      "ses:TenantName"
+    ],
+    "dependentActions": []
+  },
+  "testrenderemailtemplate": {
+    "name": "TestRenderEmailTemplate",
+    "description": "Grants permission to create a preview of the MIME content of an email when provided with a template and a set of replacement data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updatecontact": {
+    "name": "UpdateContact",
+    "description": "Grants permission to update a contact's preferences for a list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatecontactlist": {
+    "name": "UpdateContactList",
+    "description": "Grants permission to update contact list metadata",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateemailidentitypolicy": {
+    "name": "UpdateEmailIdentityPolicy",
+    "description": "Grants permission to update the specified sending authorization policy for the given identity (an email address or a domain)",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateemailtemplate": {
+    "name": "UpdateEmailTemplate",
+    "description": "Grants permission to update an email template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updatereputationentitycustomermanagedstatus": {
+    "name": "UpdateReputationEntityCustomerManagedStatus",
+    "description": "Grants permission to update the customer-managed sending status",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatereputationentitypolicy": {
+    "name": "UpdateReputationEntityPolicy",
+    "description": "Grants permission to assign a reputation policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reputation-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

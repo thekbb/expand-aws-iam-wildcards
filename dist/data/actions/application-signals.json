@@ -1,0 +1,274 @@
+{
+  "batchgetservicelevelobjectivebudgetreport": {
+    "name": "BatchGetServiceLevelObjectiveBudgetReport",
+    "description": "Grants permission to batch retrieve a service level objective budget report",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchupdateexclusionwindows": {
+    "name": "BatchUpdateExclusionWindows",
+    "description": "Grants permission to add or remove exclusion windows from Amazon CloudWatch SLOs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createservicelevelobjective": {
+    "name": "CreateServiceLevelObjective",
+    "description": "Grants permission to create a service level objective",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletegroupingconfiguration": {
+    "name": "DeleteGroupingConfiguration",
+    "description": "Grants permission to delete a grouping configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservicelevelobjective": {
+    "name": "DeleteServiceLevelObjective",
+    "description": "Grants permission to delete a service level objective",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservice": {
+    "name": "GetService",
+    "description": "Grants permission to retrieve information about a service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicelevelobjective": {
+    "name": "GetServiceLevelObjective",
+    "description": "Grants permission to retrieve information about service level objective",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "link": {
+    "name": "Link",
+    "isPermissionOnly": true,
+    "description": "Grants permission to share Application Signals resources with a monitoring account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listauditfindings": {
+    "name": "ListAuditFindings",
+    "description": "Grants permission to list service auditing results",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listentityevents": {
+    "name": "ListEntityEvents",
+    "description": "Grants permission to list events for an entity",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgroupingattributedefinitions": {
+    "name": "ListGroupingAttributeDefinitions",
+    "description": "Grants permission to list grouping attribute configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listobservedentities": {
+    "name": "ListObservedEntities",
+    "description": "Grants permission to list entities associated with other entities",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicedependencies": {
+    "name": "ListServiceDependencies",
+    "description": "Grants permission to list service dependencies",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicedependents": {
+    "name": "ListServiceDependents",
+    "description": "Grants permission to list service dependents",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicelevelobjectiveexclusionwindows": {
+    "name": "ListServiceLevelObjectiveExclusionWindows",
+    "description": "Grants permission to list exclusion windows for an Amazon CloudWatch SLO",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicelevelobjectives": {
+    "name": "ListServiceLevelObjectives",
+    "description": "Grants permission to list service level objectives",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listserviceoperations": {
+    "name": "ListServiceOperations",
+    "description": "Grants permission to list service operations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicestates": {
+    "name": "ListServiceStates",
+    "description": "Grants permission to list service states",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservices": {
+    "name": "ListServices",
+    "description": "Grants permission to list services",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an Amazon CloudWatch SLO",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putgroupingconfiguration": {
+    "name": "PutGroupingConfiguration",
+    "description": "Grants permission to create or update a grouping configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdiscovery": {
+    "name": "StartDiscovery",
+    "description": "Grants permission to enable CloudWatch discovery",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to an Amazon CloudWatch SLO",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag to an Amazon CloudWatch SLO",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateservicelevelobjective": {
+    "name": "UpdateServiceLevelObjective",
+    "description": "Grants permission to update a service level objective",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

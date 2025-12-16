@@ -1,0 +1,10 @@
+{
+  "syncprofileresource": {
+    "key": "SyncProfileResource",
+    "arn": "arn:${Partition}:identity-sync:${Region}:${Account}:profile/${SyncProfileName}"
+  },
+  "synctargetresource": {
+    "key": "SyncTargetResource",
+    "arn": "arn:${Partition}:identity-sync:${Region}:${Account}:target/${SyncProfileName}/${SyncTargetName}"
+  }
+}

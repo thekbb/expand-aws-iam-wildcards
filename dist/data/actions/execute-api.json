@@ -1,0 +1,53 @@
+{
+  "invalidatecache": {
+    "name": "InvalidateCache",
+    "description": "Used to invalidate API cache upon a client request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "execute-api-general",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invoke": {
+    "name": "Invoke",
+    "description": "Used to invoke an API upon a client request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "execute-api-domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "execute-api-general",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "manageconnections": {
+    "name": "ManageConnections",
+    "description": "ManageConnections controls access to the @connections API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "execute-api-general",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

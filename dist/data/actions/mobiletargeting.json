@@ -1,0 +1,1989 @@
+{
+  "createapp": {
+    "name": "CreateApp",
+    "description": "Grants permission to create an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "apps",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createcampaign": {
+    "name": "CreateCampaign",
+    "description": "Grants permission to create a campaign for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createemailtemplate": {
+    "name": "CreateEmailTemplate",
+    "description": "Grants permission to create an email template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createexportjob": {
+    "name": "CreateExportJob",
+    "description": "Grants permission to create an export job that exports endpoint definitions to Amazon S3",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createimportjob": {
+    "name": "CreateImportJob",
+    "description": "Grants permission to import endpoint definitions from to create a segment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createinapptemplate": {
+    "name": "CreateInAppTemplate",
+    "description": "Grants permission to create an in-app message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createjourney": {
+    "name": "CreateJourney",
+    "description": "Grants permission to create a Journey for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "journeys",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createpushtemplate": {
+    "name": "CreatePushTemplate",
+    "description": "Grants permission to create a push notification template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createrecommenderconfiguration": {
+    "name": "CreateRecommenderConfiguration",
+    "description": "Grants permission to create an Amazon Pinpoint configuration for a recommender model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recommenders",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsegment": {
+    "name": "CreateSegment",
+    "description": "Grants permission to create a segment that is based on endpoint data reported to Pinpoint by your app. To allow a user to create a segment by importing endpoint data from outside of Pinpoint, allow the mobiletargeting:CreateImportJob action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createsmstemplate": {
+    "name": "CreateSmsTemplate",
+    "description": "Grants permission to create an sms message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createvoicetemplate": {
+    "name": "CreateVoiceTemplate",
+    "description": "Grants permission to create a voice message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteadmchannel": {
+    "name": "DeleteAdmChannel",
+    "description": "Grants permission to delete the ADM channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapnschannel": {
+    "name": "DeleteApnsChannel",
+    "description": "Grants permission to delete the APNs channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapnssandboxchannel": {
+    "name": "DeleteApnsSandboxChannel",
+    "description": "Grants permission to delete the APNs sandbox channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapnsvoipchannel": {
+    "name": "DeleteApnsVoipChannel",
+    "description": "Grants permission to delete the APNs VoIP channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapnsvoipsandboxchannel": {
+    "name": "DeleteApnsVoipSandboxChannel",
+    "description": "Grants permission to delete the APNs VoIP sandbox channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapp": {
+    "name": "DeleteApp",
+    "description": "Grants permission to delete a specific campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebaiduchannel": {
+    "name": "DeleteBaiduChannel",
+    "description": "Grants permission to delete the Baidu channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecampaign": {
+    "name": "DeleteCampaign",
+    "description": "Grants permission to delete a specific campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteemailchannel": {
+    "name": "DeleteEmailChannel",
+    "description": "Grants permission to delete the email channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteemailtemplate": {
+    "name": "DeleteEmailTemplate",
+    "description": "Grants permission to delete an email template or an email template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteendpoint": {
+    "name": "DeleteEndpoint",
+    "description": "Grants permission to delete an endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeventstream": {
+    "name": "DeleteEventStream",
+    "description": "Grants permission to delete the event stream for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegcmchannel": {
+    "name": "DeleteGcmChannel",
+    "description": "Grants permission to delete the GCM channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinapptemplate": {
+    "name": "DeleteInAppTemplate",
+    "description": "Grants permission to delete an in-app message template or an in-app message template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletejourney": {
+    "name": "DeleteJourney",
+    "description": "Grants permission to delete a specific journey",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "journey",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepushtemplate": {
+    "name": "DeletePushTemplate",
+    "description": "Grants permission to delete a push notification template or a push notification template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterecommenderconfiguration": {
+    "name": "DeleteRecommenderConfiguration",
+    "description": "Grants permission to delete an Amazon Pinpoint configuration for a recommender model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recommender",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesegment": {
+    "name": "DeleteSegment",
+    "description": "Grants permission to delete a specific segment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "segment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesmschannel": {
+    "name": "DeleteSmsChannel",
+    "description": "Grants permission to delete the SMS channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesmstemplate": {
+    "name": "DeleteSmsTemplate",
+    "description": "Grants permission to delete an sms message template or an sms message template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteuserendpoints": {
+    "name": "DeleteUserEndpoints",
+    "description": "Grants permission to delete all of the endpoints that are associated with a user ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevoicechannel": {
+    "name": "DeleteVoiceChannel",
+    "description": "Grants permission to delete the Voice channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevoicetemplate": {
+    "name": "DeleteVoiceTemplate",
+    "description": "Grants permission to delete a voice message template or a voice message template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getadmchannel": {
+    "name": "GetAdmChannel",
+    "description": "Grants permission to retrieve information about the Amazon Device Messaging (ADM) channel for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapnschannel": {
+    "name": "GetApnsChannel",
+    "description": "Grants permission to retrieve information about the APNs channel for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapnssandboxchannel": {
+    "name": "GetApnsSandboxChannel",
+    "description": "Grants permission to retrieve information about the APNs sandbox channel for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapnsvoipchannel": {
+    "name": "GetApnsVoipChannel",
+    "description": "Grants permission to retrieve information about the APNs VoIP channel for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapnsvoipsandboxchannel": {
+    "name": "GetApnsVoipSandboxChannel",
+    "description": "Grants permission to retrieve information about the APNs VoIP sandbox channel for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapp": {
+    "name": "GetApp",
+    "description": "Grants permission to retrieve information about a specific app in your Amazon Pinpoint account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapplicationdaterangekpi": {
+    "name": "GetApplicationDateRangeKpi",
+    "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard metric that applies to an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application-metrics",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapplicationsettings": {
+    "name": "GetApplicationSettings",
+    "description": "Grants permission to retrieve the default settings for an app",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapps": {
+    "name": "GetApps",
+    "description": "Grants permission to retrieve a list of apps in your Amazon Pinpoint account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "apps",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbaiduchannel": {
+    "name": "GetBaiduChannel",
+    "description": "Grants permission to retrieve information about the Baidu channel for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcampaign": {
+    "name": "GetCampaign",
+    "description": "Grants permission to retrieve information about a specific campaign",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcampaignactivities": {
+    "name": "GetCampaignActivities",
+    "description": "Grants permission to retrieve information about the activities performed by a campaign",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcampaigndaterangekpi": {
+    "name": "GetCampaignDateRangeKpi",
+    "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard metric that applies to a campaign",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign-metrics",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcampaignversion": {
+    "name": "GetCampaignVersion",
+    "description": "Grants permission to retrieve information about a specific campaign version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcampaignversions": {
+    "name": "GetCampaignVersions",
+    "description": "Grants permission to retrieve information about the current and prior versions of a campaign",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcampaigns": {
+    "name": "GetCampaigns",
+    "description": "Grants permission to retrieve information about all campaigns for an app",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannels": {
+    "name": "GetChannels",
+    "description": "Grants permission to get all channels information for your app",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getemailchannel": {
+    "name": "GetEmailChannel",
+    "description": "Grants permission to obtain information about the email channel in an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getemailtemplate": {
+    "name": "GetEmailTemplate",
+    "description": "Grants permission to retrieve information about a specific or the active version of an email template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getendpoint": {
+    "name": "GetEndpoint",
+    "description": "Grants permission to retrieve information about a specific endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "geteventstream": {
+    "name": "GetEventStream",
+    "description": "Grants permission to retrieve information about the event stream for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "event-stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexportjob": {
+    "name": "GetExportJob",
+    "description": "Grants permission to obtain information about a specific export job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "export-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexportjobs": {
+    "name": "GetExportJobs",
+    "description": "Grants permission to retrieve a list of all of the export jobs for an app",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgcmchannel": {
+    "name": "GetGcmChannel",
+    "description": "Grants permission to retrieve information about the GCM channel for an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getimportjob": {
+    "name": "GetImportJob",
+    "description": "Grants permission to retrieve information about a specific import job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "import-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getimportjobs": {
+    "name": "GetImportJobs",
+    "description": "Grants permission to retrieve information about all import jobs for an app",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinappmessages": {
+    "name": "GetInAppMessages",
+    "description": "Grants permission to retrive in-app messages for the given endpoint id",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinapptemplate": {
+    "name": "GetInAppTemplate",
+    "description": "Grants permission to retrieve information about a specific or the active version of an in-app message template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjourney": {
+    "name": "GetJourney",
+    "description": "Grants permission to retrieve information about a specific journey",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "journey",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjourneydaterangekpi": {
+    "name": "GetJourneyDateRangeKpi",
+    "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard engagement metric that applies to a journey",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "journey-metrics",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjourneyexecutionactivitymetrics": {
+    "name": "GetJourneyExecutionActivityMetrics",
+    "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard execution metric that applies to a journey activity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "journey-execution-activity-metrics",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjourneyexecutionmetrics": {
+    "name": "GetJourneyExecutionMetrics",
+    "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard execution metric that applies to a journey",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "journey-execution-metrics",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjourneyrunexecutionactivitymetrics": {
+    "name": "GetJourneyRunExecutionActivityMetrics",
+    "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard execution metric that applies to a journey activity for a single journey run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "journey",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjourneyrunexecutionmetrics": {
+    "name": "GetJourneyRunExecutionMetrics",
+    "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard execution metric that applies to a journey for a single journey run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "journey",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjourneyruns": {
+    "name": "GetJourneyRuns",
+    "description": "Grants permission to retrieve information about all journey runs for a journey",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "journey",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpushtemplate": {
+    "name": "GetPushTemplate",
+    "description": "Grants permission to retrieve information about a specific or the active version of an push notification template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecommenderconfiguration": {
+    "name": "GetRecommenderConfiguration",
+    "description": "Grants permission to retrieve information about an Amazon Pinpoint configuration for a recommender model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "recommender",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecommenderconfigurations": {
+    "name": "GetRecommenderConfigurations",
+    "description": "Grants permission to retrieve information about all the recommender model configurations that are associated with an Amazon Pinpoint account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "recommenders",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreports": {
+    "name": "GetReports",
+    "isPermissionOnly": true,
+    "description": "Grants permission to mobiletargeting:GetReports",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "reports",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegment": {
+    "name": "GetSegment",
+    "description": "Grants permission to retrieve information about a specific segment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "segment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegmentexportjobs": {
+    "name": "GetSegmentExportJobs",
+    "description": "Grants permission to retrieve information about jobs that export endpoint definitions from segments to Amazon S3",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "segment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegmentimportjobs": {
+    "name": "GetSegmentImportJobs",
+    "description": "Grants permission to retrieve information about jobs that create segments by importing endpoint definitions from",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "segment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegmentversion": {
+    "name": "GetSegmentVersion",
+    "description": "Grants permission to retrieve information about a specific segment version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "segment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegmentversions": {
+    "name": "GetSegmentVersions",
+    "description": "Grants permission to retrieve information about the current and prior versions of a segment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "segment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegments": {
+    "name": "GetSegments",
+    "description": "Grants permission to retrieve information about the segments for an app",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsmschannel": {
+    "name": "GetSmsChannel",
+    "description": "Grants permission to obtain information about the SMS channel in an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsmstemplate": {
+    "name": "GetSmsTemplate",
+    "description": "Grants permission to retrieve information about a specific or the active version of an sms message template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getuserendpoints": {
+    "name": "GetUserEndpoints",
+    "description": "Grants permission to retrieve information about the endpoints that are associated with a user ID",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvoicechannel": {
+    "name": "GetVoiceChannel",
+    "description": "Grants permission to obtain information about the Voice channel in an app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvoicetemplate": {
+    "name": "GetVoiceTemplate",
+    "description": "Grants permission to retrieve information about a specific or the active version of a voice message template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjourneys": {
+    "name": "ListJourneys",
+    "description": "Grants permission to retrieve information about all journeys for an app",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "journey",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtemplateversions": {
+    "name": "ListTemplateVersions",
+    "description": "Grants permission to retrieve all versions about a specific template",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtemplates": {
+    "name": "ListTemplates",
+    "description": "Grants permission to retrieve metadata about the queried templates",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "templates",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "phonenumbervalidate": {
+    "name": "PhoneNumberValidate",
+    "description": "Grants permission to obtain metadata for a phone number, such as the number type (mobile, landline, or VoIP), location, and provider",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "phone-number-validate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puteventstream": {
+    "name": "PutEventStream",
+    "description": "Grants permission to create or update an event stream for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putevents": {
+    "name": "PutEvents",
+    "description": "Grants permission to create or update events for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "events",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeattributes": {
+    "name": "RemoveAttributes",
+    "description": "Grants permission to remove the attributes for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attribute",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendmessages": {
+    "name": "SendMessages",
+    "description": "Grants permission to send an SMS message or push notification to specific endpoints",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "messages",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendotpmessage": {
+    "name": "SendOTPMessage",
+    "description": "Grants permission to send an OTP code to a user of your application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "otp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendusersmessages": {
+    "name": "SendUsersMessages",
+    "description": "Grants permission to send an SMS message or push notification to all endpoints that are associated with a specific user ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "messages",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "journey",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "journey",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateadmchannel": {
+    "name": "UpdateAdmChannel",
+    "description": "Grants permission to update the Amazon Device Messaging (ADM) channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapnschannel": {
+    "name": "UpdateApnsChannel",
+    "description": "Grants permission to update the Apple Push Notification service (APNs) channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapnssandboxchannel": {
+    "name": "UpdateApnsSandboxChannel",
+    "description": "Grants permission to update the Apple Push Notification service (APNs) sandbox channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapnsvoipchannel": {
+    "name": "UpdateApnsVoipChannel",
+    "description": "Grants permission to update the Apple Push Notification service (APNs) VoIP channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapnsvoipsandboxchannel": {
+    "name": "UpdateApnsVoipSandboxChannel",
+    "description": "Grants permission to update the Apple Push Notification service (APNs) VoIP sandbox channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapplicationsettings": {
+    "name": "UpdateApplicationSettings",
+    "description": "Grants permission to update the default settings for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebaiduchannel": {
+    "name": "UpdateBaiduChannel",
+    "description": "Grants permission to update the Baidu channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaign": {
+    "name": "UpdateCampaign",
+    "description": "Grants permission to update a specific campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateemailchannel": {
+    "name": "UpdateEmailChannel",
+    "description": "Grants permission to update the email channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateemailtemplate": {
+    "name": "UpdateEmailTemplate",
+    "description": "Grants permission to update a specific email template under the same version or generate a new version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateendpoint": {
+    "name": "UpdateEndpoint",
+    "description": "Grants permission to create an endpoint or update the information for an endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateendpointsbatch": {
+    "name": "UpdateEndpointsBatch",
+    "description": "Grants permission to create or update endpoints as a batch operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updategcmchannel": {
+    "name": "UpdateGcmChannel",
+    "description": "Grants permission to update the Firebase Cloud Messaging (FCM) or Google Cloud Messaging (GCM) API key that allows to send push notifications to your Android app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinapptemplate": {
+    "name": "UpdateInAppTemplate",
+    "description": "Grants permission to update a specific in-app message template under the same version or generate a new version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatejourney": {
+    "name": "UpdateJourney",
+    "description": "Grants permission to update a specific journey",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "journey",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatejourneystate": {
+    "name": "UpdateJourneyState",
+    "description": "Grants permission to update a specific journey state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "journey",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatepushtemplate": {
+    "name": "UpdatePushTemplate",
+    "description": "Grants permission to update a specific push notification template under the same version or generate a new version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updaterecommenderconfiguration": {
+    "name": "UpdateRecommenderConfiguration",
+    "description": "Grants permission to update an Amazon Pinpoint configuration for a recommender model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recommender",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesegment": {
+    "name": "UpdateSegment",
+    "description": "Grants permission to update a specific segment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "segment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatesmschannel": {
+    "name": "UpdateSmsChannel",
+    "description": "Grants permission to update the SMS channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesmstemplate": {
+    "name": "UpdateSmsTemplate",
+    "description": "Grants permission to update a specific sms message template under the same version or generate a new version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatetemplateactiveversion": {
+    "name": "UpdateTemplateActiveVersion",
+    "description": "Grants permission to update the active version parameter of a specific template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevoicechannel": {
+    "name": "UpdateVoiceChannel",
+    "description": "Grants permission to update the Voice channel for an app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevoicetemplate": {
+    "name": "UpdateVoiceTemplate",
+    "description": "Grants permission to update a specific voice message template under the same version or generate a new version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "verifyotpmessage": {
+    "name": "VerifyOTPMessage",
+    "description": "Grants permission to check the validity of One-Time Passwords (OTPs)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "verify-otp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

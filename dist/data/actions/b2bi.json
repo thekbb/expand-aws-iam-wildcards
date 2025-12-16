@@ -1,0 +1,499 @@
+{
+  "createcapability": {
+    "name": "CreateCapability",
+    "description": "Grants permission to create a capability",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createpartnership": {
+    "name": "CreatePartnership",
+    "description": "Grants permission to create a partnership",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createprofile": {
+    "name": "CreateProfile",
+    "description": "Grants permission to create a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstartermappingtemplate": {
+    "name": "CreateStarterMappingTemplate",
+    "description": "Grants permission to generate a starter JSONATA/XSLT template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtransformer": {
+    "name": "CreateTransformer",
+    "description": "Grants permission to create a transformer",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletecapability": {
+    "name": "DeleteCapability",
+    "description": "Grants permission to delete a capability",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepartnership": {
+    "name": "DeletePartnership",
+    "description": "Grants permission to delete an partnership",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "partnership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprofile": {
+    "name": "DeleteProfile",
+    "description": "Grants permission to delete a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetransformer": {
+    "name": "DeleteTransformer",
+    "description": "Grants permission to delete a transformer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "generatemapping": {
+    "name": "GenerateMapping",
+    "description": "Grants permission to generate a starter JSONATA/XSLT mapping template from Amazon Bedrock",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcapability": {
+    "name": "GetCapability",
+    "description": "Grants permission to get a capability",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpartnership": {
+    "name": "GetPartnership",
+    "description": "Grants permission to get a partnership",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "partnership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprofile": {
+    "name": "GetProfile",
+    "description": "Grants permission to get a profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettransformer": {
+    "name": "GetTransformer",
+    "description": "Grants permission to get a transformer",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettransformerjob": {
+    "name": "GetTransformerJob",
+    "description": "Grants permission to get a transformer job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcapabilities": {
+    "name": "ListCapabilities",
+    "description": "Grants permission to list all capabilities",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpartnerships": {
+    "name": "ListPartnerships",
+    "description": "Grants permission to list all partnerships",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprofiles": {
+    "name": "ListProfiles",
+    "description": "Grants permission to list all profiles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a B2Bi resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "partnership",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "transformer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtransformers": {
+    "name": "ListTransformers",
+    "description": "Grants permission to list all transformers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttransformerjob": {
+    "name": "StartTransformerJob",
+    "description": "Grants permission to transformer a document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a B2Bi resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "partnership",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "transformer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "testconversion": {
+    "name": "TestConversion",
+    "description": "Grants permission to convert a JSON/XML to an edi document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "testmapping": {
+    "name": "TestMapping",
+    "description": "Grants permission to map a sample file",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "testparsing": {
+    "name": "TestParsing",
+    "description": "Grants permission to parse an edi document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a B2Bi resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "partnership",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "transformer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecapability": {
+    "name": "UpdateCapability",
+    "description": "Grants permission to update a capability",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "transformer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepartnership": {
+    "name": "UpdatePartnership",
+    "description": "Grants permission to update a partnership",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "partnership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "capability",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprofile": {
+    "name": "UpdateProfile",
+    "description": "Grants permission to update a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetransformer": {
+    "name": "UpdateTransformer",
+    "description": "Grants permission to update a transformer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transformer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

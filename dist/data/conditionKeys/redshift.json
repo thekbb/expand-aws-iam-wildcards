@@ -1,0 +1,62 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by actions based on the allowed set of values for each of the tags",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by actions based on tag-value associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by actions based on the presence of mandatory tags in the request",
+    "type": "ArrayOfString"
+  },
+  "redshift:allowwrites": {
+    "key": "redshift:AllowWrites",
+    "description": "Filters access by the allowWrites input parameter",
+    "type": "Bool"
+  },
+  "redshift:consumerarn": {
+    "key": "redshift:ConsumerArn",
+    "description": "Filters access by the datashare consumer arn",
+    "type": "ARN"
+  },
+  "redshift:consumeridentifier": {
+    "key": "redshift:ConsumerIdentifier",
+    "description": "Filters access by the datashare consumer",
+    "type": "String"
+  },
+  "redshift:dbname": {
+    "key": "redshift:DbName",
+    "description": "Filters access by the database name",
+    "type": "String"
+  },
+  "redshift:dbuser": {
+    "key": "redshift:DbUser",
+    "description": "Filters access by the database user name",
+    "type": "String"
+  },
+  "redshift:durationseconds": {
+    "key": "redshift:DurationSeconds",
+    "description": "Filters access by the number of seconds until a temporary credential set expires",
+    "type": "String"
+  },
+  "redshift:inboundintegrationarn": {
+    "key": "redshift:InboundIntegrationArn",
+    "description": "Filters access by the ARN of an inbound zero-ETL Integration resource",
+    "type": "ARN"
+  },
+  "redshift:integrationsourcearn": {
+    "key": "redshift:IntegrationSourceArn",
+    "description": "Filters access by the ARN of a zero-ETL Integration source",
+    "type": "ARN"
+  },
+  "redshift:integrationtargetarn": {
+    "key": "redshift:IntegrationTargetArn",
+    "description": "Filters access by the ARN of a zero-ETL Integration target",
+    "type": "ARN"
+  }
+}

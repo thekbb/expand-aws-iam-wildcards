@@ -1,0 +1,2047 @@
+{
+  "acceptinputdevicetransfer": {
+    "name": "AcceptInputDeviceTransfer",
+    "description": "Grants permission to accept an input device transfer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdelete": {
+    "name": "BatchDelete",
+    "description": "Grants permission to delete channels, inputs, input security groups, and multiplexes",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchstart": {
+    "name": "BatchStart",
+    "description": "Grants permission to start channels and multiplexes",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchstop": {
+    "name": "BatchStop",
+    "description": "Grants permission to stop channels and multiplexes",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchupdateschedule": {
+    "name": "BatchUpdateSchedule",
+    "description": "Grants permission to add and remove actions from a channel's schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelinputdevicetransfer": {
+    "name": "CancelInputDeviceTransfer",
+    "description": "Grants permission to cancel an input device transfer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "claimdevice": {
+    "name": "ClaimDevice",
+    "description": "Grants permission to claim an input device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createchannel": {
+    "name": "CreateChannel",
+    "description": "Grants permission to create a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "input",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createchannelplacementgroup": {
+    "name": "CreateChannelPlacementGroup",
+    "description": "Grants permission to create a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel-placement-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcloudwatchalarmtemplate": {
+    "name": "CreateCloudWatchAlarmTemplate",
+    "description": "Grants permission to create a cloudwatch alarm template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cloudwatch-alarm-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloudwatch-alarm-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcloudwatchalarmtemplategroup": {
+    "name": "CreateCloudWatchAlarmTemplateGroup",
+    "description": "Grants permission to create a cloudwatch alarm template group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cloudwatch-alarm-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcluster": {
+    "name": "CreateCluster",
+    "description": "Grants permission to create a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createeventbridgeruletemplate": {
+    "name": "CreateEventBridgeRuleTemplate",
+    "description": "Grants permission to create a eventbridge rule template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventbridge-rule-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventbridge-rule-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createeventbridgeruletemplategroup": {
+    "name": "CreateEventBridgeRuleTemplateGroup",
+    "description": "Grants permission to create a eventbridge rule template group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventbridge-rule-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createinput": {
+    "name": "CreateInput",
+    "description": "Grants permission to create an input",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "input-security-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createinputsecuritygroup": {
+    "name": "CreateInputSecurityGroup",
+    "description": "Grants permission to create an input security group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-security-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmultiplex": {
+    "name": "CreateMultiplex",
+    "description": "Grants permission to create a multiplex",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmultiplexprogram": {
+    "name": "CreateMultiplexProgram",
+    "description": "Grants permission to create a multiplex program",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createnetwork": {
+    "name": "CreateNetwork",
+    "description": "Grants permission to create a network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createnode": {
+    "name": "CreateNode",
+    "description": "Grants permission to create a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createnoderegistrationscript": {
+    "name": "CreateNodeRegistrationScript",
+    "description": "Grants permission to create a node registration script",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createpartnerinput": {
+    "name": "CreatePartnerInput",
+    "description": "Grants permission to create a partner input",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsdisource": {
+    "name": "CreateSdiSource",
+    "description": "Grants permission to create a SDI source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sdi-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsignalmap": {
+    "name": "CreateSignalMap",
+    "description": "Grants permission to create a signal map",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signal-map",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtags": {
+    "name": "CreateTags",
+    "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, nodes, networks, clusters, channel placement groups, signal maps, SDI sources, template groups, and templates",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channel-placement-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloudwatch-alarm-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloudwatch-alarm-template-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventbridge-rule-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventbridge-rule-template-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "input",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "input-security-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "multiplex",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sdi-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "signal-map",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletechannel": {
+    "name": "DeleteChannel",
+    "description": "Grants permission to delete a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletechannelplacementgroup": {
+    "name": "DeleteChannelPlacementGroup",
+    "description": "Grants permission to delete a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel-placement-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecloudwatchalarmtemplate": {
+    "name": "DeleteCloudWatchAlarmTemplate",
+    "description": "Grants permission to delete a cloudwatch alarm template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cloudwatch-alarm-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecloudwatchalarmtemplategroup": {
+    "name": "DeleteCloudWatchAlarmTemplateGroup",
+    "description": "Grants permission to delete a cloudwatch alarm template group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cloudwatch-alarm-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecluster": {
+    "name": "DeleteCluster",
+    "description": "Grants permission to delete a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeventbridgeruletemplate": {
+    "name": "DeleteEventBridgeRuleTemplate",
+    "description": "Grants permission to delete a eventbridge rule template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventbridge-rule-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeventbridgeruletemplategroup": {
+    "name": "DeleteEventBridgeRuleTemplateGroup",
+    "description": "Grants permission to delete a eventbridge rule template group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventbridge-rule-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinput": {
+    "name": "DeleteInput",
+    "description": "Grants permission to delete an input",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinputsecuritygroup": {
+    "name": "DeleteInputSecurityGroup",
+    "description": "Grants permission to delete an input security group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-security-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemultiplex": {
+    "name": "DeleteMultiplex",
+    "description": "Grants permission to delete a multiplex",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemultiplexprogram": {
+    "name": "DeleteMultiplexProgram",
+    "description": "Grants permission to delete a multiplex program",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletenetwork": {
+    "name": "DeleteNetwork",
+    "description": "Grants permission to delete a network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletenode": {
+    "name": "DeleteNode",
+    "description": "Grants permission to delete a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletereservation": {
+    "name": "DeleteReservation",
+    "description": "Grants permission to delete an expired reservation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reservation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteschedule": {
+    "name": "DeleteSchedule",
+    "description": "Grants permission to delete all schedule actions for a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesdisource": {
+    "name": "DeleteSdiSource",
+    "description": "Grants permission to delete a SDI source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sdi-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesignalmap": {
+    "name": "DeleteSignalMap",
+    "description": "Grants permission to delete a signal map",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signal-map",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetags": {
+    "name": "DeleteTags",
+    "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, SDI source, signal maps, template groups, and templates",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channel-placement-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloudwatch-alarm-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloudwatch-alarm-template-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventbridge-rule-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventbridge-rule-template-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "input",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "input-security-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "multiplex",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sdi-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "signal-map",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "describeaccountconfiguration": {
+    "name": "DescribeAccountConfiguration",
+    "description": "Grants permission to view the account configuration of the customer",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describechannel": {
+    "name": "DescribeChannel",
+    "description": "Grants permission to get details about a channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describechannelplacementgroup": {
+    "name": "DescribeChannelPlacementGroup",
+    "description": "Grants permission to describe a channel placement group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel-placement-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecluster": {
+    "name": "DescribeCluster",
+    "description": "Grants permission to describe a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinput": {
+    "name": "DescribeInput",
+    "description": "Grants permission to describe an input",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "input",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinputdevice": {
+    "name": "DescribeInputDevice",
+    "description": "Grants permission to describe an input device",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinputdevicethumbnail": {
+    "name": "DescribeInputDeviceThumbnail",
+    "description": "Grants permission to describe an input device thumbnail",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinputsecuritygroup": {
+    "name": "DescribeInputSecurityGroup",
+    "description": "Grants permission to describe an input security group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "input-security-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemultiplex": {
+    "name": "DescribeMultiplex",
+    "description": "Grants permission to describe a multiplex",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemultiplexprogram": {
+    "name": "DescribeMultiplexProgram",
+    "description": "Grants permission to describe a multiplex program",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describenetwork": {
+    "name": "DescribeNetwork",
+    "description": "Grants permission to describe a network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describenode": {
+    "name": "DescribeNode",
+    "description": "Grants permission to describe a node",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeoffering": {
+    "name": "DescribeOffering",
+    "description": "Grants permission to get details about a reservation offering",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "offering",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereservation": {
+    "name": "DescribeReservation",
+    "description": "Grants permission to get details about a reservation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "reservation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeschedule": {
+    "name": "DescribeSchedule",
+    "description": "Grants permission to view a list of actions scheduled on a channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesdisource": {
+    "name": "DescribeSdiSource",
+    "description": "Grants permission to describe a SDI source",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sdi-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describethumbnails": {
+    "name": "DescribeThumbnails",
+    "description": "Grants permission to view the thumbnails for a channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcloudwatchalarmtemplate": {
+    "name": "GetCloudWatchAlarmTemplate",
+    "description": "Grants permission to get a cloudwatch alarm template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cloudwatch-alarm-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcloudwatchalarmtemplategroup": {
+    "name": "GetCloudWatchAlarmTemplateGroup",
+    "description": "Grants permission to get a cloudwatch alarm template group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cloudwatch-alarm-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "geteventbridgeruletemplate": {
+    "name": "GetEventBridgeRuleTemplate",
+    "description": "Grants permission to get a eventbridge rule template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eventbridge-rule-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "geteventbridgeruletemplategroup": {
+    "name": "GetEventBridgeRuleTemplateGroup",
+    "description": "Grants permission to get a eventbridge rule template group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eventbridge-rule-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsignalmap": {
+    "name": "GetSignalMap",
+    "description": "Grants permission to get a signal map",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "signal-map",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listalerts": {
+    "name": "ListAlerts",
+    "description": "Grants permission to list channel alerts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listchannelplacementgroups": {
+    "name": "ListChannelPlacementGroups",
+    "description": "Grants permission to list channel placement groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listchannels": {
+    "name": "ListChannels",
+    "description": "Grants permission to list channels",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcloudwatchalarmtemplategroups": {
+    "name": "ListCloudWatchAlarmTemplateGroups",
+    "description": "Grants permission to list cloudwatch alarm template groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcloudwatchalarmtemplates": {
+    "name": "ListCloudWatchAlarmTemplates",
+    "description": "Grants permission to list cloudwatch alarm templates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclusteralerts": {
+    "name": "ListClusterAlerts",
+    "description": "Grants permission to list cluster alerts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclusters": {
+    "name": "ListClusters",
+    "description": "Grants permission to list clusters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeventbridgeruletemplategroups": {
+    "name": "ListEventBridgeRuleTemplateGroups",
+    "description": "Grants permission to list eventbridge rule template groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeventbridgeruletemplates": {
+    "name": "ListEventBridgeRuleTemplates",
+    "description": "Grants permission to list eventbridge rule templates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinputdevicetransfers": {
+    "name": "ListInputDeviceTransfers",
+    "description": "Grants permission to list input device transfers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinputdevices": {
+    "name": "ListInputDevices",
+    "description": "Grants permission to list input devices",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinputsecuritygroups": {
+    "name": "ListInputSecurityGroups",
+    "description": "Grants permission to list input security groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinputs": {
+    "name": "ListInputs",
+    "description": "Grants permission to list inputs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmultiplexalerts": {
+    "name": "ListMultiplexAlerts",
+    "description": "Grants permission to list multiplex alerts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmultiplexprograms": {
+    "name": "ListMultiplexPrograms",
+    "description": "Grants permission to list multiplex programs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmultiplexes": {
+    "name": "ListMultiplexes",
+    "description": "Grants permission to list multiplexes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworks": {
+    "name": "ListNetworks",
+    "description": "Grants permission to list networks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnodes": {
+    "name": "ListNodes",
+    "description": "Grants permission to list nodes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listofferings": {
+    "name": "ListOfferings",
+    "description": "Grants permission to list reservation offerings",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreservations": {
+    "name": "ListReservations",
+    "description": "Grants permission to list reservations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsdisources": {
+    "name": "ListSdiSources",
+    "description": "Grants permission to list SDI sources",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsignalmaps": {
+    "name": "ListSignalMaps",
+    "description": "Grants permission to list signal maps",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, SDI sources, signal maps, template groups, and templates",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channel-placement-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloudwatch-alarm-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloudwatch-alarm-template-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventbridge-rule-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventbridge-rule-template-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "input",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "input-security-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "multiplex",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sdi-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "signal-map",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listversions": {
+    "name": "ListVersions",
+    "description": "Grants permission to list available versions of MediaLive",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "pollanywhere": {
+    "name": "PollAnywhere",
+    "description": "Grants permission to the node to poll the cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "purchaseoffering": {
+    "name": "PurchaseOffering",
+    "description": "Grants permission to purchase a reservation offering",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "offering",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "rebootinputdevice": {
+    "name": "RebootInputDevice",
+    "description": "Grants permission to reboot an input device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectinputdevicetransfer": {
+    "name": "RejectInputDeviceTransfer",
+    "description": "Grants permission to reject an input device transfer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restartchannelpipelines": {
+    "name": "RestartChannelPipelines",
+    "description": "Grants permission to restart pipelines on a running channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startchannel": {
+    "name": "StartChannel",
+    "description": "Grants permission to start a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdeletemonitordeployment": {
+    "name": "StartDeleteMonitorDeployment",
+    "description": "Grants permission to start deletion of a signal map's monitor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signal-map",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startinputdevice": {
+    "name": "StartInputDevice",
+    "description": "Grants permission to start an input device attached to a MediaConnect flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startinputdevicemaintenancewindow": {
+    "name": "StartInputDeviceMaintenanceWindow",
+    "description": "Grants permission to start a maintenance window for an input device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmonitordeployment": {
+    "name": "StartMonitorDeployment",
+    "description": "Grants permission to start a signal map monitor deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signal-map",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmultiplex": {
+    "name": "StartMultiplex",
+    "description": "Grants permission to start a multiplex",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startupdatesignalmap": {
+    "name": "StartUpdateSignalMap",
+    "description": "Grants permission to start a signal map update",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signal-map",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopchannel": {
+    "name": "StopChannel",
+    "description": "Grants permission to stop a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopinputdevice": {
+    "name": "StopInputDevice",
+    "description": "Grants permission to stop an input device attached to a MediaConnect flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopmultiplex": {
+    "name": "StopMultiplex",
+    "description": "Grants permission to stop a multiplex",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "submitanywherestatechange": {
+    "name": "SubmitAnywhereStateChange",
+    "description": "Grants permission to the node to submit state changes to the cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "transferinputdevice": {
+    "name": "TransferInputDevice",
+    "description": "Grants permission to transfer an input device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateaccountconfiguration": {
+    "name": "UpdateAccountConfiguration",
+    "description": "Grants permission to update a customer's account configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatechannel": {
+    "name": "UpdateChannel",
+    "description": "Grants permission to update a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatechannelclass": {
+    "name": "UpdateChannelClass",
+    "description": "Grants permission to update the class of a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatechannelplacementgroup": {
+    "name": "UpdateChannelPlacementGroup",
+    "description": "Grants permission to update a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel-placement-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecloudwatchalarmtemplate": {
+    "name": "UpdateCloudWatchAlarmTemplate",
+    "description": "Grants permission to update a cloudwatch alarm template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cloudwatch-alarm-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloudwatch-alarm-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecloudwatchalarmtemplategroup": {
+    "name": "UpdateCloudWatchAlarmTemplateGroup",
+    "description": "Grants permission to update a cloudwatch alarm template group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cloudwatch-alarm-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecluster": {
+    "name": "UpdateCluster",
+    "description": "Grants permission to update a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateeventbridgeruletemplate": {
+    "name": "UpdateEventBridgeRuleTemplate",
+    "description": "Grants permission to update a eventbridge rule template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventbridge-rule-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventbridge-rule-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateeventbridgeruletemplategroup": {
+    "name": "UpdateEventBridgeRuleTemplateGroup",
+    "description": "Grants permission to update a eventbridge rule template group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventbridge-rule-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinput": {
+    "name": "UpdateInput",
+    "description": "Grants permission to update an input",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinputdevice": {
+    "name": "UpdateInputDevice",
+    "description": "Grants permission to update an input device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinputsecuritygroup": {
+    "name": "UpdateInputSecurityGroup",
+    "description": "Grants permission to update an input security group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "input-security-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatemultiplex": {
+    "name": "UpdateMultiplex",
+    "description": "Grants permission to update a multiplex",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemultiplexprogram": {
+    "name": "UpdateMultiplexProgram",
+    "description": "Grants permission to update a multiplex program",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatenetwork": {
+    "name": "UpdateNetwork",
+    "description": "Grants permission to update the state of a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatenode": {
+    "name": "UpdateNode",
+    "description": "Grants permission to update a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatenodestate": {
+    "name": "UpdateNodeState",
+    "description": "Grants permission to update the state of a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatereservation": {
+    "name": "UpdateReservation",
+    "description": "Grants permission to update a reservation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reservation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesdisource": {
+    "name": "UpdateSdiSource",
+    "description": "Grants permission to update the state of a sdi source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sdi-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,995 @@
+{
+  "activateeventsource": {
+    "name": "ActivateEventSource",
+    "description": "Grants permission to activate partner event sources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "allowvendedlogdeliveryforresource": {
+    "name": "AllowVendedLogDeliveryForResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to configure vended log delivery for EventBridge",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-bus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelreplay": {
+    "name": "CancelReplay",
+    "description": "Grants permission to cancel a replay",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replay",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapidestination": {
+    "name": "CreateApiDestination",
+    "description": "Grants permission to create a new api destination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api-destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createarchive": {
+    "name": "CreateArchive",
+    "description": "Grants permission to create a new archive",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-bus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createconnection": {
+    "name": "CreateConnection",
+    "description": "Grants permission to create a new connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createendpoint": {
+    "name": "CreateEndpoint",
+    "description": "Grants permission to create an endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:EventBusArn"
+    ],
+    "dependentActions": []
+  },
+  "createeventbus": {
+    "name": "CreateEventBus",
+    "description": "Grants permission to create event buses",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-bus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpartnereventsource": {
+    "name": "CreatePartnerEventSource",
+    "description": "Grants permission to create partner event sources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deactivateeventsource": {
+    "name": "DeactivateEventSource",
+    "description": "Grants permission to deactivate event sources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deauthorizeconnection": {
+    "name": "DeauthorizeConnection",
+    "description": "Grants permission to deauthorize a connection, deleting its stored authorization secrets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapidestination": {
+    "name": "DeleteApiDestination",
+    "description": "Grants permission to delete an api destination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api-destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletearchive": {
+    "name": "DeleteArchive",
+    "description": "Grants permission to delete an archive",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnection": {
+    "name": "DeleteConnection",
+    "description": "Grants permission to delete a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteendpoint": {
+    "name": "DeleteEndpoint",
+    "description": "Grants permission to delete an endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeventbus": {
+    "name": "DeleteEventBus",
+    "description": "Grants permission to delete event buses",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-bus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepartnereventsource": {
+    "name": "DeletePartnerEventSource",
+    "description": "Grants permission to delete partner event sources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterule": {
+    "name": "DeleteRule",
+    "description": "Grants permission to delete rules",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:creatorAccount",
+      "events:ManagedBy"
+    ],
+    "dependentActions": []
+  },
+  "describeapidestination": {
+    "name": "DescribeApiDestination",
+    "description": "Grants permission to retrieve details about an api destination",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "api-destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describearchive": {
+    "name": "DescribeArchive",
+    "description": "Grants permission to retrieve details about an archive",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeconnection": {
+    "name": "DescribeConnection",
+    "description": "Grants permission to retrieve details about a conection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeendpoint": {
+    "name": "DescribeEndpoint",
+    "description": "Grants permission to retrieve details about an endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeeventbus": {
+    "name": "DescribeEventBus",
+    "description": "Grants permission to retrieve details about event buses",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeeventsource": {
+    "name": "DescribeEventSource",
+    "description": "Grants permission to retrieve details about event sources",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "event-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describepartnereventsource": {
+    "name": "DescribePartnerEventSource",
+    "description": "Grants permission to retrieve details about partner event sources",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "event-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereplay": {
+    "name": "DescribeReplay",
+    "description": "Grants permission to retrieve the details of a replay",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "replay",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerule": {
+    "name": "DescribeRule",
+    "description": "Grants permission to retrieve details about rules",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:creatorAccount"
+    ],
+    "dependentActions": []
+  },
+  "disablerule": {
+    "name": "DisableRule",
+    "description": "Grants permission to disable rules",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:creatorAccount",
+      "events:ManagedBy"
+    ],
+    "dependentActions": []
+  },
+  "enablerule": {
+    "name": "EnableRule",
+    "description": "Grants permission to enable rules",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:creatorAccount",
+      "events:ManagedBy"
+    ],
+    "dependentActions": []
+  },
+  "invokeapidestination": {
+    "name": "InvokeApiDestination",
+    "isPermissionOnly": true,
+    "description": "Grants permission to invoke an api destination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api-destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapidestinations": {
+    "name": "ListApiDestinations",
+    "description": "Grants permission to retrieve a list of api destinations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listarchives": {
+    "name": "ListArchives",
+    "description": "Grants permission to retrieve a list of archives",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnections": {
+    "name": "ListConnections",
+    "description": "Grants permission to retrieve a list of connections",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listendpoints": {
+    "name": "ListEndpoints",
+    "description": "Grants permission to retrieve a list of endpoints",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeventbuses": {
+    "name": "ListEventBuses",
+    "description": "Grants permission to retrieve a list of the event buses in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeventsources": {
+    "name": "ListEventSources",
+    "description": "Grants permission to to retrieve a list of event sources shared with this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpartnereventsourceaccounts": {
+    "name": "ListPartnerEventSourceAccounts",
+    "description": "Grants permission to retrieve a list of AWS account IDs associated with an event source",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "event-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpartnereventsources": {
+    "name": "ListPartnerEventSources",
+    "description": "Grants permission to retrieve a list partner event sources",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreplays": {
+    "name": "ListReplays",
+    "description": "Grants permission to retrieve a list of replays",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrulenamesbytarget": {
+    "name": "ListRuleNamesByTarget",
+    "description": "Grants permission to retrieve a list of the names of the rules associated with a target",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrules": {
+    "name": "ListRules",
+    "description": "Grants permission to retrieve a list of the Amazon EventBridge rules in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to retrieve a list of tags associated with an Amazon EventBridge resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:creatorAccount"
+    ],
+    "dependentActions": []
+  },
+  "listtargetsbyrule": {
+    "name": "ListTargetsByRule",
+    "description": "Grants permission to retrieve a list of targets defined for a rule",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:creatorAccount"
+    ],
+    "dependentActions": []
+  },
+  "putevents": {
+    "name": "PutEvents",
+    "description": "Grants permission to send custom events to Amazon EventBridge",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-bus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:detail-type",
+      "events:source",
+      "events:eventBusInvocation"
+    ],
+    "dependentActions": []
+  },
+  "putpartnerevents": {
+    "name": "PutPartnerEvents",
+    "description": "Grants permission to sends custom events to Amazon EventBridge",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putpermission": {
+    "name": "PutPermission",
+    "description": "Grants permission to use the PutPermission action to grants permission to another AWS account to put events to your default event bus",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putrule": {
+    "name": "PutRule",
+    "description": "Grants permission to create or updates rules",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:detail.userIdentity.principalId",
+      "events:detail-type",
+      "events:source",
+      "events:detail.service",
+      "events:detail.eventTypeCode",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "events:creatorAccount",
+      "events:ManagedBy"
+    ],
+    "dependentActions": []
+  },
+  "puttargets": {
+    "name": "PutTargets",
+    "description": "Grants permission to add targets to a rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:TargetArn",
+      "events:creatorAccount",
+      "events:ManagedBy"
+    ],
+    "dependentActions": []
+  },
+  "removepermission": {
+    "name": "RemovePermission",
+    "description": "Grants permission to revoke the permission of another AWS account to put events to your default event bus",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removetargets": {
+    "name": "RemoveTargets",
+    "description": "Grants permission to removes targets from a rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:creatorAccount",
+      "events:ManagedBy"
+    ],
+    "dependentActions": []
+  },
+  "retrieveconnectioncredentials": {
+    "name": "RetrieveConnectionCredentials",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve credentials from a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startreplay": {
+    "name": "StartReplay",
+    "description": "Grants permission to start a replay of an archive",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-bus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replay",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add a tag to an Amazon EventBridge resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "events:creatorAccount"
+    ],
+    "dependentActions": []
+  },
+  "testeventpattern": {
+    "name": "TestEventPattern",
+    "description": "Grants permission to test whether an event pattern matches the provided event",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove a tag from an Amazon EventBridge resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-custom-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule-on-default-event-bus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "events:creatorAccount"
+    ],
+    "dependentActions": []
+  },
+  "updateapidestination": {
+    "name": "UpdateApiDestination",
+    "description": "Grants permission to update an api destination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api-destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatearchive": {
+    "name": "UpdateArchive",
+    "description": "Grants permission to update an archive",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "archive",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnection": {
+    "name": "UpdateConnection",
+    "description": "Grants permission to update a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateendpoint": {
+    "name": "UpdateEndpoint",
+    "description": "Grants permission to update an endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "events:EventBusArn"
+    ],
+    "dependentActions": []
+  },
+  "updateeventbus": {
+    "name": "UpdateEventBus",
+    "description": "Grants permission to update event buses",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-bus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

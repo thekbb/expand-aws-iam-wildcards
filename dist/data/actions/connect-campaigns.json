@@ -1,0 +1,513 @@
+{
+  "createcampaign": {
+    "name": "CreateCampaign",
+    "description": "Grants permission to create a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletecampaign": {
+    "name": "DeleteCampaign",
+    "description": "Grants permission to delete a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecampaignchannelsubtypeconfig": {
+    "name": "DeleteCampaignChannelSubtypeConfig",
+    "description": "Grants permission to delete the channel subtype configuration of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecampaigncommunicationlimits": {
+    "name": "DeleteCampaignCommunicationLimits",
+    "description": "Grants permission to delete the communication limits configuration of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecampaigncommunicationtime": {
+    "name": "DeleteCampaignCommunicationTime",
+    "description": "Grants permission to delete the communication time configuration of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnectinstanceconfig": {
+    "name": "DeleteConnectInstanceConfig",
+    "description": "Grants permission to remove configuration information for an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnectinstanceintegration": {
+    "name": "DeleteConnectInstanceIntegration",
+    "description": "Grants permission to remove integration information for an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinstanceonboardingjob": {
+    "name": "DeleteInstanceOnboardingJob",
+    "description": "Grants permission to remove onboarding job for an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecampaign": {
+    "name": "DescribeCampaign",
+    "description": "Grants permission to describe a specific campaign",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getcampaignstate": {
+    "name": "GetCampaignState",
+    "description": "Grants permission to get state of a campaign",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getcampaignstatebatch": {
+    "name": "GetCampaignStateBatch",
+    "description": "Grants permission to get state of campaigns",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getconnectinstanceconfig": {
+    "name": "GetConnectInstanceConfig",
+    "description": "Grants permission to get configuration information for an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstancecommunicationlimits": {
+    "name": "GetInstanceCommunicationLimits",
+    "description": "Grants permission to get the communication limits configuration of an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstanceonboardingjobstatus": {
+    "name": "GetInstanceOnboardingJobStatus",
+    "description": "Grants permission to get onboarding job status for an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcampaigns": {
+    "name": "ListCampaigns",
+    "description": "Grants permission to provide summary of all campaigns",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listconnectinstanceintegrations": {
+    "name": "ListConnectInstanceIntegrations",
+    "description": "Grants permission to provide summary of all integrations with an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "pausecampaign": {
+    "name": "PauseCampaign",
+    "description": "Grants permission to pause a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putconnectinstanceintegration": {
+    "name": "PutConnectInstanceIntegration",
+    "description": "Grants permission to put an integration configuration with an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putdialrequestbatch": {
+    "name": "PutDialRequestBatch",
+    "description": "Grants permission to create dial requests for the specified campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putinstancecommunicationlimits": {
+    "name": "PutInstanceCommunicationLimits",
+    "description": "Grants permission to put the communication limits configuration of an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putoutboundrequestbatch": {
+    "name": "PutOutboundRequestBatch",
+    "description": "Grants permission to create dial requests for the specified campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putprofileoutboundrequestbatch": {
+    "name": "PutProfileOutboundRequestBatch",
+    "description": "Grants permission to create profile outbound requests for the specified campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resumecampaign": {
+    "name": "ResumeCampaign",
+    "description": "Grants permission to resume a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcampaign": {
+    "name": "StartCampaign",
+    "description": "Grants permission to start a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startinstanceonboardingjob": {
+    "name": "StartInstanceOnboardingJob",
+    "description": "Grants permission to start onboarding job for an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopcampaign": {
+    "name": "StopCampaign",
+    "description": "Grants permission to stop a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecampaignchannelsubtypeconfig": {
+    "name": "UpdateCampaignChannelSubtypeConfig",
+    "description": "Grants permission to update the channel subtype configuration of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaigncommunicationlimits": {
+    "name": "UpdateCampaignCommunicationLimits",
+    "description": "Grants permission to update the communication limits configuration of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaigncommunicationtime": {
+    "name": "UpdateCampaignCommunicationTime",
+    "description": "Grants permission to update the communication time configuration of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaigndialerconfig": {
+    "name": "UpdateCampaignDialerConfig",
+    "description": "Grants permission to update the dialer configuration of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaignflowassociation": {
+    "name": "UpdateCampaignFlowAssociation",
+    "description": "Grants permission to update the flow association of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaignname": {
+    "name": "UpdateCampaignName",
+    "description": "Grants permission to update the name of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaignoutboundcallconfig": {
+    "name": "UpdateCampaignOutboundCallConfig",
+    "description": "Grants permission to update the outbound call configuration of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaignschedule": {
+    "name": "UpdateCampaignSchedule",
+    "description": "Grants permission to update the schedule of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaignsource": {
+    "name": "UpdateCampaignSource",
+    "description": "Grants permission to update the source of a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

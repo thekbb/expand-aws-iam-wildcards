@@ -1,0 +1,511 @@
+{
+  "cancelcontact": {
+    "name": "CancelContact",
+    "description": "Grants permission to cancel a contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createconfig": {
+    "name": "CreateConfig",
+    "description": "Grants permission to create a configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdataflowendpointgroup": {
+    "name": "CreateDataflowEndpointGroup",
+    "description": "Grants permission to create a data flow endpoint group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdataflowendpointgroupv2": {
+    "name": "CreateDataflowEndpointGroupV2",
+    "description": "Grants permission to create a data flow endpoint group using the V2 operation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createephemeris": {
+    "name": "CreateEphemeris",
+    "description": "Grants permission to create an ephemeris item",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmissionprofile": {
+    "name": "CreateMissionProfile",
+    "description": "Grants permission to create a mission profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteconfig": {
+    "name": "DeleteConfig",
+    "description": "Grants permission to delete a config",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataflowendpointgroup": {
+    "name": "DeleteDataflowEndpointGroup",
+    "description": "Grants permission to delete a data flow endpoint group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataflowEndpointGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteephemeris": {
+    "name": "DeleteEphemeris",
+    "description": "Grants permission to delete an ephemeris item",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "EphemerisItem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemissionprofile": {
+    "name": "DeleteMissionProfile",
+    "description": "Grants permission to delete a mission profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MissionProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecontact": {
+    "name": "DescribeContact",
+    "description": "Grants permission to describe a contact",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeephemeris": {
+    "name": "DescribeEphemeris",
+    "description": "Grants permission to describe an ephemeris item",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "EphemerisItem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagentconfiguration": {
+    "name": "GetAgentConfiguration",
+    "description": "Grants permission to get the configuration of an agent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagenttaskresponseurl": {
+    "name": "GetAgentTaskResponseUrl",
+    "description": "Grants permission to retrieve presigned S3 logging URLs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconfig": {
+    "name": "GetConfig",
+    "description": "Grants permission to return a configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataflowendpointgroup": {
+    "name": "GetDataflowEndpointGroup",
+    "description": "Grants permission to return a data flow endpoint group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DataflowEndpointGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getminuteusage": {
+    "name": "GetMinuteUsage",
+    "description": "Grants permission to return minutes usage",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmissionprofile": {
+    "name": "GetMissionProfile",
+    "description": "Grants permission to retrieve a mission profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MissionProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsatellite": {
+    "name": "GetSatellite",
+    "description": "Grants permission to return information about a satellite",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Satellite",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconfigs": {
+    "name": "ListConfigs",
+    "description": "Grants permission to return a list of past configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcontacts": {
+    "name": "ListContacts",
+    "description": "Grants permission to return a list of contacts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdataflowendpointgroups": {
+    "name": "ListDataflowEndpointGroups",
+    "description": "Grants permission to list data flow endpoint groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listephemerides": {
+    "name": "ListEphemerides",
+    "description": "Grants permission to list ephemerides",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgroundstations": {
+    "name": "ListGroundStations",
+    "description": "Grants permission to list ground stations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmissionprofiles": {
+    "name": "ListMissionProfiles",
+    "description": "Grants permission to return a list of mission profiles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsatellites": {
+    "name": "ListSatellites",
+    "description": "Grants permission to list satellites",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Contact",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DataflowEndpointGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MissionProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registeragent": {
+    "name": "RegisterAgent",
+    "description": "Grants permission to register an agent",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "reservecontact": {
+    "name": "ReserveContact",
+    "description": "Grants permission to reserve a contact",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to assign a resource tag",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Contact",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DataflowEndpointGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "EphemerisItem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MissionProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to unassign a resource tag",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Contact",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DataflowEndpointGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "EphemerisItem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MissionProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateagentstatus": {
+    "name": "UpdateAgentStatus",
+    "description": "Grants permission to update the status of an agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconfig": {
+    "name": "UpdateConfig",
+    "description": "Grants permission to update a configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateephemeris": {
+    "name": "UpdateEphemeris",
+    "description": "Grants permission to update an ephemeris item",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "EphemerisItem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemissionprofile": {
+    "name": "UpdateMissionProfile",
+    "description": "Grants permission to update a mission profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MissionProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

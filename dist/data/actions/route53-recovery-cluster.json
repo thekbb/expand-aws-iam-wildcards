@@ -1,0 +1,59 @@
+{
+  "getroutingcontrolstate": {
+    "name": "GetRoutingControlState",
+    "description": "Grants permission to get a routing control state",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "routingcontrol",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listroutingcontrols": {
+    "name": "ListRoutingControls",
+    "description": "Grants permission to list routing controls",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateroutingcontrolstate": {
+    "name": "UpdateRoutingControlState",
+    "description": "Grants permission to update a routing control state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "routingcontrol",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "route53-recovery-cluster:AllowSafetyRulesOverrides"
+    ],
+    "dependentActions": []
+  },
+  "updateroutingcontrolstates": {
+    "name": "UpdateRoutingControlStates",
+    "description": "Grants permission to update a batch of routing control states",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "routingcontrol",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "route53-recovery-cluster:AllowSafetyRulesOverrides"
+    ],
+    "dependentActions": []
+  }
+}

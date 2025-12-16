@@ -1,0 +1,30 @@
+{
+  "testcase": {
+    "key": "TestCase",
+    "arn": "arn:${Partition}:apptest:${Region}:${Account}:testcase/${TestCaseId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "testconfiguration": {
+    "key": "TestConfiguration",
+    "arn": "arn:${Partition}:apptest:${Region}:${Account}:testconfiguration/${TestConfigurationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "testrun": {
+    "key": "TestRun",
+    "arn": "arn:${Partition}:apptest:${Region}:${Account}:testrun/${TestRunId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "testsuite": {
+    "key": "TestSuite",
+    "arn": "arn:${Partition}:apptest:${Region}:${Account}:testsuite/${TestSuiteId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

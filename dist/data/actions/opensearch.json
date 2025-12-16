@@ -1,0 +1,118 @@
+{
+  "applicationaccessall": {
+    "name": "ApplicationAccessAll",
+    "isPermissionOnly": true,
+    "description": "Grants permission to access OpenSearch Application",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelautooptimizejob": {
+    "name": "CancelAutoOptimizeJob",
+    "description": "Grants permission to cancel submitted Auto Optimize Job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "canceldirectquery": {
+    "name": "CancelDirectQuery",
+    "description": "Grants permission to cancel the query that is submitted on the OpenSearch DataSource resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautooptimizejob": {
+    "name": "DeleteAutoOptimizeJob",
+    "description": "Grants permission to delete Auto Optimize Job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautooptimizejob": {
+    "name": "GetAutoOptimizeJob",
+    "description": "Grants permission to get the Auto Optimize Job details",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdirectquery": {
+    "name": "GetDirectQuery",
+    "description": "Grants permission to get the query status that are performed on the OpenSearch DataSource resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdirectqueryresult": {
+    "name": "GetDirectQueryResult",
+    "description": "Grants permission to get the results of a query that is performed on the OpenSearch DataSource resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautooptimizejobs": {
+    "name": "ListAutoOptimizeJobs",
+    "description": "Grants permission to retrieve a list of Auto Optimize Jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdirectquery": {
+    "name": "StartDirectQuery",
+    "description": "Grants permission to start a direct query on the provided OpenSearch DataSource arns",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "submitautooptimizejob": {
+    "name": "SubmitAutoOptimizeJob",
+    "description": "Grants permission to create new Auto Optimize Job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

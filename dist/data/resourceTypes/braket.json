@@ -1,0 +1,23 @@
+{
+  "quantum-task": {
+    "key": "quantum-task",
+    "arn": "arn:${Partition}:braket:${Region}:${Account}:quantum-task/${RandomId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "job": {
+    "key": "job",
+    "arn": "arn:${Partition}:braket:${Region}:${Account}:job/${JobName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "spending-limit": {
+    "key": "spending-limit",
+    "arn": "arn:${Partition}:braket:${Region}:${Account}:spending-limit/${RandomId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

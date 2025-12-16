@@ -1,0 +1,732 @@
+{
+  "createanomalymonitor": {
+    "name": "CreateAnomalyMonitor",
+    "description": "Grants permission to create a new Anomaly Monitor",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createanomalysubscription": {
+    "name": "CreateAnomalySubscription",
+    "description": "Grants permission to create a new Anomaly Subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcostcategorydefinition": {
+    "name": "CreateCostCategoryDefinition",
+    "description": "Grants permission to create a new Cost Category with the requested name and rules",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createnotificationsubscription": {
+    "name": "CreateNotificationSubscription",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create Reservation expiration alerts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createreport": {
+    "name": "CreateReport",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create Cost Explorer Reports",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteanomalymonitor": {
+    "name": "DeleteAnomalyMonitor",
+    "description": "Grants permission to delete an Anomaly Monitor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anomalymonitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteanomalysubscription": {
+    "name": "DeleteAnomalySubscription",
+    "description": "Grants permission to delete an Anomaly Subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anomalysubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletecostcategorydefinition": {
+    "name": "DeleteCostCategoryDefinition",
+    "description": "Grants permission to delete a Cost Category",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "costcategory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletenotificationsubscription": {
+    "name": "DeleteNotificationSubscription",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete Reservation expiration alerts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletereport": {
+    "name": "DeleteReport",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete Cost Explorer Reports",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecostcategorydefinition": {
+    "name": "DescribeCostCategoryDefinition",
+    "description": "Grants permission to retrieve descriptions such as the name, ARN, rules, definition, and effective dates of a Cost Category",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "costcategory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describenotificationsubscription": {
+    "name": "DescribeNotificationSubscription",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view Reservation expiration alerts",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereport": {
+    "name": "DescribeReport",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view Cost Explorer Reports page",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getanomalies": {
+    "name": "GetAnomalies",
+    "description": "Grants permission to retrieve anomalies",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "anomalymonitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getanomalymonitors": {
+    "name": "GetAnomalyMonitors",
+    "description": "Grants permission to query Anomaly Monitors",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "anomalymonitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getanomalysubscriptions": {
+    "name": "GetAnomalySubscriptions",
+    "description": "Grants permission to query Anomaly Subscriptions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "anomalysubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getapproximateusagerecords": {
+    "name": "GetApproximateUsageRecords",
+    "description": "Grants permission to retrieve approximate usage record count for the chosen resource, level, and hourly granularity preferences, derived from the past month's usage",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcommitmentpurchaseanalysis": {
+    "name": "GetCommitmentPurchaseAnalysis",
+    "description": "Grants permission to retrieve the commitment purchase analysis for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconsoleactionsetenforced": {
+    "name": "GetConsoleActionSetEnforced",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view whether existing or fine-grained IAM actions are being used to control authorization to Billing, Cost Management, and Account consoles",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcostandusage": {
+    "name": "GetCostAndUsage",
+    "description": "Grants permission to retrieve the cost and usage metrics for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getcostandusagecomparisons": {
+    "name": "GetCostAndUsageComparisons",
+    "description": "Grants permission to retrieve the cost and usage comparisons for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getcostandusagewithresources": {
+    "name": "GetCostAndUsageWithResources",
+    "description": "Grants permission to retrieve the cost and usage metrics with resources for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getcostcategories": {
+    "name": "GetCostCategories",
+    "description": "Grants permission to query Cost Catagory names and values for a specified time period",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getcostcomparisondrivers": {
+    "name": "GetCostComparisonDrivers",
+    "description": "Grants permission to retrieve the cost drivers for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getcostforecast": {
+    "name": "GetCostForecast",
+    "description": "Grants permission to retrieve a cost forecast for a forecast time period",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getdimensionvalues": {
+    "name": "GetDimensionValues",
+    "description": "Grants permission to retrieve all available filter values for a filter for a period of time",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getpreferences": {
+    "name": "GetPreferences",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view Cost Explorer Preferences page",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreservationcoverage": {
+    "name": "GetReservationCoverage",
+    "description": "Grants permission to retrieve the reservation coverage for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreservationpurchaserecommendation": {
+    "name": "GetReservationPurchaseRecommendation",
+    "description": "Grants permission to retrieve the reservation recommendations for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreservationutilization": {
+    "name": "GetReservationUtilization",
+    "description": "Grants permission to retrieve the reservation utilization for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrightsizingrecommendation": {
+    "name": "GetRightsizingRecommendation",
+    "description": "Grants permission to retrieve the rightsizing recommendations for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsavingsplanpurchaserecommendationdetails": {
+    "name": "GetSavingsPlanPurchaseRecommendationDetails",
+    "description": "Grants permission to retrieve the Savings Plan recommendation details for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsavingsplanscoverage": {
+    "name": "GetSavingsPlansCoverage",
+    "description": "Grants permission to retrieve the Savings Plans coverage for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsavingsplanspurchaserecommendation": {
+    "name": "GetSavingsPlansPurchaseRecommendation",
+    "description": "Grants permission to retrieve the Savings Plans recommendations for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsavingsplansutilization": {
+    "name": "GetSavingsPlansUtilization",
+    "description": "Grants permission to retrieve the Savings Plans utilization for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsavingsplansutilizationdetails": {
+    "name": "GetSavingsPlansUtilizationDetails",
+    "description": "Grants permission to retrieve the Savings Plans utilization details for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettags": {
+    "name": "GetTags",
+    "description": "Grants permission to query tags for a specified time period",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getusageforecast": {
+    "name": "GetUsageForecast",
+    "description": "Grants permission to retrieve a usage forecast for a forecast time period",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listcommitmentpurchaseanalyses": {
+    "name": "ListCommitmentPurchaseAnalyses",
+    "description": "Grants permission to retrieve a list of your historical commitment purchase analyses",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcostallocationtagbackfillhistory": {
+    "name": "ListCostAllocationTagBackfillHistory",
+    "description": "Grants permission to list Cost Allocation Tag backfill history",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcostallocationtags": {
+    "name": "ListCostAllocationTags",
+    "description": "Grants permission to list Cost Allocation Tags",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcostcategorydefinitions": {
+    "name": "ListCostCategoryDefinitions",
+    "description": "Grants permission to retrieve names, ARN, and effective dates for all Cost Categories",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcostcategoryresourceassociations": {
+    "name": "ListCostCategoryResourceAssociations",
+    "description": "Grants permission to retrieve resource associations of all Cost Categories defined in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsavingsplanspurchaserecommendationgeneration": {
+    "name": "ListSavingsPlansPurchaseRecommendationGeneration",
+    "description": "Grants permission to retrieve a list of your historical recommendation generations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a Cost Explorer resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "anomalymonitor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "anomalysubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "costcategory",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "provideanomalyfeedback": {
+    "name": "ProvideAnomalyFeedback",
+    "description": "Grants permission to provide feedback on detected anomalies",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcommitmentpurchaseanalysis": {
+    "name": "StartCommitmentPurchaseAnalysis",
+    "description": "Grants permission to request a commitment purchase analysis",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcostallocationtagbackfill": {
+    "name": "StartCostAllocationTagBackfill",
+    "description": "Grants permission to request a Cost Allocation Tag backfill",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsavingsplanspurchaserecommendationgeneration": {
+    "name": "StartSavingsPlansPurchaseRecommendationGeneration",
+    "description": "Grants permission to request a Savings Plans recommendation generation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a Cost Explorer resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "anomalymonitor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "anomalysubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "costcategory",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a Cost Explorer resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "anomalymonitor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "anomalysubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "costcategory",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateanomalymonitor": {
+    "name": "UpdateAnomalyMonitor",
+    "description": "Grants permission to update an existing Anomaly Monitor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anomalymonitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateanomalysubscription": {
+    "name": "UpdateAnomalySubscription",
+    "description": "Grants permission to update an existing Anomaly Subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anomalysubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateconsoleactionsetenforced": {
+    "name": "UpdateConsoleActionSetEnforced",
+    "isPermissionOnly": true,
+    "description": "Grants permission to change whether existing or fine-grained IAM actions will be used to control authorization to Billing, Cost Management, and Account consoles",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecostallocationtagsstatus": {
+    "name": "UpdateCostAllocationTagsStatus",
+    "description": "Grants permission to update existing Cost Allocation Tags status",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecostcategorydefinition": {
+    "name": "UpdateCostCategoryDefinition",
+    "description": "Grants permission to update an existing Cost Category",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "costcategory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatenotificationsubscription": {
+    "name": "UpdateNotificationSubscription",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update Reservation expiration alerts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepreferences": {
+    "name": "UpdatePreferences",
+    "isPermissionOnly": true,
+    "description": "Grants permission to edit Cost Explorer Preferences page",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatereport": {
+    "name": "UpdateReport",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update Cost Explorer Reports",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

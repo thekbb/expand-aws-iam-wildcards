@@ -1,0 +1,297 @@
+{
+  "configurelogs": {
+    "name": "ConfigureLogs",
+    "description": "Grants permission to configure access logs for a Channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "createchannel": {
+    "name": "CreateChannel",
+    "description": "Grants permission to create a channel in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createharvestjob": {
+    "name": "CreateHarvestJob",
+    "description": "Grants permission to create a harvest job in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createoriginendpoint": {
+    "name": "CreateOriginEndpoint",
+    "description": "Grants permission to create an endpoint in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletechannel": {
+    "name": "DeleteChannel",
+    "description": "Grants permission to delete a channel in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoriginendpoint": {
+    "name": "DeleteOriginEndpoint",
+    "description": "Grants permission to delete an endpoint in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "origin_endpoints",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describechannel": {
+    "name": "DescribeChannel",
+    "description": "Grants permission to view the details of a channel in AWS Elemental MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeharvestjob": {
+    "name": "DescribeHarvestJob",
+    "description": "Grants permission to view the details of a harvest job in AWS Elemental MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "harvest_jobs",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeoriginendpoint": {
+    "name": "DescribeOriginEndpoint",
+    "description": "Grants permission to view the details of an endpoint in AWS Elemental MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "origin_endpoints",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listchannels": {
+    "name": "ListChannels",
+    "description": "Grants permission to view a list of channels in AWS Elemental MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listharvestjobs": {
+    "name": "ListHarvestJobs",
+    "description": "Grants permission to view a list of harvest jobs in AWS Elemental MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoriginendpoints": {
+    "name": "ListOriginEndpoints",
+    "description": "Grants permission to view a list of endpoints in AWS Elemental MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags assigned to a Channel or OriginEndpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "harvest_jobs",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "origin_endpoints",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rotatechannelcredentials": {
+    "name": "RotateChannelCredentials",
+    "description": "Grants permission to rotate credentials for the first IngestEndpoint of a Channel in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rotateingestendpointcredentials": {
+    "name": "RotateIngestEndpointCredentials",
+    "description": "Grants permission to rotate IngestEndpoint credentials for a Channel in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a MediaPackage resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "harvest_jobs",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "origin_endpoints",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to delete tags to a Channel or OriginEndpoint",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "harvest_jobs",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "origin_endpoints",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatechannel": {
+    "name": "UpdateChannel",
+    "description": "Grants permission to make changes to a channel in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channels",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateoriginendpoint": {
+    "name": "UpdateOriginEndpoint",
+    "description": "Grants permission to make changes to an endpoint in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "origin_endpoints",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

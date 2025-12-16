@@ -1,0 +1,30 @@
+{
+  "application": {
+    "key": "Application",
+    "arn": "arn:${Partition}:servicecatalog:${Region}:${Account}:/applications/${ApplicationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "attributegroup": {
+    "key": "AttributeGroup",
+    "arn": "arn:${Partition}:servicecatalog:${Region}:${Account}:/attribute-groups/${AttributeGroupId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "portfolio": {
+    "key": "Portfolio",
+    "arn": "arn:${Partition}:catalog:${Region}:${Account}:portfolio/${PortfolioId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "product": {
+    "key": "Product",
+    "arn": "arn:${Partition}:catalog:${Region}:${Account}:product/${ProductId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

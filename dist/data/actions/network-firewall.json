@@ -1,0 +1,1131 @@
+{
+  "acceptnetworkfirewalltransitgatewayattachment": {
+    "name": "AcceptNetworkFirewallTransitGatewayAttachment",
+    "description": "Grants permission to accept pending Network Firewall attachments on a transit gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associateavailabilityzones": {
+    "name": "AssociateAvailabilityZones",
+    "description": "Grants permission to associate availability zones to a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatefirewallpolicy": {
+    "name": "AssociateFirewallPolicy",
+    "description": "Grants permission to create an association between a firewall policy and a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FirewallPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatesubnets": {
+    "name": "AssociateSubnets",
+    "description": "Grants permission to associate VPC subnets to a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfirewall": {
+    "name": "CreateFirewall",
+    "description": "Grants permission to create an AWS Network Firewall firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      },
+      {
+        "name": "FirewallPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfirewallpolicy": {
+    "name": "CreateFirewallPolicy",
+    "description": "Grants permission to create an AWS Network Firewall firewall policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "FirewallPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createrulegroup": {
+    "name": "CreateRuleGroup",
+    "description": "Grants permission to create an AWS Network Firewall rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtlsinspectionconfiguration": {
+    "name": "CreateTLSInspectionConfiguration",
+    "description": "Grants permission to create an AWS Network Firewall tls inspection configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createvpcendpointassociation": {
+    "name": "CreateVpcEndpointAssociation",
+    "description": "Grants permission to create an AWS Network Firewall vpc endpoint association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      },
+      {
+        "name": "VpcEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletefirewall": {
+    "name": "DeleteFirewall",
+    "description": "Grants permission to delete a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefirewallpolicy": {
+    "name": "DeleteFirewallPolicy",
+    "description": "Grants permission to delete a firewall policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "FirewallPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletenetworkfirewalltransitgatewayattachment": {
+    "name": "DeleteNetworkFirewallTransitGatewayAttachment",
+    "description": "Grants permission to delete Network Firewall attachments on a transit gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy for a firewall policy or rule group or firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FirewallPolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterulegroup": {
+    "name": "DeleteRuleGroup",
+    "description": "Grants permission to delete a rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "StatefulRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetlsinspectionconfiguration": {
+    "name": "DeleteTLSInspectionConfiguration",
+    "description": "Grants permission to delete a tls inspection configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevpcendpointassociation": {
+    "name": "DeleteVpcEndpointAssociation",
+    "description": "Grants permission to delete a vpc endpoint association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VpcEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefirewall": {
+    "name": "DescribeFirewall",
+    "description": "Grants permission to retrieve the data objects that define a firewall",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefirewallmetadata": {
+    "name": "DescribeFirewallMetadata",
+    "description": "Grants permission to retrieve the high-level information about a firewall",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefirewallpolicy": {
+    "name": "DescribeFirewallPolicy",
+    "description": "Grants permission to retrieve the data objects that define a firewall policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "FirewallPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeflowoperation": {
+    "name": "DescribeFlowOperation",
+    "description": "Grants permission to describe a flow operation performed on a firewall",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeloggingconfiguration": {
+    "name": "DescribeLoggingConfiguration",
+    "description": "Grants permission to describe the logging configuration of a firewall",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "logs:GetLogDelivery",
+      "logs:ListLogDeliveries"
+    ]
+  },
+  "describeresourcepolicy": {
+    "name": "DescribeResourcePolicy",
+    "description": "Grants permission to describe a resource policy for a firewall policy or rule group or firewall",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FirewallPolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerulegroup": {
+    "name": "DescribeRuleGroup",
+    "description": "Grants permission to retrieve the data objects that define a rule group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerulegroupmetadata": {
+    "name": "DescribeRuleGroupMetadata",
+    "description": "Grants permission to retrieve the high-level information about a rule group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerulegroupsummary": {
+    "name": "DescribeRuleGroupSummary",
+    "description": "Grants permission to retrieve the summary information about a rule group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetlsinspectionconfiguration": {
+    "name": "DescribeTLSInspectionConfiguration",
+    "description": "Grants permission to retrieve the data objects that define a tls inspection configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevpcendpointassociation": {
+    "name": "DescribeVpcEndpointAssociation",
+    "description": "Grants permission to retrieve the data objects that define a vpc endpoint association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VpcEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateavailabilityzones": {
+    "name": "DisassociateAvailabilityZones",
+    "description": "Grants permission to disassociate availability zones to a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatesubnets": {
+    "name": "DisassociateSubnets",
+    "description": "Grants permission to disassociate VPC subnets from a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getanalysisreportresults": {
+    "name": "GetAnalysisReportResults",
+    "description": "Grants permission to retrieve analysis report results of a firewall",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listanalysisreports": {
+    "name": "ListAnalysisReports",
+    "description": "Grants permission to list firewall analysis reports",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfirewallpolicies": {
+    "name": "ListFirewallPolicies",
+    "description": "Grants permission to retrieve the metadata for firewall policies",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "FirewallPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfirewalls": {
+    "name": "ListFirewalls",
+    "description": "Grants permission to retrieve the metadata for firewalls",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listflowoperationresults": {
+    "name": "ListFlowOperationResults",
+    "description": "Grants permission to list results from a flow operation performed on a firewall",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listflowoperations": {
+    "name": "ListFlowOperations",
+    "description": "Grants permission to list flow operations performed on a firewall",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrulegroups": {
+    "name": "ListRuleGroups",
+    "description": "Grants permission to retrieve the metadata for rule groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtlsinspectionconfigurations": {
+    "name": "ListTLSInspectionConfigurations",
+    "description": "Grants permission to retrieve the metadata for tls inspection configurations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to retrieve the tags for a resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FirewallPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VpcEndpointAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvpcendpointassociations": {
+    "name": "ListVpcEndpointAssociations",
+    "description": "Grants permission to retrieve the metadata for vpc endpoint associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "VpcEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to put a resource policy for a firewall policy or rule group or firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FirewallPolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectnetworkfirewalltransitgatewayattachment": {
+    "name": "RejectNetworkFirewallTransitGatewayAttachment",
+    "description": "Grants permission to reject pending Network Firewall attachments on a transit gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startanalysisreport": {
+    "name": "StartAnalysisReport",
+    "description": "Grants permission to start an analysis report on a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startflowcapture": {
+    "name": "StartFlowCapture",
+    "description": "Grants permission to start capture operation on a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startflowflush": {
+    "name": "StartFlowFlush",
+    "description": "Grants permission to start flush operation on a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to attach tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FirewallPolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VpcEndpointAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FirewallPolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VpcEndpointAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateavailabilityzonechangeprotection": {
+    "name": "UpdateAvailabilityZoneChangeProtection",
+    "description": "Grants permission to add or remove availability zone change protection for a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefirewallanalysissettings": {
+    "name": "UpdateFirewallAnalysisSettings",
+    "description": "Grants permission to modify firewall analysis settings of a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefirewalldeleteprotection": {
+    "name": "UpdateFirewallDeleteProtection",
+    "description": "Grants permission to add or remove delete protection for a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefirewalldescription": {
+    "name": "UpdateFirewallDescription",
+    "description": "Grants permission to modify the description for a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefirewallencryptionconfiguration": {
+    "name": "UpdateFirewallEncryptionConfiguration",
+    "description": "Grants permission to modify the encryption configuration of a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefirewallpolicy": {
+    "name": "UpdateFirewallPolicy",
+    "description": "Grants permission to modify a firewall policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "FirewallPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefirewallpolicychangeprotection": {
+    "name": "UpdateFirewallPolicyChangeProtection",
+    "description": "Grants permission to add or remove firewall policy change protection for a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateloggingconfiguration": {
+    "name": "UpdateLoggingConfiguration",
+    "description": "Grants permission to modify the logging configuration of a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterulegroup": {
+    "name": "UpdateRuleGroup",
+    "description": "Grants permission to modify a rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "StatefulRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StatelessRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesubnetchangeprotection": {
+    "name": "UpdateSubnetChangeProtection",
+    "description": "Grants permission to add or remove subnet change protection for a firewall",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetlsinspectionconfiguration": {
+    "name": "UpdateTLSInspectionConfiguration",
+    "description": "Grants permission to modify a tls inspection configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TLSInspectionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

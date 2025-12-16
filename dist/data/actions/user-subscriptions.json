@@ -1,0 +1,60 @@
+{
+  "createclaim": {
+    "name": "CreateClaim",
+    "description": "Grants permission to create a User subscription Claim",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "user-subscriptions:CreateForSelf"
+    ],
+    "dependentActions": []
+  },
+  "deleteclaim": {
+    "name": "DeleteClaim",
+    "description": "Grants permission to delete a User subscription Claim",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapplicationclaims": {
+    "name": "ListApplicationClaims",
+    "description": "Grants permission to list all User subscription Claims for Application",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclaims": {
+    "name": "ListClaims",
+    "description": "Grants permission to list all User subscription Claims",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listusersubscriptions": {
+    "name": "ListUserSubscriptions",
+    "description": "Grants permission to list all User subscriptions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setoverageconfig": {
+    "name": "SetOverageConfig",
+    "description": "Grants permission to set a User subscription overage configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateclaim": {
+    "name": "UpdateClaim",
+    "description": "Grants permission to update a User subscription Claim",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,595 @@
+{
+  "canceljournalkinesisstream": {
+    "name": "CancelJournalKinesisStream",
+    "description": "Grants permission to cancel a journal kinesis stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createledger": {
+    "name": "CreateLedger",
+    "description": "Grants permission to create a ledger",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteledger": {
+    "name": "DeleteLedger",
+    "description": "Grants permission to delete a ledger",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejournalkinesisstream": {
+    "name": "DescribeJournalKinesisStream",
+    "description": "Grants permission to describe information about a journal kinesis stream",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejournals3export": {
+    "name": "DescribeJournalS3Export",
+    "description": "Grants permission to describe information about a journal export job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeledger": {
+    "name": "DescribeLedger",
+    "description": "Grants permission to describe a ledger",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "executestatement": {
+    "name": "ExecuteStatement",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send commands to a ledger via the console",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "exportjournaltos3": {
+    "name": "ExportJournalToS3",
+    "description": "Grants permission to export journal contents to an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getblock": {
+    "name": "GetBlock",
+    "description": "Grants permission to retrieve a block from a ledger for a given BlockAddress",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdigest": {
+    "name": "GetDigest",
+    "description": "Grants permission to retrieve a digest from a ledger for a given BlockAddress",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrevision": {
+    "name": "GetRevision",
+    "description": "Grants permission to retrieve a revision for a given document ID and a given BlockAddress",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "insertsampledata": {
+    "name": "InsertSampleData",
+    "isPermissionOnly": true,
+    "description": "Grants permission to insert sample application data via the console",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjournalkinesisstreamsforledger": {
+    "name": "ListJournalKinesisStreamsForLedger",
+    "description": "Grants permission to list journal kinesis streams for a specified ledger",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjournals3exports": {
+    "name": "ListJournalS3Exports",
+    "description": "Grants permission to list journal export jobs for all ledgers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjournals3exportsforledger": {
+    "name": "ListJournalS3ExportsForLedger",
+    "description": "Grants permission to list journal export jobs for a specified ledger",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listledgers": {
+    "name": "ListLedgers",
+    "description": "Grants permission to list existing ledgers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ledger",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiqlcreateindex": {
+    "name": "PartiQLCreateIndex",
+    "description": "Grants permission to create an index on a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiqlcreatetable": {
+    "name": "PartiQLCreateTable",
+    "description": "Grants permission to create a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "partiqldelete": {
+    "name": "PartiQLDelete",
+    "description": "Grants permission to delete documents from a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiqldropindex": {
+    "name": "PartiQLDropIndex",
+    "description": "Grants permission to drop an index from a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "qldb:Purge"
+    ],
+    "dependentActions": []
+  },
+  "partiqldroptable": {
+    "name": "PartiQLDropTable",
+    "description": "Grants permission to drop a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "qldb:Purge"
+    ],
+    "dependentActions": []
+  },
+  "partiqlhistoryfunction": {
+    "name": "PartiQLHistoryFunction",
+    "description": "Grants permission to use the history function on a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiqlinsert": {
+    "name": "PartiQLInsert",
+    "description": "Grants permission to insert documents into a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiqlredact": {
+    "name": "PartiQLRedact",
+    "description": "Grants permission to redact historic revisions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiqlselect": {
+    "name": "PartiQLSelect",
+    "description": "Grants permission to select documents from a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiqlundroptable": {
+    "name": "PartiQLUndropTable",
+    "description": "Grants permission to undrop a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiqlupdate": {
+    "name": "PartiQLUpdate",
+    "description": "Grants permission to update existing documents in a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendcommand": {
+    "name": "SendCommand",
+    "description": "Grants permission to send commands to a ledger",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "showcatalog": {
+    "name": "ShowCatalog",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view a ledger's catalog via the console",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "streamjournaltokinesis": {
+    "name": "StreamJournalToKinesis",
+    "description": "Grants permission to stream journal contents to a Kinesis Data Stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ledger",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ledger",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateledger": {
+    "name": "UpdateLedger",
+    "description": "Grants permission to update properties on a ledger",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateledgerpermissionsmode": {
+    "name": "UpdateLedgerPermissionsMode",
+    "description": "Grants permission to update the permissions mode on a ledger",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ledger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

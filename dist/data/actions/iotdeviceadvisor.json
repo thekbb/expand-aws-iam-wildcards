@@ -1,0 +1,213 @@
+{
+  "createsuitedefinition": {
+    "name": "CreateSuiteDefinition",
+    "description": "Grants permission to create a suite definition",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletesuitedefinition": {
+    "name": "DeleteSuiteDefinition",
+    "description": "Grants permission to delete a suite definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Suitedefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getendpoint": {
+    "name": "GetEndpoint",
+    "description": "Grants permission to get a Device Advisor endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsuitedefinition": {
+    "name": "GetSuiteDefinition",
+    "description": "Grants permission to get a suite definition",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Suitedefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsuiterun": {
+    "name": "GetSuiteRun",
+    "description": "Grants permission to get a suite run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Suiterun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsuiterunreport": {
+    "name": "GetSuiteRunReport",
+    "description": "Grants permission to get the qualification report for a suite run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Suiterun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsuitedefinitions": {
+    "name": "ListSuiteDefinitions",
+    "description": "Grants permission to list suite definitions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsuiteruns": {
+    "name": "ListSuiteRuns",
+    "description": "Grants permission to list suite runs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Suitedefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags (metadata) assigned to a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Suitedefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Suiterun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsuiterun": {
+    "name": "StartSuiteRun",
+    "description": "Grants permission to start a suite run",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "stopsuiterun": {
+    "name": "StopSuiteRun",
+    "description": "Grants permission to stop a suite run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Suiterun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add to or modify the tags of the given resource. Tags are metadata which can be used to manage a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Suitedefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Suiterun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the given tags (metadata) from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Suitedefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Suiterun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatesuitedefinition": {
+    "name": "UpdateSuiteDefinition",
+    "description": "Grants permission to update a suite definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Suitedefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "analyzer": {
+    "key": "Analyzer",
+    "arn": "arn:${Partition}:access-analyzer:${Region}:${Account}:analyzer/${AnalyzerName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "archiverule": {
+    "key": "ArchiveRule",
+    "arn": "arn:${Partition}:access-analyzer:${Region}:${Account}:analyzer/${AnalyzerName}/archive-rule/${RuleName}"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the presence of tag key-value pairs in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by tag key-value pairs attached to the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the presence of tag keys in the request",
+    "type": "ArrayOfString"
+  },
+  "imagebuilder:createdresourcetag/${tagkey}": {
+    "key": "imagebuilder:CreatedResourceTag/${TagKey}",
+    "description": "Filters access by the tag key-value pairs attached to the resource created by Image Builder",
+    "type": "String"
+  },
+  "imagebuilder:createdresourcetagkeys": {
+    "key": "imagebuilder:CreatedResourceTagKeys",
+    "description": "Filters access by the presence of tag keys in the request",
+    "type": "ArrayOfString"
+  },
+  "imagebuilder:ec2metadatahttptokens": {
+    "key": "imagebuilder:Ec2MetadataHttpTokens",
+    "description": "Filters access by the EC2 Instance Metadata HTTP Token Requirement specified in the request",
+    "type": "String"
+  },
+  "imagebuilder:lifecyclepolicyresourcetype": {
+    "key": "imagebuilder:LifecyclePolicyResourceType",
+    "description": "Filters access by the Lifecycle Policy Resource Type specified in the request",
+    "type": "String"
+  },
+  "imagebuilder:statustopicarn": {
+    "key": "imagebuilder:StatusTopicArn",
+    "description": "Filters access by the SNS Topic Arn in the request to which terminal state notifications will be published",
+    "type": "ARN"
+  }
+}

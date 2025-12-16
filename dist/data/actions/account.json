@@ -1,0 +1,331 @@
+{
+  "acceptprimaryemailupdate": {
+    "name": "AcceptPrimaryEmailUpdate",
+    "description": "Grants permission to accept the process to update the primary email address of an account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "account:EmailTargetDomain"
+    ],
+    "dependentActions": []
+  },
+  "closeaccount": {
+    "name": "CloseAccount",
+    "isPermissionOnly": true,
+    "description": "Grants permission to close an account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletealternatecontact": {
+    "name": "DeleteAlternateContact",
+    "description": "Grants permission to delete the alternate contacts for an account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "account:AlternateContactTypes"
+    ],
+    "dependentActions": []
+  },
+  "disableregion": {
+    "name": "DisableRegion",
+    "description": "Grants permission to disable use of a Region",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "account:TargetRegion"
+    ],
+    "dependentActions": []
+  },
+  "enableregion": {
+    "name": "EnableRegion",
+    "description": "Grants permission to enable use of a Region",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "account:TargetRegion"
+    ],
+    "dependentActions": []
+  },
+  "getaccountinformation": {
+    "name": "GetAccountInformation",
+    "description": "Grants permission to retrieve the account information for an account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getalternatecontact": {
+    "name": "GetAlternateContact",
+    "description": "Grants permission to retrieve the alternate contacts for an account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "account:AlternateContactTypes"
+    ],
+    "dependentActions": []
+  },
+  "getcontactinformation": {
+    "name": "GetContactInformation",
+    "description": "Grants permission to retrieve the primary contact information for an account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgovcloudaccountinformation": {
+    "name": "GetGovCloudAccountInformation",
+    "description": "Grants permission to retrieve the linked GovCloud account information for an account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprimaryemail": {
+    "name": "GetPrimaryEmail",
+    "description": "Grants permission to retrieve the primary email address of an account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getregionoptstatus": {
+    "name": "GetRegionOptStatus",
+    "description": "Grants permission to get the opt-in status of a Region",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "account:TargetRegion"
+    ],
+    "dependentActions": []
+  },
+  "listregions": {
+    "name": "ListRegions",
+    "description": "Grants permission to list the available Regions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putaccountname": {
+    "name": "PutAccountName",
+    "description": "Grants permission to update the name for an account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putalternatecontact": {
+    "name": "PutAlternateContact",
+    "description": "Grants permission to modify the alternate contacts for an account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "account:AlternateContactTypes"
+    ],
+    "dependentActions": []
+  },
+  "putcontactinformation": {
+    "name": "PutContactInformation",
+    "description": "Grants permission to update the primary contact information for an account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startprimaryemailupdate": {
+    "name": "StartPrimaryEmailUpdate",
+    "description": "Grants permission to start the process to update the primary email address of an account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "account:EmailTargetDomain"
+    ],
+    "dependentActions": []
+  }
+}

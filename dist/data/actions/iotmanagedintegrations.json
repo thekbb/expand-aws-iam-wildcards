@@ -1,0 +1,1002 @@
+{
+  "createaccountassociation": {
+    "name": "CreateAccountAssociation",
+    "description": "Grants permission to create a new account association",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "iotmanagedintegrations:connectorDestinationId"
+    ],
+    "dependentActions": []
+  },
+  "createcloudconnector": {
+    "name": "CreateCloudConnector",
+    "description": "Grants permission to create a new cloud connector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createconnectordestination": {
+    "name": "CreateConnectorDestination",
+    "description": "Grants permission to create a new connector destination",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "iotmanagedintegrations:cloudConnectorId"
+    ],
+    "dependentActions": []
+  },
+  "createcredentiallocker": {
+    "name": "CreateCredentialLocker",
+    "description": "Grants permission to create a product credential locker",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdestination": {
+    "name": "CreateDestination",
+    "description": "Grants permission to create a new destination",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createeventlogconfiguration": {
+    "name": "CreateEventLogConfiguration",
+    "description": "Grants permission to create a new event configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmanagedthing": {
+    "name": "CreateManagedThing",
+    "description": "Grants permission to create a new managed thing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "credential-locker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createnotificationconfiguration": {
+    "name": "CreateNotificationConfiguration",
+    "description": "Grants permission to create a new notification configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createotatask": {
+    "name": "CreateOtaTask",
+    "description": "Grants permission to create a new ota task",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createotataskconfiguration": {
+    "name": "CreateOtaTaskConfiguration",
+    "description": "Grants permission to create a new ota task configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createprovisioningprofile": {
+    "name": "CreateProvisioningProfile",
+    "description": "Grants permission to create a new provisioning profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccountassociation": {
+    "name": "DeleteAccountAssociation",
+    "description": "Grants permission to delete an account association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecloudconnector": {
+    "name": "DeleteCloudConnector",
+    "description": "Grants permission to delete a cloud connector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "iotmanagedintegrations:cloudConnectorId"
+    ],
+    "dependentActions": []
+  },
+  "deleteconnectordestination": {
+    "name": "DeleteConnectorDestination",
+    "description": "Grants permission to delete a connector destination",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecredentiallocker": {
+    "name": "DeleteCredentialLocker",
+    "description": "Grants permission to delete a credential locker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "credential-locker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedestination": {
+    "name": "DeleteDestination",
+    "description": "Grants permission to delete destination",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeventlogconfiguration": {
+    "name": "DeleteEventLogConfiguration",
+    "description": "Grants permission to delete event log configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemanagedthing": {
+    "name": "DeleteManagedThing",
+    "description": "Grants permission to delete managed thing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletenotificationconfiguration": {
+    "name": "DeleteNotificationConfiguration",
+    "description": "Grants permission to delete notification configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteotatask": {
+    "name": "DeleteOtaTask",
+    "description": "Grants permission to delete ota task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ota-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteotataskconfiguration": {
+    "name": "DeleteOtaTaskConfiguration",
+    "description": "Grants permission to delete ota task configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprovisioningprofile": {
+    "name": "DeleteProvisioningProfile",
+    "description": "Grants permission to delete provisioning profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "provisioning-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deregisteraccountassociation": {
+    "name": "DeregisterAccountAssociation",
+    "description": "Grants permission to deregister account association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaccountassociation": {
+    "name": "GetAccountAssociation",
+    "description": "Grants permission to get information about an account association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcloudconnector": {
+    "name": "GetCloudConnector",
+    "description": "Grants permission to get information about a cloud connector",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnectordestination": {
+    "name": "GetConnectorDestination",
+    "description": "Grants permission to get information about a cloud destination",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcredentiallocker": {
+    "name": "GetCredentialLocker",
+    "description": "Grants permission to get information about a credential locker",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "credential-locker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcustomendpoint": {
+    "name": "GetCustomEndpoint",
+    "description": "Grants permission to get information about a custom endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdefaultencryptionconfiguration": {
+    "name": "GetDefaultEncryptionConfiguration",
+    "description": "Grants permission to get information about a default encryption configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdestination": {
+    "name": "GetDestination",
+    "description": "Grants permission to get information about a destination",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdevicediscovery": {
+    "name": "GetDeviceDiscovery",
+    "description": "Grants permission to get information about a device discovery",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "geteventlogconfiguration": {
+    "name": "GetEventLogConfiguration",
+    "description": "Grants permission to get information about an event log configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gethubconfiguration": {
+    "name": "GetHubConfiguration",
+    "description": "Grants permission to get information about a hub configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedthing": {
+    "name": "GetManagedThing",
+    "description": "Grants permission to get information about a managed thing",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedthingcapabilities": {
+    "name": "GetManagedThingCapabilities",
+    "description": "Grants permission to get the capability report for a managed thing",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedthingcertificate": {
+    "name": "GetManagedThingCertificate",
+    "description": "Grants permission to get the certificate pem for a managed thing",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedthingconnectivitydata": {
+    "name": "GetManagedThingConnectivityData",
+    "description": "Grants permission to get the connectivity data for a managed thing",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedthingmetadata": {
+    "name": "GetManagedThingMetaData",
+    "description": "Grants permission to get the meta data information for a managed thing",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedthingstate": {
+    "name": "GetManagedThingState",
+    "description": "Grants permission to get the device state information for a managed thing",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getnotificationconfiguration": {
+    "name": "GetNotificationConfiguration",
+    "description": "Grants permission to get information for a notification configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getotatask": {
+    "name": "GetOtaTask",
+    "description": "Grants permission to get information for an ota task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ota-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getotataskconfiguration": {
+    "name": "GetOtaTaskConfiguration",
+    "description": "Grants permission to get information for an ota task configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprovisioningprofile": {
+    "name": "GetProvisioningProfile",
+    "description": "Grants permission to get information for a provisioning profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "provisioning-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getruntimelogconfiguration": {
+    "name": "GetRuntimeLogConfiguration",
+    "description": "Grants permission to get information for a runtime log configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getschemaversion": {
+    "name": "GetSchemaVersion",
+    "description": "Grants permission to get information for a version of a schema",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccountassociations": {
+    "name": "ListAccountAssociations",
+    "description": "Grants permission to list information for account associations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcloudconnectors": {
+    "name": "ListCloudConnectors",
+    "description": "Grants permission to list information for cloud connectors",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectordestinations": {
+    "name": "ListConnectorDestinations",
+    "description": "Grants permission to list information for connector destinations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcredentiallockers": {
+    "name": "ListCredentialLockers",
+    "description": "Grants permission to list information for credential lockers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdestinations": {
+    "name": "ListDestinations",
+    "description": "Grants permission to list information for destinations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdevicediscoveries": {
+    "name": "ListDeviceDiscoveries",
+    "description": "Grants permission to list information for device discoveries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdiscovereddevices": {
+    "name": "ListDiscoveredDevices",
+    "description": "Grants permission to list information for device discovered in a device discoveries",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeventlogconfigurations": {
+    "name": "ListEventLogConfigurations",
+    "description": "Grants permission to list information for event log configurations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagedthingaccountassociations": {
+    "name": "ListManagedThingAccountAssociations",
+    "description": "Grants permission to list information for associations between managed thing and account associations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagedthingschemas": {
+    "name": "ListManagedThingSchemas",
+    "description": "Grants permission to list schemas associated with a managed thing",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagedthings": {
+    "name": "ListManagedThings",
+    "description": "Grants permission to list information for managed things",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnotificationconfigurations": {
+    "name": "ListNotificationConfigurations",
+    "description": "Grants permission to list information for notification configurations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listotataskconfigurations": {
+    "name": "ListOtaTaskConfigurations",
+    "description": "Grants permission to list information for ota task configurations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listotataskexecutions": {
+    "name": "ListOtaTaskExecutions",
+    "description": "Grants permission to list information for ota task executions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ota-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listotatasks": {
+    "name": "ListOtaTasks",
+    "description": "Grants permission to list information for ota tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprovisioningprofiles": {
+    "name": "ListProvisioningProfiles",
+    "description": "Grants permission to list information for provisioning profiles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listschemaversions": {
+    "name": "ListSchemaVersions",
+    "description": "Grants permission to list information for schemas",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "credential-locker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ota-task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioning-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putdefaultencryptionconfiguration": {
+    "name": "PutDefaultEncryptionConfiguration",
+    "description": "Grants permission to update the default settings for an encryption configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puthubconfiguration": {
+    "name": "PutHubConfiguration",
+    "description": "Grants permission to update a hub configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putruntimelogconfiguration": {
+    "name": "PutRuntimeLogConfiguration",
+    "description": "Grants permission to update a runtime log configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registeraccountassociation": {
+    "name": "RegisterAccountAssociation",
+    "description": "Grants permission to register an account association to a managed thing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registercustomendpoint": {
+    "name": "RegisterCustomEndpoint",
+    "description": "Grants permission to register a custom endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resetruntimelogconfiguration": {
+    "name": "ResetRuntimeLogConfiguration",
+    "description": "Grants permission to reset a runtime log configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendconnectorevent": {
+    "name": "SendConnectorEvent",
+    "description": "Grants permission to send a connector event",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendmanagedthingcommand": {
+    "name": "SendManagedThingCommand",
+    "description": "Grants permission to send a command to a managed thing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "account-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startaccountassociationrefresh": {
+    "name": "StartAccountAssociationRefresh",
+    "description": "Grants permission to start a refresh of access tokens associated with an account association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdevicediscovery": {
+    "name": "StartDeviceDiscovery",
+    "description": "Grants permission to start a device discovery",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags for the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "credential-locker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ota-task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioning-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags for the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "credential-locker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ota-task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioning-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateaccountassociation": {
+    "name": "UpdateAccountAssociation",
+    "description": "Grants permission to update an account association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecloudconnector": {
+    "name": "UpdateCloudConnector",
+    "description": "Grants permission to update a cloud connector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "iotmanagedintegrations:cloudConnectorId"
+    ],
+    "dependentActions": []
+  },
+  "updateconnectordestination": {
+    "name": "UpdateConnectorDestination",
+    "description": "Grants permission to update a connector destination",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedestination": {
+    "name": "UpdateDestination",
+    "description": "Grants permission to update a destination",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateeventlogconfiguration": {
+    "name": "UpdateEventLogConfiguration",
+    "description": "Grants permission to update an event log configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemanagedthing": {
+    "name": "UpdateManagedThing",
+    "description": "Grants permission to update a managed thing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "managed-thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "credential-locker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatenotificationconfiguration": {
+    "name": "UpdateNotificationConfiguration",
+    "description": "Grants permission to update a notification configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateotatask": {
+    "name": "UpdateOtaTask",
+    "description": "Grants permission to update an ota task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ota-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

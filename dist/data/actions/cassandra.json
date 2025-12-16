@@ -1,0 +1,404 @@
+{
+  "alter": {
+    "name": "Alter",
+    "description": "Grants permission to alter a keyspace or table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "altermultiregionresource": {
+    "name": "AlterMultiRegionResource",
+    "description": "Grants permission to alter a multiregion keyspace or table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "create": {
+    "name": "Create",
+    "description": "Grants permission to create a keyspace or table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmultiregionresource": {
+    "name": "CreateMultiRegionResource",
+    "description": "Grants permission to create a multiregion keyspace or table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "drop": {
+    "name": "Drop",
+    "description": "Grants permission to drop a keyspace or table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "dropmultiregionresource": {
+    "name": "DropMultiRegionResource",
+    "description": "Grants permission to drop a multiregion keyspace or table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecords": {
+    "name": "GetRecords",
+    "description": "Grants permission to retrieve the CDC stream records from a given shard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsharditerator": {
+    "name": "GetShardIterator",
+    "description": "Grants permission to return a shard iterator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstream": {
+    "name": "GetStream",
+    "description": "Grants permission to return information about a CDC stream, including the composition of its shards",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreams": {
+    "name": "ListStreams",
+    "description": "Grants permission to return an array of CDC stream ARNs associated with the current account and endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "modify": {
+    "name": "Modify",
+    "description": "Grants permission to INSERT, UPDATE or DELETE data in a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "modifymultiregionresource": {
+    "name": "ModifyMultiRegionResource",
+    "description": "Grants permission to INSERT, UPDATE or DELETE data in a multiregion table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restore": {
+    "name": "Restore",
+    "description": "Grants permission to restore table from a backup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restoremultiregiontable": {
+    "name": "RestoreMultiRegionTable",
+    "description": "Grants permission to restore multiregion table from a backup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "select": {
+    "name": "Select",
+    "description": "Grants permission to SELECT data from a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "selectmultiregionresource": {
+    "name": "SelectMultiRegionResource",
+    "description": "Grants permission to SELECT data from a multiregion table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagmultiregionresource": {
+    "name": "TagMultiRegionResource",
+    "description": "Grants permission to tag a multiregion keyspace or table",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a keyspace, table, or stream",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagmultiregionresource": {
+    "name": "UnTagMultiRegionResource",
+    "description": "Grants permission to untag a multiregion keyspace or table",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a keyspace, table or stream",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatepartitioner": {
+    "name": "UpdatePartitioner",
+    "description": "Grants permission to UPDATE the partitioner in a system table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

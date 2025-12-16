@@ -1,0 +1,574 @@
+{
+  "cancelbatchjobexecution": {
+    "name": "CancelBatchJobExecution",
+    "description": "Grants permission to cancel the execution of a batch job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create an application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "s3:GetObject",
+      "s3:ListBucket"
+    ]
+  },
+  "createdatasetexporttask": {
+    "name": "CreateDataSetExportTask",
+    "description": "Grants permission to create a data set export task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "createdatasetimporttask": {
+    "name": "CreateDataSetImportTask",
+    "description": "Grants permission to create a data set import task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "createdeployment": {
+    "name": "CreateDeployment",
+    "description": "Grants permission to create a deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticloadbalancing:AddTags",
+          "elasticloadbalancing:CreateListener",
+          "elasticloadbalancing:CreateTargetGroup",
+          "elasticloadbalancing:RegisterTargets"
+        ]
+      },
+      {
+        "name": "Environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createenvironment": {
+    "name": "CreateEnvironment",
+    "description": "Grants permission to Create an environment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcAttribute",
+      "ec2:DescribeVpcs",
+      "ec2:ModifyNetworkInterfaceAttribute",
+      "elasticfilesystem:DescribeMountTargets",
+      "elasticloadbalancing:AddTags",
+      "elasticloadbalancing:CreateLoadBalancer",
+      "fsx:DescribeFileSystems",
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "deleteapplication": {
+    "name": "DeleteApplication",
+    "description": "Grants permission to delete an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "elasticloadbalancing:DeleteListener",
+      "elasticloadbalancing:DeleteTargetGroup"
+    ]
+  },
+  "deleteapplicationfromenvironment": {
+    "name": "DeleteApplicationFromEnvironment",
+    "description": "Grants permission to delete an application from a runtime environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "elasticloadbalancing:DeleteListener",
+      "elasticloadbalancing:DeleteTargetGroup"
+    ]
+  },
+  "deleteenvironment": {
+    "name": "DeleteEnvironment",
+    "description": "Grants permission to delete a runtime environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "elasticloadbalancing:DeleteLoadBalancer"
+    ]
+  },
+  "getapplication": {
+    "name": "GetApplication",
+    "description": "Grants permission to retrieve an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapplicationversion": {
+    "name": "GetApplicationVersion",
+    "description": "Grants permission to retrieve an application version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbatchjobexecution": {
+    "name": "GetBatchJobExecution",
+    "description": "Grants permission to retrieve a batch job execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatasetdetails": {
+    "name": "GetDataSetDetails",
+    "description": "Grants permission to retrieve data set details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatasetexporttask": {
+    "name": "GetDataSetExportTask",
+    "description": "Grants permission to export a data set at the specified S3 location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatasetimporttask": {
+    "name": "GetDataSetImportTask",
+    "description": "Grants permission to retrieve a data set import task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdeployment": {
+    "name": "GetDeployment",
+    "description": "Grants permission to retrieve a deployment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenvironment": {
+    "name": "GetEnvironment",
+    "description": "Grants permission to retrieve a runtime environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsignedbluinsightsurl": {
+    "name": "GetSignedBluinsightsUrl",
+    "description": "Grants permission to create a signed Bluinsights url",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapplicationversions": {
+    "name": "ListApplicationVersions",
+    "description": "Grants permission to list the versions of an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapplications": {
+    "name": "ListApplications",
+    "description": "Grants permission to list applications",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbatchjobdefinitions": {
+    "name": "ListBatchJobDefinitions",
+    "description": "Grants permission to list batch job definitions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbatchjobexecutions": {
+    "name": "ListBatchJobExecutions",
+    "description": "Grants permission to list executions for a batch job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbatchjobrestartpoints": {
+    "name": "ListBatchJobRestartPoints",
+    "description": "Grants permission to retrieve a batch job execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetexporthistory": {
+    "name": "ListDataSetExportHistory",
+    "description": "Grants permission to list data set export history",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetimporthistory": {
+    "name": "ListDataSetImportHistory",
+    "description": "Grants permission to list data set import history",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasets": {
+    "name": "ListDataSets",
+    "description": "Grants permission to list data sets",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdeployments": {
+    "name": "ListDeployments",
+    "description": "Grants permission to list deployments",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listengineversions": {
+    "name": "ListEngineVersions",
+    "description": "Grants permission to list engine versions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenvironments": {
+    "name": "ListEnvironments",
+    "description": "Grants permission to list runtime environments",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startapplication": {
+    "name": "StartApplication",
+    "description": "Grants permission to start an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startbatchjob": {
+    "name": "StartBatchJob",
+    "description": "Grants permission to start a batch job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopapplication": {
+    "name": "StopApplication",
+    "description": "Grants permission to stop an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateapplication": {
+    "name": "UpdateApplication",
+    "description": "Grants permission to update an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject",
+      "s3:ListBucket"
+    ]
+  },
+  "updateenvironment": {
+    "name": "UpdateEnvironment",
+    "description": "Grants permission to update a runtime environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "createrescoreexecutionplan": {
+    "name": "CreateRescoreExecutionPlan",
+    "description": "Grants permission to create a RescoreExecutionPlan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleterescoreexecutionplan": {
+    "name": "DeleteRescoreExecutionPlan",
+    "description": "Grants permission to delete a RescoreExecutionPlan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rescore-execution-plan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerescoreexecutionplan": {
+    "name": "DescribeRescoreExecutionPlan",
+    "description": "Grants permission to describe a RescoreExecutionPlan",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rescore-execution-plan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrescoreexecutionplans": {
+    "name": "ListRescoreExecutionPlans",
+    "description": "Grants permission to list all RescoreExecutionPlans",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rescore-execution-plan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rescore": {
+    "name": "Rescore",
+    "description": "Grants permission to Rescore documents with Kendra Intelligent Ranking",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rescore-execution-plan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource with given key value pairs",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "rescore-execution-plan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the tag with the given key from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "rescore-execution-plan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updaterescoreexecutionplan": {
+    "name": "UpdateRescoreExecutionPlan",
+    "description": "Grants permission to update a RescoreExecutionPlan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rescore-execution-plan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

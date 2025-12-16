@@ -1,0 +1,469 @@
+{
+  "batchgettracesummarybyid": {
+    "name": "BatchGetTraceSummaryById",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve metadata for a list of traces specified by ID",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgettraces": {
+    "name": "BatchGetTraces",
+    "description": "Grants permission to retrieve a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request. Use GetTraceSummaries to get a list of trace IDs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "canceltraceretrieval": {
+    "name": "CancelTraceRetrieval",
+    "description": "Grants permission to cancel an ongoing trace retrieval job initiated by StartTraceRetrieval using the provided RetrievalToken. A successful cancellation will return an HTTP 200 response",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "creategroup": {
+    "name": "CreateGroup",
+    "description": "Grants permission to create a group resource with a name and a filter expression",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsamplingrule": {
+    "name": "CreateSamplingRule",
+    "description": "Grants permission to create a rule to control sampling behavior for instrumented applications",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sampling-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletegroup": {
+    "name": "DeleteGroup",
+    "description": "Grants permission to delete a group resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete resource policies",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "xray:ResourcePolicyName"
+    ],
+    "dependentActions": []
+  },
+  "deletesamplingrule": {
+    "name": "DeleteSamplingRule",
+    "description": "Grants permission to delete a sampling rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sampling-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getdistincttracegraphs": {
+    "name": "GetDistinctTraceGraphs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve distinct service graphs for one or more specific trace IDs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getencryptionconfig": {
+    "name": "GetEncryptionConfig",
+    "description": "Grants permission to retrieve the current encryption configuration for X-Ray data",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgroup": {
+    "name": "GetGroup",
+    "description": "Grants permission to retrieve group resource details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getgroups": {
+    "name": "GetGroups",
+    "description": "Grants permission to retrieve all active group details",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getindexingrules": {
+    "name": "GetIndexingRules",
+    "description": "Grants permission to retrieve all indexing rules. Indexing rules are used to determine the server-side sampling rate for spans ingested through the CloudWatchLogs destination and indexed by X-Ray",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinsight": {
+    "name": "GetInsight",
+    "description": "Grants permission to retrieve the details of a specific insight",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinsightevents": {
+    "name": "GetInsightEvents",
+    "description": "Grants permission to retrieve the events of a specific insight",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinsightimpactgraph": {
+    "name": "GetInsightImpactGraph",
+    "description": "Grants permission to retrieve the part of the service graph which is impacted for a specific insight",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinsightsummaries": {
+    "name": "GetInsightSummaries",
+    "description": "Grants permission to retrieve the summary of all insights for a group and time range with optional filters",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getretrievedtracesgraph": {
+    "name": "GetRetrievedTracesGraph",
+    "description": "Grants permission to retrieve a service graph for traces based on the specified RetrievalToken from the Transaction Search CloudWatch log group",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsamplingrules": {
+    "name": "GetSamplingRules",
+    "description": "Grants permission to retrieve all sampling rules",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsamplingstatisticsummaries": {
+    "name": "GetSamplingStatisticSummaries",
+    "description": "Grants permission to retrieve information about recent sampling results for all sampling rules",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsamplingtargets": {
+    "name": "GetSamplingTargets",
+    "description": "Grants permission to request a sampling quota for rules that the service is using to sample requests",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicegraph": {
+    "name": "GetServiceGraph",
+    "description": "Grants permission to retrieve a document that describes services that process incoming requests, and downstream services that they call as a result",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettimeseriesservicestatistics": {
+    "name": "GetTimeSeriesServiceStatistics",
+    "description": "Grants permission to retrieve an aggregation of service statistics defined by a specific time range bucketed into time intervals",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettracegraph": {
+    "name": "GetTraceGraph",
+    "description": "Grants permission to retrieve a service graph for one or more specific trace IDs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettracesegmentdestination": {
+    "name": "GetTraceSegmentDestination",
+    "description": "Grants permission to retrieve the current destination of data sent to PutTraceSegments and OpenTelemetry API",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettracesummaries": {
+    "name": "GetTraceSummaries",
+    "description": "Grants permission to retrieve IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "link": {
+    "name": "Link",
+    "isPermissionOnly": true,
+    "description": "Grants permission to share X-Ray resources with a monitoring account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourcepolicies": {
+    "name": "ListResourcePolicies",
+    "description": "Grants permission to list resource policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listretrievedtraces": {
+    "name": "ListRetrievedTraces",
+    "description": "Grants permission to retrieve a list of traces for a given RetrievalToken from the Transaction Search CloudWatch log group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an X-Ray resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sampling-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putencryptionconfig": {
+    "name": "PutEncryptionConfig",
+    "description": "Grants permission to update the encryption configuration for X-Ray data",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to create or update resource policies",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "xray:ResourcePolicyName"
+    ],
+    "dependentActions": []
+  },
+  "putspans": {
+    "name": "PutSpans",
+    "description": "Grants permission to upload OpenTelemetry spans to AWS X-Ray",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "logs:LogGeneratingResourceArns"
+    ],
+    "dependentActions": []
+  },
+  "putspansforindexing": {
+    "name": "PutSpansForIndexing",
+    "isPermissionOnly": true,
+    "description": "Grants permission to upload spans to AWS X-Ray to be indexed",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puttelemetryrecords": {
+    "name": "PutTelemetryRecords",
+    "description": "Grants permission to send AWS X-Ray daemon telemetry to the service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puttracesegments": {
+    "name": "PutTraceSegments",
+    "description": "Grants permission to upload segment documents to AWS X-Ray. The X-Ray SDK generates segment documents and sends them to the X-Ray daemon, which uploads them in batches",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "logs:LogGeneratingResourceArns"
+    ],
+    "dependentActions": []
+  },
+  "starttraceretrieval": {
+    "name": "StartTraceRetrieval",
+    "description": "Grants permission to initiate a trace retrieval process using the specified time range and for the given trace IDs on the Transaction Search CloudWatch log group",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to an X-Ray resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sampling-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from an X-Ray resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sampling-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updategroup": {
+    "name": "UpdateGroup",
+    "description": "Grants permission to update a group resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateindexingrule": {
+    "name": "UpdateIndexingRule",
+    "description": "Grants permission to modify an indexing rule's configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesamplingrule": {
+    "name": "UpdateSamplingRule",
+    "description": "Grants permission to modify a sampling rule's configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sampling-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatetracesegmentdestination": {
+    "name": "UpdateTraceSegmentDestination",
+    "description": "Grants permission to modify the destination of data sent to PutTraceSegments and OpenTelemetry API",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "xray:TraceSegmentDestination"
+    ],
+    "dependentActions": []
+  }
+}

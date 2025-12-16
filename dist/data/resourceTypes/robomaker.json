@@ -1,0 +1,79 @@
+{
+  "robotapplication": {
+    "key": "robotApplication",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "simulationapplication": {
+    "key": "simulationApplication",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "simulationjob": {
+    "key": "simulationJob",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "simulationjobbatch": {
+    "key": "simulationJobBatch",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "deploymentjob": {
+    "key": "deploymentJob",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:deployment-job/${DeploymentJobId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "robot": {
+    "key": "robot",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:robot/${RobotName}/${CreatedOnEpoch}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "deploymentfleet": {
+    "key": "deploymentFleet",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "worldgenerationjob": {
+    "key": "worldGenerationJob",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:world-generation-job/${WorldGenerationJobId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "worldexportjob": {
+    "key": "worldExportJob",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:world-export-job/${WorldExportJobId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "worldtemplate": {
+    "key": "worldTemplate",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:world-template/${WorldTemplateJobId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "world": {
+    "key": "world",
+    "arn": "arn:${Partition}:robomaker:${Region}:${Account}:world/${WorldId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

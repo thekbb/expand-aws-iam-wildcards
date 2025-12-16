@@ -1,0 +1,694 @@
+{
+  "batchdeleterecipeversion": {
+    "name": "BatchDeleteRecipeVersion",
+    "description": "Grants permission to delete one or more recipe versions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Recipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdataset": {
+    "name": "CreateDataset",
+    "description": "Grants permission to create a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createprofilejob": {
+    "name": "CreateProfileJob",
+    "description": "Grants permission to create a profile job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createproject": {
+    "name": "CreateProject",
+    "description": "Grants permission to create a project",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createrecipe": {
+    "name": "CreateRecipe",
+    "description": "Grants permission to create a recipe",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createrecipejob": {
+    "name": "CreateRecipeJob",
+    "description": "Grants permission to create a recipe job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createruleset": {
+    "name": "CreateRuleset",
+    "description": "Grants permission to create a ruleset",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createschedule": {
+    "name": "CreateSchedule",
+    "description": "Grants permission to create a schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletedataset": {
+    "name": "DeleteDataset",
+    "description": "Grants permission to delete a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletejob": {
+    "name": "DeleteJob",
+    "description": "Grants permission to delete a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteproject": {
+    "name": "DeleteProject",
+    "description": "Grants permission to delete a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterecipeversion": {
+    "name": "DeleteRecipeVersion",
+    "description": "Grants permission to delete a recipe version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Recipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteruleset": {
+    "name": "DeleteRuleset",
+    "description": "Grants permission to delete a ruleset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteschedule": {
+    "name": "DeleteSchedule",
+    "description": "Grants permission to delete a schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Schedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedataset": {
+    "name": "DescribeDataset",
+    "description": "Grants permission to view details about a dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejob": {
+    "name": "DescribeJob",
+    "description": "Grants permission to view details about a job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejobrun": {
+    "name": "DescribeJobRun",
+    "description": "Grants permission to view details about job run for a given job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeproject": {
+    "name": "DescribeProject",
+    "description": "Grants permission to view details about a project",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerecipe": {
+    "name": "DescribeRecipe",
+    "description": "Grants permission to view details about a recipe",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Recipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeruleset": {
+    "name": "DescribeRuleset",
+    "description": "Grants permission to view details about a ruleset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeschedule": {
+    "name": "DescribeSchedule",
+    "description": "Grants permission to view details about a schedule",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Schedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasets": {
+    "name": "ListDatasets",
+    "description": "Grants permission to list datasets in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobruns": {
+    "name": "ListJobRuns",
+    "description": "Grants permission to list job runs for a given job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobs": {
+    "name": "ListJobs",
+    "description": "Grants permission to list jobs in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprojects": {
+    "name": "ListProjects",
+    "description": "Grants permission to list projects in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecipeversions": {
+    "name": "ListRecipeVersions",
+    "description": "Grants permission to list versions in your recipe",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Recipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecipes": {
+    "name": "ListRecipes",
+    "description": "Grants permission to list recipes in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrulesets": {
+    "name": "ListRulesets",
+    "description": "Grants permission to list rulesets in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listschedules": {
+    "name": "ListSchedules",
+    "description": "Grants permission to list schedules in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to retrieve tags associated with a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Recipe",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Schedule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishrecipe": {
+    "name": "PublishRecipe",
+    "description": "Grants permission to publish a major verison of a recipe",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Recipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendprojectsessionaction": {
+    "name": "SendProjectSessionAction",
+    "description": "Grants permission to submit an action to the interactive session for a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startjobrun": {
+    "name": "StartJobRun",
+    "description": "Grants permission to start running a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startprojectsession": {
+    "name": "StartProjectSession",
+    "description": "Grants permission to start an interactive session for a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopjobrun": {
+    "name": "StopJobRun",
+    "description": "Grants permission to stop a job run for a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Recipe",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Schedule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags associated with a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Recipe",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Schedule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatedataset": {
+    "name": "UpdateDataset",
+    "description": "Grants permission to modify a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprofilejob": {
+    "name": "UpdateProfileJob",
+    "description": "Grants permission to modify a profile job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateproject": {
+    "name": "UpdateProject",
+    "description": "Grants permission to modify a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterecipe": {
+    "name": "UpdateRecipe",
+    "description": "Grants permission to modify a recipe",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Recipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterecipejob": {
+    "name": "UpdateRecipeJob",
+    "description": "Grants permission to modify a recipe job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateruleset": {
+    "name": "UpdateRuleset",
+    "description": "Grants permission to modify a ruleset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateschedule": {
+    "name": "UpdateSchedule",
+    "description": "Grants permission to modify a schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Schedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

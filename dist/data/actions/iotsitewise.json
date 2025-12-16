@@ -1,0 +1,1782 @@
+{
+  "associateassets": {
+    "name": "AssociateAssets",
+    "description": "Grants permission to associate a child asset with a parent asset through a hierarchy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatetimeseriestoassetproperty": {
+    "name": "AssociateTimeSeriesToAssetProperty",
+    "description": "Grants permission to associate a time series with an asset property",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchassociateprojectassets": {
+    "name": "BatchAssociateProjectAssets",
+    "description": "Grants permission to associate assets to a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdisassociateprojectassets": {
+    "name": "BatchDisassociateProjectAssets",
+    "description": "Grants permission to disassociate assets from a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetassetpropertyaggregates": {
+    "name": "BatchGetAssetPropertyAggregates",
+    "description": "Grants permission to retrieve computed aggregates for multiple asset properties",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetassetpropertyvalue": {
+    "name": "BatchGetAssetPropertyValue",
+    "description": "Grants permission to retrieve the latest value for multiple asset properties",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetassetpropertyvaluehistory": {
+    "name": "BatchGetAssetPropertyValueHistory",
+    "description": "Grants permission to retrieve the value history for multiple asset properties",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchputassetpropertyvalue": {
+    "name": "BatchPutAssetPropertyValue",
+    "description": "Grants permission to put property values for asset properties",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createaccesspolicy": {
+    "name": "CreateAccessPolicy",
+    "description": "Grants permission to create an access policy for a portal or a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createasset": {
+    "name": "CreateAsset",
+    "description": "Grants permission to create an asset from an asset model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createassetmodel": {
+    "name": "CreateAssetModel",
+    "description": "Grants permission to create an asset model",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createassetmodelcompositemodel": {
+    "name": "CreateAssetModelCompositeModel",
+    "description": "Grants permission to create an asset model composite model inside an asset model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbulkimportjob": {
+    "name": "CreateBulkImportJob",
+    "description": "Grants permission to create bulk import job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcomputationmodel": {
+    "name": "CreateComputationModel",
+    "description": "Grants permission to create a computation model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdashboard": {
+    "name": "CreateDashboard",
+    "description": "Grants permission to create a dashboard in a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdataset": {
+    "name": "CreateDataset",
+    "description": "Grants permission to create a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "creategateway": {
+    "name": "CreateGateway",
+    "description": "Grants permission to create a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createportal": {
+    "name": "CreatePortal",
+    "description": "Grants permission to create a portal",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "sso:CreateManagedApplicationInstance",
+      "sso:DescribeRegisteredRegions"
+    ]
+  },
+  "createproject": {
+    "name": "CreateProject",
+    "description": "Grants permission to create a project in a portal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesspolicy": {
+    "name": "DeleteAccessPolicy",
+    "description": "Grants permission to delete an access policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "access-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteasset": {
+    "name": "DeleteAsset",
+    "description": "Grants permission to delete an asset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteassetmodel": {
+    "name": "DeleteAssetModel",
+    "description": "Grants permission to delete an asset model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteassetmodelcompositemodel": {
+    "name": "DeleteAssetModelCompositeModel",
+    "description": "Grants permission to delete an asset model composite model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteassetmodelinterfacerelationship": {
+    "name": "DeleteAssetModelInterfaceRelationship",
+    "description": "Grants permission to delete a relationship between asset model and interface",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecomputationmodel": {
+    "name": "DeleteComputationModel",
+    "description": "Grants permission to delete a computation model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedashboard": {
+    "name": "DeleteDashboard",
+    "description": "Grants permission to delete a dashboard",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataset": {
+    "name": "DeleteDataset",
+    "description": "Grants permission to delete a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegateway": {
+    "name": "DeleteGateway",
+    "description": "Grants permission to delete a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteportal": {
+    "name": "DeletePortal",
+    "description": "Grants permission to delete a portal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso:DeleteManagedApplicationInstance"
+    ]
+  },
+  "deleteproject": {
+    "name": "DeleteProject",
+    "description": "Grants permission to delete a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetimeseries": {
+    "name": "DeleteTimeSeries",
+    "description": "Grants permission to delete a time series",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaccesspolicy": {
+    "name": "DescribeAccessPolicy",
+    "description": "Grants permission to describe an access policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "access-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaction": {
+    "name": "DescribeAction",
+    "description": "Grants permission to describe actions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeasset": {
+    "name": "DescribeAsset",
+    "description": "Grants permission to describe an asset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeassetcompositemodel": {
+    "name": "DescribeAssetCompositeModel",
+    "description": "Grants permission to describe an asset composite model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeassetmodel": {
+    "name": "DescribeAssetModel",
+    "description": "Grants permission to describe an asset model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeassetmodelcompositemodel": {
+    "name": "DescribeAssetModelCompositeModel",
+    "description": "Grants permission to describe an asset model composite model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeassetmodelinterfacerelationship": {
+    "name": "DescribeAssetModelInterfaceRelationship",
+    "description": "Grants permission to describe a relationship between asset model and interface",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeassetproperty": {
+    "name": "DescribeAssetProperty",
+    "description": "Grants permission to describe an asset property",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebulkimportjob": {
+    "name": "DescribeBulkImportJob",
+    "description": "Grants permission to describe bulk import job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecomputationmodel": {
+    "name": "DescribeComputationModel",
+    "description": "Grants permission to describe a computation model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecomputationmodelexecutionsummary": {
+    "name": "DescribeComputationModelExecutionSummary",
+    "description": "Grants permission to describe computation model execution summary",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedashboard": {
+    "name": "DescribeDashboard",
+    "description": "Grants permission to describe a dashboard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedataset": {
+    "name": "DescribeDataset",
+    "description": "Grants permission to describe dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedefaultencryptionconfiguration": {
+    "name": "DescribeDefaultEncryptionConfiguration",
+    "description": "Grants permission to describe the default encryption configuration for the AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeexecution": {
+    "name": "DescribeExecution",
+    "description": "Grants permission to describe an execution",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describegateway": {
+    "name": "DescribeGateway",
+    "description": "Grants permission to describe a gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describegatewaycapabilityconfiguration": {
+    "name": "DescribeGatewayCapabilityConfiguration",
+    "description": "Grants permission to describe a capability configuration for a gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeloggingoptions": {
+    "name": "DescribeLoggingOptions",
+    "description": "Grants permission to describe logging options for the AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeportal": {
+    "name": "DescribePortal",
+    "description": "Grants permission to describe a portal",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeproject": {
+    "name": "DescribeProject",
+    "description": "Grants permission to describe a project",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestorageconfiguration": {
+    "name": "DescribeStorageConfiguration",
+    "description": "Grants permission to describe the storage configuration for the AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetimeseries": {
+    "name": "DescribeTimeSeries",
+    "description": "Grants permission to describe a time series",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "disassociateassets": {
+    "name": "DisassociateAssets",
+    "description": "Grants permission to disassociate a child asset from a parent asset by a hierarchy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatetimeseriesfromassetproperty": {
+    "name": "DisassociateTimeSeriesFromAssetProperty",
+    "description": "Grants permission to disassociate a time series from an asset property",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enablesitewiseintegration": {
+    "name": "EnableSiteWiseIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to allow IoT SiteWise integrate with other services",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "executeaction": {
+    "name": "ExecuteAction",
+    "description": "Grants permission to execute actions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "executequery": {
+    "name": "ExecuteQuery",
+    "description": "Grants permission to execute query",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getassetpropertyaggregates": {
+    "name": "GetAssetPropertyAggregates",
+    "description": "Grants permission to retrieve computed aggregates for an asset property",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getassetpropertyvalue": {
+    "name": "GetAssetPropertyValue",
+    "description": "Grants permission to retrieve the latest value for an asset property",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getassetpropertyvaluehistory": {
+    "name": "GetAssetPropertyValueHistory",
+    "description": "Grants permission to retrieve the value history for an asset property",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinterpolatedassetpropertyvalues": {
+    "name": "GetInterpolatedAssetPropertyValues",
+    "description": "Grants permission to retrieve interpolated values for an asset property",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokeassistant": {
+    "name": "InvokeAssistant",
+    "description": "Grants permission to invoke an assistant",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccesspolicies": {
+    "name": "ListAccessPolicies",
+    "description": "Grants permission to list all access policies for an identity or a resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listactions": {
+    "name": "ListActions",
+    "description": "Grants permission to list all actions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassetmodelcompositemodels": {
+    "name": "ListAssetModelCompositeModels",
+    "description": "Grants permission to list all asset model composite models",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassetmodelproperties": {
+    "name": "ListAssetModelProperties",
+    "description": "Grants permission to list asset model properties",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassetmodels": {
+    "name": "ListAssetModels",
+    "description": "Grants permission to list all asset models",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassetproperties": {
+    "name": "ListAssetProperties",
+    "description": "Grants permission to list asset properties",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassetrelationships": {
+    "name": "ListAssetRelationships",
+    "description": "Grants permission to list the asset relationship graph for an asset",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassets": {
+    "name": "ListAssets",
+    "description": "Grants permission to list all assets",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassociatedassets": {
+    "name": "ListAssociatedAssets",
+    "description": "Grants permission to list all assets associated with an asset through a hierarchy",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbulkimportjobs": {
+    "name": "ListBulkImportJobs",
+    "description": "Grants permission to list bulk import jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcompositionrelationships": {
+    "name": "ListCompositionRelationships",
+    "description": "Grants permission to list all asset model composition relationships",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomputationmodeldatabindingusages": {
+    "name": "ListComputationModelDataBindingUsages",
+    "description": "Grants permission to list computation model data binding usages",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomputationmodelresolvetoresources": {
+    "name": "ListComputationModelResolveToResources",
+    "description": "Grants permission to list computation model resolve to resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomputationmodels": {
+    "name": "ListComputationModels",
+    "description": "Grants permission to list all computation models",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdashboards": {
+    "name": "ListDashboards",
+    "description": "Grants permission to list all dashboards in a project",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasets": {
+    "name": "ListDatasets",
+    "description": "Grants permission to list all datasets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexecutions": {
+    "name": "ListExecutions",
+    "description": "Grants permission to list executions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgateways": {
+    "name": "ListGateways",
+    "description": "Grants permission to list all gateways",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinterfacerelationships": {
+    "name": "ListInterfaceRelationships",
+    "description": "Grants permission to list all asset models that are enforced by an interface",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listportals": {
+    "name": "ListPortals",
+    "description": "Grants permission to list all portals",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprojectassets": {
+    "name": "ListProjectAssets",
+    "description": "Grants permission to list all assets associated with a project",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprojects": {
+    "name": "ListProjects",
+    "description": "Grants permission to list all projects in a portal",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "access-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dashboard",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtimeseries": {
+    "name": "ListTimeSeries",
+    "description": "Grants permission to list time series",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putassetmodelinterfacerelationship": {
+    "name": "PutAssetModelInterfaceRelationship",
+    "description": "Grants permission to create a relationship between asset model and interface",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putdefaultencryptionconfiguration": {
+    "name": "PutDefaultEncryptionConfiguration",
+    "description": "Grants permission to set the default encryption configuration for the AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putloggingoptions": {
+    "name": "PutLoggingOptions",
+    "description": "Grants permission to set logging options for the AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putstorageconfiguration": {
+    "name": "PutStorageConfiguration",
+    "description": "Grants permission to configure storage settings for the AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "access-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dashboard",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "access-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dashboard",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateaccesspolicy": {
+    "name": "UpdateAccessPolicy",
+    "description": "Grants permission to update an access policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "access-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateasset": {
+    "name": "UpdateAsset",
+    "description": "Grants permission to update an asset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateassetmodel": {
+    "name": "UpdateAssetModel",
+    "description": "Grants permission to update an asset model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateassetmodelcompositemodel": {
+    "name": "UpdateAssetModelCompositeModel",
+    "description": "Grants permission to update asset model composite model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateassetmodelpropertyrouting": {
+    "name": "UpdateAssetModelPropertyRouting",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update an AssetModel property routing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateassetproperty": {
+    "name": "UpdateAssetProperty",
+    "description": "Grants permission to update an asset property",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecomputationmodel": {
+    "name": "UpdateComputationModel",
+    "description": "Grants permission to update a computation model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedashboard": {
+    "name": "UpdateDashboard",
+    "description": "Grants permission to update a dashboard",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedataset": {
+    "name": "UpdateDataset",
+    "description": "Grants permission to update a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updategateway": {
+    "name": "UpdateGateway",
+    "description": "Grants permission to update a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updategatewaycapabilityconfiguration": {
+    "name": "UpdateGatewayCapabilityConfiguration",
+    "description": "Grants permission to update a capability configuration for a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateportal": {
+    "name": "UpdatePortal",
+    "description": "Grants permission to update a portal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateproject": {
+    "name": "UpdateProject",
+    "description": "Grants permission to update a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

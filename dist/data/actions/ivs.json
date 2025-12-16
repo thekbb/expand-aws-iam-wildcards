@@ -1,0 +1,1301 @@
+{
+  "batchgetchannel": {
+    "name": "BatchGetChannel",
+    "description": "Grants permission to get multiple channels simultaneously by channel ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetstreamkey": {
+    "name": "BatchGetStreamKey",
+    "description": "Grants permission to get multiple stream keys simultaneously by stream key ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Stream-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchstartviewersessionrevocation": {
+    "name": "BatchStartViewerSessionRevocation",
+    "description": "Grants permission to perform StartViewerSessionRevocation on multiple channel ARN and viewer ID pairs simultaneously",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createchannel": {
+    "name": "CreateChannel",
+    "description": "Grants permission to create a new channel and an associated stream key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stream-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createencoderconfiguration": {
+    "name": "CreateEncoderConfiguration",
+    "description": "Grants permission to create a new encoder configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Encoder-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createingestconfiguration": {
+    "name": "CreateIngestConfiguration",
+    "description": "Grants permission to create a new ingest configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Ingest-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createparticipanttoken": {
+    "name": "CreateParticipantToken",
+    "description": "Grants permission to create a participant token",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createplaybackrestrictionpolicy": {
+    "name": "CreatePlaybackRestrictionPolicy",
+    "description": "Grants permission to create a playback restriction policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Playback-Restriction-Policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createrecordingconfiguration": {
+    "name": "CreateRecordingConfiguration",
+    "description": "Grants permission to create a a new recording configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Recording-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstage": {
+    "name": "CreateStage",
+    "description": "Grants permission to create a stage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstorageconfiguration": {
+    "name": "CreateStorageConfiguration",
+    "description": "Grants permission to create a new storage configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Storage-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstreamkey": {
+    "name": "CreateStreamKey",
+    "description": "Grants permission to create a stream key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stream-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletechannel": {
+    "name": "DeleteChannel",
+    "description": "Grants permission to delete a channel and channel's stream keys",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stream-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteencoderconfiguration": {
+    "name": "DeleteEncoderConfiguration",
+    "description": "Grants permission to delete an encoder configuration for the specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Encoder-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteingestconfiguration": {
+    "name": "DeleteIngestConfiguration",
+    "description": "Grants permission to delete an ingest configuration for the specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Ingest-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteplaybackkeypair": {
+    "name": "DeletePlaybackKeyPair",
+    "description": "Grants permission to delete the playback key pair for a specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Playback-Key-Pair",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteplaybackrestrictionpolicy": {
+    "name": "DeletePlaybackRestrictionPolicy",
+    "description": "Grants permission to delete the playback restriction policy for a specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Playback-Restriction-Policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepublickey": {
+    "name": "DeletePublicKey",
+    "description": "Grants permission to delete the public key for the specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Public-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterecordingconfiguration": {
+    "name": "DeleteRecordingConfiguration",
+    "description": "Grants permission to delete a recording configuration for the specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Recording-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestage": {
+    "name": "DeleteStage",
+    "description": "Grants permission to delete the stage for a specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestorageconfiguration": {
+    "name": "DeleteStorageConfiguration",
+    "description": "Grants permission to delete an storage configuration for the specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Storage-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestreamkey": {
+    "name": "DeleteStreamKey",
+    "description": "Grants permission to delete the stream key for a specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stream-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disconnectparticipant": {
+    "name": "DisconnectParticipant",
+    "description": "Grants permission to disconnect a participant from for the specified stage ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannel": {
+    "name": "GetChannel",
+    "description": "Grants permission to get the channel configuration for a specified channel ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcomposition": {
+    "name": "GetComposition",
+    "description": "Grants permission to get the composition for the specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Composition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getencoderconfiguration": {
+    "name": "GetEncoderConfiguration",
+    "description": "Grants permission to get the encoder configuration for the specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Encoder-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getingestconfiguration": {
+    "name": "GetIngestConfiguration",
+    "description": "Grants permission to get the ingest configuration for the specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Ingest-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getparticipant": {
+    "name": "GetParticipant",
+    "description": "Grants permission to get participant information for a specified stage ARN, session, and participant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getplaybackkeypair": {
+    "name": "GetPlaybackKeyPair",
+    "description": "Grants permission to get the playback keypair information for a specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Playback-Key-Pair",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getplaybackrestrictionpolicy": {
+    "name": "GetPlaybackRestrictionPolicy",
+    "description": "Grants permission to get the playback restriction policy for a specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Playback-Restriction-Policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpublickey": {
+    "name": "GetPublicKey",
+    "description": "Grants permission to get the public key for the specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Public-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecordingconfiguration": {
+    "name": "GetRecordingConfiguration",
+    "description": "Grants permission to get the recording configuration for the specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Recording-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstage": {
+    "name": "GetStage",
+    "description": "Grants permission to get stage information for a specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstagesession": {
+    "name": "GetStageSession",
+    "description": "Grants permission to get stage session information for a specified stage ARN and session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstorageconfiguration": {
+    "name": "GetStorageConfiguration",
+    "description": "Grants permission to get the storage configuration for the specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Storage-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstream": {
+    "name": "GetStream",
+    "description": "Grants permission to get information about the active (live) stream on a specified channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstreamkey": {
+    "name": "GetStreamKey",
+    "description": "Grants permission to get stream-key information for a specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Stream-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstreamsession": {
+    "name": "GetStreamSession",
+    "description": "Grants permission to get information about the stream session on a specified channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importplaybackkeypair": {
+    "name": "ImportPlaybackKeyPair",
+    "description": "Grants permission to import the public key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Playback-Key-Pair",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "importpublickey": {
+    "name": "ImportPublicKey",
+    "description": "Grants permission to import a public key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Public-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listchannels": {
+    "name": "ListChannels",
+    "description": "Grants permission to get summary information about channels",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcompositions": {
+    "name": "ListCompositions",
+    "description": "Grants permission to get summary information about compositions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Encoder-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stage",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listencoderconfigurations": {
+    "name": "ListEncoderConfigurations",
+    "description": "Grants permission to get summary information about encoder configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listingestconfigurations": {
+    "name": "ListIngestConfigurations",
+    "description": "Grants permission to get summary information about ingest configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listparticipantevents": {
+    "name": "ListParticipantEvents",
+    "description": "Grants permission to list participant events for a specified stage ARN, session, and participant",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listparticipantreplicas": {
+    "name": "ListParticipantReplicas",
+    "description": "Grants permission to get summary information about participant replicas",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listparticipants": {
+    "name": "ListParticipants",
+    "description": "Grants permission to list participants for a specified stage ARN and session",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listplaybackkeypairs": {
+    "name": "ListPlaybackKeyPairs",
+    "description": "Grants permission to get summary information about playback key pairs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Playback-Key-Pair",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listplaybackrestrictionpolicies": {
+    "name": "ListPlaybackRestrictionPolicies",
+    "description": "Grants permission to get summary information about playback restriction policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpublickeys": {
+    "name": "ListPublicKeys",
+    "description": "Grants permission to get summary information about public keys",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecordingconfigurations": {
+    "name": "ListRecordingConfigurations",
+    "description": "Grants permission to get summary information about recording configurations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Recording-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststagesessions": {
+    "name": "ListStageSessions",
+    "description": "Grants permission to list stage sessions for a specified stage ARN",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststages": {
+    "name": "ListStages",
+    "description": "Grants permission to get summary information about stages",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststorageconfigurations": {
+    "name": "ListStorageConfigurations",
+    "description": "Grants permission to get summary information about storage configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreamkeys": {
+    "name": "ListStreamKeys",
+    "description": "Grants permission to get summary information about stream keys",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stream-Key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreamsessions": {
+    "name": "ListStreamSessions",
+    "description": "Grants permission to get summary information about streams sessions on a specified channel",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreams": {
+    "name": "ListStreams",
+    "description": "Grants permission to get summary information about live streams",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to get information about the tags for a specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Composition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Encoder-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Ingest-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Playback-Key-Pair",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Playback-Restriction-Policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Public-Key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Recording-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stage",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Storage-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stream-Key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putmetadata": {
+    "name": "PutMetadata",
+    "description": "Grants permission to insert metadata into an RTMP stream for a specified channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcomposition": {
+    "name": "StartComposition",
+    "description": "Grants permission to start a new composition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Encoder-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Storage-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startparticipantreplication": {
+    "name": "StartParticipantReplication",
+    "description": "Grants permission to start a new participant replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startviewersessionrevocation": {
+    "name": "StartViewerSessionRevocation",
+    "description": "Grants permission to start the process of revoking the viewer session associated with a specified channel ARN and viewer ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopcomposition": {
+    "name": "StopComposition",
+    "description": "Grants permission to stop the composition for the specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Composition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopparticipantreplication": {
+    "name": "StopParticipantReplication",
+    "description": "Grants permission to stop the participant replication for the specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopstream": {
+    "name": "StopStream",
+    "description": "Grants permission to disconnect a streamer on a specified channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or update tags for a resource with a specified ARN",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Composition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Encoder-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Ingest-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Playback-Key-Pair",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Playback-Restriction-Policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Public-Key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Recording-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stage",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Storage-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stream-Key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags for a resource with a specified ARN",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Composition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Encoder-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Ingest-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Playback-Key-Pair",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Playback-Restriction-Policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Public-Key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Recording-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stage",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Storage-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stream-Key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatechannel": {
+    "name": "UpdateChannel",
+    "description": "Grants permission to update a channel's configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateingestconfiguration": {
+    "name": "UpdateIngestConfiguration",
+    "description": "Grants permission to update ingest configuration for a specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Ingest-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateplaybackrestrictionpolicy": {
+    "name": "UpdatePlaybackRestrictionPolicy",
+    "description": "Grants permission to update a playback restriction policy for a specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Playback-Restriction-Policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestage": {
+    "name": "UpdateStage",
+    "description": "Grants permission to update a stage's configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

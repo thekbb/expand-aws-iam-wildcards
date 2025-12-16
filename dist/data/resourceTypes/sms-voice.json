@@ -1,0 +1,69 @@
+{
+  "configurationset": {
+    "key": "ConfigurationSet",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:configuration-set/${ConfigurationSetName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "optoutlist": {
+    "key": "OptOutList",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:opt-out-list/${OptOutListName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "phonenumber": {
+    "key": "PhoneNumber",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:phone-number/${PhoneNumberId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "pool": {
+    "key": "Pool",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:pool/${PoolId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "protectconfiguration": {
+    "key": "ProtectConfiguration",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:protect-configuration/${ProtectConfigurationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "senderid": {
+    "key": "SenderId",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:sender-id/${SenderId}/${IsoCountryCode}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "registration": {
+    "key": "Registration",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:registration/${RegistrationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "registrationattachment": {
+    "key": "RegistrationAttachment",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:registration-attachment/${RegistrationAttachmentId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "verifieddestinationnumber": {
+    "key": "VerifiedDestinationNumber",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:verified-destination-number/${VerifiedDestinationNumberId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "message": {
+    "key": "Message",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:message/${MessageId}"
+  }
+}

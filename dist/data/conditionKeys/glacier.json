@@ -1,0 +1,12 @@
+{
+  "glacier:archiveageindays": {
+    "key": "glacier:ArchiveAgeInDays",
+    "description": "Filters access by how long an archive has been stored in the vault, in days",
+    "type": "String"
+  },
+  "glacier:resourcetag/": {
+    "key": "glacier:ResourceTag/",
+    "description": "Filters access by a customer-defined tag",
+    "type": "String"
+  }
+}

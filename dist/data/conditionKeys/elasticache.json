@@ -1,0 +1,117 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters actions based on the tags that are passed in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters actions based on the tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters actions based on the tag keys that are passed in the request",
+    "type": "ArrayOfString"
+  },
+  "elasticache:atrestencryptionenabled": {
+    "key": "elasticache:AtRestEncryptionEnabled",
+    "description": "Filters access by the AtRestEncryptionEnabled parameter present in the request or default false value if parameter is not present",
+    "type": "Bool"
+  },
+  "elasticache:authtokenenabled": {
+    "key": "elasticache:AuthTokenEnabled",
+    "description": "Filters access by the presence of non empty AuthToken parameter in the request",
+    "type": "Bool"
+  },
+  "elasticache:automaticfailoverenabled": {
+    "key": "elasticache:AutomaticFailoverEnabled",
+    "description": "Filters access by the AutomaticFailoverEnabled parameter in the request",
+    "type": "Bool"
+  },
+  "elasticache:cachenodetype": {
+    "key": "elasticache:CacheNodeType",
+    "description": "Filters access by the cacheNodeType parameter present in the request. This key can be used to restrict which cache node types can be used on cluster creation or scaling operations",
+    "type": "String"
+  },
+  "elasticache:cacheparametergroupname": {
+    "key": "elasticache:CacheParameterGroupName",
+    "description": "Filters access by the CacheParameterGroupName parameter in the request",
+    "type": "String"
+  },
+  "elasticache:clustermodeenabled": {
+    "key": "elasticache:ClusterModeEnabled",
+    "description": "Filters access by the cluster mode parameter present in the request. Default value for single node group (shard) creations is false",
+    "type": "Bool"
+  },
+  "elasticache:datastorageunit": {
+    "key": "elasticache:DataStorageUnit",
+    "description": "Filters access by the CacheUsageLimits.DataStorage.Unit parameter in the CreateServerlessCache and ModifyServerlessCache request",
+    "type": "String"
+  },
+  "elasticache:enginetype": {
+    "key": "elasticache:EngineType",
+    "description": "Filters access by the engine type present in creation requests. For replication group creations, default engine 'redis' is used as key if parameter is not present",
+    "type": "String"
+  },
+  "elasticache:engineversion": {
+    "key": "elasticache:EngineVersion",
+    "description": "Filters access by the engineVersion parameter present in creation or cluster modification requests",
+    "type": "String"
+  },
+  "elasticache:kmskeyid": {
+    "key": "elasticache:KmsKeyId",
+    "description": "Filters access by the Key ID of the KMS key",
+    "type": "String"
+  },
+  "elasticache:maximumdatastorage": {
+    "key": "elasticache:MaximumDataStorage",
+    "description": "Filters access by the CacheUsageLimits.DataStorage.Maximum parameter in the CreateServerlessCache and ModifyServerlessCache request",
+    "type": "Numeric"
+  },
+  "elasticache:maximumecpupersecond": {
+    "key": "elasticache:MaximumECPUPerSecond",
+    "description": "Filters access by the CacheUsageLimits.ECPUPerSecond.Maximum parameter in the CreateServerlessCache and ModifyServerlessCache request",
+    "type": "Numeric"
+  },
+  "elasticache:minimumdatastorage": {
+    "key": "elasticache:MinimumDataStorage",
+    "description": "Filters access by the CacheUsageLimits.DataStorage.Minimum parameter in the CreateServerlessCache and ModifyServerlessCache request",
+    "type": "Numeric"
+  },
+  "elasticache:minimumecpupersecond": {
+    "key": "elasticache:MinimumECPUPerSecond",
+    "description": "Filters access by the CacheUsageLimits.ECPUPerSecond.Minimum parameter in the CreateServerlessCache and ModifyServerlessCache request",
+    "type": "Numeric"
+  },
+  "elasticache:multiazenabled": {
+    "key": "elasticache:MultiAZEnabled",
+    "description": "Filters access by the AZMode parameter, MultiAZEnabled parameter or the number of availability zones that the cluster or replication group can be placed in",
+    "type": "Bool"
+  },
+  "elasticache:numnodegroups": {
+    "key": "elasticache:NumNodeGroups",
+    "description": "Filters access by the NumNodeGroups or NodeGroupCount parameter specified in the request. This key can be used to restrict the number of node groups (shards) clusters can have after creation or scaling operations",
+    "type": "Numeric"
+  },
+  "elasticache:replicaspernodegroup": {
+    "key": "elasticache:ReplicasPerNodeGroup",
+    "description": "Filters access by the number of replicas per node group (shards) specified in creations or scaling requests",
+    "type": "Numeric"
+  },
+  "elasticache:snapshotretentionlimit": {
+    "key": "elasticache:SnapshotRetentionLimit",
+    "description": "Filters access by the SnapshotRetentionLimit parameter in the request",
+    "type": "Numeric"
+  },
+  "elasticache:transitencryptionenabled": {
+    "key": "elasticache:TransitEncryptionEnabled",
+    "description": "Filters access by the TransitEncryptionEnabled parameter present in the request. For replication group creations, default value 'false' is used as key if parameter is not present",
+    "type": "Bool"
+  },
+  "elasticache:userauthenticationmode": {
+    "key": "elasticache:UserAuthenticationMode",
+    "description": "Filters access by the UserAuthenticationMode parameter in the request",
+    "type": "String"
+  }
+}

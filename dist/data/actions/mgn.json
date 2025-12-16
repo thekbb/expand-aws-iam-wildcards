@@ -1,0 +1,2284 @@
+{
+  "archiveapplication": {
+    "name": "ArchiveApplication",
+    "description": "Grants permission to archive an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "archivewave": {
+    "name": "ArchiveWave",
+    "description": "Grants permission to archive a wave",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WaveResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associateapplications": {
+    "name": "AssociateApplications",
+    "description": "Grants permission to associate applications to a wave",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "WaveResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatesourceservers": {
+    "name": "AssociateSourceServers",
+    "description": "Grants permission to associate source servers to an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchcreatevolumesnapshotgroupformgn": {
+    "name": "BatchCreateVolumeSnapshotGroupForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create volume snapshot group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdeletesnapshotrequestformgn": {
+    "name": "BatchDeleteSnapshotRequestForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to batch delete snapshot request",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "changeserverlifecyclestate": {
+    "name": "ChangeServerLifeCycleState",
+    "description": "Grants permission to change source server life cycle state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create an application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconnector": {
+    "name": "CreateConnector",
+    "description": "Grants permission to create connector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlaunchconfigurationtemplate": {
+    "name": "CreateLaunchConfigurationTemplate",
+    "description": "Grants permission to create launch configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createnetworkmigrationdefinition": {
+    "name": "CreateNetworkMigrationDefinition",
+    "description": "Grants permission to create a network migration definition",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createreplicationconfigurationtemplate": {
+    "name": "CreateReplicationConfigurationTemplate",
+    "description": "Grants permission to create replication configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createvcenterclientformgn": {
+    "name": "CreateVcenterClientForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create vcenter client",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createwave": {
+    "name": "CreateWave",
+    "description": "Grants permission to create a wave",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteapplication": {
+    "name": "DeleteApplication",
+    "description": "Grants permission to delete an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnector": {
+    "name": "DeleteConnector",
+    "description": "Grants permission to delete connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletejob": {
+    "name": "DeleteJob",
+    "description": "Grants permission to delete job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "JobResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelaunchconfigurationtemplate": {
+    "name": "DeleteLaunchConfigurationTemplate",
+    "description": "Grants permission to delete launch configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletenetworkmigrationdefinition": {
+    "name": "DeleteNetworkMigrationDefinition",
+    "description": "Grants permission to delete a network migration definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletereplicationconfigurationtemplate": {
+    "name": "DeleteReplicationConfigurationTemplate",
+    "description": "Grants permission to delete replication configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesourceserver": {
+    "name": "DeleteSourceServer",
+    "description": "Grants permission to delete source server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevcenterclient": {
+    "name": "DeleteVcenterClient",
+    "description": "Grants permission to delete vcenter client",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VcenterClientResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletewave": {
+    "name": "DeleteWave",
+    "description": "Grants permission to delete a wave",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WaveResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejoblogitems": {
+    "name": "DescribeJobLogItems",
+    "description": "Grants permission to describe job log items",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "JobResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejobs": {
+    "name": "DescribeJobs",
+    "description": "Grants permission to describe jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelaunchconfigurationtemplates": {
+    "name": "DescribeLaunchConfigurationTemplates",
+    "description": "Grants permission to describe launch configuration template",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereplicationconfigurationtemplates": {
+    "name": "DescribeReplicationConfigurationTemplates",
+    "description": "Grants permission to describe replication configuration template",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereplicationserverassociationsformgn": {
+    "name": "DescribeReplicationServerAssociationsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe replication server associations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesnapshotrequestsformgn": {
+    "name": "DescribeSnapshotRequestsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe snapshots requests",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesourceservers": {
+    "name": "DescribeSourceServers",
+    "description": "Grants permission to describe source servers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevcenterclients": {
+    "name": "DescribeVcenterClients",
+    "description": "Grants permission to describe vcenter clients",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateapplications": {
+    "name": "DisassociateApplications",
+    "description": "Grants permission to disassociate applications from a wave",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "WaveResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatesourceservers": {
+    "name": "DisassociateSourceServers",
+    "description": "Grants permission to disassociate source servers from an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disconnectfromservice": {
+    "name": "DisconnectFromService",
+    "description": "Grants permission to disconnect source server from service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "finalizecutover": {
+    "name": "FinalizeCutover",
+    "description": "Grants permission to finalize cutover",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagentcommandformgn": {
+    "name": "GetAgentCommandForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent command",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagentconfirmedresumeinfoformgn": {
+    "name": "GetAgentConfirmedResumeInfoForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent confirmed resume info",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagentinstallationassetsformgn": {
+    "name": "GetAgentInstallationAssetsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent installation assets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagentreplicationinfoformgn": {
+    "name": "GetAgentReplicationInfoForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent replication info",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagentruntimeconfigurationformgn": {
+    "name": "GetAgentRuntimeConfigurationForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent runtime configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagentsnapshotcreditsformgn": {
+    "name": "GetAgentSnapshotCreditsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent snapshots credits",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannelcommandsformgn": {
+    "name": "GetChannelCommandsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get channel commands",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlaunchconfiguration": {
+    "name": "GetLaunchConfiguration",
+    "description": "Grants permission to get launch configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getnetworkmigrationdefinition": {
+    "name": "GetNetworkMigrationDefinition",
+    "description": "Grants permission to get a network migration definition",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getnetworkmigrationmappersegmentconstruct": {
+    "name": "GetNetworkMigrationMapperSegmentConstruct",
+    "description": "Grants permission to get a network migration mapper segment construct",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreplicationconfiguration": {
+    "name": "GetReplicationConfiguration",
+    "description": "Grants permission to get replication configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvcenterclientcommandsformgn": {
+    "name": "GetVcenterClientCommandsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get vcenter client commands",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VcenterClientResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "initializeservice": {
+    "name": "InitializeService",
+    "description": "Grants permission to initialize service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:AddRoleToInstanceProfile",
+      "iam:CreateInstanceProfile",
+      "iam:CreateServiceLinkedRole",
+      "iam:GetInstanceProfile"
+    ]
+  },
+  "issueclientcertificateformgn": {
+    "name": "IssueClientCertificateForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to issue a client certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapplications": {
+    "name": "ListApplications",
+    "description": "Grants permission to list application summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectors": {
+    "name": "ListConnectors",
+    "description": "Grants permission to list connectors",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexporterrors": {
+    "name": "ListExportErrors",
+    "description": "Grants permission to list the errors of an export task",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ExportResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexports": {
+    "name": "ListExports",
+    "description": "Grants permission to list export tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listimporterrors": {
+    "name": "ListImportErrors",
+    "description": "Grants permission to list the errors of an import task",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ImportResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listimportfileenrichments": {
+    "name": "ListImportFileEnrichments",
+    "description": "Grants permission to list the import file enrichment tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listimports": {
+    "name": "ListImports",
+    "description": "Grants permission to list the import tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagedaccounts": {
+    "name": "ListManagedAccounts",
+    "description": "Grants permission to list managed accounts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationanalyses": {
+    "name": "ListNetworkMigrationAnalyses",
+    "description": "Grants permission to list network migration analyses",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationanalysisresults": {
+    "name": "ListNetworkMigrationAnalysisResults",
+    "description": "Grants permission to list network migration analysis results",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationcodegenerationsegments": {
+    "name": "ListNetworkMigrationCodeGenerationSegments",
+    "description": "Grants permission to list network migration code generation segments",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationcodegenerations": {
+    "name": "ListNetworkMigrationCodeGenerations",
+    "description": "Grants permission to list network migration code generations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationdefinitions": {
+    "name": "ListNetworkMigrationDefinitions",
+    "description": "Grants permission to list network migration definitions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationdeployedstacks": {
+    "name": "ListNetworkMigrationDeployedStacks",
+    "description": "Grants permission to list network migration deployed stacks",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationdeployedstacksdeletions": {
+    "name": "ListNetworkMigrationDeployedStacksDeletions",
+    "description": "Grants permission to list network migration deployed stacks deletions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationdeployments": {
+    "name": "ListNetworkMigrationDeployments",
+    "description": "Grants permission to list network migration deployments",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationexecutions": {
+    "name": "ListNetworkMigrationExecutions",
+    "description": "Grants permission to list network migration executions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationmappersegmentconstructs": {
+    "name": "ListNetworkMigrationMapperSegmentConstructs",
+    "description": "Grants permission to list network migration mapper segment constructs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationmappersegments": {
+    "name": "ListNetworkMigrationMapperSegments",
+    "description": "Grants permission to list network migration mapper segments",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationmappingupdates": {
+    "name": "ListNetworkMigrationMappingUpdates",
+    "description": "Grants permission to list network migration mapping updates",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationmappings": {
+    "name": "ListNetworkMigrationMappings",
+    "description": "Grants permission to list network migration mappings",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsourceserveractions": {
+    "name": "ListSourceServerActions",
+    "description": "Grants permission to list source server action documents",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtemplateactions": {
+    "name": "ListTemplateActions",
+    "description": "Grants permission to list launch configuration template action documents",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listwaves": {
+    "name": "ListWaves",
+    "description": "Grants permission to list wave summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "markasarchived": {
+    "name": "MarkAsArchived",
+    "description": "Grants permission to mark source server as archived",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "notifyagentauthenticationformgn": {
+    "name": "NotifyAgentAuthenticationForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify agent authentication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "notifyagentconnectedformgn": {
+    "name": "NotifyAgentConnectedForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify agent is connected",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "notifyagentdisconnectedformgn": {
+    "name": "NotifyAgentDisconnectedForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify agent is disconnected",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "notifyagentreplicationprogressformgn": {
+    "name": "NotifyAgentReplicationProgressForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify agent replication progress",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "notifyvcenterclientstartedformgn": {
+    "name": "NotifyVcenterClientStartedForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify vcenter client started",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VcenterClientResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "pausereplication": {
+    "name": "PauseReplication",
+    "description": "Grants permission to pause replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putsourceserveraction": {
+    "name": "PutSourceServerAction",
+    "description": "Grants permission to put source server action document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puttemplateaction": {
+    "name": "PutTemplateAction",
+    "description": "Grants permission to put launch configuration template action document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registeragentformgn": {
+    "name": "RegisterAgentForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to register agent",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "removesourceserveraction": {
+    "name": "RemoveSourceServerAction",
+    "description": "Grants permission to remove source server action document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removetemplateaction": {
+    "name": "RemoveTemplateAction",
+    "description": "Grants permission to remove launch configuration template action document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resumereplication": {
+    "name": "ResumeReplication",
+    "description": "Grants permission to resume replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "retrydatareplication": {
+    "name": "RetryDataReplication",
+    "description": "Grants permission to retry replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendagentlogsformgn": {
+    "name": "SendAgentLogsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send agent logs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendagentmetricsformgn": {
+    "name": "SendAgentMetricsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send agent metrics",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendchannelcommandresultformgn": {
+    "name": "SendChannelCommandResultForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send channel command result",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendclientlogsformgn": {
+    "name": "SendClientLogsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send client logs",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendclientmetricsformgn": {
+    "name": "SendClientMetricsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send client metrics",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendvcenterclientcommandresultformgn": {
+    "name": "SendVcenterClientCommandResultForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send vcenter client command result",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VcenterClientResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendvcenterclientlogsformgn": {
+    "name": "SendVcenterClientLogsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send vcenter client logs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VcenterClientResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendvcenterclientmetricsformgn": {
+    "name": "SendVcenterClientMetricsForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send vcenter client metrics",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VcenterClientResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcutover": {
+    "name": "StartCutover",
+    "description": "Grants permission to start cutover",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:AttachVolume",
+          "ec2:AuthorizeSecurityGroupEgress",
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:CreateLaunchTemplate",
+          "ec2:CreateLaunchTemplateVersion",
+          "ec2:CreateSecurityGroup",
+          "ec2:CreateSnapshot",
+          "ec2:CreateTags",
+          "ec2:CreateVolume",
+          "ec2:DeleteLaunchTemplateVersions",
+          "ec2:DeleteSnapshot",
+          "ec2:DeleteVolume",
+          "ec2:DescribeAccountAttributes",
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeImages",
+          "ec2:DescribeInstanceAttribute",
+          "ec2:DescribeInstanceStatus",
+          "ec2:DescribeInstanceTypes",
+          "ec2:DescribeInstances",
+          "ec2:DescribeLaunchTemplateVersions",
+          "ec2:DescribeLaunchTemplates",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSnapshots",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVolumes",
+          "ec2:DetachVolume",
+          "ec2:ModifyInstanceAttribute",
+          "ec2:ModifyLaunchTemplate",
+          "ec2:ReportInstanceStatus",
+          "ec2:RevokeSecurityGroupEgress",
+          "ec2:RunInstances",
+          "ec2:StartInstances",
+          "ec2:StopInstances",
+          "ec2:TerminateInstances",
+          "iam:PassRole",
+          "mgn:ListTagsForResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startexport": {
+    "name": "StartExport",
+    "description": "Grants permission to start an export task",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:DescribeLaunchTemplateVersions",
+      "mgn:DescribeSourceServers",
+      "mgn:GetLaunchConfiguration",
+      "mgn:ListApplications",
+      "mgn:ListWaves",
+      "s3:PutObject"
+    ]
+  },
+  "startimport": {
+    "name": "StartImport",
+    "description": "Grants permission to create an import task",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:CreateLaunchTemplateVersion",
+      "ec2:DescribeLaunchTemplateVersions",
+      "ec2:ModifyLaunchTemplate",
+      "mgn:DescribeSourceServers",
+      "mgn:GetLaunchConfiguration",
+      "mgn:ListApplications",
+      "mgn:ListWaves",
+      "mgn:TagResource",
+      "mgn:UpdateLaunchConfiguration",
+      "s3:PutObject"
+    ]
+  },
+  "startimportfileenrichment": {
+    "name": "StartImportFileEnrichment",
+    "description": "Grants permission to start import file enrichment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "startnetworkmigrationanalysis": {
+    "name": "StartNetworkMigrationAnalysis",
+    "description": "Grants permission to start a network migration analysis",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "directconnect:DescribeConnections",
+      "directconnect:DescribeDirectConnectGatewayAssociations",
+      "directconnect:DescribeDirectConnectGatewayAttachments",
+      "directconnect:DescribeDirectConnectGateways",
+      "directconnect:DescribeVirtualGateways",
+      "directconnect:DescribeVirtualInterfaces",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInsightsPath",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateTags",
+      "ec2:DeleteNetworkInsightsAnalysis",
+      "ec2:DeleteNetworkInsightsPath",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteSecurityGroup",
+      "ec2:DeleteTags",
+      "ec2:DescribeAvailabilityZones",
+      "ec2:DescribeCustomerGateways",
+      "ec2:DescribeInstances",
+      "ec2:DescribeInternetGateways",
+      "ec2:DescribeManagedPrefixLists",
+      "ec2:DescribeNatGateways",
+      "ec2:DescribeNetworkAcls",
+      "ec2:DescribeNetworkInsightsAnalyses",
+      "ec2:DescribeNetworkInsightsPaths",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribePrefixLists",
+      "ec2:DescribeRegions",
+      "ec2:DescribeRouteTables",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeTransitGatewayAttachments",
+      "ec2:DescribeTransitGatewayConnects",
+      "ec2:DescribeTransitGatewayPeeringAttachments",
+      "ec2:DescribeTransitGatewayRouteTables",
+      "ec2:DescribeTransitGatewayVpcAttachments",
+      "ec2:DescribeTransitGateways",
+      "ec2:DescribeVpcEndpointServiceConfigurations",
+      "ec2:DescribeVpcEndpoints",
+      "ec2:DescribeVpcPeeringConnections",
+      "ec2:DescribeVpcs",
+      "ec2:DescribeVpnConnections",
+      "ec2:DescribeVpnGateways",
+      "ec2:GetManagedPrefixListEntries",
+      "ec2:GetTransitGatewayRouteTablePropagations",
+      "ec2:SearchTransitGatewayRoutes",
+      "ec2:StartNetworkInsightsAnalysis",
+      "elasticloadbalancing:DescribeListeners",
+      "elasticloadbalancing:DescribeLoadBalancerAttributes",
+      "elasticloadbalancing:DescribeLoadBalancers",
+      "elasticloadbalancing:DescribeRules",
+      "elasticloadbalancing:DescribeTags",
+      "elasticloadbalancing:DescribeTargetGroupAttributes",
+      "elasticloadbalancing:DescribeTargetGroups",
+      "elasticloadbalancing:DescribeTargetHealth",
+      "globalaccelerator:ListAccelerators",
+      "globalaccelerator:ListCustomRoutingAccelerators",
+      "globalaccelerator:ListCustomRoutingEndpointGroups",
+      "globalaccelerator:ListCustomRoutingListeners",
+      "globalaccelerator:ListCustomRoutingPortMappings",
+      "globalaccelerator:ListEndpointGroups",
+      "globalaccelerator:ListListeners",
+      "network-firewall:DescribeFirewall",
+      "network-firewall:DescribeFirewallPolicy",
+      "network-firewall:DescribeResourcePolicy",
+      "network-firewall:DescribeRuleGroup",
+      "network-firewall:ListFirewallPolicies",
+      "network-firewall:ListFirewalls",
+      "network-firewall:ListRuleGroups",
+      "tiros:CreateQuery",
+      "tiros:ExtendQuery",
+      "tiros:GetQueryAnswer",
+      "tiros:GetQueryExplanation",
+      "tiros:GetQueryExtensionAccounts"
+    ]
+  },
+  "startnetworkmigrationcodegeneration": {
+    "name": "StartNetworkMigrationCodeGeneration",
+    "description": "Grants permission to start network migration code generation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startnetworkmigrationdeployedstacksdeletion": {
+    "name": "StartNetworkMigrationDeployedStacksDeletion",
+    "description": "Grants permission to start deletion of network migration deployed stacks",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AcceptTransitGatewayVpcAttachment",
+      "ec2:AssociateNatGatewayAddress",
+      "ec2:AssociateRouteTable",
+      "ec2:AssociateSubnetCidrBlock",
+      "ec2:AssociateTransitGatewayRouteTable",
+      "ec2:AssociateVpcCidrBlock",
+      "ec2:AttachInternetGateway",
+      "ec2:AttachVolume",
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:DeleteInternetGateway",
+      "ec2:DeleteLaunchTemplate",
+      "ec2:DeleteLaunchTemplateVersions",
+      "ec2:DeleteNatGateway",
+      "ec2:DeleteNetworkAcl",
+      "ec2:DeleteNetworkAclEntry",
+      "ec2:DeleteNetworkInsightsAnalysis",
+      "ec2:DeleteNetworkInsightsPath",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteRoute",
+      "ec2:DeleteRouteTable",
+      "ec2:DeleteSecurityGroup",
+      "ec2:DeleteSnapshot",
+      "ec2:DeleteSubnet",
+      "ec2:DeleteTransitGateway",
+      "ec2:DeleteTransitGatewayRoute",
+      "ec2:DeleteTransitGatewayRouteTable",
+      "ec2:DeleteTransitGatewayVpcAttachment",
+      "ec2:DeleteVolume",
+      "ec2:DeleteVpc",
+      "ec2:DetachInternetGateway",
+      "ec2:DetachVolume",
+      "ec2:DisableTransitGatewayRouteTablePropagation",
+      "ec2:DisassociateNatGatewayAddress",
+      "ec2:DisassociateRouteTable",
+      "ec2:DisassociateTransitGatewayRouteTable",
+      "ec2:EnableTransitGatewayRouteTablePropagation",
+      "ec2:ModifyInstanceAttribute",
+      "ec2:ModifyLaunchTemplate",
+      "ec2:ModifySubnetAttribute",
+      "ec2:ModifyTransitGateway",
+      "ec2:ModifyTransitGatewayVpcAttachment",
+      "ec2:ModifyVolume",
+      "ec2:ModifyVpcAttribute",
+      "ec2:RejectTransitGatewayVpcAttachment",
+      "ec2:ReleaseAddress",
+      "ec2:ReplaceNetworkAclAssociation",
+      "ec2:ReplaceNetworkAclEntry",
+      "ec2:ReplaceRoute",
+      "ec2:ReplaceTransitGatewayRoute",
+      "ec2:RevokeSecurityGroupEgress",
+      "ec2:RevokeSecurityGroupIngress",
+      "ec2:SearchTransitGatewayRoutes"
+    ]
+  },
+  "startnetworkmigrationdeployment": {
+    "name": "StartNetworkMigrationDeployment",
+    "description": "Grants permission to start a network migration deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AcceptTransitGatewayVpcAttachment",
+      "ec2:AssociateNatGatewayAddress",
+      "ec2:AssociateRouteTable",
+      "ec2:AssociateSubnetCidrBlock",
+      "ec2:AssociateTransitGatewayRouteTable",
+      "ec2:AssociateVpcCidrBlock",
+      "ec2:AttachInternetGateway",
+      "ec2:AttachVolume",
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNatGateway",
+      "ec2:CreateNetworkAcl",
+      "ec2:CreateNetworkAclEntry",
+      "ec2:CreateNetworkInsightsPath",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateRoute",
+      "ec2:CreateRouteTable",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateSubnet",
+      "ec2:CreateTags",
+      "ec2:CreateTransitGatewayRoute",
+      "ec2:CreateTransitGatewayRouteTable",
+      "ec2:CreateTransitGatewayVpcAttachment",
+      "ec2:DeleteInternetGateway",
+      "ec2:DeleteLaunchTemplate",
+      "ec2:DeleteLaunchTemplateVersions",
+      "ec2:DeleteNatGateway",
+      "ec2:DeleteNetworkAcl",
+      "ec2:DeleteNetworkAclEntry",
+      "ec2:DeleteNetworkInsightsAnalysis",
+      "ec2:DeleteNetworkInsightsPath",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteRoute",
+      "ec2:DeleteRouteTable",
+      "ec2:DeleteSecurityGroup",
+      "ec2:DeleteSnapshot",
+      "ec2:DeleteSubnet",
+      "ec2:DeleteTransitGateway",
+      "ec2:DeleteTransitGatewayRoute",
+      "ec2:DeleteTransitGatewayRouteTable",
+      "ec2:DeleteTransitGatewayVpcAttachment",
+      "ec2:DeleteVolume",
+      "ec2:DeleteVpc",
+      "ec2:DescribeAccountAttributes",
+      "ec2:DescribeAddresses",
+      "ec2:DescribeAvailabilityZones",
+      "ec2:DescribeCustomerGateways",
+      "ec2:DescribeEgressOnlyInternetGateways",
+      "ec2:DescribeHosts",
+      "ec2:DescribeImages",
+      "ec2:DescribeInstanceAttribute",
+      "ec2:DescribeInstanceStatus",
+      "ec2:DescribeInstanceTypes",
+      "ec2:DescribeInstances",
+      "ec2:DescribeInternetGateways",
+      "ec2:DescribeLaunchTemplateVersions",
+      "ec2:DescribeLaunchTemplates",
+      "ec2:DescribeManagedPrefixLists",
+      "ec2:DescribeNatGateways",
+      "ec2:DescribeNetworkAcls",
+      "ec2:DescribeNetworkInsightsAnalyses",
+      "ec2:DescribeNetworkInsightsPaths",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribePrefixLists",
+      "ec2:DescribeRegions",
+      "ec2:DescribeRouteTables",
+      "ec2:DescribeSecurityGroupRules",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSnapshots",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeTransitGatewayAttachments",
+      "ec2:DescribeTransitGatewayConnects",
+      "ec2:DescribeTransitGatewayPeeringAttachments",
+      "ec2:DescribeTransitGatewayRouteTables",
+      "ec2:DescribeTransitGatewayVpcAttachments",
+      "ec2:DescribeTransitGateways",
+      "ec2:DescribeVolumes",
+      "ec2:DescribeVpcEndpointServiceConfigurations",
+      "ec2:DescribeVpcEndpoints",
+      "ec2:DescribeVpcPeeringConnections",
+      "ec2:DescribeVpcs",
+      "ec2:DescribeVpnConnections",
+      "ec2:DescribeVpnGateways",
+      "ec2:DetachInternetGateway",
+      "ec2:DetachVolume",
+      "ec2:DisableTransitGatewayRouteTablePropagation",
+      "ec2:DisassociateNatGatewayAddress",
+      "ec2:DisassociateRouteTable",
+      "ec2:DisassociateTransitGatewayRouteTable",
+      "ec2:EnableTransitGatewayRouteTablePropagation",
+      "ec2:GetEbsDefaultKmsKeyId",
+      "ec2:GetEbsEncryptionByDefault",
+      "ec2:GetManagedPrefixListEntries",
+      "ec2:GetTransitGatewayRouteTableAssociations",
+      "ec2:GetTransitGatewayRouteTablePropagations",
+      "ec2:ModifyInstanceAttribute",
+      "ec2:ModifyLaunchTemplate",
+      "ec2:ModifySubnetAttribute",
+      "ec2:ModifyTransitGateway",
+      "ec2:ModifyTransitGatewayVpcAttachment",
+      "ec2:ModifyVolume",
+      "ec2:ModifyVpcAttribute",
+      "ec2:RejectTransitGatewayVpcAttachment",
+      "ec2:ReleaseAddress",
+      "ec2:ReplaceNetworkAclAssociation",
+      "ec2:ReplaceNetworkAclEntry",
+      "ec2:ReplaceRoute",
+      "ec2:ReplaceTransitGatewayRoute",
+      "ec2:RevokeSecurityGroupEgress",
+      "ec2:RevokeSecurityGroupIngress",
+      "ec2:SearchTransitGatewayRoutes",
+      "ec2:StartNetworkInsightsAnalysis"
+    ]
+  },
+  "startnetworkmigrationmapping": {
+    "name": "StartNetworkMigrationMapping",
+    "description": "Grants permission to start a network migration mapping",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startnetworkmigrationmappingupdate": {
+    "name": "StartNetworkMigrationMappingUpdate",
+    "description": "Grants permission to start a network migration mapping update",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startreplication": {
+    "name": "StartReplication",
+    "description": "Grants permission to start replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttest": {
+    "name": "StartTest",
+    "description": "Grants permission to start test",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:AttachVolume",
+          "ec2:AuthorizeSecurityGroupEgress",
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:CreateLaunchTemplate",
+          "ec2:CreateLaunchTemplateVersion",
+          "ec2:CreateSecurityGroup",
+          "ec2:CreateSnapshot",
+          "ec2:CreateTags",
+          "ec2:CreateVolume",
+          "ec2:DeleteLaunchTemplateVersions",
+          "ec2:DeleteSnapshot",
+          "ec2:DeleteVolume",
+          "ec2:DescribeAccountAttributes",
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeImages",
+          "ec2:DescribeInstanceAttribute",
+          "ec2:DescribeInstanceStatus",
+          "ec2:DescribeInstanceTypes",
+          "ec2:DescribeInstances",
+          "ec2:DescribeLaunchTemplateVersions",
+          "ec2:DescribeLaunchTemplates",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSnapshots",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVolumes",
+          "ec2:DetachVolume",
+          "ec2:ModifyInstanceAttribute",
+          "ec2:ModifyLaunchTemplate",
+          "ec2:ReportInstanceStatus",
+          "ec2:RevokeSecurityGroupEgress",
+          "ec2:RunInstances",
+          "ec2:StartInstances",
+          "ec2:StopInstances",
+          "ec2:TerminateInstances",
+          "iam:PassRole",
+          "mgn:ListTagsForResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "stopreplication": {
+    "name": "StopReplication",
+    "description": "Grants permission to stop replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to assign a resource tag",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ConnectorResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ExportResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ImportResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "JobResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VcenterClientResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "WaveResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "mgn:CreateAction",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "terminatetargetinstances": {
+    "name": "TerminateTargetInstances",
+    "description": "Grants permission to terminate target instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DeleteVolume",
+          "ec2:DescribeInstances",
+          "ec2:DescribeVolumes",
+          "ec2:TerminateInstances"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "unarchiveapplication": {
+    "name": "UnarchiveApplication",
+    "description": "Grants permission to unarchive an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "unarchivewave": {
+    "name": "UnarchiveWave",
+    "description": "Grants permission to unarchive a wave",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WaveResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ConnectorResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "JobResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VcenterClientResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "WaveResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateagentbacklogformgn": {
+    "name": "UpdateAgentBacklogForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent backlog",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateagentconversioninfoformgn": {
+    "name": "UpdateAgentConversionInfoForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent conversion info",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateagentreplicationinfoformgn": {
+    "name": "UpdateAgentReplicationInfoForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent replication info",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateagentreplicationprocessstateformgn": {
+    "name": "UpdateAgentReplicationProcessStateForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent replication process state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateagentsourcepropertiesformgn": {
+    "name": "UpdateAgentSourcePropertiesForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent source properties",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapplication": {
+    "name": "UpdateApplication",
+    "description": "Grants permission to update an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ApplicationResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnector": {
+    "name": "UpdateConnector",
+    "description": "Grants permission to update connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelaunchconfiguration": {
+    "name": "UpdateLaunchConfiguration",
+    "description": "Grants permission to update launch configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelaunchconfigurationtemplate": {
+    "name": "UpdateLaunchConfigurationTemplate",
+    "description": "Grants permission to update launch configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatenetworkmigrationdefinition": {
+    "name": "UpdateNetworkMigrationDefinition",
+    "description": "Grants permission to update a network migration definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatenetworkmigrationmappersegment": {
+    "name": "UpdateNetworkMigrationMapperSegment",
+    "description": "Grants permission to update a network migration mapper segment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatenetworkmigrationmappersegmentconstruct": {
+    "name": "UpdateNetworkMigrationMapperSegmentConstruct",
+    "description": "Grants permission to update a network migration mapper segment construct",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatereplicationconfiguration": {
+    "name": "UpdateReplicationConfiguration",
+    "description": "Grants permission to update replication configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatereplicationconfigurationtemplate": {
+    "name": "UpdateReplicationConfigurationTemplate",
+    "description": "Grants permission to update replication configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesourceserver": {
+    "name": "UpdateSourceServer",
+    "description": "Grants permission to update source server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesourceserverreplicationtype": {
+    "name": "UpdateSourceServerReplicationType",
+    "description": "Grants permission to update source server replication type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatewave": {
+    "name": "UpdateWave",
+    "description": "Grants permission to update a wave",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WaveResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "verifyclientroleformgn": {
+    "name": "VerifyClientRoleForMgn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to verify client role",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

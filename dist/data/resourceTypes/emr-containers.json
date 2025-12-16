@@ -1,0 +1,37 @@
+{
+  "virtualcluster": {
+    "key": "virtualCluster",
+    "arn": "arn:${Partition}:emr-containers:${Region}:${Account}:/virtualclusters/${VirtualClusterId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "jobrun": {
+    "key": "jobRun",
+    "arn": "arn:${Partition}:emr-containers:${Region}:${Account}:/virtualclusters/${VirtualClusterId}/jobruns/${JobRunId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "jobtemplate": {
+    "key": "jobTemplate",
+    "arn": "arn:${Partition}:emr-containers:${Region}:${Account}:/jobtemplates/${JobTemplateId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "managedendpoint": {
+    "key": "managedEndpoint",
+    "arn": "arn:${Partition}:emr-containers:${Region}:${Account}:/virtualclusters/${VirtualClusterId}/endpoints/${EndpointId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "securityconfiguration": {
+    "key": "securityConfiguration",
+    "arn": "arn:${Partition}:emr-containers:${Region}:${Account}:/securityconfigurations/${SecurityConfigurationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

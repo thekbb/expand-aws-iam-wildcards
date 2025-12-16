@@ -1,0 +1,658 @@
+{
+  "cancelfhirexportjobwithdelete": {
+    "name": "CancelFHIRExportJobWithDelete",
+    "description": "Grants permission to cancel an on going FHIR Export job with Delete",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "confirmattributionlist": {
+    "name": "ConfirmAttributionList",
+    "description": "Grants permission to allow customers to indicate to a Producer that the Consumer does not have any more changes to be made to the Attribution List",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfhirdatastore": {
+    "name": "CreateFHIRDatastore",
+    "description": "Grants permission to create a datastore that can ingest and export FHIR data",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createresource": {
+    "name": "CreateResource",
+    "description": "Grants permission to create resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefhirdatastore": {
+    "name": "DeleteFHIRDatastore",
+    "description": "Grants permission to delete a datastore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresource": {
+    "name": "DeleteResource",
+    "description": "Grants permission to delete resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefhirbulkdeletejob": {
+    "name": "DescribeFHIRBulkDeleteJob",
+    "description": "Grants permission to describe a FHIR Bulk Delete Job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefhirdatastore": {
+    "name": "DescribeFHIRDatastore",
+    "description": "Grants permission to get the properties associated with the FHIR datastore, including the datastore ID, datastore ARN, datastore name, datastore status, created at, datastore type version, and datastore endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefhirexportjob": {
+    "name": "DescribeFHIRExportJob",
+    "description": "Grants permission to display the properties of a FHIR export job, including the ID, ARN, name, and the status of the datastore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefhirexportjobwithget": {
+    "name": "DescribeFHIRExportJobWithGet",
+    "description": "Grants permission to display the properties of a FHIR export job, including the ID, ARN, name, and the status of the datastore with Get",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefhirimportjob": {
+    "name": "DescribeFHIRImportJob",
+    "description": "Grants permission to display the properties of a FHIR import job, including the ID, ARN, name, and the status of the datastore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "expandvaluesetwithget": {
+    "name": "ExpandValueSetWithGet",
+    "description": "Grants permission to search and expand ValueSet resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "expandvaluesetwithpost": {
+    "name": "ExpandValueSetWithPost",
+    "description": "Grants permission to search and expand ValueSet resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "generatedocumentwithget": {
+    "name": "GenerateDocumentWithGet",
+    "description": "Grants permission to generate a clinical document resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "generatedocumentwithpost": {
+    "name": "GenerateDocumentWithPost",
+    "description": "Grants permission to generate a clinical document resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcapabilities": {
+    "name": "GetCapabilities",
+    "description": "Grants permission to get the capabilities of a FHIR datastore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexportedfile": {
+    "name": "GetExportedFile",
+    "description": "Grants permission to access exported files from a FHIR Export job initiated with Get",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gethistorybyresourceid": {
+    "name": "GetHistoryByResourceId",
+    "description": "Grants permission to read resource history",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfhirdatastores": {
+    "name": "ListFHIRDatastores",
+    "description": "Grants permission to list all FHIR datastores that are in the user's account, regardless of datastore status",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfhirexportjobs": {
+    "name": "ListFHIRExportJobs",
+    "description": "Grants permission to get a list of export jobs for the specified datastore",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfhirimportjobs": {
+    "name": "ListFHIRImportJobs",
+    "description": "Grants permission to get a list of import jobs for the specified datastore",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to get a list of tags for the specified datastore",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "lookupcodesystemwithget": {
+    "name": "LookupCodeSystemWithGet",
+    "description": "Grants permission to retrieve Codes for a CodeSystem resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "lookupcodesystemwithpost": {
+    "name": "LookupCodeSystemWithPost",
+    "description": "Grants permission to retrieve Codes for a CodeSystem resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "memberadd": {
+    "name": "MemberAdd",
+    "description": "Grants permission to attribute a member with a specific provider group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "membermatch": {
+    "name": "MemberMatch",
+    "description": "Grants permission to enable cross-system patient matching",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "memberremove": {
+    "name": "MemberRemove",
+    "description": "Grants permission to remove a member from a group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "patchresource": {
+    "name": "PatchResource",
+    "description": "Grants permission to patch a resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "processbundle": {
+    "name": "ProcessBundle",
+    "description": "Grants permission to bundle multiple resource operations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "readresource": {
+    "name": "ReadResource",
+    "description": "Grants permission to read resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "retrieveattributionstatus": {
+    "name": "RetrieveAttributionStatus",
+    "description": "Grants permission to retrieve member attribution status",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searcheverything": {
+    "name": "SearchEverything",
+    "description": "Grants permission to search all resources related to a patient",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchwithget": {
+    "name": "SearchWithGet",
+    "description": "Grants permission to search resources with GET method",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchwithpost": {
+    "name": "SearchWithPost",
+    "description": "Grants permission to search resources with POST method",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startfhirbulkdeletejob": {
+    "name": "StartFHIRBulkDeleteJob",
+    "description": "Grants permission to begin a FHIR Bulk Delete Job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startfhirexportjob": {
+    "name": "StartFHIRExportJob",
+    "description": "Grants permission to begin a FHIR Export job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startfhirexportjobwithget": {
+    "name": "StartFHIRExportJobWithGet",
+    "description": "Grants permission to begin a FHIR Export job with Get",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startfhirexportjobwithpost": {
+    "name": "StartFHIRExportJobWithPost",
+    "description": "Grants permission to begin a FHIR Export job with Post",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startfhirimportjob": {
+    "name": "StartFHIRImportJob",
+    "description": "Grants permission to begin a FHIR Import job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a datastore",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags associated with a datastore",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateresource": {
+    "name": "UpdateResource",
+    "description": "Grants permission to update resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "validateresource": {
+    "name": "ValidateResource",
+    "description": "Grants permission to validate a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "versionreadresource": {
+    "name": "VersionReadResource",
+    "description": "Grants permission to read version of a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

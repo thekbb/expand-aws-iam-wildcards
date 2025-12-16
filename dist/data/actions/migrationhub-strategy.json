@@ -1,0 +1,250 @@
+{
+  "getantipattern": {
+    "name": "GetAntiPattern",
+    "description": "Grants permission to get details of each anti pattern that collector should look at in a customer's environment",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapplicationcomponentdetails": {
+    "name": "GetApplicationComponentDetails",
+    "description": "Grants permission to get details of an application",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapplicationcomponentstrategies": {
+    "name": "GetApplicationComponentStrategies",
+    "description": "Grants permission to get a list of all recommended strategies and tools for an application running in a server",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getassessment": {
+    "name": "GetAssessment",
+    "description": "Grants permission to retrieve status of an on-going assessment",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getimportfiletask": {
+    "name": "GetImportFileTask",
+    "description": "Grants permission to get details of a specific import task",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlatestassessmentid": {
+    "name": "GetLatestAssessmentId",
+    "description": "Grants permission to retrieve the latest assessment id",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmessage": {
+    "name": "GetMessage",
+    "description": "Grants permission to the collector to receive information from the service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getportfoliopreferences": {
+    "name": "GetPortfolioPreferences",
+    "description": "Grants permission to retrieve customer migration/Modernization preferences",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getportfoliosummary": {
+    "name": "GetPortfolioSummary",
+    "description": "Grants permission to retrieve overall summary (number-of servers to rehost etc as well as overall number of anti patterns)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecommendationreportdetails": {
+    "name": "GetRecommendationReportDetails",
+    "description": "Grants permission to retrieve detailed information about a recommendation report",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getserverdetails": {
+    "name": "GetServerDetails",
+    "description": "Grants permission to get info about a specific server",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getserverstrategies": {
+    "name": "GetServerStrategies",
+    "description": "Grants permission to get recommended strategies and tools for a specific server",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listanalyzableservers": {
+    "name": "ListAnalyzableServers",
+    "description": "Grants permission to get a list of all analyzable servers in a customer's vcenter environment",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listantipatterns": {
+    "name": "ListAntiPatterns",
+    "description": "Grants permission to get a list of all anti patterns that collector should look for in a customer's environment",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapplicationcomponents": {
+    "name": "ListApplicationComponents",
+    "description": "Grants permission to get a list of all applications running on servers on customer's servers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcollectors": {
+    "name": "ListCollectors",
+    "description": "Grants permission to get a list of all collectors installed by the customer",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listimportfiletask": {
+    "name": "ListImportFileTask",
+    "description": "Grants permission to get list of all imports performed by the customer",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjarartifacts": {
+    "name": "ListJarArtifacts",
+    "description": "Grants permission to get a list of binaries that collector should assess",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservers": {
+    "name": "ListServers",
+    "description": "Grants permission to get a list of all servers in a customer's environment",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putlogdata": {
+    "name": "PutLogData",
+    "description": "Grants permission to the collector to send logs to the service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putmetricdata": {
+    "name": "PutMetricData",
+    "description": "Grants permission to the collector to send metrics to the service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putportfoliopreferences": {
+    "name": "PutPortfolioPreferences",
+    "description": "Grants permission to save customer's Migration/Modernization preferences",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registercollector": {
+    "name": "RegisterCollector",
+    "description": "Grants permission to register the collector to receive an ID and to start receiving messages from the service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendmessage": {
+    "name": "SendMessage",
+    "description": "Grants permission to the collector to send information to the service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startassessment": {
+    "name": "StartAssessment",
+    "description": "Grants permission to start assessment in a customer's environment (collect data from all servers and provide recommendations)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startimportfiletask": {
+    "name": "StartImportFileTask",
+    "description": "Grants permission to start importing data from a file provided by customer",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startrecommendationreportgeneration": {
+    "name": "StartRecommendationReportGeneration",
+    "description": "Grants permission to start generating a recommendation report",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopassessment": {
+    "name": "StopAssessment",
+    "description": "Grants permission to stop an on-going assessment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapplicationcomponentconfig": {
+    "name": "UpdateApplicationComponentConfig",
+    "description": "Grants permission to update details for an application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecollectorconfiguration": {
+    "name": "UpdateCollectorConfiguration",
+    "description": "Grants permission to the collector to send configuration information to the service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateserverconfig": {
+    "name": "UpdateServerConfig",
+    "description": "Grants permission to update info on a server along with the recommended strategy",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

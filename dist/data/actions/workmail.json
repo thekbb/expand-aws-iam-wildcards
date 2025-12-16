@@ -1,0 +1,1906 @@
+{
+  "allowvendedlogdeliveryforresource": {
+    "name": "AllowVendedLogDeliveryForResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to configure vended log delivery for WorkMail audit logs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatedelegatetoresource": {
+    "name": "AssociateDelegateToResource",
+    "description": "Grants permission to add a member (user or group) to the resource's set of delegates",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatemembertogroup": {
+    "name": "AssociateMemberToGroup",
+    "description": "Grants permission to add a member (user or group) to the group's set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "assumeimpersonationrole": {
+    "name": "AssumeImpersonationRole",
+    "description": "Grants permission to assume an impersonation role for the given Amazon WorkMail organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelmailboxexportjob": {
+    "name": "CancelMailboxExportJob",
+    "description": "Grants permission to cancel a currently running mailbox export job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createalias": {
+    "name": "CreateAlias",
+    "description": "Grants permission to add an alias to the set of a given member (user or group) of WorkMail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createavailabilityconfiguration": {
+    "name": "CreateAvailabilityConfiguration",
+    "description": "Grants permission to create an AvailabilityConfiguration for the given Amazon WorkMail organization and domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "creategroup": {
+    "name": "CreateGroup",
+    "description": "Grants permission to create a group that can be used in WorkMail by calling the RegisterToWorkMail operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createidentitycenterapplication": {
+    "name": "CreateIdentityCenterApplication",
+    "description": "Grants permission to create an Identity Center application for WorkMail",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createimpersonationrole": {
+    "name": "CreateImpersonationRole",
+    "description": "Grants permission to create an impersonation role for the given Amazon WorkMail organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createinboundmailflowrule": {
+    "name": "CreateInboundMailFlowRule",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an inbound email flow rule which will apply to all email sent to an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmaildomain": {
+    "name": "CreateMailDomain",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a mail domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmobiledeviceaccessrule": {
+    "name": "CreateMobileDeviceAccessRule",
+    "description": "Grants permission to create a new mobile device access rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createorganization": {
+    "name": "CreateOrganization",
+    "description": "Grants permission to create a new Amazon WorkMail organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createoutboundmailflowrule": {
+    "name": "CreateOutboundMailFlowRule",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an outbound email flow rule which will apply to all email sent from an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createresource": {
+    "name": "CreateResource",
+    "description": "Grants permission to create a new WorkMail resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsmtpgateway": {
+    "name": "CreateSmtpGateway",
+    "isPermissionOnly": true,
+    "description": "Grants permission to register an SMTP gateway to a WorkMail organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createuser": {
+    "name": "CreateUser",
+    "description": "Grants permission to create a user, which can be enabled afterwards by calling the RegisterToWorkMail operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaccesscontrolrule": {
+    "name": "DeleteAccessControlRule",
+    "description": "Grants permission to delete an access control rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletealias": {
+    "name": "DeleteAlias",
+    "description": "Grants permission to remove one or more specified aliases from a set of aliases for a given user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteavailabilityconfiguration": {
+    "name": "DeleteAvailabilityConfiguration",
+    "description": "Grants permission to delete the AvailabilityConfiguration for the given Amazon WorkMail organization and domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteemailmonitoringconfiguration": {
+    "name": "DeleteEmailMonitoringConfiguration",
+    "description": "Grants permission to delete the email monitoring configuration for an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegroup": {
+    "name": "DeleteGroup",
+    "description": "Grants permission to delete a group from WorkMail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteidentitycenterapplication": {
+    "name": "DeleteIdentityCenterApplication",
+    "description": "Grants permission to delete an Identity Center application for WorkMail",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteidentityproviderconfiguration": {
+    "name": "DeleteIdentityProviderConfiguration",
+    "description": "Grants permission to delete the identity provider configuration for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteimpersonationrole": {
+    "name": "DeleteImpersonationRole",
+    "description": "Grants permission to delete an impersonation role for the given Amazon WorkMail organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinboundmailflowrule": {
+    "name": "DeleteInboundMailFlowRule",
+    "isPermissionOnly": true,
+    "description": "Grants permission to remove an inbound email flow rule to no longer apply to emails sent to an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemaildomain": {
+    "name": "DeleteMailDomain",
+    "isPermissionOnly": true,
+    "description": "Grants permission to remove an unused mail domain from an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemailboxpermissions": {
+    "name": "DeleteMailboxPermissions",
+    "description": "Grants permission to delete permissions granted to a member (user or group)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemobiledevice": {
+    "name": "DeleteMobileDevice",
+    "isPermissionOnly": true,
+    "description": "Grants permission to remove a mobile device from a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemobiledeviceaccessoverride": {
+    "name": "DeleteMobileDeviceAccessOverride",
+    "description": "Grants permission to delete a mobile device access override",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemobiledeviceaccessrule": {
+    "name": "DeleteMobileDeviceAccessRule",
+    "description": "Grants permission to delete a mobile device access rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteorganization": {
+    "name": "DeleteOrganization",
+    "description": "Grants permission to delete an Amazon WorkMail organization and all underlying AWS resources managed by Amazon WorkMail as part of the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoutboundmailflowrule": {
+    "name": "DeleteOutboundMailFlowRule",
+    "isPermissionOnly": true,
+    "description": "Grants permission to remove an outbound email flow rule so that it no longer applies to emails sent from an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepersonalaccesstoken": {
+    "name": "DeletePersonalAccessToken",
+    "description": "Grants permission to delete a personal access token",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresource": {
+    "name": "DeleteResource",
+    "description": "Grants permission to delete the specified resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteretentionpolicy": {
+    "name": "DeleteRetentionPolicy",
+    "description": "Grants permission to delete the retention policy based on the supplied organization and policy identifiers",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesmtpgateway": {
+    "name": "DeleteSmtpGateway",
+    "isPermissionOnly": true,
+    "description": "Grants permission to remove an SMTP gateway from an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteuser": {
+    "name": "DeleteUser",
+    "description": "Grants permission to delete a user from WorkMail and all subsequent systems",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "delivertomailbox": {
+    "name": "DeliverToMailbox",
+    "isPermissionOnly": true,
+    "description": "Grants permission to deliver emails to a WorkMail organization via the SES MailManager DeliverToMailbox action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deregisterfromworkmail": {
+    "name": "DeregisterFromWorkMail",
+    "description": "Grants permission to mark a user, group, or resource as no longer used in WorkMail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deregistermaildomain": {
+    "name": "DeregisterMailDomain",
+    "description": "Grants permission to deregister a mail domain from an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeemailmonitoringconfiguration": {
+    "name": "DescribeEmailMonitoringConfiguration",
+    "description": "Grants permission to retrieve the email monitoring configuration for an organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeentity": {
+    "name": "DescribeEntity",
+    "description": "Grants permission to read details of an entity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describegroup": {
+    "name": "DescribeGroup",
+    "description": "Grants permission to read the details for a group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeidentityproviderconfiguration": {
+    "name": "DescribeIdentityProviderConfiguration",
+    "description": "Grants permission to read the identity provider configuration for the organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinbounddmarcsettings": {
+    "name": "DescribeInboundDmarcSettings",
+    "description": "Grants permission to read the settings in a DMARC policy for a specified organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinboundmailflowrule": {
+    "name": "DescribeInboundMailFlowRule",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read the details of an inbound mail flow rule configured for an organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemaildomains": {
+    "name": "DescribeMailDomains",
+    "isPermissionOnly": true,
+    "description": "Grants permission to show the details of all mail domains associated with the organization",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemailboxexportjob": {
+    "name": "DescribeMailboxExportJob",
+    "description": "Grants permission to retrieve details of a mailbox export job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeorganization": {
+    "name": "DescribeOrganization",
+    "description": "Grants permission to read details of an organization",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeoutboundmailflowrule": {
+    "name": "DescribeOutboundMailFlowRule",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read the details of an outbound mail flow rule configured for an organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeresource": {
+    "name": "DescribeResource",
+    "description": "Grants permission to read the details for a resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesmtpgateway": {
+    "name": "DescribeSmtpGateway",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read the details of an SMTP gateway registered to an organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeuser": {
+    "name": "DescribeUser",
+    "description": "Grants permission to read details for a user",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatedelegatefromresource": {
+    "name": "DisassociateDelegateFromResource",
+    "description": "Grants permission to remove a member from the resource's set of delegates",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatememberfromgroup": {
+    "name": "DisassociateMemberFromGroup",
+    "description": "Grants permission to remove a member from a group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enablemaildomain": {
+    "name": "EnableMailDomain",
+    "isPermissionOnly": true,
+    "description": "Grants permission to enable a mail domain in the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaccesscontroleffect": {
+    "name": "GetAccessControlEffect",
+    "description": "Grants permission to get the effects of access control rules as they apply to a specified IPv4 address, access protocol action, or user ID",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdefaultretentionpolicy": {
+    "name": "GetDefaultRetentionPolicy",
+    "description": "Grants permission to retrieve the retention policy associated at an organizational level",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getimpersonationrole": {
+    "name": "GetImpersonationRole",
+    "description": "Grants permission to retrieve an impersonation role for the given Amazon WorkMail organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getimpersonationroleeffect": {
+    "name": "GetImpersonationRoleEffect",
+    "description": "Grants permission to get the effect of the rules associated to an impersonation role for a specific user",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjournalingrules": {
+    "name": "GetJournalingRules",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read the configured journaling and fallback email addresses for email journaling",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmaildomain": {
+    "name": "GetMailDomain",
+    "description": "Grants permission to retrieve details of a given mail domain in an organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmaildomaindetails": {
+    "name": "GetMailDomainDetails",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get the details of the mail domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmailboxdetails": {
+    "name": "GetMailboxDetails",
+    "description": "Grants permission to read the details of the user's mailbox",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmobiledeviceaccesseffect": {
+    "name": "GetMobileDeviceAccessEffect",
+    "description": "Grants permission to simulate the effect of the mobile device access rules for the given attributes of a sample access event",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmobiledeviceaccessoverride": {
+    "name": "GetMobileDeviceAccessOverride",
+    "description": "Grants permission to retrieve a mobile device access override",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmobiledevicedetails": {
+    "name": "GetMobileDeviceDetails",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get the details of the mobile device",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmobiledevicesforuser": {
+    "name": "GetMobileDevicesForUser",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get a list of the mobile devices associated with the user",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmobilepolicydetails": {
+    "name": "GetMobilePolicyDetails",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get the details of the mobile device policy associated with the organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpersonalaccesstokenmetadata": {
+    "name": "GetPersonalAccessTokenMetadata",
+    "description": "Grants permission to read metadata for a personal access token",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccesscontrolrules": {
+    "name": "ListAccessControlRules",
+    "description": "Grants permission to list the access control rules",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaliases": {
+    "name": "ListAliases",
+    "description": "Grants permission to list the aliases associated with a given entity",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listavailabilityconfigurations": {
+    "name": "ListAvailabilityConfigurations",
+    "description": "Grants permission to list all the AvailabilityConfiguration's for the given Amazon WorkMail organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgroupmembers": {
+    "name": "ListGroupMembers",
+    "description": "Grants permission to read an overview of the members of a group. Users and groups can be members of a group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgroups": {
+    "name": "ListGroups",
+    "description": "Grants permission to list summaries of the organization's groups",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgroupsforentity": {
+    "name": "ListGroupsForEntity",
+    "description": "Grants permission to list the groups to which an entity belongs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listimpersonationroles": {
+    "name": "ListImpersonationRoles",
+    "description": "Grants permission to list the impersonation roles for the given Amazon WorkMail organization",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinboundmailflowrules": {
+    "name": "ListInboundMailFlowRules",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list inbound mail flow rules configured for an organization",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmaildomains": {
+    "name": "ListMailDomains",
+    "description": "Grants permission to list the mail domains for a given organization",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmailboxexportjobs": {
+    "name": "ListMailboxExportJobs",
+    "description": "Grants permission to list mailbox export jobs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmailboxpermissions": {
+    "name": "ListMailboxPermissions",
+    "description": "Grants permission to list the mailbox permissions associated with a user, group, or resource mailbox",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmobiledeviceaccessoverrides": {
+    "name": "ListMobileDeviceAccessOverrides",
+    "description": "Grants permission to list the mobile device access overrides",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmobiledeviceaccessrules": {
+    "name": "ListMobileDeviceAccessRules",
+    "description": "Grants permission to list the mobile device access rules",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listorganizations": {
+    "name": "ListOrganizations",
+    "description": "Grants permission to list the non-deleted organizations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoutboundmailflowrules": {
+    "name": "ListOutboundMailFlowRules",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list outbound mail flow rules configured for an organization",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpersonalaccesstokens": {
+    "name": "ListPersonalAccessTokens",
+    "description": "Grants permission to list metadata for personal access tokens",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourcedelegates": {
+    "name": "ListResourceDelegates",
+    "description": "Grants permission to list the delegates associated with a resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresources": {
+    "name": "ListResources",
+    "description": "Grants permission to list the organization's resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsmtpgateways": {
+    "name": "ListSmtpGateways",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list SMTP gateways registered to the organization",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags applied to an Amazon WorkMail organization resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listusers": {
+    "name": "ListUsers",
+    "description": "Grants permission to list the organization's users",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putaccesscontrolrule": {
+    "name": "PutAccessControlRule",
+    "description": "Grants permission to add a new access control rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putemailmonitoringconfiguration": {
+    "name": "PutEmailMonitoringConfiguration",
+    "description": "Grants permission to add or update the email monitoring configuration for an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putidentityproviderconfiguration": {
+    "name": "PutIdentityProviderConfiguration",
+    "description": "Grants permission to add or update the identity provider configuration for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putinbounddmarcsettings": {
+    "name": "PutInboundDmarcSettings",
+    "description": "Grants permission to enable or disable a DMARC policy for a given organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putmailboxpermissions": {
+    "name": "PutMailboxPermissions",
+    "description": "Grants permission to set permissions for a user, group, or resource, replacing any existing permissions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putmobiledeviceaccessoverride": {
+    "name": "PutMobileDeviceAccessOverride",
+    "description": "Grants permission to add or update a mobile device access override",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putretentionpolicy": {
+    "name": "PutRetentionPolicy",
+    "description": "Grants permission to add or update the retention policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registermaildomain": {
+    "name": "RegisterMailDomain",
+    "description": "Grants permission to register a new mail domain in an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registertoworkmail": {
+    "name": "RegisterToWorkMail",
+    "description": "Grants permission to register an existing and disabled user, group, or resource for use by associating a mailbox and calendaring capabilities",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resetpassword": {
+    "name": "ResetPassword",
+    "description": "Grants permission to allow the administrator to reset the password for a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchmembers": {
+    "name": "SearchMembers",
+    "isPermissionOnly": true,
+    "description": "Grants permission to perform a prefix search to find a specific user in a mail group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setdefaultmaildomain": {
+    "name": "SetDefaultMailDomain",
+    "isPermissionOnly": true,
+    "description": "Grants permission to set the default mail domain for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setjournalingrules": {
+    "name": "SetJournalingRules",
+    "isPermissionOnly": true,
+    "description": "Grants permission to set journaling and fallback email addresses for email journaling",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setmobilepolicydetails": {
+    "name": "SetMobilePolicyDetails",
+    "isPermissionOnly": true,
+    "description": "Grants permission to set the details of a mobile policy associated with the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmailboxexportjob": {
+    "name": "StartMailboxExportJob",
+    "description": "Grants permission to start a new mailbox export job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag the specified Amazon WorkMail organization resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "testavailabilityconfiguration": {
+    "name": "TestAvailabilityConfiguration",
+    "description": "Grants permission to performs a test on an availability provider to ensure that access is allowed",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "testinboundmailflowrules": {
+    "name": "TestInboundMailFlowRules",
+    "isPermissionOnly": true,
+    "description": "Grants permission to test what inbound rules will apply to an email with a given sender and recipient",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "testoutboundmailflowrules": {
+    "name": "TestOutboundMailFlowRules",
+    "isPermissionOnly": true,
+    "description": "Grants permission to test what outbound rules will apply to an email with a given sender and recipient",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag the specified Amazon WorkMail organization resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateavailabilityconfiguration": {
+    "name": "UpdateAvailabilityConfiguration",
+    "description": "Grants permission to update an existing AvailabilityConfiguration for the given Amazon WorkMail organization and domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedefaultmaildomain": {
+    "name": "UpdateDefaultMailDomain",
+    "description": "Grants permission to update which domain is the default domain for an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updategroup": {
+    "name": "UpdateGroup",
+    "description": "Grants permission to update details of a group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateimpersonationrole": {
+    "name": "UpdateImpersonationRole",
+    "description": "Grants permission to update an existing impersonation role for the given Amazon WorkMail organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinboundmailflowrule": {
+    "name": "UpdateInboundMailFlowRule",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the details of an inbound email flow rule which will apply to all email sent to an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemailboxquota": {
+    "name": "UpdateMailboxQuota",
+    "description": "Grants permission to update the maximum size (in MB) of the user's mailbox",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemobiledeviceaccessrule": {
+    "name": "UpdateMobileDeviceAccessRule",
+    "description": "Grants permission to update a mobile device access rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateoutboundmailflowrule": {
+    "name": "UpdateOutboundMailFlowRule",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the details of an outbound email flow rule which will apply to all email sent from an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprimaryemailaddress": {
+    "name": "UpdatePrimaryEmailAddress",
+    "description": "Grants permission to update the primary email for a user, group, or resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateresource": {
+    "name": "UpdateResource",
+    "description": "Grants permission to update details for the resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesmtpgateway": {
+    "name": "UpdateSmtpGateway",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the details of an existing SMTP gateway registered to an organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateuser": {
+    "name": "UpdateUser",
+    "description": "Grants permission to update details of a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "wipemobiledevice": {
+    "name": "WipeMobileDevice",
+    "isPermissionOnly": true,
+    "description": "Grants permission to remotely wipe the mobile device associated with a user's account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

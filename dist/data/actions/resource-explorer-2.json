@@ -1,0 +1,428 @@
+{
+  "associatedefaultview": {
+    "name": "AssociateDefaultView",
+    "description": "Grants permission to set the specified view as the default for this AWS Region in this AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetview": {
+    "name": "BatchGetView",
+    "description": "Grants permission to retrieve details about views that you specify by a list of ARNs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "resource-explorer-2:GetView"
+    ]
+  },
+  "createindex": {
+    "name": "CreateIndex",
+    "description": "Grants permission to turn on Resource Explorer in the AWS Region in which you called this operation by creating an index",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmanagedview": {
+    "name": "CreateManagedView",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create managed view",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createresourceexplorersetup": {
+    "name": "CreateResourceExplorerSetup",
+    "description": "Grants permission to create resource explorer setup",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createstreamingaccessforservice": {
+    "name": "CreateStreamingAccessForService",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create resource explorer streaming access",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createview": {
+    "name": "CreateView",
+    "description": "Grants permission to create a view that users can query",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteindex": {
+    "name": "DeleteIndex",
+    "description": "Grants permission to turn off Resource Explorer in the specified AWS Region by deleting the index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourceexplorersetup": {
+    "name": "DeleteResourceExplorerSetup",
+    "description": "Grants permission to delete resource explorer setup",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete the specified view's resource policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestreamingaccessforservice": {
+    "name": "DeleteStreamingAccessForService",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete resource explorer streaming access",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteview": {
+    "name": "DeleteView",
+    "description": "Grants permission to delete a view",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatedefaultview": {
+    "name": "DisassociateDefaultView",
+    "description": "Grants permission to remove the default view for the AWS Region in which you call this operation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaccountlevelserviceconfiguration": {
+    "name": "GetAccountLevelServiceConfiguration",
+    "description": "Grants permission to Resource Explorer to access account level data within your AWS Organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdefaultview": {
+    "name": "GetDefaultView",
+    "description": "Grants permission to retrieve the Amazon resource name (ARN) of the view that is the default for the AWS Region in which you call this operation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getindex": {
+    "name": "GetIndex",
+    "description": "Grants permission to retrieve information about the index in the AWS Region in which you call this operation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedview": {
+    "name": "GetManagedView",
+    "description": "Grants permission to get managed view",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourceexplorersetup": {
+    "name": "GetResourceExplorerSetup",
+    "description": "Grants permission to get resource explorer setup",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve information about the specified view's resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getserviceindex": {
+    "name": "GetServiceIndex",
+    "description": "Grants permission to get service index",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getserviceview": {
+    "name": "GetServiceView",
+    "description": "Grants permission to get service view",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getview": {
+    "name": "GetView",
+    "description": "Grants permission to retrieve information about the specified view",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listindexes": {
+    "name": "ListIndexes",
+    "description": "Grants permission to list the indexes in all AWS Regions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listindexesformembers": {
+    "name": "ListIndexesForMembers",
+    "description": "Grants permission to list the organization member account's indexes in all AWS Regions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagedviews": {
+    "name": "ListManagedViews",
+    "description": "Grants permission to list managed views",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listserviceindexes": {
+    "name": "ListServiceIndexes",
+    "description": "Grants permission to list service indexes in all AWS Regions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listserviceviews": {
+    "name": "ListServiceViews",
+    "description": "Grants permission to list service views in all AWS Regions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreamingaccessforservices": {
+    "name": "ListStreamingAccessForServices",
+    "description": "Grants permission to list streaming access for services",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsupportedresourcetypes": {
+    "name": "ListSupportedResourceTypes",
+    "description": "Grants permission to retrieve a list of all resource types currently supported by Resource Explorer",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags that are attached to the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "view",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listviews": {
+    "name": "ListViews",
+    "description": "Grants permission to list the Amazon resource names (ARNs) of all of the views available in the AWS Region in which you call this operation",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the specified view's resource policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "search": {
+    "name": "Search",
+    "description": "Grants permission to search for resources and display details about all resources that match the specified criteria",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "resource-explorer-2:Operation"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tag key and value pairs to the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "view",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tag key and value pairs from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "view",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateindextype": {
+    "name": "UpdateIndexType",
+    "description": "Grants permission to change the type of the index from LOCAL to AGGREGATOR or back",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateview": {
+    "name": "UpdateView",
+    "description": "Grants permission to modify some of the details of a view",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

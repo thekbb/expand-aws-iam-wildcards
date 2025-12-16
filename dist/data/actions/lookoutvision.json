@@ -1,0 +1,304 @@
+{
+  "createdataset": {
+    "name": "CreateDataset",
+    "description": "Grants permission to create a dataset manifest",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmodel": {
+    "name": "CreateModel",
+    "description": "Grants permission to create a new anomaly detection model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createproject": {
+    "name": "CreateProject",
+    "description": "Grants permission to create a new project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataset": {
+    "name": "DeleteDataset",
+    "description": "Grants permission to delete a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemodel": {
+    "name": "DeleteModel",
+    "description": "Grants permission to delete a model and all associated assets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteproject": {
+    "name": "DeleteProject",
+    "description": "Grants permission to permanently remove a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedataset": {
+    "name": "DescribeDataset",
+    "description": "Grants permission to show detailed information about dataset manifest",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemodel": {
+    "name": "DescribeModel",
+    "description": "Grants permission to show detailed information about a model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemodelpackagingjob": {
+    "name": "DescribeModelPackagingJob",
+    "description": "Grants permission to show detailed information about a model packaging job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeproject": {
+    "name": "DescribeProject",
+    "description": "Grants permission to show detailed information about a project",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetrialdetection": {
+    "name": "DescribeTrialDetection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to provides state information about a running anomaly detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detectanomalies": {
+    "name": "DetectAnomalies",
+    "description": "Grants permission to invoke detection of anomalies",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetentries": {
+    "name": "ListDatasetEntries",
+    "description": "Grants permission to list the contents of dataset manifest",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmodelpackagingjobs": {
+    "name": "ListModelPackagingJobs",
+    "description": "Grants permission to list all model packaging jobs associated with a project",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmodels": {
+    "name": "ListModels",
+    "description": "Grants permission to list all models associated with a project",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprojects": {
+    "name": "ListProjects",
+    "description": "Grants permission to list all projects",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtrialdetections": {
+    "name": "ListTrialDetections",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list all anomaly detection jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmodel": {
+    "name": "StartModel",
+    "description": "Grants permission to start anomaly detection model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmodelpackagingjob": {
+    "name": "StartModelPackagingJob",
+    "description": "Grants permission to start a model packaging job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttrialdetection": {
+    "name": "StartTrialDetection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to start bulk detection of anomalies for a set of images stored in an S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopmodel": {
+    "name": "StopModel",
+    "description": "Grants permission to stop anomaly detection model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource with given key value pairs",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the tag with the given key from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatedatasetentries": {
+    "name": "UpdateDatasetEntries",
+    "description": "Grants permission to update a training or test dataset manifest",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

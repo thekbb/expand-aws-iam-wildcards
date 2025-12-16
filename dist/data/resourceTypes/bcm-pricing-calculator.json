@@ -1,0 +1,14 @@
+{
+  "bill-estimate": {
+    "key": "bill-estimate",
+    "arn": "arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:bill-estimate/${BillEstimateId}"
+  },
+  "bill-scenario": {
+    "key": "bill-scenario",
+    "arn": "arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:bill-scenario/${BillScenarioId}"
+  },
+  "workload-estimate": {
+    "key": "workload-estimate",
+    "arn": "arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:workload-estimate/${WorkloadEstimateId}"
+  }
+}

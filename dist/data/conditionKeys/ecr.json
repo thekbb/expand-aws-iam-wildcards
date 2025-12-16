@@ -1,0 +1,27 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the allowed set of values for each of the tags",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by tag-value associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the presence of mandatory tags in the request",
+    "type": "ArrayOfString"
+  },
+  "ecr:accountsetting": {
+    "key": "ecr:AccountSetting",
+    "description": "Filters access by the ECR account setting name",
+    "type": "String"
+  },
+  "ecr:resourcetag/${tagkey}": {
+    "key": "ecr:ResourceTag/${TagKey}",
+    "description": "Filters access by tag-value associated with the resource",
+    "type": "String"
+  }
+}

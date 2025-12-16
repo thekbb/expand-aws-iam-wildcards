@@ -1,0 +1,34 @@
+{
+  "filter": {
+    "key": "Filter",
+    "arn": "arn:${Partition}:inspector2:${Region}:${Account}:owner/${OwnerId}/filter/${FilterId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "finding": {
+    "key": "Finding",
+    "arn": "arn:${Partition}:inspector2:${Region}:${Account}:finding/${FindingId}"
+  },
+  "cis scan configuration": {
+    "key": "CIS Scan Configuration",
+    "arn": "arn:${Partition}:inspector2:${Region}:${Account}:owner/${OwnerId}/cis-configuration/${CISScanConfigurationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "code security scan configuration": {
+    "key": "Code Security Scan Configuration",
+    "arn": "arn:${Partition}:inspector2:${Region}:${Account}:owner/${OwnerId}/codesecurity-configuration/${CodeSecurityScanConfigurationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "code security integration": {
+    "key": "Code Security Integration",
+    "arn": "arn:${Partition}:inspector2:${Region}:${Account}:codesecurity-integration/${CodeSecurityIntegrationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the presence of tag key-value pairs in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by tag key-value pairs attached to the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the presence of tag keys in the request",
+    "type": "ArrayOfString"
+  },
+  "lookoutequipment:isimportingdata": {
+    "key": "lookoutequipment:IsImportingData",
+    "description": "Filters access by the import strategy of underlying data",
+    "type": "Bool"
+  }
+}

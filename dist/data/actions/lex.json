@@ -1,0 +1,2253 @@
+{
+  "batchcreatecustomvocabularyitem": {
+    "name": "BatchCreateCustomVocabularyItem",
+    "description": "Grants permission to create new items in an existing custom vocabulary",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdeletecustomvocabularyitem": {
+    "name": "BatchDeleteCustomVocabularyItem",
+    "description": "Grants permission to delete existing items in an existing custom vocabulary",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchupdatecustomvocabularyitem": {
+    "name": "BatchUpdateCustomVocabularyItem",
+    "description": "Grants permission to update existing items in an existing custom vocabulary",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "buildbotlocale": {
+    "name": "BuildBotLocale",
+    "description": "Grants permission to build an existing bot locale in a bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbot": {
+    "name": "CreateBot",
+    "description": "Grants permission to create a new bot and a test bot alias pointing to the DRAFT bot version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createbotalias": {
+    "name": "CreateBotAlias",
+    "description": "Grants permission to create a new bot alias in a bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createbotchannel": {
+    "name": "CreateBotChannel",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a bot channel in an existing bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbotlocale": {
+    "name": "CreateBotLocale",
+    "description": "Grants permission to create a new bot locale in an existing bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbotreplica": {
+    "name": "CreateBotReplica",
+    "description": "Grants permission to create bot replica for a bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbotversion": {
+    "name": "CreateBotVersion",
+    "description": "Creates a new version based on the $LATEST version of the specified bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcustomvocabulary": {
+    "name": "CreateCustomVocabulary",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a new custom vocabulary in an existing bot locale",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createexport": {
+    "name": "CreateExport",
+    "description": "Grants permission to create an export for an existing resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "test set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createintent": {
+    "name": "CreateIntent",
+    "description": "Grants permission to create a new intent in an existing bot locale",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createresourcepolicy": {
+    "name": "CreateResourcePolicy",
+    "description": "Grants permission to create a new resource policy for a Lex resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createresourcepolicystatement": {
+    "name": "CreateResourcePolicyStatement",
+    "description": "Grants permission to create a new resource policy statement for a Lex resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createslot": {
+    "name": "CreateSlot",
+    "description": "Grants permission to create a new slot in an intent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createslottype": {
+    "name": "CreateSlotType",
+    "description": "Grants permission to create a new slot type in an existing bot locale",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtestset": {
+    "name": "CreateTestSet",
+    "isPermissionOnly": true,
+    "description": "Grants permission to import a new test-set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtestsetdiscrepancyreport": {
+    "name": "CreateTestSetDiscrepancyReport",
+    "description": "Grants permission to create a test set discrepancy report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createuploadurl": {
+    "name": "CreateUploadUrl",
+    "description": "Grants permission to create an upload url for import file",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebot": {
+    "name": "DeleteBot",
+    "description": "Deletes all versions of a bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebotalias": {
+    "name": "DeleteBotAlias",
+    "description": "Deletes an alias for a specific bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebotchannel": {
+    "name": "DeleteBotChannel",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete an existing bot channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebotlocale": {
+    "name": "DeleteBotLocale",
+    "description": "Grants permission to delete an existing bot locale in a bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lex:DeleteIntent",
+      "lex:DeleteSlot",
+      "lex:DeleteSlotType"
+    ]
+  },
+  "deletebotreplica": {
+    "name": "DeleteBotReplica",
+    "description": "Grants permission to delete an existing bot replica",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebotversion": {
+    "name": "DeleteBotVersion",
+    "description": "Deletes a specific version of a bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecustomvocabulary": {
+    "name": "DeleteCustomVocabulary",
+    "description": "Grants permission to delete an existing custom vocabulary in a bot locale",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteexport": {
+    "name": "DeleteExport",
+    "description": "Grants permission to delete an existing export",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "test set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteimport": {
+    "name": "DeleteImport",
+    "description": "Grants permission to delete an existing import",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "test set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteintent": {
+    "name": "DeleteIntent",
+    "description": "Deletes all versions of an intent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intent version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete an existing resource policy for a Lex resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicystatement": {
+    "name": "DeleteResourcePolicyStatement",
+    "description": "Grants permission to delete an existing resource policy statement for a Lex resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesession": {
+    "name": "DeleteSession",
+    "description": "Removes session information for a specified bot, alias, and user ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteslot": {
+    "name": "DeleteSlot",
+    "description": "Grants permission to delete an existing slot in an intent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteslottype": {
+    "name": "DeleteSlotType",
+    "description": "Deletes all versions of a slot type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "slottype version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetestset": {
+    "name": "DeleteTestSet",
+    "description": "Grants permission to delete an existing test set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteutterances": {
+    "name": "DeleteUtterances",
+    "description": "Deletes the information Amazon Lex maintains for utterances on a specific bot and userId",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebot": {
+    "name": "DescribeBot",
+    "description": "Grants permission to retrieve an existing bot",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebotalias": {
+    "name": "DescribeBotAlias",
+    "description": "Grants permission to retrieve an existing bot alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebotchannel": {
+    "name": "DescribeBotChannel",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve an existing bot channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebotlocale": {
+    "name": "DescribeBotLocale",
+    "description": "Grants permission to retrieve an existing bot locale",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebotrecommendation": {
+    "name": "DescribeBotRecommendation",
+    "description": "Grants permission to retrieve metadata information about a bot recommendation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebotreplica": {
+    "name": "DescribeBotReplica",
+    "description": "Grants permission to retrieve an existing bot replica",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebotresourcegeneration": {
+    "name": "DescribeBotResourceGeneration",
+    "description": "Grants permission to retrieve metadata information for a bot resource generation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebotversion": {
+    "name": "DescribeBotVersion",
+    "description": "Grants permission to retrieve an existing bot version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecustomvocabulary": {
+    "name": "DescribeCustomVocabulary",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve an existing custom vocabulary",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecustomvocabularymetadata": {
+    "name": "DescribeCustomVocabularyMetadata",
+    "description": "Grants permission to retrieve metadata of an existing custom vocabulary",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeexport": {
+    "name": "DescribeExport",
+    "description": "Grants permission to retrieve an existing export",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "lex:DescribeBot",
+          "lex:DescribeBotLocale",
+          "lex:DescribeIntent",
+          "lex:DescribeSlot",
+          "lex:DescribeSlotType",
+          "lex:ListBotLocales",
+          "lex:ListIntents",
+          "lex:ListSlotTypes",
+          "lex:ListSlots"
+        ]
+      },
+      {
+        "name": "test set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeimport": {
+    "name": "DescribeImport",
+    "description": "Grants permission to retrieve an existing import",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "test set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeintent": {
+    "name": "DescribeIntent",
+    "description": "Grants permission to retrieve an existing intent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeresourcepolicy": {
+    "name": "DescribeResourcePolicy",
+    "description": "Grants permission to retrieve an existing resource policy for a Lex resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeslot": {
+    "name": "DescribeSlot",
+    "description": "Grants permission to retrieve an existing slot",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeslottype": {
+    "name": "DescribeSlotType",
+    "description": "Grants permission to retrieve an existing slot type",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetestexecution": {
+    "name": "DescribeTestExecution",
+    "description": "Grants permission to retrieve test execution metadata",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetestset": {
+    "name": "DescribeTestSet",
+    "description": "Grants permission to retrieve an existing test set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetestsetdiscrepancyreport": {
+    "name": "DescribeTestSetDiscrepancyReport",
+    "description": "Grants permission to retrieve test set discrepancy report metadata",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetestsetgeneration": {
+    "name": "DescribeTestSetGeneration",
+    "description": "Grants permission to retrieve test set generation metadata",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "generatebotelement": {
+    "name": "GenerateBotElement",
+    "description": "Grants permission to generate supported fields or elements for a bot",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsession": {
+    "name": "GetSession",
+    "description": "Returns session information for a specified bot, alias, and user ID",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettestexecutionartifactsurl": {
+    "name": "GetTestExecutionArtifactsUrl",
+    "description": "Grants permission to retrieve artifacts URL for a test execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaggregatedutterances": {
+    "name": "ListAggregatedUtterances",
+    "description": "Grants permission to list utterances and statistics for a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotaliasreplicas": {
+    "name": "ListBotAliasReplicas",
+    "description": "Grants permission to list alias replicas in a bot replica",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotaliases": {
+    "name": "ListBotAliases",
+    "description": "Grants permission to list bot aliases in an bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotchannels": {
+    "name": "ListBotChannels",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list bot channels",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotlocales": {
+    "name": "ListBotLocales",
+    "description": "Grants permission to list bot locales in a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotrecommendations": {
+    "name": "ListBotRecommendations",
+    "description": "Grants permission to get a list of bot recommendations that meet the specified criteria",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotreplicas": {
+    "name": "ListBotReplicas",
+    "description": "Grants permission to list replicas of a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotresourcegenerations": {
+    "name": "ListBotResourceGenerations",
+    "description": "Grants permission to list the resource generations for a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotversionreplicas": {
+    "name": "ListBotVersionReplicas",
+    "description": "Grants permission to list version replicas in a bot replica",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotversions": {
+    "name": "ListBotVersions",
+    "description": "Grants permission to list existing bot versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbots": {
+    "name": "ListBots",
+    "description": "Grants permission to list existing bots",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbuiltinintents": {
+    "name": "ListBuiltInIntents",
+    "description": "Grants permission to list built-in intents",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbuiltinslottypes": {
+    "name": "ListBuiltInSlotTypes",
+    "description": "Grants permission to list built-in slot types",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomvocabularyitems": {
+    "name": "ListCustomVocabularyItems",
+    "description": "Grants permission to list items of an existing custom vocabulary",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexports": {
+    "name": "ListExports",
+    "description": "Grants permission to list existing exports",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listimports": {
+    "name": "ListImports",
+    "description": "Grants permission to list existing imports",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listintentmetrics": {
+    "name": "ListIntentMetrics",
+    "description": "Grants permission to list intent analytics metrics for a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listintentpaths": {
+    "name": "ListIntentPaths",
+    "description": "Grants permission to list intent path analytics for a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listintentstagemetrics": {
+    "name": "ListIntentStageMetrics",
+    "description": "Grants permission to list intentStage analytics metrics for a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listintents": {
+    "name": "ListIntents",
+    "description": "Grants permission to list intents in a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecommendedintents": {
+    "name": "ListRecommendedIntents",
+    "description": "Grants permission to get a list of recommended intents provided by the bot recommendation",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsessionanalyticsdata": {
+    "name": "ListSessionAnalyticsData",
+    "description": "Grants permission to list session analytics data for a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsessionmetrics": {
+    "name": "ListSessionMetrics",
+    "description": "Grants permission to list session analytics metrics for a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listslottypes": {
+    "name": "ListSlotTypes",
+    "description": "Grants permission to list slot types in a bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listslots": {
+    "name": "ListSlots",
+    "description": "Grants permission to list slots in an intent",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Lists tags for a Lex resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtestexecutionresultitems": {
+    "name": "ListTestExecutionResultItems",
+    "description": "Grants permission to retrieve test results data for a test execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lex:ListTestSetRecords"
+    ]
+  },
+  "listtestexecutions": {
+    "name": "ListTestExecutions",
+    "description": "Grants permission to list test executions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtestsetrecords": {
+    "name": "ListTestSetRecords",
+    "description": "Grants permission to retrieve records inside an existing test set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtestsets": {
+    "name": "ListTestSets",
+    "description": "Grants permission to list test sets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putsession": {
+    "name": "PutSession",
+    "description": "Creates a new session or modifies an existing session with an Amazon Lex bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "recognizetext": {
+    "name": "RecognizeText",
+    "description": "Grants permission to send user input (text-only) to an bot alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "recognizeutterance": {
+    "name": "RecognizeUtterance",
+    "description": "Grants permission to send user input (text or speech) to an bot alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchassociatedtranscripts": {
+    "name": "SearchAssociatedTranscripts",
+    "description": "Grants permission to search for associated transcripts that meet the specified criteria",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startbotrecommendation": {
+    "name": "StartBotRecommendation",
+    "description": "Grants permission to start a bot recommendation for an existing bot locale",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startbotresourcegeneration": {
+    "name": "StartBotResourceGeneration",
+    "description": "Grants permission to start a resource generation for an existing bot locale",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startconversation": {
+    "name": "StartConversation",
+    "description": "Grants permission to stream user input (speech/text/DTMF) to a bot alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startimport": {
+    "name": "StartImport",
+    "description": "Starts a job to import a resource to Amazon Lex",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttestexecution": {
+    "name": "StartTestExecution",
+    "description": "Grants permission to start a test execution using a test set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttestsetgeneration": {
+    "name": "StartTestSetGeneration",
+    "description": "Grants permission to generate a test set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopbotrecommendation": {
+    "name": "StopBotRecommendation",
+    "description": "Grants permission to stop a bot recommendation for an existing bot locale",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Adds or overwrites tags to a Lex resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Removes tags from a Lex resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatebot": {
+    "name": "UpdateBot",
+    "description": "Grants permission to update an existing bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebotalias": {
+    "name": "UpdateBotAlias",
+    "description": "Grants permission to update an existing bot alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebotlocale": {
+    "name": "UpdateBotLocale",
+    "description": "Grants permission to update an existing bot locale",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebotrecommendation": {
+    "name": "UpdateBotRecommendation",
+    "description": "Grants permission to update an existing bot recommendation request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecustomvocabulary": {
+    "name": "UpdateCustomVocabulary",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update an existing custom vocabulary",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateexport": {
+    "name": "UpdateExport",
+    "description": "Grants permission to update an existing export",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateintent": {
+    "name": "UpdateIntent",
+    "description": "Grants permission to update an existing intent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateresourcepolicy": {
+    "name": "UpdateResourcePolicy",
+    "description": "Grants permission to update an existing resource policy for a Lex resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateslot": {
+    "name": "UpdateSlot",
+    "description": "Grants permission to update an existing slot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateslottype": {
+    "name": "UpdateSlotType",
+    "description": "Grants permission to update an existing slot type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetestset": {
+    "name": "UpdateTestSet",
+    "description": "Grants permission to update an existing test set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "test set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createintentversion": {
+    "name": "CreateIntentVersion",
+    "description": "Creates a new version based on the $LATEST version of the specified intent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intent version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createslottypeversion": {
+    "name": "CreateSlotTypeVersion",
+    "description": "Creates a new version based on the $LATEST version of the specified slot type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "slottype version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebotchannelassociation": {
+    "name": "DeleteBotChannelAssociation",
+    "description": "Deletes the association between a Amazon Lex bot alias and a messaging platform",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteintentversion": {
+    "name": "DeleteIntentVersion",
+    "description": "Deletes a specific version of an intent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intent version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteslottypeversion": {
+    "name": "DeleteSlotTypeVersion",
+    "description": "Deletes a specific version of a slot type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "slottype version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbot": {
+    "name": "GetBot",
+    "description": "Returns information for a specific bot. In addition to the bot name, the bot version or alias is required",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbotalias": {
+    "name": "GetBotAlias",
+    "description": "Returns information about a Amazon Lex bot alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbotaliases": {
+    "name": "GetBotAliases",
+    "description": "Returns a list of aliases for a given Amazon Lex bot",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbotchannelassociation": {
+    "name": "GetBotChannelAssociation",
+    "description": "Returns information about the association between a Amazon Lex bot and a messaging platform",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbotchannelassociations": {
+    "name": "GetBotChannelAssociations",
+    "description": "Returns a list of all of the channels associated with a single bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbotversions": {
+    "name": "GetBotVersions",
+    "description": "Returns information for all versions of a specific bot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbots": {
+    "name": "GetBots",
+    "description": "Returns information for the $LATEST version of all bots, subject to filters provided by the client",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbuiltinintent": {
+    "name": "GetBuiltinIntent",
+    "description": "Returns information about a built-in intent",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbuiltinintents": {
+    "name": "GetBuiltinIntents",
+    "description": "Gets a list of built-in intents that meet the specified criteria",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbuiltinslottypes": {
+    "name": "GetBuiltinSlotTypes",
+    "description": "Gets a list of built-in slot types that meet the specified criteria",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexport": {
+    "name": "GetExport",
+    "description": "Exports Amazon Lex Resource in a requested format",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getimport": {
+    "name": "GetImport",
+    "description": "Gets information about an import job started with StartImport",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getintent": {
+    "name": "GetIntent",
+    "description": "Returns information for a specific intent. In addition to the intent name, you must also specify the intent version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "intent version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getintentversions": {
+    "name": "GetIntentVersions",
+    "description": "Returns information for all versions of a specific intent",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "intent version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getintents": {
+    "name": "GetIntents",
+    "description": "Returns information for the $LATEST version of all intents, subject to filters provided by the client",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmigration": {
+    "name": "GetMigration",
+    "description": "Grants permission to view an ongoing or completed migration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmigrations": {
+    "name": "GetMigrations",
+    "description": "Grants permission to view list of migrations from Amazon Lex v1 to Amazon Lex v2",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getslottype": {
+    "name": "GetSlotType",
+    "description": "Returns information about a specific version of a slot type. In addition to specifying the slot type name, you must also specify the slot type version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "slottype version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getslottypeversions": {
+    "name": "GetSlotTypeVersions",
+    "description": "Returns information for all versions of a specific slot type",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "slottype version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getslottypes": {
+    "name": "GetSlotTypes",
+    "description": "Returns information for the $LATEST version of all slot types, subject to filters provided by the client",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getutterancesview": {
+    "name": "GetUtterancesView",
+    "description": "Returns a view of aggregate utterance data for versions of a bot for a recent time period",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "postcontent": {
+    "name": "PostContent",
+    "description": "Sends user input (text or speech) to Amazon Lex",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "posttext": {
+    "name": "PostText",
+    "description": "Sends user input (text-only) to Amazon Lex",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putbot": {
+    "name": "PutBot",
+    "description": "Creates or updates the $LATEST version of a Amazon Lex conversational bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putbotalias": {
+    "name": "PutBotAlias",
+    "description": "Creates or updates an alias for the specific bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putintent": {
+    "name": "PutIntent",
+    "description": "Creates or updates the $LATEST version of an intent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intent version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putslottype": {
+    "name": "PutSlotType",
+    "description": "Creates or updates the $LATEST version of a slot type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "slottype version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmigration": {
+    "name": "StartMigration",
+    "description": "Grants permission to migrate a bot from Amazon Lex v1 to Amazon Lex v2",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

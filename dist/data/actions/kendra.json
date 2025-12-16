@@ -1,0 +1,1283 @@
+{
+  "associateentitiestoexperience": {
+    "name": "AssociateEntitiesToExperience",
+    "description": "Grants permission to put principal mapping in index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "experience",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatepersonastoentities": {
+    "name": "AssociatePersonasToEntities",
+    "description": "Defines the specific permissions of users or groups in your AWS SSO identity source with access to your Amazon Kendra experience",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "experience",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdeletedocument": {
+    "name": "BatchDeleteDocument",
+    "description": "Grants permission to batch delete document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdeletefeaturedresultsset": {
+    "name": "BatchDeleteFeaturedResultsSet",
+    "description": "Grants permission to delete a featured results set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "featured-results-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetdocumentstatus": {
+    "name": "BatchGetDocumentStatus",
+    "description": "Grants permission to do batch get document status",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchputdocument": {
+    "name": "BatchPutDocument",
+    "description": "Grants permission to batch put document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "clearquerysuggestions": {
+    "name": "ClearQuerySuggestions",
+    "description": "Grants permission to clear out the suggestions for a given index, generated so far",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createaccesscontrolconfiguration": {
+    "name": "CreateAccessControlConfiguration",
+    "description": "Grants permission to create an access control configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatasource": {
+    "name": "CreateDataSource",
+    "description": "Grants permission to create a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createexperience": {
+    "name": "CreateExperience",
+    "description": "Creates an Amazon Kendra experience such as a search application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfaq": {
+    "name": "CreateFaq",
+    "description": "Grants permission to create an Faq",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfeaturedresultsset": {
+    "name": "CreateFeaturedResultsSet",
+    "description": "Grants permission to create a featured results set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createindex": {
+    "name": "CreateIndex",
+    "description": "Grants permission to create an Index",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createquerysuggestionsblocklist": {
+    "name": "CreateQuerySuggestionsBlockList",
+    "description": "Grants permission to create a QuerySuggestions BlockList",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createthesaurus": {
+    "name": "CreateThesaurus",
+    "description": "Grants permission to create a Thesaurus",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesscontrolconfiguration": {
+    "name": "DeleteAccessControlConfiguration",
+    "description": "Grants permission to delete an access control configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "access-control-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatasource": {
+    "name": "DeleteDataSource",
+    "description": "Grants permission to delete a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteexperience": {
+    "name": "DeleteExperience",
+    "description": "Deletes your Amazon Kendra experience such as a search application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "experience",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefaq": {
+    "name": "DeleteFaq",
+    "description": "Grants permission to delete an Faq",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "faq",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteindex": {
+    "name": "DeleteIndex",
+    "description": "Grants permission to delete an Index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprincipalmapping": {
+    "name": "DeletePrincipalMapping",
+    "description": "Grants permission to delete principal mapping from index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletequerysuggestionsblocklist": {
+    "name": "DeleteQuerySuggestionsBlockList",
+    "description": "Grants permission to delete a QuerySuggestions BlockList",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "query-suggestions-block-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletethesaurus": {
+    "name": "DeleteThesaurus",
+    "description": "Grants permission to delete a Thesaurus",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thesaurus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaccesscontrolconfiguration": {
+    "name": "DescribeAccessControlConfiguration",
+    "description": "Grants permission to describe an access control configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "access-control-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedatasource": {
+    "name": "DescribeDataSource",
+    "description": "Grants permission to describe a data source",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeexperience": {
+    "name": "DescribeExperience",
+    "description": "Gets information about your Amazon Kendra experience such as a search application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "experience",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefaq": {
+    "name": "DescribeFaq",
+    "description": "Grants permission to describe an Faq",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "faq",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefeaturedresultsset": {
+    "name": "DescribeFeaturedResultsSet",
+    "description": "Grants permission to describe a featured results set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "featured-results-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeindex": {
+    "name": "DescribeIndex",
+    "description": "Grants permission to describe an Index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeprincipalmapping": {
+    "name": "DescribePrincipalMapping",
+    "description": "Grants permission to describe principal mapping from index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describequerysuggestionsblocklist": {
+    "name": "DescribeQuerySuggestionsBlockList",
+    "description": "Grants permission to describe a QuerySuggestions BlockList",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "query-suggestions-block-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describequerysuggestionsconfig": {
+    "name": "DescribeQuerySuggestionsConfig",
+    "description": "Grants permission to describe the query suggestions configuration for an index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describethesaurus": {
+    "name": "DescribeThesaurus",
+    "description": "Grants permission to describe a Thesaurus",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thesaurus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateentitiesfromexperience": {
+    "name": "DisassociateEntitiesFromExperience",
+    "description": "Prevents users or groups in your AWS SSO identity source from accessing your Amazon Kendra experience",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "experience",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatepersonasfromentities": {
+    "name": "DisassociatePersonasFromEntities",
+    "description": "Removes the specific permissions of users or groups in your AWS SSO identity source with access to your Amazon Kendra experience",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "experience",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getquerysuggestions": {
+    "name": "GetQuerySuggestions",
+    "description": "Grants permission to get suggestions for a query prefix",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsnapshots": {
+    "name": "GetSnapshots",
+    "description": "Retrieves search metrics data",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccesscontrolconfigurations": {
+    "name": "ListAccessControlConfigurations",
+    "description": "Grants permission to list the access control configurations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasourcesyncjobs": {
+    "name": "ListDataSourceSyncJobs",
+    "description": "Grants permission to get Data Source sync job history",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasources": {
+    "name": "ListDataSources",
+    "description": "Grants permission to list the data sources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listentitypersonas": {
+    "name": "ListEntityPersonas",
+    "description": "Lists specific permissions of users and groups with access to your Amazon Kendra experience",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "experience",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexperienceentities": {
+    "name": "ListExperienceEntities",
+    "description": "Lists users or groups in your AWS SSO identity source that are granted access to your Amazon Kendra experience",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "experience",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexperiences": {
+    "name": "ListExperiences",
+    "description": "Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra experience such as a search application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfaqs": {
+    "name": "ListFaqs",
+    "description": "Grants permission to list the Faqs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfeaturedresultssets": {
+    "name": "ListFeaturedResultsSets",
+    "description": "Grants permission to list the featured results sets",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgroupsolderthanorderingid": {
+    "name": "ListGroupsOlderThanOrderingId",
+    "description": "Grants permission to list groups that are older than an ordering id",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listindices": {
+    "name": "ListIndices",
+    "description": "Grants permission to list the indexes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listquerysuggestionsblocklists": {
+    "name": "ListQuerySuggestionsBlockLists",
+    "description": "Grants permission to list the QuerySuggestions BlockLists",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "faq",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "featured-results-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "query-suggestions-block-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thesaurus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthesauri": {
+    "name": "ListThesauri",
+    "description": "Grants permission to list the Thesauri",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putprincipalmapping": {
+    "name": "PutPrincipalMapping",
+    "description": "Grants permission to put principal mapping in index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "query": {
+    "name": "Query",
+    "description": "Grants permission to query documents and faqs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "retrieve": {
+    "name": "Retrieve",
+    "description": "Grants permission to retrieve relevant content from an index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdatasourcesyncjob": {
+    "name": "StartDataSourceSyncJob",
+    "description": "Grants permission to start Data Source sync job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopdatasourcesyncjob": {
+    "name": "StopDataSourceSyncJob",
+    "description": "Grants permission to stop Data Source sync job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "submitfeedback": {
+    "name": "SubmitFeedback",
+    "description": "Grants permission to send feedback about a query results",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource with given key value pairs",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "data-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "faq",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "featured-results-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "query-suggestions-block-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thesaurus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the tag with the given key from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "data-source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "faq",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "featured-results-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "query-suggestions-block-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thesaurus",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateaccesscontrolconfiguration": {
+    "name": "UpdateAccessControlConfiguration",
+    "description": "Grants permission to update an access control configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "access-control-configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedatasource": {
+    "name": "UpdateDataSource",
+    "description": "Grants permission to update a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateexperience": {
+    "name": "UpdateExperience",
+    "description": "Updates your Amazon Kendra experience such as a search application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefeaturedresultsset": {
+    "name": "UpdateFeaturedResultsSet",
+    "description": "Grants permission to update a featured results set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "featured-results-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateindex": {
+    "name": "UpdateIndex",
+    "description": "Grants permission to update an Index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatequerysuggestionsblocklist": {
+    "name": "UpdateQuerySuggestionsBlockList",
+    "description": "Grants permission to update a QuerySuggestions BlockList",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "query-suggestions-block-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatequerysuggestionsconfig": {
+    "name": "UpdateQuerySuggestionsConfig",
+    "description": "Grants permission to update the query suggestions configuration for an index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatethesaurus": {
+    "name": "UpdateThesaurus",
+    "description": "Grants permission to update a thesaurus",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thesaurus",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,780 @@
+{
+  "batchputpropertyvalues": {
+    "name": "BatchPutPropertyValues",
+    "description": "Grants permission to set values for multiple time series properties",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iottwinmaker:GetComponentType",
+          "iottwinmaker:GetEntity",
+          "iottwinmaker:GetWorkspace"
+        ]
+      },
+      {
+        "name": "entity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelmetadatatransferjob": {
+    "name": "CancelMetadataTransferJob",
+    "description": "Grants permission to cancel a metadata transfer job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metadataTransferJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcomponenttype": {
+    "name": "CreateComponentType",
+    "description": "Grants permission to create a componentType",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createentity": {
+    "name": "CreateEntity",
+    "description": "Grants permission to create an entity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmetadatatransferjob": {
+    "name": "CreateMetadataTransferJob",
+    "description": "Grants permission to create a metadata transfer job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createscene": {
+    "name": "CreateScene",
+    "description": "Grants permission to create a scene",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsyncjob": {
+    "name": "CreateSyncJob",
+    "description": "Grants permission to create a sync job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createworkspace": {
+    "name": "CreateWorkspace",
+    "description": "Grants permission to create a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletecomponenttype": {
+    "name": "DeleteComponentType",
+    "description": "Grants permission to delete a componentType",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "componentType",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteentity": {
+    "name": "DeleteEntity",
+    "description": "Grants permission to delete an entity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletescene": {
+    "name": "DeleteScene",
+    "description": "Grants permission to delete a scene",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scene",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesyncjob": {
+    "name": "DeleteSyncJob",
+    "description": "Grants permission to delete a sync job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "syncJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteworkspace": {
+    "name": "DeleteWorkspace",
+    "description": "Grants permission to delete a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "executequery": {
+    "name": "ExecuteQuery",
+    "description": "Grants permission to execute query",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcomponenttype": {
+    "name": "GetComponentType",
+    "description": "Grants permission to get a componentType",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "componentType",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getentity": {
+    "name": "GetEntity",
+    "description": "Grants permission to get an entity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmetadatatransferjob": {
+    "name": "GetMetadataTransferJob",
+    "description": "Grants permission to get a metadata transfer job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "metadataTransferJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpricingplan": {
+    "name": "GetPricingPlan",
+    "description": "Grants permission to get pricing plan",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpropertyvalue": {
+    "name": "GetPropertyValue",
+    "description": "Grants permission to retrieve the property values",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iottwinmaker:GetComponentType",
+          "iottwinmaker:GetEntity",
+          "iottwinmaker:GetWorkspace"
+        ]
+      },
+      {
+        "name": "componentType",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpropertyvaluehistory": {
+    "name": "GetPropertyValueHistory",
+    "description": "Grants permission to retrieve the time series value history",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iottwinmaker:GetComponentType",
+          "iottwinmaker:GetEntity",
+          "iottwinmaker:GetWorkspace"
+        ]
+      },
+      {
+        "name": "componentType",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getscene": {
+    "name": "GetScene",
+    "description": "Grants permission to get a scene",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "scene",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsyncjob": {
+    "name": "GetSyncJob",
+    "description": "Grants permission to get a sync job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "syncJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getworkspace": {
+    "name": "GetWorkspace",
+    "description": "Grants permission to get a workspace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomponenttypes": {
+    "name": "ListComponentTypes",
+    "description": "Grants permission to list all componentTypes in a workspace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomponents": {
+    "name": "ListComponents",
+    "description": "Grants permission to list components attached to an entity",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listentities": {
+    "name": "ListEntities",
+    "description": "Grants permission to list all entities in a workspace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmetadatatransferjobs": {
+    "name": "ListMetadataTransferJobs",
+    "description": "Grants permission to list all metadata transfer jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listproperties": {
+    "name": "ListProperties",
+    "description": "Grants permission to list properties of an entity component",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listscenes": {
+    "name": "ListScenes",
+    "description": "Grants permission to list all scenes in a workspace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsyncjobs": {
+    "name": "ListSyncJobs",
+    "description": "Grants permission to list all sync jobs in a workspace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsyncresources": {
+    "name": "ListSyncResources",
+    "description": "Grants permission to list all sync resources for a sync job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "syncJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags for a resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "componentType",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scene",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "syncJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listworkspaces": {
+    "name": "ListWorkspaces",
+    "description": "Grants permission to list all workspaces",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "componentType",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scene",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "syncJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "componentType",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scene",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "syncJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecomponenttype": {
+    "name": "UpdateComponentType",
+    "description": "Grants permission to update a componentType",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "componentType",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateentity": {
+    "name": "UpdateEntity",
+    "description": "Grants permission to update an entity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepricingplan": {
+    "name": "UpdatePricingPlan",
+    "description": "Grants permission to update pricing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatescene": {
+    "name": "UpdateScene",
+    "description": "Grants permission to update a scene",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scene",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateworkspace": {
+    "name": "UpdateWorkspace",
+    "description": "Grants permission to update a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

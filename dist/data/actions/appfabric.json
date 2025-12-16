@@ -1,0 +1,558 @@
+{
+  "batchgetuseraccesstasks": {
+    "name": "BatchGetUserAccessTasks",
+    "description": "Grants permission to start user access tasks for multiple users",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "connectappauthorization": {
+    "name": "ConnectAppAuthorization",
+    "description": "Grants permission to connect app authorizations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appauthorization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createappauthorization": {
+    "name": "CreateAppAuthorization",
+    "description": "Grants permission to create app authorizations for app bundles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createappbundle": {
+    "name": "CreateAppBundle",
+    "description": "Grants permission to create app bundles in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createingestion": {
+    "name": "CreateIngestion",
+    "description": "Grants permission to create ingestions for app bundles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createingestiondestination": {
+    "name": "CreateIngestionDestination",
+    "description": "Grants permission to create ingestion destinations for app bundles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteappauthorization": {
+    "name": "DeleteAppAuthorization",
+    "description": "Grants permission to delete app authorizations within an app bundle",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appauthorization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteappbundle": {
+    "name": "DeleteAppBundle",
+    "description": "Grants permission to delete app bundles in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteingestion": {
+    "name": "DeleteIngestion",
+    "description": "Grants permission to delete ingestions within an app bundle",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteingestiondestination": {
+    "name": "DeleteIngestionDestination",
+    "description": "Grants permission to delete destinations within an ingestion",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestiondestination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getappauthorization": {
+    "name": "GetAppAuthorization",
+    "description": "Grants permission to view details about app authorizations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "appauthorization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getappbundle": {
+    "name": "GetAppBundle",
+    "description": "Grants permission to view details about app bundles",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getingestion": {
+    "name": "GetIngestion",
+    "description": "Grants permission to view details about ingestions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getingestiondestination": {
+    "name": "GetIngestionDestination",
+    "description": "Grants permission to view details about ingestion destinations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestiondestination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listappauthorizations": {
+    "name": "ListAppAuthorizations",
+    "description": "Grants permission to retrieve a list of app authorizations within an app bundle",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappbundles": {
+    "name": "ListAppBundles",
+    "description": "Grants permission to retrieve a list of app bundles in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listingestiondestinations": {
+    "name": "ListIngestionDestinations",
+    "description": "Grants permission to retrieve a list of destinations within an ingestion",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listingestions": {
+    "name": "ListIngestions",
+    "description": "Grants permission to retrieve a list of ingestions within an app bundle",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for AppFabric resources",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "appauthorization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "appbundle",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestiondestination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startingestion": {
+    "name": "StartIngestion",
+    "description": "Grants permission to start ingestions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startuseraccesstasks": {
+    "name": "StartUserAccessTasks",
+    "description": "Grants permission to start user access tasks",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopingestion": {
+    "name": "StopIngestion",
+    "description": "Grants permission to stop ingestions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag AppFabric resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "appauthorization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "appbundle",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestiondestination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag AppFabric resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "appauthorization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "appbundle",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestiondestination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateappauthorization": {
+    "name": "UpdateAppAuthorization",
+    "description": "Grants permission to update app authorizations within app bundles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appauthorization",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateingestiondestination": {
+    "name": "UpdateIngestionDestination",
+    "description": "Grants permission to update destinations within ingestions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "appbundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ingestiondestination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

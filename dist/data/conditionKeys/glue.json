@@ -1,0 +1,57 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the presence of tag key-value pairs in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by tag key-value pairs attached to the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the presence of tag keys in the request",
+    "type": "ArrayOfString"
+  },
+  "glue:credentialissuingservice": {
+    "key": "glue:CredentialIssuingService",
+    "description": "Filters access by the service from which the credentials of the request is issued",
+    "type": "String"
+  },
+  "glue:enabledforredshiftautodiscovery": {
+    "key": "glue:EnabledForRedshiftAutoDiscovery",
+    "description": "Filters access by the presence of the key configured for role's identity-based policy",
+    "type": "Bool"
+  },
+  "glue:federatedauthorizationsource": {
+    "key": "glue:FederatedAuthorizationSource",
+    "description": "Filters access by whether the resource belongs to federated authorization",
+    "type": "String"
+  },
+  "glue:lakeformationpermissions": {
+    "key": "glue:LakeFormationPermissions",
+    "description": "Filters access by whether Lake Formation permission checks will be performed for a given caller and the Glue resource",
+    "type": "String"
+  },
+  "glue:roleassumedby": {
+    "key": "glue:RoleAssumedBy",
+    "description": "Filters access by the service from which the credentials of the request is obtained by assuming the customer role",
+    "type": "String"
+  },
+  "glue:securitygroupids": {
+    "key": "glue:SecurityGroupIds",
+    "description": "Filters access by the ID of security groups configured for the Glue job",
+    "type": "ArrayOfString"
+  },
+  "glue:subnetids": {
+    "key": "glue:SubnetIds",
+    "description": "Filters access by the ID of subnets configured for the Glue job",
+    "type": "ArrayOfString"
+  },
+  "glue:vpcids": {
+    "key": "glue:VpcIds",
+    "description": "Filters access by the ID of the VPC configured for the Glue job",
+    "type": "ArrayOfString"
+  }
+}

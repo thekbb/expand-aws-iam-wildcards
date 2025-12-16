@@ -1,0 +1,367 @@
+{
+  "createindex": {
+    "name": "CreateIndex",
+    "description": "Grants permission to create a new vector index within a specified vector bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3vectors:sseType",
+      "s3vectors:kmsKeyArn",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createvectorbucket": {
+    "name": "CreateVectorBucket",
+    "description": "Grants permission to create a new vector bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3vectors:sseType",
+      "s3vectors:kmsKeyArn",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteindex": {
+    "name": "DeleteIndex",
+    "description": "Grants permission to delete a specified vector index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletevectorbucket": {
+    "name": "DeleteVectorBucket",
+    "description": "Grants permission to delete a specified vector bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletevectorbucketpolicy": {
+    "name": "DeleteVectorBucketPolicy",
+    "description": "Grants permission to delete the IAM resource policy from a specified vector bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletevectors": {
+    "name": "DeleteVectors",
+    "description": "Grants permission to delete a batch of vectors from a specified vector index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getindex": {
+    "name": "GetIndex",
+    "description": "Grants permission to get the attributes of a specified vector index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getvectorbucket": {
+    "name": "GetVectorBucket",
+    "description": "Grants permission to get the attributes of a specified vector bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getvectorbucketpolicy": {
+    "name": "GetVectorBucketPolicy",
+    "description": "Grants permission to get the IAM resource policy for a specific vector bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getvectors": {
+    "name": "GetVectors",
+    "description": "Grants permission to get a batch of vectors by their vector keys",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listindexes": {
+    "name": "ListIndexes",
+    "description": "Grants permission to get a paginated list of all indexes in a specified vector bucket",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for specified S3Vector resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VectorBucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listvectorbuckets": {
+    "name": "ListVectorBuckets",
+    "description": "Grants permission to get a paginated list of all vector buckets in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvectors": {
+    "name": "ListVectors",
+    "description": "Grants permission to get a paginated list of all vectors in a specified vector index",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "s3vectors:GetVectors"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putvectorbucketpolicy": {
+    "name": "PutVectorBucketPolicy",
+    "description": "Grants permission to add an IAM resource policy to a specified vector bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putvectors": {
+    "name": "PutVectors",
+    "description": "Grants permission to add a batch of vectors to a specified vector index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "queryvectors": {
+    "name": "QueryVectors",
+    "description": "Grants permission to find approximate nearest neighbors within a specified search vector index for a given query vector",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "s3vectors:GetVectors"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a S3Vector resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VectorBucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a S3Vector resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VectorBucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

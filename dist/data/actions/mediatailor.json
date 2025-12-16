@@ -1,0 +1,684 @@
+{
+  "configurelogsforchannel": {
+    "name": "ConfigureLogsForChannel",
+    "description": "Grants permission to configure logs on the channel with the specified channel name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "configurelogsforplaybackconfiguration": {
+    "name": "ConfigureLogsForPlaybackConfiguration",
+    "description": "Grants permission to configure logs for a playback configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "playbackConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "createchannel": {
+    "name": "CreateChannel",
+    "description": "Grants permission to create a new channel",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlivesource": {
+    "name": "CreateLiveSource",
+    "description": "Grants permission to create a new live source on the source location with the specified source location name",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createprefetchschedule": {
+    "name": "CreatePrefetchSchedule",
+    "description": "Grants permission to create a prefetch schedule for the playback configuration with the specified playback configuration name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "playbackConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createprogram": {
+    "name": "CreateProgram",
+    "description": "Grants permission to create a new program on the channel with the specified channel name",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsourcelocation": {
+    "name": "CreateSourceLocation",
+    "description": "Grants permission to create a new source location",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createvodsource": {
+    "name": "CreateVodSource",
+    "description": "Grants permission to create a new VOD source on the source location with the specified source location name",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletechannel": {
+    "name": "DeleteChannel",
+    "description": "Grants permission to delete the channel with the specified channel name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletechannelpolicy": {
+    "name": "DeleteChannelPolicy",
+    "description": "Grants permission to delete the IAM policy on the channel with the specified channel name",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelivesource": {
+    "name": "DeleteLiveSource",
+    "description": "Grants permission to delete the live source with the specified live source name on the source location with the specified source location name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "liveSource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteplaybackconfiguration": {
+    "name": "DeletePlaybackConfiguration",
+    "description": "Grants permission to delete the specified playback configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "playbackConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprefetchschedule": {
+    "name": "DeletePrefetchSchedule",
+    "description": "Grants permission to delete a prefetch schedule for a playback configuration with the specified prefetch schedule name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "playbackConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prefetchSchedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprogram": {
+    "name": "DeleteProgram",
+    "description": "Grants permission to delete the program with the specified program name on the channel with the specified channel name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "program",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesourcelocation": {
+    "name": "DeleteSourceLocation",
+    "description": "Grants permission to delete the source location with the specified source location name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sourceLocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevodsource": {
+    "name": "DeleteVodSource",
+    "description": "Grants permission to delete the VOD source with the specified VOD source name on the source location with the specified source location name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vodSource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describechannel": {
+    "name": "DescribeChannel",
+    "description": "Grants permission to retrieve the channel with the specified channel name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelivesource": {
+    "name": "DescribeLiveSource",
+    "description": "Grants permission to retrieve the live source with the specified live source name on the source location with the specified source location name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "liveSource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeprogram": {
+    "name": "DescribeProgram",
+    "description": "Grants permission to retrieve the program with the specified program name on the channel with the specified channel name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "program",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesourcelocation": {
+    "name": "DescribeSourceLocation",
+    "description": "Grants permission to retrieve the source location with the specified source location name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sourceLocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevodsource": {
+    "name": "DescribeVodSource",
+    "description": "Grants permission to retrieve the VOD source with the specified VOD source name on the source location with the specified source location name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vodSource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannelpolicy": {
+    "name": "GetChannelPolicy",
+    "description": "Grants permission to read the IAM policy on the channel with the specified channel name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannelschedule": {
+    "name": "GetChannelSchedule",
+    "description": "Grants permission to retrieve the schedule of programs on the channel with the specified channel name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getplaybackconfiguration": {
+    "name": "GetPlaybackConfiguration",
+    "description": "Grants permission to retrieve the configuration for the specified name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "playbackConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprefetchschedule": {
+    "name": "GetPrefetchSchedule",
+    "description": "Grants permission to retrieve prefetch schedule for a playback configuration with the specified prefetch schedule name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "playbackConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prefetchSchedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listalerts": {
+    "name": "ListAlerts",
+    "description": "Grants permission to retrieve the list of alerts on a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listchannels": {
+    "name": "ListChannels",
+    "description": "Grants permission to retrieve the list of existing channels",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlivesources": {
+    "name": "ListLiveSources",
+    "description": "Grants permission to retrieve the list of existing live sources on the source location with the specified source location name",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listplaybackconfigurations": {
+    "name": "ListPlaybackConfigurations",
+    "description": "Grants permission to retrieve the list of available configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprefetchschedules": {
+    "name": "ListPrefetchSchedules",
+    "description": "Grants permission to retrieve the list of prefetch schedules for a playback configuration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "playbackConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsourcelocations": {
+    "name": "ListSourceLocations",
+    "description": "Grants permission to retrieve the list of existing source locations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags assigned to the specified playback configuration resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "liveSource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "playbackConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sourceLocation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vodSource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvodsources": {
+    "name": "ListVodSources",
+    "description": "Grants permission to retrieve the list of existing VOD sources on the source location with the specified source location name",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putchannelpolicy": {
+    "name": "PutChannelPolicy",
+    "description": "Grants permission to set the IAM policy on the channel with the specified channel name",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putplaybackconfiguration": {
+    "name": "PutPlaybackConfiguration",
+    "description": "Grants permission to add a new configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startchannel": {
+    "name": "StartChannel",
+    "description": "Grants permission to start the channel with the specified channel name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopchannel": {
+    "name": "StopChannel",
+    "description": "Grants permission to stop the channel with the specified channel name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to the specified playback configuration resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "liveSource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "playbackConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sourceLocation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vodSource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from the specified playback configuration resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "liveSource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "playbackConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sourceLocation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vodSource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatechannel": {
+    "name": "UpdateChannel",
+    "description": "Grants permission to update the channel with the specified channel name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelivesource": {
+    "name": "UpdateLiveSource",
+    "description": "Grants permission to update the live source with the specified live source name on the source location with the specified source location name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "liveSource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprogram": {
+    "name": "UpdateProgram",
+    "description": "Grants permission to update the program with the specified program name on the channel with the specified channel name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "program",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesourcelocation": {
+    "name": "UpdateSourceLocation",
+    "description": "Grants permission to update the source location with the specified source location name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sourceLocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevodsource": {
+    "name": "UpdateVodSource",
+    "description": "Grants permission to update the VOD source with the specified VOD source name on the source location with the specified source location name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vodSource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

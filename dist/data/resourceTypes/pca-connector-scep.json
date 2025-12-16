@@ -1,0 +1,16 @@
+{
+  "challenge": {
+    "key": "Challenge",
+    "arn": "arn:${Partition}:pca-connector-scep:${Region}:${Account}:connector/${ConnectorId}/challenge/${ChallengeId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "connector": {
+    "key": "Connector",
+    "arn": "arn:${Partition}:pca-connector-scep:${Region}:${Account}:connector/${ConnectorId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

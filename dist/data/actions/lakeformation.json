@@ -1,0 +1,501 @@
+{
+  "addlftagstoresource": {
+    "name": "AddLFTagsToResource",
+    "description": "Grants permission to attach Lake Formation tags to catalog resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgrantpermissions": {
+    "name": "BatchGrantPermissions",
+    "description": "Grants permission to data lake permissions to one or more principals in a batch",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchrevokepermissions": {
+    "name": "BatchRevokePermissions",
+    "description": "Grants permission to revoke data lake permissions from one or more principals in a batch",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "canceltransaction": {
+    "name": "CancelTransaction",
+    "description": "Grants permission to cancel the given transaction",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "committransaction": {
+    "name": "CommitTransaction",
+    "description": "Grants permission to commit the given transaction",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatacellsfilter": {
+    "name": "CreateDataCellsFilter",
+    "description": "Grants permission to create a Lake Formation data cell filter",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlftag": {
+    "name": "CreateLFTag",
+    "description": "Grants permission to create a Lake Formation tag",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlftagexpression": {
+    "name": "CreateLFTagExpression",
+    "description": "Grants permission to create a Lake Formation tag expression",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlakeformationidentitycenterconfiguration": {
+    "name": "CreateLakeFormationIdentityCenterConfiguration",
+    "description": "Grants permission to create an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlakeformationoptin": {
+    "name": "CreateLakeFormationOptIn",
+    "description": "Grants permission to enforce Lake Formation permissions for the given databases, tables, and principals",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatacellsfilter": {
+    "name": "DeleteDataCellsFilter",
+    "description": "Grants permission to delete a Lake Formation data cell filter",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelftag": {
+    "name": "DeleteLFTag",
+    "description": "Grants permission to delete a Lake Formation tag",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelftagexpression": {
+    "name": "DeleteLFTagExpression",
+    "description": "Grants permission to delete a Lake Formation expression",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelakeformationidentitycenterconfiguration": {
+    "name": "DeleteLakeFormationIdentityCenterConfiguration",
+    "description": "Grants permission to delete an IAM Identity Center connection with Lake Formation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelakeformationoptin": {
+    "name": "DeleteLakeFormationOptIn",
+    "description": "Grants permission to remove the Lake Formation permissions enforcement of the given databases, tables, and principals",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteobjectsoncancel": {
+    "name": "DeleteObjectsOnCancel",
+    "description": "Grants permission to delete the specified objects if the transaction is canceled",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deregisterresource": {
+    "name": "DeregisterResource",
+    "description": "Grants permission to deregister a registered location",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelakeformationidentitycenterconfiguration": {
+    "name": "DescribeLakeFormationIdentityCenterConfiguration",
+    "description": "Grants permission to describe the IAM Identity Center connection with Lake Formation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeresource": {
+    "name": "DescribeResource",
+    "description": "Grants permission to describe a registered location",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetransaction": {
+    "name": "DescribeTransaction",
+    "description": "Grants permission to get status of the given transaction",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "extendtransaction": {
+    "name": "ExtendTransaction",
+    "description": "Grants permission to extend the timeout of the given transaction",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataaccess": {
+    "name": "GetDataAccess",
+    "description": "Grants permission to virtual data lake access",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "lakeformation:EnabledOnlyForMetaDataAccess"
+    ],
+    "dependentActions": []
+  },
+  "getdatacellsfilter": {
+    "name": "GetDataCellsFilter",
+    "description": "Grants permission to retrieve a Lake Formation data cell filter",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatalakeprincipal": {
+    "name": "GetDataLakePrincipal",
+    "description": "Grants permission to retrieve the identity of the invoking principal",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatalakesettings": {
+    "name": "GetDataLakeSettings",
+    "description": "Grants permission to retrieve data lake settings such as the list of data lake administrators and database and table default permissions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "geteffectivepermissionsforpath": {
+    "name": "GetEffectivePermissionsForPath",
+    "description": "Grants permission to retrieve permissions attached to resources in the given path",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlftag": {
+    "name": "GetLFTag",
+    "description": "Grants permission to retrieve a Lake Formation tag",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlftagexpression": {
+    "name": "GetLFTagExpression",
+    "description": "Grants permission to retrieve a Lake Formation tag expression",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getquerystate": {
+    "name": "GetQueryState",
+    "description": "Grants permission to retrieve the state of the given query",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lakeformation:StartQueryPlanning"
+    ]
+  },
+  "getquerystatistics": {
+    "name": "GetQueryStatistics",
+    "description": "Grants permission to retrieve the statistics for the given query",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lakeformation:StartQueryPlanning"
+    ]
+  },
+  "getresourcelftags": {
+    "name": "GetResourceLFTags",
+    "description": "Grants permission to retrieve lakeformation tags on a catalog resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettableobjects": {
+    "name": "GetTableObjects",
+    "description": "Grants permission to retrieve objects from a table",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettemporarygluepartitioncredentials": {
+    "name": "GetTemporaryGluePartitionCredentials",
+    "description": "Grants permission to get temporary credentials to access Glue partition data through Lake Formation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettemporarygluetablecredentials": {
+    "name": "GetTemporaryGlueTableCredentials",
+    "description": "Grants permission to get temporary credentials to access Glue table data through Lake Formation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getworkunitresults": {
+    "name": "GetWorkUnitResults",
+    "description": "Grants permission to retrieve the results for the given work units",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lakeformation:GetWorkUnits",
+      "lakeformation:StartQueryPlanning"
+    ]
+  },
+  "getworkunits": {
+    "name": "GetWorkUnits",
+    "description": "Grants permission to retrieve the work units for the given query",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lakeformation:StartQueryPlanning"
+    ]
+  },
+  "grantpermissions": {
+    "name": "GrantPermissions",
+    "description": "Grants permission to data lake permissions to a principal",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatacellsfilter": {
+    "name": "ListDataCellsFilter",
+    "description": "Grants permission to list cell filters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlftagexpressions": {
+    "name": "ListLFTagExpressions",
+    "description": "Grants permission to list Lake Foramtion tag expressions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlftags": {
+    "name": "ListLFTags",
+    "description": "Grants permission to list Lake Formation tags",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlakeformationoptins": {
+    "name": "ListLakeFormationOptIns",
+    "description": "Grants permission to retrieve the current list of resources and principals that are opt in to enforce Lake Formation permissions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpermissions": {
+    "name": "ListPermissions",
+    "description": "Grants permission to list permissions filtered by principal or resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresources": {
+    "name": "ListResources",
+    "description": "Grants permission to List registered locations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtablestorageoptimizers": {
+    "name": "ListTableStorageOptimizers",
+    "description": "Grants permission to list all the storage optimizers for the Governed table",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtransactions": {
+    "name": "ListTransactions",
+    "description": "Grants permission to list all transactions in the system",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putdatalakesettings": {
+    "name": "PutDataLakeSettings",
+    "description": "Grants permission to overwrite data lake settings such as the list of data lake administrators and database and table default permissions",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registerresource": {
+    "name": "RegisterResource",
+    "description": "Grants permission to register a new location to be managed by Lake Formation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registerresourcewithprivilegedaccess": {
+    "name": "RegisterResourceWithPrivilegedAccess",
+    "description": "Grants permission to register a new location to be managed by Lake Formation, with privileged access",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removelftagsfromresource": {
+    "name": "RemoveLFTagsFromResource",
+    "description": "Grants permission to remove lakeformation tags from catalog resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revokepermissions": {
+    "name": "RevokePermissions",
+    "description": "Grants permission to revoke data lake permissions from a principal",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchdatabasesbylftags": {
+    "name": "SearchDatabasesByLFTags",
+    "description": "Grants permission to list catalog databases with Lake Formation tags",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchtablesbylftags": {
+    "name": "SearchTablesByLFTags",
+    "description": "Grants permission to list catalog tables with Lake Formation tags",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startqueryplanning": {
+    "name": "StartQueryPlanning",
+    "description": "Grants permission to initiate the planning of the given query",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttransaction": {
+    "name": "StartTransaction",
+    "description": "Grants permission to start a new transaction",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedatacellsfilter": {
+    "name": "UpdateDataCellsFilter",
+    "description": "Grants permission to update a Lake Formation data cell filter",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelftag": {
+    "name": "UpdateLFTag",
+    "description": "Grants permission to update a Lake Formation tag",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelftagexpression": {
+    "name": "UpdateLFTagExpression",
+    "description": "Grants permission to update a Lake Formation expression",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelakeformationidentitycenterconfiguration": {
+    "name": "UpdateLakeFormationIdentityCenterConfiguration",
+    "description": "Grants permission to update the IAM Identity Center connection parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateresource": {
+    "name": "UpdateResource",
+    "description": "Grants permission to update a registered location",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetableobjects": {
+    "name": "UpdateTableObjects",
+    "description": "Grants permission to add or delete the specified objects to or from a table",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetablestorageoptimizer": {
+    "name": "UpdateTableStorageOptimizer",
+    "description": "Grants permission to update the configuration of the storage optimizer for the Governed table",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

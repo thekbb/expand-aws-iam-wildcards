@@ -1,0 +1,519 @@
+{
+  "associateaccounts": {
+    "name": "AssociateAccounts",
+    "description": "Grants permission to associate between one and 30 accounts to a billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatepricingrules": {
+    "name": "AssociatePricingRules",
+    "description": "Grants permission to associate pricing rules",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pricingplan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pricingrule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchassociateresourcestocustomlineitem": {
+    "name": "BatchAssociateResourcesToCustomLineItem",
+    "description": "Grants permission to batch associate resources to a percentage custom line item",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customlineitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdisassociateresourcesfromcustomlineitem": {
+    "name": "BatchDisassociateResourcesFromCustomLineItem",
+    "description": "Grants permission to batch disassociate resources from a percentage custom line item",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customlineitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbillinggroup": {
+    "name": "CreateBillingGroup",
+    "description": "Grants permission to create a billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pricingplan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createcustomlineitem": {
+    "name": "CreateCustomLineItem",
+    "description": "Grants permission to create a custom line item",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createpricingplan": {
+    "name": "CreatePricingPlan",
+    "description": "Grants permission to create a pricing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pricingrule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createpricingrule": {
+    "name": "CreatePricingRule",
+    "description": "Grants permission to create a pricing rule",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletebillinggroup": {
+    "name": "DeleteBillingGroup",
+    "description": "Grants permission to delete a billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecustomlineitem": {
+    "name": "DeleteCustomLineItem",
+    "description": "Grants permission to delete a custom line item",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customlineitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepricingplan": {
+    "name": "DeletePricingPlan",
+    "description": "Grants permission to delete a pricing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pricingplan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepricingrule": {
+    "name": "DeletePricingRule",
+    "description": "Grants permission to delete a pricing rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pricingrule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateaccounts": {
+    "name": "DisassociateAccounts",
+    "description": "Grants permission to detach between one and 30 accounts from a billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatepricingrules": {
+    "name": "DisassociatePricingRules",
+    "description": "Grants permission to disassociate pricing rules",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pricingplan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pricingrule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbillinggroupcostreport": {
+    "name": "GetBillingGroupCostReport",
+    "description": "Grants permission to view the billing group cost report for the specified billing group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccountassociations": {
+    "name": "ListAccountAssociations",
+    "description": "Grants permission to list the linked accounts of the payer account for the given billing period while also providing the billing group the linked accounts belong to",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbillinggroupcostreports": {
+    "name": "ListBillingGroupCostReports",
+    "description": "Grants permission to view the billing group cost report",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbillinggroups": {
+    "name": "ListBillingGroups",
+    "description": "Grants permission to view the details of billing groups",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomlineitemversions": {
+    "name": "ListCustomLineItemVersions",
+    "description": "Grants permission to view custom line item versions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "customlineitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomlineitems": {
+    "name": "ListCustomLineItems",
+    "description": "Grants permission to view custom line item details",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpricingplans": {
+    "name": "ListPricingPlans",
+    "description": "Grants permission to view the pricing plans details",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpricingplansassociatedwithpricingrule": {
+    "name": "ListPricingPlansAssociatedWithPricingRule",
+    "description": "Grants permission to list pricing plans associated with a pricing rule",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "pricingrule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpricingrules": {
+    "name": "ListPricingRules",
+    "description": "Grants permission to view pricing rules details",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpricingrulesassociatedtopricingplan": {
+    "name": "ListPricingRulesAssociatedToPricingPlan",
+    "description": "Grants permission to list pricing rules associated to a pricing plan",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "pricingplan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourcesassociatedtocustomlineitem": {
+    "name": "ListResourcesAssociatedToCustomLineItem",
+    "description": "Grants permission to list resources associated to a percentage custom line item",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "customlineitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags of a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "customlineitem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pricingplan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pricingrule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "customlineitem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pricingplan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pricingrule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "customlineitem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pricingplan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pricingrule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatebillinggroup": {
+    "name": "UpdateBillingGroup",
+    "description": "Grants permission to update a billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecustomlineitem": {
+    "name": "UpdateCustomLineItem",
+    "description": "Grants permission to update a custom line item",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customlineitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepricingplan": {
+    "name": "UpdatePricingPlan",
+    "description": "Grants permission to update a pricing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pricingplan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepricingrule": {
+    "name": "UpdatePricingRule",
+    "description": "Grants permission to update a pricing rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pricingrule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

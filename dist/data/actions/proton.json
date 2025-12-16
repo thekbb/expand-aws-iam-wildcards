@@ -1,0 +1,1823 @@
+{
+  "acceptenvironmentaccountconnection": {
+    "name": "AcceptEnvironmentAccountConnection",
+    "description": "Grants permission to reject an environment account connection request from another environment account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-account-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelcomponentdeployment": {
+    "name": "CancelComponentDeployment",
+    "description": "Grants permission to cancel component deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelenvironmentdeployment": {
+    "name": "CancelEnvironmentDeployment",
+    "description": "Grants permission to cancel an environment deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "proton:EnvironmentTemplate"
+    ],
+    "dependentActions": []
+  },
+  "cancelserviceinstancedeployment": {
+    "name": "CancelServiceInstanceDeployment",
+    "description": "Grants permission to cancel a service instance deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "proton:ServiceTemplate"
+    ],
+    "dependentActions": []
+  },
+  "cancelservicepipelinedeployment": {
+    "name": "CancelServicePipelineDeployment",
+    "description": "Grants permission to cancel a service pipeline deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "proton:ServiceTemplate"
+    ],
+    "dependentActions": []
+  },
+  "createcomponent": {
+    "name": "CreateComponent",
+    "description": "Grants permission to create component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createenvironment": {
+    "name": "CreateEnvironment",
+    "description": "Grants permission to create an environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "proton:EnvironmentTemplate"
+    ],
+    "dependentActions": []
+  },
+  "createenvironmentaccountconnection": {
+    "name": "CreateEnvironmentAccountConnection",
+    "description": "Grants permission to create an environment account connection",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createenvironmenttemplate": {
+    "name": "CreateEnvironmentTemplate",
+    "description": "Grants permission to create an environment template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createenvironmenttemplatemajorversion": {
+    "name": "CreateEnvironmentTemplateMajorVersion",
+    "description": "Grants permission to create an environment template major version.  DEPRECATED - use CreateEnvironmentTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createenvironmenttemplateminorversion": {
+    "name": "CreateEnvironmentTemplateMinorVersion",
+    "description": "Grants permission to create an environment template minor version.  DEPRECATED - use CreateEnvironmentTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createenvironmenttemplateversion": {
+    "name": "CreateEnvironmentTemplateVersion",
+    "description": "Grants permission to create an environment template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createrepository": {
+    "name": "CreateRepository",
+    "description": "Grants permission to create a repository",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createservice": {
+    "name": "CreateService",
+    "description": "Grants permission to create a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "codestar-connections:PassConnection"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "proton:ServiceTemplate"
+    ],
+    "dependentActions": []
+  },
+  "createserviceinstance": {
+    "name": "CreateServiceInstance",
+    "description": "Grants permission to create a service instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "proton:ServiceTemplate"
+    ],
+    "dependentActions": []
+  },
+  "createservicesyncconfig": {
+    "name": "CreateServiceSyncConfig",
+    "description": "Grants permission to create a service sync config",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createservicetemplate": {
+    "name": "CreateServiceTemplate",
+    "description": "Grants permission to create a service template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createservicetemplatemajorversion": {
+    "name": "CreateServiceTemplateMajorVersion",
+    "description": "Grants permission to create a service template major version.  DEPRECATED - use CreateServiceTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createservicetemplateminorversion": {
+    "name": "CreateServiceTemplateMinorVersion",
+    "description": "Grants permission to create a service template minor version.  DEPRECATED - use CreateServiceTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createservicetemplateversion": {
+    "name": "CreateServiceTemplateVersion",
+    "description": "Grants permission to create a service template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createtemplatesyncconfig": {
+    "name": "CreateTemplateSyncConfig",
+    "description": "Grants permission to create a template sync config",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaccountroles": {
+    "name": "DeleteAccountRoles",
+    "description": "Grants permission to delete account roles.  DEPRECATED - use UpdateAccountSettings instead",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecomponent": {
+    "name": "DeleteComponent",
+    "description": "Grants permission to delete component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedeployment": {
+    "name": "DeleteDeployment",
+    "description": "Grants permission to delete a deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "deployment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteenvironment": {
+    "name": "DeleteEnvironment",
+    "description": "Grants permission to delete an environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "proton:EnvironmentTemplate"
+    ],
+    "dependentActions": []
+  },
+  "deleteenvironmentaccountconnection": {
+    "name": "DeleteEnvironmentAccountConnection",
+    "description": "Grants permission to delete an environment account connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-account-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteenvironmenttemplate": {
+    "name": "DeleteEnvironmentTemplate",
+    "description": "Grants permission to delete an environment template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteenvironmenttemplatemajorversion": {
+    "name": "DeleteEnvironmentTemplateMajorVersion",
+    "description": "Grants permission to delete an environment template major version.  DEPRECATED - use DeleteEnvironmentTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteenvironmenttemplateminorversion": {
+    "name": "DeleteEnvironmentTemplateMinorVersion",
+    "description": "Grants permission to delete an environment template minor version.  DEPRECATED - use DeleteEnvironmentTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteenvironmenttemplateversion": {
+    "name": "DeleteEnvironmentTemplateVersion",
+    "description": "Grants permission to delete an environment template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterepository": {
+    "name": "DeleteRepository",
+    "description": "Grants permission to delete a repository",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservice": {
+    "name": "DeleteService",
+    "description": "Grants permission to delete a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "proton:ServiceTemplate"
+    ],
+    "dependentActions": []
+  },
+  "deleteservicesyncconfig": {
+    "name": "DeleteServiceSyncConfig",
+    "description": "Grants permission to delete a service sync config",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservicetemplate": {
+    "name": "DeleteServiceTemplate",
+    "description": "Grants permission to delete a service template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservicetemplatemajorversion": {
+    "name": "DeleteServiceTemplateMajorVersion",
+    "description": "Grants permission to delete a service template major version.  DEPRECATED - use DeleteServiceTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservicetemplateminorversion": {
+    "name": "DeleteServiceTemplateMinorVersion",
+    "description": "Grants permission to delete a service template minor version.  DEPRECATED - use DeleteServiceTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservicetemplateversion": {
+    "name": "DeleteServiceTemplateVersion",
+    "description": "Grants permission to delete a service template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetemplatesyncconfig": {
+    "name": "DeleteTemplateSyncConfig",
+    "description": "Grants permission to delete a TemplateSyncConfig",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaccountroles": {
+    "name": "GetAccountRoles",
+    "description": "Grants permission to get account roles.  DEPRECATED - use GetAccountSettings instead",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaccountsettings": {
+    "name": "GetAccountSettings",
+    "description": "Grants permission to describe the account settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcomponent": {
+    "name": "GetComponent",
+    "description": "Grants permission to describe a component",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdeployment": {
+    "name": "GetDeployment",
+    "description": "Grants permission to describe a deployment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "deployment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenvironment": {
+    "name": "GetEnvironment",
+    "description": "Grants permission to describe an environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenvironmentaccountconnection": {
+    "name": "GetEnvironmentAccountConnection",
+    "description": "Grants permission to describe an environment account connection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment-account-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenvironmenttemplate": {
+    "name": "GetEnvironmentTemplate",
+    "description": "Grants permission to describe an environment template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenvironmenttemplatemajorversion": {
+    "name": "GetEnvironmentTemplateMajorVersion",
+    "description": "Grants permission to get an environment template major version.  DEPRECATED - use GetEnvironmentTemplateVersion instead",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenvironmenttemplateminorversion": {
+    "name": "GetEnvironmentTemplateMinorVersion",
+    "description": "Grants permission to get an environment template minor version.  DEPRECATED - use GetEnvironmentTemplateVersion instead",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenvironmenttemplateversion": {
+    "name": "GetEnvironmentTemplateVersion",
+    "description": "Grants permission to describe an environment template version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrepository": {
+    "name": "GetRepository",
+    "description": "Grants permission to describe a repository",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrepositorysyncstatus": {
+    "name": "GetRepositorySyncStatus",
+    "description": "Grants permission to get the latest sync status for a repository",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcetemplateversionstatuscounts": {
+    "name": "GetResourceTemplateVersionStatusCounts",
+    "description": "Grants permission to list resource template version status counts",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcessummary": {
+    "name": "GetResourcesSummary",
+    "description": "Grants permission to get resources summary",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservice": {
+    "name": "GetService",
+    "description": "Grants permission to describe a service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getserviceinstance": {
+    "name": "GetServiceInstance",
+    "description": "Grants permission to describe a service instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getserviceinstancesyncstatus": {
+    "name": "GetServiceInstanceSyncStatus",
+    "description": "Grants permission to describe the sync status of a service instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicesyncblockersummary": {
+    "name": "GetServiceSyncBlockerSummary",
+    "description": "Grants permission to describe service sync blockers on a service or service instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicesyncconfig": {
+    "name": "GetServiceSyncConfig",
+    "description": "Grants permission to describe a service sync config",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicetemplate": {
+    "name": "GetServiceTemplate",
+    "description": "Grants permission to describe a service template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicetemplatemajorversion": {
+    "name": "GetServiceTemplateMajorVersion",
+    "description": "Grants permission to get a service template major version.  DEPRECATED - use GetServiceTemplateVersion instead",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicetemplateminorversion": {
+    "name": "GetServiceTemplateMinorVersion",
+    "description": "Grants permission to get a service template minor version.  DEPRECATED - use GetServiceTemplateVersion instead",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicetemplateversion": {
+    "name": "GetServiceTemplateVersion",
+    "description": "Grants permission to describe a service template version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettemplatesyncconfig": {
+    "name": "GetTemplateSyncConfig",
+    "description": "Grants permission to describe a TemplateSyncConfig",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettemplatesyncstatus": {
+    "name": "GetTemplateSyncStatus",
+    "description": "Grants permission to describe the sync status of a template",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomponentoutputs": {
+    "name": "ListComponentOutputs",
+    "description": "Grants permission to list component outputs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deployment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomponentprovisionedresources": {
+    "name": "ListComponentProvisionedResources",
+    "description": "Grants permission to list component provisioned resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomponents": {
+    "name": "ListComponents",
+    "description": "Grants permission to list components",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdeployments": {
+    "name": "ListDeployments",
+    "description": "Grants permission to list deployments",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenvironmentaccountconnections": {
+    "name": "ListEnvironmentAccountConnections",
+    "description": "Grants permission to list environment account connections",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenvironmentoutputs": {
+    "name": "ListEnvironmentOutputs",
+    "description": "Grants permission to list environment outputs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deployment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenvironmentprovisionedresources": {
+    "name": "ListEnvironmentProvisionedResources",
+    "description": "Grants permission to list environment provisioned resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenvironmenttemplatemajorversions": {
+    "name": "ListEnvironmentTemplateMajorVersions",
+    "description": "Grants permission to list environment template major versions.  DEPRECATED - use ListEnvironmentTemplateVersions instead",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenvironmenttemplateminorversions": {
+    "name": "ListEnvironmentTemplateMinorVersions",
+    "description": "Grants permission to list an environment template minor versions.  DEPRECATED - use ListEnvironmentTemplateVersions instead",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenvironmenttemplateversions": {
+    "name": "ListEnvironmentTemplateVersions",
+    "description": "Grants permission to list environment template versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenvironmenttemplates": {
+    "name": "ListEnvironmentTemplates",
+    "description": "Grants permission to list environment templates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenvironments": {
+    "name": "ListEnvironments",
+    "description": "Grants permission to list environments",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrepositories": {
+    "name": "ListRepositories",
+    "description": "Grants permission to list repositories",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrepositorysyncdefinitions": {
+    "name": "ListRepositorySyncDefinitions",
+    "description": "Grants permission to list repository sync definitions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listserviceinstanceoutputs": {
+    "name": "ListServiceInstanceOutputs",
+    "description": "Grants permission to list service instance outputs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deployment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listserviceinstanceprovisionedresources": {
+    "name": "ListServiceInstanceProvisionedResources",
+    "description": "Grants permission to list service instance provisioned resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listserviceinstances": {
+    "name": "ListServiceInstances",
+    "description": "Grants permission to list service instances",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicepipelineoutputs": {
+    "name": "ListServicePipelineOutputs",
+    "description": "Grants permission to list service pipeline outputs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deployment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicepipelineprovisionedresources": {
+    "name": "ListServicePipelineProvisionedResources",
+    "description": "Grants permission to list service pipeline provisioned resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicetemplatemajorversions": {
+    "name": "ListServiceTemplateMajorVersions",
+    "description": "Grants permission to list service template major versions.  DEPRECATED - use ListServiceTemplateVersions instead",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicetemplateminorversions": {
+    "name": "ListServiceTemplateMinorVersions",
+    "description": "Grants permission to list service template minor versions.  DEPRECATED - use ListServiceTemplateVersions instead",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicetemplateversions": {
+    "name": "ListServiceTemplateVersions",
+    "description": "Grants permission to list service template versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicetemplates": {
+    "name": "ListServiceTemplates",
+    "description": "Grants permission to list service templates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservices": {
+    "name": "ListServices",
+    "description": "Grants permission to list services",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags of a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-account-connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template-major-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template-minor-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template-major-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template-minor-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "notifyresourcedeploymentstatuschange": {
+    "name": "NotifyResourceDeploymentStatusChange",
+    "description": "Grants permission to notify Proton of resource deployment status changes",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectenvironmentaccountconnection": {
+    "name": "RejectEnvironmentAccountConnection",
+    "description": "Grants permission to reject an environment account connection request from another environment account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-account-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-account-connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template-major-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template-minor-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template-major-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template-minor-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-account-connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template-major-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template-minor-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment-template-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template-major-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template-minor-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-template-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateaccountroles": {
+    "name": "UpdateAccountRoles",
+    "description": "Grants permission to update account roles.  DEPRECATED - use UpdateAccountSettings instead",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updateaccountsettings": {
+    "name": "UpdateAccountSettings",
+    "description": "Grants permission to update the account settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatecomponent": {
+    "name": "UpdateComponent",
+    "description": "Grants permission to update component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateenvironment": {
+    "name": "UpdateEnvironment",
+    "description": "Grants permission to update an environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "proton:EnvironmentTemplate"
+    ],
+    "dependentActions": []
+  },
+  "updateenvironmentaccountconnection": {
+    "name": "UpdateEnvironmentAccountConnection",
+    "description": "Grants permission to update an environment account connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-account-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateenvironmenttemplate": {
+    "name": "UpdateEnvironmentTemplate",
+    "description": "Grants permission to update an environment template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateenvironmenttemplatemajorversion": {
+    "name": "UpdateEnvironmentTemplateMajorVersion",
+    "description": "Grants permission to update an environment template major version.  DEPRECATED - use UpdateEnvironmentTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateenvironmenttemplateminorversion": {
+    "name": "UpdateEnvironmentTemplateMinorVersion",
+    "description": "Grants permission to update an environment template minor version.  DEPRECATED - use UpdateEnvironmentTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateenvironmenttemplateversion": {
+    "name": "UpdateEnvironmentTemplateVersion",
+    "description": "Grants permission to update an environment template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservice": {
+    "name": "UpdateService",
+    "description": "Grants permission to update a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "proton:ServiceTemplate"
+    ],
+    "dependentActions": []
+  },
+  "updateserviceinstance": {
+    "name": "UpdateServiceInstance",
+    "description": "Grants permission to update a service instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "proton:ServiceTemplate"
+    ],
+    "dependentActions": []
+  },
+  "updateservicepipeline": {
+    "name": "UpdateServicePipeline",
+    "description": "Grants permission to update a service pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "proton:ServiceTemplate"
+    ],
+    "dependentActions": []
+  },
+  "updateservicesyncblocker": {
+    "name": "UpdateServiceSyncBlocker",
+    "description": "Grants permission to update a service sync blocker",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservicesyncconfig": {
+    "name": "UpdateServiceSyncConfig",
+    "description": "Grants permission to update a service sync config",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservicetemplate": {
+    "name": "UpdateServiceTemplate",
+    "description": "Grants permission to update a service template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservicetemplatemajorversion": {
+    "name": "UpdateServiceTemplateMajorVersion",
+    "description": "Grants permission to update a service template major version.  DEPRECATED - use UpdateServiceTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservicetemplateminorversion": {
+    "name": "UpdateServiceTemplateMinorVersion",
+    "description": "Grants permission to create a service template minor version.  DEPRECATED - use UpdateServiceTemplateVersion instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservicetemplateversion": {
+    "name": "UpdateServiceTemplateVersion",
+    "description": "Grants permission to update a service template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetemplatesyncconfig": {
+    "name": "UpdateTemplateSyncConfig",
+    "description": "Grants permission to update a TemplateSyncConfig",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

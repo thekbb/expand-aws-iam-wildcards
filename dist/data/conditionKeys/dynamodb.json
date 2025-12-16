@@ -1,0 +1,72 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the tags that are passed in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the tag keys that are passed in the request",
+    "type": "ArrayOfString"
+  },
+  "dynamodb:attributes": {
+    "key": "dynamodb:Attributes",
+    "description": "Filters access by attribute (field or column) names of the table",
+    "type": "ArrayOfString"
+  },
+  "dynamodb:enclosingoperation": {
+    "key": "dynamodb:EnclosingOperation",
+    "description": "Filters access by blocking Transactions APIs calls and allow the non-Transaction APIs calls and vice-versa",
+    "type": "String"
+  },
+  "dynamodb:firstpartitionkeyvalues": {
+    "key": "dynamodb:FirstPartitionKeyValues",
+    "description": "Filters access by the first partition key of the table",
+    "type": "ArrayOfString"
+  },
+  "dynamodb:fourthpartitionkeyvalues": {
+    "key": "dynamodb:FourthPartitionKeyValues",
+    "description": "Filters access by the forth partition key of the table",
+    "type": "ArrayOfString"
+  },
+  "dynamodb:fulltablescan": {
+    "key": "dynamodb:FullTableScan",
+    "description": "Filters access by blocking full table scan",
+    "type": "Bool"
+  },
+  "dynamodb:leadingkeys": {
+    "key": "dynamodb:LeadingKeys",
+    "description": "Filters access by the first partition key of the table",
+    "type": "ArrayOfString"
+  },
+  "dynamodb:returnconsumedcapacity": {
+    "key": "dynamodb:ReturnConsumedCapacity",
+    "description": "Filters access by the ReturnConsumedCapacity parameter of a request. Contains either \"TOTAL\" or \"NONE\"",
+    "type": "String"
+  },
+  "dynamodb:returnvalues": {
+    "key": "dynamodb:ReturnValues",
+    "description": "Filters access by the ReturnValues parameter of request. Contains one of the following: \"ALL_OLD\", \"UPDATED_OLD\",\"ALL_NEW\",\"UPDATED_NEW\", or \"NONE\"",
+    "type": "String"
+  },
+  "dynamodb:secondpartitionkeyvalues": {
+    "key": "dynamodb:SecondPartitionKeyValues",
+    "description": "Filters access by the second partition key of the table",
+    "type": "ArrayOfString"
+  },
+  "dynamodb:select": {
+    "key": "dynamodb:Select",
+    "description": "Filters access by the Select parameter of a Query or Scan request",
+    "type": "String"
+  },
+  "dynamodb:thirdpartitionkeyvalues": {
+    "key": "dynamodb:ThirdPartitionKeyValues",
+    "description": "Filters access by the third partition key of the table",
+    "type": "ArrayOfString"
+  }
+}

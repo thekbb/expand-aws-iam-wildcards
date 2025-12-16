@@ -1,0 +1,302 @@
+{
+  "batchcreaterummetricdefinitions": {
+    "name": "BatchCreateRumMetricDefinitions",
+    "description": "Grants permission to create rum metric definitions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdeleterummetricdefinitions": {
+    "name": "BatchDeleteRumMetricDefinitions",
+    "description": "Grants permission to remove rum metric definitions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetrummetricdefinitions": {
+    "name": "BatchGetRumMetricDefinitions",
+    "description": "Grants permission to get rum metric definitions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createappmonitor": {
+    "name": "CreateAppMonitor",
+    "description": "Grants permission to create appMonitor metadata",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "iam:GetRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteappmonitor": {
+    "name": "DeleteAppMonitor",
+    "description": "Grants permission to delete appMonitor metadata",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy attached to an app monitor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterummetricsdestination": {
+    "name": "DeleteRumMetricsDestination",
+    "description": "Grants permission to delete rum metrics destinations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getappmonitor": {
+    "name": "GetAppMonitor",
+    "description": "Grants permission to get appMonitor metadata",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getappmonitordata": {
+    "name": "GetAppMonitorData",
+    "description": "Grants permission to get appMonitor data",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to retrieve a resource policy attached to an app monitor",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappmonitors": {
+    "name": "ListAppMonitors",
+    "description": "Grants permission to list appMonitors metadata",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrummetricsdestinations": {
+    "name": "ListRumMetricsDestinations",
+    "description": "Grants permission to list rum metrics destinations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for resources",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to attach a resource policy to an app monitor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putrumevents": {
+    "name": "PutRumEvents",
+    "description": "Grants permission to put RUM events for appmonitor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putrummetricsdestination": {
+    "name": "PutRumMetricsDestination",
+    "description": "Grants permission to put rum metrics destinations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateappmonitor": {
+    "name": "UpdateAppMonitor",
+    "description": "Grants permission to update appmonitor metadata",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:GetRole"
+    ]
+  },
+  "updaterummetricdefinition": {
+    "name": "UpdateRumMetricDefinition",
+    "description": "Grants permission to update rum metric definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AppMonitorResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

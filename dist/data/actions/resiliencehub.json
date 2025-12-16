@@ -1,0 +1,989 @@
+{
+  "acceptresourcegroupingrecommendations": {
+    "name": "AcceptResourceGroupingRecommendations",
+    "description": "Grants permission to accept resource grouping recommendations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "adddraftappversionresourcemappings": {
+    "name": "AddDraftAppVersionResourceMappings",
+    "description": "Grants permission to add draft application version resource mappings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudformation:DescribeStacks",
+      "cloudformation:ListStackResources",
+      "resource-groups:GetGroup",
+      "resource-groups:ListGroupResources",
+      "servicecatalog:GetApplication",
+      "servicecatalog:ListAssociatedResources"
+    ]
+  },
+  "batchupdaterecommendationstatus": {
+    "name": "BatchUpdateRecommendationStatus",
+    "description": "Grants permission to include or exclude one or more operational recommendations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapp": {
+    "name": "CreateApp",
+    "description": "Grants permission to create application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createappversionappcomponent": {
+    "name": "CreateAppVersionAppComponent",
+    "description": "Grants permission to create application app component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createappversionresource": {
+    "name": "CreateAppVersionResource",
+    "description": "Grants permission to create application resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createrecommendationtemplate": {
+    "name": "CreateRecommendationTemplate",
+    "description": "Grants permission to create recommendation template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "s3:CreateBucket",
+          "s3:ListBucket",
+          "s3:PutObject"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createresiliencypolicy": {
+    "name": "CreateResiliencyPolicy",
+    "description": "Grants permission to create resiliency policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resiliency-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteapp": {
+    "name": "DeleteApp",
+    "description": "Grants permission to batch delete application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteappassessment": {
+    "name": "DeleteAppAssessment",
+    "description": "Grants permission to batch delete application assessment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteappinputsource": {
+    "name": "DeleteAppInputSource",
+    "description": "Grants permission to remove application input source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteappversionappcomponent": {
+    "name": "DeleteAppVersionAppComponent",
+    "description": "Grants permission to delete application app component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteappversionresource": {
+    "name": "DeleteAppVersionResource",
+    "description": "Grants permission to delete application resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterecommendationtemplate": {
+    "name": "DeleteRecommendationTemplate",
+    "description": "Grants permission to batch delete recommendation template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresiliencypolicy": {
+    "name": "DeleteResiliencyPolicy",
+    "description": "Grants permission to batch delete resiliency policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resiliency-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeapp": {
+    "name": "DescribeApp",
+    "description": "Grants permission to describe application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeappassessment": {
+    "name": "DescribeAppAssessment",
+    "description": "Grants permission to describe application assessment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeappversion": {
+    "name": "DescribeAppVersion",
+    "description": "Grants permission to describe application version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeappversionappcomponent": {
+    "name": "DescribeAppVersionAppComponent",
+    "description": "Grants permission to describe application version app component",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeappversionresource": {
+    "name": "DescribeAppVersionResource",
+    "description": "Grants permission to describe application version resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeappversionresourcesresolutionstatus": {
+    "name": "DescribeAppVersionResourcesResolutionStatus",
+    "description": "Grants permission to describe application resolution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeappversiontemplate": {
+    "name": "DescribeAppVersionTemplate",
+    "description": "Grants permission to describe application version template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedraftappversionresourcesimportstatus": {
+    "name": "DescribeDraftAppVersionResourcesImportStatus",
+    "description": "Grants permission to describe draft application version resources import status",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemetricsexport": {
+    "name": "DescribeMetricsExport",
+    "description": "Grants permission to describe metrics export",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeresiliencypolicy": {
+    "name": "DescribeResiliencyPolicy",
+    "description": "Grants permission to describe resiliency policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "resiliency-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeresourcegroupingrecommendationtask": {
+    "name": "DescribeResourceGroupingRecommendationTask",
+    "description": "Grants permission to describe the latest status of the grouping recommendation process",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importresourcestodraftappversion": {
+    "name": "ImportResourcesToDraftAppVersion",
+    "description": "Grants permission to import resources to draft application version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudformation:DescribeStacks",
+      "cloudformation:ListStackResources",
+      "resource-groups:GetGroup",
+      "resource-groups:ListGroupResources",
+      "servicecatalog:GetApplication",
+      "servicecatalog:ListAssociatedResources"
+    ]
+  },
+  "listalarmrecommendations": {
+    "name": "ListAlarmRecommendations",
+    "description": "Grants permission to list alarm recommendation",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappassessmentcompliancedrifts": {
+    "name": "ListAppAssessmentComplianceDrifts",
+    "description": "Grants permission to list compliance drifts that were detected while running an assessment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappassessmentresourcedrifts": {
+    "name": "ListAppAssessmentResourceDrifts",
+    "description": "Grants permission to list resource drifts that were detected while running an assessment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappassessments": {
+    "name": "ListAppAssessments",
+    "description": "Grants permission to list application assessment",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappcomponentcompliances": {
+    "name": "ListAppComponentCompliances",
+    "description": "Grants permission to list app component compliances",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappcomponentrecommendations": {
+    "name": "ListAppComponentRecommendations",
+    "description": "Grants permission to list app component recommendations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappinputsources": {
+    "name": "ListAppInputSources",
+    "description": "Grants permission to list application input sources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappversionappcomponents": {
+    "name": "ListAppVersionAppComponents",
+    "description": "Grants permission to list application version app components",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappversionresourcemappings": {
+    "name": "ListAppVersionResourceMappings",
+    "description": "Grants permission to application version resource mappings",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappversionresources": {
+    "name": "ListAppVersionResources",
+    "description": "Grants permission to list application resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappversions": {
+    "name": "ListAppVersions",
+    "description": "Grants permission to list application version",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapps": {
+    "name": "ListApps",
+    "description": "Grants permission to list applications",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmetrics": {
+    "name": "ListMetrics",
+    "description": "Grants permission to list metrics",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecommendationtemplates": {
+    "name": "ListRecommendationTemplates",
+    "description": "Grants permission to list recommendation templates",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresiliencypolicies": {
+    "name": "ListResiliencyPolicies",
+    "description": "Grants permission to list resiliency policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourcegroupingrecommendations": {
+    "name": "ListResourceGroupingRecommendations",
+    "description": "Grants permission to list resource grouping recommendations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsoprecommendations": {
+    "name": "ListSopRecommendations",
+    "description": "Grants permission to list SOP recommendations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsuggestedresiliencypolicies": {
+    "name": "ListSuggestedResiliencyPolicies",
+    "description": "Grants permission to list suggested resiliency policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtestrecommendations": {
+    "name": "ListTestRecommendations",
+    "description": "Grants permission to list test recommendations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listunsupportedappversionresources": {
+    "name": "ListUnsupportedAppVersionResources",
+    "description": "Grants permission to list unsupported application version resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishappversion": {
+    "name": "PublishAppVersion",
+    "description": "Grants permission to publish application version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putdraftappversiontemplate": {
+    "name": "PutDraftAppVersionTemplate",
+    "description": "Grants permission to put draft application version template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectresourcegroupingrecommendations": {
+    "name": "RejectResourceGroupingRecommendations",
+    "description": "Grants permission to reject resource grouping recommendations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removedraftappversionresourcemappings": {
+    "name": "RemoveDraftAppVersionResourceMappings",
+    "description": "Grants permission to remove draft application version mappings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resolveappversionresources": {
+    "name": "ResolveAppVersionResources",
+    "description": "Grants permission to resolve application version resources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudformation:DescribeStacks",
+      "cloudformation:ListStackResources",
+      "resource-groups:GetGroup",
+      "resource-groups:ListGroupResources",
+      "servicecatalog:GetApplication",
+      "servicecatalog:ListAssociatedResources"
+    ]
+  },
+  "startappassessment": {
+    "name": "StartAppAssessment",
+    "description": "Grants permission to create application assessment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudformation:DescribeStacks",
+          "cloudformation:ListStackResources",
+          "cloudwatch:DescribeAlarms",
+          "cloudwatch:GetMetricData",
+          "cloudwatch:GetMetricStatistics",
+          "cloudwatch:PutMetricData",
+          "ec2:DescribeRegions",
+          "fis:GetExperimentTemplate",
+          "fis:ListExperimentTemplates",
+          "fis:ListExperiments",
+          "resource-groups:GetGroup",
+          "resource-groups:ListGroupResources",
+          "servicecatalog:GetApplication",
+          "servicecatalog:ListAssociatedResources",
+          "ssm:GetParametersByPath"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startmetricsexport": {
+    "name": "StartMetricsExport",
+    "description": "Grants permission to start the metrics export",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startresourcegroupingrecommendationtask": {
+    "name": "StartResourceGroupingRecommendationTask",
+    "description": "Grants permission to start the grouping recommendation generation process",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to assign a resource tag",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "app-assessment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommendation-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resiliency-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "app-assessment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommendation-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resiliency-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateapp": {
+    "name": "UpdateApp",
+    "description": "Grants permission to update application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updateappversion": {
+    "name": "UpdateAppVersion",
+    "description": "Grants permission to update application version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateappversionappcomponent": {
+    "name": "UpdateAppVersionAppComponent",
+    "description": "Grants permission to update application app component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateappversionresource": {
+    "name": "UpdateAppVersionResource",
+    "description": "Grants permission to update application resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateresiliencypolicy": {
+    "name": "UpdateResiliencyPolicy",
+    "description": "Grants permission to update resiliency policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resiliency-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by a tag's key and value in a request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the presence of tag key-value pairs in the request",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the tag keys in a request",
+    "type": "ArrayOfString"
+  },
+  "rbin:attribute/resourcetype": {
+    "key": "rbin:Attribute/ResourceType",
+    "description": "Filters access by the resource type of the existing rule",
+    "type": "String"
+  },
+  "rbin:request/resourcetype": {
+    "key": "rbin:Request/ResourceType",
+    "description": "Filters access by the resource type in a request",
+    "type": "String"
+  }
+}

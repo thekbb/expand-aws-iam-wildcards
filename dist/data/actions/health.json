@@ -1,0 +1,153 @@
+{
+  "describeaffectedaccountsfororganization": {
+    "name": "DescribeAffectedAccountsForOrganization",
+    "description": "Grants permission to retrieve a list of accounts that have been affected by the specified events in organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:ListAccounts"
+    ]
+  },
+  "describeaffectedentities": {
+    "name": "DescribeAffectedEntities",
+    "description": "Grants permission to retrieve a list of entities that have been affected by the specified events",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "event",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "health:eventTypeCode",
+      "health:service"
+    ],
+    "dependentActions": []
+  },
+  "describeaffectedentitiesfororganization": {
+    "name": "DescribeAffectedEntitiesForOrganization",
+    "description": "Grants permission to retrieve a list of entities that have been affected by the specified events and accounts in organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:ListAccounts"
+    ]
+  },
+  "describeentityaggregates": {
+    "name": "DescribeEntityAggregates",
+    "description": "Grants permission to retrieve the number of entities that are affected by each of the specified events",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeentityaggregatesfororganization": {
+    "name": "DescribeEntityAggregatesForOrganization",
+    "description": "Grants permission to retrieve the number of entities that are affected by each of the specified events in an organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:ListAccounts"
+    ]
+  },
+  "describeeventaggregates": {
+    "name": "DescribeEventAggregates",
+    "description": "Grants permission to retrieve the number of events of each event type (issue, scheduled change, and account notification)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeeventdetails": {
+    "name": "DescribeEventDetails",
+    "description": "Grants permission to retrieve detailed information about one or more specified events",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "event",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "health:eventTypeCode",
+      "health:service"
+    ],
+    "dependentActions": []
+  },
+  "describeeventdetailsfororganization": {
+    "name": "DescribeEventDetailsForOrganization",
+    "description": "Grants permission to retrieve detailed information about one or more specified events for provided accounts in organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:ListAccounts"
+    ]
+  },
+  "describeeventtypes": {
+    "name": "DescribeEventTypes",
+    "description": "Grants permission to retrieve the event types that meet the specified filter criteria",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeevents": {
+    "name": "DescribeEvents",
+    "description": "Grants permission to retrieve information about events that meet the specified filter criteria",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeeventsfororganization": {
+    "name": "DescribeEventsForOrganization",
+    "description": "Grants permission to retrieve information about events that meet the specified filter criteria in organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:ListAccounts"
+    ]
+  },
+  "describehealthservicestatusfororganization": {
+    "name": "DescribeHealthServiceStatusForOrganization",
+    "description": "Grants permission to retrieve the status of enabling or disabling the Organizational View feature",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:ListAccounts"
+    ]
+  },
+  "disablehealthserviceaccessfororganization": {
+    "name": "DisableHealthServiceAccessForOrganization",
+    "description": "Grants permission to disable the Organizational View feature",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DisableAWSServiceAccess",
+      "organizations:ListAccounts"
+    ]
+  },
+  "enablehealthserviceaccessfororganization": {
+    "name": "EnableHealthServiceAccessForOrganization",
+    "description": "Grants permission to enable the Organizational View feature",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "organizations:EnableAWSServiceAccess",
+      "organizations:ListAccounts"
+    ]
+  }
+}

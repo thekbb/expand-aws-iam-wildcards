@@ -1,0 +1,1506 @@
+{
+  "abortmultipartreadsetupload": {
+    "name": "AbortMultipartReadSetUpload",
+    "description": "Grants permission to abort multipart read set uploads",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "acceptshare": {
+    "name": "AcceptShare",
+    "description": "Grants permission to accept a share",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdeletereadset": {
+    "name": "BatchDeleteReadSet",
+    "description": "Grants permission to batch delete Read Sets in the given Sequence Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelannotationimportjob": {
+    "name": "CancelAnnotationImportJob",
+    "description": "Grants permission to cancel an Annotation Import Job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelrun": {
+    "name": "CancelRun",
+    "description": "Grants permission to cancel a workflow run and stop all workflow tasks",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelvariantimportjob": {
+    "name": "CancelVariantImportJob",
+    "description": "Grants permission to cancel a Variant Import Job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "completemultipartreadsetupload": {
+    "name": "CompleteMultipartReadSetUpload",
+    "description": "Grants permission to complete a multipart read set upload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createannotationstore": {
+    "name": "CreateAnnotationStore",
+    "description": "Grants permission to create an Annotation Store",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createannotationstoreversion": {
+    "name": "CreateAnnotationStoreVersion",
+    "description": "Grants permission to create a Version in an Annotation Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmultipartreadsetupload": {
+    "name": "CreateMultipartReadSetUpload",
+    "description": "Grants permission to create a multipart read set upload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createreferencestore": {
+    "name": "CreateReferenceStore",
+    "description": "Grants permission to create a Reference Store",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createruncache": {
+    "name": "CreateRunCache",
+    "description": "Grants permission to create a new workflow run cache",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createrungroup": {
+    "name": "CreateRunGroup",
+    "description": "Grants permission to create a new workflow run group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsequencestore": {
+    "name": "CreateSequenceStore",
+    "description": "Grants permission to create a Sequence Store",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createshare": {
+    "name": "CreateShare",
+    "description": "Grants permission to create a share",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createvariantstore": {
+    "name": "CreateVariantStore",
+    "description": "Grants permission to create a Variant Store",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createworkflow": {
+    "name": "CreateWorkflow",
+    "description": "Grants permission to create a new workflow with a workflow definition and template of workflow parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createworkflowversion": {
+    "name": "CreateWorkflowVersion",
+    "description": "Grants permission to create a new workflow version with a workflow definition and template of workflow parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteannotationstore": {
+    "name": "DeleteAnnotationStore",
+    "description": "Grants permission to delete an Annotation Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteannotationstoreversions": {
+    "name": "DeleteAnnotationStoreVersions",
+    "description": "Grants permission to delete Versions in an Annotation Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "AnnotationStoreVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletereference": {
+    "name": "DeleteReference",
+    "description": "Grants permission to delete a Reference in the given Reference Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reference",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "referenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletereferencestore": {
+    "name": "DeleteReferenceStore",
+    "description": "Grants permission to delete a Reference Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "referenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterun": {
+    "name": "DeleteRun",
+    "description": "Grants permission to delete a workflow run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteruncache": {
+    "name": "DeleteRunCache",
+    "description": "Grants permission to delete a workflow run cache",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runCache",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterungroup": {
+    "name": "DeleteRunGroup",
+    "description": "Grants permission to delete a workflow run group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletes3accesspolicy": {
+    "name": "DeleteS3AccessPolicy",
+    "description": "Grants permission to delete an access policy on a given store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesequencestore": {
+    "name": "DeleteSequenceStore",
+    "description": "Grants permission to delete a Sequence Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteshare": {
+    "name": "DeleteShare",
+    "description": "Grants permission to delete a share",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevariantstore": {
+    "name": "DeleteVariantStore",
+    "description": "Grants permission to delete a Variant Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VariantStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteworkflow": {
+    "name": "DeleteWorkflow",
+    "description": "Grants permission to delete a workflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteworkflowversion": {
+    "name": "DeleteWorkflowVersion",
+    "description": "Grants permission to delete a workflow version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WorkflowVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getannotationimportjob": {
+    "name": "GetAnnotationImportJob",
+    "description": "Grants permission to get the status of an Annotation Import Job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getannotationstore": {
+    "name": "GetAnnotationStore",
+    "description": "Grants permission to get detailed information about an Annotation Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getannotationstoreversion": {
+    "name": "GetAnnotationStoreVersion",
+    "description": "Grants permission to get detailed information about a version in an Annotation Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStoreVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreadset": {
+    "name": "GetReadSet",
+    "description": "Grants permission to get a Read Set in the given Sequence Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "readSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreadsetactivationjob": {
+    "name": "GetReadSetActivationJob",
+    "description": "Grants permission to get details about a Read Set activation job for the given Sequence Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreadsetexportjob": {
+    "name": "GetReadSetExportJob",
+    "description": "Grants permission to get details about a Read Set export job for the given Sequence Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreadsetimportjob": {
+    "name": "GetReadSetImportJob",
+    "description": "Grants permission to get details about a Read Set import job for the given Sequence Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreadsetmetadata": {
+    "name": "GetReadSetMetadata",
+    "description": "Grants permission to get details about a Read Set in the given Sequence Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "readSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreference": {
+    "name": "GetReference",
+    "description": "Grants permission to get a Reference in the given Reference Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "reference",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "referenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreferenceimportjob": {
+    "name": "GetReferenceImportJob",
+    "description": "Grants permission to get details about a Reference import job for the given Reference Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "referenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreferencemetadata": {
+    "name": "GetReferenceMetadata",
+    "description": "Grants permission to get details about a Reference in the given Reference Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "reference",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "referenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreferencestore": {
+    "name": "GetReferenceStore",
+    "description": "Grants permission to get details about a Reference Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "referenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrun": {
+    "name": "GetRun",
+    "description": "Grants permission to retrieve workflow run details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getruncache": {
+    "name": "GetRunCache",
+    "description": "Grants permission to retrieve workflow run cache details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "runCache",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrungroup": {
+    "name": "GetRunGroup",
+    "description": "Grants permission to retrieve workflow run group details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "runGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getruntask": {
+    "name": "GetRunTask",
+    "description": "Grants permission to retrieve workflow task details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TaskResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gets3accesspolicy": {
+    "name": "GetS3AccessPolicy",
+    "description": "Grants permission to get details about an access policy on a given store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsequencestore": {
+    "name": "GetSequenceStore",
+    "description": "Grants permission to get details about a Sequence Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getshare": {
+    "name": "GetShare",
+    "description": "Grants permission to get detailed information about a Share",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvariantimportjob": {
+    "name": "GetVariantImportJob",
+    "description": "Grants permission to get the status of a Variant Import Job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvariantstore": {
+    "name": "GetVariantStore",
+    "description": "Grants permission to get detailed information about a Variant Store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VariantStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getworkflow": {
+    "name": "GetWorkflow",
+    "description": "Grants permission to retrieve workflow details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getworkflowversion": {
+    "name": "GetWorkflowVersion",
+    "description": "Grants permission to retrieve workflow version details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "WorkflowVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listannotationimportjobs": {
+    "name": "ListAnnotationImportJobs",
+    "description": "Grants permission to get a list of Annotation Import Jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listannotationstoreversions": {
+    "name": "ListAnnotationStoreVersions",
+    "description": "Grants permission to retrieve a list of information about Versions in an Annotation Store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listannotationstores": {
+    "name": "ListAnnotationStores",
+    "description": "Grants permission to retrieve a list of information about Annotation Stores",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmultipartreadsetuploads": {
+    "name": "ListMultipartReadSetUploads",
+    "description": "Grants permission to list multipart read set uploads",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreadsetactivationjobs": {
+    "name": "ListReadSetActivationJobs",
+    "description": "Grants permission to list Read Set activation jobs for the given Sequence Store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreadsetexportjobs": {
+    "name": "ListReadSetExportJobs",
+    "description": "Grants permission to list Read Set export jobs for the given Sequence Store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreadsetimportjobs": {
+    "name": "ListReadSetImportJobs",
+    "description": "Grants permission to list Read Set import jobs for the given Sequence Store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreadsetuploadparts": {
+    "name": "ListReadSetUploadParts",
+    "description": "Grants permission to list read set upload parts",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreadsets": {
+    "name": "ListReadSets",
+    "description": "Grants permission to list Read Sets in the given Sequence Store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreferenceimportjobs": {
+    "name": "ListReferenceImportJobs",
+    "description": "Grants permission to list Reference import jobs for the given Reference Store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "referenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreferencestores": {
+    "name": "ListReferenceStores",
+    "description": "Grants permission to list Reference Stores",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreferences": {
+    "name": "ListReferences",
+    "description": "Grants permission to list References in the given Reference Store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "referenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listruncaches": {
+    "name": "ListRunCaches",
+    "description": "Grants permission to retrieve a list of workflow run caches",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrungroups": {
+    "name": "ListRunGroups",
+    "description": "Grants permission to retrieve a list of workflow run groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listruntasks": {
+    "name": "ListRunTasks",
+    "description": "Grants permission to retrieve a list of tasks for a workflow run",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listruns": {
+    "name": "ListRuns",
+    "description": "Grants permission to retrieve a list of workflow runs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsequencestores": {
+    "name": "ListSequenceStores",
+    "description": "Grants permission to list Sequence Stores",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listshares": {
+    "name": "ListShares",
+    "description": "Grants permission to retrieve a list of information about shares",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to retrieve a list of resource AWS tags",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvariantimportjobs": {
+    "name": "ListVariantImportJobs",
+    "description": "Grants permission to get a list of Variant Import Jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvariantstores": {
+    "name": "ListVariantStores",
+    "description": "Grants permission to retrieve a list of metadata for Variant Stores",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listworkflowversions": {
+    "name": "ListWorkflowVersions",
+    "description": "Grants permission to retrieve a list of available versions for a workflow",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listworkflows": {
+    "name": "ListWorkflows",
+    "description": "Grants permission to retrieve a list of available workflows",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puts3accesspolicy": {
+    "name": "PutS3AccessPolicy",
+    "description": "Grants permission to put an access policy on a given store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startannotationimportjob": {
+    "name": "StartAnnotationImportJob",
+    "description": "Grants permission to import a list of Annotation files to an Annotation Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "AnnotationStoreVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startreadsetactivationjob": {
+    "name": "StartReadSetActivationJob",
+    "description": "Grants permission to start a Read Set activation job from the given Sequence Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startreadsetexportjob": {
+    "name": "StartReadSetExportJob",
+    "description": "Grants permission to start a Read Set export job from the given Sequence Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startreadsetimportjob": {
+    "name": "StartReadSetImportJob",
+    "description": "Grants permission to start a Read Set import job into the given Sequence Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startreferenceimportjob": {
+    "name": "StartReferenceImportJob",
+    "description": "Grants permission to start a Reference import job into the given Reference Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "referenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startrun": {
+    "name": "StartRun",
+    "description": "Grants permission to start a workflow run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "runCache",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startvariantimportjob": {
+    "name": "StartVariantImportJob",
+    "description": "Grants permission to import a list of variant files to an Variant Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VariantStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add AWS tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "AnnotationStoreVersion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VariantStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "WorkflowVersion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "readSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reference",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "referenceStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "run",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runCache",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sequenceStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove resource AWS tags",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "AnnotationStoreVersion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VariantStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "WorkflowVersion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "readSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reference",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "referenceStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "run",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runCache",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sequenceStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateannotationstore": {
+    "name": "UpdateAnnotationStore",
+    "description": "Grants permission to update information about the Annotation Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateannotationstoreversion": {
+    "name": "UpdateAnnotationStoreVersion",
+    "description": "Grants permission to update information about the Version in an Annotation Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AnnotationStoreVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateruncache": {
+    "name": "UpdateRunCache",
+    "description": "Grants permission to update a workflow run cache",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runCache",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterungroup": {
+    "name": "UpdateRunGroup",
+    "description": "Grants permission to update a workflow run group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesequencestore": {
+    "name": "UpdateSequenceStore",
+    "description": "Grants permission to update details about a Sequence Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevariantstore": {
+    "name": "UpdateVariantStore",
+    "description": "Grants permission to update metadata about the Variant Store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VariantStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateworkflow": {
+    "name": "UpdateWorkflow",
+    "description": "Grants permission to update workflow details",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateworkflowversion": {
+    "name": "UpdateWorkflowVersion",
+    "description": "Grants permission to update workflow version details",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WorkflowVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "uploadreadsetpart": {
+    "name": "UploadReadSetPart",
+    "description": "Grants permission to upload read set parts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sequenceStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

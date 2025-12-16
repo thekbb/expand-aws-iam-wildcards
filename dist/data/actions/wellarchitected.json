@@ -1,0 +1,1168 @@
+{
+  "associatelenses": {
+    "name": "AssociateLenses",
+    "description": "Grants permission to associate a lens to the specified workload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "associateprofiles": {
+    "name": "AssociateProfiles",
+    "description": "Grants permission to associate a profile to the specified workload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "configureintegration": {
+    "name": "ConfigureIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to configure the integration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlensshare": {
+    "name": "CreateLensShare",
+    "description": "Grants permission to an owner of a lens to share with other AWS accounts and IAM users",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createlensversion": {
+    "name": "CreateLensVersion",
+    "description": "Grants permission to create a new lens version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createmilestone": {
+    "name": "CreateMilestone",
+    "description": "Grants permission to create a new milestone for the specified workload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createprofile": {
+    "name": "CreateProfile",
+    "description": "Grants permission to create a new profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createprofileshare": {
+    "name": "CreateProfileShare",
+    "description": "Grants permission to an owner of a profile to share with other AWS accounts and IAM users",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createreviewtemplate": {
+    "name": "CreateReviewTemplate",
+    "description": "Grants permission to create a new review template",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtemplateshare": {
+    "name": "CreateTemplateShare",
+    "description": "Grants permission to an owner of a review template to share with other AWS accounts and IAM users",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createworkload": {
+    "name": "CreateWorkload",
+    "description": "Grants permission to create a new workload",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "wellarchitected:JiraProjectKey"
+    ],
+    "dependentActions": []
+  },
+  "createworkloadshare": {
+    "name": "CreateWorkloadShare",
+    "description": "Grants permission to share a workload with another account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletelens": {
+    "name": "DeleteLens",
+    "description": "Grants permission to delete a lens",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletelensshare": {
+    "name": "DeleteLensShare",
+    "description": "Grants permission to delete an existing lens share",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteprofile": {
+    "name": "DeleteProfile",
+    "description": "Grants permission to delete a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteprofileshare": {
+    "name": "DeleteProfileShare",
+    "description": "Grants permission to delete an existing profile share",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletereviewtemplate": {
+    "name": "DeleteReviewTemplate",
+    "description": "Grants permission to delete an existing review template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletetemplateshare": {
+    "name": "DeleteTemplateShare",
+    "description": "Grants permission to delete an existing review template share",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteworkload": {
+    "name": "DeleteWorkload",
+    "description": "Grants permission to delete an existing workload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteworkloadshare": {
+    "name": "DeleteWorkloadShare",
+    "description": "Grants permission to delete an existing workload share",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "disassociatelenses": {
+    "name": "DisassociateLenses",
+    "description": "Grants permission to disassociate a lens from the specified workload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "disassociateprofiles": {
+    "name": "DisassociateProfiles",
+    "description": "Grants permission to disassociate a profile from the specified workload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "exportlens": {
+    "name": "ExportLens",
+    "description": "Grants permission to export an existing lens",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getanswer": {
+    "name": "GetAnswer",
+    "description": "Grants permission to retrieve the specified answer from the specified lens review",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getconsolidatedreport": {
+    "name": "GetConsolidatedReport",
+    "description": "Grants permission to get consolidated report metrics or to generate the consolidated report PDF in this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getglobalsettings": {
+    "name": "GetGlobalSettings",
+    "description": "Grants permission to get all settings for the account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlens": {
+    "name": "GetLens",
+    "description": "Grants permission to get an existing lens",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getlensreview": {
+    "name": "GetLensReview",
+    "description": "Grants permission to retrieve the specified lens review of the specified workload",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getlensreviewreport": {
+    "name": "GetLensReviewReport",
+    "description": "Grants permission to retrieve the report for the specified lens review",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getlensversiondifference": {
+    "name": "GetLensVersionDifference",
+    "description": "Grants permission to get the difference between the specified lens version and latest available lens version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getmilestone": {
+    "name": "GetMilestone",
+    "description": "Grants permission to retrieve the specified milestone of the specified workload",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getprofile": {
+    "name": "GetProfile",
+    "description": "Grants permission to retrieve the specified profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getprofiletemplate": {
+    "name": "GetProfileTemplate",
+    "description": "Grants permission to retrieve the specified profile template",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreviewtemplate": {
+    "name": "GetReviewTemplate",
+    "description": "Grants permission to retrieve the specified review template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getreviewtemplateanswer": {
+    "name": "GetReviewTemplateAnswer",
+    "description": "Grants permission to retrieve the specified answer from the specified review template lens review",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getreviewtemplatelensreview": {
+    "name": "GetReviewTemplateLensReview",
+    "description": "Grants permission to retrieve the specified lens review of the specified review template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getworkload": {
+    "name": "GetWorkload",
+    "description": "Grants permission to retrieve the specified workload",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "importlens": {
+    "name": "ImportLens",
+    "description": "Grants permission to import a new lens",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listanswers": {
+    "name": "ListAnswers",
+    "description": "Grants permission to list the answers from the specified lens review",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listcheckdetails": {
+    "name": "ListCheckDetails",
+    "description": "Grants permission to list the check-details for the workload",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listchecksummaries": {
+    "name": "ListCheckSummaries",
+    "description": "Grants permission to list the check-summaries for the workload",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listlensreviewimprovements": {
+    "name": "ListLensReviewImprovements",
+    "description": "Grants permission to list the improvements of the specified lens review",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listlensreviews": {
+    "name": "ListLensReviews",
+    "description": "Grants permission to list the lens reviews of the specified workload",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listlensshares": {
+    "name": "ListLensShares",
+    "description": "Grants permission to list all shares created for a lens",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listlenses": {
+    "name": "ListLenses",
+    "description": "Grants permission to list the lenses available to this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmilestones": {
+    "name": "ListMilestones",
+    "description": "Grants permission to list the milestones of the specified workload",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listnotifications": {
+    "name": "ListNotifications",
+    "description": "Grants permission to list notifications related to the account or specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprofilenotifications": {
+    "name": "ListProfileNotifications",
+    "description": "Grants permission to list profile notifications related to specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprofileshares": {
+    "name": "ListProfileShares",
+    "description": "Grants permission to list all shares created for a profile",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listprofiles": {
+    "name": "ListProfiles",
+    "description": "Grants permission to list the profiles available to this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreviewtemplateanswers": {
+    "name": "ListReviewTemplateAnswers",
+    "description": "Grants permission to list the answers from the specified review template lens review",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listreviewtemplates": {
+    "name": "ListReviewTemplates",
+    "description": "Grants permission to list the review templates available to this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listshareinvitations": {
+    "name": "ListShareInvitations",
+    "description": "Grants permission to list the workload share invitations of the specified account or user",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a Well-Architected resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "review-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtemplateshares": {
+    "name": "ListTemplateShares",
+    "description": "Grants permission to list all shares created for a review template",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listworkloadshares": {
+    "name": "ListWorkloadShares",
+    "description": "Grants permission to list the workload shares of the specified workload",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listworkloads": {
+    "name": "ListWorkloads",
+    "description": "Grants permission to list the workloads in this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a Well-Architected resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "review-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a Well-Architected resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "lens",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "review-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateanswer": {
+    "name": "UpdateAnswer",
+    "description": "Grants permission to update properties of the specified answer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateglobalsettings": {
+    "name": "UpdateGlobalSettings",
+    "description": "Grants permission to manage all settings for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "wellarchitected:JiraProjectKey"
+    ],
+    "dependentActions": []
+  },
+  "updateintegration": {
+    "name": "UpdateIntegration",
+    "description": "Grants permission to update properties of the integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatelensreview": {
+    "name": "UpdateLensReview",
+    "description": "Grants permission to update properties of the specified lens review",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateprofile": {
+    "name": "UpdateProfile",
+    "description": "Grants permission to update properties of the specified profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatereviewtemplate": {
+    "name": "UpdateReviewTemplate",
+    "description": "Grants permission to update properties of the specified review template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatereviewtemplateanswer": {
+    "name": "UpdateReviewTemplateAnswer",
+    "description": "Grants permission to update properties of the specified review template answer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatereviewtemplatelensreview": {
+    "name": "UpdateReviewTemplateLensReview",
+    "description": "Grants permission to update properties of the specified review template lens review",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateshareinvitation": {
+    "name": "UpdateShareInvitation",
+    "description": "Grants permission to update status of the specified workload share invitation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateworkload": {
+    "name": "UpdateWorkload",
+    "description": "Grants permission to update properties of the specified workload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "wellarchitected:JiraProjectKey"
+    ],
+    "dependentActions": []
+  },
+  "updateworkloadshare": {
+    "name": "UpdateWorkloadShare",
+    "description": "Grants permission to update properties of the specified workload share",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "upgradelensreview": {
+    "name": "UpgradeLensReview",
+    "description": "Grants permission to upgrade the specified lens review to use the latest version of the associated lens",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "upgradeprofileversion": {
+    "name": "UpgradeProfileVersion",
+    "description": "Grants permission to upgrade the specified workload to use the latest version of the associated profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "upgradereviewtemplatelensreview": {
+    "name": "UpgradeReviewTemplateLensReview",
+    "description": "Grants permission to upgrade the specified lens review of the specified review template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "review-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

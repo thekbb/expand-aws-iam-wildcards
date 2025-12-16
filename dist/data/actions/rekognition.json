@@ -1,0 +1,1019 @@
+{
+  "associatefaces": {
+    "name": "AssociateFaces",
+    "description": "Grants permission to associate multiple individual faces with a single user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "comparefaces": {
+    "name": "CompareFaces",
+    "description": "Grants permission to compare faces in the source input image with each face detected in the target input image",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "copyprojectversion": {
+    "name": "CopyProjectVersion",
+    "description": "Grants permission to copy an existing model version to a new model version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "projectversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcollection": {
+    "name": "CreateCollection",
+    "description": "Grants permission to create a collection in an AWS Region",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdataset": {
+    "name": "CreateDataset",
+    "description": "Grants permission to create a new Amazon Rekognition Custom Labels dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfacelivenesssession": {
+    "name": "CreateFaceLivenessSession",
+    "description": "Grants permission to create a face liveness session",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createproject": {
+    "name": "CreateProject",
+    "description": "Grants permission to create an Amazon Rekognition Custom Labels project",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createprojectversion": {
+    "name": "CreateProjectVersion",
+    "description": "Grants permission to begin training a new version of a model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createstreamprocessor": {
+    "name": "CreateStreamProcessor",
+    "description": "Grants permission to create an Amazon Rekognition stream processor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createuser": {
+    "name": "CreateUser",
+    "description": "Grants permission to create a new user in a collection using a unique user ID you provide",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecollection": {
+    "name": "DeleteCollection",
+    "description": "Grants permission to delete the specified collection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataset": {
+    "name": "DeleteDataset",
+    "description": "Grants permission to delete an existing Amazon Rekognition Custom Labels dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefaces": {
+    "name": "DeleteFaces",
+    "description": "Grants permission to delete faces from a collection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteproject": {
+    "name": "DeleteProject",
+    "description": "Grants permission to delete a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprojectpolicy": {
+    "name": "DeleteProjectPolicy",
+    "description": "Grants permission to delete a resource policy attached to a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprojectversion": {
+    "name": "DeleteProjectVersion",
+    "description": "Grants permission to delete a model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "projectversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestreamprocessor": {
+    "name": "DeleteStreamProcessor",
+    "description": "Grants permission to delete the specified stream processor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streamprocessor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteuser": {
+    "name": "DeleteUser",
+    "description": "Grants permission to delete a user from a collection based on the provided user ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecollection": {
+    "name": "DescribeCollection",
+    "description": "Grants permission to read details about a collection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedataset": {
+    "name": "DescribeDataset",
+    "description": "Grants permission to describe an Amazon Rekognition Custom Labels dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeprojectversions": {
+    "name": "DescribeProjectVersions",
+    "description": "Grants permission to list the versions of a model in an Amazon Rekognition Custom Labels project",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeprojects": {
+    "name": "DescribeProjects",
+    "description": "Grants permission to list Amazon Rekognition Custom Labels projects",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestreamprocessor": {
+    "name": "DescribeStreamProcessor",
+    "description": "Grants permission to get information about the specified stream processor",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "streamprocessor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detectcustomlabels": {
+    "name": "DetectCustomLabels",
+    "description": "Grants permission to detect custom labels in a supplied image",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "projectversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detectfaces": {
+    "name": "DetectFaces",
+    "description": "Grants permission to detect human faces within an image provided as input",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detectlabels": {
+    "name": "DetectLabels",
+    "description": "Grants permission to detect instances of real-world labels within an image provided as input",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detectmoderationlabels": {
+    "name": "DetectModerationLabels",
+    "description": "Grants permission to detect moderation labels within the input image",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "projectversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detectprotectiveequipment": {
+    "name": "DetectProtectiveEquipment",
+    "description": "Grants permission to detect Personal Protective Equipment in the input image",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detecttext": {
+    "name": "DetectText",
+    "description": "Grants permission to detect text in the input image and convert it into machine-readable text",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatefaces": {
+    "name": "DisassociateFaces",
+    "description": "Grants permission to remove the association between a user ID and a face ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "distributedatasetentries": {
+    "name": "DistributeDatasetEntries",
+    "description": "Grants permission to distribute the entries in a training dataset across the training dataset and the test dataset for a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcelebrityinfo": {
+    "name": "GetCelebrityInfo",
+    "description": "Grants permission to read the name, and additional information, of a celebrity",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcelebrityrecognition": {
+    "name": "GetCelebrityRecognition",
+    "description": "Grants permission to read the celebrity recognition results found in a stored video by an asynchronous celebrity recognition job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontentmoderation": {
+    "name": "GetContentModeration",
+    "description": "Grants permission to read the content moderation analysis results found in a stored video by an asynchronous content moderation job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfacedetection": {
+    "name": "GetFaceDetection",
+    "description": "Grants permission to read the faces detection results found in a stored video by an asynchronous face detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfacelivenesssessionresults": {
+    "name": "GetFaceLivenessSessionResults",
+    "description": "Grants permission to get results of a face liveness session",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfacesearch": {
+    "name": "GetFaceSearch",
+    "description": "Grants permission to read the matching collection faces found in a stored video by an asynchronous face search job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlabeldetection": {
+    "name": "GetLabelDetection",
+    "description": "Grants permission to read the label detected resuls found in a stored video by an asynchronous label detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmediaanalysisjob": {
+    "name": "GetMediaAnalysisJob",
+    "description": "Grants permission to read the reference to job results in S3 and additional information about a media analysis job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpersontracking": {
+    "name": "GetPersonTracking",
+    "description": "Grants permission to read the list of persons detected in a stored video by an asynchronous person tracking job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegmentdetection": {
+    "name": "GetSegmentDetection",
+    "description": "Grants permission to get the vdeo segments found in a stored video by an asynchronous segment detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettextdetection": {
+    "name": "GetTextDetection",
+    "description": "Grants permission to get the text found in a stored video by an asynchronous text detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "indexfaces": {
+    "name": "IndexFaces",
+    "description": "Grants permission to update an existing collection with faces detected in the input image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcollections": {
+    "name": "ListCollections",
+    "description": "Grants permission to read the collection Id's in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetentries": {
+    "name": "ListDatasetEntries",
+    "description": "Grants permission to list the dataset entries in an existing Amazon Rekognition Custom Labels dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetlabels": {
+    "name": "ListDatasetLabels",
+    "description": "Grants permission to list the labels in a dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfaces": {
+    "name": "ListFaces",
+    "description": "Grants permission to read metadata for faces in the specificed collection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmediaanalysisjobs": {
+    "name": "ListMediaAnalysisJobs",
+    "description": "Grants permission to read the list of media analysis jobs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprojectpolicies": {
+    "name": "ListProjectPolicies",
+    "description": "Grants permission to list the resource policies attached to a project",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreamprocessors": {
+    "name": "ListStreamProcessors",
+    "description": "Grants permission to get a list of your stream processors",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to return a list of tags associated with a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "projectversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streamprocessor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listusers": {
+    "name": "ListUsers",
+    "description": "Grants permission to list UserIds and the UserStatus",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putprojectpolicy": {
+    "name": "PutProjectPolicy",
+    "description": "Grants permission to attach a resource policy to a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "recognizecelebrities": {
+    "name": "RecognizeCelebrities",
+    "description": "Grants permission to detect celebrities in the input image",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchfaces": {
+    "name": "SearchFaces",
+    "description": "Grants permission to search the specificed collection for the supplied face ID",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchfacesbyimage": {
+    "name": "SearchFacesByImage",
+    "description": "Grants permission to search the specificed collection for the largest face in the input image",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchusers": {
+    "name": "SearchUsers",
+    "description": "Grants permission to search the specificed collection for user match result with given either face ID or user ID",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchusersbyimage": {
+    "name": "SearchUsersByImage",
+    "description": "Grants permission to search the specificed collection for user match result by using the largest face in the input image",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcelebrityrecognition": {
+    "name": "StartCelebrityRecognition",
+    "description": "Grants permission to start the asynchronous recognition of celebrities in a stored video",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcontentmoderation": {
+    "name": "StartContentModeration",
+    "description": "Grants permission to start asynchronous detection of explicit or suggestive adult content in a stored video",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startfacedetection": {
+    "name": "StartFaceDetection",
+    "description": "Grants permission to start asynchronous detection of faces in a stored video",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startfacelivenesssession": {
+    "name": "StartFaceLivenessSession",
+    "description": "Grants permission to start streaming video for a face liveness session",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startfacesearch": {
+    "name": "StartFaceSearch",
+    "description": "Grants permission to start an asynchronous search for faces in a collection that match the faces of persons detected in a stored video",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startlabeldetection": {
+    "name": "StartLabelDetection",
+    "description": "Grants permission to start asynchronous detection of labels in a stored video",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmediaanalysisjob": {
+    "name": "StartMediaAnalysisJob",
+    "description": "Grants permission to start a media analysis job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "projectversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startpersontracking": {
+    "name": "StartPersonTracking",
+    "description": "Grants permission to start the asynchronous tracking of persons in a stored video",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startprojectversion": {
+    "name": "StartProjectVersion",
+    "description": "Grants permission to start running a model version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "projectversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsegmentdetection": {
+    "name": "StartSegmentDetection",
+    "description": "Grants permission to start the asynchronous detection of segments in a stored video",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startstreamprocessor": {
+    "name": "StartStreamProcessor",
+    "description": "Grants permission to start running a stream processor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streamprocessor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttextdetection": {
+    "name": "StartTextDetection",
+    "description": "Grants permission to start the asynchronous detection of text in a stored video",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopprojectversion": {
+    "name": "StopProjectVersion",
+    "description": "Grants permission to stop a running model version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "projectversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopstreamprocessor": {
+    "name": "StopStreamProcessor",
+    "description": "Grants permission to stop  a running stream processor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streamprocessor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "projectversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streamprocessor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "collection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "projectversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streamprocessor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatedatasetentries": {
+    "name": "UpdateDatasetEntries",
+    "description": "Grants permission to add or update one or more JSON Lines (entries) in a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestreamprocessor": {
+    "name": "UpdateStreamProcessor",
+    "description": "Grants permission to modify properties for a stream processor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streamprocessor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

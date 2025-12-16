@@ -1,0 +1,2088 @@
+{
+  "allocatestaticip": {
+    "name": "AllocateStaticIp",
+    "description": "Grants permission to create a static IP address that can be attached to an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "attachcertificatetodistribution": {
+    "name": "AttachCertificateToDistribution",
+    "description": "Grants permission to attach an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN) distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "attachdisk": {
+    "name": "AttachDisk",
+    "description": "Grants permission to attach a disk to an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Disk",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "attachinstancestoloadbalancer": {
+    "name": "AttachInstancesToLoadBalancer",
+    "description": "Grants permission to attach one or more instances to a load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LoadBalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "attachloadbalancertlscertificate": {
+    "name": "AttachLoadBalancerTlsCertificate",
+    "description": "Grants permission to attach a TLS certificate to a load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LoadBalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "attachstaticip": {
+    "name": "AttachStaticIp",
+    "description": "Grants permission to attach a static IP address to an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StaticIp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "closeinstancepublicports": {
+    "name": "CloseInstancePublicPorts",
+    "description": "Grants permission to close a public port of an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "copysnapshot": {
+    "name": "CopySnapshot",
+    "description": "Grants permission to copy a snapshot from one AWS Region to another in Amazon Lightsail",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbucket": {
+    "name": "CreateBucket",
+    "description": "Grants permission to create an Amazon Lightsail bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createbucketaccesskey": {
+    "name": "CreateBucketAccessKey",
+    "description": "Grants permission to create a new access key for the specified bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcertificate": {
+    "name": "CreateCertificate",
+    "description": "Grants permission to create an SSL/TLS certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "lightsail:CreateDomainEntry",
+      "lightsail:GetDomains"
+    ]
+  },
+  "createcloudformationstack": {
+    "name": "CreateCloudFormationStack",
+    "description": "Grants permission to create a new Amazon EC2 instance from an exported Amazon Lightsail snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcontactmethod": {
+    "name": "CreateContactMethod",
+    "description": "Grants permission to create an email or SMS text message contact method",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcontainerservice": {
+    "name": "CreateContainerService",
+    "description": "Grants permission to create an Amazon Lightsail container service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcontainerservicedeployment": {
+    "name": "CreateContainerServiceDeployment",
+    "description": "Grants permission to create a deployment for your Amazon Lightsail container service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ContainerService",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcontainerserviceregistrylogin": {
+    "name": "CreateContainerServiceRegistryLogin",
+    "description": "Grants permission to create a temporary set of log in credentials that you can use to log in to the Docker process on your local machine",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdisk": {
+    "name": "CreateDisk",
+    "description": "Grants permission to create a disk",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "creatediskfromsnapshot": {
+    "name": "CreateDiskFromSnapshot",
+    "description": "Grants permission to create a disk from snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DiskSnapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdisksnapshot": {
+    "name": "CreateDiskSnapshot",
+    "description": "Grants permission to create a disk snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Disk",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdistribution": {
+    "name": "CreateDistribution",
+    "description": "Grants permission to create an Amazon Lightsail content delivery network (CDN) distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdomain": {
+    "name": "CreateDomain",
+    "description": "Grants permission to create a domain resource for the specified domain name",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "route53:DeleteHostedZone",
+      "route53:GetHostedZone",
+      "route53:ListHostedZonesByName",
+      "route53domains:GetDomainDetail",
+      "route53domains:GetOperationDetail",
+      "route53domains:ListDomains",
+      "route53domains:ListOperations",
+      "route53domains:UpdateDomainNameservers"
+    ]
+  },
+  "createdomainentry": {
+    "name": "CreateDomainEntry",
+    "description": "Grants permission to create one or more DNS record entries for a domain resource: Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createguisessionaccessdetails": {
+    "name": "CreateGUISessionAccessDetails",
+    "description": "Grants permission to create URLs that are used to access an instance's graphical user interface (GUI) session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createinstancesnapshot": {
+    "name": "CreateInstanceSnapshot",
+    "description": "Grants permission to create an instance snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createinstances": {
+    "name": "CreateInstances",
+    "description": "Grants permission to create one or more instances",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createinstancesfromsnapshot": {
+    "name": "CreateInstancesFromSnapshot",
+    "description": "Grants permission to create one or more instances based on an instance snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "InstanceSnapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createkeypair": {
+    "name": "CreateKeyPair",
+    "description": "Grants permission to create a key pair used to authenticate and connect to an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createloadbalancer": {
+    "name": "CreateLoadBalancer",
+    "description": "Grants permission to create a load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "lightsail:CreateDomainEntry",
+      "lightsail:GetDomains"
+    ]
+  },
+  "createloadbalancertlscertificate": {
+    "name": "CreateLoadBalancerTlsCertificate",
+    "description": "Grants permission to create a load balancer TLS certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LoadBalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lightsail:CreateDomainEntry",
+      "lightsail:GetDomains"
+    ]
+  },
+  "createrelationaldatabase": {
+    "name": "CreateRelationalDatabase",
+    "description": "Grants permission to create a new relational database",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createrelationaldatabasefromsnapshot": {
+    "name": "CreateRelationalDatabaseFromSnapshot",
+    "description": "Grants permission to create a new relational database from a snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RelationalDatabaseSnapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createrelationaldatabasesnapshot": {
+    "name": "CreateRelationalDatabaseSnapshot",
+    "description": "Grants permission to create a relational database snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletealarm": {
+    "name": "DeleteAlarm",
+    "description": "Grants permission to delete an alarm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Alarm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautosnapshot": {
+    "name": "DeleteAutoSnapshot",
+    "description": "Grants permission to delete an automatic snapshot of an instance or disk",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebucket": {
+    "name": "DeleteBucket",
+    "description": "Grants permission to delete an Amazon Lightsail bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebucketaccesskey": {
+    "name": "DeleteBucketAccessKey",
+    "description": "Grants permission to delete an access key for the specified Amazon Lightsail bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecertificate": {
+    "name": "DeleteCertificate",
+    "description": "Grants permission to delete an SSL/TLS certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecontactmethod": {
+    "name": "DeleteContactMethod",
+    "description": "Grants permission to delete a contact method",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecontainerimage": {
+    "name": "DeleteContainerImage",
+    "description": "Grants permission to delete a container image that is registered to your Amazon Lightsail container service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ContainerService",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecontainerservice": {
+    "name": "DeleteContainerService",
+    "description": "Grants permission to delete your Amazon Lightsail container service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ContainerService",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedisk": {
+    "name": "DeleteDisk",
+    "description": "Grants permission to delete a disk",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Disk",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedisksnapshot": {
+    "name": "DeleteDiskSnapshot",
+    "description": "Grants permission to delete a disk snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DiskSnapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedistribution": {
+    "name": "DeleteDistribution",
+    "description": "Grants permission to delete your Amazon Lightsail content delivery network (CDN) distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedomain": {
+    "name": "DeleteDomain",
+    "description": "Grants permission to delete a domain resource and all of its DNS records",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedomainentry": {
+    "name": "DeleteDomainEntry",
+    "description": "Grants permission to delete a DNS record entry for a domain resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinstance": {
+    "name": "DeleteInstance",
+    "description": "Grants permission to delete an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinstancesnapshot": {
+    "name": "DeleteInstanceSnapshot",
+    "description": "Grants permission to delete an instance snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "InstanceSnapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletekeypair": {
+    "name": "DeleteKeyPair",
+    "description": "Grants permission to delete a key pair used to authenticate and connect to an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KeyPair",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteknownhostkeys": {
+    "name": "DeleteKnownHostKeys",
+    "description": "Grants permission to delete the known host key or certificate used by the Amazon Lightsail browser-based SSH or RDP clients to authenticate an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteloadbalancer": {
+    "name": "DeleteLoadBalancer",
+    "description": "Grants permission to delete a load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LoadBalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteloadbalancertlscertificate": {
+    "name": "DeleteLoadBalancerTlsCertificate",
+    "description": "Grants permission to delete a load balancer TLS certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LoadBalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterelationaldatabase": {
+    "name": "DeleteRelationalDatabase",
+    "description": "Grants permission to delete a relational database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RelationalDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterelationaldatabasesnapshot": {
+    "name": "DeleteRelationalDatabaseSnapshot",
+    "description": "Grants permission to delete a relational database snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RelationalDatabaseSnapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detachcertificatefromdistribution": {
+    "name": "DetachCertificateFromDistribution",
+    "description": "Grants permission to detach an SSL/TLS certificate from your Amazon Lightsail content delivery network (CDN) distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detachdisk": {
+    "name": "DetachDisk",
+    "description": "Grants permission to detach a disk from an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Disk",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detachinstancesfromloadbalancer": {
+    "name": "DetachInstancesFromLoadBalancer",
+    "description": "Grants permission to detach one or more instances from a load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LoadBalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detachstaticip": {
+    "name": "DetachStaticIp",
+    "description": "Grants permission to detach a static IP from an instance to which it is attached",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "StaticIp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableaddon": {
+    "name": "DisableAddOn",
+    "description": "Grants permission to disable an add-on for an Amazon Lightsail resource",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "downloaddefaultkeypair": {
+    "name": "DownloadDefaultKeyPair",
+    "description": "Grants permission to download the default key pair used to authenticate and connect to instances in a specific AWS Region",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableaddon": {
+    "name": "EnableAddOn",
+    "description": "Grants permission to enable or modify an add-on for an Amazon Lightsail resource",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "exportsnapshot": {
+    "name": "ExportSnapshot",
+    "description": "Grants permission to export an Amazon Lightsail snapshot to Amazon EC2",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DiskSnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "iam:PutRolePolicy"
+        ]
+      },
+      {
+        "name": "InstanceSnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getactivenames": {
+    "name": "GetActiveNames",
+    "description": "Grants permission to get the names of all active (not deleted) resources",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getalarms": {
+    "name": "GetAlarms",
+    "description": "Grants permission to view information about the configured alarms",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautosnapshots": {
+    "name": "GetAutoSnapshots",
+    "description": "Grants permission to view the available automatic snapshots for an instance or disk",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getblueprints": {
+    "name": "GetBlueprints",
+    "description": "Grants permission to get a list of instance images, or blueprints. You can use a blueprint to create a new instance already running a specific operating system, as well as a pre-installed application or development stack. The software that runs on your instance depends on the blueprint you define when creating the instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbucketaccesskeys": {
+    "name": "GetBucketAccessKeys",
+    "description": "Grants permission to get the existing access key IDs for the specified Amazon Lightsail bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbucketbundles": {
+    "name": "GetBucketBundles",
+    "description": "Grants permission to get the bundles that can be applied to an Amazon Lightsail bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbucketmetricdata": {
+    "name": "GetBucketMetricData",
+    "description": "Grants permission to get the data points of a specific metric for an Amazon Lightsail bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbuckets": {
+    "name": "GetBuckets",
+    "description": "Grants permission to get information about one or more Amazon Lightsail buckets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbundles": {
+    "name": "GetBundles",
+    "description": "Grants permission to get a list of instance bundles. You can use a bundle to create a new instance with a set of performance specifications, such as CPU count, disk size, RAM size, and network transfer allowance. The cost of your instance depends on the bundle you define when creating the instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcertificates": {
+    "name": "GetCertificates",
+    "description": "Grants permission to view information about one or more Amazon Lightsail SSL/TLS certificates",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcloudformationstackrecords": {
+    "name": "GetCloudFormationStackRecords",
+    "description": "Grants permission to get information about all CloudFormation stacks used to create Amazon EC2 resources from exported Amazon Lightsail snapshots",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontactmethods": {
+    "name": "GetContactMethods",
+    "description": "Grants permission to view information about the configured contact methods",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontainerapimetadata": {
+    "name": "GetContainerAPIMetadata",
+    "description": "Grants permission to view information about Amazon Lightsail containers, such as the current version of the Lightsail Control (lightsailctl) plugin",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontainerimages": {
+    "name": "GetContainerImages",
+    "description": "Grants permission to view the container images that are registered to your Amazon Lightsail container service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontainerlog": {
+    "name": "GetContainerLog",
+    "description": "Grants permission to view the log events of a container of your Amazon Lightsail container service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontainerservicedeployments": {
+    "name": "GetContainerServiceDeployments",
+    "description": "Grants permission to view the deployments for your Amazon Lightsail container service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontainerservicemetricdata": {
+    "name": "GetContainerServiceMetricData",
+    "description": "Grants permission to view the data points of a specific metric of your Amazon Lightsail container service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontainerservicepowers": {
+    "name": "GetContainerServicePowers",
+    "description": "Grants permission to view the list of powers that can be specified for your Amazon Lightsail container services",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontainerservices": {
+    "name": "GetContainerServices",
+    "description": "Grants permission to view information about one or more of your Amazon Lightsail container services",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcostestimate": {
+    "name": "GetCostEstimate",
+    "description": "Grants permission to get the information about the cost estimate for a specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Disk",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdisk": {
+    "name": "GetDisk",
+    "description": "Grants permission to get information about a disk",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdisksnapshot": {
+    "name": "GetDiskSnapshot",
+    "description": "Grants permission to get information about a disk snapshot",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdisksnapshots": {
+    "name": "GetDiskSnapshots",
+    "description": "Grants permission to get information about all disk snapshots",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdisks": {
+    "name": "GetDisks",
+    "description": "Grants permission to get information about all disks",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistributionbundles": {
+    "name": "GetDistributionBundles",
+    "description": "Grants permission to view the list of bundles that can be applied to you Amazon Lightsail content delivery network (CDN) distributions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistributionlatestcachereset": {
+    "name": "GetDistributionLatestCacheReset",
+    "description": "Grants permission to view the timestamp and status of the last cache reset of a specific Amazon Lightsail content delivery network (CDN) distribution",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistributionmetricdata": {
+    "name": "GetDistributionMetricData",
+    "description": "Grants permission to view the data points of a specific metric for an Amazon Lightsail content delivery network (CDN) distribution",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistributions": {
+    "name": "GetDistributions",
+    "description": "Grants permission to view information about one or more of your Amazon Lightsail content delivery network (CDN) distributions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdomain": {
+    "name": "GetDomain",
+    "description": "Grants permission to get DNS records for a domain resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdomains": {
+    "name": "GetDomains",
+    "description": "Grants permission to get DNS records for all domain resources",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexportsnapshotrecords": {
+    "name": "GetExportSnapshotRecords",
+    "description": "Grants permission to get information about all records of exported Amazon Lightsail snapshots to Amazon EC2",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstance": {
+    "name": "GetInstance",
+    "description": "Grants permission to get information about an instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstanceaccessdetails": {
+    "name": "GetInstanceAccessDetails",
+    "description": "Grants permission to get temporary keys you can use to authenticate and connect to an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstancemetricdata": {
+    "name": "GetInstanceMetricData",
+    "description": "Grants permission to get the data points for the specified metric of an instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstanceportstates": {
+    "name": "GetInstancePortStates",
+    "description": "Grants permission to get the port states of an instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstancesnapshot": {
+    "name": "GetInstanceSnapshot",
+    "description": "Grants permission to get information about an instance snapshot",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstancesnapshots": {
+    "name": "GetInstanceSnapshots",
+    "description": "Grants permission to get information about all instance snapshots",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstancestate": {
+    "name": "GetInstanceState",
+    "description": "Grants permission to get the state of an instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstances": {
+    "name": "GetInstances",
+    "description": "Grants permission to get information about all instances",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getkeypair": {
+    "name": "GetKeyPair",
+    "description": "Grants permission to get information about a key pair",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getkeypairs": {
+    "name": "GetKeyPairs",
+    "description": "Grants permission to get information about all key pairs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getloadbalancer": {
+    "name": "GetLoadBalancer",
+    "description": "Grants permission to get information about a load balancer",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getloadbalancermetricdata": {
+    "name": "GetLoadBalancerMetricData",
+    "description": "Grants permission to get the data points for the specified metric of a load balancer",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getloadbalancertlscertificates": {
+    "name": "GetLoadBalancerTlsCertificates",
+    "description": "Grants permission to get information about a load balancer's TLS certificates",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getloadbalancertlspolicies": {
+    "name": "GetLoadBalancerTlsPolicies",
+    "description": "Grants permission to get a list of TLS security policies that you can apply to Lightsail load balancers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getloadbalancers": {
+    "name": "GetLoadBalancers",
+    "description": "Grants permission to get information about load balancers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoperation": {
+    "name": "GetOperation",
+    "description": "Grants permission to get information about an operation. Operations include events such as when you create an instance, allocate a static IP, attach a static IP, and so on",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoperations": {
+    "name": "GetOperations",
+    "description": "Grants permission to get information about all operations. Operations include events such as when you create an instance, allocate a static IP, attach a static IP, and so on",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoperationsforresource": {
+    "name": "GetOperationsForResource",
+    "description": "Grants permission to get operations for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getregions": {
+    "name": "GetRegions",
+    "description": "Grants permission to get a list of all valid AWS Regions for Amazon Lightsail",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabase": {
+    "name": "GetRelationalDatabase",
+    "description": "Grants permission to get information about a relational database",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabaseblueprints": {
+    "name": "GetRelationalDatabaseBlueprints",
+    "description": "Grants permission to get a list of relational database images, or blueprints. You can use a blueprint to create a new database running a specific database engine. The database engine that runs on your database depends on the blueprint you define when creating the relational database",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabasebundles": {
+    "name": "GetRelationalDatabaseBundles",
+    "description": "Grants permission to get a list of relational database bundles. You can use a bundle to create a new database with a set of performance specifications, such as CPU count, disk size, RAM size, network transfer allowance, and standard of high availability. The cost of your database depends on the bundle you define when creating the relational database",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabaseevents": {
+    "name": "GetRelationalDatabaseEvents",
+    "description": "Grants permission to get events for a relational database",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabaselogevents": {
+    "name": "GetRelationalDatabaseLogEvents",
+    "description": "Grants permission to get events for the specified log stream of a relational database",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabaselogstreams": {
+    "name": "GetRelationalDatabaseLogStreams",
+    "description": "Grants permission to get the log streams available for a relational database",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabasemasteruserpassword": {
+    "name": "GetRelationalDatabaseMasterUserPassword",
+    "description": "Grants permission to get the master user password of a relational database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RelationalDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabasemetricdata": {
+    "name": "GetRelationalDatabaseMetricData",
+    "description": "Grants permission to get the data points for the specified metric of a relational database",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabaseparameters": {
+    "name": "GetRelationalDatabaseParameters",
+    "description": "Grants permission to get the parameters of a relational database",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabasesnapshot": {
+    "name": "GetRelationalDatabaseSnapshot",
+    "description": "Grants permission to get information about a relational database snapshot",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabasesnapshots": {
+    "name": "GetRelationalDatabaseSnapshots",
+    "description": "Grants permission to get information about all relational database snapshots",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrelationaldatabases": {
+    "name": "GetRelationalDatabases",
+    "description": "Grants permission to get information about all relational databases",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsetuphistory": {
+    "name": "GetSetupHistory",
+    "description": "Grants permission to get detailed information for setup requests that were run on the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstaticip": {
+    "name": "GetStaticIp",
+    "description": "Grants permission to get information about a static IP",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstaticips": {
+    "name": "GetStaticIps",
+    "description": "Grants permission to get information about all static IPs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importkeypair": {
+    "name": "ImportKeyPair",
+    "description": "Grants permission to import a public key from a key pair",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "isvpcpeered": {
+    "name": "IsVpcPeered",
+    "description": "Grants permission to get a boolean value indicating whether the Amazon Lightsail virtual private cloud (VPC) is peered",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "openinstancepublicports": {
+    "name": "OpenInstancePublicPorts",
+    "description": "Grants permission to add, or open a public port of an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "peervpc": {
+    "name": "PeerVpc",
+    "description": "Grants permission to try to peer the Amazon Lightsail virtual private cloud (VPC) with the default VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putalarm": {
+    "name": "PutAlarm",
+    "description": "Grants permission to creates or update an alarm, and associate it with the specified metric",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Alarm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putinstancepublicports": {
+    "name": "PutInstancePublicPorts",
+    "description": "Grants permission to set the specified open ports for an instance, and closes all ports for every protocol not included in the request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rebootinstance": {
+    "name": "RebootInstance",
+    "description": "Grants permission to reboot an instance that is in a running state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rebootrelationaldatabase": {
+    "name": "RebootRelationalDatabase",
+    "description": "Grants permission to reboot a relational database that is in a running state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RelationalDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registercontainerimage": {
+    "name": "RegisterContainerImage",
+    "description": "Grants permission to register a container image to your Amazon Lightsail container service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ContainerService",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "releasestaticip": {
+    "name": "ReleaseStaticIp",
+    "description": "Grants permission to delete a static IP",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "StaticIp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resetdistributioncache": {
+    "name": "ResetDistributionCache",
+    "description": "Grants permission to delete currently cached content from your Amazon Lightsail content delivery network (CDN) distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendcontactmethodverification": {
+    "name": "SendContactMethodVerification",
+    "description": "Grants permission to send a verification request to an email contact method to ensure it's owned by the requester",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setipaddresstype": {
+    "name": "SetIpAddressType",
+    "description": "Grants permission to set the IP address type for a Amazon Lightsail resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LoadBalancer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setresourceaccessforbucket": {
+    "name": "SetResourceAccessForBucket",
+    "description": "Grants permission to set the Amazon Lightsail resources that can access the specified Amazon Lightsail bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setupinstancehttps": {
+    "name": "SetupInstanceHttps",
+    "description": "Grants permission to create an SSL/TLS certificate and install it on a specified instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lightsail:GetInstanceAccessDetails"
+    ]
+  },
+  "startguisession": {
+    "name": "StartGUISession",
+    "description": "Grants permission to initiate a graphical user interface (GUI) session used to access an instance's operating system or application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startinstance": {
+    "name": "StartInstance",
+    "description": "Grants permission to start an instance that is in a stopped state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startrelationaldatabase": {
+    "name": "StartRelationalDatabase",
+    "description": "Grants permission to start a relational database that is in a stopped state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RelationalDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopguisession": {
+    "name": "StopGUISession",
+    "description": "Grants permission to terminate a graphical user interface (GUI) session used to access an instance's operating system or application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopinstance": {
+    "name": "StopInstance",
+    "description": "Grants permission to stop an instance that is in a running state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoprelationaldatabase": {
+    "name": "StopRelationalDatabase",
+    "description": "Grants permission to stop a relational database that is in a running state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RelationalDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ContainerService",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Disk",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DiskSnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "InstanceSnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KeyPair",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LoadBalancer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RelationalDatabase",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RelationalDatabaseSnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StaticIp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "testalarm": {
+    "name": "TestAlarm",
+    "description": "Grants permission to test an alarm by displaying a banner on the Amazon Lightsail console or if a notification trigger is configured for the specified alarm, by sending a notification to the notification protocol",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Alarm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "unpeervpc": {
+    "name": "UnpeerVpc",
+    "description": "Grants permission to try to unpeer the Amazon Lightsail virtual private cloud (VPC) from the default VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ContainerService",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Disk",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DiskSnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "InstanceSnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KeyPair",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LoadBalancer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RelationalDatabase",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RelationalDatabaseSnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "StaticIp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatebucket": {
+    "name": "UpdateBucket",
+    "description": "Grants permission to update an existing Amazon Lightsail bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebucketbundle": {
+    "name": "UpdateBucketBundle",
+    "description": "Grants permission to update the bundle, or storage plan, of an existing Amazon Lightsail bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecontainerservice": {
+    "name": "UpdateContainerService",
+    "description": "Grants permission to update the configuration of your Amazon Lightsail container service, such as its power, scale, and public domain names",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ContainerService",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedistribution": {
+    "name": "UpdateDistribution",
+    "description": "Grants permission to update an existing Amazon Lightsail content delivery network (CDN) distribution or its configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedistributionbundle": {
+    "name": "UpdateDistributionBundle",
+    "description": "Grants permission to update the bundle of your Amazon Lightsail content delivery network (CDN) distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedomainentry": {
+    "name": "UpdateDomainEntry",
+    "description": "Grants permission to update a domain recordset after it is created",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinstancemetadataoptions": {
+    "name": "UpdateInstanceMetadataOptions",
+    "description": "Grants permission to update metadata options for an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateloadbalancerattribute": {
+    "name": "UpdateLoadBalancerAttribute",
+    "description": "Grants permission to update a load balancer attribute, such as the health check path and session stickiness",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LoadBalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterelationaldatabase": {
+    "name": "UpdateRelationalDatabase",
+    "description": "Grants permission to update a relational database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RelationalDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterelationaldatabaseparameters": {
+    "name": "UpdateRelationalDatabaseParameters",
+    "description": "Grants permission to update the parameters of a relational database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RelationalDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

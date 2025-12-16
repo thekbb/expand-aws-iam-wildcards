@@ -1,0 +1,57 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the allowed set of values for each of the tags",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the presence of mandatory tags in the request",
+    "type": "ArrayOfString"
+  },
+  "backup:changeablefordays": {
+    "key": "backup:ChangeableForDays",
+    "description": "Filters access by the value of the ChangeableForDays parameter",
+    "type": "Numeric"
+  },
+  "backup:copytargetorgpaths": {
+    "key": "backup:CopyTargetOrgPaths",
+    "description": "Filters access by the organization unit",
+    "type": "ArrayOfString"
+  },
+  "backup:copytargets": {
+    "key": "backup:CopyTargets",
+    "description": "Filters access by the ARN of a backup vault",
+    "type": "ArrayOfARN"
+  },
+  "backup:frameworkarns": {
+    "key": "backup:FrameworkArns",
+    "description": "Filters access by the Framework ARNs",
+    "type": "ArrayOfARN"
+  },
+  "backup:index": {
+    "key": "backup:Index",
+    "description": "Filters access by the value of Index parameter",
+    "type": "String"
+  },
+  "backup:maxretentiondays": {
+    "key": "backup:MaxRetentionDays",
+    "description": "Filters access by the value of the MaxRetentionDays parameter",
+    "type": "Numeric"
+  },
+  "backup:minretentiondays": {
+    "key": "backup:MinRetentionDays",
+    "description": "Filters access by the value of the MinRetentionDays parameter",
+    "type": "Numeric"
+  },
+  "backup:mpaapprovalteamarn": {
+    "key": "backup:MpaApprovalTeamArn",
+    "description": "Filters access by the MPA Approval Team ARN of a backup vault",
+    "type": "ARN"
+  }
+}

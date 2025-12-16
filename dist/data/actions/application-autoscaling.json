@@ -1,0 +1,204 @@
+{
+  "deletescalingpolicy": {
+    "name": "DeleteScalingPolicy",
+    "description": "Grants permission to delete a scaling policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ScalableTarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "application-autoscaling:service-namespace",
+      "application-autoscaling:scalable-dimension"
+    ],
+    "dependentActions": []
+  },
+  "deletescheduledaction": {
+    "name": "DeleteScheduledAction",
+    "description": "Grants permission to delete a scheduled action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ScalableTarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "application-autoscaling:service-namespace",
+      "application-autoscaling:scalable-dimension"
+    ],
+    "dependentActions": []
+  },
+  "deregisterscalabletarget": {
+    "name": "DeregisterScalableTarget",
+    "description": "Grants permission to deregister a scalable target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ScalableTarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "application-autoscaling:service-namespace",
+      "application-autoscaling:scalable-dimension"
+    ],
+    "dependentActions": []
+  },
+  "describescalabletargets": {
+    "name": "DescribeScalableTargets",
+    "description": "Grants permission to describe one or more scalable targets in the specified namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describescalingactivities": {
+    "name": "DescribeScalingActivities",
+    "description": "Grants permission to describe a set of scaling activities or all scaling activities in the specified namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describescalingpolicies": {
+    "name": "DescribeScalingPolicies",
+    "description": "Grants permission to describe a set of scaling policies or all scaling policies in the specified namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describescheduledactions": {
+    "name": "DescribeScheduledActions",
+    "description": "Grants permission to describe a set of scheduled actions or all scheduled actions in the specified namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpredictivescalingforecast": {
+    "name": "GetPredictiveScalingForecast",
+    "description": "Grants permission to retrieve the forecast data for a predictive scaling policy",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a scalable target",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ScalableTarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putscalingpolicy": {
+    "name": "PutScalingPolicy",
+    "description": "Grants permission to create and update a scaling policy for a scalable target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ScalableTarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "application-autoscaling:service-namespace",
+      "application-autoscaling:scalable-dimension"
+    ],
+    "dependentActions": []
+  },
+  "putscheduledaction": {
+    "name": "PutScheduledAction",
+    "description": "Grants permission to create and update a scheduled action for a scalable target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ScalableTarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "application-autoscaling:service-namespace",
+      "application-autoscaling:scalable-dimension"
+    ],
+    "dependentActions": []
+  },
+  "registerscalabletarget": {
+    "name": "RegisterScalableTarget",
+    "description": "Grants permission to register AWS or custom resources as scalable targets with Application Auto Scaling and to update configuration parameters used to manage a scalable target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ScalableTarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "application-autoscaling:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "application-autoscaling:service-namespace",
+      "application-autoscaling:scalable-dimension"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a scalable target",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "ScalableTarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a scalable target",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "ScalableTarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

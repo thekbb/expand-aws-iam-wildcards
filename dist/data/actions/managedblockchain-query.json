@@ -1,0 +1,74 @@
+{
+  "batchgettokenbalance": {
+    "name": "BatchGetTokenBalance",
+    "description": "Grants permission to batch calls for GetTokenBalance API",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getassetcontract": {
+    "name": "GetAssetContract",
+    "description": "Grants permission to fetch information about a contract on the blockchain",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettokenbalance": {
+    "name": "GetTokenBalance",
+    "description": "Grants permission to retrieve balance of a token for an address on the blockchain",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettransaction": {
+    "name": "GetTransaction",
+    "description": "Grants permission to retrieve a transaction on the blockchain",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassetcontracts": {
+    "name": "ListAssetContracts",
+    "description": "Grants permission to fetch multiple contracts on the blockchain",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfilteredtransactionevents": {
+    "name": "ListFilteredTransactionEvents",
+    "description": "Grants permission to retrieve events on the blockchain with additional filters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtokenbalances": {
+    "name": "ListTokenBalances",
+    "description": "Grants permission to retrieve multiple balances on the blockchain",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtransactionevents": {
+    "name": "ListTransactionEvents",
+    "description": "Grants permission to retrieve events in a transaction on the blockchain",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtransactions": {
+    "name": "ListTransactions",
+    "description": "Grants permission to retrieve a multiple transactions on a blockchain",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

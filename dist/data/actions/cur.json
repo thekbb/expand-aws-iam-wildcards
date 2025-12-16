@@ -1,0 +1,158 @@
+{
+  "deletereportdefinition": {
+    "name": "DeleteReportDefinition",
+    "description": "Grants permission to delete Cost and Usage Report Definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cur",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereportdefinitions": {
+    "name": "DescribeReportDefinitions",
+    "description": "Grants permission to get Cost and Usage Report Definitions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getclassicreport": {
+    "name": "GetClassicReport",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get Bills CSV report",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getclassicreportpreferences": {
+    "name": "GetClassicReportPreferences",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get the classic report enablement status for Usage Reports",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getusagereport": {
+    "name": "GetUsageReport",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get list of AWS services, usage type and operation for the Usage Report workflow. Allows or denies download of usage reports too",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cur",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "modifyreportdefinition": {
+    "name": "ModifyReportDefinition",
+    "description": "Grants permission to modify Cost and Usage Report Definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cur",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putclassicreportpreferences": {
+    "name": "PutClassicReportPreferences",
+    "isPermissionOnly": true,
+    "description": "Grants permission to enable classic reports",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putreportdefinition": {
+    "name": "PutReportDefinition",
+    "description": "Grants permission to write Cost and Usage Report Definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cur",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "cur",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "cur",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "validatereportdestination": {
+    "name": "ValidateReportDestination",
+    "isPermissionOnly": true,
+    "description": "Grants permission to validates if the s3 bucket exists with appropriate permissions for CUR delivery",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

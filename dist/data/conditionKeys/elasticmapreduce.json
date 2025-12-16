@@ -1,0 +1,32 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by whether the tag and value pair is provided with the action",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the tag and value pair associated with an Amazon EMR resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by whether the tag keys are provided with the action regardless of tag value",
+    "type": "ArrayOfString"
+  },
+  "elasticmapreduce:executionrolearn": {
+    "key": "elasticmapreduce:ExecutionRoleArn",
+    "description": "Filters access by whether the execution role ARN is provided with the action",
+    "type": "ARN"
+  },
+  "elasticmapreduce:requesttag/${tagkey}": {
+    "key": "elasticmapreduce:RequestTag/${TagKey}",
+    "description": "Filters access by whether the tag and value pair is provided with the action",
+    "type": "String"
+  },
+  "elasticmapreduce:resourcetag/${tagkey}": {
+    "key": "elasticmapreduce:ResourceTag/${TagKey}",
+    "description": "Filters access by the tag and value pair associated with an Amazon EMR resource",
+    "type": "String"
+  }
+}

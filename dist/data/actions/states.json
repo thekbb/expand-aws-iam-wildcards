@@ -1,0 +1,598 @@
+{
+  "createactivity": {
+    "name": "CreateActivity",
+    "description": "Grants permission to create an activity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "activity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createstatemachine": {
+    "name": "CreateStateMachine",
+    "description": "Grants permission to create a state machine",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole",
+          "states:PublishStateMachineVersion"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createstatemachinealias": {
+    "name": "CreateStateMachineAlias",
+    "description": "Grants permission to create a state machine alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "deleteactivity": {
+    "name": "DeleteActivity",
+    "description": "Grants permission to delete an activity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "activity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestatemachine": {
+    "name": "DeleteStateMachine",
+    "description": "Grants permission to delete a state machine",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestatemachinealias": {
+    "name": "DeleteStateMachineAlias",
+    "description": "Grants permission to delete a state machine alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "deletestatemachineversion": {
+    "name": "DeleteStateMachineVersion",
+    "description": "Grants permission to delete a state machine version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "describeactivity": {
+    "name": "DescribeActivity",
+    "description": "Grants permission to describe an activity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "activity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeexecution": {
+    "name": "DescribeExecution",
+    "description": "Grants permission to describe an execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "express",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemaprun": {
+    "name": "DescribeMapRun",
+    "description": "Grants permission to describe a map run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "maprun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestatemachine": {
+    "name": "DescribeStateMachine",
+    "description": "Grants permission to describe a state machine",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "describestatemachinealias": {
+    "name": "DescribeStateMachineAlias",
+    "description": "Grants permission to describe a state machine alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "describestatemachineforexecution": {
+    "name": "DescribeStateMachineForExecution",
+    "description": "Grants permission to describe the state machine for an execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getactivitytask": {
+    "name": "GetActivityTask",
+    "description": "Grants permission to be used by workers to retrieve a task (with the specified activity ARN) which has been scheduled for execution by a running state machine",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "activity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexecutionhistory": {
+    "name": "GetExecutionHistory",
+    "description": "Grants permission to return the history of the specified execution as a list of events",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokehttpendpoint": {
+    "name": "InvokeHTTPEndpoint",
+    "isPermissionOnly": true,
+    "description": "Grants permission to invoke the HTTP Task state",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listactivities": {
+    "name": "ListActivities",
+    "description": "Grants permission to list the existing activities",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexecutions": {
+    "name": "ListExecutions",
+    "description": "Grants permission to list the executions of a state machine",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "maprun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "listmapruns": {
+    "name": "ListMapRuns",
+    "description": "Grants permission to list the map runs of an execution",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststatemachinealiases": {
+    "name": "ListStateMachineAliases",
+    "description": "Grants permission to list the aliases of a state machine",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "liststatemachineversions": {
+    "name": "ListStateMachineVersions",
+    "description": "Grants permission to list the versions of a state machine",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststatemachines": {
+    "name": "ListStateMachines",
+    "description": "Grants permission to lists the existing state machines",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an AWS Step Functions resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "activity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "statemachine",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishstatemachineversion": {
+    "name": "PublishStateMachineVersion",
+    "description": "Grants permission to publish a state machine version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "redriveexecution": {
+    "name": "RedriveExecution",
+    "description": "Grants permission to redrive an execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revealsecrets": {
+    "name": "RevealSecrets",
+    "isPermissionOnly": true,
+    "description": "Grants permission to reveal sensitive data from an execution",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendtaskfailure": {
+    "name": "SendTaskFailure",
+    "description": "Grants permission to report that the task identified by the taskToken failed",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendtaskheartbeat": {
+    "name": "SendTaskHeartbeat",
+    "description": "Grants permission to report to the service that the task represented by the specified taskToken is still making progress",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendtasksuccess": {
+    "name": "SendTaskSuccess",
+    "description": "Grants permission to report that the task identified by the taskToken completed successfully",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startexecution": {
+    "name": "StartExecution",
+    "description": "Grants permission to start a state machine execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "startsyncexecution": {
+    "name": "StartSyncExecution",
+    "description": "Grants permission to start a Synchronous Express state machine execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "stopexecution": {
+    "name": "StopExecution",
+    "description": "Grants permission to stop an execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an AWS Step Functions resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "activity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "statemachine",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "teststate": {
+    "name": "TestState",
+    "description": "Grants permission to test a state machine definition",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "states:RevealSecrets"
+    ]
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove a tag from an AWS Step Functions resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "activity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "statemachine",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatemaprun": {
+    "name": "UpdateMapRun",
+    "description": "Grants permission to update a map run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maprun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestatemachine": {
+    "name": "UpdateStateMachine",
+    "description": "Grants permission to update a state machine",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole",
+          "states:PublishStateMachineVersion"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatestatemachinealias": {
+    "name": "UpdateStateMachineAlias",
+    "description": "Grants permission to update a state machine alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statemachine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "states:StateMachineQualifier"
+    ],
+    "dependentActions": []
+  },
+  "validatestatemachinedefinition": {
+    "name": "ValidateStateMachineDefinition",
+    "description": "Grants permission to validate a state machine definition",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

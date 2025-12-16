@@ -1,0 +1,780 @@
+{
+  "addcustomroutingendpoints": {
+    "name": "AddCustomRoutingEndpoints",
+    "description": "Grants permission to add a virtual private cloud (VPC) subnet endpoint to a custom routing accelerator endpoint group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "addendpoints": {
+    "name": "AddEndpoints",
+    "description": "Grants permission to add an endpoint to a standard accelerator endpoint group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "globalaccelerator:UpdateEndpointGroup"
+    ]
+  },
+  "advertisebyoipcidr": {
+    "name": "AdvertiseByoipCidr",
+    "description": "Grants permission to advertises an IPv4 address range that is provisioned for use with your accelerator through bring your own IP addresses (BYOIP)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "allowcustomroutingtraffic": {
+    "name": "AllowCustomRoutingTraffic",
+    "description": "Grants permission to allows custom routing of user traffic to a private destination IP:PORT in a specific VPC subnet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createaccelerator": {
+    "name": "CreateAccelerator",
+    "description": "Grants permission to create a standard accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcrossaccountattachment": {
+    "name": "CreateCrossAccountAttachment",
+    "description": "Grants permission to create a CrossAccountAttachment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcustomroutingaccelerator": {
+    "name": "CreateCustomRoutingAccelerator",
+    "description": "Grants permission to create a Custom Routing accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcustomroutingendpointgroup": {
+    "name": "CreateCustomRoutingEndpointGroup",
+    "description": "Grants permission to create an endpoint group for the specified listener for a custom routing accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcustomroutinglistener": {
+    "name": "CreateCustomRoutingListener",
+    "description": "Grants permission to create a listener to process inbound connections from clients to a custom routing accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createendpointgroup": {
+    "name": "CreateEndpointGroup",
+    "description": "Grants permission to add an endpoint group to a standard accelerator listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlistener": {
+    "name": "CreateListener",
+    "description": "Grants permission to add a listener to a standard accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaccelerator": {
+    "name": "DeleteAccelerator",
+    "description": "Grants permission to delete a standard accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecrossaccountattachment": {
+    "name": "DeleteCrossAccountAttachment",
+    "description": "Grants permission to delete a CrossAccountAttachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecustomroutingaccelerator": {
+    "name": "DeleteCustomRoutingAccelerator",
+    "description": "Grants permission to delete a custom routing accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecustomroutingendpointgroup": {
+    "name": "DeleteCustomRoutingEndpointGroup",
+    "description": "Grants permission to delete an endpoint group from a listener for a custom routing accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecustomroutinglistener": {
+    "name": "DeleteCustomRoutingListener",
+    "description": "Grants permission to delete a listener for a custom routing accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteendpointgroup": {
+    "name": "DeleteEndpointGroup",
+    "description": "Grants permission to delete an endpoint group associated with a standard accelerator listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelistener": {
+    "name": "DeleteListener",
+    "description": "Grants permission to delete a listener from a standard accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "denycustomroutingtraffic": {
+    "name": "DenyCustomRoutingTraffic",
+    "description": "Grants permission to disallows custom routing of user traffic to a private destination IP:PORT in a specific VPC subnet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deprovisionbyoipcidr": {
+    "name": "DeprovisionByoipCidr",
+    "description": "Grants permission to releases the specified address range that you provisioned for use with your accelerator through bring your own IP addresses (BYOIP)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaccelerator": {
+    "name": "DescribeAccelerator",
+    "description": "Grants permissions to describe a standard accelerator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeacceleratorattributes": {
+    "name": "DescribeAcceleratorAttributes",
+    "description": "Grants permission to describe a standard accelerator attributes",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecrossaccountattachment": {
+    "name": "DescribeCrossAccountAttachment",
+    "description": "Grants permissions to describe a CrossAccountAttachment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecustomroutingaccelerator": {
+    "name": "DescribeCustomRoutingAccelerator",
+    "description": "Grants permission to describe a custom routing accelerator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecustomroutingacceleratorattributes": {
+    "name": "DescribeCustomRoutingAcceleratorAttributes",
+    "description": "Grants permission to describe the attributes of a custom routing accelerator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecustomroutingendpointgroup": {
+    "name": "DescribeCustomRoutingEndpointGroup",
+    "description": "Grants permission to describe an endpoint group for a custom routing accelerator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecustomroutinglistener": {
+    "name": "DescribeCustomRoutingListener",
+    "description": "Grants permission to describe a listener for a custom routing accelerator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeendpointgroup": {
+    "name": "DescribeEndpointGroup",
+    "description": "Grants permission to describe a standard accelerator endpoint group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelistener": {
+    "name": "DescribeListener",
+    "description": "Grants permission to describe a standard accelerator listener",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccelerators": {
+    "name": "ListAccelerators",
+    "description": "Grants permission to list all standard accelerators",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbyoipcidrs": {
+    "name": "ListByoipCidrs",
+    "description": "Grants permission to list the BYOIP cidrs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcrossaccountattachments": {
+    "name": "ListCrossAccountAttachments",
+    "description": "Grants permission to list all CrossAccountAttachments",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcrossaccountresourceaccounts": {
+    "name": "ListCrossAccountResourceAccounts",
+    "description": "Grants permission to list accounts with CrossAccountAttachments listing caller as a principal",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcrossaccountresources": {
+    "name": "ListCrossAccountResources",
+    "description": "Grants permission to list all CrossAccountAttachment resources usable by caller",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomroutingaccelerators": {
+    "name": "ListCustomRoutingAccelerators",
+    "description": "Grants permission to list the custom routing accelerators for an AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomroutingendpointgroups": {
+    "name": "ListCustomRoutingEndpointGroups",
+    "description": "Grants permission to list the endpoint groups that are associated with a listener for a custom routing accelerator",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomroutinglisteners": {
+    "name": "ListCustomRoutingListeners",
+    "description": "Grants permission to list the listeners for a custom routing accelerator",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomroutingportmappings": {
+    "name": "ListCustomRoutingPortMappings",
+    "description": "Grants permission to list the port mappings for a custom routing accelerator",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomroutingportmappingsbydestination": {
+    "name": "ListCustomRoutingPortMappingsByDestination",
+    "description": "Grants permission to list the port mappings for a specific endpoint IP address (a destination address) in a subnet",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listendpointgroups": {
+    "name": "ListEndpointGroups",
+    "description": "Grants permission to list all endpoint groups associated with a standard accelerator listener",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlisteners": {
+    "name": "ListListeners",
+    "description": "Grants permission to list all listeners associated with a standard accelerator",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a globalaccelerator resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "attachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "provisionbyoipcidr": {
+    "name": "ProvisionByoipCidr",
+    "description": "Grants permission to provisions an address range for use with your accelerator through bring your own IP addresses (BYOIP)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removecustomroutingendpoints": {
+    "name": "RemoveCustomRoutingEndpoints",
+    "description": "Grants permission to remove virtual private cloud (VPC) subnet endpoints from a custom routing accelerator endpoint group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeendpoints": {
+    "name": "RemoveEndpoints",
+    "description": "Grants permission to remove an endpoint from a standard accelerator endpoint group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "globalaccelerator:UpdateEndpointGroup"
+    ]
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a globalaccelerator resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "attachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a globalaccelerator resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "attachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateaccelerator": {
+    "name": "UpdateAccelerator",
+    "description": "Grants permission to update a standard accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateacceleratorattributes": {
+    "name": "UpdateAcceleratorAttributes",
+    "description": "Grants permission to update a standard accelerator attributes",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecrossaccountattachment": {
+    "name": "UpdateCrossAccountAttachment",
+    "description": "Grants permission to update a CrossAccountAttachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecustomroutingaccelerator": {
+    "name": "UpdateCustomRoutingAccelerator",
+    "description": "Grants permission to update a custom routing accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecustomroutingacceleratorattributes": {
+    "name": "UpdateCustomRoutingAcceleratorAttributes",
+    "description": "Grants permission to update the attributes for a custom routing accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accelerator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecustomroutinglistener": {
+    "name": "UpdateCustomRoutingListener",
+    "description": "Grants permission to update a listener for a custom routing accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateendpointgroup": {
+    "name": "UpdateEndpointGroup",
+    "description": "Grants permission to update an endpoint group on a standard accelerator listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpointgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelistener": {
+    "name": "UpdateListener",
+    "description": "Grants permission to update a listener on a standard accelerator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "withdrawbyoipcidr": {
+    "name": "WithdrawByoipCidr",
+    "description": "Grants permission to stops advertising a BYOIP IPv4 address",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

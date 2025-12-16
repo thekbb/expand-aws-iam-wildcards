@@ -1,0 +1,104 @@
+{
+  "dataset": {
+    "key": "dataset",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:dataset/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "datasetgroup": {
+    "key": "datasetGroup",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:dataset-group/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "datasetimportjob": {
+    "key": "datasetImportJob",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:dataset-import-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "algorithm": {
+    "key": "algorithm",
+    "arn": "arn:${Partition}:forecast:::algorithm/${ResourceId}"
+  },
+  "predictor": {
+    "key": "predictor",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:predictor/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "predictorbacktestexportjob": {
+    "key": "predictorBacktestExportJob",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:predictor-backtest-export-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "forecast": {
+    "key": "forecast",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:forecast/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "forecastexport": {
+    "key": "forecastExport",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:forecast-export-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "explainability": {
+    "key": "explainability",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:explainability/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "explainabilityexport": {
+    "key": "explainabilityExport",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:explainability-export/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "monitor": {
+    "key": "monitor",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:monitor/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "whatifanalysis": {
+    "key": "whatIfAnalysis",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:what-if-analysis/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "whatifforecast": {
+    "key": "whatIfForecast",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:what-if-forecast/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "whatifforecastexport": {
+    "key": "whatIfForecastExport",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:what-if-forecast-export/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "endpoint": {
+    "key": "endpoint",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:forecast-endpoint/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

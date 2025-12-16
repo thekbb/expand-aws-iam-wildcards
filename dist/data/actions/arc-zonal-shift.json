@@ -1,0 +1,300 @@
+{
+  "cancelpracticerun": {
+    "name": "CancelPracticeRun",
+    "description": "Grants permission to cancel an active practice run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "cancelzonalshift": {
+    "name": "CancelZonalShift",
+    "description": "Grants permission to cancel an active zonal shift",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createpracticerunconfiguration": {
+    "name": "CreatePracticeRunConfiguration",
+    "description": "Grants permission to create a practice run configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudwatch:DescribeAlarms",
+          "iam:CreateServiceLinkedRole"
+        ]
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletepracticerunconfiguration": {
+    "name": "DeletePracticeRunConfiguration",
+    "description": "Grants permission to delete a practice run configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getautoshiftobservernotificationstatus": {
+    "name": "GetAutoshiftObserverNotificationStatus",
+    "description": "Grants permission to get autoshift observer notification status",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedresource": {
+    "name": "GetManagedResource",
+    "description": "Grants permission to get information about a managed resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listautoshifts": {
+    "name": "ListAutoshifts",
+    "description": "Grants permission to list active and completed autoshifts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagedresources": {
+    "name": "ListManagedResources",
+    "description": "Grants permission to list managed resources",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listzonalshifts": {
+    "name": "ListZonalShifts",
+    "description": "Grants permission to list zonal shifts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startpracticerun": {
+    "name": "StartPracticeRun",
+    "description": "Grants permission to start a practice run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startzonalshift": {
+    "name": "StartZonalShift",
+    "description": "Grants permission to start a zonal shift",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateautoshiftobservernotificationstatus": {
+    "name": "UpdateAutoshiftObserverNotificationStatus",
+    "description": "Grants permission to update autoshift observer notification status",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepracticerunconfiguration": {
+    "name": "UpdatePracticeRunConfiguration",
+    "description": "Grants permission to update a practice run configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudwatch:DescribeAlarms",
+          "iam:CreateServiceLinkedRole"
+        ]
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatezonalautoshiftconfiguration": {
+    "name": "UpdateZonalAutoshiftConfiguration",
+    "description": "Grants permission to update a zonal autoshift status",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatezonalshift": {
+    "name": "UpdateZonalShift",
+    "description": "Grants permission to update an existing zonal shift",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

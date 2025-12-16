@@ -1,0 +1,4129 @@
+{
+  "abortmultipartupload": {
+    "name": "AbortMultipartUpload",
+    "description": "Grants permission to abort a multipart upload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "associateaccessgrantsidentitycenter": {
+    "name": "AssociateAccessGrantsIdentityCenter",
+    "description": "Grants permission to associate Access Grants identity center",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "bypassgovernanceretention": {
+    "name": "BypassGovernanceRetention",
+    "description": "Grants permission to allow circumvention of governance-mode object retention settings",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:RequestObjectTag/<key>",
+      "s3:RequestObjectTagKeys",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-acl",
+      "s3:x-amz-content-sha256",
+      "s3:x-amz-copy-source",
+      "s3:x-amz-grant-full-control",
+      "s3:x-amz-grant-read",
+      "s3:x-amz-grant-read-acp",
+      "s3:x-amz-grant-write",
+      "s3:x-amz-grant-write-acp",
+      "s3:x-amz-metadata-directive",
+      "s3:x-amz-server-side-encryption",
+      "s3:x-amz-server-side-encryption-aws-kms-key-id",
+      "s3:x-amz-server-side-encryption-customer-algorithm",
+      "s3:x-amz-storage-class",
+      "s3:x-amz-website-redirect-location"
+    ],
+    "dependentActions": []
+  },
+  "createaccessgrant": {
+    "name": "CreateAccessGrant",
+    "description": "Grants permission to create Access Grant",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantslocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantScope",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createaccessgrantsinstance": {
+    "name": "CreateAccessGrantsInstance",
+    "description": "Grants permission to Create Access Grants Instance",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createaccessgrantslocation": {
+    "name": "CreateAccessGrantsLocation",
+    "description": "Grants permission to create Access Grants location",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsLocationScope",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createaccesspoint": {
+    "name": "CreateAccessPoint",
+    "description": "Grants permission to create a new access point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:locationconstraint",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-acl",
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createaccesspointforobjectlambda": {
+    "name": "CreateAccessPointForObjectLambda",
+    "description": "Grants permission to create an object lambda enabled accesspoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "objectlambdaaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "createbucket": {
+    "name": "CreateBucket",
+    "description": "Grants permission to create a new bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:locationconstraint",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-acl",
+      "s3:x-amz-content-sha256",
+      "s3:x-amz-grant-full-control",
+      "s3:x-amz-grant-read",
+      "s3:x-amz-grant-read-acp",
+      "s3:x-amz-grant-write",
+      "s3:x-amz-grant-write-acp",
+      "s3:x-amz-object-ownership",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createbucketmetadatatableconfiguration": {
+    "name": "CreateBucketMetadataTableConfiguration",
+    "description": "Grants permission to create a new S3 Metadata configuration for a specified general purpose bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:DescribeKey",
+          "s3tables:CreateNamespace",
+          "s3tables:CreateTable",
+          "s3tables:CreateTableBucket",
+          "s3tables:GetTable",
+          "s3tables:PutTableBucketPolicy",
+          "s3tables:PutTableEncryption",
+          "s3tables:PutTablePolicy"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "createjob": {
+    "name": "CreateJob",
+    "description": "Grants permission to create a new Amazon S3 Batch Operations job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:RequestJobPriority",
+      "s3:RequestJobOperation",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "createmultiregionaccesspoint": {
+    "name": "CreateMultiRegionAccessPoint",
+    "description": "Grants permission to create a new Multi-Region Access Point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregionaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "createstoragelensgroup": {
+    "name": "CreateStorageLensGroup",
+    "description": "Grants permission to create an Amazon S3 Storage Lens group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccessgrant": {
+    "name": "DeleteAccessGrant",
+    "description": "Grants permission to delete Access Grant",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantScope",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccessgrantsinstance": {
+    "name": "DeleteAccessGrantsInstance",
+    "description": "Grants permission to Delete Access Grants Instance",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccessgrantsinstanceresourcepolicy": {
+    "name": "DeleteAccessGrantsInstanceResourcePolicy",
+    "description": "Grants permission to read Access grants instance resource policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccessgrantslocation": {
+    "name": "DeleteAccessGrantsLocation",
+    "description": "Grants permission to delete Access Grants location",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantslocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsLocationScope",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesspoint": {
+    "name": "DeleteAccessPoint",
+    "description": "Grants permission to delete the access point named in the URI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointArn",
+      "s3:DataAccessPointAccount",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesspointforobjectlambda": {
+    "name": "DeleteAccessPointForObjectLambda",
+    "description": "Grants permission to delete the object lambda enabled access point named in the URI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "objectlambdaaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointArn",
+      "s3:DataAccessPointAccount",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesspointpolicy": {
+    "name": "DeleteAccessPointPolicy",
+    "description": "Grants permission to delete the policy on a specified access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointArn",
+      "s3:DataAccessPointAccount",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesspointpolicyforobjectlambda": {
+    "name": "DeleteAccessPointPolicyForObjectLambda",
+    "description": "Grants permission to delete the policy on a specified object lambda enabled access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "objectlambdaaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointArn",
+      "s3:DataAccessPointAccount",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletebucket": {
+    "name": "DeleteBucket",
+    "description": "Grants permission to delete the bucket named in the URI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletebucketmetadatatableconfiguration": {
+    "name": "DeleteBucketMetadataTableConfiguration",
+    "description": "Grants permission to delete the S3 Metadata configuration for a specified general purpose bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletebucketpolicy": {
+    "name": "DeleteBucketPolicy",
+    "description": "Grants permission to delete the policy on a specified bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletebucketwebsite": {
+    "name": "DeleteBucketWebsite",
+    "description": "Grants permission to remove the website configuration for a bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletejobtagging": {
+    "name": "DeleteJobTagging",
+    "description": "Grants permission to remove tags from an existing Amazon S3 Batch Operations job",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ExistingJobPriority",
+      "s3:ExistingJobOperation"
+    ],
+    "dependentActions": []
+  },
+  "deletemultiregionaccesspoint": {
+    "name": "DeleteMultiRegionAccessPoint",
+    "description": "Grants permission to delete the Multi-Region Access Point named in the URI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregionaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "deleteobject": {
+    "name": "DeleteObject",
+    "description": "Grants permission to remove the null version of an object and insert a delete marker, which becomes the current version of the object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:if-match"
+    ],
+    "dependentActions": []
+  },
+  "deleteobjecttagging": {
+    "name": "DeleteObjectTagging",
+    "description": "Grants permission to use the tagging subresource to remove the entire tag set from the specified object",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteobjectversion": {
+    "name": "DeleteObjectVersion",
+    "description": "Grants permission to remove a specific version of an object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:versionid",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteobjectversiontagging": {
+    "name": "DeleteObjectVersionTagging",
+    "description": "Grants permission to remove the entire tag set for a specific version of the object",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:versionid",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletestoragelensconfiguration": {
+    "name": "DeleteStorageLensConfiguration",
+    "description": "Grants permission to delete an existing Amazon S3 Storage Lens configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "storagelensconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletestoragelensconfigurationtagging": {
+    "name": "DeleteStorageLensConfigurationTagging",
+    "description": "Grants permission to remove tags from an existing Amazon S3 Storage Lens configuration",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "storagelensconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletestoragelensgroup": {
+    "name": "DeleteStorageLensGroup",
+    "description": "Grants permission to delete an existing S3 Storage Lens group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "storagelensgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "describejob": {
+    "name": "DescribeJob",
+    "description": "Grants permission to retrieve the configuration parameters and status for a batch operations job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "describemultiregionaccesspointoperation": {
+    "name": "DescribeMultiRegionAccessPointOperation",
+    "description": "Grants permission to retrieve the configurations for a Multi-Region Access Point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregionaccesspointrequestarn",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "dissociateaccessgrantsidentitycenter": {
+    "name": "DissociateAccessGrantsIdentityCenter",
+    "description": "Grants permission to disassociate Access Grants identity center",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccelerateconfiguration": {
+    "name": "GetAccelerateConfiguration",
+    "description": "Grants permission to uses the accelerate subresource to return the Transfer Acceleration state of a bucket, which is either Enabled or Suspended",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccessgrant": {
+    "name": "GetAccessGrant",
+    "description": "Grants permission to read Access Grant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accessgrant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantScope",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccessgrantsinstance": {
+    "name": "GetAccessGrantsInstance",
+    "description": "Grants permission to Read Access Grants Instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccessgrantsinstanceforprefix": {
+    "name": "GetAccessGrantsInstanceForPrefix",
+    "description": "Grants permission to Read Access Grants Instance by prefix",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccessgrantsinstanceresourcepolicy": {
+    "name": "GetAccessGrantsInstanceResourcePolicy",
+    "description": "Grants permission to read Access grants instance resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccessgrantslocation": {
+    "name": "GetAccessGrantsLocation",
+    "description": "Grants permission to read Access Grants location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accessgrantslocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsLocationScope",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspoint": {
+    "name": "GetAccessPoint",
+    "description": "Grants permission to return configuration information about the specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspointconfigurationforobjectlambda": {
+    "name": "GetAccessPointConfigurationForObjectLambda",
+    "description": "Grants permission to retrieve the configuration of the object lambda enabled access point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "objectlambdaaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointArn",
+      "s3:DataAccessPointAccount",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspointforobjectlambda": {
+    "name": "GetAccessPointForObjectLambda",
+    "description": "Grants permission to create an object lambda enabled accesspoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "objectlambdaaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspointpolicy": {
+    "name": "GetAccessPointPolicy",
+    "description": "Grants permission to return the access point policy associated with the specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspointpolicyforobjectlambda": {
+    "name": "GetAccessPointPolicyForObjectLambda",
+    "description": "Grants permission to return the access point policy associated with the specified object lambda enabled access point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "objectlambdaaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspointpolicystatus": {
+    "name": "GetAccessPointPolicyStatus",
+    "description": "Grants permission to return the policy status for a specific access point policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspointpolicystatusforobjectlambda": {
+    "name": "GetAccessPointPolicyStatusForObjectLambda",
+    "description": "Grants permission to return the policy status for a specific object lambda access point policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "objectlambdaaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccountpublicaccessblock": {
+    "name": "GetAccountPublicAccessBlock",
+    "description": "Grants permission to retrieve the PublicAccessBlock configuration for an AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getanalyticsconfiguration": {
+    "name": "GetAnalyticsConfiguration",
+    "description": "Grants permission to get an analytics configuration from an Amazon S3 bucket, identified by the analytics configuration ID",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketabac": {
+    "name": "GetBucketAbac",
+    "description": "Grants permission to retrieve ABAC configuration for a general purpose bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketacl": {
+    "name": "GetBucketAcl",
+    "description": "Grants permission to use the acl subresource to return the access control list (ACL) of an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketcors": {
+    "name": "GetBucketCORS",
+    "description": "Grants permission to return the CORS configuration information set for an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketlocation": {
+    "name": "GetBucketLocation",
+    "description": "Grants permission to return the Region that an Amazon S3 bucket resides in",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketlogging": {
+    "name": "GetBucketLogging",
+    "description": "Grants permission to return the logging status of an Amazon S3 bucket and the permissions users have to view or modify that status",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketmetadatatableconfiguration": {
+    "name": "GetBucketMetadataTableConfiguration",
+    "description": "Grants permission to return the S3 Metadata configuration for a specified general purpose bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketnotification": {
+    "name": "GetBucketNotification",
+    "description": "Grants permission to get the notification configuration of an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketobjectlockconfiguration": {
+    "name": "GetBucketObjectLockConfiguration",
+    "description": "Grants permission to get the Object Lock configuration of an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:signatureversion"
+    ],
+    "dependentActions": []
+  },
+  "getbucketownershipcontrols": {
+    "name": "GetBucketOwnershipControls",
+    "description": "Grants permission to retrieve ownership controls on a bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketpolicy": {
+    "name": "GetBucketPolicy",
+    "description": "Grants permission to return the policy of the specified bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketpolicystatus": {
+    "name": "GetBucketPolicyStatus",
+    "description": "Grants permission to retrieve the policy status for a specific Amazon S3 bucket, which indicates whether the bucket is public",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketpublicaccessblock": {
+    "name": "GetBucketPublicAccessBlock",
+    "description": "Grants permission to retrieve the PublicAccessBlock configuration for an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketrequestpayment": {
+    "name": "GetBucketRequestPayment",
+    "description": "Grants permission to return the request payment configuration for an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbuckettagging": {
+    "name": "GetBucketTagging",
+    "description": "Grants permission to return the tag set associated with an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketversioning": {
+    "name": "GetBucketVersioning",
+    "description": "Grants permission to return the versioning state of an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketwebsite": {
+    "name": "GetBucketWebsite",
+    "description": "Grants permission to return the website configuration for an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getdataaccess": {
+    "name": "GetDataAccess",
+    "description": "Grants permission to get Access",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getencryptionconfiguration": {
+    "name": "GetEncryptionConfiguration",
+    "description": "Grants permission to return the default encryption configuration an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getintelligenttieringconfiguration": {
+    "name": "GetIntelligentTieringConfiguration",
+    "description": "Grants permission to get an or list all Amazon S3 Intelligent Tiering configuration in a S3 Bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getinventoryconfiguration": {
+    "name": "GetInventoryConfiguration",
+    "description": "Grants permission to return an inventory configuration from an Amazon S3 bucket, identified by the inventory configuration ID",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getjobtagging": {
+    "name": "GetJobTagging",
+    "description": "Grants permission to return the tag set of an existing Amazon S3 Batch Operations job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getlifecycleconfiguration": {
+    "name": "GetLifecycleConfiguration",
+    "description": "Grants permission to return the lifecycle configuration information set on an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getmetricsconfiguration": {
+    "name": "GetMetricsConfiguration",
+    "description": "Grants permission to get a metrics configuration from an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getmultiregionaccesspoint": {
+    "name": "GetMultiRegionAccessPoint",
+    "description": "Grants permission to return configuration information about the specified Multi-Region Access Point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregionaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "getmultiregionaccesspointpolicy": {
+    "name": "GetMultiRegionAccessPointPolicy",
+    "description": "Grants permission to return the access point policy associated with the specified Multi-Region Access Point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregionaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "getmultiregionaccesspointpolicystatus": {
+    "name": "GetMultiRegionAccessPointPolicyStatus",
+    "description": "Grants permission to return the policy status for a specific Multi-Region Access Point policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregionaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "getmultiregionaccesspointroutes": {
+    "name": "GetMultiRegionAccessPointRoutes",
+    "description": "Grants permission to return the route configuration for a Multi-Region Access Point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregionaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "getobject": {
+    "name": "GetObject",
+    "description": "Grants permission to retrieve objects from Amazon S3",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectacl": {
+    "name": "GetObjectAcl",
+    "description": "Grants permission to return the access control list (ACL) of an object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectattributes": {
+    "name": "GetObjectAttributes",
+    "description": "Grants permission to retrieve attributes related to a specific object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectlegalhold": {
+    "name": "GetObjectLegalHold",
+    "description": "Grants permission to get an object's current Legal Hold status",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectretention": {
+    "name": "GetObjectRetention",
+    "description": "Grants permission to retrieve the retention settings for an object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjecttagging": {
+    "name": "GetObjectTagging",
+    "description": "Grants permission to return the tag set of an object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjecttorrent": {
+    "name": "GetObjectTorrent",
+    "description": "Grants permission to return torrent files from an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversion": {
+    "name": "GetObjectVersion",
+    "description": "Grants permission to retrieve a specific version of an object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:versionid",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversionacl": {
+    "name": "GetObjectVersionAcl",
+    "description": "Grants permission to return the access control list (ACL) of a specific object version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:versionid",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversionattributes": {
+    "name": "GetObjectVersionAttributes",
+    "description": "Grants permission to retrieve attributes related to a specific version of an object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:versionid",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversionforreplication": {
+    "name": "GetObjectVersionForReplication",
+    "description": "Grants permission to replicate both unencrypted objects and objects encrypted with SSE-S3 or SSE-KMS",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversiontagging": {
+    "name": "GetObjectVersionTagging",
+    "description": "Grants permission to return the tag set for a specific version of the object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:versionid",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversiontorrent": {
+    "name": "GetObjectVersionTorrent",
+    "description": "Grants permission to get Torrent files about a different version using the versionId subresource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:versionid",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getreplicationconfiguration": {
+    "name": "GetReplicationConfiguration",
+    "description": "Grants permission to get the replication configuration information set on an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getstoragelensconfiguration": {
+    "name": "GetStorageLensConfiguration",
+    "description": "Grants permission to get an Amazon S3 Storage Lens configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "storagelensconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getstoragelensconfigurationtagging": {
+    "name": "GetStorageLensConfigurationTagging",
+    "description": "Grants permission to get the tag set of an existing Amazon S3 Storage Lens configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "storagelensconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getstoragelensdashboard": {
+    "name": "GetStorageLensDashboard",
+    "description": "Grants permission to get an Amazon S3 Storage Lens dashboard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "storagelensconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getstoragelensgroup": {
+    "name": "GetStorageLensGroup",
+    "description": "Grants permission to get an Amazon S3 Storage Lens group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "storagelensgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "initiatereplication": {
+    "name": "InitiateReplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to initiate the replication process by setting replication status of an object to pending",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ResourceAccount"
+    ],
+    "dependentActions": []
+  },
+  "listaccessgrants": {
+    "name": "ListAccessGrants",
+    "description": "Grants permission to list Access Grant",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listaccessgrantsinstances": {
+    "name": "ListAccessGrantsInstances",
+    "description": "Grants permission to List Access Grants Instances",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listaccessgrantslocations": {
+    "name": "ListAccessGrantsLocations",
+    "description": "Grants permission to list Access Grants locations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listaccesspoints": {
+    "name": "ListAccessPoints",
+    "description": "Grants permission to list access points",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listaccesspointsforobjectlambda": {
+    "name": "ListAccessPointsForObjectLambda",
+    "description": "Grants permission to list object lambda enabled accesspoints",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listallmybuckets": {
+    "name": "ListAllMyBuckets",
+    "description": "Grants permission to list all buckets owned by the authenticated sender of the request",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listbucket": {
+    "name": "ListBucket",
+    "description": "Grants permission to list some or all of the objects in an Amazon S3 bucket (up to 1000)",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:authType",
+      "s3:delimiter",
+      "s3:max-keys",
+      "s3:prefix",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listbucketmultipartuploads": {
+    "name": "ListBucketMultipartUploads",
+    "description": "Grants permission to list in-progress multipart uploads",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listbucketversions": {
+    "name": "ListBucketVersions",
+    "description": "Grants permission to list metadata about all the versions of objects in an Amazon S3 bucket",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:authType",
+      "s3:delimiter",
+      "s3:max-keys",
+      "s3:prefix",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listcalleraccessgrants": {
+    "name": "ListCallerAccessGrants",
+    "description": "Grants permission to list caller's Access Grant",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listjobs": {
+    "name": "ListJobs",
+    "description": "Grants permission to list current jobs and jobs that have ended recently",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listmultiregionaccesspoints": {
+    "name": "ListMultiRegionAccessPoints",
+    "description": "Grants permission to list Multi-Region Access Points",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "listmultipartuploadparts": {
+    "name": "ListMultipartUploadParts",
+    "description": "Grants permission to list the parts that have been uploaded for a specific multipart upload",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "liststoragelensconfigurations": {
+    "name": "ListStorageLensConfigurations",
+    "description": "Grants permission to list Amazon S3 Storage Lens configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "liststoragelensgroups": {
+    "name": "ListStorageLensGroups",
+    "description": "Grants permission to list S3 Storage Lens groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags attached to the specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accessgrant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accessgrantsinstance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accessgrantslocation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "storagelensgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "objectowneroverridetobucketowner": {
+    "name": "ObjectOwnerOverrideToBucketOwner",
+    "description": "Grants permission to change replica ownership",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "pausereplication": {
+    "name": "PauseReplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to pause S3 Replication from target source buckets to destination buckets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "s3:GetReplicationConfiguration",
+          "s3:PutReplicationConfiguration"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "s3:destinationRegion",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putaccelerateconfiguration": {
+    "name": "PutAccelerateConfiguration",
+    "description": "Grants permission to use the accelerate subresource to set the Transfer Acceleration state of an existing S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putaccessgrantsinstanceresourcepolicy": {
+    "name": "PutAccessGrantsInstanceResourcePolicy",
+    "description": "Grants permission to put Access grants instance resource policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putaccesspointconfigurationforobjectlambda": {
+    "name": "PutAccessPointConfigurationForObjectLambda",
+    "description": "Grants permission to set the configuration of the object lambda enabled access point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "objectlambdaaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointArn",
+      "s3:DataAccessPointAccount",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putaccesspointpolicy": {
+    "name": "PutAccessPointPolicy",
+    "description": "Grants permission to associate an access policy with a specified access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putaccesspointpolicyforobjectlambda": {
+    "name": "PutAccessPointPolicyForObjectLambda",
+    "description": "Grants permission to associate an access policy with a specified object lambda enabled access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "objectlambdaaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putaccesspointpublicaccessblock": {
+    "name": "PutAccessPointPublicAccessBlock",
+    "description": "Grants permission to associate public access block configurations with a specified access point, while creating a access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putaccountpublicaccessblock": {
+    "name": "PutAccountPublicAccessBlock",
+    "description": "Grants permission to create or modify the PublicAccessBlock configuration for an AWS account",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putanalyticsconfiguration": {
+    "name": "PutAnalyticsConfiguration",
+    "description": "Grants permission to set an analytics configuration for the bucket, specified by the analytics configuration ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketabac": {
+    "name": "PutBucketAbac",
+    "description": "Grants permission to set ABAC configuration for a general purpose bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketacl": {
+    "name": "PutBucketAcl",
+    "description": "Grants permission to set the permissions on an existing bucket using access control lists (ACLs)",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-acl",
+      "s3:x-amz-content-sha256",
+      "s3:x-amz-grant-full-control",
+      "s3:x-amz-grant-read",
+      "s3:x-amz-grant-read-acp",
+      "s3:x-amz-grant-write",
+      "s3:x-amz-grant-write-acp"
+    ],
+    "dependentActions": []
+  },
+  "putbucketcors": {
+    "name": "PutBucketCORS",
+    "description": "Grants permission to set the CORS configuration for an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketlogging": {
+    "name": "PutBucketLogging",
+    "description": "Grants permission to set the logging parameters for an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketnotification": {
+    "name": "PutBucketNotification",
+    "description": "Grants permission to receive notifications when certain events happen in an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketobjectlockconfiguration": {
+    "name": "PutBucketObjectLockConfiguration",
+    "description": "Grants permission to put Object Lock configuration on a specific bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:TlsVersion",
+      "s3:signatureversion"
+    ],
+    "dependentActions": []
+  },
+  "putbucketownershipcontrols": {
+    "name": "PutBucketOwnershipControls",
+    "description": "Grants permission to add, replace or delete ownership controls on a bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketpolicy": {
+    "name": "PutBucketPolicy",
+    "description": "Grants permission to add or replace a bucket policy on a bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketpublicaccessblock": {
+    "name": "PutBucketPublicAccessBlock",
+    "description": "Grants permission to create or modify the PublicAccessBlock configuration for a specific Amazon S3 bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketrequestpayment": {
+    "name": "PutBucketRequestPayment",
+    "description": "Grants permission to set the request payment configuration of a bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbuckettagging": {
+    "name": "PutBucketTagging",
+    "description": "Grants permission to add a set of tags to an existing Amazon S3 bucket",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketversioning": {
+    "name": "PutBucketVersioning",
+    "description": "Grants permission to set the versioning state of an existing Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketwebsite": {
+    "name": "PutBucketWebsite",
+    "description": "Grants permission to set the configuration of the website that is specified in the website subresource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putencryptionconfiguration": {
+    "name": "PutEncryptionConfiguration",
+    "description": "Grants permission to set the encryption configuration for an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putintelligenttieringconfiguration": {
+    "name": "PutIntelligentTieringConfiguration",
+    "description": "Grants permission to create new or update or delete an existing Amazon S3 Intelligent Tiering configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putinventoryconfiguration": {
+    "name": "PutInventoryConfiguration",
+    "description": "Grants permission to add an inventory configuration to the bucket, identified by the inventory ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:InventoryAccessibleOptionalFields"
+    ],
+    "dependentActions": []
+  },
+  "putjobtagging": {
+    "name": "PutJobTagging",
+    "description": "Grants permission to replace tags on an existing Amazon S3 Batch Operations job",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ExistingJobPriority",
+      "s3:ExistingJobOperation",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putlifecycleconfiguration": {
+    "name": "PutLifecycleConfiguration",
+    "description": "Grants permission to create a new lifecycle configuration for the bucket or replace an existing lifecycle configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putmetricsconfiguration": {
+    "name": "PutMetricsConfiguration",
+    "description": "Grants permission to set or update a metrics configuration for the CloudWatch request metrics from an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putmultiregionaccesspointpolicy": {
+    "name": "PutMultiRegionAccessPointPolicy",
+    "description": "Grants permission to associate an access policy with a specified Multi-Region Access Point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "multiregionaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "putobject": {
+    "name": "PutObject",
+    "description": "Grants permission to add an object to a bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:RequestObjectTag/<key>",
+      "s3:RequestObjectTagKeys",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-acl",
+      "s3:x-amz-content-sha256",
+      "s3:x-amz-copy-source",
+      "s3:x-amz-grant-full-control",
+      "s3:x-amz-grant-read",
+      "s3:x-amz-grant-read-acp",
+      "s3:x-amz-grant-write",
+      "s3:x-amz-grant-write-acp",
+      "s3:x-amz-metadata-directive",
+      "s3:x-amz-server-side-encryption",
+      "s3:x-amz-server-side-encryption-aws-kms-key-id",
+      "s3:x-amz-server-side-encryption-customer-algorithm",
+      "s3:x-amz-storage-class",
+      "s3:x-amz-website-redirect-location",
+      "s3:object-lock-mode",
+      "s3:object-lock-retain-until-date",
+      "s3:object-lock-remaining-retention-days",
+      "s3:object-lock-legal-hold",
+      "s3:if-match",
+      "s3:if-none-match",
+      "s3:ObjectCreationOperation"
+    ],
+    "dependentActions": []
+  },
+  "putobjectacl": {
+    "name": "PutObjectAcl",
+    "description": "Grants permission to set the access control list (ACL) permissions for new or existing objects in an S3 bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-acl",
+      "s3:x-amz-content-sha256",
+      "s3:x-amz-grant-full-control",
+      "s3:x-amz-grant-read",
+      "s3:x-amz-grant-read-acp",
+      "s3:x-amz-grant-write",
+      "s3:x-amz-grant-write-acp",
+      "s3:x-amz-storage-class"
+    ],
+    "dependentActions": []
+  },
+  "putobjectlegalhold": {
+    "name": "PutObjectLegalHold",
+    "description": "Grants permission to apply a Legal Hold configuration to the specified object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:object-lock-legal-hold"
+    ],
+    "dependentActions": []
+  },
+  "putobjectretention": {
+    "name": "PutObjectRetention",
+    "description": "Grants permission to place an Object Retention configuration on an object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:object-lock-mode",
+      "s3:object-lock-retain-until-date",
+      "s3:object-lock-remaining-retention-days"
+    ],
+    "dependentActions": []
+  },
+  "putobjecttagging": {
+    "name": "PutObjectTagging",
+    "description": "Grants permission to set the supplied tag-set to an object that already exists in a bucket",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:RequestObjectTag/<key>",
+      "s3:RequestObjectTagKeys",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putobjectversionacl": {
+    "name": "PutObjectVersionAcl",
+    "description": "Grants permission to use the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsInstanceArn",
+      "s3:ExistingObjectTag/<key>",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:versionid",
+      "s3:x-amz-acl",
+      "s3:x-amz-content-sha256",
+      "s3:x-amz-grant-full-control",
+      "s3:x-amz-grant-read",
+      "s3:x-amz-grant-read-acp",
+      "s3:x-amz-grant-write",
+      "s3:x-amz-grant-write-acp",
+      "s3:x-amz-storage-class"
+    ],
+    "dependentActions": []
+  },
+  "putobjectversiontagging": {
+    "name": "PutObjectVersionTagging",
+    "description": "Grants permission to set the supplied tag-set for a specific version of an object",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:RequestObjectTag/<key>",
+      "s3:RequestObjectTagKeys",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:versionid",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putreplicationconfiguration": {
+    "name": "PutReplicationConfiguration",
+    "description": "Grants permission to create a new replication configuration or replace an existing one",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:isReplicationPauseRequest"
+    ],
+    "dependentActions": []
+  },
+  "putstoragelensconfiguration": {
+    "name": "PutStorageLensConfiguration",
+    "description": "Grants permission to create or update an Amazon S3 Storage Lens configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putstoragelensconfigurationtagging": {
+    "name": "PutStorageLensConfigurationTagging",
+    "description": "Grants permission to put or replace tags on an existing Amazon S3 Storage Lens configuration",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "storagelensconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "replicatedelete": {
+    "name": "ReplicateDelete",
+    "description": "Grants permission to replicate delete markers to the destination bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "replicateobject": {
+    "name": "ReplicateObject",
+    "description": "Grants permission to replicate objects and object tags to the destination bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:x-amz-server-side-encryption",
+      "s3:x-amz-server-side-encryption-aws-kms-key-id",
+      "s3:x-amz-server-side-encryption-customer-algorithm"
+    ],
+    "dependentActions": []
+  },
+  "replicatetags": {
+    "name": "ReplicateTags",
+    "description": "Grants permission to replicate object tags to the destination bucket",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "restoreobject": {
+    "name": "RestoreObject",
+    "description": "Grants permission to restore an archived copy of an object back into Amazon S3",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "submitmultiregionaccesspointroutes": {
+    "name": "SubmitMultiRegionAccessPointRoutes",
+    "description": "Grants permission to submit a route configuration update for a Multi-Region Access Point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregionaccesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureversion",
+      "s3:signatureAge",
+      "s3:TlsVersion"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accessgrant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accessgrantsinstance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accessgrantslocation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "storagelensgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accessgrant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accessgrantsinstance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accessgrantslocation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "storagelensgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateaccessgrantslocation": {
+    "name": "UpdateAccessGrantsLocation",
+    "description": "Grants permission to update Access Grants location",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accessgrantslocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:AccessGrantsLocationScope",
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatebucketmetadatainventorytableconfiguration": {
+    "name": "UpdateBucketMetadataInventoryTableConfiguration",
+    "description": "Grants permission to update the inventory table configuration on an existing S3 Metadata configuration for a specified general purpose bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:DescribeKey",
+          "s3tables:CreateNamespace",
+          "s3tables:CreateTable",
+          "s3tables:CreateTableBucket",
+          "s3tables:GetTable",
+          "s3tables:PutTableEncryption",
+          "s3tables:PutTablePolicy"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "updatebucketmetadatajournaltableconfiguration": {
+    "name": "UpdateBucketMetadataJournalTableConfiguration",
+    "description": "Grants permission to update the journal table configuration on an existing S3 Metadata configuration for a specified general purpose bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "updatejobpriority": {
+    "name": "UpdateJobPriority",
+    "description": "Grants permission to update the priority of an existing job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:RequestJobPriority",
+      "s3:ExistingJobPriority",
+      "s3:ExistingJobOperation"
+    ],
+    "dependentActions": []
+  },
+  "updatejobstatus": {
+    "name": "UpdateJobStatus",
+    "description": "Grants permission to update the status for the specified job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ExistingJobPriority",
+      "s3:ExistingJobOperation",
+      "s3:JobSuspendedCause"
+    ],
+    "dependentActions": []
+  },
+  "updatestoragelensgroup": {
+    "name": "UpdateStorageLensGroup",
+    "description": "Grants permission to update an existing S3 Storage Lens group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "storagelensgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  }
+}

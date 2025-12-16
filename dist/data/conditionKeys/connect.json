@@ -1,0 +1,107 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by using tag key-value pairs in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by using tag key-value pairs attached to the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by using tag keys in the request",
+    "type": "ArrayOfString"
+  },
+  "connect:assignmenttype": {
+    "key": "connect:AssignmentType",
+    "description": "Filters access by restricting access to create contacts based on Assignment Type",
+    "type": "String"
+  },
+  "connect:attributetype": {
+    "key": "connect:AttributeType",
+    "description": "Filters access by the attribute type of the Amazon Connect instance",
+    "type": "String"
+  },
+  "connect:channel": {
+    "key": "connect:Channel",
+    "description": "Filters access by Channel",
+    "type": "String"
+  },
+  "connect:contactassociationid": {
+    "key": "connect:ContactAssociationId",
+    "description": "Filters access by ContactAssociationId",
+    "type": "String"
+  },
+  "connect:contactinitiationmethod": {
+    "key": "connect:ContactInitiationMethod",
+    "description": "Filters access by restricting access to create contacts based on the initiation method of the contact",
+    "type": "String"
+  },
+  "connect:expressionvalue": {
+    "key": "connect:ExpressionValue",
+    "description": "Filters access by restricting data table operations based on expression type",
+    "type": "String"
+  },
+  "connect:flowtype": {
+    "key": "connect:FlowType",
+    "description": "Filters access by Flow type",
+    "type": "ArrayOfString"
+  },
+  "connect:instanceid": {
+    "key": "connect:InstanceId",
+    "description": "Filters access by restricting federation into specified Amazon Connect instances",
+    "type": "String"
+  },
+  "connect:listrealtimecontactanalysissegmentsbyoutputtype": {
+    "key": "connect:ListRealtimeContactAnalysisSegmentsByOutputType",
+    "description": "Filters access by restricting the listed segments using the output type of the Amazon Connect Contact Lens real-time segment",
+    "type": "String"
+  },
+  "connect:listrealtimecontactanalysissegmentsbysegmenttype": {
+    "key": "connect:ListRealtimeContactAnalysisSegmentsBySegmentType",
+    "description": "Filters access by restricting the listed segments using the segment types of the Amazon Connect Contact Lens real-time segment",
+    "type": "ArrayOfString"
+  },
+  "connect:monitorcapabilities": {
+    "key": "connect:MonitorCapabilities",
+    "description": "Filters access by restricting the monitor capabilities of the user in the request",
+    "type": "ArrayOfString"
+  },
+  "connect:preferreduserarn": {
+    "key": "connect:PreferredUserArn",
+    "description": "Filters access by PreferredUserArn",
+    "type": "ARN"
+  },
+  "connect:primaryattribute/${primaryattribute}": {
+    "key": "connect:PrimaryAttribute/${PrimaryAttribute}",
+    "description": "Filters access by restricting which primary attributes the user can manage",
+    "type": "String"
+  },
+  "connect:searchcontactsbycontactanalysis": {
+    "key": "connect:SearchContactsByContactAnalysis",
+    "description": "Filters access by restricting searches using analysis outputs from Amazon Connect Contact Lens",
+    "type": "ArrayOfString"
+  },
+  "connect:searchtag/${tagkey}": {
+    "key": "connect:SearchTag/${TagKey}",
+    "description": "Filters access by TagFilter condition passed in the search request",
+    "type": "String"
+  },
+  "connect:storageresourcetype": {
+    "key": "connect:StorageResourceType",
+    "description": "Filters access by restricting the storage resource type of the Amazon Connect instance storage configuration",
+    "type": "String"
+  },
+  "connect:subtype": {
+    "key": "connect:Subtype",
+    "description": "Filters access by restricting creation of a contact for specific subtypes",
+    "type": "String"
+  },
+  "connect:userarn": {
+    "key": "connect:UserArn",
+    "description": "Filters access by UserArn",
+    "type": "ARN"
+  }
+}

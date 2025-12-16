@@ -1,0 +1,37 @@
+{
+  "allowlist": {
+    "key": "AllowList",
+    "arn": "arn:${Partition}:macie2:${Region}:${Account}:allow-list/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "classificationjob": {
+    "key": "ClassificationJob",
+    "arn": "arn:${Partition}:macie2:${Region}:${Account}:classification-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "customdataidentifier": {
+    "key": "CustomDataIdentifier",
+    "arn": "arn:${Partition}:macie2:${Region}:${Account}:custom-data-identifier/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "findingsfilter": {
+    "key": "FindingsFilter",
+    "arn": "arn:${Partition}:macie2:${Region}:${Account}:findings-filter/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "member": {
+    "key": "Member",
+    "arn": "arn:${Partition}:macie2:${Region}:${Account}:member/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

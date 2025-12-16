@@ -1,0 +1,102 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the tags that are passed in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the tag keys that are passed in the request",
+    "type": "ArrayOfString"
+  },
+  "s3express:accesspointnetworkorigin": {
+    "key": "s3express:AccessPointNetworkOrigin",
+    "description": "Filters access by the network origin (Internet or VPC)",
+    "type": "String"
+  },
+  "s3express:accesspointtag/${tagkey}": {
+    "key": "s3express:AccessPointTag/${TagKey}",
+    "description": "Filters access by tag key-value pairs attached to the access point",
+    "type": "String"
+  },
+  "s3express:allaccessrestrictedtolocalzonegroup": {
+    "key": "s3express:AllAccessRestrictedToLocalZoneGroup",
+    "description": "Filters access by AWS Local Zone network border group(s) provided in this condition key",
+    "type": "String"
+  },
+  "s3express:buckettag/${tagkey}": {
+    "key": "s3express:BucketTag/${TagKey}",
+    "description": "Filters access by tag key-value pairs attached to the bucket",
+    "type": "String"
+  },
+  "s3express:dataaccesspointaccount": {
+    "key": "s3express:DataAccessPointAccount",
+    "description": "Filters access by the AWS Account ID that owns the access point",
+    "type": "String"
+  },
+  "s3express:dataaccesspointarn": {
+    "key": "s3express:DataAccessPointArn",
+    "description": "Filters access by an access point Amazon Resource Name (ARN)",
+    "type": "ARN"
+  },
+  "s3express:locationname": {
+    "key": "s3express:LocationName",
+    "description": "Filters access by a specific Availability Zone or Local Zone ID",
+    "type": "String"
+  },
+  "s3express:permissions": {
+    "key": "s3express:Permissions",
+    "description": "Filters access by the permission requested by Access Point Scope configuration, such as GetObject, PutObject",
+    "type": "ArrayOfString"
+  },
+  "s3express:resourceaccount": {
+    "key": "s3express:ResourceAccount",
+    "description": "Filters access by the resource owner AWS account ID",
+    "type": "String"
+  },
+  "s3express:sessionmode": {
+    "key": "s3express:SessionMode",
+    "description": "Filters access by the permission requested by CreateSession API, such as ReadOnly and ReadWrite",
+    "type": "String"
+  },
+  "s3express:tlsversion": {
+    "key": "s3express:TlsVersion",
+    "description": "Filters access by the TLS version used by the client",
+    "type": "Numeric"
+  },
+  "s3express:authtype": {
+    "key": "s3express:authType",
+    "description": "Filters access by authentication method",
+    "type": "String"
+  },
+  "s3express:signatureage": {
+    "key": "s3express:signatureAge",
+    "description": "Filters access by the age in milliseconds of the request signature",
+    "type": "Numeric"
+  },
+  "s3express:signatureversion": {
+    "key": "s3express:signatureversion",
+    "description": "Filters access by the AWS Signature Version used on the request",
+    "type": "String"
+  },
+  "s3express:x-amz-content-sha256": {
+    "key": "s3express:x-amz-content-sha256",
+    "description": "Filters access by unsigned content in your bucket",
+    "type": "String"
+  },
+  "s3express:x-amz-server-side-encryption": {
+    "key": "s3express:x-amz-server-side-encryption",
+    "description": "Filters access by server-side encryption",
+    "type": "String"
+  },
+  "s3express:x-amz-server-side-encryption-aws-kms-key-id": {
+    "key": "s3express:x-amz-server-side-encryption-aws-kms-key-id",
+    "description": "Filters access by AWS KMS customer managed key for server-side encryption",
+    "type": "ARN"
+  }
+}

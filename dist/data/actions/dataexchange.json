@@ -1,0 +1,701 @@
+{
+  "acceptdatagrant": {
+    "name": "AcceptDataGrant",
+    "description": "Grants permission to accept a data grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "canceljob": {
+    "name": "CancelJob",
+    "description": "Grants permission to cancel a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "jobs",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createasset": {
+    "name": "CreateAsset",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an asset (for example, in a Job)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "revisions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatagrant": {
+    "name": "CreateDataGrant",
+    "description": "Grants permission to create a data grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "dataexchange:PublishToDataGrant"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdataset": {
+    "name": "CreateDataSet",
+    "description": "Grants permission to create a data set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createeventaction": {
+    "name": "CreateEventAction",
+    "description": "Grants permission to create an event action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-actions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createjob": {
+    "name": "CreateJob",
+    "description": "Grants permission to create a job to import or export assets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "jobs",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "dataexchange:JobType"
+    ],
+    "dependentActions": []
+  },
+  "createrevision": {
+    "name": "CreateRevision",
+    "description": "Grants permission to create a revision",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteasset": {
+    "name": "DeleteAsset",
+    "description": "Grants permission to delete an asset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "assets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatagrant": {
+    "name": "DeleteDataGrant",
+    "description": "Grants permission to delete a data grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataset": {
+    "name": "DeleteDataSet",
+    "description": "Grants permission to delete a data set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entitled-data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeventaction": {
+    "name": "DeleteEventAction",
+    "description": "Grants permission to delete an event action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-actions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterevision": {
+    "name": "DeleteRevision",
+    "description": "Grants permission to delete a revision",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "revisions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getasset": {
+    "name": "GetAsset",
+    "description": "Grants permission to get information about an asset and to export it (for example, in a Job)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "assets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entitled-assets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatagrant": {
+    "name": "GetDataGrant",
+    "description": "Grants permission to get a data grant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataset": {
+    "name": "GetDataSet",
+    "description": "Grants permission to get information about a data set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entitled-data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "geteventaction": {
+    "name": "GetEventAction",
+    "description": "Grants permission to get an event action",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "event-actions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjob": {
+    "name": "GetJob",
+    "description": "Grants permission to get information about a job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "jobs",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreceiveddatagrant": {
+    "name": "GetReceivedDataGrant",
+    "description": "Grants permission to get a received data grant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrevision": {
+    "name": "GetRevision",
+    "description": "Grants permission to get information about a revision",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "entitled-revisions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "revisions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatagrants": {
+    "name": "ListDataGrants",
+    "description": "Grants permission to list data grants for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetrevisions": {
+    "name": "ListDataSetRevisions",
+    "description": "Grants permission to list the revisions of a data set",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entitled-data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasets": {
+    "name": "ListDataSets",
+    "description": "Grants permission to list data sets for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeventactions": {
+    "name": "ListEventActions",
+    "description": "Grants permission to list event actions for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobs": {
+    "name": "ListJobs",
+    "description": "Grants permission to list jobs for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreceiveddatagrants": {
+    "name": "ListReceivedDataGrants",
+    "description": "Grants permission to list received data grants for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrevisionassets": {
+    "name": "ListRevisionAssets",
+    "description": "Grants permission to get list the assets of a revision",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "entitled-revisions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "revisions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags that you associated with the specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-sets",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-actions",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "revisions",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishdataset": {
+    "name": "PublishDataSet",
+    "isPermissionOnly": true,
+    "description": "Grants permission to publish a data set to a product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishtodatagrant": {
+    "name": "PublishToDataGrant",
+    "isPermissionOnly": true,
+    "description": "Grants permission to publish a data set to a data grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "revokerevision": {
+    "name": "RevokeRevision",
+    "description": "Grants permission to revoke subscriber access to a revision",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "revisions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendapiasset": {
+    "name": "SendApiAsset",
+    "description": "Grants permission to send a request to an API asset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "assets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entitled-assets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "senddatasetnotification": {
+    "name": "SendDataSetNotification",
+    "description": "Grants permission to send a notification to subscribers of a data set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startjob": {
+    "name": "StartJob",
+    "description": "Grants permission to start a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "jobs",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dataexchange:CreateAsset",
+      "dataexchange:DeleteDataSet",
+      "dataexchange:GetAsset",
+      "dataexchange:GetDataSet",
+      "dataexchange:GetRevision",
+      "dataexchange:PublishDataSet",
+      "redshift:AuthorizeDataShare"
+    ]
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags to a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-sets",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-actions",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "revisions",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-sets",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-actions",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "revisions",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateasset": {
+    "name": "UpdateAsset",
+    "description": "Grants permission to get update information about an asset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "assets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedataset": {
+    "name": "UpdateDataSet",
+    "description": "Grants permission to update information about a data set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateeventaction": {
+    "name": "UpdateEventAction",
+    "description": "Grants permission to update information for an event action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-actions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterevision": {
+    "name": "UpdateRevision",
+    "description": "Grants permission to update information about a revision",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "revisions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dataexchange:PublishDataSet",
+      "dataexchange:PublishToDataGrant"
+    ]
+  }
+}

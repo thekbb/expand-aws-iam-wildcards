@@ -1,0 +1,1290 @@
+{
+  "batchdeletebuilds": {
+    "name": "BatchDeleteBuilds",
+    "description": "Grants permission to delete one or more builds",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetbuildbatches": {
+    "name": "BatchGetBuildBatches",
+    "description": "Grants permission to get information about one or more build batches",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetbuilds": {
+    "name": "BatchGetBuilds",
+    "description": "Grants permission to get information about one or more builds",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetcommandexecutions": {
+    "name": "BatchGetCommandExecutions",
+    "description": "Grants permission to get information about one or more command executions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sandbox",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetfleets": {
+    "name": "BatchGetFleets",
+    "description": "Grants permission to return an array of the Fleet objects specified by the input parameter",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetprojects": {
+    "name": "BatchGetProjects",
+    "description": "Grants permission to get information about one or more build projects",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetreportgroups": {
+    "name": "BatchGetReportGroups",
+    "description": "Grants permission to return an array of ReportGroup objects that are specified by the input reportGroupArns parameter",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetreports": {
+    "name": "BatchGetReports",
+    "description": "Grants permission to return an array of the Report objects specified by the input reportArns parameter",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetsandboxes": {
+    "name": "BatchGetSandboxes",
+    "description": "Grants permission to get information about one or more sandboxes",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchputcodecoverages": {
+    "name": "BatchPutCodeCoverages",
+    "isPermissionOnly": true,
+    "description": "Grants permission to add or update information about a report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchputtestcases": {
+    "name": "BatchPutTestCases",
+    "isPermissionOnly": true,
+    "description": "Grants permission to add or update information about a report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfleet": {
+    "name": "CreateFleet",
+    "description": "Grants permission to create a compute fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "codebuild:imageId",
+      "codebuild:computeType",
+      "codebuild:vpcConfig",
+      "codebuild:vpcConfig.vpcId",
+      "codebuild:vpcConfig.securityGroupIds",
+      "codebuild:vpcConfig.subnets",
+      "codebuild:computeConfiguration",
+      "codebuild:computeConfiguration.disk",
+      "codebuild:computeConfiguration.instanceType",
+      "codebuild:computeConfiguration.machineType",
+      "codebuild:computeConfiguration.memory",
+      "codebuild:computeConfiguration.vCpu",
+      "codebuild:environmentType",
+      "codebuild:fleetServiceRole"
+    ],
+    "dependentActions": []
+  },
+  "createproject": {
+    "name": "CreateProject",
+    "description": "Grants permission to create a build project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "codebuild:autoRetryLimit",
+      "codebuild:concurrentBuildLimit",
+      "codebuild:artifacts",
+      "codebuild:artifacts.bucketOwnerAccess",
+      "codebuild:artifacts.encryptionDisabled",
+      "codebuild:artifacts.location",
+      "codebuild:secondaryArtifacts",
+      "codebuild:secondaryArtifacts.artifactIdentifier",
+      "codebuild:secondaryArtifacts.bucketOwnerAccess",
+      "codebuild:secondaryArtifacts.encryptionDisabled",
+      "codebuild:secondaryArtifacts.location",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.bucketOwnerAccess",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.encryptionDisabled",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.location",
+      "codebuild:source",
+      "codebuild:source.buildStatusConfig.targetUrl",
+      "codebuild:source.buildStatusConfig.context",
+      "codebuild:source.location",
+      "codebuild:source.insecureSsl",
+      "codebuild:source.buildspec",
+      "codebuild:source.auth.resource",
+      "codebuild:source.auth.type",
+      "codebuild:secondarySources",
+      "codebuild:secondarySources.sourceIdentifier",
+      "codebuild:secondarySources.buildStatusConfig.targetUrl",
+      "codebuild:secondarySources.buildStatusConfig.context",
+      "codebuild:secondarySources.location",
+      "codebuild:secondarySources.auth.resource",
+      "codebuild:secondarySources.auth.type",
+      "codebuild:secondarySources.buildspec",
+      "codebuild:secondarySources.insecureSsl",
+      "codebuild:secondarySources/${sourceIdentifier}.buildStatusConfig.targetUrl",
+      "codebuild:secondarySources/${sourceIdentifier}.buildStatusConfig.context",
+      "codebuild:secondarySources/${sourceIdentifier}.location",
+      "codebuild:secondarySources/${sourceIdentifier}.auth.resource",
+      "codebuild:secondarySources/${sourceIdentifier}.auth.type",
+      "codebuild:secondarySources/${sourceIdentifier}.buildspec",
+      "codebuild:secondarySources/${sourceIdentifier}.insecureSsl",
+      "codebuild:logsConfig",
+      "codebuild:logsConfig.s3Logs",
+      "codebuild:logsConfig.s3Logs.bucketOwnerAccess",
+      "codebuild:logsConfig.s3Logs.encryptionDisabled",
+      "codebuild:logsConfig.s3Logs.location",
+      "codebuild:logsConfig.s3Logs.status",
+      "codebuild:fileSystemLocations.identifier",
+      "codebuild:fileSystemLocations.type",
+      "codebuild:fileSystemLocations.location",
+      "codebuild:fileSystemLocations/${identifier}.type",
+      "codebuild:fileSystemLocations/${identifier}.location",
+      "codebuild:buildBatchConfig",
+      "codebuild:buildBatchConfig.serviceRole",
+      "codebuild:buildBatchConfig.restrictions.computeTypesAllowed",
+      "codebuild:buildBatchConfig.restrictions.fleetsAllowed",
+      "codebuild:vpcConfig",
+      "codebuild:vpcConfig.subnets",
+      "codebuild:vpcConfig.vpcId",
+      "codebuild:vpcConfig.securityGroupIds",
+      "codebuild:environment",
+      "codebuild:environment.type",
+      "codebuild:environment.fleet.fleetArn",
+      "codebuild:environment.computeType",
+      "codebuild:environment.image",
+      "codebuild:environment.imagePullCredentialsType",
+      "codebuild:environment.privilegedMode",
+      "codebuild:environment.certificate",
+      "codebuild:environment.computeConfiguration",
+      "codebuild:environment.computeConfiguration.disk",
+      "codebuild:environment.computeConfiguration.instanceType",
+      "codebuild:environment.computeConfiguration.machineType",
+      "codebuild:environment.computeConfiguration.memory",
+      "codebuild:environment.computeConfiguration.vCpu",
+      "codebuild:environment.environmentVariables",
+      "codebuild:environment.environmentVariables.name",
+      "codebuild:environment.environmentVariables.value",
+      "codebuild:environment.environmentVariables/${name}.value",
+      "codebuild:environment.registryCredential",
+      "codebuild:environment.registryCredential.credential",
+      "codebuild:environment.registryCredential.credentialProvider",
+      "codebuild:encryptionKey",
+      "codebuild:cache",
+      "codebuild:cache.type",
+      "codebuild:cache.location",
+      "codebuild:cache.modes",
+      "codebuild:serviceRole"
+    ],
+    "dependentActions": []
+  },
+  "createreport": {
+    "name": "CreateReport",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a report. A report is created when tests specified in the buildspec file for a report groups run during the build of a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createreportgroup": {
+    "name": "CreateReportGroup",
+    "description": "Grants permission to create a report group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "codebuild:exportConfig.s3Destination.bucket",
+      "codebuild:exportConfig.s3Destination.bucketOwner",
+      "codebuild:exportConfig.s3Destination.encryptionKey",
+      "codebuild:exportConfig.s3Destination.encryptionDisabled",
+      "codebuild:exportConfig.s3Destination.path"
+    ],
+    "dependentActions": []
+  },
+  "createwebhook": {
+    "name": "CreateWebhook",
+    "description": "Grants permission to create webhook. For an existing AWS CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start rebuilding the source code every time a code change is pushed to the repository",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "codebuild:buildType",
+      "codebuild:manualCreation",
+      "codebuild:scopeConfiguration.domain",
+      "codebuild:scopeConfiguration.name",
+      "codebuild:scopeConfiguration.scope"
+    ],
+    "dependentActions": []
+  },
+  "deletebuildbatch": {
+    "name": "DeleteBuildBatch",
+    "description": "Grants permission to delete a build batch",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefleet": {
+    "name": "DeleteFleet",
+    "description": "Grants permission to delete a compute fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoauthtoken": {
+    "name": "DeleteOAuthToken",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete an OAuth token from a connected third-party OAuth provider. Only used in the AWS CodeBuild console",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteproject": {
+    "name": "DeleteProject",
+    "description": "Grants permission to delete a build project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletereport": {
+    "name": "DeleteReport",
+    "description": "Grants permission to delete a report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletereportgroup": {
+    "name": "DeleteReportGroup",
+    "description": "Grants permission to delete a report group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy for the associated project or report group",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "report-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesourcecredentials": {
+    "name": "DeleteSourceCredentials",
+    "description": "Grants permission to delete a set of GitHub, GitHub Enterprise, or Bitbucket source credentials",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletewebhook": {
+    "name": "DeleteWebhook",
+    "description": "Grants permission to delete webhook. For an existing AWS CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code change is pushed to the repository",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecodecoverages": {
+    "name": "DescribeCodeCoverages",
+    "description": "Grants permission to return an array of CodeCoverage objects",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetestcases": {
+    "name": "DescribeTestCases",
+    "description": "Grants permission to return an array of TestCase objects",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreportgrouptrend": {
+    "name": "GetReportGroupTrend",
+    "description": "Grants permission to analyze and accumulate test report values for the test reports in the specified report group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to return a resource policy for the specified project or report group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "report-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importsourcecredentials": {
+    "name": "ImportSourceCredentials",
+    "description": "Grants permission to import the source repository credentials for an AWS CodeBuild project that has its source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "codebuild:authType",
+      "codebuild:serverType",
+      "codebuild:shouldOverwrite",
+      "codebuild:token",
+      "codebuild:username"
+    ],
+    "dependentActions": []
+  },
+  "invalidateprojectcache": {
+    "name": "InvalidateProjectCache",
+    "description": "Grants permission to reset the cache for a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbuildbatches": {
+    "name": "ListBuildBatches",
+    "description": "Grants permission to get a list of build batch IDs, with each build batch ID representing a single build batch",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbuildbatchesforproject": {
+    "name": "ListBuildBatchesForProject",
+    "description": "Grants permission to get a list of build batch IDs for the specified build project, with each build batch ID representing a single build batch",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbuilds": {
+    "name": "ListBuilds",
+    "description": "Grants permission to get a list of build IDs, with each build ID representing a single build",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbuildsforproject": {
+    "name": "ListBuildsForProject",
+    "description": "Grants permission to get a list of build IDs for the specified build project, with each build ID representing a single build",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcommandexecutionsforsandbox": {
+    "name": "ListCommandExecutionsForSandbox",
+    "description": "Grants permission to get a list of command execution IDs for the specified sandbox, with each command execution ID representing a single command execution",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "sandbox",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectedoauthaccounts": {
+    "name": "ListConnectedOAuthAccounts",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list connected third-party OAuth providers. Only used in the AWS CodeBuild console",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcuratedenvironmentimages": {
+    "name": "ListCuratedEnvironmentImages",
+    "description": "Grants permission to get information about Docker images that are managed by AWS CodeBuild",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfleets": {
+    "name": "ListFleets",
+    "description": "Grants permission to get a list of compute fleet ARNs, with each compute fleet ARN representing a single fleet",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprojects": {
+    "name": "ListProjects",
+    "description": "Grants permission to get a list of build project names, with each build project name representing a single build project",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreportgroups": {
+    "name": "ListReportGroups",
+    "description": "Grants permission to return a list of report group ARNs. Each report group ARN represents one report group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreports": {
+    "name": "ListReports",
+    "description": "Grants permission to return a list of report ARNs. Each report ARN representing one report",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreportsforreportgroup": {
+    "name": "ListReportsForReportGroup",
+    "description": "Grants permission to return a list of report ARNs that belong to the specified report group. Each report ARN represents one report",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrepositories": {
+    "name": "ListRepositories",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list source code repositories from a connected third-party OAuth provider. Only used in the AWS CodeBuild console",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsandboxes": {
+    "name": "ListSandboxes",
+    "description": "Grants permission to get a list of sandbox IDs, with each sandbox ID representing a single sandbox",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsandboxesforproject": {
+    "name": "ListSandboxesForProject",
+    "description": "Grants permission to get a list of sandbox IDs for the specified sandbox project, with each sandbox ID representing a single sandbox",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsharedprojects": {
+    "name": "ListSharedProjects",
+    "description": "Grants permission to return a list of project ARNs that have been shared with the requester. Each project ARN represents one project",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsharedreportgroups": {
+    "name": "ListSharedReportGroups",
+    "description": "Grants permission to return a list of report group ARNs that have been shared with the requester. Each report group ARN represents one report group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsourcecredentials": {
+    "name": "ListSourceCredentials",
+    "description": "Grants permission to return a list of SourceCredentialsInfo objects",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "persistoauthtoken": {
+    "name": "PersistOAuthToken",
+    "isPermissionOnly": true,
+    "description": "Grants permission to save an OAuth token from a connected third-party OAuth provider. Only used in the AWS CodeBuild console",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to create a resource policy for the associated project or report group",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "report-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "retrybuild": {
+    "name": "RetryBuild",
+    "description": "Grants permission to retry a build",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "retrybuildbatch": {
+    "name": "RetryBuildBatch",
+    "description": "Grants permission to retry a build batch",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startbuild": {
+    "name": "StartBuild",
+    "description": "Grants permission to start running a build",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "codebuild:autoRetryLimit",
+      "codebuild:artifacts",
+      "codebuild:artifacts.bucketOwnerAccess",
+      "codebuild:artifacts.encryptionDisabled",
+      "codebuild:artifacts.location",
+      "codebuild:secondaryArtifacts",
+      "codebuild:secondaryArtifacts.artifactIdentifier",
+      "codebuild:secondaryArtifacts.bucketOwnerAccess",
+      "codebuild:secondaryArtifacts.encryptionDisabled",
+      "codebuild:secondaryArtifacts.location",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.bucketOwnerAccess",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.encryptionDisabled",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.location",
+      "codebuild:source",
+      "codebuild:source.buildStatusConfig.targetUrl",
+      "codebuild:source.buildStatusConfig.context",
+      "codebuild:source.location",
+      "codebuild:source.insecureSsl",
+      "codebuild:source.buildspec",
+      "codebuild:source.auth.resource",
+      "codebuild:source.auth.type",
+      "codebuild:secondarySources",
+      "codebuild:secondarySources.sourceIdentifier",
+      "codebuild:secondarySources.buildStatusConfig.targetUrl",
+      "codebuild:secondarySources.buildStatusConfig.context",
+      "codebuild:secondarySources.location",
+      "codebuild:secondarySources.auth.resource",
+      "codebuild:secondarySources.auth.type",
+      "codebuild:secondarySources.buildspec",
+      "codebuild:secondarySources.insecureSsl",
+      "codebuild:secondarySources/${sourceIdentifier}.buildStatusConfig.targetUrl",
+      "codebuild:secondarySources/${sourceIdentifier}.buildStatusConfig.context",
+      "codebuild:secondarySources/${sourceIdentifier}.location",
+      "codebuild:secondarySources/${sourceIdentifier}.auth.resource",
+      "codebuild:secondarySources/${sourceIdentifier}.auth.type",
+      "codebuild:secondarySources/${sourceIdentifier}.buildspec",
+      "codebuild:secondarySources/${sourceIdentifier}.insecureSsl",
+      "codebuild:logsConfig",
+      "codebuild:logsConfig.s3Logs",
+      "codebuild:logsConfig.s3Logs.bucketOwnerAccess",
+      "codebuild:logsConfig.s3Logs.encryptionDisabled",
+      "codebuild:logsConfig.s3Logs.location",
+      "codebuild:logsConfig.s3Logs.status",
+      "codebuild:environment",
+      "codebuild:environment.type",
+      "codebuild:environment.fleet.fleetArn",
+      "codebuild:environment.computeType",
+      "codebuild:environment.image",
+      "codebuild:environment.imagePullCredentialsType",
+      "codebuild:environment.privilegedMode",
+      "codebuild:environment.certificate",
+      "codebuild:environment.environmentVariables",
+      "codebuild:environment.environmentVariables.name",
+      "codebuild:environment.environmentVariables.value",
+      "codebuild:environment.environmentVariables/${name}.value",
+      "codebuild:environment.registryCredential",
+      "codebuild:environment.registryCredential.credential",
+      "codebuild:environment.registryCredential.credentialProvider",
+      "codebuild:encryptionKey",
+      "codebuild:cache",
+      "codebuild:cache.type",
+      "codebuild:cache.location",
+      "codebuild:cache.modes",
+      "codebuild:serviceRole"
+    ],
+    "dependentActions": []
+  },
+  "startbuildbatch": {
+    "name": "StartBuildBatch",
+    "description": "Grants permission to start running a build batch",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "codebuild:artifacts",
+      "codebuild:artifacts.bucketOwnerAccess",
+      "codebuild:artifacts.encryptionDisabled",
+      "codebuild:artifacts.location",
+      "codebuild:secondaryArtifacts",
+      "codebuild:secondaryArtifacts.artifactIdentifier",
+      "codebuild:secondaryArtifacts.bucketOwnerAccess",
+      "codebuild:secondaryArtifacts.encryptionDisabled",
+      "codebuild:secondaryArtifacts.location",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.bucketOwnerAccess",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.encryptionDisabled",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.location",
+      "codebuild:source",
+      "codebuild:source.location",
+      "codebuild:source.insecureSsl",
+      "codebuild:source.buildspec",
+      "codebuild:source.auth.resource",
+      "codebuild:source.auth.type",
+      "codebuild:secondarySources",
+      "codebuild:secondarySources.sourceIdentifier",
+      "codebuild:secondarySources.buildStatusConfig.targetUrl",
+      "codebuild:secondarySources.buildStatusConfig.context",
+      "codebuild:secondarySources.location",
+      "codebuild:secondarySources.auth.resource",
+      "codebuild:secondarySources.auth.type",
+      "codebuild:secondarySources.buildspec",
+      "codebuild:secondarySources.insecureSsl",
+      "codebuild:secondarySources/${sourceIdentifier}.buildStatusConfig.targetUrl",
+      "codebuild:secondarySources/${sourceIdentifier}.buildStatusConfig.context",
+      "codebuild:secondarySources/${sourceIdentifier}.location",
+      "codebuild:secondarySources/${sourceIdentifier}.auth.resource",
+      "codebuild:secondarySources/${sourceIdentifier}.auth.type",
+      "codebuild:secondarySources/${sourceIdentifier}.buildspec",
+      "codebuild:secondarySources/${sourceIdentifier}.insecureSsl",
+      "codebuild:logsConfig",
+      "codebuild:logsConfig.s3Logs",
+      "codebuild:logsConfig.s3Logs.bucketOwnerAccess",
+      "codebuild:logsConfig.s3Logs.encryptionDisabled",
+      "codebuild:logsConfig.s3Logs.location",
+      "codebuild:logsConfig.s3Logs.status",
+      "codebuild:buildBatchConfig",
+      "codebuild:buildBatchConfig.serviceRole",
+      "codebuild:buildBatchConfig.restrictions.computeTypesAllowed",
+      "codebuild:buildBatchConfig.restrictions.fleetsAllowed",
+      "codebuild:environment",
+      "codebuild:environment.type",
+      "codebuild:environment.computeType",
+      "codebuild:environment.image",
+      "codebuild:environment.imagePullCredentialsType",
+      "codebuild:environment.privilegedMode",
+      "codebuild:environment.certificate",
+      "codebuild:environment.environmentVariables",
+      "codebuild:environment.environmentVariables.name",
+      "codebuild:environment.environmentVariables.value",
+      "codebuild:environment.environmentVariables/${name}.value",
+      "codebuild:environment.registryCredential",
+      "codebuild:environment.registryCredential.credential",
+      "codebuild:environment.registryCredential.credentialProvider",
+      "codebuild:encryptionKey",
+      "codebuild:cache",
+      "codebuild:cache.type",
+      "codebuild:cache.location",
+      "codebuild:cache.modes",
+      "codebuild:serviceRole"
+    ],
+    "dependentActions": []
+  },
+  "startcommandexecution": {
+    "name": "StartCommandExecution",
+    "description": "Grants permission to start running a command execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sandbox",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsandbox": {
+    "name": "StartSandbox",
+    "description": "Grants permission to start running a sandbox",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsandboxconnection": {
+    "name": "StartSandboxConnection",
+    "description": "Grants permission to establish a connection to the sandbox",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sandbox",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopbuild": {
+    "name": "StopBuild",
+    "description": "Grants permission to attempt to stop running a build",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopbuildbatch": {
+    "name": "StopBuildBatch",
+    "description": "Grants permission to attempt to stop running a build batch",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopsandbox": {
+    "name": "StopSandbox",
+    "description": "Grants permission to attempt to stop running a sandbox",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefleet": {
+    "name": "UpdateFleet",
+    "description": "Grants permission to change the settings of an existing compute fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "codebuild:imageId",
+      "codebuild:computeType",
+      "codebuild:vpcConfig",
+      "codebuild:vpcConfig.vpcId",
+      "codebuild:vpcConfig.securityGroupIds",
+      "codebuild:vpcConfig.subnets",
+      "codebuild:computeConfiguration",
+      "codebuild:computeConfiguration.disk",
+      "codebuild:computeConfiguration.instanceType",
+      "codebuild:computeConfiguration.machineType",
+      "codebuild:computeConfiguration.memory",
+      "codebuild:computeConfiguration.vCpu",
+      "codebuild:environmentType",
+      "codebuild:fleetServiceRole"
+    ],
+    "dependentActions": []
+  },
+  "updateproject": {
+    "name": "UpdateProject",
+    "description": "Grants permission to change the settings of an existing build project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "codebuild:autoRetryLimit",
+      "codebuild:concurrentBuildLimit",
+      "codebuild:artifacts",
+      "codebuild:artifacts.bucketOwnerAccess",
+      "codebuild:artifacts.encryptionDisabled",
+      "codebuild:artifacts.location",
+      "codebuild:secondaryArtifacts",
+      "codebuild:secondaryArtifacts.artifactIdentifier",
+      "codebuild:secondaryArtifacts.bucketOwnerAccess",
+      "codebuild:secondaryArtifacts.encryptionDisabled",
+      "codebuild:secondaryArtifacts.location",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.bucketOwnerAccess",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.encryptionDisabled",
+      "codebuild:secondaryArtifacts/${artifactIdentifier}.location",
+      "codebuild:source",
+      "codebuild:source.buildStatusConfig.targetUrl",
+      "codebuild:source.buildStatusConfig.context",
+      "codebuild:source.location",
+      "codebuild:source.insecureSsl",
+      "codebuild:source.buildspec",
+      "codebuild:source.auth.resource",
+      "codebuild:source.auth.type",
+      "codebuild:secondarySources",
+      "codebuild:secondarySources.sourceIdentifier",
+      "codebuild:secondarySources.buildStatusConfig.targetUrl",
+      "codebuild:secondarySources.buildStatusConfig.context",
+      "codebuild:secondarySources.location",
+      "codebuild:secondarySources.auth.resource",
+      "codebuild:secondarySources.auth.type",
+      "codebuild:secondarySources.buildspec",
+      "codebuild:secondarySources.insecureSsl",
+      "codebuild:secondarySources/${sourceIdentifier}.buildStatusConfig.targetUrl",
+      "codebuild:secondarySources/${sourceIdentifier}.buildStatusConfig.context",
+      "codebuild:secondarySources/${sourceIdentifier}.location",
+      "codebuild:secondarySources/${sourceIdentifier}.auth.resource",
+      "codebuild:secondarySources/${sourceIdentifier}.auth.type",
+      "codebuild:secondarySources/${sourceIdentifier}.buildspec",
+      "codebuild:secondarySources/${sourceIdentifier}.insecureSsl",
+      "codebuild:logsConfig",
+      "codebuild:logsConfig.s3Logs",
+      "codebuild:logsConfig.s3Logs.bucketOwnerAccess",
+      "codebuild:logsConfig.s3Logs.encryptionDisabled",
+      "codebuild:logsConfig.s3Logs.location",
+      "codebuild:logsConfig.s3Logs.status",
+      "codebuild:fileSystemLocations.identifier",
+      "codebuild:fileSystemLocations.type",
+      "codebuild:fileSystemLocations.location",
+      "codebuild:fileSystemLocations/${identifier}.type",
+      "codebuild:fileSystemLocations/${identifier}.location",
+      "codebuild:buildBatchConfig",
+      "codebuild:buildBatchConfig.serviceRole",
+      "codebuild:buildBatchConfig.restrictions.computeTypesAllowed",
+      "codebuild:buildBatchConfig.restrictions.fleetsAllowed",
+      "codebuild:vpcConfig",
+      "codebuild:vpcConfig.subnets",
+      "codebuild:vpcConfig.vpcId",
+      "codebuild:vpcConfig.securityGroupIds",
+      "codebuild:environment",
+      "codebuild:environment.type",
+      "codebuild:environment.fleet.fleetArn",
+      "codebuild:environment.computeType",
+      "codebuild:environment.image",
+      "codebuild:environment.imagePullCredentialsType",
+      "codebuild:environment.privilegedMode",
+      "codebuild:environment.certificate",
+      "codebuild:environment.computeConfiguration",
+      "codebuild:environment.computeConfiguration.disk",
+      "codebuild:environment.computeConfiguration.instanceType",
+      "codebuild:environment.computeConfiguration.machineType",
+      "codebuild:environment.computeConfiguration.memory",
+      "codebuild:environment.computeConfiguration.vCpu",
+      "codebuild:environment.environmentVariables",
+      "codebuild:environment.environmentVariables.name",
+      "codebuild:environment.environmentVariables.value",
+      "codebuild:environment.environmentVariables/${name}.value",
+      "codebuild:environment.registryCredential",
+      "codebuild:environment.registryCredential.credential",
+      "codebuild:environment.registryCredential.credentialProvider",
+      "codebuild:encryptionKey",
+      "codebuild:cache",
+      "codebuild:cache.type",
+      "codebuild:cache.location",
+      "codebuild:cache.modes",
+      "codebuild:serviceRole"
+    ],
+    "dependentActions": []
+  },
+  "updateprojectvisibility": {
+    "name": "UpdateProjectVisibility",
+    "description": "Grants permission to change the public visibility of a project and its builds",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "codebuild:projectVisibility"
+    ],
+    "dependentActions": []
+  },
+  "updatereport": {
+    "name": "UpdateReport",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update information about a report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatereportgroup": {
+    "name": "UpdateReportGroup",
+    "description": "Grants permission to change the settings of an existing report group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "codebuild:exportConfig.s3Destination.bucket",
+      "codebuild:exportConfig.s3Destination.bucketOwner",
+      "codebuild:exportConfig.s3Destination.encryptionKey",
+      "codebuild:exportConfig.s3Destination.encryptionDisabled",
+      "codebuild:exportConfig.s3Destination.path"
+    ],
+    "dependentActions": []
+  },
+  "updatewebhook": {
+    "name": "UpdateWebhook",
+    "description": "Grants permission to update the webhook associated with an AWS CodeBuild build project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "codebuild:buildType",
+      "codebuild:manualCreation",
+      "codebuild:scopeConfiguration.domain",
+      "codebuild:scopeConfiguration.name",
+      "codebuild:scopeConfiguration.scope"
+    ],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "createfavoritequery": {
+    "name": "CreateFavoriteQuery",
+    "description": "Grants permission to create a new favorite query",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createqueryhistory": {
+    "name": "CreateQueryHistory",
+    "description": "Grants permission to add a query to the history",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtab": {
+    "name": "CreateTab",
+    "description": "Grants permission to create a new query tab",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefavoritequeries": {
+    "name": "DeleteFavoriteQueries",
+    "description": "Grants permission to delete saved queries",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletequeryhistory": {
+    "name": "DeleteQueryHistory",
+    "description": "Grants permission to delete a historical query",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetab": {
+    "name": "DeleteTab",
+    "description": "Grants permission to delete query tab",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefavoritequeries": {
+    "name": "DescribeFavoriteQueries",
+    "description": "Grants permission to list saved queries and associated metadata",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describequeryhistory": {
+    "name": "DescribeQueryHistory",
+    "description": "Grants permission to list history of queries that were run",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetabs": {
+    "name": "DescribeTabs",
+    "description": "Grants permission to list query tabs and associated metadata",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getquerystring": {
+    "name": "GetQueryString",
+    "description": "Grants permission to retrieve favorite or history query string by id",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefavoritequery": {
+    "name": "UpdateFavoriteQuery",
+    "description": "Grants permission to update saved query and description",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatequeryhistory": {
+    "name": "UpdateQueryHistory",
+    "description": "Grants permission to update the query history",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetab": {
+    "name": "UpdateTab",
+    "description": "Grants permission to update query tab",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

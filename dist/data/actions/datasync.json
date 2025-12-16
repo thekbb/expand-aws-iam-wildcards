@@ -1,0 +1,1022 @@
+{
+  "addstoragesystem": {
+    "name": "AddStorageSystem",
+    "description": "Grants permission to create a storage system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "canceltaskexecution": {
+    "name": "CancelTaskExecution",
+    "description": "Grants permission to cancel execution of a sync task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "taskexecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createagent": {
+    "name": "CreateAgent",
+    "description": "Grants permission to activate an agent that you have deployed on your host",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationazureblob": {
+    "name": "CreateLocationAzureBlob",
+    "description": "Grants permission to create an endpoint for a Microsoft Azure Blob Storage container",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationefs": {
+    "name": "CreateLocationEfs",
+    "description": "Grants permission to create an endpoint for an Amazon EFS file system",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationfsxlustre": {
+    "name": "CreateLocationFsxLustre",
+    "description": "Grants permission to create an endpoint for an Amazon Fsx Lustre",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationfsxontap": {
+    "name": "CreateLocationFsxOntap",
+    "description": "Grants permission to create an endpoint for Amazon FSx for ONTAP",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationfsxopenzfs": {
+    "name": "CreateLocationFsxOpenZfs",
+    "description": "Grants permission to create an endpoint for Amazon FSx for OpenZFS",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationfsxwindows": {
+    "name": "CreateLocationFsxWindows",
+    "description": "Grants permission to create an endpoint for an Amazon FSx Windows File Server file system",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationhdfs": {
+    "name": "CreateLocationHdfs",
+    "description": "Grants permission to create an endpoint for an Amazon Hdfs",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationnfs": {
+    "name": "CreateLocationNfs",
+    "description": "Grants permission to create an endpoint for a NFS file system",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationobjectstorage": {
+    "name": "CreateLocationObjectStorage",
+    "description": "Grants permission to create an endpoint for a self-managed object storage bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocations3": {
+    "name": "CreateLocationS3",
+    "description": "Grants permission to create an endpoint for an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlocationsmb": {
+    "name": "CreateLocationSmb",
+    "description": "Grants permission to create an endpoint for an SMB file system",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtask": {
+    "name": "CreateTask",
+    "description": "Grants permission to create a sync task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteagent": {
+    "name": "DeleteAgent",
+    "description": "Grants permission to delete an agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelocation": {
+    "name": "DeleteLocation",
+    "description": "Grants permission to delete a location used by AWS DataSync",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetask": {
+    "name": "DeleteTask",
+    "description": "Grants permission to delete a sync task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeagent": {
+    "name": "DescribeAgent",
+    "description": "Grants permission to view metadata such as name, network interfaces, and the status (that is, whether the agent is running or not) about a sync agent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describediscoveryjob": {
+    "name": "DescribeDiscoveryJob",
+    "description": "Grants permission to describe metadata about a discovery job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "discoveryjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationazureblob": {
+    "name": "DescribeLocationAzureBlob",
+    "description": "Grants permission to view metadata, such as the path information about an Azure Blob Storage sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationefs": {
+    "name": "DescribeLocationEfs",
+    "description": "Grants permission to view metadata, such as the path information about an Amazon EFS sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationfsxlustre": {
+    "name": "DescribeLocationFsxLustre",
+    "description": "Grants permission to view metadata, such as the path information about an Amazon FSx Lustre sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationfsxontap": {
+    "name": "DescribeLocationFsxOntap",
+    "description": "Grants permission to view metadata, such as the path information about an Amazon FSx for ONTAP sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationfsxopenzfs": {
+    "name": "DescribeLocationFsxOpenZfs",
+    "description": "Grants permission to view metadata, such as the path information about an Amazon FSx OpenZFS sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationfsxwindows": {
+    "name": "DescribeLocationFsxWindows",
+    "description": "Grants permission to view metadata, such as the path information about an Amazon FSx Windows sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationhdfs": {
+    "name": "DescribeLocationHdfs",
+    "description": "Grants permission to view metadata, such as the path information about an Amazon HDFS sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationnfs": {
+    "name": "DescribeLocationNfs",
+    "description": "Grants permission to view metadata, such as the path information, about a NFS sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationobjectstorage": {
+    "name": "DescribeLocationObjectStorage",
+    "description": "Grants permission to view metadata about a self-managed object storage server location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocations3": {
+    "name": "DescribeLocationS3",
+    "description": "Grants permission to view metadata, such as bucket name, about an Amazon S3 bucket sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelocationsmb": {
+    "name": "DescribeLocationSmb",
+    "description": "Grants permission to view metadata, such as the path information, about an SMB sync location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestoragesystem": {
+    "name": "DescribeStorageSystem",
+    "description": "Grants permission to view metadata about a storage system",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "storagesystem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestoragesystemresourcemetrics": {
+    "name": "DescribeStorageSystemResourceMetrics",
+    "description": "Grants permission to describe resource metrics collected by a discovery job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "discoveryjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestoragesystemresources": {
+    "name": "DescribeStorageSystemResources",
+    "description": "Grants permission to describe resources identified by a discovery job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "discoveryjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetask": {
+    "name": "DescribeTask",
+    "description": "Grants permission to view metadata about a sync task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetaskexecution": {
+    "name": "DescribeTaskExecution",
+    "description": "Grants permission to view metadata about a sync task that is being executed",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "taskexecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "generaterecommendations": {
+    "name": "GenerateRecommendations",
+    "description": "Grants permission to generate recommendations for a resource identified by a discovery job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "discoveryjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listagents": {
+    "name": "ListAgents",
+    "description": "Grants permission to list agents owned by an AWS account in a region specified in the request",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdiscoveryjobs": {
+    "name": "ListDiscoveryJobs",
+    "description": "Grants permission to list discovery jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlocations": {
+    "name": "ListLocations",
+    "description": "Grants permission to list source and destination sync locations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststoragesystems": {
+    "name": "ListStorageSystems",
+    "description": "Grants permission to list storage systems",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags that have been added to the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "discoveryjob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "location",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "storagesystem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "taskexecution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtaskexecutions": {
+    "name": "ListTaskExecutions",
+    "description": "Grants permission to list executed sync tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtasks": {
+    "name": "ListTasks",
+    "description": "Grants permission to list of all the sync tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removestoragesystem": {
+    "name": "RemoveStorageSystem",
+    "description": "Grants permission to delete a storage system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "storagesystem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdiscoveryjob": {
+    "name": "StartDiscoveryJob",
+    "description": "Grants permission to start a discovery job for a storage system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "storagesystem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttaskexecution": {
+    "name": "StartTaskExecution",
+    "description": "Grants permission to start a specific invocation of a sync task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "stopdiscoveryjob": {
+    "name": "StopDiscoveryJob",
+    "description": "Grants permission to stop a discovery job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "discoveryjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to apply a key-value pair to an AWS resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "discoveryjob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "location",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "storagesystem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "taskexecution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "discoveryjob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "location",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "storagesystem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "taskexecution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateagent": {
+    "name": "UpdateAgent",
+    "description": "Grants permission to update the name of an agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatediscoveryjob": {
+    "name": "UpdateDiscoveryJob",
+    "description": "Grants permission to update a discovery job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "discoveryjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationazureblob": {
+    "name": "UpdateLocationAzureBlob",
+    "description": "Grants permission to update an Azure Blob Storage sync location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationefs": {
+    "name": "UpdateLocationEfs",
+    "description": "Grants permission to update an EFS sync Location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationfsxlustre": {
+    "name": "UpdateLocationFsxLustre",
+    "description": "Grants permission to update an FSx Lustre sync Location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationfsxontap": {
+    "name": "UpdateLocationFsxOntap",
+    "description": "Grants permission to update an FSx ONTAP sync Location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationfsxopenzfs": {
+    "name": "UpdateLocationFsxOpenZfs",
+    "description": "Grants permission to update an FSx OpenZFS sync Location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationfsxwindows": {
+    "name": "UpdateLocationFsxWindows",
+    "description": "Grants permission to update an FSx Windows sync Location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationhdfs": {
+    "name": "UpdateLocationHdfs",
+    "description": "Grants permission to update an HDFS sync Location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationnfs": {
+    "name": "UpdateLocationNfs",
+    "description": "Grants permission to update an NFS sync Location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationobjectstorage": {
+    "name": "UpdateLocationObjectStorage",
+    "description": "Grants permission to update a self-managed object storage server location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocations3": {
+    "name": "UpdateLocationS3",
+    "description": "Grants permission to update an S3 sync Location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelocationsmb": {
+    "name": "UpdateLocationSmb",
+    "description": "Grants permission to update a SMB sync location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestoragesystem": {
+    "name": "UpdateStorageSystem",
+    "description": "Grants permission to update a storage system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "storagesystem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetask": {
+    "name": "UpdateTask",
+    "description": "Grants permission to update metadata associated with a sync task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetaskexecution": {
+    "name": "UpdateTaskExecution",
+    "description": "Grants permission to update execution of a sync task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "taskexecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

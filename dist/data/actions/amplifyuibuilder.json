@@ -1,0 +1,451 @@
+{
+  "createcomponent": {
+    "name": "CreateComponent",
+    "description": "Grants permission to create a component",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "amplify:GetApp",
+      "amplifyuibuilder:GetComponent",
+      "amplifyuibuilder:TagResource"
+    ]
+  },
+  "createform": {
+    "name": "CreateForm",
+    "description": "Grants permission to create a form",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "amplify:GetApp",
+      "amplifyuibuilder:GetForm",
+      "amplifyuibuilder:TagResource",
+      "amplifyuibuilder:UntagResource"
+    ]
+  },
+  "createtheme": {
+    "name": "CreateTheme",
+    "description": "Grants permission to create a theme",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "amplify:GetApp",
+      "amplifyuibuilder:GetTheme",
+      "amplifyuibuilder:TagResource"
+    ]
+  },
+  "deletecomponent": {
+    "name": "DeleteComponent",
+    "description": "Grants permission to delete a component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ComponentResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp",
+      "amplifyuibuilder:UntagResource"
+    ]
+  },
+  "deleteform": {
+    "name": "DeleteForm",
+    "description": "Grants permission to delete a form",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "FormResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp",
+      "amplifyuibuilder:TagResource",
+      "amplifyuibuilder:UntagResource"
+    ]
+  },
+  "deletetheme": {
+    "name": "DeleteTheme",
+    "description": "Grants permission to delete a theme",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ThemeResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp",
+      "amplifyuibuilder:UntagResource"
+    ]
+  },
+  "exchangecodefortoken": {
+    "name": "ExchangeCodeForToken",
+    "description": "Grants permission to exchange a code for a token",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "exportcomponents": {
+    "name": "ExportComponents",
+    "description": "Grants permission to export components",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "exportforms": {
+    "name": "ExportForms",
+    "description": "Grants permission to export forms",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "exportthemes": {
+    "name": "ExportThemes",
+    "description": "Grants permission to export themes",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcodegenjob": {
+    "name": "GetCodegenJob",
+    "description": "Grants permission to get an existing codegen job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "CodegenJobResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp"
+    ]
+  },
+  "getcomponent": {
+    "name": "GetComponent",
+    "description": "Grants permission to get an existing component",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ComponentResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp"
+    ]
+  },
+  "getform": {
+    "name": "GetForm",
+    "description": "Grants permission to get an existing form",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "FormResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp"
+    ]
+  },
+  "getmetadata": {
+    "name": "GetMetadata",
+    "description": "Grants permission to get an existing metadata",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettheme": {
+    "name": "GetTheme",
+    "description": "Grants permission to get an existing theme",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ThemeResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp"
+    ]
+  },
+  "listcodegenjobs": {
+    "name": "ListCodegenJobs",
+    "description": "Grants permission to list codegen jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp"
+    ]
+  },
+  "listcomponents": {
+    "name": "ListComponents",
+    "description": "Grants permission to list components",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp"
+    ]
+  },
+  "listforms": {
+    "name": "ListForms",
+    "description": "Grants permission to list forms",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp"
+    ]
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a specified Amazon Resource Name (ARN)",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "CodegenJobResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ComponentResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FormResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ThemeResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthemes": {
+    "name": "ListThemes",
+    "description": "Grants permission to list themes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp"
+    ]
+  },
+  "putmetadataflag": {
+    "name": "PutMetadataFlag",
+    "description": "Grants permission to put an existing metadata",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "refreshtoken": {
+    "name": "RefreshToken",
+    "description": "Grants permission to refresh an access token",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resetmetadataflag": {
+    "name": "ResetMetadataFlag",
+    "description": "Grants permission to reset an existing metadata",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcodegenjob": {
+    "name": "StartCodegenJob",
+    "description": "Grants permission to start a codegen job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "amplify:GetApp"
+    ]
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag the resource with a tag key and value",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "CodegenJobResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ComponentResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FormResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ThemeResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource with a specified Amazon Resource Name (ARN)",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "CodegenJobResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ComponentResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "FormResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ThemeResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecomponent": {
+    "name": "UpdateComponent",
+    "description": "Grants permission to update a component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ComponentResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp",
+      "amplifyuibuilder:TagResource",
+      "amplifyuibuilder:UntagResource"
+    ]
+  },
+  "updateform": {
+    "name": "UpdateForm",
+    "description": "Grants permission to update a form",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "FormResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp",
+      "amplifyuibuilder:GetForm",
+      "amplifyuibuilder:TagResource",
+      "amplifyuibuilder:UntagResource"
+    ]
+  },
+  "updatetheme": {
+    "name": "UpdateTheme",
+    "description": "Grants permission to update a theme",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ThemeResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "amplify:GetApp",
+      "amplifyuibuilder:GetTheme",
+      "amplifyuibuilder:TagResource",
+      "amplifyuibuilder:UntagResource"
+    ]
+  }
+}

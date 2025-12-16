@@ -1,0 +1,679 @@
+{
+  "addtagstostream": {
+    "name": "AddTagsToStream",
+    "description": "Grants permission to add or update tags for the specified Amazon Kinesis stream. Each stream can have up to 50 tags",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstream": {
+    "name": "CreateStream",
+    "description": "Grants permission to create a Amazon Kinesis stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "decreasestreamretentionperiod": {
+    "name": "DecreaseStreamRetentionPeriod",
+    "description": "Grants permission to decrease the stream's retention period, which is the length of time data records are accessible after they are added to the stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy associated with a specified stream or consumer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestream": {
+    "name": "DeleteStream",
+    "description": "Grants permission to delete a stream and all its shards and data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deregisterstreamconsumer": {
+    "name": "DeregisterStreamConsumer",
+    "description": "Grants permission to deregister a stream consumer with a Kinesis data stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeaccountsettings": {
+    "name": "DescribeAccountSettings",
+    "description": "Grants permission to describe the account-level settings for Amazon Kinesis Data Streams",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelimits": {
+    "name": "DescribeLimits",
+    "description": "Grants permission to describe the shard limits and usage for the account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestream": {
+    "name": "DescribeStream",
+    "description": "Grants permission to describe the specified stream",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describestreamconsumer": {
+    "name": "DescribeStreamConsumer",
+    "description": "Grants permission to get the description of a registered stream consumer",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describestreamsummary": {
+    "name": "DescribeStreamSummary",
+    "description": "Grants permission to provide a summarized description of the specified Kinesis data stream without the shard list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "disableenhancedmonitoring": {
+    "name": "DisableEnhancedMonitoring",
+    "description": "Grants permission to disables enhanced monitoring",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableenhancedmonitoring": {
+    "name": "EnableEnhancedMonitoring",
+    "description": "Grants permission to enable enhanced Kinesis data stream monitoring for shard-level metrics",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecords": {
+    "name": "GetRecords",
+    "description": "Grants permission to get data records from a shard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get a resource policy associated with a specified stream or consumer",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsharditerator": {
+    "name": "GetShardIterator",
+    "description": "Grants permission to get a shard iterator. A shard iterator expires five minutes after it is returned to the requester",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "increasestreamretentionperiod": {
+    "name": "IncreaseStreamRetentionPeriod",
+    "description": "Grants permission to increase the stream's retention period, which is the length of time data records are accessible after they are added to the stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "injectapierror": {
+    "name": "InjectApiError",
+    "isPermissionOnly": true,
+    "description": "Grants permission to temporarily inject errors for target API requests",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "kinesis:FisActionId",
+      "kinesis:FisTargetArns",
+      "kinesis:FisInjectPercentage"
+    ],
+    "dependentActions": []
+  },
+  "listshards": {
+    "name": "ListShards",
+    "description": "Grants permission to list the shards in a stream and provides information about each shard",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "liststreamconsumers": {
+    "name": "ListStreamConsumers",
+    "description": "Grants permission to list the stream consumers registered to receive data from a Kinesis stream using enhanced fan-out, and provides information about each consumer",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "liststreams": {
+    "name": "ListStreams",
+    "description": "Grants permission to list your streams",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for the specified Amazon Kinesis resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforstream": {
+    "name": "ListTagsForStream",
+    "description": "Grants permission to list the tags for the specified Amazon Kinesis stream",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "mergeshards": {
+    "name": "MergeShards",
+    "description": "Grants permission to merge two adjacent shards in a stream and combines them into a single shard to reduce the stream's capacity to ingest and transport data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putrecord": {
+    "name": "PutRecord",
+    "description": "Grants permission to write a single data record from a producer into an Amazon Kinesis stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putrecords": {
+    "name": "PutRecords",
+    "description": "Grants permission to write multiple data records from a producer into an Amazon Kinesis stream in a single call (also referred to as a PutRecords request)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to attach a resource policy to a specified stream or consumer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registerstreamconsumer": {
+    "name": "RegisterStreamConsumer",
+    "description": "Grants permission to register a stream consumer with a Kinesis data stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "removetagsfromstream": {
+    "name": "RemoveTagsFromStream",
+    "description": "Grants permission to remove tags from the specified Kinesis data stream. Removed tags are deleted and cannot be recovered after this operation successfully completes",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "splitshard": {
+    "name": "SplitShard",
+    "description": "Grants permission to split a shard into two new shards in the Kinesis data stream, to increase the stream's capacity to ingest and transport data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startstreamencryption": {
+    "name": "StartStreamEncryption",
+    "description": "Grants permission to enable or update server-side encryption using an AWS KMS key for a specified stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kmsKey",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopstreamencryption": {
+    "name": "StopStreamEncryption",
+    "description": "Grants permission to disable server-side encryption for a specified stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kmsKey",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "subscribetoshard": {
+    "name": "SubscribeToShard",
+    "description": "Grants permission to listen to a specific shard with enhanced fan-out",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or update tags for the specified Amazon Kinesis resource. Each resource can have up to 50 tags",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from the specified Kinesis data resource. Removed tags are deleted and cannot be recovered after this operation successfully completes",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateaccountsettings": {
+    "name": "UpdateAccountSettings",
+    "description": "Grants permission to update the account-level settings for Amazon Kinesis Data Streams",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemaxrecordsize": {
+    "name": "UpdateMaxRecordSize",
+    "description": "Grants permission to update the maximum record size for a Kinesis data stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateshardcount": {
+    "name": "UpdateShardCount",
+    "description": "Grants permission to update the shard count of the specified stream to the specified number of shards",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestreammode": {
+    "name": "UpdateStreamMode",
+    "description": "Grants permission to update the capacity mode of the data stream",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestreamwarmthroughput": {
+    "name": "UpdateStreamWarmThroughput",
+    "description": "Grants permission to update the warm throughput for a Kinesis on-demand data stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,1086 @@
+{
+  "createbatchinferencejob": {
+    "name": "CreateBatchInferenceJob",
+    "description": "Grants permission to create a batch inference job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "batchInferenceJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbatchsegmentjob": {
+    "name": "CreateBatchSegmentJob",
+    "description": "Grants permission to create a batch segment job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "batchSegmentJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcampaign": {
+    "name": "CreateCampaign",
+    "description": "Grants permission to create a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatadeletionjob": {
+    "name": "CreateDataDeletionJob",
+    "description": "Grants permission to create a data deletion job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataDeletionJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatainsightsjob": {
+    "name": "CreateDataInsightsJob",
+    "description": "Grants permission to create a data insights job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataInsightsJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdataset": {
+    "name": "CreateDataset",
+    "description": "Grants permission to create a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatasetexportjob": {
+    "name": "CreateDatasetExportJob",
+    "description": "Grants permission to create a dataset export job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasetExportJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatasetgroup": {
+    "name": "CreateDatasetGroup",
+    "description": "Grants permission to create a dataset group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatasetimportjob": {
+    "name": "CreateDatasetImportJob",
+    "description": "Grants permission to create a dataset import job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasetImportJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createeventtracker": {
+    "name": "CreateEventTracker",
+    "description": "Grants permission to create an event tracker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventTracker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfilter": {
+    "name": "CreateFilter",
+    "description": "Grants permission to create a filter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmetricattribution": {
+    "name": "CreateMetricAttribution",
+    "description": "Grants permission to create a metric attribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metricAttribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createrecommender": {
+    "name": "CreateRecommender",
+    "description": "Grants permission to create a recommender",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recommender",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createschema": {
+    "name": "CreateSchema",
+    "description": "Grants permission to create a schema",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "schema",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsolution": {
+    "name": "CreateSolution",
+    "description": "Grants permission to create a solution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "solution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsolutionversion": {
+    "name": "CreateSolutionVersion",
+    "description": "Grants permission to create a solution version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "solution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecampaign": {
+    "name": "DeleteCampaign",
+    "description": "Grants permission to delete a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataset": {
+    "name": "DeleteDataset",
+    "description": "Grants permission to delete a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatasetgroup": {
+    "name": "DeleteDatasetGroup",
+    "description": "Grants permission to delete a dataset group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeventtracker": {
+    "name": "DeleteEventTracker",
+    "description": "Grants permission to delete an event tracker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventTracker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefilter": {
+    "name": "DeleteFilter",
+    "description": "Grants permission to delete a filter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemetricattribution": {
+    "name": "DeleteMetricAttribution",
+    "description": "Grants permission to delete a metric attribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metricAttribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterecommender": {
+    "name": "DeleteRecommender",
+    "description": "Grants permission to delete a recommender",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recommender",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteschema": {
+    "name": "DeleteSchema",
+    "description": "Grants permission to delete a schema",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "schema",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesolution": {
+    "name": "DeleteSolution",
+    "description": "Grants permission to delete a solution including all versions of the solution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "solution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describealgorithm": {
+    "name": "DescribeAlgorithm",
+    "description": "Grants permission to describe an algorithm",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "algorithm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebatchinferencejob": {
+    "name": "DescribeBatchInferenceJob",
+    "description": "Grants permission to describe a batch inference job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "batchInferenceJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebatchsegmentjob": {
+    "name": "DescribeBatchSegmentJob",
+    "description": "Grants permission to describe a batch segment job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "batchSegmentJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecampaign": {
+    "name": "DescribeCampaign",
+    "description": "Grants permission to describe a campaign",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedatadeletionjob": {
+    "name": "DescribeDataDeletionJob",
+    "description": "Grants permission to describe a data deletion job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataDeletionJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedatainsightsjob": {
+    "name": "DescribeDataInsightsJob",
+    "description": "Grants permission to describe a data insights job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataInsightsJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedataset": {
+    "name": "DescribeDataset",
+    "description": "Grants permission to describe a dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedatasetexportjob": {
+    "name": "DescribeDatasetExportJob",
+    "description": "Grants permission to describe a dataset export job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datasetExportJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedatasetgroup": {
+    "name": "DescribeDatasetGroup",
+    "description": "Grants permission to describe a dataset group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datasetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedatasetimportjob": {
+    "name": "DescribeDatasetImportJob",
+    "description": "Grants permission to describe a dataset import job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datasetImportJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeeventtracker": {
+    "name": "DescribeEventTracker",
+    "description": "Grants permission to describe an event tracker",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eventTracker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefeaturetransformation": {
+    "name": "DescribeFeatureTransformation",
+    "description": "Grants permission to describe a feature transformation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "featureTransformation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefilter": {
+    "name": "DescribeFilter",
+    "description": "Grants permission to describe a filter",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemetricattribution": {
+    "name": "DescribeMetricAttribution",
+    "description": "Grants permission to describe a metric attribution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "metricAttribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerecipe": {
+    "name": "DescribeRecipe",
+    "description": "Grants permission to describe a recipe",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "recipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerecommender": {
+    "name": "DescribeRecommender",
+    "description": "Grants permission to describe a recommender",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "recommender",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeschema": {
+    "name": "DescribeSchema",
+    "description": "Grants permission to describe a schema",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "schema",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesolution": {
+    "name": "DescribeSolution",
+    "description": "Grants permission to describe a solution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "solution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesolutionversion": {
+    "name": "DescribeSolutionVersion",
+    "description": "Grants permission to describe a version of a solution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "solution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getactionrecommendations": {
+    "name": "GetActionRecommendations",
+    "description": "Grants permission to get a list of recommended actions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatainsights": {
+    "name": "GetDataInsights",
+    "description": "Grants permission to get data insights from a data insights job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataInsightsJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpersonalizedranking": {
+    "name": "GetPersonalizedRanking",
+    "description": "Grants permission to get a re-ranked list of recommendations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecommendations": {
+    "name": "GetRecommendations",
+    "description": "Grants permission to get a list of recommendations from a campaign",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsolutionmetrics": {
+    "name": "GetSolutionMetrics",
+    "description": "Grants permission to get metrics for a solution version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "solution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbatchinferencejobs": {
+    "name": "ListBatchInferenceJobs",
+    "description": "Grants permission to list batch inference jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbatchsegmentjobs": {
+    "name": "ListBatchSegmentJobs",
+    "description": "Grants permission to list batch segment jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcampaigns": {
+    "name": "ListCampaigns",
+    "description": "Grants permission to list campaigns",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatadeletionjobs": {
+    "name": "ListDataDeletionJobs",
+    "description": "Grants permission to list data deletion jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatainsightsjobs": {
+    "name": "ListDataInsightsJobs",
+    "description": "Grants permission to list data insights jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetexportjobs": {
+    "name": "ListDatasetExportJobs",
+    "description": "Grants permission to list dataset export jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetgroups": {
+    "name": "ListDatasetGroups",
+    "description": "Grants permission to list dataset groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetimportjobs": {
+    "name": "ListDatasetImportJobs",
+    "description": "Grants permission to list dataset import jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasets": {
+    "name": "ListDatasets",
+    "description": "Grants permission to list datasets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeventtrackers": {
+    "name": "ListEventTrackers",
+    "description": "Grants permission to list event trackers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfilters": {
+    "name": "ListFilters",
+    "description": "Grants permission to list filters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmetricattributionmetrics": {
+    "name": "ListMetricAttributionMetrics",
+    "description": "Grants permission to list metric attribution metrics",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmetricattributions": {
+    "name": "ListMetricAttributions",
+    "description": "Grants permission to list metric attributions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecipes": {
+    "name": "ListRecipes",
+    "description": "Grants permission to list recipes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecommenders": {
+    "name": "ListRecommenders",
+    "description": "Grants permission to list recommenders",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listschemas": {
+    "name": "ListSchemas",
+    "description": "Grants permission to list schemas",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsolutionversions": {
+    "name": "ListSolutionVersions",
+    "description": "Grants permission to list versions of a solution",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsolutions": {
+    "name": "ListSolutions",
+    "description": "Grants permission to list solutions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putactioninteractions": {
+    "name": "PutActionInteractions",
+    "description": "Grants permission to put real time action interaction data",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putactions": {
+    "name": "PutActions",
+    "description": "Grants permission to ingest Actions data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putevents": {
+    "name": "PutEvents",
+    "description": "Grants permission to put real time event data",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putitems": {
+    "name": "PutItems",
+    "description": "Grants permission to ingest Items data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putusers": {
+    "name": "PutUsers",
+    "description": "Grants permission to ingest Users data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startrecommender": {
+    "name": "StartRecommender",
+    "description": "Grants permission to start a recommender",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recommender",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoprecommender": {
+    "name": "StopRecommender",
+    "description": "Grants permission to stop a recommender",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recommender",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopsolutionversioncreation": {
+    "name": "StopSolutionVersionCreation",
+    "description": "Grants permission to stop a solution version creation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "solution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecampaign": {
+    "name": "UpdateCampaign",
+    "description": "Grants permission to update a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedataset": {
+    "name": "UpdateDataset",
+    "description": "Grants permission to update a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemetricattribution": {
+    "name": "UpdateMetricAttribution",
+    "description": "Grants permission to update a metric attribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metricAttribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterecommender": {
+    "name": "UpdateRecommender",
+    "description": "Grants permission to update a recommender",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recommender",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesolution": {
+    "name": "UpdateSolution",
+    "description": "Grants permission to update a solution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "solution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

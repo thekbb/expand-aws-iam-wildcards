@@ -1,0 +1,1174 @@
+{
+  "createaccess": {
+    "name": "CreateAccess",
+    "description": "Grants permission to add an access associated with a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "createagreement": {
+    "name": "CreateAgreement",
+    "description": "Grants permission to add an agreement associated with a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createconnector": {
+    "name": "CreateConnector",
+    "description": "Grants permission to create a connector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "transfer:RequestConnectorProtocol"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "createprofile": {
+    "name": "CreateProfile",
+    "description": "Grants permission to create a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createserver": {
+    "name": "CreateServer",
+    "description": "Grants permission to create a server",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "transfer:RequestServerEndpointType",
+      "transfer:RequestServerDomain",
+      "transfer:RequestServerProtocols"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "createuser": {
+    "name": "CreateUser",
+    "description": "Grants permission to add a user associated with a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createwebapp": {
+    "name": "CreateWebApp",
+    "description": "Grants permission to create a webapp",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "createworkflow": {
+    "name": "CreateWorkflow",
+    "description": "Grants permission to create a workflow",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccess": {
+    "name": "DeleteAccess",
+    "description": "Grants permission to delete access",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteagreement": {
+    "name": "DeleteAgreement",
+    "description": "Grants permission to delete agreement",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecertificate": {
+    "name": "DeleteCertificate",
+    "description": "Grants permission to delete certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnector": {
+    "name": "DeleteConnector",
+    "description": "Grants permission to delete connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletehostkey": {
+    "name": "DeleteHostKey",
+    "description": "Grants permission to delete a host key associated with a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "host-key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprofile": {
+    "name": "DeleteProfile",
+    "description": "Grants permission to delete profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteserver": {
+    "name": "DeleteServer",
+    "description": "Grants permission to delete a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesshpublickey": {
+    "name": "DeleteSshPublicKey",
+    "description": "Grants permission to delete an SSH public key from a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteuser": {
+    "name": "DeleteUser",
+    "description": "Grants permission to delete a user associated with a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletewebapp": {
+    "name": "DeleteWebApp",
+    "description": "Grants permission to delete webapp",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "webapp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletewebappcustomization": {
+    "name": "DeleteWebAppCustomization",
+    "description": "Grants permission to delete webapp customization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "webapp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteworkflow": {
+    "name": "DeleteWorkflow",
+    "description": "Grants permission to delete a workflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaccess": {
+    "name": "DescribeAccess",
+    "description": "Grants permission to describe an access assigned to a server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeagreement": {
+    "name": "DescribeAgreement",
+    "description": "Grants permission to describe an agreement assigned to a server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecertificate": {
+    "name": "DescribeCertificate",
+    "description": "Grants permission to describe a certificate",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeconnector": {
+    "name": "DescribeConnector",
+    "description": "Grants permission to describe a connector",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeexecution": {
+    "name": "DescribeExecution",
+    "description": "Grants permission to describe an execution associated with a workflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describehostkey": {
+    "name": "DescribeHostKey",
+    "description": "Grants permission to describe a host key associated with a server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "host-key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeprofile": {
+    "name": "DescribeProfile",
+    "description": "Grants permission to describe a profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesecuritypolicy": {
+    "name": "DescribeSecurityPolicy",
+    "description": "Grants permission to describe a security policy",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeserver": {
+    "name": "DescribeServer",
+    "description": "Grants permission to describe a server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeuser": {
+    "name": "DescribeUser",
+    "description": "Grants permission to describe a user associated with a server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describewebapp": {
+    "name": "DescribeWebApp",
+    "description": "Grants permission to describe a webapp",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "webapp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describewebappcustomization": {
+    "name": "DescribeWebAppCustomization",
+    "description": "Grants permission to describe a webapp customization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "webapp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeworkflow": {
+    "name": "DescribeWorkflow",
+    "description": "Grants permission to describe a workflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importcertificate": {
+    "name": "ImportCertificate",
+    "description": "Grants permission to add a certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "importhostkey": {
+    "name": "ImportHostKey",
+    "description": "Grants permission to add a host key to a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "importsshpublickey": {
+    "name": "ImportSshPublicKey",
+    "description": "Grants permission to add an SSH public key to a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccesses": {
+    "name": "ListAccesses",
+    "description": "Grants permission to list accesses",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listagreements": {
+    "name": "ListAgreements",
+    "description": "Grants permission to list agreements",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcertificates": {
+    "name": "ListCertificates",
+    "description": "Grants permission to list certificates",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectors": {
+    "name": "ListConnectors",
+    "description": "Grants permission to list connectors",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexecutions": {
+    "name": "ListExecutions",
+    "description": "Grants permission to list executions associated with a workflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfiletransferresults": {
+    "name": "ListFileTransferResults",
+    "description": "Grants permission to list file transfer statuses for connectors",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listhostkeys": {
+    "name": "ListHostKeys",
+    "description": "Grants permission to list host keys associated with a server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprofiles": {
+    "name": "ListProfiles",
+    "description": "Grants permission to list profiles",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsecuritypolicies": {
+    "name": "ListSecurityPolicies",
+    "description": "Grants permission to list security policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservers": {
+    "name": "ListServers",
+    "description": "Grants permission to list servers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an AWS Transfer Family resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "host-key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "server",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listusers": {
+    "name": "ListUsers",
+    "description": "Grants permission to list users associated with a server",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listwebapps": {
+    "name": "ListWebApps",
+    "description": "Grants permission to list webapps",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listworkflows": {
+    "name": "ListWorkflows",
+    "description": "Grants permission to list workflows",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendworkflowstepstate": {
+    "name": "SendWorkflowStepState",
+    "description": "Grants permission to send a callback for asynchronous custom steps",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdirectorylisting": {
+    "name": "StartDirectoryListing",
+    "description": "Grants permission to initiate a list operation on a remote server using a connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startfiletransfer": {
+    "name": "StartFileTransfer",
+    "description": "Grants permission to initiate a connector file transfer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startremotedelete": {
+    "name": "StartRemoteDelete",
+    "description": "Grants permission to initiate a connector delete operation on remote server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startremotemove": {
+    "name": "StartRemoteMove",
+    "description": "Grants permission to initiate a connector move operation on remote server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startserver": {
+    "name": "StartServer",
+    "description": "Grants permission to start a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopserver": {
+    "name": "StopServer",
+    "description": "Grants permission to stop a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an AWS Transfer Family resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "host-key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "server",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "webapp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "testconnection": {
+    "name": "TestConnection",
+    "description": "Grants permission to test a connector's connection to remote server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "testidentityprovider": {
+    "name": "TestIdentityProvider",
+    "description": "Grants permission to test a server's custom identity provider",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag an AWS Transfer Family resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "host-key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "server",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "webapp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateaccess": {
+    "name": "UpdateAccess",
+    "description": "Grants permission to update access",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updateagreement": {
+    "name": "UpdateAgreement",
+    "description": "Grants permission to update an agreement",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatecertificate": {
+    "name": "UpdateCertificate",
+    "description": "Grants permission to update a certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnector": {
+    "name": "UpdateConnector",
+    "description": "Grants permission to update a connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatehostkey": {
+    "name": "UpdateHostKey",
+    "description": "Grants permission to update a host key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "host-key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprofile": {
+    "name": "UpdateProfile",
+    "description": "Grants permission to update a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateserver": {
+    "name": "UpdateServer",
+    "description": "Grants permission to update the configuration of a server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "server",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "transfer:RequestServerEndpointType",
+      "transfer:RequestServerProtocols"
+    ],
+    "dependentActions": []
+  },
+  "updateuser": {
+    "name": "UpdateUser",
+    "description": "Grants permission to update the configuration of a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatewebapp": {
+    "name": "UpdateWebApp",
+    "description": "Grants permission to update the configuration of a webapp",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "webapp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatewebappcustomization": {
+    "name": "UpdateWebAppCustomization",
+    "description": "Grants permission to update the configuration of a webapp cutomization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "webapp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  }
+}

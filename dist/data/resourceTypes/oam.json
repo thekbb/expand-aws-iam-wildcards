@@ -1,0 +1,16 @@
+{
+  "link": {
+    "key": "Link",
+    "arn": "arn:${Partition}:oam:${Region}:${Account}:link/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "sink": {
+    "key": "Sink",
+    "arn": "arn:${Partition}:oam:${Region}:${Account}:sink/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

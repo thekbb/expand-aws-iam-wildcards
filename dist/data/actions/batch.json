@@ -1,0 +1,755 @@
+{
+  "canceljob": {
+    "name": "CancelJob",
+    "description": "Grants permission to cancel a job in an AWS Batch job queue in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcomputeenvironment": {
+    "name": "CreateComputeEnvironment",
+    "description": "Grants permission to create an AWS Batch compute environment in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "compute-environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconsumableresource": {
+    "name": "CreateConsumableResource",
+    "description": "Grants permission to create an AWS Batch consumable resource in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "consumable-resource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createjobqueue": {
+    "name": "CreateJobQueue",
+    "description": "Grants permission to create an AWS Batch job queue in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "compute-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scheduling-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createschedulingpolicy": {
+    "name": "CreateSchedulingPolicy",
+    "description": "Grants permission to create an AWS Batch scheduling policy in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduling-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createserviceenvironment": {
+    "name": "CreateServiceEnvironment",
+    "description": "Grants permission to create an AWS Batch service environment in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletecomputeenvironment": {
+    "name": "DeleteComputeEnvironment",
+    "description": "Grants permission to delete an AWS Batch compute environment in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "compute-environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconsumableresource": {
+    "name": "DeleteConsumableResource",
+    "description": "Grants permission to delete an AWS Batch consumable resource in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "consumable-resource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletejobqueue": {
+    "name": "DeleteJobQueue",
+    "description": "Grants permission to delete an AWS Batch job queue in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteschedulingpolicy": {
+    "name": "DeleteSchedulingPolicy",
+    "description": "Grants permission to delete an AWS Batch scheduling policy in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduling-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteserviceenvironment": {
+    "name": "DeleteServiceEnvironment",
+    "description": "Grants permission to delete an AWS Batch service environment in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deregisterjobdefinition": {
+    "name": "DeregisterJobDefinition",
+    "description": "Grants permission to deregister an AWS Batch job definition in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job-definition-revision",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecomputeenvironments": {
+    "name": "DescribeComputeEnvironments",
+    "description": "Grants permission to describe one or more AWS Batch compute environments in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeconsumableresource": {
+    "name": "DescribeConsumableResource",
+    "description": "Grants permission to describe one or more AWS Batch consumable resource in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "consumable-resource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejobdefinitions": {
+    "name": "DescribeJobDefinitions",
+    "description": "Grants permission to describe one or more AWS Batch job definitions in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejobqueues": {
+    "name": "DescribeJobQueues",
+    "description": "Grants permission to describe one or more AWS Batch job queues in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejobs": {
+    "name": "DescribeJobs",
+    "description": "Grants permission to describe a list of AWS Batch jobs in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeschedulingpolicies": {
+    "name": "DescribeSchedulingPolicies",
+    "description": "Grants permission to describe one or more AWS Batch scheduling policies in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeserviceenvironments": {
+    "name": "DescribeServiceEnvironments",
+    "description": "Grants permission to describe one or more AWS Batch service environments in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeservicejob": {
+    "name": "DescribeServiceJob",
+    "description": "Grants permission to describe a AWS Batch service job in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjobqueuesnapshot": {
+    "name": "GetJobQueueSnapshot",
+    "description": "Grants permission to get a snapshot of an AWS Batch job queue in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconsumableresources": {
+    "name": "ListConsumableResources",
+    "description": "Grants permission to list AWS Batch consumable resources in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobs": {
+    "name": "ListJobs",
+    "description": "Grants permission to list jobs for a specified AWS Batch job queue in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobsbyconsumableresource": {
+    "name": "ListJobsByConsumableResource",
+    "description": "Grants permission to list AWS Batch jobs that require a specific consumable resource in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "consumable-resource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listschedulingpolicies": {
+    "name": "ListSchedulingPolicies",
+    "description": "Grants permission to list AWS Batch scheduling policies in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicejobs": {
+    "name": "ListServiceJobs",
+    "description": "Grants permission to list service jobs for a specified AWS Batch job queue in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an AWS Batch resource in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "compute-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "consumable-resource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-definition-revision",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scheduling-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registerjobdefinition": {
+    "name": "RegisterJobDefinition",
+    "description": "Grants permission to register an AWS Batch job definition in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job-definition",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "consumable-resource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "batch:User",
+      "batch:Privileged",
+      "batch:Image",
+      "batch:LogDriver",
+      "batch:AWSLogsGroup",
+      "batch:AWSLogsRegion",
+      "batch:AWSLogsStreamPrefix",
+      "batch:AWSLogsCreateGroup",
+      "batch:EKSServiceAccountName",
+      "batch:EKSImage",
+      "batch:EKSRunAsUser",
+      "batch:EKSRunAsGroup",
+      "batch:EKSPrivileged",
+      "batch:EKSNamespace",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "submitjob": {
+    "name": "SubmitJob",
+    "description": "Grants permission to submit an AWS Batch job from a job definition in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [
+          "batch:ShareIdentifier",
+          "batch:EKSImage",
+          "batch:EKSNamespace"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "consumable-resource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-definition-revision",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "submitservicejob": {
+    "name": "SubmitServiceJob",
+    "description": "Grants permission to submit an AWS Batch service job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-job",
+        "required": true,
+        "conditionKeys": [
+          "batch:ShareIdentifier"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an AWS Batch resource in your account",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "compute-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "consumable-resource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-definition-revision",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scheduling-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "terminatejob": {
+    "name": "TerminateJob",
+    "description": "Grants permission to terminate a job in an AWS Batch job queue in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "terminateservicejob": {
+    "name": "TerminateServiceJob",
+    "description": "Grants permission to terminate a service job in an AWS Batch job queue in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag an AWS Batch resource in your account",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "compute-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "consumable-resource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-definition-revision",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scheduling-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecomputeenvironment": {
+    "name": "UpdateComputeEnvironment",
+    "description": "Grants permission to update an AWS Batch compute environment in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "compute-environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconsumableresource": {
+    "name": "UpdateConsumableResource",
+    "description": "Grants permission to update an AWS Batch consumable resource in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "consumable-resource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatejobqueue": {
+    "name": "UpdateJobQueue",
+    "description": "Grants permission to update an AWS Batch job queue in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "compute-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scheduling-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateschedulingpolicy": {
+    "name": "UpdateSchedulingPolicy",
+    "description": "Grants permission to update an AWS Batch scheduling policy in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduling-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateserviceenvironment": {
+    "name": "UpdateServiceEnvironment",
+    "description": "Grants permission to update an AWS Batch service environment in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

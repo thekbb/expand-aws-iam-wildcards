@@ -1,0 +1,18 @@
+{
+  "appliedschema": {
+    "key": "appliedSchema",
+    "arn": "arn:${Partition}:clouddirectory:${Region}:${Account}:directory/${DirectoryId}/schema/${SchemaName}/${Version}"
+  },
+  "developmentschema": {
+    "key": "developmentSchema",
+    "arn": "arn:${Partition}:clouddirectory:${Region}:${Account}:schema/development/${SchemaName}"
+  },
+  "directory": {
+    "key": "directory",
+    "arn": "arn:${Partition}:clouddirectory:${Region}:${Account}:directory/${DirectoryId}"
+  },
+  "publishedschema": {
+    "key": "publishedSchema",
+    "arn": "arn:${Partition}:clouddirectory:${Region}:${Account}:schema/published/${SchemaName}/${Version}"
+  }
+}

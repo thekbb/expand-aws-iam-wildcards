@@ -1,0 +1,34 @@
+{
+  "instance": {
+    "key": "instance",
+    "arn": "arn:${Partition}:scn:${Region}:${Account}:instance/${InstanceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "bill-of-materials-import-job": {
+    "key": "bill-of-materials-import-job",
+    "arn": "arn:${Partition}:scn:${Region}:${Account}:instance/${InstanceId}/bill-of-materials-import-job/${JobId}"
+  },
+  "data-integration-flow": {
+    "key": "data-integration-flow",
+    "arn": "arn:${Partition}:scn:${Region}:${Account}:instance/${InstanceId}/data-integration-flows/${FlowName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "namespace": {
+    "key": "namespace",
+    "arn": "arn:${Partition}:scn:${Region}:${Account}:instance/${InstanceId}/namespaces/${Namespace}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "dataset": {
+    "key": "dataset",
+    "arn": "arn:${Partition}:scn:${Region}:${Account}:instance/${InstanceId}/namespaces/${Namespace}/datasets/${DatasetName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

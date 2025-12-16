@@ -1,0 +1,739 @@
+{
+  "cancelexporttask": {
+    "name": "CancelExportTask",
+    "description": "Grants permission to cancel an ongoing export task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "export-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "cancelimporttask": {
+    "name": "CancelImportTask",
+    "description": "Grants permission to cancel an ongoing import task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "import-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelquery": {
+    "name": "CancelQuery",
+    "description": "Grants permission to cancel a query",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "creategraph": {
+    "name": "CreateGraph",
+    "description": "Grants permission to create a new graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "kms:CreateGrant",
+          "kms:Decrypt",
+          "kms:DescribeKey"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "neptune-graph:PublicConnectivity"
+    ],
+    "dependentActions": []
+  },
+  "creategraphsnapshot": {
+    "name": "CreateGraphSnapshot",
+    "description": "Grants permission to create a new snapshot from an existing graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graph-snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "creategraphusingimporttask": {
+    "name": "CreateGraphUsingImportTask",
+    "description": "Grants permission to create a new graph while importing data into the new graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "iam:PassRole",
+          "kms:CreateGrant",
+          "kms:Decrypt",
+          "kms:DescribeKey"
+        ]
+      },
+      {
+        "name": "import-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "neptune-graph:PublicConnectivity"
+    ],
+    "dependentActions": []
+  },
+  "createprivategraphendpoint": {
+    "name": "CreatePrivateGraphEndpoint",
+    "description": "Grants permission to create a new private graph endpoint to access the graph from within a vpc",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateVpcEndpoint",
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcAttribute",
+          "ec2:DescribeVpcEndpoints",
+          "ec2:DescribeVpcs",
+          "ec2:ModifyVpcEndpoint",
+          "route53:AssociateVPCWithHostedZone"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletedataviaquery": {
+    "name": "DeleteDataViaQuery",
+    "description": "Grants permission to delete data via query APIs on the graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletegraph": {
+    "name": "DeleteGraph",
+    "description": "Grants permission to delete a graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletegraphsnapshot": {
+    "name": "DeleteGraphSnapshot",
+    "description": "Grants permission to delete a snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph-snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteprivategraphendpoint": {
+    "name": "DeletePrivateGraphEndpoint",
+    "description": "Grants permission to delete a private graph endpoint of a graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DeleteVpcEndpoints",
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcAttribute",
+          "ec2:DescribeVpcEndpoints",
+          "ec2:DescribeVpcs",
+          "ec2:ModifyVpcEndpoint",
+          "route53:DisassociateVPCFromHostedZone"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getenginestatus": {
+    "name": "GetEngineStatus",
+    "description": "Grants permission to get the engine status of the graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getexporttask": {
+    "name": "GetExportTask",
+    "description": "Grants permission to get details about an export task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "export-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getgraph": {
+    "name": "GetGraph",
+    "description": "Grants permission to get details about a graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getgraphsnapshot": {
+    "name": "GetGraphSnapshot",
+    "description": "Grants permission to get details about a snapshot",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph-snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getgraphsummary": {
+    "name": "GetGraphSummary",
+    "description": "Grants permission to get the summary for the data in the graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getimporttask": {
+    "name": "GetImportTask",
+    "description": "Grants permission to get details about an import task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "import-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprivategraphendpoint": {
+    "name": "GetPrivateGraphEndpoint",
+    "description": "Grants permission to get details about a private graph endpoint of a graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getquerystatus": {
+    "name": "GetQueryStatus",
+    "description": "Grants permission to check the status of a given query",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getstatisticsstatus": {
+    "name": "GetStatisticsStatus",
+    "description": "Grants permission to get the statistics for the data in the graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listexporttasks": {
+    "name": "ListExportTasks",
+    "description": "Grants permission to list the export tasks in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "export-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgraphsnapshots": {
+    "name": "ListGraphSnapshots",
+    "description": "Grants permission to list the snapshots in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph-snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgraphs": {
+    "name": "ListGraphs",
+    "description": "Grants permission to list the graphs in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listimporttasks": {
+    "name": "ListImportTasks",
+    "description": "Grants permission to list the import tasks in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "import-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprivategraphendpoints": {
+    "name": "ListPrivateGraphEndpoints",
+    "description": "Grants permission to list the private graph endpoints for a given graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listqueries": {
+    "name": "ListQueries",
+    "description": "Grants permission to check the status of all active queries",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to lists tag for a Neptune Analytics resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graph-snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "readdataviaquery": {
+    "name": "ReadDataViaQuery",
+    "description": "Grants permission to read data via query APIs on the graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "resetgraph": {
+    "name": "ResetGraph",
+    "description": "Grants permission to reset a graph which deletes all data within the graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "restoregraphfromsnapshot": {
+    "name": "RestoreGraphFromSnapshot",
+    "description": "Grants permission to create a new graph from an existing snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:CreateGrant",
+          "kms:Decrypt",
+          "kms:DescribeKey"
+        ]
+      },
+      {
+        "name": "graph-snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "neptune-graph:PublicConnectivity"
+    ],
+    "dependentActions": []
+  },
+  "startexporttask": {
+    "name": "StartExportTask",
+    "description": "Grants permission to export data from an existing graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "export-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startgraph": {
+    "name": "StartGraph",
+    "description": "Grants permission to start a graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt",
+          "kms:DescribeKey"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startimporttask": {
+    "name": "StartImportTask",
+    "description": "Grants permission to import data into an existing graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "import-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopgraph": {
+    "name": "StopGraph",
+    "description": "Grants permission to stop a graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a Neptune Analytics resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graph-snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a Neptune Analytics resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graph-snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updategraph": {
+    "name": "UpdateGraph",
+    "description": "Grants permission to modify a graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "neptune-graph:PublicConnectivity"
+    ],
+    "dependentActions": []
+  },
+  "writedataviaquery": {
+    "name": "WriteDataViaQuery",
+    "description": "Grants permission to write data via query APIs on the graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

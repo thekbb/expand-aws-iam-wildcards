@@ -1,0 +1,2213 @@
+{
+  "associatemembertofarm": {
+    "name": "AssociateMemberToFarm",
+    "description": "Grants permission to associate a member to a farm",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:DescribeGroup",
+          "identitystore:DescribeUser",
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:AssociatedMembershipLevel",
+      "deadline:MembershipLevel"
+    ],
+    "dependentActions": []
+  },
+  "associatemembertofleet": {
+    "name": "AssociateMemberToFleet",
+    "description": "Grants permission to associate a member to a fleet",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:DescribeGroup",
+          "identitystore:DescribeUser",
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:AssociatedMembershipLevel",
+      "deadline:MembershipLevel"
+    ],
+    "dependentActions": []
+  },
+  "associatemembertojob": {
+    "name": "AssociateMemberToJob",
+    "description": "Grants permission to associate a member to a job",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:DescribeGroup",
+          "identitystore:DescribeUser",
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:AssociatedMembershipLevel",
+      "deadline:MembershipLevel"
+    ],
+    "dependentActions": []
+  },
+  "associatemembertoqueue": {
+    "name": "AssociateMemberToQueue",
+    "description": "Grants permission to associate a member to a queue",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:DescribeGroup",
+          "identitystore:DescribeUser",
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:AssociatedMembershipLevel",
+      "deadline:MembershipLevel"
+    ],
+    "dependentActions": []
+  },
+  "assumefleetroleforread": {
+    "name": "AssumeFleetRoleForRead",
+    "description": "Grants permission to assume a fleet role for read-only access",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "assumefleetroleforworker": {
+    "name": "AssumeFleetRoleForWorker",
+    "description": "Grants permission to assume a fleet role for a worker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "assumequeueroleforread": {
+    "name": "AssumeQueueRoleForRead",
+    "description": "Grants permission to assume a queue role for read-only access",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "assumequeueroleforuser": {
+    "name": "AssumeQueueRoleForUser",
+    "description": "Grants permission to assume a queue role for a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "assumequeueroleforworker": {
+    "name": "AssumeQueueRoleForWorker",
+    "description": "Grants permission to assume a queue role for a worker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetjobentity": {
+    "name": "BatchGetJobEntity",
+    "description": "Grants permission to get a job entity for a worker",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "copyjobtemplate": {
+    "name": "CopyJobTemplate",
+    "description": "Grants permission to copy a job template to an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember",
+      "s3:PutObject"
+    ]
+  },
+  "createbudget": {
+    "name": "CreateBudget",
+    "description": "Grants permission to create a budget",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "budget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "createfarm": {
+    "name": "CreateFarm",
+    "description": "Grants permission to create a farm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "deadline:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfleet": {
+    "name": "CreateFleet",
+    "description": "Grants permission to create a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "deadline:TagResource",
+          "ec2:CreateVpcEndpoint",
+          "iam:PassRole",
+          "identitystore:ListGroupMembershipsForMember",
+          "logs:CreateLogGroup",
+          "vpc-lattice:GetResourceConfiguration",
+          "vpc-lattice:GetResourceGateway"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createjob": {
+    "name": "CreateJob",
+    "description": "Grants permission to create a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "deadline:GetJobTemplate",
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "createlicenseendpoint": {
+    "name": "CreateLicenseEndpoint",
+    "description": "Grants permission to create a license endpoint for licensed software or products",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "deadline:TagResource",
+          "ec2:CreateTags",
+          "ec2:CreateVpcEndpoint",
+          "ec2:DescribeVpcEndpoints"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlimit": {
+    "name": "CreateLimit",
+    "description": "Grants permission to create a limit for a farm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "createmonitor": {
+    "name": "CreateMonitor",
+    "description": "Grants permission to create a monitor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "monitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "deadline:TagResource",
+          "iam:PassRole",
+          "sso:CreateApplication",
+          "sso:DeleteApplication",
+          "sso:PutApplicationAssignmentConfiguration",
+          "sso:PutApplicationAuthenticationMethod",
+          "sso:PutApplicationGrant"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createqueue": {
+    "name": "CreateQueue",
+    "description": "Grants permission to create a queue",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "deadline:TagResource",
+          "iam:PassRole",
+          "identitystore:ListGroupMembershipsForMember",
+          "logs:CreateLogGroup",
+          "s3:ListBucket"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createqueueenvironment": {
+    "name": "CreateQueueEnvironment",
+    "description": "Grants permission to create a queue environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "createqueuefleetassociation": {
+    "name": "CreateQueueFleetAssociation",
+    "description": "Grants permission to create a queue-fleet association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createqueuelimitassociation": {
+    "name": "CreateQueueLimitAssociation",
+    "description": "Grants permission to create a queue-limit association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createstorageprofile": {
+    "name": "CreateStorageProfile",
+    "description": "Grants permission to create a storage profile for a farm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "createworker": {
+    "name": "CreateWorker",
+    "description": "Grants permission to create a worker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "deadline:ListTagsForResource",
+          "deadline:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletebudget": {
+    "name": "DeleteBudget",
+    "description": "Grants permission to delete a budget",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "budget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "deletefarm": {
+    "name": "DeleteFarm",
+    "description": "Grants permission to delete a farm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "deletefleet": {
+    "name": "DeleteFleet",
+    "description": "Grants permission to delete a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "deletelicenseendpoint": {
+    "name": "DeleteLicenseEndpoint",
+    "description": "Grants permission to delete a license endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteVpcEndpoints",
+      "ec2:DescribeVpcEndpoints"
+    ]
+  },
+  "deletelimit": {
+    "name": "DeleteLimit",
+    "description": "Grants permission to delete a limit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "deletemeteredproduct": {
+    "name": "DeleteMeteredProduct",
+    "description": "Grants permission to delete a metered product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metered-product",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemonitor": {
+    "name": "DeleteMonitor",
+    "description": "Grants permission to delete a monitor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "monitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso:DeleteApplication"
+    ]
+  },
+  "deletequeue": {
+    "name": "DeleteQueue",
+    "description": "Grants permission to delete a queue",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "deletequeueenvironment": {
+    "name": "DeleteQueueEnvironment",
+    "description": "Grants permission to delete a queue environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "deletequeuefleetassociation": {
+    "name": "DeleteQueueFleetAssociation",
+    "description": "Grants permission to delete a queue-fleet association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletequeuelimitassociation": {
+    "name": "DeleteQueueLimitAssociation",
+    "description": "Grants permission to delete a queue-limit association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestorageprofile": {
+    "name": "DeleteStorageProfile",
+    "description": "Grants permission to delete a storage profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "deleteworker": {
+    "name": "DeleteWorker",
+    "description": "Grants permission to delete a worker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatememberfromfarm": {
+    "name": "DisassociateMemberFromFarm",
+    "description": "Grants permission to disassociate a member from a farm",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:AssociatedMembershipLevel"
+    ],
+    "dependentActions": []
+  },
+  "disassociatememberfromfleet": {
+    "name": "DisassociateMemberFromFleet",
+    "description": "Grants permission to disassociate a member from a fleet",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:AssociatedMembershipLevel"
+    ],
+    "dependentActions": []
+  },
+  "disassociatememberfromjob": {
+    "name": "DisassociateMemberFromJob",
+    "description": "Grants permission to disassociate a member from a job",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:AssociatedMembershipLevel"
+    ],
+    "dependentActions": []
+  },
+  "disassociatememberfromqueue": {
+    "name": "DisassociateMemberFromQueue",
+    "description": "Grants permission to disassociate a member from a queue",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:AssociatedMembershipLevel"
+    ],
+    "dependentActions": []
+  },
+  "getapplicationversion": {
+    "name": "GetApplicationVersion",
+    "description": "Grants permission to get the latest version of an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "monitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbudget": {
+    "name": "GetBudget",
+    "description": "Grants permission to get a budget",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "budget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getfarm": {
+    "name": "GetFarm",
+    "description": "Grants permission to get a farm",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getfleet": {
+    "name": "GetFleet",
+    "description": "Grants permission to get a fleet",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getjob": {
+    "name": "GetJob",
+    "description": "Grants permission to get a job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getjobtemplate": {
+    "name": "GetJobTemplate",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read job template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlicenseendpoint": {
+    "name": "GetLicenseEndpoint",
+    "description": "Grants permission to get a license endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "license-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlimit": {
+    "name": "GetLimit",
+    "description": "Grants permission to get a limit",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getmonitor": {
+    "name": "GetMonitor",
+    "description": "Grants permission to get a monitor",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "monitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getqueue": {
+    "name": "GetQueue",
+    "description": "Grants permission to get a queue",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getqueueenvironment": {
+    "name": "GetQueueEnvironment",
+    "description": "Grants permission to get a queue environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getqueuefleetassociation": {
+    "name": "GetQueueFleetAssociation",
+    "description": "Grants permission to get a queue-fleet association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getqueuelimitassociation": {
+    "name": "GetQueueLimitAssociation",
+    "description": "Grants permission to get a queue-limit association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsession": {
+    "name": "GetSession",
+    "description": "Grants permission to get a session for a job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getsessionaction": {
+    "name": "GetSessionAction",
+    "description": "Grants permission to get a session action for a job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getsessionsstatisticsaggregation": {
+    "name": "GetSessionsStatisticsAggregation",
+    "description": "Grants permission to get all collected statistics for sessions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstep": {
+    "name": "GetStep",
+    "description": "Grants permission to get a step in a job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getstorageprofile": {
+    "name": "GetStorageProfile",
+    "description": "Grants permission to get a storage profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getstorageprofileforqueue": {
+    "name": "GetStorageProfileForQueue",
+    "description": "Grants permission to get a storage profile for a queue",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "gettask": {
+    "name": "GetTask",
+    "description": "Grants permission to get a job task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "getworker": {
+    "name": "GetWorker",
+    "description": "Grants permission to get a worker",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listavailablemeteredproducts": {
+    "name": "ListAvailableMeteredProducts",
+    "description": "Grants permission to list all available metered products within a license endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbudgets": {
+    "name": "ListBudgets",
+    "description": "Grants permission to list all budgets for a farm",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "budget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listfarmmembers": {
+    "name": "ListFarmMembers",
+    "description": "Grants permission to list all members of a farm",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listfarms": {
+    "name": "ListFarms",
+    "description": "Grants permission to list all farms",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:DescribeGroup",
+          "identitystore:DescribeUser",
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:PrincipalId",
+      "deadline:RequesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "listfleetmembers": {
+    "name": "ListFleetMembers",
+    "description": "Grants permission to list all members of a fleet",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listfleets": {
+    "name": "ListFleets",
+    "description": "Grants permission to list all fleets",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:DescribeGroup",
+          "identitystore:DescribeUser",
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:PrincipalId",
+      "deadline:RequesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "listjobmembers": {
+    "name": "ListJobMembers",
+    "description": "Grants permission to list all members of a job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listjobparameterdefinitions": {
+    "name": "ListJobParameterDefinitions",
+    "description": "Grants permission to get a job's parameter definitions in the job template",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listjobs": {
+    "name": "ListJobs",
+    "description": "Grants permission to list all jobs in a queue",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:DescribeGroup",
+          "identitystore:DescribeUser",
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:PrincipalId",
+      "deadline:RequesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "listlicenseendpoints": {
+    "name": "ListLicenseEndpoints",
+    "description": "Grants permission to list all license endpoints",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlimits": {
+    "name": "ListLimits",
+    "description": "Grants permission to list all limits in a farm",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listmeteredproducts": {
+    "name": "ListMeteredProducts",
+    "description": "Grants permission to list all metered products in a license endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "metered-product",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmonitors": {
+    "name": "ListMonitors",
+    "description": "Grants permission to list all monitors",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "monitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listqueueenvironments": {
+    "name": "ListQueueEnvironments",
+    "description": "Grants permission to list all queue environments to which a queue is associated",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listqueuefleetassociations": {
+    "name": "ListQueueFleetAssociations",
+    "description": "Grants permission to list all queue-fleet associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listqueuelimitassociations": {
+    "name": "ListQueueLimitAssociations",
+    "description": "Grants permission to list all queue-limit associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listqueuemembers": {
+    "name": "ListQueueMembers",
+    "description": "Grants permission to list all members in a queue",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listqueues": {
+    "name": "ListQueues",
+    "description": "Grants permission to list all queues on a farm",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:DescribeGroup",
+          "identitystore:DescribeUser",
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "deadline:PrincipalId",
+      "deadline:RequesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "listsessionactions": {
+    "name": "ListSessionActions",
+    "description": "Grants permission to list all session actions for a job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listsessions": {
+    "name": "ListSessions",
+    "description": "Grants permission to list all sessions for a job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listsessionsforworker": {
+    "name": "ListSessionsForWorker",
+    "description": "Grants permission to list all sessions for a worker",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "liststepconsumers": {
+    "name": "ListStepConsumers",
+    "description": "Grants permission to list the step consumers for a job step",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "liststepdependencies": {
+    "name": "ListStepDependencies",
+    "description": "Grants permission to list dependencies for a job step",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "liststeps": {
+    "name": "ListSteps",
+    "description": "Grants permission to list all steps for a job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "liststorageprofiles": {
+    "name": "ListStorageProfiles",
+    "description": "Grants permission to list all storage profiles in a farm",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "liststorageprofilesforqueue": {
+    "name": "ListStorageProfilesForQueue",
+    "description": "Grants permission to list all storage profiles in a queue",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags on specified Deadline Cloud resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "monitor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "worker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "deadline:CalledAction"
+    ],
+    "dependentActions": []
+  },
+  "listtasks": {
+    "name": "ListTasks",
+    "description": "Grants permission to list all tasks for a job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "listworkers": {
+    "name": "ListWorkers",
+    "description": "Grants permission to list all workers in a fleet",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "putmeteredproduct": {
+    "name": "PutMeteredProduct",
+    "description": "Grants permission to add a metered product to a license endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metered-product",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchjobs": {
+    "name": "SearchJobs",
+    "description": "Grants permission to search for jobs in multiple queues",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "searchsteps": {
+    "name": "SearchSteps",
+    "description": "Grants permission to search the steps within a single job or to search the steps for multiple queues",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchtasks": {
+    "name": "SearchTasks",
+    "description": "Grants permission to search the tasks within a single job or to search the tasks for multiple queues",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchworkers": {
+    "name": "SearchWorkers",
+    "description": "Grants permission to search for workers in multiple fleets",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "startsessionsstatisticsaggregation": {
+    "name": "StartSessionsStatisticsAggregation",
+    "description": "Grants permission to get all collected statistics for sessions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or overwrite one or more tags for the specified Deadline Cloud resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "monitor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "worker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "deadline:CalledAction"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to disassociate one or more tags from the specified Deadline Cloud resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "monitor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "worker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatebudget": {
+    "name": "UpdateBudget",
+    "description": "Grants permission to update a budget",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "budget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updatefarm": {
+    "name": "UpdateFarm",
+    "description": "Grants permission to update a farm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updatefleet": {
+    "name": "UpdateFleet",
+    "description": "Grants permission to update a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateVpcEndpoint",
+      "iam:PassRole",
+      "identitystore:ListGroupMembershipsForMember",
+      "vpc-lattice:GetResourceConfiguration",
+      "vpc-lattice:GetResourceGateway"
+    ]
+  },
+  "updatejob": {
+    "name": "UpdateJob",
+    "description": "Grants permission to update a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updatelimit": {
+    "name": "UpdateLimit",
+    "description": "Grants permission to update a limit for a farm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updatemonitor": {
+    "name": "UpdateMonitor",
+    "description": "Grants permission to update a monitor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "monitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole",
+      "sso:PutApplicationGrant",
+      "sso:UpdateApplication"
+    ]
+  },
+  "updatequeue": {
+    "name": "UpdateQueue",
+    "description": "Grants permission to update a queue",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole",
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updatequeueenvironment": {
+    "name": "UpdateQueueEnvironment",
+    "description": "Grants permission to update a queue environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updatequeuefleetassociation": {
+    "name": "UpdateQueueFleetAssociation",
+    "description": "Grants permission to update a queue-fleet association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatequeuelimitassociation": {
+    "name": "UpdateQueueLimitAssociation",
+    "description": "Grants permission to update a queue-limit association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesession": {
+    "name": "UpdateSession",
+    "description": "Grants permission to update a session for a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updatestep": {
+    "name": "UpdateStep",
+    "description": "Grants permission to update a step for a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updatestorageprofile": {
+    "name": "UpdateStorageProfile",
+    "description": "Grants permission to update a storage profile for a farm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updatetask": {
+    "name": "UpdateTask",
+    "description": "Grants permission to update a task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
+  "updateworker": {
+    "name": "UpdateWorker",
+    "description": "Grants permission to update a worker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "logs:CreateLogStream"
+    ]
+  },
+  "updateworkerschedule": {
+    "name": "UpdateWorkerSchedule",
+    "description": "Grants permission to update the schedule for a worker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "worker",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "logs:CreateLogStream"
+    ]
+  }
+}

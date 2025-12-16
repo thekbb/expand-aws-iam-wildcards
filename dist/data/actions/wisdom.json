@@ -1,0 +1,1579 @@
+{
+  "activatemessagetemplate": {
+    "name": "ActivateMessageTemplate",
+    "description": "Grants permission to activate a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "allowvendedlogdeliveryforresource": {
+    "name": "AllowVendedLogDeliveryForResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to configure vended log delivery for an assistant",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createaiagent": {
+    "name": "CreateAIAgent",
+    "description": "Grants permission to create an ai agent",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createaiagentversion": {
+    "name": "CreateAIAgentVersion",
+    "description": "Grants permission to create an ai agent version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createaiguardrail": {
+    "name": "CreateAIGuardrail",
+    "description": "Grants permission to create an ai guardrail",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createaiguardrailversion": {
+    "name": "CreateAIGuardrailVersion",
+    "description": "Grants permission to create an ai guardrail version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createaiprompt": {
+    "name": "CreateAIPrompt",
+    "description": "Grants permission to create an ai prompt",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createaipromptversion": {
+    "name": "CreateAIPromptVersion",
+    "description": "Grants permission to create an ai prompt version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createassistant": {
+    "name": "CreateAssistant",
+    "description": "Grants permission to create an assistant",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createassistantassociation": {
+    "name": "CreateAssistantAssociation",
+    "description": "Grants permission to create an association between an assistant and another resource",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createcontent": {
+    "name": "CreateContent",
+    "description": "Grants permission to create content",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createcontentassociation": {
+    "name": "CreateContentAssociation",
+    "description": "Grants permission to create a content association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createknowledgebase": {
+    "name": "CreateKnowledgeBase",
+    "description": "Grants permission to create a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createmessagetemplate": {
+    "name": "CreateMessageTemplate",
+    "description": "Grants permission to create a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createmessagetemplateattachment": {
+    "name": "CreateMessageTemplateAttachment",
+    "description": "Grants permission to create an attachment to a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmessagetemplateversion": {
+    "name": "CreateMessageTemplateVersion",
+    "description": "Grants permission to create a version of a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createquickresponse": {
+    "name": "CreateQuickResponse",
+    "description": "Grants permission to create quick response",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createsession": {
+    "name": "CreateSession",
+    "description": "Grants permission to create a session",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deactivatemessagetemplate": {
+    "name": "DeactivateMessageTemplate",
+    "description": "Grants permission to deactivate a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaiagent": {
+    "name": "DeleteAIAgent",
+    "description": "Grants permission to delete an ai agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaiagentversion": {
+    "name": "DeleteAIAgentVersion",
+    "description": "Grants permission to delete an ai agent version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaiguardrail": {
+    "name": "DeleteAIGuardrail",
+    "description": "Grants permission to delete an ai guardrail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaiguardrailversion": {
+    "name": "DeleteAIGuardrailVersion",
+    "description": "Grants permission to delete an ai guardrail version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaiprompt": {
+    "name": "DeleteAIPrompt",
+    "description": "Grants permission to delete an ai prompt",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaipromptversion": {
+    "name": "DeleteAIPromptVersion",
+    "description": "Grants permission to delete an ai prompt version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteassistant": {
+    "name": "DeleteAssistant",
+    "description": "Grants permission to delete an assistant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteassistantassociation": {
+    "name": "DeleteAssistantAssociation",
+    "description": "Grants permission to delete an assistant association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AssistantAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecontent": {
+    "name": "DeleteContent",
+    "description": "Grants permission to delete content",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecontentassociation": {
+    "name": "DeleteContentAssociation",
+    "description": "Grants permission to delete a content association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ContentAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteimportjob": {
+    "name": "DeleteImportJob",
+    "description": "Grants permission to delete a import job of a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteknowledgebase": {
+    "name": "DeleteKnowledgeBase",
+    "description": "Grants permission to delete a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemessagetemplate": {
+    "name": "DeleteMessageTemplate",
+    "description": "Grants permission to delete a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemessagetemplateattachment": {
+    "name": "DeleteMessageTemplateAttachment",
+    "description": "Grants permission to delete an attachment from a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletequickresponse": {
+    "name": "DeleteQuickResponse",
+    "description": "Grants permission to delete quick response",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "QuickResponse",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaiagent": {
+    "name": "GetAIAgent",
+    "description": "Grants permission to retrieve information about an ai agent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaiguardrail": {
+    "name": "GetAIGuardrail",
+    "description": "Grants permission to retrieve information about an ai guardrail",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaiprompt": {
+    "name": "GetAIPrompt",
+    "description": "Grants permission to retrieve information about an ai prompt",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getassistant": {
+    "name": "GetAssistant",
+    "description": "Grants permission to retrieve information about an assistant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getassistantassociation": {
+    "name": "GetAssistantAssociation",
+    "description": "Grants permission to retrieve information about an assistant association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AssistantAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontent": {
+    "name": "GetContent",
+    "description": "Grants permission to retrieve content, including a pre-signed URL to download the content",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontentassociation": {
+    "name": "GetContentAssociation",
+    "description": "Grants permission to retrieve information about a content association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ContentAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontentsummary": {
+    "name": "GetContentSummary",
+    "description": "Grants permission to retrieve summary information about the content",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getimportjob": {
+    "name": "GetImportJob",
+    "description": "Grants permission to retrieve information about the import job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getknowledgebase": {
+    "name": "GetKnowledgeBase",
+    "description": "Grants permission to retrieve information about the knowledge base",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmessagetemplate": {
+    "name": "GetMessageTemplate",
+    "description": "Grants permission to retrieve a message template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "wisdom:MessageTemplate/RoutingProfileArn"
+    ],
+    "dependentActions": []
+  },
+  "getnextmessage": {
+    "name": "GetNextMessage",
+    "description": "Grants permission to retrieve for next message in a session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getquickresponse": {
+    "name": "GetQuickResponse",
+    "description": "Grants permission to retrieve content",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "QuickResponse",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecommendations": {
+    "name": "GetRecommendations",
+    "description": "Grants permission to retrieve recommendations for the specified session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsession": {
+    "name": "GetSession",
+    "description": "Grants permission to retrieve information for a specified session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiagentversions": {
+    "name": "ListAIAgentVersions",
+    "description": "Grants permission to list information about ai agent versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiagents": {
+    "name": "ListAIAgents",
+    "description": "Grants permission to list information about ai agents",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiguardrailversions": {
+    "name": "ListAIGuardrailVersions",
+    "description": "Grants permission to list information about ai guardrail versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiguardrails": {
+    "name": "ListAIGuardrails",
+    "description": "Grants permission to list information about ai guardrails",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaipromptversions": {
+    "name": "ListAIPromptVersions",
+    "description": "Grants permission to list information about ai prompt versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiprompts": {
+    "name": "ListAIPrompts",
+    "description": "Grants permission to list information about ai prompts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassistantassociations": {
+    "name": "ListAssistantAssociations",
+    "description": "Grants permission to list information about assistant associations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassistants": {
+    "name": "ListAssistants",
+    "description": "Grants permission to list information about assistants",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcontentassociations": {
+    "name": "ListContentAssociations",
+    "description": "Grants permission to list information about content associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcontents": {
+    "name": "ListContents",
+    "description": "Grants permission to list the content with a knowledge base",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listimportjobs": {
+    "name": "ListImportJobs",
+    "description": "Grants permission to list information about knowledge bases",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listknowledgebases": {
+    "name": "ListKnowledgeBases",
+    "description": "Grants permission to list information about knowledge bases",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmessagetemplateversions": {
+    "name": "ListMessageTemplateVersions",
+    "description": "Grants permission to list message template versions for the specified message template",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmessagetemplates": {
+    "name": "ListMessageTemplates",
+    "description": "Grants permission to list the message templates for a knowledge base",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmessages": {
+    "name": "ListMessages",
+    "description": "Grants permission to list messages in a session",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listquickresponses": {
+    "name": "ListQuickResponses",
+    "description": "Grants permission to list the quick response with a knowledge base",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "notifyrecommendationsreceived": {
+    "name": "NotifyRecommendationsReceived",
+    "description": "Grants permission to remove the specified recommendations from the specified assistant's queue of newly available recommendations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putfeedback": {
+    "name": "PutFeedback",
+    "description": "Grants permission to submit feedback",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "queryassistant": {
+    "name": "QueryAssistant",
+    "description": "Grants permission to perform a manual search against the specified assistant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeassistantaiagent": {
+    "name": "RemoveAssistantAIAgent",
+    "description": "Grants permission to remove an ai agent from an assistant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeknowledgebasetemplateuri": {
+    "name": "RemoveKnowledgeBaseTemplateUri",
+    "description": "Grants permission to remove a URI template from a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rendermessagetemplate": {
+    "name": "RenderMessageTemplate",
+    "description": "Grants permission to render a message template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "wisdom:GetMessageTemplate"
+        ]
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "wisdom:MessageTemplate/RoutingProfileArn"
+    ],
+    "dependentActions": []
+  },
+  "retrieve": {
+    "name": "Retrieve",
+    "description": "Grants permission to retrieve knowledge content from specified assistant associations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchcontent": {
+    "name": "SearchContent",
+    "description": "Grants permission to search for content referencing a specified knowledge base. Can be used to get a specific content resource by its name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchmessagetemplates": {
+    "name": "SearchMessageTemplates",
+    "description": "Grants permission to search for message templates referencing a specified knowledge base",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "wisdom:SearchFilter/RoutingProfileArn",
+      "wisdom:SearchFilter/Qualifier"
+    ],
+    "dependentActions": []
+  },
+  "searchquickresponses": {
+    "name": "SearchQuickResponses",
+    "description": "Grants permission to search for quick response referencing a specified knowledge base",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "wisdom:GetQuickResponse"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "wisdom:SearchFilter/RoutingProfileArn"
+    ],
+    "dependentActions": []
+  },
+  "searchsessions": {
+    "name": "SearchSessions",
+    "description": "Grants permission to search for sessions referencing a specified assistant. Can be used to et a specific session resource by its name",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendmessage": {
+    "name": "SendMessage",
+    "description": "Grants permission to send a message",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcontentupload": {
+    "name": "StartContentUpload",
+    "description": "Grants permission to get a URL to upload content to a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startimportjob": {
+    "name": "StartImportJob",
+    "description": "Grants permission to create multiple quick responses",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add the specified tags to the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "AssistantAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Content",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ContentAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "QuickResponse",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the specified tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "AssistantAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Content",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ContentAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "QuickResponse",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateaiagent": {
+    "name": "UpdateAIAgent",
+    "description": "Grants permission to update information about an ai agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateaiguardrail": {
+    "name": "UpdateAIGuardrail",
+    "description": "Grants permission to update information about an ai guardrail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateaiprompt": {
+    "name": "UpdateAIPrompt",
+    "description": "Grants permission to update information about an ai prompt",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateassistantaiagent": {
+    "name": "UpdateAssistantAIAgent",
+    "description": "Grants permission to update assistant information about an ai agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecontent": {
+    "name": "UpdateContent",
+    "description": "Grants permission to update information about the content",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateknowledgebasetemplateuri": {
+    "name": "UpdateKnowledgeBaseTemplateUri",
+    "description": "Grants permission to update the template URI of a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemessagetemplate": {
+    "name": "UpdateMessageTemplate",
+    "description": "Grants permission to update content of the message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemessagetemplatemetadata": {
+    "name": "UpdateMessageTemplateMetadata",
+    "description": "Grants permission to update metadata of the message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatequickresponse": {
+    "name": "UpdateQuickResponse",
+    "description": "Grants permission to update information or content of the quick response",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "QuickResponse",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesession": {
+    "name": "UpdateSession",
+    "description": "Grants permission to update a session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesessiondata": {
+    "name": "UpdateSessionData",
+    "description": "Grants permission to update data stored in a session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

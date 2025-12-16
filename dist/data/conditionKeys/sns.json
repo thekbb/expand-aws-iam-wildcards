@@ -1,0 +1,27 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by tags from request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by tag keys from request",
+    "type": "ArrayOfString"
+  },
+  "sns:endpoint": {
+    "key": "sns:Endpoint",
+    "description": "Filters access by the URL, email address, or ARN from a Subscribe request or a previously confirmed subscription",
+    "type": "String"
+  },
+  "sns:protocol": {
+    "key": "sns:Protocol",
+    "description": "Filters access by the protocol value from a Subscribe request or a previously confirmed subscription",
+    "type": "String"
+  }
+}

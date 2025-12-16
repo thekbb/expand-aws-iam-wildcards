@@ -1,0 +1,452 @@
+{
+  "createprofile": {
+    "name": "CreateProfile",
+    "description": "Grants permission to create a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "createtrustanchor": {
+    "name": "CreateTrustAnchor",
+    "description": "Grants permission to create a trust anchor",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteattributemapping": {
+    "name": "DeleteAttributeMapping",
+    "description": "Grants permission to delete a mapping rule from a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecrl": {
+    "name": "DeleteCrl",
+    "description": "Grants permission to delete a certificate revocation list (crl)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "crl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprofile": {
+    "name": "DeleteProfile",
+    "description": "Grants permission to delete a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetrustanchor": {
+    "name": "DeleteTrustAnchor",
+    "description": "Grants permission to delete a trust anchor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-anchor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disablecrl": {
+    "name": "DisableCrl",
+    "description": "Grants permission to disable a certificate revocation list (crl)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "crl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableprofile": {
+    "name": "DisableProfile",
+    "description": "Grants permission to disable a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disabletrustanchor": {
+    "name": "DisableTrustAnchor",
+    "description": "Grants permission to disable a trust anchor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-anchor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enablecrl": {
+    "name": "EnableCrl",
+    "description": "Grants permission to enable a certificate revocation list (crl)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "crl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableprofile": {
+    "name": "EnableProfile",
+    "description": "Grants permission to enable a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "enabletrustanchor": {
+    "name": "EnableTrustAnchor",
+    "description": "Grants permission to enable a trust anchor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-anchor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcrl": {
+    "name": "GetCrl",
+    "description": "Grants permission to get a certificate revocation list (crl)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "crl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprofile": {
+    "name": "GetProfile",
+    "description": "Grants permission to get a profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsubject": {
+    "name": "GetSubject",
+    "description": "Grants permission to get a subject",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "subject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettrustanchor": {
+    "name": "GetTrustAnchor",
+    "description": "Grants permission to get a trust anchor",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trust-anchor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importcrl": {
+    "name": "ImportCrl",
+    "description": "Grants permission to import a certificate revocation list (crl)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listcrls": {
+    "name": "ListCrls",
+    "description": "Grants permission to list certificate revocation lists (crls)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprofiles": {
+    "name": "ListProfiles",
+    "description": "Grants permission to list profiles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsubjects": {
+    "name": "ListSubjects",
+    "description": "Grants permission to list subjects",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtrustanchors": {
+    "name": "ListTrustAnchors",
+    "description": "Grants permission to list trust anchors",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putattributemapping": {
+    "name": "PutAttributeMapping",
+    "description": "Grants permission to put a mapping rule into a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putnotificationsettings": {
+    "name": "PutNotificationSettings",
+    "description": "Grants permission to attach notification settings to a trust anchor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-anchor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resetnotificationsettings": {
+    "name": "ResetNotificationSettings",
+    "description": "Grants permission to reset custom notification settings to IAM Roles Anywhere defined default state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-anchor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "crl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trust-anchor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "crl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trust-anchor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecrl": {
+    "name": "UpdateCrl",
+    "description": "Grants permission to update a certificate revocation list (crl)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "crl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprofile": {
+    "name": "UpdateProfile",
+    "description": "Grants permission to update a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatetrustanchor": {
+    "name": "UpdateTrustAnchor",
+    "description": "Grants permission to update a trust anchor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-anchor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

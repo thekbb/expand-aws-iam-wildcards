@@ -1,0 +1,1010 @@
+{
+  "batchupdatecluster": {
+    "name": "BatchUpdateCluster",
+    "description": "Grants permissions to apply service updates",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "s3:GetObject"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "connect": {
+    "name": "Connect",
+    "description": "Allows an IAM user or role to connect as a specified MemoryDB user to a node in a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "copysnapshot": {
+    "name": "CopySnapshot",
+    "description": "Grants permissions to make a copy of an existing snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "memorydb:TagResource",
+          "s3:DeleteObject",
+          "s3:GetBucketAcl",
+          "s3:PutObject"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createacl": {
+    "name": "CreateAcl",
+    "description": "Grants permissions to create a new access control list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "memorydb:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcluster": {
+    "name": "CreateCluster",
+    "description": "Grants permissions to create a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "memorydb:TagResource",
+          "s3:GetObject"
+        ]
+      },
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "multiregioncluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "memorydb:TLSEnabled"
+    ],
+    "dependentActions": []
+  },
+  "createmultiregioncluster": {
+    "name": "CreateMultiRegionCluster",
+    "description": "Grants permissions to create a Multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregionparametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "memorydb:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "memorydb:TLSEnabled"
+    ],
+    "dependentActions": []
+  },
+  "createparametergroup": {
+    "name": "CreateParameterGroup",
+    "description": "Grants permissions to create a new parameter group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "memorydb:TagResource"
+    ]
+  },
+  "createsnapshot": {
+    "name": "CreateSnapshot",
+    "description": "Grants permissions to create a backup of a cluster at the current point in time",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "memorydb:TagResource",
+          "s3:DeleteObject",
+          "s3:GetBucketAcl",
+          "s3:PutObject"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsubnetgroup": {
+    "name": "CreateSubnetGroup",
+    "description": "Grants permissions to create a new subnet group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "memorydb:TagResource"
+    ]
+  },
+  "createuser": {
+    "name": "CreateUser",
+    "description": "Grants permissions to create a new user",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "memorydb:UserAuthenticationMode"
+    ],
+    "dependentActions": [
+      "memorydb:TagResource"
+    ]
+  },
+  "deleteacl": {
+    "name": "DeleteAcl",
+    "description": "Grants permissions to delete an access control list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletecluster": {
+    "name": "DeleteCluster",
+    "description": "Grants permissions to delete a previously provisioned cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      },
+      {
+        "name": "multiregioncluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletemultiregioncluster": {
+    "name": "DeleteMultiRegionCluster",
+    "description": "Grants permissions to delete a Multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteparametergroup": {
+    "name": "DeleteParameterGroup",
+    "description": "Grants permissions to delete a parameter group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletesnapshot": {
+    "name": "DeleteSnapshot",
+    "description": "Grants permissions to delete a snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletesubnetgroup": {
+    "name": "DeleteSubnetGroup",
+    "description": "Grants permissions to delete a subnet group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subnetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteuser": {
+    "name": "DeleteUser",
+    "description": "Grants permissions to delete a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeacls": {
+    "name": "DescribeAcls",
+    "description": "Grants permissions to retrieve information about access control lists",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "acl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeclusters": {
+    "name": "DescribeClusters",
+    "description": "Grants permissions to retrieve information about all provisioned clusters if no cluster identifier is specified, or about a specific cluster if a cluster identifier is supplied",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeengineversions": {
+    "name": "DescribeEngineVersions",
+    "description": "Grants permissions to list of the available engines and their versions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeevents": {
+    "name": "DescribeEvents",
+    "description": "Grants permissions to retrieve events related to clusters, subnet groups, and parameter groups",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemultiregionclusters": {
+    "name": "DescribeMultiRegionClusters",
+    "description": "Grants permissions to retrieve information about all Multi-Region clusters if no cluster identifier is specified, or about a specific Multi-Region cluster if a cluster identifier is supplied",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describemultiregionparametergroups": {
+    "name": "DescribeMultiRegionParameterGroups",
+    "description": "Grants permissions to retrieve information about Multi-Region parameter groups",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregionparametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemultiregionparameters": {
+    "name": "DescribeMultiRegionParameters",
+    "description": "Grants permissions to retrieve a detailed parameter list for a particular Multi-Region parameter group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregionparametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeparametergroups": {
+    "name": "DescribeParameterGroups",
+    "description": "Grants permissions to retrieve information about parameter groups",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeparameters": {
+    "name": "DescribeParameters",
+    "description": "Grants permissions to retrieve a detailed parameter list for a particular parameter group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describereservednodes": {
+    "name": "DescribeReservedNodes",
+    "description": "Grants permissions to retrieve reserved nodes",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "reservednode",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describereservednodesofferings": {
+    "name": "DescribeReservedNodesOfferings",
+    "description": "Grants permissions to retrieve reserved nodes offerings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeserviceupdates": {
+    "name": "DescribeServiceUpdates",
+    "description": "Grants permissions to retrieve details of the service updates",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesnapshots": {
+    "name": "DescribeSnapshots",
+    "description": "Grants permissions to retrieve information about cluster snapshots",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describesubnetgroups": {
+    "name": "DescribeSubnetGroups",
+    "description": "Grants permissions to retrieve a list of subnet group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "subnetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeusers": {
+    "name": "DescribeUsers",
+    "description": "Grants permissions to retrieve information about users",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "failovershard": {
+    "name": "FailoverShard",
+    "description": "Grants permissions to test automatic failover on a specified shard in a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listallowedmultiregionclusterupdates": {
+    "name": "ListAllowedMultiRegionClusterUpdates",
+    "description": "Grants permissions to list available Multi-Region cluster updates",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listallowednodetypeupdates": {
+    "name": "ListAllowedNodeTypeUpdates",
+    "description": "Grants permissions to list available node type updates",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtags": {
+    "name": "ListTags",
+    "description": "Grants permissions to list cost allocation tags",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "acl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "multiregioncluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "pausemultiregionclusterreplication": {
+    "name": "PauseMultiRegionClusterReplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to pause replication for a Multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "purchasereservednodesoffering": {
+    "name": "PurchaseReservedNodesOffering",
+    "description": "Grants permissions to purchase a new reserved node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reservednode",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "memorydb:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "resetparametergroup": {
+    "name": "ResetParameterGroup",
+    "description": "Grants permissions to modify the parameters of a parameter group to the engine or system default value",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permissions to add up to 10 cost allocation tags to the named resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "acl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "multiregioncluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reservednode",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permissions to remove the tags identified by the TagKeys list from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "acl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "multiregioncluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateacl": {
+    "name": "UpdateAcl",
+    "description": "Grants permissions to update an access control list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatecluster": {
+    "name": "UpdateCluster",
+    "description": "Grants permissions to update the settings for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      },
+      {
+        "name": "acl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatemultiregioncluster": {
+    "name": "UpdateMultiRegionCluster",
+    "description": "Grants permissions to update the settings for a Multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      },
+      {
+        "name": "multiregionparametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateparametergroup": {
+    "name": "UpdateParameterGroup",
+    "description": "Grants permissions to update parameters in a parameter group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatesubnetgroup": {
+    "name": "UpdateSubnetGroup",
+    "description": "Grants permissions to update a subnet group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subnetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateuser": {
+    "name": "UpdateUser",
+    "description": "Grants permissions to update a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "memorydb:UserAuthenticationMode"
+    ],
+    "dependentActions": []
+  }
+}

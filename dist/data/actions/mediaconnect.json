@@ -1,0 +1,1291 @@
+{
+  "addbridgeoutputs": {
+    "name": "AddBridgeOutputs",
+    "description": "Grants permission to add outputs to an existing bridge",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "addbridgesources": {
+    "name": "AddBridgeSources",
+    "description": "Grants permission to add sources to an existing bridge",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "addflowmediastreams": {
+    "name": "AddFlowMediaStreams",
+    "description": "Grants permission to add media streams to any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "addflowoutputs": {
+    "name": "AddFlowOutputs",
+    "description": "Grants permission to add outputs to any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Output",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "addflowsources": {
+    "name": "AddFlowSources",
+    "description": "Grants permission to add sources to any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "addflowvpcinterfaces": {
+    "name": "AddFlowVpcInterfaces",
+    "description": "Grants permission to add VPC interfaces to any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "associaterouternetworkinterface": {
+    "name": "AssociateRouterNetworkInterface",
+    "description": "Grants permission to associate a router network interface",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbridge": {
+    "name": "CreateBridge",
+    "description": "Grants permission to create bridges",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createflow": {
+    "name": "CreateFlow",
+    "description": "Grants permission to create flows",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "creategateway": {
+    "name": "CreateGateway",
+    "description": "Grants permission to create gateways",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createrouterinput": {
+    "name": "CreateRouterInput",
+    "description": "Grants permission to create a new router input in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterInput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "iam:PassRole",
+          "mediaconnect:AssociateRouterNetworkInterface",
+          "mediaconnect:CreateRouterInput",
+          "mediaconnect:TagResource",
+          "mediaconnect:UpdateFlowOutput"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createrouternetworkinterface": {
+    "name": "CreateRouterNetworkInterface",
+    "description": "Grants permission to create a new router network interface in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterNetworkInterface",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "mediaconnect:CreateRouterNetworkInterface",
+          "mediaconnect:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createrouteroutput": {
+    "name": "CreateRouterOutput",
+    "description": "Grants permission to create a new router output in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterOutput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "iam:PassRole",
+          "mediaconnect:AssociateRouterNetworkInterface",
+          "mediaconnect:CreateRouterOutput",
+          "mediaconnect:TagResource",
+          "mediaconnect:UpdateFlowSource",
+          "medialive:UpdateInput"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletebridge": {
+    "name": "DeleteBridge",
+    "description": "Grants permission to delete bridges",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteflow": {
+    "name": "DeleteFlow",
+    "description": "Grants permission to delete flows",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegateway": {
+    "name": "DeleteGateway",
+    "description": "Grants permission to delete gateways",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterouterinput": {
+    "name": "DeleteRouterInput",
+    "description": "Grants permission to delete a router input in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterInput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterouternetworkinterface": {
+    "name": "DeleteRouterNetworkInterface",
+    "description": "Grants permission to delete a router network interface from AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterNetworkInterface",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterouteroutput": {
+    "name": "DeleteRouterOutput",
+    "description": "Grants permission to delete a router output from AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterOutput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deregistergatewayinstance": {
+    "name": "DeregisterGatewayInstance",
+    "description": "Grants permission to deregister gateway instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "GatewayInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebridge": {
+    "name": "DescribeBridge",
+    "description": "Grants permission to display the details of a bridge",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeflow": {
+    "name": "DescribeFlow",
+    "description": "Grants permission to display the details of a flow including the flow ARN, name, and Availability Zone, as well as details about the source, outputs, and entitlements",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeflowsourcemetadata": {
+    "name": "DescribeFlowSourceMetadata",
+    "description": "Grants permission to view information about the flow's source transport stream and programs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeflowsourcethumbnail": {
+    "name": "DescribeFlowSourceThumbnail",
+    "description": "Grants permission to view flow's source thumbnail",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describegateway": {
+    "name": "DescribeGateway",
+    "description": "Grants permission to display the details of a gateway including the gateway ARN, name, and CIDR blocks, as well as details about the networks",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describegatewayinstance": {
+    "name": "DescribeGatewayInstance",
+    "description": "Grants permission to display the details of a gateway instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "GatewayInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeoffering": {
+    "name": "DescribeOffering",
+    "description": "Grants permission to display the details of an offering",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Offering",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereservation": {
+    "name": "DescribeReservation",
+    "description": "Grants permission to display the details of a reservation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Reservation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "discovergatewaypollendpoint": {
+    "name": "DiscoverGatewayPollEndpoint",
+    "description": "Grants permission to discover gateway poll endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrouterinput": {
+    "name": "GetRouterInput",
+    "description": "Grants permission to retrieve information about a specific router input in AWS Elemental MediaConnect",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RouterInput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrouterinputsourcemetadata": {
+    "name": "GetRouterInputSourceMetadata",
+    "description": "Grants permission to retrieve metadata about a router input source in AWS Elemental MediaConnect",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RouterInput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrouterinputthumbnail": {
+    "name": "GetRouterInputThumbnail",
+    "description": "Grants permission to retrieve the thumbnail for a router input in AWS Elemental MediaConnect",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RouterInput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrouternetworkinterface": {
+    "name": "GetRouterNetworkInterface",
+    "description": "Grants permission to retrieve information about a specific router network interface in AWS Elemental MediaConnect",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RouterNetworkInterface",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrouteroutput": {
+    "name": "GetRouterOutput",
+    "description": "Grants permission to retrieve information about a specific router output in AWS Elemental MediaConnect",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RouterOutput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "grantflowentitlements": {
+    "name": "GrantFlowEntitlements",
+    "description": "Grants permission to grant entitlements on any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Entitlement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listbridges": {
+    "name": "ListBridges",
+    "description": "Grants permission to display a list of bridges that are associated with this account and an optionally specified Arn",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listentitlements": {
+    "name": "ListEntitlements",
+    "description": "Grants permission to display a list of all entitlements that have been granted to the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listflows": {
+    "name": "ListFlows",
+    "description": "Grants permission to display a list of flows that are associated with this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgatewayinstances": {
+    "name": "ListGatewayInstances",
+    "description": "Grants permission to display a list of instances that are associated with this gateway",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgateways": {
+    "name": "ListGateways",
+    "description": "Grants permission to display a list of gateways that are associated with this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listofferings": {
+    "name": "ListOfferings",
+    "description": "Grants permission to display a list of all offerings that are available to the account in the current AWS Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreservations": {
+    "name": "ListReservations",
+    "description": "Grants permission to display a list of all reservations that have been purchased by the account in the current AWS Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrouterinputs": {
+    "name": "ListRouterInputs",
+    "description": "Grants permission to retrieve a list of router inputs in AWS Elemental MediaConnect",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrouternetworkinterfaces": {
+    "name": "ListRouterNetworkInterfaces",
+    "description": "Grants permission to retrieve a list of router network interfaces in AWS Elemental MediaConnect",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrouteroutputs": {
+    "name": "ListRouterOutputs",
+    "description": "Grants permission to retrieve a list of router outputs in AWS Elemental MediaConnect",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to display a list of all tags associated with a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "pollgateway": {
+    "name": "PollGateway",
+    "description": "Grants permission to poll gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "purchaseoffering": {
+    "name": "PurchaseOffering",
+    "description": "Grants permission to purchase an offering",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Reservation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removebridgeoutput": {
+    "name": "RemoveBridgeOutput",
+    "description": "Grants permission to remove an output of an existing bridge",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removebridgesource": {
+    "name": "RemoveBridgeSource",
+    "description": "Grants permission to remove a source of an existing bridge",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeflowmediastream": {
+    "name": "RemoveFlowMediaStream",
+    "description": "Grants permission to remove media streams from any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeflowoutput": {
+    "name": "RemoveFlowOutput",
+    "description": "Grants permission to remove outputs from any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Output",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeflowsource": {
+    "name": "RemoveFlowSource",
+    "description": "Grants permission to remove sources from any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeflowvpcinterface": {
+    "name": "RemoveFlowVpcInterface",
+    "description": "Grants permission to remove VPC interfaces from any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restartrouterinput": {
+    "name": "RestartRouterInput",
+    "description": "Grants permission to restart a router input in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterInput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restartrouteroutput": {
+    "name": "RestartRouterOutput",
+    "description": "Grants permission to restart a router output in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterOutput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revokeflowentitlement": {
+    "name": "RevokeFlowEntitlement",
+    "description": "Grants permission to revoke entitlements on any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Entitlement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startflow": {
+    "name": "StartFlow",
+    "description": "Grants permission to start flows",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startrouterinput": {
+    "name": "StartRouterInput",
+    "description": "Grants permission to start a router input in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterInput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startrouteroutput": {
+    "name": "StartRouterOutput",
+    "description": "Grants permission to start a router output in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterOutput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopflow": {
+    "name": "StopFlow",
+    "description": "Grants permission to stop flows",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoprouterinput": {
+    "name": "StopRouterInput",
+    "description": "Grants permission to stop a router input in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterInput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoprouteroutput": {
+    "name": "StopRouterOutput",
+    "description": "Grants permission to stops a router output in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterOutput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "submitgatewaystatechange": {
+    "name": "SubmitGatewayStateChange",
+    "description": "Grants permission to submit gateway state change",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to associate tags with resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Entitlement",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Flow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Output",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RouterInput",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RouterNetworkInterface",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RouterOutput",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "takerouterinput": {
+    "name": "TakeRouterInput",
+    "description": "Grants permission to associate a router input with a router output in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterOutput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Entitlement",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Flow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Output",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RouterInput",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RouterNetworkInterface",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RouterOutput",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatebridge": {
+    "name": "UpdateBridge",
+    "description": "Grants permission to update bridges",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebridgeoutput": {
+    "name": "UpdateBridgeOutput",
+    "description": "Grants permission to update an output of an existing bridge",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebridgesource": {
+    "name": "UpdateBridgeSource",
+    "description": "Grants permission to update a source of an existing bridge",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebridgestate": {
+    "name": "UpdateBridgeState",
+    "description": "Grants permission to update the state of an existing bridge",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Bridge",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateflow": {
+    "name": "UpdateFlow",
+    "description": "Grants permission to update flows",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateflowentitlement": {
+    "name": "UpdateFlowEntitlement",
+    "description": "Grants permission to update entitlements on any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateflowmediastream": {
+    "name": "UpdateFlowMediaStream",
+    "description": "Grants permission to update media streams on any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateflowoutput": {
+    "name": "UpdateFlowOutput",
+    "description": "Grants permission to update outputs on any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Output",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateflowsource": {
+    "name": "UpdateFlowSource",
+    "description": "Grants permission to update the source of any flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updategatewayinstance": {
+    "name": "UpdateGatewayInstance",
+    "description": "Grants permission to update the configuration of an existing Gateway Instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "GatewayInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterouterinput": {
+    "name": "UpdateRouterInput",
+    "description": "Grants permission to update the configuration of a router input in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterInput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "iam:PassRole",
+      "mediaconnect:AssociateRouterNetworkInterface",
+      "mediaconnect:UpdateFlowOutput",
+      "mediaconnect:UpdateRouterInput"
+    ]
+  },
+  "updaterouternetworkinterface": {
+    "name": "UpdateRouterNetworkInterface",
+    "description": "Grants permission to updated the configuration of a router network interface in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterNetworkInterface",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "mediaconnect:UpdateRouterNetworkInterface"
+    ]
+  },
+  "updaterouteroutput": {
+    "name": "UpdateRouterOutput",
+    "description": "Grants permission to update the configuration of a router output in AWS Elemental MediaConnect",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RouterOutput",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "iam:PassRole",
+      "mediaconnect:AssociateRouterNetworkInterface",
+      "mediaconnect:UpdateFlowSource",
+      "mediaconnect:UpdateRouterOutput",
+      "medialive:UpdateInput"
+    ]
+  }
+}

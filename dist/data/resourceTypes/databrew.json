@@ -1,0 +1,44 @@
+{
+  "project": {
+    "key": "Project",
+    "arn": "arn:${Partition}:databrew:${Region}:${Account}:project/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "dataset": {
+    "key": "Dataset",
+    "arn": "arn:${Partition}:databrew:${Region}:${Account}:dataset/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "ruleset": {
+    "key": "Ruleset",
+    "arn": "arn:${Partition}:databrew:${Region}:${Account}:ruleset/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "recipe": {
+    "key": "Recipe",
+    "arn": "arn:${Partition}:databrew:${Region}:${Account}:recipe/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "job": {
+    "key": "Job",
+    "arn": "arn:${Partition}:databrew:${Region}:${Account}:job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "schedule": {
+    "key": "Schedule",
+    "arn": "arn:${Partition}:databrew:${Region}:${Account}:schedule/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

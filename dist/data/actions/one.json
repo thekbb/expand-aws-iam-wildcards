@@ -1,0 +1,450 @@
+{
+  "createdeviceactivationqrcode": {
+    "name": "CreateDeviceActivationQrCode",
+    "description": "Grants permission to create a QR code for a Device Instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createdeviceconfigurationtemplate": {
+    "name": "CreateDeviceConfigurationTemplate",
+    "description": "Grants permission to create a Device Configuration Template",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdeviceinstance": {
+    "name": "CreateDeviceInstance",
+    "description": "Grants permission to create a Device Instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdeviceinstanceconfiguration": {
+    "name": "CreateDeviceInstanceConfiguration",
+    "description": "Grants permission to create a Device Instance Configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createsite": {
+    "name": "CreateSite",
+    "description": "Grants permission to create a Site",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteassociateddevice": {
+    "name": "DeleteAssociatedDevice",
+    "description": "Grants permission to disassociate Device from a Device Instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletedeviceconfigurationtemplate": {
+    "name": "DeleteDeviceConfigurationTemplate",
+    "description": "Grants permission to delete a Device Configuration Template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device-configuration-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletedeviceinstance": {
+    "name": "DeleteDeviceInstance",
+    "description": "Grants permission to delete a Device Instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletesite": {
+    "name": "DeleteSite",
+    "description": "Grants permission to delete a Site",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "site",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteuserv1": {
+    "name": "DeleteUserV1",
+    "description": "Grants permission to delete a User",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdeviceconfigurationtemplate": {
+    "name": "GetDeviceConfigurationTemplate",
+    "description": "Grants permission to view a Device Configuration Template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "device-configuration-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getdeviceinstance": {
+    "name": "GetDeviceInstance",
+    "description": "Grants permission to view a Device Instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "device-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getdeviceinstanceconfiguration": {
+    "name": "GetDeviceInstanceConfiguration",
+    "description": "Grants permission to view a Device Instance Configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getsite": {
+    "name": "GetSite",
+    "description": "Grants permission to view a Site",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "site",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getsiteaddress": {
+    "name": "GetSiteAddress",
+    "description": "Grants permission to view address of a Site",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "site",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listdeviceconfigurationtemplates": {
+    "name": "ListDeviceConfigurationTemplates",
+    "description": "Grants permission to retrieve list of Device Configuration Templates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdeviceinstances": {
+    "name": "ListDeviceInstances",
+    "description": "Grants permission to retrieve list of Device Instances",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsites": {
+    "name": "ListSites",
+    "description": "Grants permission to view list of Sites",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an Amazon One Enterprise resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "device-configuration-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "device-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "site",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listusers": {
+    "name": "ListUsers",
+    "description": "Grants permission to view list of Users",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listusersv1": {
+    "name": "ListUsersV1",
+    "description": "Grants permission to view list of Users",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rebootdevice": {
+    "name": "RebootDevice",
+    "description": "Grants permission to reboot Device associated with a Device Instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to an Amazon One Enterprise resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "device-configuration-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "device-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "site",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from an Amazon One Enterprise resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "device-configuration-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "device-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "site",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatedeviceconfigurationtemplate": {
+    "name": "UpdateDeviceConfigurationTemplate",
+    "description": "Grants permission to update a Device Configuration Template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device-configuration-template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatedeviceinstance": {
+    "name": "UpdateDeviceInstance",
+    "description": "Grants permission to update a Device Instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatesite": {
+    "name": "UpdateSite",
+    "description": "Grants permission to update a Site",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "site",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatesiteaddress": {
+    "name": "UpdateSiteAddress",
+    "description": "Grants permission to update address of a Site",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "site",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

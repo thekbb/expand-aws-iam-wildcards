@@ -1,0 +1,893 @@
+{
+  "batchassociatescramsecret": {
+    "name": "BatchAssociateScramSecret",
+    "description": "Grants permission to associate one or more Scram Secrets with an Amazon MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:CreateGrant",
+      "kms:RetireGrant"
+    ]
+  },
+  "batchdisassociatescramsecret": {
+    "name": "BatchDisassociateScramSecret",
+    "description": "Grants permission to disassociate one or more Scram Secrets from an Amazon MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:RetireGrant"
+    ]
+  },
+  "createcluster": {
+    "name": "CreateCluster",
+    "description": "Grants permission to create an MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "iam:AttachRolePolicy",
+          "iam:CreateServiceLinkedRole",
+          "iam:PutRolePolicy",
+          "kms:CreateGrant",
+          "kms:DescribeKey"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createclusterv2": {
+    "name": "CreateClusterV2",
+    "description": "Grants permission to create an MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateTags",
+          "ec2:CreateVpcEndpoint",
+          "ec2:DeleteVpcEndpoints",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcAttribute",
+          "ec2:DescribeVpcEndpoints",
+          "ec2:DescribeVpcs",
+          "iam:AttachRolePolicy",
+          "iam:CreateServiceLinkedRole",
+          "iam:PutRolePolicy",
+          "kms:CreateGrant",
+          "kms:DescribeKey"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconfiguration": {
+    "name": "CreateConfiguration",
+    "description": "Grants permission to create an MSK configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createreplicator": {
+    "name": "CreateReplicator",
+    "description": "Grants permission to create a MSK replicator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "iam:AttachRolePolicy",
+          "iam:CreateServiceLinkedRole",
+          "iam:PassRole",
+          "iam:PutRolePolicy",
+          "kafka:DescribeClusterV2",
+          "kafka:GetBootstrapBrokers"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createvpcconnection": {
+    "name": "CreateVpcConnection",
+    "description": "Grants permission to create a MSK VPC connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateTags",
+          "ec2:CreateVpcEndpoint",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcAttribute",
+          "ec2:DescribeVpcEndpoints",
+          "ec2:DescribeVpcs",
+          "iam:AttachRolePolicy",
+          "iam:CreateServiceLinkedRole",
+          "iam:PutRolePolicy"
+        ]
+      },
+      {
+        "name": "vpc-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletecluster": {
+    "name": "DeleteCluster",
+    "description": "Grants permission to delete an MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteVpcEndpoints",
+      "ec2:DescribeVpcAttribute",
+      "ec2:DescribeVpcEndpoints"
+    ]
+  },
+  "deleteclusterpolicy": {
+    "name": "DeleteClusterPolicy",
+    "description": "Grants permission to delete a cluster resource-based policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconfiguration": {
+    "name": "DeleteConfiguration",
+    "description": "Grants permission to delete the specified MSK configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletereplicator": {
+    "name": "DeleteReplicator",
+    "description": "Grants permission to delete a MSK replicator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevpcconnection": {
+    "name": "DeleteVpcConnection",
+    "description": "Grants permission to delete a MSK VPC connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpc-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteVpcEndpoints",
+      "ec2:DescribeVpcEndpoints"
+    ]
+  },
+  "describecluster": {
+    "name": "DescribeCluster",
+    "description": "Grants permission to describe an MSK cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeclusteroperation": {
+    "name": "DescribeClusterOperation",
+    "description": "Grants permission to describe the cluster operation that is specified by the given ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeclusteroperationv2": {
+    "name": "DescribeClusterOperationV2",
+    "description": "Grants permission to describe the cluster operation that is specified by the given ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeclusterv2": {
+    "name": "DescribeClusterV2",
+    "description": "Grants permission to describe an MSK cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeconfiguration": {
+    "name": "DescribeConfiguration",
+    "description": "Grants permission to describe an MSK configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeconfigurationrevision": {
+    "name": "DescribeConfigurationRevision",
+    "description": "Grants permission to describe an MSK configuration revision",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereplicator": {
+    "name": "DescribeReplicator",
+    "description": "Grants permission to describe a MSK replicator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "replicator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetopic": {
+    "name": "DescribeTopic",
+    "description": "Grants permission to return metadata details about a specific Kafka topic",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic",
+      "kafka-cluster:DescribeTopicDynamicConfiguration"
+    ]
+  },
+  "describetopicpartitions": {
+    "name": "DescribeTopicPartitions",
+    "description": "Grants permission to list all partitions of a specific topic",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic",
+      "kafka-cluster:DescribeTopicDynamicConfiguration"
+    ]
+  },
+  "describevpcconnection": {
+    "name": "DescribeVpcConnection",
+    "description": "Grants permission to describe a MSK VPC connection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vpc-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbootstrapbrokers": {
+    "name": "GetBootstrapBrokers",
+    "description": "Grants permission to get connection details for the brokers in an MSK cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getclusterpolicy": {
+    "name": "GetClusterPolicy",
+    "description": "Grants permission to describe a cluster resource-based policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcompatiblekafkaversions": {
+    "name": "GetCompatibleKafkaVersions",
+    "description": "Grants permission to get a list of the Apache Kafka versions to which you can update an MSK cluster",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclientvpcconnections": {
+    "name": "ListClientVpcConnections",
+    "description": "Grants permission to list all MSK VPC connections created for a cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclusteroperations": {
+    "name": "ListClusterOperations",
+    "description": "Grants permission to return a list of all the operations that have been performed on the specified MSK cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclusteroperationsv2": {
+    "name": "ListClusterOperationsV2",
+    "description": "Grants permission to return a list of all the operations that have been performed on the specified MSK cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclusters": {
+    "name": "ListClusters",
+    "description": "Grants permission to list all MSK clusters in this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclustersv2": {
+    "name": "ListClustersV2",
+    "description": "Grants permission to list all MSK clusters in this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconfigurationrevisions": {
+    "name": "ListConfigurationRevisions",
+    "description": "Grants permission to list all revisions for an MSK configuration in this account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconfigurations": {
+    "name": "ListConfigurations",
+    "description": "Grants permission to list all MSK configurations in this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listkafkaversions": {
+    "name": "ListKafkaVersions",
+    "description": "Grants permission to list all Apache Kafka versions supported by Amazon MSK",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnodes": {
+    "name": "ListNodes",
+    "description": "Grants permission to list brokers in an MSK cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreplicators": {
+    "name": "ListReplicators",
+    "description": "Grants permission to list all MSK replicators in this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listscramsecrets": {
+    "name": "ListScramSecrets",
+    "description": "Grants permission to list the Scram Secrets associated with an Amazon MSK cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags of an MSK resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtopics": {
+    "name": "ListTopics",
+    "description": "Grants permission to list all Kafka topics for a specified MSK cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic"
+    ]
+  },
+  "listvpcconnections": {
+    "name": "ListVpcConnections",
+    "description": "Grants permission to list all MSK VPC connections that this account uses",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putclusterpolicy": {
+    "name": "PutClusterPolicy",
+    "description": "Grants permission to create or update the resource-based policy for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rebootbroker": {
+    "name": "RebootBroker",
+    "description": "Grants permission to reboot broker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectclientvpcconnection": {
+    "name": "RejectClientVpcConnection",
+    "description": "Grants permission to reject a MSK VPC connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an MSK resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc-connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from an MSK resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc-connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatebrokercount": {
+    "name": "UpdateBrokerCount",
+    "description": "Grants permission to update the number of brokers of the MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebrokerstorage": {
+    "name": "UpdateBrokerStorage",
+    "description": "Grants permission to update the storage size of the brokers of the MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebrokertype": {
+    "name": "UpdateBrokerType",
+    "description": "Grants permission to update the broker type of an Amazon MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateclusterconfiguration": {
+    "name": "UpdateClusterConfiguration",
+    "description": "Grants permission to update the configuration of the MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateclusterkafkaversion": {
+    "name": "UpdateClusterKafkaVersion",
+    "description": "Grants permission to update the MSK cluster to the specified Apache Kafka version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconfiguration": {
+    "name": "UpdateConfiguration",
+    "description": "Grants permission to create a new revision of the MSK configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnectivity": {
+    "name": "UpdateConnectivity",
+    "description": "Grants permission to update the connectivity settings for the MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRouteTables",
+          "ec2:DescribeSubnets"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "kafka:publicAccessEnabled"
+    ],
+    "dependentActions": []
+  },
+  "updatemonitoring": {
+    "name": "UpdateMonitoring",
+    "description": "Grants permission to update the monitoring settings for the MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterebalancing": {
+    "name": "UpdateRebalancing",
+    "description": "Grants permission to update the intelligent rebalancing status of the MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatereplicationinfo": {
+    "name": "UpdateReplicationInfo",
+    "description": "Grants permission to update the replication info of the MSK replicator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesecurity": {
+    "name": "UpdateSecurity",
+    "description": "Grants permission to update the security settings for the MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:RetireGrant"
+    ]
+  },
+  "updatestorage": {
+    "name": "UpdateStorage",
+    "description": "Grants permission to update the EBS storage (size or provisioned throughput) associated with MSK brokers or set cluster storage mode to TIERED",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

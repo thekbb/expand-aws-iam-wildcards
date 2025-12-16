@@ -1,0 +1,301 @@
+{
+  "createdbcluster": {
+    "name": "CreateDbCluster",
+    "description": "Grants permission to create a new Timestream InfluxDB Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream-influxdb:CreateDbInstance"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdbinstance": {
+    "name": "CreateDbInstance",
+    "description": "Grants permission to create a new Timestream InfluxDB instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdbparametergroup": {
+    "name": "CreateDbParameterGroup",
+    "description": "Grants permission to create a new Timestream InfluxDB parameter group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletedbcluster": {
+    "name": "DeleteDbCluster",
+    "description": "Grants permission to delete a Timestream InfluxDB Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream-influxdb:DeleteDbInstance"
+    ]
+  },
+  "deletedbinstance": {
+    "name": "DeleteDbInstance",
+    "description": "Grants permission to delete a Timestream InfluxDB instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdbcluster": {
+    "name": "GetDbCluster",
+    "description": "Grants permission to get information about a Timestream InfluxDB Cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdbinstance": {
+    "name": "GetDbInstance",
+    "description": "Grants permission to get information about a Timestream InfluxDB instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "db-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdbparametergroup": {
+    "name": "GetDbParameterGroup",
+    "description": "Grants permission to get information about a Timestream InfluxDB parameter group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "db-parameter-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdbclusters": {
+    "name": "ListDbClusters",
+    "description": "Grants permission to list information about all Timestream InfluxDB clusters in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdbinstances": {
+    "name": "ListDbInstances",
+    "description": "Grants permission to list information about all Timestream InfluxDB instances in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdbinstancesforcluster": {
+    "name": "ListDbInstancesForCluster",
+    "description": "Grants permission to list information about all Timestream InfluxDB Instances belonging to a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdbparametergroups": {
+    "name": "ListDbParameterGroups",
+    "description": "Grants permission to list information about all Timestream InfluxDB parameter groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a Timestream InfluxDB resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a Timestream InfluxDB resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a Timestream InfluxDB resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatedbcluster": {
+    "name": "UpdateDbCluster",
+    "description": "Grants permission to update a Timestream InfluxDB Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream-influxdb:UpdateDbInstance"
+        ]
+      },
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedbinstance": {
+    "name": "UpdateDbInstance",
+    "description": "Grants permission to update a Timestream InfluxDB instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

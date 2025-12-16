@@ -1,0 +1,185 @@
+{
+  "acceptagreement": {
+    "name": "AcceptAgreement",
+    "description": "Grants permission to accept an AWS agreement that has not yet been accepted by the customer account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "acceptndaforagreement": {
+    "name": "AcceptNdaForAgreement",
+    "description": "Grants permission to accept the terms of an NDA Document for a given agreement resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaccountsettings": {
+    "name": "GetAccountSettings",
+    "description": "Grants permission to get the account settings for Artifact",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagreement": {
+    "name": "GetAgreement",
+    "description": "Grants permission to get an AWS agreement that has not yet been accepted by the customer account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcustomeragreement": {
+    "name": "GetCustomerAgreement",
+    "description": "Grants permission to get an AWS agreement that has been accepted by the customer account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "customer-agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getndaforagreement": {
+    "name": "GetNdaForAgreement",
+    "description": "Grants permission to retrieve the NDA Document for a given agreement resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreport": {
+    "name": "GetReport",
+    "description": "Grants permission to download a report",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "report",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getreportmetadata": {
+    "name": "GetReportMetadata",
+    "description": "Grants permission to download metadata associated with a report",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "report",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettermforreport": {
+    "name": "GetTermForReport",
+    "description": "Grants permission to download a term associated with a report",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "report",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listagreements": {
+    "name": "ListAgreements",
+    "description": "Grants permission to list AWS agreements",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomeragreements": {
+    "name": "ListCustomerAgreements",
+    "description": "Grants permission to list customer-agreement resources that have been accepted by the customer account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreportversions": {
+    "name": "ListReportVersions",
+    "description": "Grants permission to list report versions in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreports": {
+    "name": "ListReports",
+    "description": "Grants permission to list reports in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putaccountsettings": {
+    "name": "PutAccountSettings",
+    "description": "Grants permission to put account settings for Artifact",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "terminateagreement": {
+    "name": "TerminateAgreement",
+    "description": "Grants permission to terminate a customer agreement that was previously accepted by the customer account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customer-agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

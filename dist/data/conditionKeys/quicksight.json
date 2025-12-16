@@ -1,0 +1,57 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by tag key-value pairs in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by tag key-value pairs attached to the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by tag keys",
+    "type": "ArrayOfString"
+  },
+  "quicksight:allowedembeddingdomains": {
+    "key": "quicksight:AllowedEmbeddingDomains",
+    "description": "Filters access by the allowed embedding domains",
+    "type": "ArrayOfString"
+  },
+  "quicksight:directorytype": {
+    "key": "quicksight:DirectoryType",
+    "description": "Filters access by the user management options",
+    "type": "String"
+  },
+  "quicksight:edition": {
+    "key": "quicksight:Edition",
+    "description": "Filters access by the edition of QuickSight",
+    "type": "String"
+  },
+  "quicksight:group": {
+    "key": "quicksight:Group",
+    "description": "Filters access by QuickSight group ARN",
+    "type": "ARN"
+  },
+  "quicksight:iamarn": {
+    "key": "quicksight:IamArn",
+    "description": "Filters access by IAM user or role ARN",
+    "type": "ARN"
+  },
+  "quicksight:kmskeyarns": {
+    "key": "quicksight:KmsKeyArns",
+    "description": "Filters access by KMS key ARNs",
+    "type": "ArrayOfARN"
+  },
+  "quicksight:sessionname": {
+    "key": "quicksight:SessionName",
+    "description": "Filters access by session name",
+    "type": "String"
+  },
+  "quicksight:username": {
+    "key": "quicksight:UserName",
+    "description": "Filters access by user name",
+    "type": "String"
+  }
+}

@@ -1,0 +1,1400 @@
+{
+  "acceptshareddirectory": {
+    "name": "AcceptSharedDirectory",
+    "description": "Grants permission to accept a directory sharing request that was sent from the directory owner account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "accessdsdata": {
+    "name": "AccessDSData",
+    "isPermissionOnly": true,
+    "description": "Grants permission to access directory data using the Directory Service Data API",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "addiproutes": {
+    "name": "AddIpRoutes",
+    "description": "Grants permission to add a CIDR address block to correctly route traffic to and from your Microsoft AD on Amazon Web Services",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:DescribeSecurityGroups"
+    ]
+  },
+  "addregion": {
+    "name": "AddRegion",
+    "description": "Grants permission to add two domain controllers in the specified Region for the specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateTags",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "addtagstoresource": {
+    "name": "AddTagsToResource",
+    "description": "Grants permission to add or overwrite one or more tags for the specified Amazon Directory Services directory",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "authorizeapplication": {
+    "name": "AuthorizeApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to authorize an application for your AWS Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelschemaextension": {
+    "name": "CancelSchemaExtension",
+    "description": "Grants permission to cancel an in-progress schema extension to a Microsoft AD directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "checkalias": {
+    "name": "CheckAlias",
+    "isPermissionOnly": true,
+    "description": "Grants permission to verify that the alias is available for use",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "connectdirectory": {
+    "name": "ConnectDirectory",
+    "description": "Grants permission to create an AD Connector to connect to an on-premises directory",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateTags",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "createalias": {
+    "name": "CreateAlias",
+    "description": "Grants permission to create an alias for a directory and assigns the alias to the directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcomputer": {
+    "name": "CreateComputer",
+    "description": "Grants permission to create a computer account in the specified directory, and joins the computer to the directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createconditionalforwarder": {
+    "name": "CreateConditionalForwarder",
+    "description": "Grants permission to create a conditional forwarder associated with your AWS directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdirectory": {
+    "name": "CreateDirectory",
+    "description": "Grants permission to create a Simple AD directory",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateTags",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "createhybridad": {
+    "name": "CreateHybridAD",
+    "description": "Grants permission to create a Hybrid Managed AD directory",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateTags",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "iam:CreateServiceLinkedRole",
+      "iam:GetRole",
+      "secretsmanager:DescribeSecret",
+      "secretsmanager:GetSecretValue",
+      "ssm:GetCommandInvocation",
+      "ssm:GetConnectionStatus",
+      "ssm:ListCommands",
+      "ssm:SendCommand"
+    ]
+  },
+  "createidentitypooldirectory": {
+    "name": "CreateIdentityPoolDirectory",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an IdentityPool Directory in the AWS cloud",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlogsubscription": {
+    "name": "CreateLogSubscription",
+    "description": "Grants permission to create a subscription to forward real time Directory Service domain controller security logs to the specified CloudWatch log group in your AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmicrosoftad": {
+    "name": "CreateMicrosoftAD",
+    "description": "Grants permission to create a Microsoft AD in the AWS cloud",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateTags",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "createsnapshot": {
+    "name": "CreateSnapshot",
+    "description": "Grants permission to create a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtrust": {
+    "name": "CreateTrust",
+    "description": "Grants permission to initiate the creation of the AWS side of a trust relationship between a Microsoft AD in the AWS cloud and an external domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteadassessment": {
+    "name": "DeleteADAssessment",
+    "description": "Grants permission to delete a directory assessment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconditionalforwarder": {
+    "name": "DeleteConditionalForwarder",
+    "description": "Grants permission to delete a conditional forwarder that has been set up for your AWS directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedirectory": {
+    "name": "DeleteDirectory",
+    "description": "Grants permission to delete an AWS Directory Service directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteSecurityGroup",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:RevokeSecurityGroupEgress",
+      "ec2:RevokeSecurityGroupIngress"
+    ]
+  },
+  "deletelogsubscription": {
+    "name": "DeleteLogSubscription",
+    "description": "Grants permission to delete the specified log subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesnapshot": {
+    "name": "DeleteSnapshot",
+    "description": "Grants permission to delete a directory snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetrust": {
+    "name": "DeleteTrust",
+    "description": "Grants permission to delete an existing trust relationship between your Microsoft AD in the AWS cloud and an external domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deregistercertificate": {
+    "name": "DeregisterCertificate",
+    "description": "Grants permission to delete from the system the certificate that was registered for a secured LDAP connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deregistereventtopic": {
+    "name": "DeregisterEventTopic",
+    "description": "Grants permission to remove the specified directory as a publisher to the specified SNS topic",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeadassessment": {
+    "name": "DescribeADAssessment",
+    "description": "Grants permission to describe a directory assessment",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecaenrollmentpolicy": {
+    "name": "DescribeCAEnrollmentPolicy",
+    "description": "Grants permission to describe the ca enrollment status of a specified directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecertificate": {
+    "name": "DescribeCertificate",
+    "description": "Grants permission to display information about the certificate registered for a secured LDAP connection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeclientauthenticationsettings": {
+    "name": "DescribeClientAuthenticationSettings",
+    "description": "Grants permission to retrieve information about the type of client authentication for the specified directory, if the type is specified. If no type is specified, information about all client authentication types that are supported for the specified directory is retrieved. Currently, only SmartCard is supported",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeconditionalforwarders": {
+    "name": "DescribeConditionalForwarders",
+    "description": "Grants permission to obtain information about the conditional forwarders for this account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedirectories": {
+    "name": "DescribeDirectories",
+    "description": "Grants permission to obtain information about the directories that belong to this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedirectorydataaccess": {
+    "name": "DescribeDirectoryDataAccess",
+    "description": "Grants permission to describe the Directory Service Data API status for the specified directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedomaincontrollers": {
+    "name": "DescribeDomainControllers",
+    "description": "Grants permission to provide information about any domain controllers in your directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeeventtopics": {
+    "name": "DescribeEventTopics",
+    "description": "Grants permission to obtain information about which SNS topics receive status messages from the specified directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describehybridadupdate": {
+    "name": "DescribeHybridADUpdate",
+    "description": "Grants permission to describe the updates of a specified hybrid directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeldapssettings": {
+    "name": "DescribeLDAPSSettings",
+    "description": "Grants permission to describe the status of LDAP security for the specified directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeregions": {
+    "name": "DescribeRegions",
+    "description": "Grants permission to provide information about the Regions that are configured for multi-Region replication",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesettings": {
+    "name": "DescribeSettings",
+    "description": "Grants permission to retrieve information about the configurable settings for the specified directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeshareddirectories": {
+    "name": "DescribeSharedDirectories",
+    "description": "Grants permission to return the shared directories in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesnapshots": {
+    "name": "DescribeSnapshots",
+    "description": "Grants permission to obtain information about the directory snapshots that belong to this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetrusts": {
+    "name": "DescribeTrusts",
+    "description": "Grants permission to obtain information about the trust relationships for this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeupdatedirectory": {
+    "name": "DescribeUpdateDirectory",
+    "description": "Grants permission to describe the updates of a directory for a particular update type",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disablecaenrollmentpolicy": {
+    "name": "DisableCAEnrollmentPolicy",
+    "description": "Grants permission to disable the ca enrollment of a specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableclientauthentication": {
+    "name": "DisableClientAuthentication",
+    "description": "Grants permission to disable alternative client authentication methods for the specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disabledirectorydataaccess": {
+    "name": "DisableDirectoryDataAccess",
+    "description": "Grants permission to disable the Directory Service Data API for the specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableldaps": {
+    "name": "DisableLDAPS",
+    "description": "Grants permission to deactivate LDAP secure calls for the specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableradius": {
+    "name": "DisableRadius",
+    "description": "Grants permission to disable multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableroleaccess": {
+    "name": "DisableRoleAccess",
+    "isPermissionOnly": true,
+    "description": "Grants permission to disable AWS Management Console access for identity in your AWS Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disablesso": {
+    "name": "DisableSso",
+    "description": "Grants permission to disable single-sign on for a directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enablecaenrollmentpolicy": {
+    "name": "EnableCAEnrollmentPolicy",
+    "description": "Grants permission to enable the ca enrollment of a specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "acm-pca:DescribeCertificateAuthority",
+      "pca-connector-ad:GetConnector"
+    ]
+  },
+  "enableclientauthentication": {
+    "name": "EnableClientAuthentication",
+    "description": "Grants permission to enable alternative client authentication methods for the specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enabledirectorydataaccess": {
+    "name": "EnableDirectoryDataAccess",
+    "description": "Grants permission to enable the Directory Service Data API for the specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableldaps": {
+    "name": "EnableLDAPS",
+    "description": "Grants permission to activate the switch for the specific directory to always use LDAP secure calls",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableradius": {
+    "name": "EnableRadius",
+    "description": "Grants permission to enable multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableroleaccess": {
+    "name": "EnableRoleAccess",
+    "isPermissionOnly": true,
+    "description": "Grants permission to enable AWS Management Console access for identity in your AWS Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "enablesso": {
+    "name": "EnableSso",
+    "description": "Grants permission to enable single-sign on for a directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getauthorizedapplicationdetails": {
+    "name": "GetAuthorizedApplicationDetails",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve the details of the authorized applications on a directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdirectorylimits": {
+    "name": "GetDirectoryLimits",
+    "description": "Grants permission to obtain directory limit information for the current region",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsnapshotlimits": {
+    "name": "GetSnapshotLimits",
+    "description": "Grants permission to obtain the manual snapshot limits for a directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listadassessments": {
+    "name": "ListADAssessments",
+    "description": "Grants permission to list directory assessments",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listauthorizedapplications": {
+    "name": "ListAuthorizedApplications",
+    "isPermissionOnly": true,
+    "description": "Grants permission to obtain the AWS applications authorized for a directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcertificates": {
+    "name": "ListCertificates",
+    "description": "Grants permission to list all the certificates registered for a secured LDAP connection, for the specified directory",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listiproutes": {
+    "name": "ListIpRoutes",
+    "description": "Grants permission to list the address blocks that you have added to a directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlogsubscriptions": {
+    "name": "ListLogSubscriptions",
+    "description": "Grants permission to list the active log subscriptions for the AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listschemaextensions": {
+    "name": "ListSchemaExtensions",
+    "description": "Grants permission to list all schema extensions applied to a Microsoft AD Directory",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags on an Amazon Directory Services directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registercertificate": {
+    "name": "RegisterCertificate",
+    "description": "Grants permission to register a certificate for secured LDAP connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registereventtopic": {
+    "name": "RegisterEventTopic",
+    "description": "Grants permission to associate a directory with an SNS topic",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sns:GetTopicAttributes"
+    ]
+  },
+  "rejectshareddirectory": {
+    "name": "RejectSharedDirectory",
+    "description": "Grants permission to reject a directory sharing request that was sent from the directory owner account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeiproutes": {
+    "name": "RemoveIpRoutes",
+    "description": "Grants permission to remove IP address blocks from a directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeregion": {
+    "name": "RemoveRegion",
+    "description": "Grants permission to stop all replication and removes the domain controllers from the specified Region. You cannot remove the primary Region with this operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removetagsfromresource": {
+    "name": "RemoveTagsFromResource",
+    "description": "Grants permission to remove tags from an Amazon Directory Services directory",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DeleteTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "resetuserpassword": {
+    "name": "ResetUserPassword",
+    "description": "Grants permission to reset the password for any user in your AWS Managed Microsoft AD or Simple AD directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restorefromsnapshot": {
+    "name": "RestoreFromSnapshot",
+    "description": "Grants permission to restore a directory using an existing directory snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sharedirectory": {
+    "name": "ShareDirectory",
+    "description": "Grants permission to share a specified directory in your AWS account (directory owner) with another AWS account (directory consumer). With this operation you can use your directory from any AWS account and from any Amazon VPC within an AWS Region",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startadassessment": {
+    "name": "StartADAssessment",
+    "description": "Grants permission to start a directory assessment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:CreateSecurityGroup",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteSecurityGroup",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "ssm:GetCommandInvocation",
+      "ssm:GetConnectionStatus",
+      "ssm:ListCommands",
+      "ssm:SendCommand"
+    ]
+  },
+  "startschemaextension": {
+    "name": "StartSchemaExtension",
+    "description": "Grants permission to apply a schema extension to a Microsoft AD directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "unauthorizeapplication": {
+    "name": "UnauthorizeApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to unauthorize an application from your AWS Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "unsharedirectory": {
+    "name": "UnshareDirectory",
+    "description": "Grants permission to stop the directory sharing between the directory owner and consumer accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateauthorizedapplication": {
+    "name": "UpdateAuthorizedApplication",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update an authorized application for your AWS Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconditionalforwarder": {
+    "name": "UpdateConditionalForwarder",
+    "description": "Grants permission to update a conditional forwarder that has been set up for your AWS directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedirectory": {
+    "name": "UpdateDirectory",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the configurations like service account credentials or DNS server IP addresses for the specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedirectorysetup": {
+    "name": "UpdateDirectorySetup",
+    "description": "Grants permission to update the directory for a particular update type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatehybridad": {
+    "name": "UpdateHybridAD",
+    "description": "Grants permission to update configurations for a specified hybrid directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateTags",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "secretsmanager:DescribeSecret",
+      "secretsmanager:GetSecretValue",
+      "ssm:GetCommandInvocation",
+      "ssm:GetConnectionStatus",
+      "ssm:ListCommands",
+      "ssm:SendCommand"
+    ]
+  },
+  "updatenumberofdomaincontrollers": {
+    "name": "UpdateNumberOfDomainControllers",
+    "description": "Grants permission to add or remove domain controllers to or from the directory. Based on the difference between current value and new value (provided through this API call), domain controllers will be added or removed. It may take up to 45 minutes for any new domain controllers to become fully active once the requested number of domain controllers is updated. During this time, you cannot make another update request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateradius": {
+    "name": "UpdateRadius",
+    "description": "Grants permission to update the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesettings": {
+    "name": "UpdateSettings",
+    "description": "Grants permission to update the configurable settings for the specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetrust": {
+    "name": "UpdateTrust",
+    "description": "Grants permission to update the trust that has been set up between your AWS Managed Microsoft AD directory and an on-premises Active Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "verifytrust": {
+    "name": "VerifyTrust",
+    "description": "Grants permission to verify a trust relationship between your Microsoft AD in the AWS cloud and an external domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

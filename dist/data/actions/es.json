@@ -1,0 +1,1443 @@
+{
+  "acceptinboundconnection": {
+    "name": "AcceptInboundConnection",
+    "description": "Grants permission to the destination domain owner to accept an inbound cross-cluster search connection request",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "acceptinboundcrossclustersearchconnection": {
+    "name": "AcceptInboundCrossClusterSearchConnection",
+    "description": "Grants permission to the destination domain owner to accept an inbound cross-cluster search connection request. This permission is deprecated. Use AcceptInboundConnection instead",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "adddatasource": {
+    "name": "AddDataSource",
+    "description": "Grants permission to add the data source for the OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "adddirectquerydatasource": {
+    "name": "AddDirectQueryDataSource",
+    "description": "Grants permission to add the data source for the provided OpenSearch arns",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "addtags": {
+    "name": "AddTags",
+    "description": "Grants permission to attach resource tags to an OpenSearch Service domain, data source, or application",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "associatepackage": {
+    "name": "AssociatePackage",
+    "description": "Grants permission to associate a package with an OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatepackages": {
+    "name": "AssociatePackages",
+    "description": "Grants permission to associate multiple packages with an OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "authorizevpcendpointaccess": {
+    "name": "AuthorizeVpcEndpointAccess",
+    "description": "Grants permission to provide access to an Amazon OpenSearch Service domain through the use of an interface VPC endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "canceldomainconfigchange": {
+    "name": "CancelDomainConfigChange",
+    "description": "Grants permission to cancel a change on an OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelelasticsearchservicesoftwareupdate": {
+    "name": "CancelElasticsearchServiceSoftwareUpdate",
+    "description": "Grants permission to cancel a service software update of a domain. This permission is deprecated. Use CancelServiceSoftwareUpdate instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelservicesoftwareupdate": {
+    "name": "CancelServiceSoftwareUpdate",
+    "description": "Grants permission to cancel a service software update of a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create an OpenSearch Application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdomain": {
+    "name": "CreateDomain",
+    "description": "Grants permission to create an Amazon OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createelasticsearchdomain": {
+    "name": "CreateElasticsearchDomain",
+    "description": "Grants permission to create an OpenSearch Service domain. This permission is deprecated. Use CreateDomain instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createelasticsearchservicerole": {
+    "name": "CreateElasticsearchServiceRole",
+    "description": "Grants permission to create the service-linked role required for OpenSearch Service domains that use VPC access. This permission is deprecated. OpenSearch Service creates the service-linked role for you",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createindex": {
+    "name": "CreateIndex",
+    "description": "Grants permission to create index for the OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createoutboundconnection": {
+    "name": "CreateOutboundConnection",
+    "description": "Grants permission to create a new cross-cluster search connection from a source domain to a destination domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createoutboundcrossclustersearchconnection": {
+    "name": "CreateOutboundCrossClusterSearchConnection",
+    "description": "Grants permission to create a new cross-cluster search connection from a source domain to a destination domain. This permission is deprecated. Use CreateOutboundConnection instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createpackage": {
+    "name": "CreatePackage",
+    "description": "Grants permission to add a package for use with OpenSearch Service domains",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createservicerole": {
+    "name": "CreateServiceRole",
+    "description": "Grants permission to create the service-linked role required for Amazon OpenSearch Service domains that use VPC access",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createvpcendpoint": {
+    "name": "CreateVpcEndpoint",
+    "description": "Grants permission to create an Amazon OpenSearch Service-managed VPC endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapplication": {
+    "name": "DeleteApplication",
+    "description": "Grants permission to delete an OpenSearch Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatasource": {
+    "name": "DeleteDataSource",
+    "description": "Grants permission to delete the data source for the OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedirectquerydatasource": {
+    "name": "DeleteDirectQueryDataSource",
+    "description": "Grants permission to delete the data source for the provided OpenSearch arns",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedomain": {
+    "name": "DeleteDomain",
+    "description": "Grants permission to delete an Amazon OpenSearch Service domain and all of its data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteelasticsearchdomain": {
+    "name": "DeleteElasticsearchDomain",
+    "description": "Grants permission to delete an OpenSearch Service domain and all of its data. This permission is deprecated. Use DeleteDomain instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteelasticsearchservicerole": {
+    "name": "DeleteElasticsearchServiceRole",
+    "description": "Grants permission to delete the service-linked role required for OpenSearch Service domains that use VPC access. This permission is deprecated. Use the IAM API to delete service-linked roles",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinboundconnection": {
+    "name": "DeleteInboundConnection",
+    "description": "Grants permission to the destination domain owner to delete an existing inbound cross-cluster search connection",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinboundcrossclustersearchconnection": {
+    "name": "DeleteInboundCrossClusterSearchConnection",
+    "description": "Grants permission to the destination domain owner to delete an existing inbound cross-cluster search connection. This permission is deprecated. Use DeleteInboundConnection instead",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteindex": {
+    "name": "DeleteIndex",
+    "description": "Grants permission to delete Index for the OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoutboundconnection": {
+    "name": "DeleteOutboundConnection",
+    "description": "Grants permission to the source domain owner to delete an existing outbound cross-cluster search connection",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoutboundcrossclustersearchconnection": {
+    "name": "DeleteOutboundCrossClusterSearchConnection",
+    "description": "Grants permission to the source domain owner to delete an existing outbound cross-cluster search connection. This permission is deprecated. Use DeleteOutboundConnection instead",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepackage": {
+    "name": "DeletePackage",
+    "description": "Grants permission to delete a package from OpenSearch Service. The package cannot be associated with any domains",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevpcendpoint": {
+    "name": "DeleteVpcEndpoint",
+    "description": "Grants permission to delete an Amazon OpenSearch Service-managed interface VPC endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedomain": {
+    "name": "DescribeDomain",
+    "description": "Grants permission to view a description of the domain configuration for the specified OpenSearch Service domain, including the domain ID, service endpoint, and ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedomainautotunes": {
+    "name": "DescribeDomainAutoTunes",
+    "description": "Grants permission to view the Auto-Tune configuration of the domain for the specified OpenSearch Service domain, including the Auto-Tune state and maintenance schedules",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedomainchangeprogress": {
+    "name": "DescribeDomainChangeProgress",
+    "description": "Grants permission to view detail stage progress of an OpenSearch Service domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedomainconfig": {
+    "name": "DescribeDomainConfig",
+    "description": "Grants permission to view a description of the configuration options and status of an OpenSearch Service domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedomainhealth": {
+    "name": "DescribeDomainHealth",
+    "description": "Grants permission to view information about domain and node health, the standby Availability Zone, number of nodes per Availability Zone, and shard count per node",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedomainnodes": {
+    "name": "DescribeDomainNodes",
+    "description": "Grants permission to view information about nodes configured for the domain and their configurations- the node id, type of node, status of node, Availability Zone, instance type and storage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedomains": {
+    "name": "DescribeDomains",
+    "description": "Grants permission to view a description of the domain configuration for up to five specified OpenSearch Service domains",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedryrunprogress": {
+    "name": "DescribeDryRunProgress",
+    "description": "Grants permission to describe the status of a pre-update validation check on an OpenSearch Service domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeelasticsearchdomain": {
+    "name": "DescribeElasticsearchDomain",
+    "description": "Grants permission to view a description of the domain configuration for the specified OpenSearch Service domain, including the domain ID, service endpoint, and ARN. This permission is deprecated. Use DescribeDomain instead",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeelasticsearchdomainconfig": {
+    "name": "DescribeElasticsearchDomainConfig",
+    "description": "Grants permission to view a description of the configuration and status of an OpenSearch Service domain. This permission is deprecated. Use DescribeDomainConfig instead",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeelasticsearchdomains": {
+    "name": "DescribeElasticsearchDomains",
+    "description": "Grants permission to view a description of the domain configuration for up to five specified Amazon OpenSearch domains. This permission is deprecated. Use DescribeDomains instead",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeelasticsearchinstancetypelimits": {
+    "name": "DescribeElasticsearchInstanceTypeLimits",
+    "description": "Grants permission to view the instance count, storage, and master node limits for a given OpenSearch version and instance type. This permission is deprecated. Use DescribeInstanceTypeLimits instead",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinboundconnections": {
+    "name": "DescribeInboundConnections",
+    "description": "Grants permission to list all the inbound cross-cluster search connections for a destination domain",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinboundcrossclustersearchconnections": {
+    "name": "DescribeInboundCrossClusterSearchConnections",
+    "description": "Grants permission to list all the inbound cross-cluster search connections for a destination domain. This permission is deprecated. Use DescribeInboundConnections instead",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinstancetypelimits": {
+    "name": "DescribeInstanceTypeLimits",
+    "description": "Grants permission to view the instance count, storage, and master node limits for a given engine version and instance type",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeoutboundconnections": {
+    "name": "DescribeOutboundConnections",
+    "description": "Grants permission to list all the outbound cross-cluster search connections for a source domain",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeoutboundcrossclustersearchconnections": {
+    "name": "DescribeOutboundCrossClusterSearchConnections",
+    "description": "Grants permission to list all the outbound cross-cluster search connections for a source domain. This permission is deprecated. Use DescribeOutboundConnections instead",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describepackages": {
+    "name": "DescribePackages",
+    "description": "Grants permission to describe all packages available to OpenSearch Service domains",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereservedelasticsearchinstanceofferings": {
+    "name": "DescribeReservedElasticsearchInstanceOfferings",
+    "description": "Grants permission to fetch Reserved Instance offerings for Amazon OpenSearch Service. This permission is deprecated. Use DescribeReservedInstanceOfferings instead",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereservedelasticsearchinstances": {
+    "name": "DescribeReservedElasticsearchInstances",
+    "description": "Grants permission to fetch OpenSearch Service Reserved Instances that have already been purchased. This permission is deprecated. Use DescribeReservedInstances instead",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereservedinstanceofferings": {
+    "name": "DescribeReservedInstanceOfferings",
+    "description": "Grants permission to fetch Reserved Instance offerings for OpenSearch Service",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereservedinstances": {
+    "name": "DescribeReservedInstances",
+    "description": "Grants permission to fetch OpenSearch Service Reserved Instances that have already been purchased",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevpcendpoints": {
+    "name": "DescribeVpcEndpoints",
+    "description": "Grants permission to describe one or more Amazon OpenSearch Service-managed VPC endpoints",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "dissociatepackage": {
+    "name": "DissociatePackage",
+    "description": "Grants permission to disassociate a package from the specified OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "dissociatepackages": {
+    "name": "DissociatePackages",
+    "description": "Grants permission to disassociate multiple packages from the specified OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "escrossclusterget": {
+    "name": "ESCrossClusterGet",
+    "description": "Grants permission to send cross-cluster requests to a destination domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eshttpdelete": {
+    "name": "ESHttpDelete",
+    "description": "Grants permission to send HTTP DELETE requests to the OpenSearch APIs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eshttpget": {
+    "name": "ESHttpGet",
+    "description": "Grants permission to send HTTP GET requests to the OpenSearch APIs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eshttphead": {
+    "name": "ESHttpHead",
+    "description": "Grants permission to send HTTP HEAD requests to the OpenSearch APIs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eshttppatch": {
+    "name": "ESHttpPatch",
+    "description": "Grants permission to send HTTP PATCH requests to the OpenSearch APIs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eshttppost": {
+    "name": "ESHttpPost",
+    "description": "Grants permission to send HTTP POST requests to the OpenSearch APIs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eshttpput": {
+    "name": "ESHttpPut",
+    "description": "Grants permission to send HTTP PUT requests to the OpenSearch APIs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapplication": {
+    "name": "GetApplication",
+    "description": "Grants permission to get information about an OpenSearch Application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcompatibleelasticsearchversions": {
+    "name": "GetCompatibleElasticsearchVersions",
+    "description": "Grants permission to fetch a list of compatible OpenSearch and Elasticsearch versions to which an OpenSearch Service domain can be upgraded. This permission is deprecated. Use GetCompatibleVersions instead",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcompatibleversions": {
+    "name": "GetCompatibleVersions",
+    "description": "Grants permission to fetch list of compatible engine versions to which an OpenSearch Service domain can be upgraded",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatasource": {
+    "name": "GetDataSource",
+    "description": "Grants permission to get the data source for the OpenSearch Service domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdirectquerydatasource": {
+    "name": "GetDirectQueryDataSource",
+    "description": "Grants permission to get the data source for the provided OpenSearch arns",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdomainmaintenancestatus": {
+    "name": "GetDomainMaintenanceStatus",
+    "description": "Grants permission to retrieve the status of maintenance action for the node",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getindex": {
+    "name": "GetIndex",
+    "description": "Grants permission to get index for the OpenSearch Service domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpackageversionhistory": {
+    "name": "GetPackageVersionHistory",
+    "description": "Grants permission to fetch the version history for a package",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getupgradehistory": {
+    "name": "GetUpgradeHistory",
+    "description": "Grants permission to fetch the upgrade history of a given OpenSearch Service domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getupgradestatus": {
+    "name": "GetUpgradeStatus",
+    "description": "Grants permission to fetch the upgrade status of a given OpenSearch Service domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapplications": {
+    "name": "ListApplications",
+    "description": "Grants permission to list OpenSearch Applications",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasources": {
+    "name": "ListDataSources",
+    "description": "Grants permission to retrieve a list of data source for the OpenSearch Service domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdirectquerydatasources": {
+    "name": "ListDirectQueryDataSources",
+    "description": "Grants permission to retrieve a list of data source for the provided OpenSearch arns",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomainmaintenances": {
+    "name": "ListDomainMaintenances",
+    "description": "Grants permission to retrieve a list of maintenance actions for the OpenSearch Service domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomainnames": {
+    "name": "ListDomainNames",
+    "description": "Grants permission to display the names of all OpenSearch Service domains that the current user owns",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomainsforpackage": {
+    "name": "ListDomainsForPackage",
+    "description": "Grants permission to list all OpenSearch Service domains that a package is associated with",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listelasticsearchinstancetypedetails": {
+    "name": "ListElasticsearchInstanceTypeDetails",
+    "description": "Grants permission to list all instance types and available features for a given OpenSearch version. This permission is deprecated. Use ListInstanceTypeDetails instead",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listelasticsearchinstancetypes": {
+    "name": "ListElasticsearchInstanceTypes",
+    "description": "Grants permission to list all EC2 instance types that are supported for a given OpenSearch version",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listelasticsearchversions": {
+    "name": "ListElasticsearchVersions",
+    "description": "Grants permission to list all supported OpenSearch versions on Amazon OpenSearch Service. This permission is deprecated. Use ListVersions instead",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinstancetypedetails": {
+    "name": "ListInstanceTypeDetails",
+    "description": "Grants permission to list all instance types and available features for a given OpenSearch or Elasticsearch version",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpackagesfordomain": {
+    "name": "ListPackagesForDomain",
+    "description": "Grants permission to list all packages associated with the OpenSearch Service domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listscheduledactions": {
+    "name": "ListScheduledActions",
+    "description": "Grants permission to retrieve a list of configuration changes that are scheduled for a OpenSearch Service domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtags": {
+    "name": "ListTags",
+    "description": "Grants permission to display all resource tags for an OpenSearch Service domain, data source, or application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listversions": {
+    "name": "ListVersions",
+    "description": "Grants permission to list all supported OpenSearch and Elasticsearch versions in Amazon OpenSearch Service",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvpcendpointaccess": {
+    "name": "ListVpcEndpointAccess",
+    "description": "Grants permission to retrieve information about each AWS principal that is allowed to access a given Amazon OpenSearch Service domain through the use of an interface VPC endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvpcendpoints": {
+    "name": "ListVpcEndpoints",
+    "description": "Grants permission to retrieve all Amazon OpenSearch Service-managed VPC endpoints in the current AWS account and Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvpcendpointsfordomain": {
+    "name": "ListVpcEndpointsForDomain",
+    "description": "Grants permission to retrieve all Amazon OpenSearch Service-managed VPC endpoints associated with a particular domain",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "purchasereservedelasticsearchinstanceoffering": {
+    "name": "PurchaseReservedElasticsearchInstanceOffering",
+    "description": "Grants permission to purchase OpenSearch Service Reserved Instances. This permission is deprecated. Use PurchaseReservedInstanceOffering instead",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "purchasereservedinstanceoffering": {
+    "name": "PurchaseReservedInstanceOffering",
+    "description": "Grants permission to purchase OpenSearch reserved instances",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectinboundconnection": {
+    "name": "RejectInboundConnection",
+    "description": "Grants permission to the destination domain owner to reject an inbound cross-cluster search connection request",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectinboundcrossclustersearchconnection": {
+    "name": "RejectInboundCrossClusterSearchConnection",
+    "description": "Grants permission to the destination domain owner to reject an inbound cross-cluster search connection request. This permission is deprecated. Use RejectInboundConnection instead",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removetags": {
+    "name": "RemoveTags",
+    "description": "Grants permission to remove resource tags from an OpenSearch Service domain, data source, or application",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "revokevpcendpointaccess": {
+    "name": "RevokeVpcEndpointAccess",
+    "description": "Grants permission to revoke access to an Amazon OpenSearch Service domain that was provided through an interface VPC endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdomainmaintenance": {
+    "name": "StartDomainMaintenance",
+    "description": "Grants permission to initiate the maintenance on the node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startelasticsearchservicesoftwareupdate": {
+    "name": "StartElasticsearchServiceSoftwareUpdate",
+    "description": "Grants permission to start a service software update of a domain. This permission is deprecated. Use StartServiceSoftwareUpdate instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startservicesoftwareupdate": {
+    "name": "StartServiceSoftwareUpdate",
+    "description": "Grants permission to start a service software update of a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapplication": {
+    "name": "UpdateApplication",
+    "description": "Grants permission to update an OpenSearch Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedatasource": {
+    "name": "UpdateDataSource",
+    "description": "Grants permission to update the data source for the OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedirectquerydatasource": {
+    "name": "UpdateDirectQueryDataSource",
+    "description": "Grants permission to update the data source for the provided OpenSearch arns",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedomainconfig": {
+    "name": "UpdateDomainConfig",
+    "description": "Grants permission to modify the configuration of an OpenSearch Service domain, such as the instance type or number of instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateelasticsearchdomainconfig": {
+    "name": "UpdateElasticsearchDomainConfig",
+    "description": "Grants permission to modify the configuration of an OpenSearch Service domain, such as the instance type or number of instances. This permission is deprecated. Use UpdateDomainConfig instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateindex": {
+    "name": "UpdateIndex",
+    "description": "Grants permission to update index for the OpenSearch Service domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepackage": {
+    "name": "UpdatePackage",
+    "description": "Grants permission to update a package for use with OpenSearch Service domains",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepackagescope": {
+    "name": "UpdatePackageScope",
+    "description": "Grants permission to update scope a package",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatescheduledaction": {
+    "name": "UpdateScheduledAction",
+    "description": "Grants permission to reschedule a planned OpenSearch Service domain configuration change for a later time",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevpcendpoint": {
+    "name": "UpdateVpcEndpoint",
+    "description": "Grants permission to modify an Amazon OpenSearch Service-managed interface VPC endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "upgradedomain": {
+    "name": "UpgradeDomain",
+    "description": "Grants permission to initiate upgrade of an OpenSearch Service domain to a given version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "upgradeelasticsearchdomain": {
+    "name": "UpgradeElasticsearchDomain",
+    "description": "Grants permission to initiate upgrade of an OpenSearch Service domain to a specified version. This permission is deprecated. Use UpgradeDomain instead",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

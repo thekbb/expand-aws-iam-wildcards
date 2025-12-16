@@ -1,0 +1,20 @@
+{
+  "healthevent": {
+    "key": "HealthEvent",
+    "arn": "arn:${Partition}:internetmonitor:${Region}:${Account}:monitor/${MonitorName}/health-event/${EventId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "monitor": {
+    "key": "Monitor",
+    "arn": "arn:${Partition}:internetmonitor:${Region}:${Account}:monitor/${MonitorName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "internetevent": {
+    "key": "InternetEvent",
+    "arn": "arn:${Partition}:internetmonitor::${Account}:internet-event/${InternetEventId}"
+  }
+}

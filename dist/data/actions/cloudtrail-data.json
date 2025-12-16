@@ -1,0 +1,17 @@
+{
+  "putauditevents": {
+    "name": "PutAuditEvents",
+    "description": "Grants permission to ingest your application events into CloudTrail Lake",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

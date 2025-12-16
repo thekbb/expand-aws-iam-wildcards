@@ -1,0 +1,7 @@
+{
+  "iot:jobid": {
+    "key": "iot:JobId",
+    "description": "Filters access by jobId for iotjobsdata:DescribeJobExecution and iotjobsdata:UpdateJobExecution APIs",
+    "type": "String"
+  }
+}

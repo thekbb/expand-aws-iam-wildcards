@@ -1,0 +1,92 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the tags that are passed in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the tag keys that are passed in the request",
+    "type": "ArrayOfString"
+  },
+  "batch:awslogscreategroup": {
+    "key": "batch:AWSLogsCreateGroup",
+    "description": "Filters access by the specified logging driver to determine whether awslogs group will be created for the logs",
+    "type": "Bool"
+  },
+  "batch:awslogsgroup": {
+    "key": "batch:AWSLogsGroup",
+    "description": "Filters access by the awslogs group where the logs are located",
+    "type": "String"
+  },
+  "batch:awslogsregion": {
+    "key": "batch:AWSLogsRegion",
+    "description": "Filters access by the region where the logs are sent to",
+    "type": "String"
+  },
+  "batch:awslogsstreamprefix": {
+    "key": "batch:AWSLogsStreamPrefix",
+    "description": "Filters access by the awslogs log stream prefix",
+    "type": "String"
+  },
+  "batch:eksimage": {
+    "key": "batch:EKSImage",
+    "description": "Filters access by the image used to start a container for an Amazon EKS job",
+    "type": "String"
+  },
+  "batch:eksnamespace": {
+    "key": "batch:EKSNamespace",
+    "description": "Filters access by the namespace of a cluster used to run the pod for an Amazon EKS job",
+    "type": "String"
+  },
+  "batch:eksprivileged": {
+    "key": "batch:EKSPrivileged",
+    "description": "Filters access by the specified privileged parameter value that determines whether the container is given elevated privileges on the host container instance (similar to the root user) for an Amazon EKS job",
+    "type": "Bool"
+  },
+  "batch:eksrunasgroup": {
+    "key": "batch:EKSRunAsGroup",
+    "description": "Filters access by the specified group numeric ID (gid) used to start a container in an Amazon EKS job",
+    "type": "Numeric"
+  },
+  "batch:eksrunasuser": {
+    "key": "batch:EKSRunAsUser",
+    "description": "Filters access by the specified user numeric ID (uid) used to start a a container in an Amazon EKS job",
+    "type": "Numeric"
+  },
+  "batch:eksserviceaccountname": {
+    "key": "batch:EKSServiceAccountName",
+    "description": "Filters access by the name of the service account used to run the pod for an Amazon EKS job",
+    "type": "String"
+  },
+  "batch:image": {
+    "key": "batch:Image",
+    "description": "Filters access by the image used to start a container",
+    "type": "String"
+  },
+  "batch:logdriver": {
+    "key": "batch:LogDriver",
+    "description": "Filters access by the log driver used for the container",
+    "type": "String"
+  },
+  "batch:privileged": {
+    "key": "batch:Privileged",
+    "description": "Filters access by the specified privileged parameter value that determines whether the container is given elevated privileges on the host container instance (similar to the root user)",
+    "type": "Bool"
+  },
+  "batch:shareidentifier": {
+    "key": "batch:ShareIdentifier",
+    "description": "Filters access by the shareIdentifier used inside submit job",
+    "type": "String"
+  },
+  "batch:user": {
+    "key": "batch:User",
+    "description": "Filters access by user name or numeric uid used inside the container",
+    "type": "String"
+  }
+}

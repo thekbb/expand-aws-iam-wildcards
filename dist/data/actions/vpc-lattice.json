@@ -1,0 +1,1441 @@
+{
+  "associateviaawsservice": {
+    "name": "AssociateViaAWSService",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate a resource configuration through any AWS service managed networks",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associateviaawsservice-eventsandstates": {
+    "name": "AssociateViaAWSService-EventsAndStates",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate a resource configuration through Amazon EventBridge and AWS Step Functions service networks",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createaccesslogsubscription": {
+    "name": "CreateAccessLogSubscription",
+    "description": "Grants permission to create an access log subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AccessLogSubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "logs:CreateLogDelivery",
+          "logs:GetLogDelivery"
+        ]
+      },
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlistener": {
+    "name": "CreateListener",
+    "description": "Grants permission to create a listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:Protocol",
+      "vpc-lattice:TargetGroupArns"
+    ],
+    "dependentActions": []
+  },
+  "createresourceconfiguration": {
+    "name": "CreateResourceConfiguration",
+    "description": "Grants permission to create a resource configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DomainVerification",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createresourcegateway": {
+    "name": "CreateResourceGateway",
+    "description": "Grants permission to create a resource gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:VpcId"
+    ],
+    "dependentActions": []
+  },
+  "createrule": {
+    "name": "CreateRule",
+    "description": "Grants permission to create a rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:TargetGroupArns"
+    ],
+    "dependentActions": []
+  },
+  "createservice": {
+    "name": "CreateService",
+    "description": "Grants permission to create a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:AuthType"
+    ],
+    "dependentActions": []
+  },
+  "createservicenetwork": {
+    "name": "CreateServiceNetwork",
+    "description": "Grants permission to create a service network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetwork",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:AuthType"
+    ],
+    "dependentActions": []
+  },
+  "createservicenetworkresourceassociation": {
+    "name": "CreateServiceNetworkResourceAssociation",
+    "description": "Grants permission to create an association between a service network and a resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkResourceAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:ResourceConfigurationArn",
+      "vpc-lattice:ServiceNetworkArn"
+    ],
+    "dependentActions": []
+  },
+  "createservicenetworkserviceassociation": {
+    "name": "CreateServiceNetworkServiceAssociation",
+    "description": "Grants permission to create a service network and service association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkServiceAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:ServiceArn",
+      "vpc-lattice:ServiceNetworkArn"
+    ],
+    "dependentActions": []
+  },
+  "createservicenetworkvpcassociation": {
+    "name": "CreateServiceNetworkVpcAssociation",
+    "description": "Grants permission to create a service network and VPC association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetwork",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeVpcs"
+        ]
+      },
+      {
+        "name": "ServiceNetworkVpcAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:PrivateDnsPreference",
+      "vpc-lattice:PrivateDnsSpecifiedDomains",
+      "vpc-lattice:SecurityGroupIds",
+      "vpc-lattice:ServiceNetworkArn",
+      "vpc-lattice:VpcId"
+    ],
+    "dependentActions": []
+  },
+  "createservicenetworkvpcendpointassociation": {
+    "name": "CreateServiceNetworkVpcEndpointAssociation",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an association between a service network and VPC endpoint",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtargetgroup": {
+    "name": "CreateTargetGroup",
+    "description": "Grants permission to create a target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TargetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:VpcId"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesslogsubscription": {
+    "name": "DeleteAccessLogSubscription",
+    "description": "Grants permission to delete an access log subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AccessLogSubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "logs:DeleteLogDelivery",
+          "logs:GetLogDelivery"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteauthpolicy": {
+    "name": "DeleteAuthPolicy",
+    "description": "Grants permission to delete an auth policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedomainverification": {
+    "name": "DeleteDomainVerification",
+    "description": "Grants permission to delete a domain verification",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DomainVerification",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletelistener": {
+    "name": "DeleteListener",
+    "description": "Grants permission to delete a listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourceconfiguration": {
+    "name": "DeleteResourceConfiguration",
+    "description": "Grants permission to delete a resource configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourceendpointassociation": {
+    "name": "DeleteResourceEndpointAssociation",
+    "description": "Grants permission to delete a resource endpoint association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourcegateway": {
+    "name": "DeleteResourceGateway",
+    "description": "Grants permission to delete a resource gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterule": {
+    "name": "DeleteRule",
+    "description": "Grants permission to delete a rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteservice": {
+    "name": "DeleteService",
+    "description": "Grants permission to delete a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteservicenetwork": {
+    "name": "DeleteServiceNetwork",
+    "description": "Grants permission to delete a service network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetwork",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteservicenetworkresourceassociation": {
+    "name": "DeleteServiceNetworkResourceAssociation",
+    "description": "Grants permission to delete the association between a service network and resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetworkResourceAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteservicenetworkserviceassociation": {
+    "name": "DeleteServiceNetworkServiceAssociation",
+    "description": "Grants permission to delete a service network service association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetworkServiceAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:ServiceArn",
+      "vpc-lattice:ServiceNetworkArn"
+    ],
+    "dependentActions": []
+  },
+  "deleteservicenetworkvpcassociation": {
+    "name": "DeleteServiceNetworkVpcAssociation",
+    "description": "Grants permission to delete a service network and VPC association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetworkVpcAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:ServiceNetworkArn",
+      "vpc-lattice:VpcId"
+    ],
+    "dependentActions": []
+  },
+  "deletetargetgroup": {
+    "name": "DeleteTargetGroup",
+    "description": "Grants permission to delete a target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TargetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deregistertargets": {
+    "name": "DeregisterTargets",
+    "description": "Grants permission to deregister targets from a target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TargetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaccesslogsubscription": {
+    "name": "GetAccessLogSubscription",
+    "description": "Grants permission to get information about an access log subscription",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AccessLogSubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "logs:GetLogDelivery"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getauthpolicy": {
+    "name": "GetAuthPolicy",
+    "description": "Grants permission to get information about an auth policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdomainverification": {
+    "name": "GetDomainVerification",
+    "description": "Grants permission to get information about a domain verification",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DomainVerification",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getlistener": {
+    "name": "GetListener",
+    "description": "Grants permission to get information about a listener",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getresourceconfiguration": {
+    "name": "GetResourceConfiguration",
+    "description": "Grants permission to get information about a resource configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getresourcegateway": {
+    "name": "GetResourceGateway",
+    "description": "Grants permission to get information about a resource gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ResourceGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get information about a resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrule": {
+    "name": "GetRule",
+    "description": "Grants permission to get information about a rule",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getservice": {
+    "name": "GetService",
+    "description": "Grants permission to get information about a service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getservicenetwork": {
+    "name": "GetServiceNetwork",
+    "description": "Grants permission to get information about a service network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetwork",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getservicenetworkresourceassociation": {
+    "name": "GetServiceNetworkResourceAssociation",
+    "description": "Grants permission to get information about an association between a service network and resource configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetworkResourceAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getservicenetworkserviceassociation": {
+    "name": "GetServiceNetworkServiceAssociation",
+    "description": "Grants permission to get information about a service network and service association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetworkServiceAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:ServiceArn",
+      "vpc-lattice:ServiceNetworkArn"
+    ],
+    "dependentActions": []
+  },
+  "getservicenetworkvpcassociation": {
+    "name": "GetServiceNetworkVpcAssociation",
+    "description": "Grants permission to get information about a service network and VPC association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetworkVpcAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:ServiceNetworkArn",
+      "vpc-lattice:VpcId"
+    ],
+    "dependentActions": []
+  },
+  "gettargetgroup": {
+    "name": "GetTargetGroup",
+    "description": "Grants permission to get information about a target group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TargetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listaccesslogsubscriptions": {
+    "name": "ListAccessLogSubscriptions",
+    "description": "Grants permission to list some or all access log subscriptions about a service network or a service",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomainverifications": {
+    "name": "ListDomainVerifications",
+    "description": "Grants permission to list some or all domain verifications",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlisteners": {
+    "name": "ListListeners",
+    "description": "Grants permission to list some or all listeners",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourceconfigurations": {
+    "name": "ListResourceConfigurations",
+    "description": "Grants permission to list some or all resource configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourceendpointassociations": {
+    "name": "ListResourceEndpointAssociations",
+    "description": "Grants permission to list some or all associations between a resource configuration and VPC endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "vpc-lattice:ResourceConfigurationArn",
+      "vpc-lattice:VpcEndpointId"
+    ],
+    "dependentActions": []
+  },
+  "listresourcegateways": {
+    "name": "ListResourceGateways",
+    "description": "Grants permission to list some or all resource gateways",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrules": {
+    "name": "ListRules",
+    "description": "Grants permission to list some or all rules",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicenetworkresourceassociations": {
+    "name": "ListServiceNetworkResourceAssociations",
+    "description": "Grants permission to list some or all associations between a service network and resource configuration",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicenetworkserviceassociations": {
+    "name": "ListServiceNetworkServiceAssociations",
+    "description": "Grants permission to list some or all service network and service associations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "vpc-lattice:ServiceArn",
+      "vpc-lattice:ServiceNetworkArn"
+    ],
+    "dependentActions": []
+  },
+  "listservicenetworkvpcassociations": {
+    "name": "ListServiceNetworkVpcAssociations",
+    "description": "Grants permission to list some or all service network and VPC associations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "vpc-lattice:ServiceNetworkArn",
+      "vpc-lattice:VpcId"
+    ],
+    "dependentActions": []
+  },
+  "listservicenetworkvpcendpointassociations": {
+    "name": "ListServiceNetworkVpcEndpointAssociations",
+    "description": "Grants permission to list some or all associations between a service network and VPC endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicenetworks": {
+    "name": "ListServiceNetworks",
+    "description": "Grants permission to list the service networks owned by a caller account or shared with the caller account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservices": {
+    "name": "ListServices",
+    "description": "Grants permission to list the services owned by a caller account or shared with the caller account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a vpc-lattice resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtargetgroups": {
+    "name": "ListTargetGroups",
+    "description": "Grants permission to list some or all target groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtargets": {
+    "name": "ListTargets",
+    "description": "Grants permission to list some or all targets in a target group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "TargetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putauthpolicy": {
+    "name": "PutAuthPolicy",
+    "description": "Grants permission to create or update the auth policy for a service network or a service",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to create a resource policy for a resource configuration, service, or service network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registertargets": {
+    "name": "RegisterTargets",
+    "description": "Grants permission to register targets to a target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TargetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdomainverification": {
+    "name": "StartDomainVerification",
+    "description": "Grants permission to start a domain verification",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DomainVerification",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:DomainName"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a vpc-lattice resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "AccessLogSubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DomainVerification",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Listener",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceEndpointAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkResourceAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkServiceAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkVpcAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TargetGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a vpc-lattice resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "AccessLogSubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DomainVerification",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Listener",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceEndpointAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkResourceAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkServiceAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkVpcAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TargetGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateaccesslogsubscription": {
+    "name": "UpdateAccessLogSubscription",
+    "description": "Grants permission to update an access log subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AccessLogSubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "logs:GetLogDelivery",
+          "logs:UpdateLogDelivery"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatelistener": {
+    "name": "UpdateListener",
+    "description": "Grants permission to update a listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Listener",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:TargetGroupArns"
+    ],
+    "dependentActions": []
+  },
+  "updateresourceconfiguration": {
+    "name": "UpdateResourceConfiguration",
+    "description": "Grants permission to update a resource configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateresourcegateway": {
+    "name": "UpdateResourceGateway",
+    "description": "Grants permission to update a resource gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:SecurityGroupIds"
+    ],
+    "dependentActions": []
+  },
+  "updaterule": {
+    "name": "UpdateRule",
+    "description": "Grants permission to update a rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:TargetGroupArns"
+    ],
+    "dependentActions": []
+  },
+  "updateservice": {
+    "name": "UpdateService",
+    "description": "Grants permission to update a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:AuthType"
+    ],
+    "dependentActions": []
+  },
+  "updateservicenetwork": {
+    "name": "UpdateServiceNetwork",
+    "description": "Grants permission to update a service network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetwork",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:AuthType"
+    ],
+    "dependentActions": []
+  },
+  "updateservicenetworkvpcassociation": {
+    "name": "UpdateServiceNetworkVpcAssociation",
+    "description": "Grants permission to update a service network and VPC association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetworkVpcAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:SecurityGroupIds",
+      "vpc-lattice:ServiceNetworkArn",
+      "vpc-lattice:VpcId"
+    ],
+    "dependentActions": []
+  },
+  "updatetargetgroup": {
+    "name": "UpdateTargetGroup",
+    "description": "Grants permission to update a target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TargetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

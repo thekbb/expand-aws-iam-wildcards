@@ -1,0 +1,203 @@
+{
+  "createsoftwareconfiguration": {
+    "name": "CreateSoftwareConfiguration",
+    "description": "Grants permission to create a software configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsubscription": {
+    "name": "CreateSubscription",
+    "description": "Grants permission to create a subscription for FreeRTOS extended maintenance plan (EMP)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletesoftwareconfiguration": {
+    "name": "DeleteSoftwareConfiguration",
+    "description": "Grants permission to delete the software configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describehardwareplatform": {
+    "name": "DescribeHardwarePlatform",
+    "description": "Grants permission to describe the hardware platform",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesoftwareconfiguration": {
+    "name": "DescribeSoftwareConfiguration",
+    "description": "Grants permission to describe the software configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesubscription": {
+    "name": "DescribeSubscription",
+    "description": "Grants permission to describes the subscription for FreeRTOS extended maintenance plan (EMP)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getemppatchurl": {
+    "name": "GetEmpPatchUrl",
+    "description": "Grants permission to get URL for sotware patch-release, patch-diff and release notes under FreeRTOS extended maintenance plan (EMP)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsoftwareurl": {
+    "name": "GetSoftwareURL",
+    "description": "Grants permission to get the URL for Amazon FreeRTOS software download",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsoftwareurlforconfiguration": {
+    "name": "GetSoftwareURLForConfiguration",
+    "description": "Grants permission to get the URL for Amazon FreeRTOS software download based on the configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsubscriptionbillingamount": {
+    "name": "GetSubscriptionBillingAmount",
+    "description": "Grants permission to fetch the subscription billing amount for FreeRTOS extended maintenance plan (EMP)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfreertosversions": {
+    "name": "ListFreeRTOSVersions",
+    "description": "Grants permission to lists versions of AmazonFreeRTOS",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listhardwareplatforms": {
+    "name": "ListHardwarePlatforms",
+    "description": "Grants permission to list the hardware platforms",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listhardwarevendors": {
+    "name": "ListHardwareVendors",
+    "description": "Grants permission to list the hardware vendors",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsoftwareconfigurations": {
+    "name": "ListSoftwareConfigurations",
+    "description": "Grants permission to lists the software configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsoftwarepatches": {
+    "name": "ListSoftwarePatches",
+    "description": "Grants permission to list software patches of subscription for FreeRTOS extended maintenance plan (EMP)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsubscriptionemails": {
+    "name": "ListSubscriptionEmails",
+    "description": "Grants permission to list the subscription emails for FreeRTOS extended maintenance plan (EMP)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsubscriptions": {
+    "name": "ListSubscriptions",
+    "description": "Grants permission to list the subscriptions for FreeRTOS extended maintenance plan (EMP)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateemailrecipients": {
+    "name": "UpdateEmailRecipients",
+    "description": "Grants permission to update list of subscription email address for FreeRTOS extended maintenance plan (EMP)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesoftwareconfiguration": {
+    "name": "UpdateSoftwareConfiguration",
+    "description": "Grants permission to update the software configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "verifyemail": {
+    "name": "VerifyEmail",
+    "description": "Grants permission to verify the email for FreeRTOS extended maintenance plan (EMP)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

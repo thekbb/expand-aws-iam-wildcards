@@ -1,0 +1,559 @@
+{
+  "assignadminpermissionstouser": {
+    "name": "AssignAdminPermissionsToUser",
+    "description": "Grants permission to add AWS Supply Chain administrator permission to federated user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbillofmaterialsimportjob": {
+    "name": "CreateBillOfMaterialsImportJob",
+    "description": "Grants permission to create a BillOfMaterialsImportJob which will import a CSV file of BillOfMaterials records",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdataintegrationflow": {
+    "name": "CreateDataIntegrationFlow",
+    "description": "Grants permission to create DataIntegrationFlow that can transform from multiple sources to one target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdatalakedataset": {
+    "name": "CreateDataLakeDataset",
+    "description": "Grants permission to create the data lake dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdatalakenamespace": {
+    "name": "CreateDataLakeNamespace",
+    "description": "Grants permission to create the data lake namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createinstance": {
+    "name": "CreateInstance",
+    "description": "Grants permission to create a new AWS Supply Chain instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createssoapplication": {
+    "name": "CreateSSOApplication",
+    "description": "Grants permission to create IAM Identity Center application for a AWS Supply Chain instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataintegrationflow": {
+    "name": "DeleteDataIntegrationFlow",
+    "description": "Grants permission to delete the DataIntegrationFlow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-integration-flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatalakedataset": {
+    "name": "DeleteDataLakeDataset",
+    "description": "Grants permission to delete the data lake dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatalakenamespace": {
+    "name": "DeleteDataLakeNamespace",
+    "description": "Grants permission to delete the data lake namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinstance": {
+    "name": "DeleteInstance",
+    "description": "Grants permission to delete an AWS Supply Chain instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletessoapplication": {
+    "name": "DeleteSSOApplication",
+    "description": "Grants permission to delete IAM Identity Center application of the AWS Supply Chain instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinstance": {
+    "name": "DescribeInstance",
+    "description": "Grants permission to view details of an AWS Supply Chain instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbillofmaterialsimportjob": {
+    "name": "GetBillOfMaterialsImportJob",
+    "description": "Grants permission to view status and details of a BillOfMaterialsImportJob",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bill-of-materials-import-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataintegrationevent": {
+    "name": "GetDataIntegrationEvent",
+    "description": "Grants permission to get a DataIntegrationEvent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataintegrationflow": {
+    "name": "GetDataIntegrationFlow",
+    "description": "Grants permission to get the DataIntegrationFlow details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-integration-flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataintegrationflowexecution": {
+    "name": "GetDataIntegrationFlowExecution",
+    "description": "Grants permission to get a particular execution of one specified DataIntegrationFlow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-integration-flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatalakedataset": {
+    "name": "GetDataLakeDataset",
+    "description": "Grants permission to get the dataset details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatalakenamespace": {
+    "name": "GetDataLakeNamespace",
+    "description": "Grants permission to get the namespace details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstance": {
+    "name": "GetInstance",
+    "description": "Grants permission to view details of an AWS Supply Chain instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listadminusers": {
+    "name": "ListAdminUsers",
+    "description": "Grants permission to list AWS Supply Chain administrators of an instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdataintegrationevents": {
+    "name": "ListDataIntegrationEvents",
+    "description": "Grants permission to list all DataIntegrationEvents under an instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdataintegrationflowexecutions": {
+    "name": "ListDataIntegrationFlowExecutions",
+    "description": "Grants permission to list all executions of one specified DataIntegrationFlow",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-integration-flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdataintegrationflows": {
+    "name": "ListDataIntegrationFlows",
+    "description": "Grants permission to list all the DataIntegrationFlows in a paginated way",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatalakedatasets": {
+    "name": "ListDataLakeDatasets",
+    "description": "Grants permission to list the data lake datasets under specific instance or namespace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatalakenamespaces": {
+    "name": "ListDataLakeNamespaces",
+    "description": "Grants permission to list the data lake namespaces under specific instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinstances": {
+    "name": "ListInstances",
+    "description": "Grants permission to view the AWS Supply Chain instances associated with an AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an AWS Supply Chain resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeadminpermissionsforuser": {
+    "name": "RemoveAdminPermissionsForUser",
+    "description": "Grants permission to remove AWS Supply Chain administrator permission from federated user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "senddataintegrationevent": {
+    "name": "SendDataIntegrationEvent",
+    "description": "Grants permission to create a DataIntegrationEvent which will ingest data in real-time",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an AWS Supply Chain resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tag from an AWS Supply Chain resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatedataintegrationflow": {
+    "name": "UpdateDataIntegrationFlow",
+    "description": "Grants permission to update the DataIntegrationFlow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-integration-flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedatalakedataset": {
+    "name": "UpdateDataLakeDataset",
+    "description": "Grants permission to update the data lake dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedatalakenamespace": {
+    "name": "UpdateDataLakeNamespace",
+    "description": "Grants permission to update the data lake namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinstance": {
+    "name": "UpdateInstance",
+    "description": "Grants permission to update an AWS Supply Chain instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

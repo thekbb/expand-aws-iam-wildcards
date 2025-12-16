@@ -1,0 +1,57 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by both the key and value of the tag in the request for the specified operation",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by tags assigned to a key for the specified operation",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the tag keys in the request for the specified operation",
+    "type": "ArrayOfString"
+  },
+  "payment-cryptography:certificateauthoritypublickeyidentifier": {
+    "key": "payment-cryptography:CertificateAuthorityPublicKeyIdentifier",
+    "description": "Filters access by the CertificateAuthorityPublicKeyIdentifier specified in the request or the ImportKey, and ExportKey operations",
+    "type": "String"
+  },
+  "payment-cryptography:importkeymaterial": {
+    "key": "payment-cryptography:ImportKeyMaterial",
+    "description": "Filters access by the type of key material being imported [RootCertificatePublicKey, TrustedCertificatePublicKey, Tr34KeyBlock, Tr31KeyBlock] for the ImportKey operation",
+    "type": "String"
+  },
+  "payment-cryptography:keyalgorithm": {
+    "key": "payment-cryptography:KeyAlgorithm",
+    "description": "Filters access by KeyAlgorithm specified in the request for the CreateKey operation",
+    "type": "String"
+  },
+  "payment-cryptography:keyclass": {
+    "key": "payment-cryptography:KeyClass",
+    "description": "Filters access by KeyClass specified in the request for the CreateKey operation",
+    "type": "String"
+  },
+  "payment-cryptography:keyusage": {
+    "key": "payment-cryptography:KeyUsage",
+    "description": "Filters access by KeyClass specified in the request or associated with a key for the CreateKey operation",
+    "type": "String"
+  },
+  "payment-cryptography:requestalias": {
+    "key": "payment-cryptography:RequestAlias",
+    "description": "Filters access by aliases in the request for the specified operation",
+    "type": "String"
+  },
+  "payment-cryptography:resourcealiases": {
+    "key": "payment-cryptography:ResourceAliases",
+    "description": "Filters access by aliases associated with a key for the specified operation",
+    "type": "ArrayOfString"
+  },
+  "payment-cryptography:wrappingkeyidentifier": {
+    "key": "payment-cryptography:WrappingKeyIdentifier",
+    "description": "Filters access by the WrappingKeyIdentifier specified in the request for the ImportKey, and ExportKey operations",
+    "type": "String"
+  }
+}

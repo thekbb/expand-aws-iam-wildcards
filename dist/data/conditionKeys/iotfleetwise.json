@@ -1,0 +1,37 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the presence of tag key-value pairs in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by tag key-value pairs attached to the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the presence of tag keys in the request",
+    "type": "ArrayOfString"
+  },
+  "iotfleetwise:destinationarn": {
+    "key": "iotfleetwise:DestinationArn",
+    "description": "Filters access by campaign destination ARN, eg. an S3 bucket ARN or a Timestream ARN",
+    "type": "ARN"
+  },
+  "iotfleetwise:signals": {
+    "key": "iotfleetwise:Signals",
+    "description": "Filters access by fully qualified signal names",
+    "type": "ArrayOfString"
+  },
+  "iotfleetwise:updatetodecodermanifestarn": {
+    "key": "iotfleetwise:UpdateToDecoderManifestArn",
+    "description": "Filters access by a list of IoT FleetWise Decoder Manifest ARNs",
+    "type": "ARN"
+  },
+  "iotfleetwise:updatetomodelmanifestarn": {
+    "key": "iotfleetwise:UpdateToModelManifestArn",
+    "description": "Filters access by a list of IoT FleetWise Model Manifest ARNs",
+    "type": "ARN"
+  }
+}

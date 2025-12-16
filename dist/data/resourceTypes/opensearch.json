@@ -1,0 +1,10 @@
+{
+  "application": {
+    "key": "application",
+    "arn": "arn:${Partition}:opensearch:${Region}:${Account}:application/${AppId}"
+  },
+  "datasource": {
+    "key": "datasource",
+    "arn": "arn:${Partition}:opensearch:${Region}:${Account}:datasource/${DataSourceName}"
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "configurelogs": {
+    "name": "ConfigureLogs",
+    "description": "Grants permission to configure egress access logs for a PackagingGroup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "packaging-groups",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "createasset": {
+    "name": "CreateAsset",
+    "description": "Grants permission to create an asset in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpackagingconfiguration": {
+    "name": "CreatePackagingConfiguration",
+    "description": "Grants permission to create a packaging configuration in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpackaginggroup": {
+    "name": "CreatePackagingGroup",
+    "description": "Grants permission to create a packaging group in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteasset": {
+    "name": "DeleteAsset",
+    "description": "Grants permission to delete an asset in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "assets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepackagingconfiguration": {
+    "name": "DeletePackagingConfiguration",
+    "description": "Grants permission to delete a packaging configuration in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "packaging-configurations",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepackaginggroup": {
+    "name": "DeletePackagingGroup",
+    "description": "Grants permission to delete a packaging group in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "packaging-groups",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeasset": {
+    "name": "DescribeAsset",
+    "description": "Grants permission to view the details of an asset in AWS Elemental MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "assets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describepackagingconfiguration": {
+    "name": "DescribePackagingConfiguration",
+    "description": "Grants permission to view the details of a packaging configuration in AWS Elemental MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "packaging-configurations",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describepackaginggroup": {
+    "name": "DescribePackagingGroup",
+    "description": "Grants permission to view the details of a packaging group in AWS Elemental MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "packaging-groups",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listassets": {
+    "name": "ListAssets",
+    "description": "Grants permission to view a list of assets in AWS Elemental MediaPackage",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpackagingconfigurations": {
+    "name": "ListPackagingConfigurations",
+    "description": "Grants permission to view a list of packaging configurations in AWS Elemental MediaPackage",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpackaginggroups": {
+    "name": "ListPackagingGroups",
+    "description": "Grants permission to view a list of packaging groups in AWS Elemental MediaPackage",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags assigned to a PackagingGroup, PackagingConfiguration, or Asset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "assets",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packaging-configurations",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packaging-groups",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to assign tags to a PackagingGroup, PackagingConfiguration, or Asset",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "assets",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packaging-configurations",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packaging-groups",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to delete tags from a PackagingGroup, PackagingConfiguration, or Asset",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "assets",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packaging-configurations",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packaging-groups",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatepackaginggroup": {
+    "name": "UpdatePackagingGroup",
+    "description": "Grants permission to update a packaging group in AWS Elemental MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "packaging-groups",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

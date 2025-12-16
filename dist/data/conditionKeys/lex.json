@@ -1,0 +1,32 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access based on the tags in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the tags attached to a Lex resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access based on the set of tag keys in the request",
+    "type": "ArrayOfString"
+  },
+  "lex:associatedintents": {
+    "key": "lex:associatedIntents",
+    "description": "Enables you to control access based on the intents included in the request",
+    "type": "ArrayOfString"
+  },
+  "lex:associatedslottypes": {
+    "key": "lex:associatedSlotTypes",
+    "description": "Enables you to control access based on the slot types included in the request",
+    "type": "ArrayOfString"
+  },
+  "lex:channeltype": {
+    "key": "lex:channelType",
+    "description": "Enables you to control access based on the channel type included in the request",
+    "type": "String"
+  }
+}

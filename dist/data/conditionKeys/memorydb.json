@@ -1,0 +1,27 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters actions based on the tags that are passed in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters actions based on the tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters actions based on the tag keys that are passed in the request",
+    "type": "ArrayOfString"
+  },
+  "memorydb:tlsenabled": {
+    "key": "memorydb:TLSEnabled",
+    "description": "Filters access by the TLSEnabled parameter present in the request or defaults to true value if parameter is not present",
+    "type": "Bool"
+  },
+  "memorydb:userauthenticationmode": {
+    "key": "memorydb:UserAuthenticationMode",
+    "description": "Filters access by the UserAuthenticationMode.Type parameter in the request",
+    "type": "String"
+  }
+}

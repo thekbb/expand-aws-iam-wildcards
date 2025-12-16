@@ -1,0 +1,1301 @@
+{
+  "approveskill": {
+    "name": "ApproveSkill",
+    "description": "Grants permission to associate a skill with the organization under the customer's AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatecontactwithaddressbook": {
+    "name": "AssociateContactWithAddressBook",
+    "description": "Grants permission to associate a contact with a given address book",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "addressbook",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatedevicewithnetworkprofile": {
+    "name": "AssociateDeviceWithNetworkProfile",
+    "description": "Grants permission to associate a device with the specified network profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "networkprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatedevicewithroom": {
+    "name": "AssociateDeviceWithRoom",
+    "description": "Grants permission to associate device with given room",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associateskillgroupwithroom": {
+    "name": "AssociateSkillGroupWithRoom",
+    "description": "Grants permission to associate the skill group with given room",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "skillgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associateskillwithskillgroup": {
+    "name": "AssociateSkillWithSkillGroup",
+    "description": "Grants permission to associate a skill with a skill group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "skillgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associateskillwithusers": {
+    "name": "AssociateSkillWithUsers",
+    "description": "Grants permission to make a private skill available for enrolled users to enable on their devices",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "completeregistration": {
+    "name": "CompleteRegistration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to complete the operation of registering an Alexa device",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createaddressbook": {
+    "name": "CreateAddressBook",
+    "description": "Grants permission to create an address book with the specified details",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createbusinessreportschedule": {
+    "name": "CreateBusinessReportSchedule",
+    "description": "Grants permission to create a recurring schedule for usage reports to deliver to the specified S3 location with a specified daily or weekly interval",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconferenceprovider": {
+    "name": "CreateConferenceProvider",
+    "description": "Grants permission to add a new conference provider under the user's AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcontact": {
+    "name": "CreateContact",
+    "description": "Grants permission to create a contact with the specified details",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "creategatewaygroup": {
+    "name": "CreateGatewayGroup",
+    "description": "Grants permission to create a gateway group with the specified details",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createnetworkprofile": {
+    "name": "CreateNetworkProfile",
+    "description": "Grants permission to create a network profile with the specified details",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createprofile": {
+    "name": "CreateProfile",
+    "description": "Grants permission to create a new profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createroom": {
+    "name": "CreateRoom",
+    "description": "Grants permission to create room with the specified details",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createskillgroup": {
+    "name": "CreateSkillGroup",
+    "description": "Grants permission to create a skill group with given name and description",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createuser": {
+    "name": "CreateUser",
+    "description": "Grants permission to create a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteaddressbook": {
+    "name": "DeleteAddressBook",
+    "description": "Grants permission to delete an address book by the address book ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "addressbook",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebusinessreportschedule": {
+    "name": "DeleteBusinessReportSchedule",
+    "description": "Grants permission to delete the recurring report delivery schedule with the specified schedule ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "schedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconferenceprovider": {
+    "name": "DeleteConferenceProvider",
+    "description": "Grants permission to delete a conference provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "conferenceprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecontact": {
+    "name": "DeleteContact",
+    "description": "Grants permission to delete a contact by the contact ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedevice": {
+    "name": "DeleteDevice",
+    "description": "Grants permission to remove a device from Alexa For Business",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedeviceusagedata": {
+    "name": "DeleteDeviceUsageData",
+    "description": "Grants permission to delete the device's entire previous history of voice input data and associated response data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegatewaygroup": {
+    "name": "DeleteGatewayGroup",
+    "description": "Grants permission to delete a gateway group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gatewaygroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletenetworkprofile": {
+    "name": "DeleteNetworkProfile",
+    "description": "Grants permission to delete a network profile by the network profile ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "networkprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprofile": {
+    "name": "DeleteProfile",
+    "description": "Grants permission to delete profile by profile ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteroom": {
+    "name": "DeleteRoom",
+    "description": "Grants permission to delete room",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteroomskillparameter": {
+    "name": "DeleteRoomSkillParameter",
+    "description": "Grants permission to delete a parameter from a skill and room",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteskillauthorization": {
+    "name": "DeleteSkillAuthorization",
+    "description": "Grants permission to unlink a third-party account from a skill",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteskillgroup": {
+    "name": "DeleteSkillGroup",
+    "description": "Grants permission to delete skill group with skill group ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "skillgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteuser": {
+    "name": "DeleteUser",
+    "description": "Grants permission to delete a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatecontactfromaddressbook": {
+    "name": "DisassociateContactFromAddressBook",
+    "description": "Grants permission to disassociate a contact from a given address book",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "addressbook",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatedevicefromroom": {
+    "name": "DisassociateDeviceFromRoom",
+    "description": "Grants permission to disassociate device from its current room",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateskillfromskillgroup": {
+    "name": "DisassociateSkillFromSkillGroup",
+    "description": "Grants permission to disassociate a skill from a skill group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "skillgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateskillfromusers": {
+    "name": "DisassociateSkillFromUsers",
+    "description": "Grants permission to make a private skill unavailable for enrolled users and prevent them from enabling it on their devices",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateskillgroupfromroom": {
+    "name": "DisassociateSkillGroupFromRoom",
+    "description": "Grants permission to disassociate the skill group from given room",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "skillgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "forgetsmarthomeappliances": {
+    "name": "ForgetSmartHomeAppliances",
+    "description": "Grants permission to forget smart home appliances associated to a room",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaddressbook": {
+    "name": "GetAddressBook",
+    "description": "Grants permission to get the address book details by the address book ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "addressbook",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconferencepreference": {
+    "name": "GetConferencePreference",
+    "description": "Grants permission to retrieve the existing conference preferences",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconferenceprovider": {
+    "name": "GetConferenceProvider",
+    "description": "Grants permission to get details about a specific conference provider",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "conferenceprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontact": {
+    "name": "GetContact",
+    "description": "Grants permission to get the contact details by the contact ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdevice": {
+    "name": "GetDevice",
+    "description": "Grants permission to get device details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgateway": {
+    "name": "GetGateway",
+    "description": "Grants permission to retrieve the details of a gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgatewaygroup": {
+    "name": "GetGatewayGroup",
+    "description": "Grants permission to retrieve the details of a gateway group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gatewaygroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinvitationconfiguration": {
+    "name": "GetInvitationConfiguration",
+    "description": "Grants permission to retrieve the configured values for the user enrollment invitation email template",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getnetworkprofile": {
+    "name": "GetNetworkProfile",
+    "description": "Grants permission to get the network profile details by the network profile ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "networkprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprofile": {
+    "name": "GetProfile",
+    "description": "Grants permission to get profile when provided with Profile ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getroom": {
+    "name": "GetRoom",
+    "description": "Grants permission to get room details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getroomskillparameter": {
+    "name": "GetRoomSkillParameter",
+    "description": "Grants permission to get an existing parameter that has been set for a skill and room",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getskillgroup": {
+    "name": "GetSkillGroup",
+    "description": "Grants permission to get skill group details with skill group ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "skillgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbusinessreportschedules": {
+    "name": "ListBusinessReportSchedules",
+    "description": "Grants permission to list the details of the schedules that a user configured",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconferenceproviders": {
+    "name": "ListConferenceProviders",
+    "description": "Grants permission to list conference providers under a specific AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdeviceevents": {
+    "name": "ListDeviceEvents",
+    "description": "Grants permission to list the device event history, including device connection status, for up to 30 days",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgatewaygroups": {
+    "name": "ListGatewayGroups",
+    "description": "Grants permission to list gateway group summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgateways": {
+    "name": "ListGateways",
+    "description": "Grants permission to list gateway summaries",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "gatewaygroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listskills": {
+    "name": "ListSkills",
+    "description": "Grants permission to list skills",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listskillsstorecategories": {
+    "name": "ListSkillsStoreCategories",
+    "description": "Grants permission to list all categories in the Alexa skill store",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listskillsstoreskillsbycategory": {
+    "name": "ListSkillsStoreSkillsByCategory",
+    "description": "Grants permission to list all skills in the Alexa skill store by category",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsmarthomeappliances": {
+    "name": "ListSmartHomeAppliances",
+    "description": "Grants permission to list all of the smart home appliances associated with a room",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtags": {
+    "name": "ListTags",
+    "description": "Grants permission to list all tags on a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "room",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putconferencepreference": {
+    "name": "PutConferencePreference",
+    "description": "Grants permission to set the conference preferences on a specific conference provider at the account level",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putdevicesetupevents": {
+    "name": "PutDeviceSetupEvents",
+    "isPermissionOnly": true,
+    "description": "Grants permission to publish Alexa device setup events",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putinvitationconfiguration": {
+    "name": "PutInvitationConfiguration",
+    "description": "Grants permission to configure the email template for the user enrollment invitation with the specified attributes",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putroomskillparameter": {
+    "name": "PutRoomSkillParameter",
+    "description": "Grants permission to put a room specific parameter for a skill",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putskillauthorization": {
+    "name": "PutSkillAuthorization",
+    "description": "Grants permission to link a user's account to a third-party skill provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registeravsdevice": {
+    "name": "RegisterAVSDevice",
+    "description": "Grants permission to register an Alexa-enabled device built by an Original Equipment Manufacturer (OEM) using Alexa Voice Service (AVS)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "registerdevice": {
+    "name": "RegisterDevice",
+    "isPermissionOnly": true,
+    "description": "Grants permission to register an Alexa device",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectskill": {
+    "name": "RejectSkill",
+    "description": "Grants permission to disassociate a skill from the organization under a user's AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resolveroom": {
+    "name": "ResolveRoom",
+    "description": "Grants permission to resolve room information",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revokeinvitation": {
+    "name": "RevokeInvitation",
+    "description": "Grants permission to revoke an invitation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchaddressbooks": {
+    "name": "SearchAddressBooks",
+    "description": "Grants permission to search address books and list the ones that meet a set of filter and sort criteria",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchcontacts": {
+    "name": "SearchContacts",
+    "description": "Grants permission to search contacts and list the ones that meet a set of filter and sort criteria",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchdevices": {
+    "name": "SearchDevices",
+    "description": "Grants permission to search for devices",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchnetworkprofiles": {
+    "name": "SearchNetworkProfiles",
+    "description": "Grants permission to search network profiles and list the ones that meet a set of filter and sort criteria",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchprofiles": {
+    "name": "SearchProfiles",
+    "description": "Grants permission to search for profiles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchrooms": {
+    "name": "SearchRooms",
+    "description": "Grants permission to search for rooms",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchskillgroups": {
+    "name": "SearchSkillGroups",
+    "description": "Grants permission to search for skill groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchusers": {
+    "name": "SearchUsers",
+    "description": "Grants permission to search for users",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendannouncement": {
+    "name": "SendAnnouncement",
+    "description": "Grants permission to trigger an asynchronous flow to send text, SSML, or audio announcements to rooms that are identified by a search or filter",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendinvitation": {
+    "name": "SendInvitation",
+    "description": "Grants permission to send an invitation to a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdevicesync": {
+    "name": "StartDeviceSync",
+    "description": "Grants permission to restore the device and its account to its known, default settings by clearing all information and settings set by its previous users",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsmarthomeappliancediscovery": {
+    "name": "StartSmartHomeApplianceDiscovery",
+    "description": "Grants permission to initiate the discovery of any smart home appliances associated with the room",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add metadata tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "room",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove metadata tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "room",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateaddressbook": {
+    "name": "UpdateAddressBook",
+    "description": "Grants permission to update address book details by the address book ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "addressbook",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebusinessreportschedule": {
+    "name": "UpdateBusinessReportSchedule",
+    "description": "Grants permission to update the configuration of the report delivery schedule with the specified schedule ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "schedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconferenceprovider": {
+    "name": "UpdateConferenceProvider",
+    "description": "Grants permission to update an existing conference provider's settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "conferenceprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecontact": {
+    "name": "UpdateContact",
+    "description": "Grants permission to update the contact details by the contact ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedevice": {
+    "name": "UpdateDevice",
+    "description": "Grants permission to update device name",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updategateway": {
+    "name": "UpdateGateway",
+    "description": "Grants permission to update the details of a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updategatewaygroup": {
+    "name": "UpdateGatewayGroup",
+    "description": "Grants permission to update the details of a gateway group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gatewaygroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatenetworkprofile": {
+    "name": "UpdateNetworkProfile",
+    "description": "Grants permission to update a network profile by the network profile ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "networkprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprofile": {
+    "name": "UpdateProfile",
+    "description": "Grants permission to update an existing profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateroom": {
+    "name": "UpdateRoom",
+    "description": "Grants permission to update room details",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "room",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateskillgroup": {
+    "name": "UpdateSkillGroup",
+    "description": "Grants permission to update skill group details with skill group ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "skillgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

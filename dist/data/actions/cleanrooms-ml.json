@@ -1,0 +1,1068 @@
+{
+  "canceltrainedmodel": {
+    "name": "CancelTrainedModel",
+    "description": "Grants permission to cancel a trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TrainedModel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "canceltrainedmodelinferencejob": {
+    "name": "CancelTrainedModelInferenceJob",
+    "description": "Grants permission to cancel a trained model inference job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TrainedModelInferenceJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createaudiencemodel": {
+    "name": "CreateAudienceModel",
+    "description": "Grants permission to create an audience model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trainingdataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconfiguredaudiencemodel": {
+    "name": "CreateConfiguredAudienceModel",
+    "description": "Grants permission to create a configured audience model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "audiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconfiguredmodelalgorithm": {
+    "name": "CreateConfiguredModelAlgorithm",
+    "description": "Grants permission to create a configured model algorithm",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconfiguredmodelalgorithmassociation": {
+    "name": "CreateConfiguredModelAlgorithmAssociation",
+    "description": "Grants permission to create a configured model algorithm association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmlinputchannel": {
+    "name": "CreateMLInputChannel",
+    "description": "Grants permission to create an ML input channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithmAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtrainedmodel": {
+    "name": "CreateTrainedModel",
+    "description": "Grants permission to create a trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithmAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtrainingdataset": {
+    "name": "CreateTrainingDataset",
+    "description": "Grants permission to create a training dataset, or seed audience. In Clean Rooms ML, the TrainingDataset is metadata that points to a Glue table, which is read only during AudienceModel creation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteaudiencegenerationjob": {
+    "name": "DeleteAudienceGenerationJob",
+    "description": "Grants permission to delete the specified audience generation job, and removes all data associated with the job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "audiencegenerationjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteaudiencemodel": {
+    "name": "DeleteAudienceModel",
+    "description": "Grants permission to delete the specified audience generation job, and removes all data associated with the job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "audiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteconfiguredaudiencemodel": {
+    "name": "DeleteConfiguredAudienceModel",
+    "description": "Grants permission to delete the specified configured audience model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteconfiguredaudiencemodelpolicy": {
+    "name": "DeleteConfiguredAudienceModelPolicy",
+    "description": "Grants permission to delete the specified configured audience model policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteconfiguredmodelalgorithm": {
+    "name": "DeleteConfiguredModelAlgorithm",
+    "description": "Grants permission to delete a configured model algorithm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteconfiguredmodelalgorithmassociation": {
+    "name": "DeleteConfiguredModelAlgorithmAssociation",
+    "description": "Grants permission to delete a configured model algorithm association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithmAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletemlconfiguration": {
+    "name": "DeleteMLConfiguration",
+    "description": "Grants permission to delete an ML configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletemlinputchanneldata": {
+    "name": "DeleteMLInputChannelData",
+    "description": "Grants permission to delete all data associated with the ML input channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MLInputChannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletetrainedmodeloutput": {
+    "name": "DeleteTrainedModelOutput",
+    "description": "Grants permission to delete all output associated with the trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TrainedModel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletetrainingdataset": {
+    "name": "DeleteTrainingDataset",
+    "description": "Grants permission to delete a training dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trainingdataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "getaudiencegenerationjob": {
+    "name": "GetAudienceGenerationJob",
+    "description": "Grants permission to return information about an audience generation job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "audiencegenerationjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "getaudiencemodel": {
+    "name": "GetAudienceModel",
+    "description": "Grants permission to return information about an audience model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "audiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "getcollaborationconfiguredmodelalgorithmassociation": {
+    "name": "GetCollaborationConfiguredModelAlgorithmAssociation",
+    "description": "Grants permission to return information about a configured model algorithm association created by any member in the collaboration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithmAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cleanrooms-ml:CollaborationId"
+    ],
+    "dependentActions": []
+  },
+  "getcollaborationmlinputchannel": {
+    "name": "GetCollaborationMLInputChannel",
+    "description": "Grants permission to return information about an ML input channel created by any member in the collaboration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MLInputChannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cleanrooms-ml:CollaborationId"
+    ],
+    "dependentActions": []
+  },
+  "getcollaborationtrainedmodel": {
+    "name": "GetCollaborationTrainedModel",
+    "description": "Grants permission to return information about a trained model created by any member in the collaboration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TrainedModel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cleanrooms-ml:CollaborationId"
+    ],
+    "dependentActions": []
+  },
+  "getconfiguredaudiencemodel": {
+    "name": "GetConfiguredAudienceModel",
+    "description": "Grants permission to return information about a configured audience model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "getconfiguredaudiencemodelpolicy": {
+    "name": "GetConfiguredAudienceModelPolicy",
+    "description": "Grants permission to return information about a configured audience model policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "getconfiguredmodelalgorithm": {
+    "name": "GetConfiguredModelAlgorithm",
+    "description": "Grants permission to return information about a configured model algorithm",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "getconfiguredmodelalgorithmassociation": {
+    "name": "GetConfiguredModelAlgorithmAssociation",
+    "description": "Grants permission to return information about a configured model algorithm association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithmAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "getmlconfiguration": {
+    "name": "GetMLConfiguration",
+    "description": "Grants permission to return information about an ML configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "getmlinputchannel": {
+    "name": "GetMLInputChannel",
+    "description": "Grants permission to return information about an ML input channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MLInputChannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "gettrainedmodel": {
+    "name": "GetTrainedModel",
+    "description": "Grants permission to return information about a trained model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TrainedModel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "gettrainedmodelinferencejob": {
+    "name": "GetTrainedModelInferenceJob",
+    "description": "Grants permission to return information about a trained model inference job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TrainedModelInferenceJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "gettrainingdataset": {
+    "name": "GetTrainingDataset",
+    "description": "Grants permission to return information about a training dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trainingdataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listaudienceexportjobs": {
+    "name": "ListAudienceExportJobs",
+    "description": "Grants permission to return a list of the audience export jobs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "audiencegenerationjob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listaudiencegenerationjobs": {
+    "name": "ListAudienceGenerationJobs",
+    "description": "Grants permission to return a list of audience generation jobs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listaudiencemodels": {
+    "name": "ListAudienceModels",
+    "description": "Grants permission to return a list of audience models",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcollaborationconfiguredmodelalgorithmassociations": {
+    "name": "ListCollaborationConfiguredModelAlgorithmAssociations",
+    "description": "Grants permission to return a list of configured model algorithms created by any member in the collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cleanrooms-ml:CollaborationId"
+    ],
+    "dependentActions": []
+  },
+  "listcollaborationmlinputchannels": {
+    "name": "ListCollaborationMLInputChannels",
+    "description": "Grants permission to return a list of ML input channels created by any member in the collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cleanrooms-ml:CollaborationId"
+    ],
+    "dependentActions": []
+  },
+  "listcollaborationtrainedmodelexportjobs": {
+    "name": "ListCollaborationTrainedModelExportJobs",
+    "description": "Grants permission to return a list of trained model export jobs started by any member in the collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "TrainedModel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cleanrooms-ml:CollaborationId"
+    ],
+    "dependentActions": []
+  },
+  "listcollaborationtrainedmodelinferencejobs": {
+    "name": "ListCollaborationTrainedModelInferenceJobs",
+    "description": "Grants permission to return a list of trained model inference jobs started by any member in the collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cleanrooms-ml:CollaborationId"
+    ],
+    "dependentActions": []
+  },
+  "listcollaborationtrainedmodels": {
+    "name": "ListCollaborationTrainedModels",
+    "description": "Grants permission to return a list of trained models created by any member in the collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cleanrooms-ml:CollaborationId"
+    ],
+    "dependentActions": []
+  },
+  "listconfiguredaudiencemodels": {
+    "name": "ListConfiguredAudienceModels",
+    "description": "Grants permission to return a list of configured audience models",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconfiguredmodelalgorithmassociations": {
+    "name": "ListConfiguredModelAlgorithmAssociations",
+    "description": "Grants permission to return a list of configured model algorithm associations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listconfiguredmodelalgorithms": {
+    "name": "ListConfiguredModelAlgorithms",
+    "description": "Grants permission to return a list of configured model algorithms",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listmlinputchannels": {
+    "name": "ListMLInputChannels",
+    "description": "Grants permission to return a list of ML input channels",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to return a list of tags for a provided resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "audiencegenerationjob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "audiencemodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredaudiencemodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trainingdataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtrainedmodelinferencejobs": {
+    "name": "ListTrainedModelInferenceJobs",
+    "description": "Grants permission to return a list of trained model inference jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listtrainedmodelversions": {
+    "name": "ListTrainedModelVersions",
+    "description": "Grants permission to return a list of trained model versions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listtrainedmodels": {
+    "name": "ListTrainedModels",
+    "description": "Grants permission to return a list of trained models",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listtrainingdatasets": {
+    "name": "ListTrainingDatasets",
+    "description": "Grants permission to return a list of training datasets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putconfiguredaudiencemodelpolicy": {
+    "name": "PutConfiguredAudienceModelPolicy",
+    "description": "Grants permission to create or update the resource policy for a configured audience model",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putmlconfiguration": {
+    "name": "PutMLConfiguration",
+    "description": "Grants permission to put an ML configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startaudienceexportjob": {
+    "name": "StartAudienceExportJob",
+    "description": "Grants permission to export an audience of a specified size after you have generated an audience",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "audiencegenerationjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startaudiencegenerationjob": {
+    "name": "StartAudienceGenerationJob",
+    "description": "Grants permission to start the audience generation job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cleanrooms-ml:CollaborationId"
+    ],
+    "dependentActions": []
+  },
+  "starttrainedmodelexportjob": {
+    "name": "StartTrainedModelExportJob",
+    "description": "Grants permission to start a trained model export job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TrainedModel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "starttrainedmodelinferencejob": {
+    "name": "StartTrainedModelInferenceJob",
+    "description": "Grants permission to start a trained model inference job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithmAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MLInputChannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TrainedModel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a specific resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithm",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ConfiguredModelAlgorithmAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MLInputChannel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TrainedModel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TrainedModelInferenceJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "audiencegenerationjob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "audiencemodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredaudiencemodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trainingdataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UnTagResource",
+    "description": "Grants permission to untag a specific resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "ConfiguredModelAlgorithm",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ConfiguredModelAlgorithmAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MLInputChannel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TrainedModel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TrainedModelInferenceJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "audiencegenerationjob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "audiencemodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredaudiencemodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trainingdataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateconfiguredaudiencemodel": {
+    "name": "UpdateConfiguredAudienceModel",
+    "description": "Grants permission to update a configured audience model.",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "audiencemodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

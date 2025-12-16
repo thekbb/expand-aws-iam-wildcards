@@ -1,0 +1,1690 @@
+{
+  "acceptadministratorinvitation": {
+    "name": "AcceptAdministratorInvitation",
+    "description": "Grants permission to accept Security Hub invitations to become a member account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "acceptinvitation": {
+    "name": "AcceptInvitation",
+    "description": "Grants permission to accept Security Hub invitations to become a member account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdeleteautomationrules": {
+    "name": "BatchDeleteAutomationRules",
+    "description": "Grants permission to delete one or more automation rules in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdisablestandards": {
+    "name": "BatchDisableStandards",
+    "description": "Grants permission to disable standards in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchenablestandards": {
+    "name": "BatchEnableStandards",
+    "description": "Grants permission to enable standards in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetautomationrules": {
+    "name": "BatchGetAutomationRules",
+    "description": "Grants permission to retrieve a list of details for automation rules from Security Hub based on rule Amazon Resource Names (ARNs)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automation-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetconfigurationpolicyassociations": {
+    "name": "BatchGetConfigurationPolicyAssociations",
+    "description": "Grants permission to retrieve information about configuration policies associated with a specific list of member accounts and organizational units of the calling account's organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetcontrolevaluations": {
+    "name": "BatchGetControlEvaluations",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get the enablement and compliance status of controls, the findings count for controls, and the overall security score for controls on the Security Hub console",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetsecuritycontrols": {
+    "name": "BatchGetSecurityControls",
+    "description": "Grants permission to get details about specific security controls identified by ID or ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "securityhub:DescribeStandardsControls"
+    ]
+  },
+  "batchgetstandardscontrolassociations": {
+    "name": "BatchGetStandardsControlAssociations",
+    "description": "Grants permission to get the enablement status of a batch of security controls in standards",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "securityhub:DescribeStandardsControls"
+    ]
+  },
+  "batchimportfindings": {
+    "name": "BatchImportFindings",
+    "description": "Grants permission to import findings into Security Hub from an integrated product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "product",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "securityhub:TargetAccount"
+    ],
+    "dependentActions": []
+  },
+  "batchupdateautomationrules": {
+    "name": "BatchUpdateAutomationRules",
+    "description": "Grants permission to update one or more automation rules from Security Hub based on rule Amazon Resource Names (ARNs) and input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchupdatefindings": {
+    "name": "BatchUpdateFindings",
+    "description": "Grants permission to update customer-controlled fields for a selected set of Security Hub findings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}",
+      "securityhub:OCSFSyntaxPath/${OCSFSyntaxPath}"
+    ],
+    "dependentActions": []
+  },
+  "batchupdatestandardscontrolassociations": {
+    "name": "BatchUpdateStandardsControlAssociations",
+    "description": "Grants permission to update the enablement status of a batch of security controls in standards",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "securityhub:UpdateStandardsControl"
+    ]
+  },
+  "connectorregistrationsv2": {
+    "name": "ConnectorRegistrationsV2",
+    "description": "Grants permission to complete the OAuth 2.0 authorization code flow based on input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createactiontarget": {
+    "name": "CreateActionTarget",
+    "description": "Grants permission to create custom actions in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createaggregatorv2": {
+    "name": "CreateAggregatorV2",
+    "description": "Grants permission to create an aggregatorV2, which configures data aggregation across Regions",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createautomationrule": {
+    "name": "CreateAutomationRule",
+    "description": "Grants permission to create an automation rule based on input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createautomationrulev2": {
+    "name": "CreateAutomationRuleV2",
+    "description": "Grants permission to create an automation rule V2 based on input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconfigurationpolicy": {
+    "name": "CreateConfigurationPolicy",
+    "description": "Grants permission to create a configuration policy to manage organization member settings in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconnectorv2": {
+    "name": "CreateConnectorV2",
+    "description": "Grants permission to create a connector V2 based on input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfindingaggregator": {
+    "name": "CreateFindingAggregator",
+    "description": "Grants permission to create a finding aggregator, which contains the cross-Region finding aggregation configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createinsight": {
+    "name": "CreateInsight",
+    "description": "Grants permission to create insights in Security Hub. Insights are collections of related findings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmembers": {
+    "name": "CreateMembers",
+    "description": "Grants permission to create member accounts in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createticketv2": {
+    "name": "CreateTicketV2",
+    "description": "Grants permission to create ticket for a selected OCSF finding",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectorv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "declineinvitations": {
+    "name": "DeclineInvitations",
+    "description": "Grants permission to decline Security Hub invitations to become a member account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteactiontarget": {
+    "name": "DeleteActionTarget",
+    "description": "Grants permission to delete custom actions in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaggregatorv2": {
+    "name": "DeleteAggregatorV2",
+    "description": "Grants permission to delete an aggregatorV2, which configures data aggregation across Regions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "aggregatorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautomationrulev2": {
+    "name": "DeleteAutomationRuleV2",
+    "description": "Grants permission to delete an automation rule V2 in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-rulev2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconfigurationpolicy": {
+    "name": "DeleteConfigurationPolicy",
+    "description": "Grants permission to delete an existing configuration policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnectorv2": {
+    "name": "DeleteConnectorV2",
+    "description": "Grants permission to delete a connector V2 in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefindingaggregator": {
+    "name": "DeleteFindingAggregator",
+    "description": "Grants permission to delete a finding aggregator, which disables finding aggregation across Regions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "finding-aggregator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinsight": {
+    "name": "DeleteInsight",
+    "description": "Grants permission to delete insights from Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinvitations": {
+    "name": "DeleteInvitations",
+    "description": "Grants permission to delete Security Hub invitations to become a member account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemembers": {
+    "name": "DeleteMembers",
+    "description": "Grants permission to delete Security Hub member accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeactiontargets": {
+    "name": "DescribeActionTargets",
+    "description": "Grants permission to retrieve a list of custom actions using the API",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describehub": {
+    "name": "DescribeHub",
+    "description": "Grants permission to retrieve information about the hub resource in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeorganizationconfiguration": {
+    "name": "DescribeOrganizationConfiguration",
+    "description": "Grants permission to describe the organization configuration for Security Hub",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeproducts": {
+    "name": "DescribeProducts",
+    "description": "Grants permission to retrieve information about the available Security Hub product integrations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeproductsv2": {
+    "name": "DescribeProductsV2",
+    "description": "Grants permission to retrieve information about the available Security Hub V2 product integrations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesecurityhubv2": {
+    "name": "DescribeSecurityHubV2",
+    "description": "Grants permission to retrieve information about the hub V2 resource in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestandards": {
+    "name": "DescribeStandards",
+    "description": "Grants permission to retrieve information about Security Hub standards",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestandardscontrols": {
+    "name": "DescribeStandardsControls",
+    "description": "Grants permission to retrieve information about Security Hub standards controls",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableimportfindingsforproduct": {
+    "name": "DisableImportFindingsForProduct",
+    "description": "Grants permission to disable the findings importing for a Security Hub integrated product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableorganizationadminaccount": {
+    "name": "DisableOrganizationAdminAccount",
+    "description": "Grants permission to remove the Security Hub administrator account for your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DeregisterDelegatedAdministrator",
+      "organizations:DescribeOrganization",
+      "organizations:ListDelegatedAdministrators"
+    ]
+  },
+  "disablesecurityhub": {
+    "name": "DisableSecurityHub",
+    "description": "Grants permission to disable Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disablesecurityhubv2": {
+    "name": "DisableSecurityHubV2",
+    "description": "Grants permission to disable Security Hub V2",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatefromadministratoraccount": {
+    "name": "DisassociateFromAdministratorAccount",
+    "description": "Grants permission to a Security Hub member account to disassociate from the associated administrator account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatefrommasteraccount": {
+    "name": "DisassociateFromMasterAccount",
+    "description": "Grants permission to a Security Hub member account to disassociate from the associated master account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatemembers": {
+    "name": "DisassociateMembers",
+    "description": "Grants permission to disassociate Security Hub member accounts from the associated administrator account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableimportfindingsforproduct": {
+    "name": "EnableImportFindingsForProduct",
+    "description": "Grants permission to enable the findings importing for a Security Hub integrated product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableorganizationadminaccount": {
+    "name": "EnableOrganizationAdminAccount",
+    "description": "Grants permission to designate a Security Hub administrator account for your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DescribeOrganization",
+      "organizations:EnableAWSServiceAccess",
+      "organizations:ListAWSServiceAccessForOrganization",
+      "organizations:ListDelegatedAdministrators",
+      "organizations:RegisterDelegatedAdministrator"
+    ]
+  },
+  "enablesecurityhub": {
+    "name": "EnableSecurityHub",
+    "description": "Grants permission to enable Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "enablesecurityhubv2": {
+    "name": "EnableSecurityHubV2",
+    "description": "Grants permission to enable Security Hub V2",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "getadhocinsightresults": {
+    "name": "GetAdhocInsightResults",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve aggregated statistical data about the findings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getadministratoraccount": {
+    "name": "GetAdministratorAccount",
+    "description": "Grants permission to retrieve details about the Security Hub administrator account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaggregatorv2": {
+    "name": "GetAggregatorV2",
+    "description": "Grants permission to retrieve details for an aggregatorV2, which configures data aggregation across Regions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "aggregatorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomationrulev2": {
+    "name": "GetAutomationRuleV2",
+    "description": "Grants permission to retrieve details for an automation rule V2 from Security Hub based on rule Amazon Resource Name (ARN)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automation-rulev2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconfigurationpolicy": {
+    "name": "GetConfigurationPolicy",
+    "description": "Grants permission to get a complete overview of one configuration policy created by the calling account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconfigurationpolicyassociation": {
+    "name": "GetConfigurationPolicyAssociation",
+    "description": "Grants permission to retrieve information about a configuration policy associated with a member account or organizational unit of the calling account's organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnectorv2": {
+    "name": "GetConnectorV2",
+    "description": "Grants permission to retrieve details for a connector V2 from Security Hub based on connector id",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connectorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontrolfindingsummary": {
+    "name": "GetControlFindingSummary",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve a security score and counts of finding and control statuses for a security standard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenabledstandards": {
+    "name": "GetEnabledStandards",
+    "description": "Grants permission to retrieve a list of the standards that are enabled in Security Hub",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfindingaggregator": {
+    "name": "GetFindingAggregator",
+    "description": "Grants permission to retrieve details for a finding aggregator, which configures finding aggregation across Regions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "finding-aggregator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfindinghistory": {
+    "name": "GetFindingHistory",
+    "description": "Grants permission to retrieve a list of finding history from Security Hub",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfindings": {
+    "name": "GetFindings",
+    "description": "Grants permission to retrieve a list of findings from Security Hub",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfindingstrendsv2": {
+    "name": "GetFindingsTrendsV2",
+    "description": "Grants permission to retrieve findings trends",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfreetrialenddate": {
+    "name": "GetFreeTrialEndDate",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve the end date for an account's free trial of Security Hub",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfreetrialusage": {
+    "name": "GetFreeTrialUsage",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve information about Security Hub usage during the free trial period",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinsightfindingtrend": {
+    "name": "GetInsightFindingTrend",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve an insight finding trend from Security Hub in order to generate a graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinsightresults": {
+    "name": "GetInsightResults",
+    "description": "Grants permission to retrieve insight results from Security Hub",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinsights": {
+    "name": "GetInsights",
+    "description": "Grants permission to retrieve Security Hub insights",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinvitationscount": {
+    "name": "GetInvitationsCount",
+    "description": "Grants permission to retrieve the count of Security Hub membership invitations sent to the account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmasteraccount": {
+    "name": "GetMasterAccount",
+    "description": "Grants permission to retrieve details about the Security Hub master account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmembers": {
+    "name": "GetMembers",
+    "description": "Grants permission to retrieve the details of Security Hub member accounts",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcesstatisticsv2": {
+    "name": "GetResourcesStatisticsV2",
+    "description": "Grants permission to retrieve aggregate statistics about resources",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcestrendsv2": {
+    "name": "GetResourcesTrendsV2",
+    "description": "Grants permission to retrieve resources trends",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcesv2": {
+    "name": "GetResourcesV2",
+    "description": "Grants permission to retrieve a list of resources",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsecuritycontroldefinition": {
+    "name": "GetSecurityControlDefinition",
+    "description": "Grants permission to get the definition details of a specific security control identified by ID",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "securityhub:DescribeStandardsControls"
+    ]
+  },
+  "getusage": {
+    "name": "GetUsage",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve information about Security Hub usage by accounts",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invitemembers": {
+    "name": "InviteMembers",
+    "description": "Grants permission to invite other AWS accounts to become Security Hub member accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaggregatorsv2": {
+    "name": "ListAggregatorsV2",
+    "description": "Grants permission to retrieve a list of aggregatorsV2, which configures data aggregation across Regions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationrules": {
+    "name": "ListAutomationRules",
+    "description": "Grants permission to retrieve a list of automation rules and their metadata for the calling account from Security Hub",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationrulesv2": {
+    "name": "ListAutomationRulesV2",
+    "description": "Grants permission to retrieve a list of automation rules V2 and their metadata for the calling account from Security Hub",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconfigurationpolicies": {
+    "name": "ListConfigurationPolicies",
+    "description": "Grants permission to list the summaries of all configuration policies created by the calling account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconfigurationpolicyassociations": {
+    "name": "ListConfigurationPolicyAssociations",
+    "description": "Grants permission to retrieve information about all configuration policies associationed with all member accounts and organizational units of the calling account's organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectorsv2": {
+    "name": "ListConnectorsV2",
+    "description": "Grants permission to retrieve a list of connectors V2 and their metadata for the calling account from Security Hub",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcontrolevaluationsummaries": {
+    "name": "ListControlEvaluationSummaries",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve a list of controls for a standard, including the control IDs, statuses and finding counts",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenabledproductsforimport": {
+    "name": "ListEnabledProductsForImport",
+    "description": "Grants permission to retrieve the Security Hub integrated products that are currently enabled",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfindingaggregators": {
+    "name": "ListFindingAggregators",
+    "description": "Grants permission to retrieve a list of finding aggregators, which contain the cross-Region finding aggregation configuration",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinvitations": {
+    "name": "ListInvitations",
+    "description": "Grants permission to retrieve the Security Hub invitations sent to the account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmembers": {
+    "name": "ListMembers",
+    "description": "Grants permission to retrieve details about Security Hub member accounts associated with the administrator account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listorganizationadminaccounts": {
+    "name": "ListOrganizationAdminAccounts",
+    "description": "Grants permission to list the Security Hub administrator accounts for your organization",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DescribeOrganization",
+      "organizations:ListDelegatedAdministrators"
+    ]
+  },
+  "listsecuritycontroldefinitions": {
+    "name": "ListSecurityControlDefinitions",
+    "description": "Grants permission to retrieve a list of security control definitions, which contain details for security controls in the current region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststandardscontrolassociations": {
+    "name": "ListStandardsControlAssociations",
+    "description": "Grants permission to list the enablement status of a security control in standards",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "securityhub:DescribeStandardsControls"
+    ]
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list of tags associated with a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automation-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendfindingevents": {
+    "name": "SendFindingEvents",
+    "isPermissionOnly": true,
+    "description": "Grants permission to use a custom action to send Security Hub findings to Amazon EventBridge",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendinsightevents": {
+    "name": "SendInsightEvents",
+    "isPermissionOnly": true,
+    "description": "Grants permission to use a custom action to send Security Hub insights to Amazon EventBridge",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startconfigurationpolicyassociation": {
+    "name": "StartConfigurationPolicyAssociation",
+    "description": "Grants permission to associate a configuration policy with a member account or organizational unit in the calling account's organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startconfigurationpolicydisassociation": {
+    "name": "StartConfigurationPolicyDisassociation",
+    "description": "Grants permission to remove a configuration policy association from a member account or organizational unit in the calling account's organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a Security Hub resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "aggregatorv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automation-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automation-rulev2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connectorv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a Security Hub resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "aggregatorv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automation-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automation-rulev2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connectorv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateactiontarget": {
+    "name": "UpdateActionTarget",
+    "description": "Grants permission to update custom actions in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateaggregatorv2": {
+    "name": "UpdateAggregatorV2",
+    "description": "Grants permission to update an aggregatorV2, which configures data aggregation across Regions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "aggregatorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateautomationrulev2": {
+    "name": "UpdateAutomationRuleV2",
+    "description": "Grants permission to update an automation rule V2 in Security Hub based on rule Amazon Resource Name (ARN) and input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-rulev2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconfigurationpolicy": {
+    "name": "UpdateConfigurationPolicy",
+    "description": "Grants permission to update an existing configuration policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnectorv2": {
+    "name": "UpdateConnectorV2",
+    "description": "Grants permission to update a connector V2 in Security Hub based on connector id and input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefindingaggregator": {
+    "name": "UpdateFindingAggregator",
+    "description": "Grants permission to update a finding aggregator, which contains the cross-Region finding aggregation configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "finding-aggregator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefindings": {
+    "name": "UpdateFindings",
+    "description": "Grants permission to update Security Hub findings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinsight": {
+    "name": "UpdateInsight",
+    "description": "Grants permission to update insights in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateorganizationconfiguration": {
+    "name": "UpdateOrganizationConfiguration",
+    "description": "Grants permission to update the organization configuration for Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesecuritycontrol": {
+    "name": "UpdateSecurityControl",
+    "description": "Grants permission to update properties of a specific security control identified by ID or ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "securityhub:UpdateStandardsControl"
+    ]
+  },
+  "updatesecurityhubconfiguration": {
+    "name": "UpdateSecurityHubConfiguration",
+    "description": "Grants permission to update Security Hub configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestandardscontrol": {
+    "name": "UpdateStandardsControl",
+    "description": "Grants permission to update Security Hub standards controls",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

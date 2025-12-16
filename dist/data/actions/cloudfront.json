@@ -1,0 +1,2272 @@
+{
+  "allowvendedlogdeliveryforresource": {
+    "name": "AllowVendedLogDeliveryForResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to configure vended log delivery for a distribution",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatealias": {
+    "name": "AssociateAlias",
+    "description": "Grants permission to associate an alias to a CloudFront distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatedistributiontenantwebacl": {
+    "name": "AssociateDistributionTenantWebACL",
+    "description": "Grants permission to associate a distribution tenant with an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatedistributionwebacl": {
+    "name": "AssociateDistributionWebACL",
+    "description": "Grants permission to associate a distribution with an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "copydistribution": {
+    "name": "CopyDistribution",
+    "description": "Grants permission to copy an existing distribution and create a new web distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudfront:CopyDistribution",
+      "cloudfront:CreateDistribution",
+      "cloudfront:GetDistribution"
+    ]
+  },
+  "createanycastiplist": {
+    "name": "CreateAnycastIpList",
+    "description": "Grants permission to create an Anycast static IP list",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcachepolicy": {
+    "name": "CreateCachePolicy",
+    "description": "Grants permission to add a new cache policy to CloudFront",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcloudfrontoriginaccessidentity": {
+    "name": "CreateCloudFrontOriginAccessIdentity",
+    "description": "Grants permission to create a new CloudFront origin access identity",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createconnectionfunction": {
+    "name": "CreateConnectionFunction",
+    "description": "Grants permission to create a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconnectiongroup": {
+    "name": "CreateConnectionGroup",
+    "description": "Grants permission to create a connection group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcontinuousdeploymentpolicy": {
+    "name": "CreateContinuousDeploymentPolicy",
+    "description": "Grants permission to add a new continuous-deployment policy to CloudFront",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdistribution": {
+    "name": "CreateDistribution",
+    "description": "Grants permission to create a new web distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudfront:CreateConnectionGroup"
+    ]
+  },
+  "createdistributiontenant": {
+    "name": "CreateDistributionTenant",
+    "description": "Grants permission to create a distribution tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfieldlevelencryptionconfig": {
+    "name": "CreateFieldLevelEncryptionConfig",
+    "description": "Grants permission to create a new field-level encryption configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfieldlevelencryptionprofile": {
+    "name": "CreateFieldLevelEncryptionProfile",
+    "description": "Grants permission to create a field-level encryption profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfunction": {
+    "name": "CreateFunction",
+    "description": "Grants permission to create a CloudFront function",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createinvalidation": {
+    "name": "CreateInvalidation",
+    "description": "Grants permission to create a new invalidation batch request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createinvalidationfordistributiontenant": {
+    "name": "CreateInvalidationForDistributionTenant",
+    "description": "Grants permission to create an invalidation for a distribution tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createkeygroup": {
+    "name": "CreateKeyGroup",
+    "description": "Grants permission to add a new key group to CloudFront",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createkeyvaluestore": {
+    "name": "CreateKeyValueStore",
+    "description": "Grants permission to create a CloudFront KeyValueStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key-value-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmonitoringsubscription": {
+    "name": "CreateMonitoringSubscription",
+    "description": "Grants permission to enable additional CloudWatch metrics for the specified CloudFront distribution. The additional metrics incur an additional cost",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createoriginaccesscontrol": {
+    "name": "CreateOriginAccessControl",
+    "description": "Grants permission to create a new origin access control",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createoriginrequestpolicy": {
+    "name": "CreateOriginRequestPolicy",
+    "description": "Grants permission to add a new origin request policy to CloudFront",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createpublickey": {
+    "name": "CreatePublicKey",
+    "description": "Grants permission to add a new public key to CloudFront",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createrealtimelogconfig": {
+    "name": "CreateRealtimeLogConfig",
+    "description": "Grants permission to create a real-time log configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createresponseheaderspolicy": {
+    "name": "CreateResponseHeadersPolicy",
+    "description": "Grants permission to add a new response headers policy to CloudFront",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsavingsplan": {
+    "name": "CreateSavingsPlan",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a new savings plan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createstreamingdistribution": {
+    "name": "CreateStreamingDistribution",
+    "description": "Grants permission to create a new RTMP distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createstreamingdistributionwithtags": {
+    "name": "CreateStreamingDistributionWithTags",
+    "description": "Grants permission to create a new RTMP distribution with tags",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtruststore": {
+    "name": "CreateTrustStore",
+    "description": "Grants permission to create a trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createvpcorigin": {
+    "name": "CreateVpcOrigin",
+    "description": "Grants permission to create a VPC origin",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteanycastiplist": {
+    "name": "DeleteAnycastIpList",
+    "description": "Grants permission to delete an Anycast static IP list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anycast-ip-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecachepolicy": {
+    "name": "DeleteCachePolicy",
+    "description": "Grants permission to delete a cache policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cache-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecloudfrontoriginaccessidentity": {
+    "name": "DeleteCloudFrontOriginAccessIdentity",
+    "description": "Grants permission to delete a CloudFront origin access identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "origin-access-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnectionfunction": {
+    "name": "DeleteConnectionFunction",
+    "description": "Grants permission to delete a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnectiongroup": {
+    "name": "DeleteConnectionGroup",
+    "description": "Grants permission to delete a connection group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecontinuousdeploymentpolicy": {
+    "name": "DeleteContinuousDeploymentPolicy",
+    "description": "Grants permission to delete a continuous-deployment policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "continuous-deployment-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedistribution": {
+    "name": "DeleteDistribution",
+    "description": "Grants permission to delete a web distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedistributiontenant": {
+    "name": "DeleteDistributionTenant",
+    "description": "Grants permission to delete a distribution tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefieldlevelencryptionconfig": {
+    "name": "DeleteFieldLevelEncryptionConfig",
+    "description": "Grants permission to delete a field-level encryption configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "field-level-encryption-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefieldlevelencryptionprofile": {
+    "name": "DeleteFieldLevelEncryptionProfile",
+    "description": "Grants permission to delete a field-level encryption profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "field-level-encryption-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefunction": {
+    "name": "DeleteFunction",
+    "description": "Grants permission to delete a CloudFront function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletekeygroup": {
+    "name": "DeleteKeyGroup",
+    "description": "Grants permission to delete a key group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletekeyvaluestore": {
+    "name": "DeleteKeyValueStore",
+    "description": "Grants permission to delete a CloudFront KeyValueStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key-value-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemonitoringsubscription": {
+    "name": "DeleteMonitoringSubscription",
+    "description": "Grants permission to disable additional CloudWatch metrics for the specified CloudFront distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoriginaccesscontrol": {
+    "name": "DeleteOriginAccessControl",
+    "description": "Grants permission to delete an origin access control",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "origin-access-control",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoriginrequestpolicy": {
+    "name": "DeleteOriginRequestPolicy",
+    "description": "Grants permission to delete an origin request policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "origin-request-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepublickey": {
+    "name": "DeletePublicKey",
+    "description": "Grants permission to delete a public key from CloudFront",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterealtimelogconfig": {
+    "name": "DeleteRealtimeLogConfig",
+    "description": "Grants permission to delete a real-time log configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "realtime-log-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource's policy document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpcorigin",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresponseheaderspolicy": {
+    "name": "DeleteResponseHeadersPolicy",
+    "description": "Grants permission to delete a response headers policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "response-headers-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestreamingdistribution": {
+    "name": "DeleteStreamingDistribution",
+    "description": "Grants permission to delete an RTMP distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streaming-distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetruststore": {
+    "name": "DeleteTrustStore",
+    "description": "Grants permission to delete a trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevpcorigin": {
+    "name": "DeleteVpcOrigin",
+    "description": "Grants permission to delete a VPC origin",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpcorigin",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeconnectionfunction": {
+    "name": "DescribeConnectionFunction",
+    "description": "Grants permission to get a connection function summary",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefunction": {
+    "name": "DescribeFunction",
+    "description": "Grants permission to get a CloudFront function summary",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describekeyvaluestore": {
+    "name": "DescribeKeyValueStore",
+    "description": "Grants permission to get a CloudFront KeyValueStore summary",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "key-value-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatedistributiontenantwebacl": {
+    "name": "DisassociateDistributionTenantWebACL",
+    "description": "Grants permission to disassociate a distribution tenant from an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatedistributionwebacl": {
+    "name": "DisassociateDistributionWebACL",
+    "description": "Grants permission to disassociate a distribution from an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getanycastiplist": {
+    "name": "GetAnycastIpList",
+    "description": "Grants permission to get an Anycast static IP list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "anycast-ip-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcachepolicy": {
+    "name": "GetCachePolicy",
+    "description": "Grants permission to get the cache policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cache-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcachepolicyconfig": {
+    "name": "GetCachePolicyConfig",
+    "description": "Grants permission to get the cache policy configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cache-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcloudfrontoriginaccessidentity": {
+    "name": "GetCloudFrontOriginAccessIdentity",
+    "description": "Grants permission to get the information about a CloudFront origin access identity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "origin-access-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcloudfrontoriginaccessidentityconfig": {
+    "name": "GetCloudFrontOriginAccessIdentityConfig",
+    "description": "Grants permission to get the configuration information about a Cloudfront origin access identity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "origin-access-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnectionfunction": {
+    "name": "GetConnectionFunction",
+    "description": "Grants permission to get a connection function's code",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnectiongroup": {
+    "name": "GetConnectionGroup",
+    "description": "Grants permission to get information about a connection group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connection-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnectiongroupbyroutingendpoint": {
+    "name": "GetConnectionGroupByRoutingEndpoint",
+    "description": "Grants permission to get information about a connection group by the specified routing endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connection-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontinuousdeploymentpolicy": {
+    "name": "GetContinuousDeploymentPolicy",
+    "description": "Grants permission to get the continuous-deployment policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "continuous-deployment-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontinuousdeploymentpolicyconfig": {
+    "name": "GetContinuousDeploymentPolicyConfig",
+    "description": "Grants permission to get the continuous-deployment policy configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "continuous-deployment-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistribution": {
+    "name": "GetDistribution",
+    "description": "Grants permission to get the information about a web distribution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistributionconfig": {
+    "name": "GetDistributionConfig",
+    "description": "Grants permission to get the configuration information about a distribution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistributiontenant": {
+    "name": "GetDistributionTenant",
+    "description": "Grants permission to get information about a distribution tenant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistributiontenantbydomain": {
+    "name": "GetDistributionTenantByDomain",
+    "description": "Grants permission to get information about a distribution tenant by the associated domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfieldlevelencryption": {
+    "name": "GetFieldLevelEncryption",
+    "description": "Grants permission to get the field-level encryption configuration information",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "field-level-encryption-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfieldlevelencryptionconfig": {
+    "name": "GetFieldLevelEncryptionConfig",
+    "description": "Grants permission to get the field-level encryption configuration information",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "field-level-encryption-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfieldlevelencryptionprofile": {
+    "name": "GetFieldLevelEncryptionProfile",
+    "description": "Grants permission to get the field-level encryption configuration information",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "field-level-encryption-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfieldlevelencryptionprofileconfig": {
+    "name": "GetFieldLevelEncryptionProfileConfig",
+    "description": "Grants permission to get the field-level encryption profile configuration information",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "field-level-encryption-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfunction": {
+    "name": "GetFunction",
+    "description": "Grants permission to get a CloudFront function's code",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinvalidation": {
+    "name": "GetInvalidation",
+    "description": "Grants permission to get the information about an invalidation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinvalidationfordistributiontenant": {
+    "name": "GetInvalidationForDistributionTenant",
+    "description": "Grants permission to get information about an invalidation for a distribution tenant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getkeygroup": {
+    "name": "GetKeyGroup",
+    "description": "Grants permission to get a key group",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getkeygroupconfig": {
+    "name": "GetKeyGroupConfig",
+    "description": "Grants permission to get a key group configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedcertificatedetails": {
+    "name": "GetManagedCertificateDetails",
+    "description": "Grants permission to get details about a CloudFront managed certificate",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmonitoringsubscription": {
+    "name": "GetMonitoringSubscription",
+    "description": "Grants permission to get information about whether additional CloudWatch metrics are enabled for the specified CloudFront distribution",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoriginaccesscontrol": {
+    "name": "GetOriginAccessControl",
+    "description": "Grants permission to get the origin access control",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "origin-access-control",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoriginaccesscontrolconfig": {
+    "name": "GetOriginAccessControlConfig",
+    "description": "Grants permission to get the origin access control configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "origin-access-control",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoriginrequestpolicy": {
+    "name": "GetOriginRequestPolicy",
+    "description": "Grants permission to get the origin request policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "origin-request-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoriginrequestpolicyconfig": {
+    "name": "GetOriginRequestPolicyConfig",
+    "description": "Grants permission to get the origin request policy configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "origin-request-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpublickey": {
+    "name": "GetPublicKey",
+    "description": "Grants permission to get the public key information",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpublickeyconfig": {
+    "name": "GetPublicKeyConfig",
+    "description": "Grants permission to get the public key configuration information",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrealtimelogconfig": {
+    "name": "GetRealtimeLogConfig",
+    "description": "Grants permission to get a real-time log configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "realtime-log-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get the information about a resource's policy document",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vpcorigin",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresponseheaderspolicy": {
+    "name": "GetResponseHeadersPolicy",
+    "description": "Grants permission to get the response headers policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "response-headers-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresponseheaderspolicyconfig": {
+    "name": "GetResponseHeadersPolicyConfig",
+    "description": "Grants permission to get the response headers policy configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "response-headers-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsavingsplan": {
+    "name": "GetSavingsPlan",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get a savings plan",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstreamingdistribution": {
+    "name": "GetStreamingDistribution",
+    "description": "Grants permission to get the information about an RTMP distribution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "streaming-distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstreamingdistributionconfig": {
+    "name": "GetStreamingDistributionConfig",
+    "description": "Grants permission to get the configuration information about a streaming distribution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "streaming-distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettruststore": {
+    "name": "GetTrustStore",
+    "description": "Grants permission to get information about a trust store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trust-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvpcorigin": {
+    "name": "GetVpcOrigin",
+    "description": "Grants permission to get the information about a VPC origin",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vpcorigin",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listanycastiplists": {
+    "name": "ListAnycastIpLists",
+    "description": "Grants permission to list your Anycast static IP lists",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcachepolicies": {
+    "name": "ListCachePolicies",
+    "description": "Grants permission to list all cache policies that have been created in CloudFront for this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcloudfrontoriginaccessidentities": {
+    "name": "ListCloudFrontOriginAccessIdentities",
+    "description": "Grants permission to list your CloudFront origin access identities",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconflictingaliases": {
+    "name": "ListConflictingAliases",
+    "description": "Grants permission to list all aliases that conflict with the given alias in CloudFront",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectionfunctions": {
+    "name": "ListConnectionFunctions",
+    "description": "Grants permission to list the connection functions in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectiongroups": {
+    "name": "ListConnectionGroups",
+    "description": "Grants permission to list the connection groups in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcontinuousdeploymentpolicies": {
+    "name": "ListContinuousDeploymentPolicies",
+    "description": "Grants permission to list all continuous-deployment policies in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributiontenants": {
+    "name": "ListDistributionTenants",
+    "description": "Grants permission to list the distribution tenants in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributiontenantsbycustomization": {
+    "name": "ListDistributionTenantsByCustomization",
+    "description": "Grants permission to list the distribution tenants by the customization that you specify",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributions": {
+    "name": "ListDistributions",
+    "description": "Grants permission to list the distributions associated with your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbyanycastiplistid": {
+    "name": "ListDistributionsByAnycastIpListId",
+    "description": "Grants permission to list the distributions in your account that are associated with the specified AnycastIpListId",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbycachepolicyid": {
+    "name": "ListDistributionsByCachePolicyId",
+    "description": "Grants permission to list distribution IDs for distributions that have a cache behavior that's associated with the specified cache policy",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbyconnectionfunction": {
+    "name": "ListDistributionsByConnectionFunction",
+    "description": "Grants permission to list summaries for distributions associated with the specified connection function",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbyconnectionmode": {
+    "name": "ListDistributionsByConnectionMode",
+    "description": "Grants permission to list the distributions by the specified connection mode",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbykeygroup": {
+    "name": "ListDistributionsByKeyGroup",
+    "description": "Grants permission to list distribution IDs for distributions that have a cache behavior that's associated with the specified key group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbylambdafunction": {
+    "name": "ListDistributionsByLambdaFunction",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the distributions associated a Lambda function",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbyoriginrequestpolicyid": {
+    "name": "ListDistributionsByOriginRequestPolicyId",
+    "description": "Grants permission to list distribution IDs for distributions that have a cache behavior that's associated with the specified origin request policy",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbyrealtimelogconfig": {
+    "name": "ListDistributionsByRealtimeLogConfig",
+    "description": "Grants permission to get a list of distributions that have a cache behavior that's associated with the specified real-time log configuration",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbyresponseheaderspolicyid": {
+    "name": "ListDistributionsByResponseHeadersPolicyId",
+    "description": "Grants permission to list distribution IDs for distributions that have a cache behavior that's associated with the specified response headers policy",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbytruststore": {
+    "name": "ListDistributionsByTrustStore",
+    "description": "Grants permission to list summaries for distributions associated with the specified trust store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "trust-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbyvpcoriginid": {
+    "name": "ListDistributionsByVpcOriginId",
+    "description": "Grants permission to list IDs for distributions associated with the specified VPC origin",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbywebaclid": {
+    "name": "ListDistributionsByWebACLId",
+    "description": "Grants permission to list the distributions associated with your AWS account with given AWS WAF web ACL",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomainconflicts": {
+    "name": "ListDomainConflicts",
+    "description": "Grants permission to list domain conflicts for a specified domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfieldlevelencryptionconfigs": {
+    "name": "ListFieldLevelEncryptionConfigs",
+    "description": "Grants permission to list all field-level encryption configurations that have been created in CloudFront for this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfieldlevelencryptionprofiles": {
+    "name": "ListFieldLevelEncryptionProfiles",
+    "description": "Grants permission to list all field-level encryption profiles that have been created in CloudFront for this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfunctions": {
+    "name": "ListFunctions",
+    "description": "Grants permission to get a list of CloudFront functions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinvalidations": {
+    "name": "ListInvalidations",
+    "description": "Grants permission to list your invalidation batches",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinvalidationsfordistributiontenant": {
+    "name": "ListInvalidationsForDistributionTenant",
+    "description": "Grants permission to list the invalidations for a distribution tenant",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listkeygroups": {
+    "name": "ListKeyGroups",
+    "description": "Grants permission to list all key groups that have been created in CloudFront for this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listkeyvaluestores": {
+    "name": "ListKeyValueStores",
+    "description": "Grants permission to get a list of CloudFront KeyValueStores",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoriginaccesscontrols": {
+    "name": "ListOriginAccessControls",
+    "description": "Grants permission to list all origin access controls in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoriginrequestpolicies": {
+    "name": "ListOriginRequestPolicies",
+    "description": "Grants permission to list all origin request policies that have been created in CloudFront for this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpublickeys": {
+    "name": "ListPublicKeys",
+    "description": "Grants permission to list all public keys that have been added to CloudFront for this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listratecards": {
+    "name": "ListRateCards",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list CloudFront rate cards for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrealtimelogconfigs": {
+    "name": "ListRealtimeLogConfigs",
+    "description": "Grants permission to get a list of real-time log configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresponseheaderspolicies": {
+    "name": "ListResponseHeadersPolicies",
+    "description": "Grants permission to list all response headers policies that have been created in CloudFront for this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsavingsplans": {
+    "name": "ListSavingsPlans",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list savings plans in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreamingdistributions": {
+    "name": "ListStreamingDistributions",
+    "description": "Grants permission to list your RTMP distributions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a CloudFront resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "anycast-ip-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection-function",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trust-store",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcorigin",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtruststores": {
+    "name": "ListTrustStores",
+    "description": "Grants permission to list the trust stores in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listusages": {
+    "name": "ListUsages",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list CloudFront usage",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvpcorigins": {
+    "name": "ListVpcOrigins",
+    "description": "Grants permission to list VPC origins",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishconnectionfunction": {
+    "name": "PublishConnectionFunction",
+    "description": "Grants permission to publish a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishfunction": {
+    "name": "PublishFunction",
+    "description": "Grants permission to publish a CloudFront function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to update or create a resource's policy document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpcorigin",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a CloudFront resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "anycast-ip-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection-function",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trust-store",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcorigin",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "testconnectionfunction": {
+    "name": "TestConnectionFunction",
+    "description": "Grants permission to test a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "testfunction": {
+    "name": "TestFunction",
+    "description": "Grants permission to test a CloudFront function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a CloudFront resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "anycast-ip-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection-function",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trust-store",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vpcorigin",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateanycastiplist": {
+    "name": "UpdateAnycastIpList",
+    "description": "Grants permission to update an Anycast static IP list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anycast-ip-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecachepolicy": {
+    "name": "UpdateCachePolicy",
+    "description": "Grants permission to update a cache policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cache-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecloudfrontoriginaccessidentity": {
+    "name": "UpdateCloudFrontOriginAccessIdentity",
+    "description": "Grants permission to set the configuration for a CloudFront origin access identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "origin-access-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnectionfunction": {
+    "name": "UpdateConnectionFunction",
+    "description": "Grants permission to update a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnectiongroup": {
+    "name": "UpdateConnectionGroup",
+    "description": "Grants permission to update a connection group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecontinuousdeploymentpolicy": {
+    "name": "UpdateContinuousDeploymentPolicy",
+    "description": "Grants permission to update a continuous-deployment policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "continuous-deployment-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedistribution": {
+    "name": "UpdateDistribution",
+    "description": "Grants permission to update the configuration for a web distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedistributiontenant": {
+    "name": "UpdateDistributionTenant",
+    "description": "Grants permission to update a distribution tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedistributionwithstagingconfig": {
+    "name": "UpdateDistributionWithStagingConfig",
+    "description": "Grants permission to copy the configuration from a staging web distribution to its corresponding primary web distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedomainassociation": {
+    "name": "UpdateDomainAssociation",
+    "description": "Grants permission to update a domain association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefieldlevelencryptionconfig": {
+    "name": "UpdateFieldLevelEncryptionConfig",
+    "description": "Grants permission to update a field-level encryption configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefieldlevelencryptionprofile": {
+    "name": "UpdateFieldLevelEncryptionProfile",
+    "description": "Grants permission to update a field-level encryption profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "field-level-encryption-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefunction": {
+    "name": "UpdateFunction",
+    "description": "Grants permission to update a CloudFront function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatekeygroup": {
+    "name": "UpdateKeyGroup",
+    "description": "Grants permission to update a key group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatekeyvaluestore": {
+    "name": "UpdateKeyValueStore",
+    "description": "Grants permission to update a CloudFront KeyValueStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key-value-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateoriginaccesscontrol": {
+    "name": "UpdateOriginAccessControl",
+    "description": "Grants permission to update an origin access control",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "origin-access-control",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateoriginrequestpolicy": {
+    "name": "UpdateOriginRequestPolicy",
+    "description": "Grants permission to update an origin request policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "origin-request-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepublickey": {
+    "name": "UpdatePublicKey",
+    "description": "Grants permission to update public key information",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterealtimelogconfig": {
+    "name": "UpdateRealtimeLogConfig",
+    "description": "Grants permission to update a real-time log configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "realtime-log-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateresponseheaderspolicy": {
+    "name": "UpdateResponseHeadersPolicy",
+    "description": "Grants permission to update a response headers policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "response-headers-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesavingsplan": {
+    "name": "UpdateSavingsPlan",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update a savings plan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestreamingdistribution": {
+    "name": "UpdateStreamingDistribution",
+    "description": "Grants permission to update the configuration for an RTMP distribution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streaming-distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetruststore": {
+    "name": "UpdateTrustStore",
+    "description": "Grants permission to update a trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevpcorigin": {
+    "name": "UpdateVpcOrigin",
+    "description": "Grants permission to update a VPC origin",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpcorigin",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "verifydnsconfiguration": {
+    "name": "VerifyDnsConfiguration",
+    "description": "Grants permission to verify the DNS configuration for a specified domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

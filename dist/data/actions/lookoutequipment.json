@@ -1,0 +1,870 @@
+{
+  "createdataset": {
+    "name": "CreateDataset",
+    "description": "Grants permission to create a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createinferencescheduler": {
+    "name": "CreateInferenceScheduler",
+    "description": "Grants permission to create an inference scheduler for a trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "inference-scheduler",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlabel": {
+    "name": "CreateLabel",
+    "description": "Grants permission to create a label",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "label-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlabelgroup": {
+    "name": "CreateLabelGroup",
+    "description": "Grants permission to create a label group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "label-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmodel": {
+    "name": "CreateModel",
+    "description": "Grants permission to create a model that is trained on a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "label-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createretrainingscheduler": {
+    "name": "CreateRetrainingScheduler",
+    "description": "Grants permission to create a retraining scheduler for a trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataset": {
+    "name": "DeleteDataset",
+    "description": "Grants permission to delete a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinferencescheduler": {
+    "name": "DeleteInferenceScheduler",
+    "description": "Grants permission to delete an inference scheduler",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "inference-scheduler",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelabel": {
+    "name": "DeleteLabel",
+    "description": "Grants permission to delete a label",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "label-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelabelgroup": {
+    "name": "DeleteLabelGroup",
+    "description": "Grants permission to delete a label group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "label-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemodel": {
+    "name": "DeleteModel",
+    "description": "Grants permission to delete a model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteretrainingscheduler": {
+    "name": "DeleteRetrainingScheduler",
+    "description": "Grants permission to delete a retraining scheduler of a trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedataingestionjob": {
+    "name": "DescribeDataIngestionJob",
+    "description": "Grants permission to describe a data ingestion job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedataset": {
+    "name": "DescribeDataset",
+    "description": "Grants permission to describe a dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinferencescheduler": {
+    "name": "DescribeInferenceScheduler",
+    "description": "Grants permission to describe an inference scheduler",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "inference-scheduler",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelabelgroup": {
+    "name": "DescribeLabelGroup",
+    "description": "Grants permission to describe a label group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "label-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemodel": {
+    "name": "DescribeModel",
+    "description": "Grants permission to describe a model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemodelversion": {
+    "name": "DescribeModelVersion",
+    "description": "Grants permission to describe a model version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeresourcepolicy": {
+    "name": "DescribeResourcePolicy",
+    "description": "Grants permission to describe a resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeretrainingscheduler": {
+    "name": "DescribeRetrainingScheduler",
+    "description": "Grants permission to describe a retraining scheduler of a trained model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelabel": {
+    "name": "Describelabel",
+    "description": "Grants permission to describe a label",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "label-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importdataset": {
+    "name": "ImportDataset",
+    "description": "Grants permission to import a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "importmodelversion": {
+    "name": "ImportModelVersion",
+    "description": "Grants permission to import a model version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "label-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "lookoutequipment:IsImportingData"
+    ],
+    "dependentActions": []
+  },
+  "listdataingestionjobs": {
+    "name": "ListDataIngestionJobs",
+    "description": "Grants permission to list the data ingestion jobs in your account or for a particular dataset",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasets": {
+    "name": "ListDatasets",
+    "description": "Grants permission to list the datasets in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinferenceevents": {
+    "name": "ListInferenceEvents",
+    "description": "Grants permission to list the inference events for an inference scheduler",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "inference-scheduler",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinferenceexecutions": {
+    "name": "ListInferenceExecutions",
+    "description": "Grants permission to list the inference executions for an inference scheduler",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "inference-scheduler",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinferenceschedulers": {
+    "name": "ListInferenceSchedulers",
+    "description": "Grants permission to list the inference schedulers in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlabelgroups": {
+    "name": "ListLabelGroups",
+    "description": "Grants permission to list the label groups in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "label-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlabels": {
+    "name": "ListLabels",
+    "description": "Grants permission to list the labels in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "label-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmodelversions": {
+    "name": "ListModelVersions",
+    "description": "Grants permission to list the model versions in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmodels": {
+    "name": "ListModels",
+    "description": "Grants permission to list the models in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listretrainingschedulers": {
+    "name": "ListRetrainingSchedulers",
+    "description": "Grants permission to list the retraining schedulers in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsensorstatistics": {
+    "name": "ListSensorStatistics",
+    "description": "Grants permission to list the sensor statistics for a particular dataset or an ingestion job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "inference-scheduler",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "label-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to put a resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdataingestionjob": {
+    "name": "StartDataIngestionJob",
+    "description": "Grants permission to start a data ingestion job for a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startinferencescheduler": {
+    "name": "StartInferenceScheduler",
+    "description": "Grants permission to start an inference scheduler",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "inference-scheduler",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startretrainingscheduler": {
+    "name": "StartRetrainingScheduler",
+    "description": "Grants permission to start a retraining scheduler of a trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopinferencescheduler": {
+    "name": "StopInferenceScheduler",
+    "description": "Grants permission to stop an inference scheduler",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "inference-scheduler",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopretrainingscheduler": {
+    "name": "StopRetrainingScheduler",
+    "description": "Grants permission to stop a retraining scheduler of a trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "inference-scheduler",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "label-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "inference-scheduler",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "label-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateactivemodelversion": {
+    "name": "UpdateActiveModelVersion",
+    "description": "Grants permission to set the active model version for a given machine learning model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinferencescheduler": {
+    "name": "UpdateInferenceScheduler",
+    "description": "Grants permission to update an inference scheduler",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "inference-scheduler",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelabelgroup": {
+    "name": "UpdateLabelGroup",
+    "description": "Grants permission to update a label group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "label-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemodel": {
+    "name": "UpdateModel",
+    "description": "Grants permission to update a trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateretrainingscheduler": {
+    "name": "UpdateRetrainingScheduler",
+    "description": "Grants permission to update a retraining scheduler of a trained model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

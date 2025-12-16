@@ -1,0 +1,816 @@
+{
+  "cancelharvestjob": {
+    "name": "CancelHarvestJob",
+    "description": "Grants permission to cancel a harvest job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "HarvestJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createchannel": {
+    "name": "CreateChannel",
+    "description": "Grants permission to create a channel in a channel group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createchannelgroup": {
+    "name": "CreateChannelGroup",
+    "description": "Grants permission to create a channel group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createharvestjob": {
+    "name": "CreateHarvestJob",
+    "description": "Grants permission to create a harvest job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "HarvestJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createoriginendpoint": {
+    "name": "CreateOriginEndpoint",
+    "description": "Grants permission to create an origin endpoint for a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletechannel": {
+    "name": "DeleteChannel",
+    "description": "Grants permission to delete a channel in a channel group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletechannelgroup": {
+    "name": "DeleteChannelGroup",
+    "description": "Grants permission to delete a channel group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletechannelpolicy": {
+    "name": "DeleteChannelPolicy",
+    "description": "Grants permission to delete a resource policy from a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoriginendpoint": {
+    "name": "DeleteOriginEndpoint",
+    "description": "Grants permission to delete an origin endpoint of a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoriginendpointpolicy": {
+    "name": "DeleteOriginEndpointPolicy",
+    "description": "Grants permission to delete a resource policy from an origin endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpointPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannel": {
+    "name": "GetChannel",
+    "description": "Grants permission to retrieve details of a channel in a channel group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannelgroup": {
+    "name": "GetChannelGroup",
+    "description": "Grants permission to retrieve details of a channel group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannelpolicy": {
+    "name": "GetChannelPolicy",
+    "description": "Grants permission to retrieve a resource policy for a channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getharvestjob": {
+    "name": "GetHarvestJob",
+    "description": "Grants permission to retrieve details of an harvest job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "HarvestJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getheadobject": {
+    "name": "GetHeadObject",
+    "description": "Grants permission to make GetHeadObject requests to MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getobject": {
+    "name": "GetObject",
+    "description": "Grants permission to make GetObject requests to MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoriginendpoint": {
+    "name": "GetOriginEndpoint",
+    "description": "Grants permission to retrieve details of an origin endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoriginendpointpolicy": {
+    "name": "GetOriginEndpointPolicy",
+    "description": "Grants permission to retrieve details of a resource policy for an origin endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpointPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "harvestobject": {
+    "name": "HarvestObject",
+    "description": "Grants permission to make HarvestObject requests to MediaPackage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listchannelgroups": {
+    "name": "ListChannelGroups",
+    "description": "Grants permission to list all channel groups for an aws account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listchannels": {
+    "name": "ListChannels",
+    "description": "Grants permission to list all channels in a channel group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listharvestjobs": {
+    "name": "ListHarvestJobs",
+    "description": "Grants permission to list all harvest jobs in a channel group, channel, origin endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoriginendpoints": {
+    "name": "ListOriginEndpoints",
+    "description": "Grants permission to list all origin endpoints of a channel",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "HarvestJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putchannelpolicy": {
+    "name": "PutChannelPolicy",
+    "description": "Grants permission to attach a resource policy for a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putobject": {
+    "name": "PutObject",
+    "description": "Grants permission to make PutObject requests to MediaPackage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putoriginendpointpolicy": {
+    "name": "PutOriginEndpointPolicy",
+    "description": "Grants permission to attach a resource policy to an origin endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpointPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resetchannelstate": {
+    "name": "ResetChannelState",
+    "description": "Grants permission to reset a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resetoriginendpointstate": {
+    "name": "ResetOriginEndpointState",
+    "description": "Grants permission to reset an origin endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add specified tags to the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "HarvestJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the specified tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "HarvestJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatechannel": {
+    "name": "UpdateChannel",
+    "description": "Grants permission to update a channel in a channel group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatechannelgroup": {
+    "name": "UpdateChannelGroup",
+    "description": "Grants permission to update a channel group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateoriginendpoint": {
+    "name": "UpdateOriginEndpoint",
+    "description": "Grants permission to update an origin endpoint of a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ChannelGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OriginEndpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

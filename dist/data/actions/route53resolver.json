@@ -1,0 +1,1176 @@
+{
+  "associatefirewallrulegroup": {
+    "name": "AssociateFirewallRuleGroup",
+    "description": "Grants permission to associate an Amazon VPC with a specified firewall rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "associateresolverendpointipaddress": {
+    "name": "AssociateResolverEndpointIpAddress",
+    "description": "Grants permission to associate a specified IP address with a Resolver endpoint. This is an IP address that DNS queries pass through on the way to your network (outbound) or your VPCs (inbound)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets"
+    ]
+  },
+  "associateresolverquerylogconfig": {
+    "name": "AssociateResolverQueryLogConfig",
+    "description": "Grants permission to associate an Amazon VPC with a specified query logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-query-log-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "associateresolverrule": {
+    "name": "AssociateResolverRule",
+    "description": "Grants permission to associate a specified Resolver rule with a specified VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "createfirewalldomainlist": {
+    "name": "CreateFirewallDomainList",
+    "description": "Grants permission to create a Firewall domain list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfirewallrule": {
+    "name": "CreateFirewallRule",
+    "description": "Grants permission to create a Firewall rule within a Firewall rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-rule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfirewallrulegroup": {
+    "name": "CreateFirewallRuleGroup",
+    "description": "Grants permission to create a Firewall rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createoutpostresolver": {
+    "name": "CreateOutpostResolver",
+    "description": "Grants permission to create a Route 53 Resolver on Outposts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "outpost-resolver",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "outposts:GetOutpost"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createresolverendpoint": {
+    "name": "CreateResolverEndpoint",
+    "description": "Grants permission to create a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createresolverquerylogconfig": {
+    "name": "CreateResolverQueryLogConfig",
+    "description": "Grants permission to create a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createresolverrule": {
+    "name": "CreateResolverRule",
+    "description": "Grants permission to define how to route queries originating from your VPC out of the VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletefirewalldomainlist": {
+    "name": "DeleteFirewallDomainList",
+    "description": "Grants permission to delete a Firewall domain list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefirewallrule": {
+    "name": "DeleteFirewallRule",
+    "description": "Grants permission to delete a Firewall rule within a Firewall rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-rule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefirewallrulegroup": {
+    "name": "DeleteFirewallRuleGroup",
+    "description": "Grants permission to delete a Firewall rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteoutpostresolver": {
+    "name": "DeleteOutpostResolver",
+    "description": "Grants permission to delete a Route 53 Resolver on Outposts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "outpost-resolver",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresolverendpoint": {
+    "name": "DeleteResolverEndpoint",
+    "description": "Grants permission to delete a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteNetworkInterface",
+      "ec2:DescribeNetworkInterfaces"
+    ]
+  },
+  "deleteresolverquerylogconfig": {
+    "name": "DeleteResolverQueryLogConfig",
+    "description": "Grants permission to delete a Resolver query logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-query-log-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresolverrule": {
+    "name": "DeleteResolverRule",
+    "description": "Grants permission to delete a Resolver rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatefirewallrulegroup": {
+    "name": "DisassociateFirewallRuleGroup",
+    "description": "Grants permission to remove the association between a specified Firewall rule group and a specified VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateresolverendpointipaddress": {
+    "name": "DisassociateResolverEndpointIpAddress",
+    "description": "Grants permission to remove a specified IP address from a Resolver endpoint. This is an IP address that DNS queries pass through on the way to your network (outbound) or your VPCs (inbound)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteNetworkInterface",
+      "ec2:DescribeNetworkInterfaces"
+    ]
+  },
+  "disassociateresolverquerylogconfig": {
+    "name": "DisassociateResolverQueryLogConfig",
+    "description": "Grants permission to remove the association between a specified Resolver query logging configuration and a specified VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-query-log-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateresolverrule": {
+    "name": "DisassociateResolverRule",
+    "description": "Grants permission to remove the association between a specified Resolver rule and a specified VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfirewallconfig": {
+    "name": "GetFirewallConfig",
+    "description": "Grants permission to get information about a specified Firewall config",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "firewall-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "getfirewalldomainlist": {
+    "name": "GetFirewallDomainList",
+    "description": "Grants permission to get information about a specified Firewall domain list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfirewallrulegroup": {
+    "name": "GetFirewallRuleGroup",
+    "description": "Grants permission to get information about a specified Firewall rule group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfirewallrulegroupassociation": {
+    "name": "GetFirewallRuleGroupAssociation",
+    "description": "Grants permission to get information about an association between a specified Firewall rule group and a VPC",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfirewallrulegrouppolicy": {
+    "name": "GetFirewallRuleGroupPolicy",
+    "description": "Grants permission to get information about a specified Firewall rule group policy, which specifies the Firewall rule group operations and resources that you want to allow another AWS account to use",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getoutpostresolver": {
+    "name": "GetOutpostResolver",
+    "description": "Grants permission to get information about a specified Route 53 Resolver on Outposts",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "outpost-resolver",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresolverconfig": {
+    "name": "GetResolverConfig",
+    "description": "Grants permission to get the Resolver Config status within the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "resolver-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "getresolverdnssecconfig": {
+    "name": "GetResolverDnssecConfig",
+    "description": "Grants permission to get the DNSSEC validation support status for DNS queries within the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "resolver-dnssec-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresolverendpoint": {
+    "name": "GetResolverEndpoint",
+    "description": "Grants permission to get information about a specified Resolver endpoint, such as whether it's an inbound or an outbound endpoint, and the IP addresses in your VPC that DNS queries are forwarded to on the way into or out of your VPC",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "resolver-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresolverquerylogconfig": {
+    "name": "GetResolverQueryLogConfig",
+    "description": "Grants permission to get information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration is logging queries for and the location that logs are sent to",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "resolver-query-log-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "getresolverquerylogconfigassociation": {
+    "name": "GetResolverQueryLogConfigAssociation",
+    "description": "Grants permission to get information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC with a query logging configuration, Resolver logs DNS queries that originate in that VPC",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresolverquerylogconfigpolicy": {
+    "name": "GetResolverQueryLogConfigPolicy",
+    "description": "Grants permission to get information about a specified Resolver query logging policy, which specifies the Resolver query logging operations and resources that you want to allow another AWS account to use",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "resolver-query-log-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresolverrule": {
+    "name": "GetResolverRule",
+    "description": "Grants permission to get information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the IP address that queries are forwarded to",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "autodefined-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresolverruleassociation": {
+    "name": "GetResolverRuleAssociation",
+    "description": "Grants permission to get information about an association between a specified Resolver rule and a VPC",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "autodefined-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresolverrulepolicy": {
+    "name": "GetResolverRulePolicy",
+    "description": "Grants permission to get information about a Resolver rule policy, which specifies the Resolver operations and resources that you want to allow another AWS account to use",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "resolver-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importfirewalldomains": {
+    "name": "ImportFirewallDomains",
+    "description": "Grants permission to add, remove or replace Firewall domains in a Firewall domain list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfirewallconfigs": {
+    "name": "ListFirewallConfigs",
+    "description": "Grants permission to list all the Firewall config that current AWS account is able to check",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "listfirewalldomainlists": {
+    "name": "ListFirewallDomainLists",
+    "description": "Grants permission to list all the Firewall domain list that current AWS account is able to use",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfirewalldomains": {
+    "name": "ListFirewallDomains",
+    "description": "Grants permission to list all the Firewall domain under a specified Firewall domain list",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfirewallrulegroupassociations": {
+    "name": "ListFirewallRuleGroupAssociations",
+    "description": "Grants permission to list information about associations between Amazon VPCs and Firewall rule group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfirewallrulegroups": {
+    "name": "ListFirewallRuleGroups",
+    "description": "Grants permission to list all the Firewall rule group that current AWS account is able to use",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfirewallrules": {
+    "name": "ListFirewallRules",
+    "description": "Grants permission to list all the Firewall rule under a specified Firewall rule group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoutpostresolvers": {
+    "name": "ListOutpostResolvers",
+    "description": "Grants permission to list all instances of Route 53 Resolver on Outposts that were created using the current AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresolverconfigs": {
+    "name": "ListResolverConfigs",
+    "description": "Grants permission to list Resolver Config statuses",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "resolver-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "listresolverdnssecconfigs": {
+    "name": "ListResolverDnssecConfigs",
+    "description": "Grants permission to list the DNSSEC validation support status for DNS queries",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "resolver-dnssec-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresolverendpointipaddresses": {
+    "name": "ListResolverEndpointIpAddresses",
+    "description": "Grants permission to list the IP addresses that DNS queries pass through on the way to your network (outbound) or your VPCs (inbound) for a specified Resolver endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "resolver-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresolverendpoints": {
+    "name": "ListResolverEndpoints",
+    "description": "Grants permission to list all the Resolver endpoints that were created using the current AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresolverquerylogconfigassociations": {
+    "name": "ListResolverQueryLogConfigAssociations",
+    "description": "Grants permission to list information about associations between Amazon VPCs and query logging configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "listresolverquerylogconfigs": {
+    "name": "ListResolverQueryLogConfigs",
+    "description": "Grants permission to list information about the specified query logging configurations, which define where you want Resolver to save DNS query logs and specify the VPCs that you want to log queries for",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "listresolverruleassociations": {
+    "name": "ListResolverRuleAssociations",
+    "description": "Grants permission to list the associations that were created between Resolver rules and VPCs using the current AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "listresolverrules": {
+    "name": "ListResolverRules",
+    "description": "Grants permission to list the Resolver rules that were created using the current AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags that you associated with the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-rule-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-rule-group-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "outpost-resolver",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-query-log-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putfirewallrulegrouppolicy": {
+    "name": "PutFirewallRuleGroupPolicy",
+    "description": "Grants permission to specify an AWS account that you want to share a Firewall rule group with, the Firewall rule group that you want to share, and the operations that you want the account to be able to perform on the configuration",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresolverquerylogconfigpolicy": {
+    "name": "PutResolverQueryLogConfigPolicy",
+    "description": "Grants permission to specify an AWS account that you want to share a query logging configuration with, the query logging configuration that you want to share, and the operations that you want the account to be able to perform on the configuration",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "resolver-query-log-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresolverrulepolicy": {
+    "name": "PutResolverRulePolicy",
+    "description": "Grants permission to specify an AWS account that you want to share rules with, the Resolver rules that you want to share, and the operations that you want the account to be able to perform on those rules",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "resolver-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags to a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "firewall-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-domain-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-rule-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-rule-group-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "outpost-resolver",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-dnssec-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-query-log-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "firewall-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-domain-list",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-rule-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-rule-group-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "outpost-resolver",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-dnssec-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-query-log-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resolver-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatefirewallconfig": {
+    "name": "UpdateFirewallConfig",
+    "description": "Grants permission to update selected settings for an Firewall config",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "updatefirewalldomains": {
+    "name": "UpdateFirewallDomains",
+    "description": "Grants permission to add, remove or replace Firewall domains in a Firewall domain list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefirewallrule": {
+    "name": "UpdateFirewallRule",
+    "description": "Grants permission to update selected settings for an Firewall rule in a Firewall rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-domain-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "firewall-rule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefirewallrulegroupassociation": {
+    "name": "UpdateFirewallRuleGroupAssociation",
+    "description": "Grants permission to update selected settings for an Firewall rule group association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "firewall-rule-group-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateoutpostresolver": {
+    "name": "UpdateOutpostResolver",
+    "description": "Grants permission to update seletected settings for a specified Route 53 Resolver on Outposts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "outpost-resolver",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateresolverconfig": {
+    "name": "UpdateResolverConfig",
+    "description": "Grants permission to update the Resolver Config status within the specified resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "updateresolverdnssecconfig": {
+    "name": "UpdateResolverDnssecConfig",
+    "description": "Grants permission to update the DNSSEC validation support status for DNS queries within the specified resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-dnssec-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateresolverendpoint": {
+    "name": "UpdateResolverEndpoint",
+    "description": "Grants permission to update selected settings for an inbound or an outbound Resolver endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AssignIpv6Addresses",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:ModifyNetworkInterfaceAttribute",
+      "ec2:UnassignIpv6Addresses"
+    ]
+  },
+  "updateresolverrule": {
+    "name": "UpdateResolverRule",
+    "description": "Grants permission to update settings for a specified Resolver rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resolver-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,4536 @@
+{
+  "acceptcertificatetransfer": {
+    "name": "AcceptCertificateTransfer",
+    "description": "Grants permission to accept a pending certificate transfer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "addthingtobillinggroup": {
+    "name": "AddThingToBillingGroup",
+    "description": "Grants permission to add a thing to the specified billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "addthingtothinggroup": {
+    "name": "AddThingToThingGroup",
+    "description": "Grants permission to add a thing to the specified thing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatesbomwithpackageversion": {
+    "name": "AssociateSbomWithPackageVersion",
+    "description": "Grants permission to associate SBOM files to a package version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iot:GetIndexingConfiguration"
+    ]
+  },
+  "associatetargetswithjob": {
+    "name": "AssociateTargetsWithJob",
+    "description": "Grants permission to associate a group with a continuous job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "attachpolicy": {
+    "name": "AttachPolicy",
+    "description": "Grants permission to attach a policy to the specified target",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "attachprincipalpolicy": {
+    "name": "AttachPrincipalPolicy",
+    "description": "Grants permission to attach the specified policy to the specified principal (certificate or other credential)",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "attachsecurityprofile": {
+    "name": "AttachSecurityProfile",
+    "description": "Grants permission to associate a Device Defender security profile with a thing group or with this account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custommetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dimension",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "attachthingprincipal": {
+    "name": "AttachThingPrincipal",
+    "description": "Grants permission to attach the specified principal to the specified thing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iot:thingArn"
+    ],
+    "dependentActions": []
+  },
+  "cancelauditmitigationactionstask": {
+    "name": "CancelAuditMitigationActionsTask",
+    "description": "Grants permission to cancel a mitigation action task that is in progress",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelaudittask": {
+    "name": "CancelAuditTask",
+    "description": "Grants permission to cancel an audit that is in progress. The audit can be either scheduled or on-demand",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelcertificatetransfer": {
+    "name": "CancelCertificateTransfer",
+    "description": "Grants permission to cancel a pending transfer for the specified certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "canceldetectmitigationactionstask": {
+    "name": "CancelDetectMitigationActionsTask",
+    "description": "Grants permission to cancel a Device Defender ML Detect mitigation action",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "canceljob": {
+    "name": "CancelJob",
+    "description": "Grants permission to cancel a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "canceljobexecution": {
+    "name": "CancelJobExecution",
+    "description": "Grants permission to cancel a job execution on a particular device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cleardefaultauthorizer": {
+    "name": "ClearDefaultAuthorizer",
+    "description": "Grants permission to clear the default authorizer",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "closetunnel": {
+    "name": "CloseTunnel",
+    "description": "Grants permission to close a tunnel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tunnel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iot:Delete"
+    ],
+    "dependentActions": []
+  },
+  "confirmtopicruledestination": {
+    "name": "ConfirmTopicRuleDestination",
+    "description": "Grants permission to confirm a http url TopicRuleDestinationDestination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "connect": {
+    "name": "Connect",
+    "description": "Grants permission to connect as the specified client",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "client",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createauditsuppression": {
+    "name": "CreateAuditSuppression",
+    "description": "Grants permission to create a Device Defender audit suppression",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createauthorizer": {
+    "name": "CreateAuthorizer",
+    "description": "Grants permission to create an authorizer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "authorizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createbillinggroup": {
+    "name": "CreateBillingGroup",
+    "description": "Grants permission to create a billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcertificatefromcsr": {
+    "name": "CreateCertificateFromCsr",
+    "description": "Grants permission to create an X.509 certificate using the specified certificate signing request",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcertificateprovider": {
+    "name": "CreateCertificateProvider",
+    "description": "Grants permission to create a certificate provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificateprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcommand": {
+    "name": "CreateCommand",
+    "description": "Grants permission to create a command that can be used to start new executions against a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "command",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcustommetric": {
+    "name": "CreateCustomMetric",
+    "description": "Grants permission to create a custom metric for device side metric reporting and monitoring",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custommetric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdimension": {
+    "name": "CreateDimension",
+    "description": "Grants permission to define a dimension that can be used to to limit the scope of a metric used in a security profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dimension",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdomainconfiguration": {
+    "name": "CreateDomainConfiguration",
+    "description": "Grants permission to create a domain configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domainconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "iot:DomainName"
+    ],
+    "dependentActions": []
+  },
+  "createdynamicthinggroup": {
+    "name": "CreateDynamicThingGroup",
+    "description": "Grants permission to create a Dynamic Thing Group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dynamicthinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfleetmetric": {
+    "name": "CreateFleetMetric",
+    "description": "Grants permission to create a fleet metric",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleetmetric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createjob": {
+    "name": "CreateJob",
+    "description": "Grants permission to create a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "jobtemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "package",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packageversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createjobtemplate": {
+    "name": "CreateJobTemplate",
+    "description": "Grants permission to create a job template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "jobtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "package",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packageversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createkeysandcertificate": {
+    "name": "CreateKeysAndCertificate",
+    "description": "Grants permission to create a 2048 bit RSA key pair and issues an X.509 certificate using the issued public key",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmitigationaction": {
+    "name": "CreateMitigationAction",
+    "description": "Grants permission to define an action that can be applied to audit findings by using StartAuditMitigationActionsTask",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mitigationaction",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createotaupdate": {
+    "name": "CreateOTAUpdate",
+    "description": "Grants permission to create an OTA update job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "otaupdate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpackage": {
+    "name": "CreatePackage",
+    "description": "Grants permission to create a software package that you can deploy to your devices",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iot:GetIndexingConfiguration"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpackageversion": {
+    "name": "CreatePackageVersion",
+    "description": "Grants permission to create a version under the specified package",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iot:GetIndexingConfiguration",
+          "s3:GetObjectVersion"
+        ]
+      },
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpolicy": {
+    "name": "CreatePolicy",
+    "description": "Grants permission to create an AWS IoT policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpolicyversion": {
+    "name": "CreatePolicyVersion",
+    "description": "Grants permission to create a new version of the specified AWS IoT policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createprovisioningclaim": {
+    "name": "CreateProvisioningClaim",
+    "description": "Grants permission to create a provisioning claim",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "provisioningtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createprovisioningtemplate": {
+    "name": "CreateProvisioningTemplate",
+    "description": "Grants permission to create a fleet provisioning template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "provisioningtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createprovisioningtemplateversion": {
+    "name": "CreateProvisioningTemplateVersion",
+    "description": "Grants permission to create a new version of a fleet provisioning template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "provisioningtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createrolealias": {
+    "name": "CreateRoleAlias",
+    "description": "Grants permission to create a role alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rolealias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createscheduledaudit": {
+    "name": "CreateScheduledAudit",
+    "description": "Grants permission to create a scheduled audit that is run at a specified time interval",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduledaudit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsecurityprofile": {
+    "name": "CreateSecurityProfile",
+    "description": "Grants permission to create a Device Defender security profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custommetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dimension",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createstream": {
+    "name": "CreateStream",
+    "description": "Grants permission to create a new AWS IoT stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "creatething": {
+    "name": "CreateThing",
+    "description": "Grants permission to create a thing in the thing registry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "billinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createthinggroup": {
+    "name": "CreateThingGroup",
+    "description": "Grants permission to create a thing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createthingtype": {
+    "name": "CreateThingType",
+    "description": "Grants permission to create a new thing type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thingtype",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtopicrule": {
+    "name": "CreateTopicRule",
+    "description": "Grants permission to create a rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtopicruledestination": {
+    "name": "CreateTopicRuleDestination",
+    "description": "Grants permission to create a TopicRuleDestination",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaccountauditconfiguration": {
+    "name": "DeleteAccountAuditConfiguration",
+    "description": "Grants permission to delete the audit configuration associated with the account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteauditsuppression": {
+    "name": "DeleteAuditSuppression",
+    "description": "Grants permission to delete a Device Defender audit suppression",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteauthorizer": {
+    "name": "DeleteAuthorizer",
+    "description": "Grants permission to delete the specified authorizer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "authorizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebillinggroup": {
+    "name": "DeleteBillingGroup",
+    "description": "Grants permission to delete the specified billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecacertificate": {
+    "name": "DeleteCACertificate",
+    "description": "Grants permission to delete a registered CA certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cacert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecertificate": {
+    "name": "DeleteCertificate",
+    "description": "Grants permission to delete the specified certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecertificateprovider": {
+    "name": "DeleteCertificateProvider",
+    "description": "Grants permission to delete a certificate provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificateprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecommand": {
+    "name": "DeleteCommand",
+    "description": "Grants permission to delete a command",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "command",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecommandexecution": {
+    "name": "DeleteCommandExecution",
+    "description": "Grants permission to delete a command execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "client",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnection": {
+    "name": "DeleteConnection",
+    "description": "Grants permission to disconnect the specified connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "client",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecustommetric": {
+    "name": "DeleteCustomMetric",
+    "description": "Grants permission to deletes the specified custom metric from your AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custommetric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedimension": {
+    "name": "DeleteDimension",
+    "description": "Grants permission to remove the specified dimension from your AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dimension",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedomainconfiguration": {
+    "name": "DeleteDomainConfiguration",
+    "description": "Grants permission to delete a domain configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domainconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedynamicthinggroup": {
+    "name": "DeleteDynamicThingGroup",
+    "description": "Grants permission to delete the specified Dynamic Thing Group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dynamicthinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefleetmetric": {
+    "name": "DeleteFleetMetric",
+    "description": "Grants permission to delete the specified fleet metric",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleetmetric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletejob": {
+    "name": "DeleteJob",
+    "description": "Grants permission to delete a job and its related job executions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletejobexecution": {
+    "name": "DeleteJobExecution",
+    "description": "Grants permission to delete a job execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletejobtemplate": {
+    "name": "DeleteJobTemplate",
+    "description": "Grants permission to delete a job template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "jobtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemitigationaction": {
+    "name": "DeleteMitigationAction",
+    "description": "Grants permission to delete a defined mitigation action from your AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mitigationaction",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteotaupdate": {
+    "name": "DeleteOTAUpdate",
+    "description": "Grants permission to delete an OTA update job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "otaupdate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepackage": {
+    "name": "DeletePackage",
+    "description": "Grants permission to delete a package",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepackageversion": {
+    "name": "DeletePackageVersion",
+    "description": "Grants permission to delete a version of the specified package",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepolicy": {
+    "name": "DeletePolicy",
+    "description": "Grants permission to delete the specified policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepolicyversion": {
+    "name": "DeletePolicyVersion",
+    "description": "Grants permission to Delete the specified version of the specified policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprovisioningtemplate": {
+    "name": "DeleteProvisioningTemplate",
+    "description": "Grants permission to delete a fleet provisioning template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "provisioningtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteprovisioningtemplateversion": {
+    "name": "DeleteProvisioningTemplateVersion",
+    "description": "Grants permission to delete a fleet provisioning template version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "provisioningtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteregistrationcode": {
+    "name": "DeleteRegistrationCode",
+    "description": "Grants permission to delete a CA certificate registration code",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterolealias": {
+    "name": "DeleteRoleAlias",
+    "description": "Grants permission to delete the specified role alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rolealias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletescheduledaudit": {
+    "name": "DeleteScheduledAudit",
+    "description": "Grants permission to delete a scheduled audit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduledaudit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesecurityprofile": {
+    "name": "DeleteSecurityProfile",
+    "description": "Grants permission to delete a Device Defender security profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custommetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dimension",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestream": {
+    "name": "DeleteStream",
+    "description": "Grants permission to delete a specified stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletething": {
+    "name": "DeleteThing",
+    "description": "Grants permission to delete the specified thing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletethinggroup": {
+    "name": "DeleteThingGroup",
+    "description": "Grants permission to delete the specified thing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletethingshadow": {
+    "name": "DeleteThingShadow",
+    "description": "Grants permission to delete the specified thing shadow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletethingtype": {
+    "name": "DeleteThingType",
+    "description": "Grants permission to delete the specified thing type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thingtype",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetopicrule": {
+    "name": "DeleteTopicRule",
+    "description": "Grants permission to delete the specified rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetopicruledestination": {
+    "name": "DeleteTopicRuleDestination",
+    "description": "Grants permission to delete a TopicRuleDestination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletev2logginglevel": {
+    "name": "DeleteV2LoggingLevel",
+    "description": "Grants permission to delete the specified v2 logging level",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deprecatethingtype": {
+    "name": "DeprecateThingType",
+    "description": "Grants permission to deprecate the specified thing type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thingtype",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaccountauditconfiguration": {
+    "name": "DescribeAccountAuditConfiguration",
+    "description": "Grants permission to get information about audit configurations for the account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeauditfinding": {
+    "name": "DescribeAuditFinding",
+    "description": "Grants permission to get information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeauditmitigationactionstask": {
+    "name": "DescribeAuditMitigationActionsTask",
+    "description": "Grants permission to get information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeauditsuppression": {
+    "name": "DescribeAuditSuppression",
+    "description": "Grants permission to get information about a Device Defender audit suppression",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaudittask": {
+    "name": "DescribeAuditTask",
+    "description": "Grants permission to get information about a Device Defender audit",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeauthorizer": {
+    "name": "DescribeAuthorizer",
+    "description": "Grants permission to describe an authorizer",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "authorizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebillinggroup": {
+    "name": "DescribeBillingGroup",
+    "description": "Grants permission to get information about the specified billing group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecacertificate": {
+    "name": "DescribeCACertificate",
+    "description": "Grants permission to describe a registered CA certificate",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cacert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecertificate": {
+    "name": "DescribeCertificate",
+    "description": "Grants permission to get information about the specified certificate",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecertificateprovider": {
+    "name": "DescribeCertificateProvider",
+    "description": "Grants permission to describe a certificate provider",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "certificateprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecustommetric": {
+    "name": "DescribeCustomMetric",
+    "description": "Grants permission to describe a custom metric that is defined in your AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "custommetric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedefaultauthorizer": {
+    "name": "DescribeDefaultAuthorizer",
+    "description": "Grants permission to describe the default authorizer",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedetectmitigationactionstask": {
+    "name": "DescribeDetectMitigationActionsTask",
+    "description": "Grants permission to describe a Device Defender ML Detect mitigation action",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedimension": {
+    "name": "DescribeDimension",
+    "description": "Grants permission to get details about a dimension that is defined in your AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dimension",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedomainconfiguration": {
+    "name": "DescribeDomainConfiguration",
+    "description": "Grants permission to get information about the domain configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domainconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeencryptionconfiguration": {
+    "name": "DescribeEncryptionConfiguration",
+    "description": "Grants permission to describe the encryption configuration for the account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeendpoint": {
+    "name": "DescribeEndpoint",
+    "description": "Grants permission to get a unique endpoint specific to the AWS account making the call",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeeventconfigurations": {
+    "name": "DescribeEventConfigurations",
+    "description": "Grants permission to get account event configurations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefleetmetric": {
+    "name": "DescribeFleetMetric",
+    "description": "Grants permission to get information about the specified fleet metric",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleetmetric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeindex": {
+    "name": "DescribeIndex",
+    "description": "Grants permission to get information about the specified index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejob": {
+    "name": "DescribeJob",
+    "description": "Grants permission to describe a job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejobexecution": {
+    "name": "DescribeJobExecution",
+    "description": "Grants permission to describe a job execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejobtemplate": {
+    "name": "DescribeJobTemplate",
+    "description": "Grants permission to describe a job template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "jobtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemanagedjobtemplate": {
+    "name": "DescribeManagedJobTemplate",
+    "description": "Grants permission to describe a managed job template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "jobtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemitigationaction": {
+    "name": "DescribeMitigationAction",
+    "description": "Grants permission to get information about a mitigation action",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mitigationaction",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeprovisioningtemplate": {
+    "name": "DescribeProvisioningTemplate",
+    "description": "Grants permission to get information about a fleet provisioning template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "provisioningtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeprovisioningtemplateversion": {
+    "name": "DescribeProvisioningTemplateVersion",
+    "description": "Grants permission to get information about a fleet provisioning template version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "provisioningtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerolealias": {
+    "name": "DescribeRoleAlias",
+    "description": "Grants permission to describe a role alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rolealias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describescheduledaudit": {
+    "name": "DescribeScheduledAudit",
+    "description": "Grants permission to get information about a scheduled audit",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "scheduledaudit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesecurityprofile": {
+    "name": "DescribeSecurityProfile",
+    "description": "Grants permission to get information about a Device Defender security profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestream": {
+    "name": "DescribeStream",
+    "description": "Grants permission to get information about the specified stream",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describething": {
+    "name": "DescribeThing",
+    "description": "Grants permission to get information about the specified thing",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describethinggroup": {
+    "name": "DescribeThingGroup",
+    "description": "Grants permission to get information about the specified thing group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describethingregistrationtask": {
+    "name": "DescribeThingRegistrationTask",
+    "description": "Grants permission to get information about the bulk thing registration task",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describethingtype": {
+    "name": "DescribeThingType",
+    "description": "Grants permission to get information about the specified thing type",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "thingtype",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetunnel": {
+    "name": "DescribeTunnel",
+    "description": "Grants permission to describe a tunnel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "tunnel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detachpolicy": {
+    "name": "DetachPolicy",
+    "description": "Grants permission to detach a policy from the specified target",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detachprincipalpolicy": {
+    "name": "DetachPrincipalPolicy",
+    "description": "Grants permission to remove the specified policy from the specified certificate",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detachsecurityprofile": {
+    "name": "DetachSecurityProfile",
+    "description": "Grants permission to disassociate a Device Defender security profile from a thing group or from this account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custommetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dimension",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detachthingprincipal": {
+    "name": "DetachThingPrincipal",
+    "description": "Grants permission to detach the specified principal from the specified thing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iot:thingArn"
+    ],
+    "dependentActions": []
+  },
+  "disabletopicrule": {
+    "name": "DisableTopicRule",
+    "description": "Grants permission to disable the specified rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatesbomfrompackageversion": {
+    "name": "DisassociateSbomFromPackageVersion",
+    "description": "Grants permission to disassociate SBOM files from a package version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enabletopicrule": {
+    "name": "EnableTopicRule",
+    "description": "Grants permission to enable the specified rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbehaviormodeltrainingsummaries": {
+    "name": "GetBehaviorModelTrainingSummaries",
+    "description": "Grants permission to fetch a Device Defender's ML Detect Security Profile training model's status",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbucketsaggregation": {
+    "name": "GetBucketsAggregation",
+    "description": "Grants permission to get buckets aggregation for IoT fleet index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcardinality": {
+    "name": "GetCardinality",
+    "description": "Grants permission to get cardinality for IoT fleet index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcommand": {
+    "name": "GetCommand",
+    "description": "Grants permission to get the information about the command",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "command",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcommandexecution": {
+    "name": "GetCommandExecution",
+    "description": "Grants permission to get the information of a command execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "client",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "geteffectivepolicies": {
+    "name": "GetEffectivePolicies",
+    "description": "Grants permission to get effective policies",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getindexingconfiguration": {
+    "name": "GetIndexingConfiguration",
+    "description": "Grants permission to get current fleet indexing configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjobdocument": {
+    "name": "GetJobDocument",
+    "description": "Grants permission to get a job document",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getloggingoptions": {
+    "name": "GetLoggingOptions",
+    "description": "Grants permission to get the logging options",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getotaupdate": {
+    "name": "GetOTAUpdate",
+    "description": "Grants permission to get the information about the OTA update job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "otaupdate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpackage": {
+    "name": "GetPackage",
+    "description": "Grants permission to get the information about the package",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpackageconfiguration": {
+    "name": "GetPackageConfiguration",
+    "description": "Grants permission to get the package configuration of the account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpackageversion": {
+    "name": "GetPackageVersion",
+    "description": "Grants permission to get the version of the package",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpercentiles": {
+    "name": "GetPercentiles",
+    "description": "Grants permission to get percentiles for IoT fleet index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpolicy": {
+    "name": "GetPolicy",
+    "description": "Grants permission to get information about the specified policy with the policy document of the default version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpolicyversion": {
+    "name": "GetPolicyVersion",
+    "description": "Grants permission to get information about the specified policy version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getregistrationcode": {
+    "name": "GetRegistrationCode",
+    "description": "Grants permission to get a registration code used to register a CA certificate with AWS IoT",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getretainedmessage": {
+    "name": "GetRetainedMessage",
+    "description": "Grants permission to get the retained message on the specified topic",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstatistics": {
+    "name": "GetStatistics",
+    "description": "Grants permission to get statistics for IoT fleet index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getthingconnectivitydata": {
+    "name": "GetThingConnectivityData",
+    "description": "Grants permission to get the thing's connectivity data",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getthingshadow": {
+    "name": "GetThingShadow",
+    "description": "Grants permission to get the thing shadow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettopicrule": {
+    "name": "GetTopicRule",
+    "description": "Grants permission to get information about the specified rule",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettopicruledestination": {
+    "name": "GetTopicRuleDestination",
+    "description": "Grants permission to get a TopicRuleDestination",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getv2loggingoptions": {
+    "name": "GetV2LoggingOptions",
+    "description": "Grants permission to get v2 logging options",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listactiveviolations": {
+    "name": "ListActiveViolations",
+    "description": "Grants permission to list the active violations for a given Device Defender security profile or Thing",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listattachedpolicies": {
+    "name": "ListAttachedPolicies",
+    "description": "Grants permission to list the policies attached to the specified thing group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listauditfindings": {
+    "name": "ListAuditFindings",
+    "description": "Grants permission to list the findings (results) of a Device Defender audit or of the audits performed during a specified time period",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listauditmitigationactionsexecutions": {
+    "name": "ListAuditMitigationActionsExecutions",
+    "description": "Grants permission to get the status of audit mitigation action tasks that were executed",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listauditmitigationactionstasks": {
+    "name": "ListAuditMitigationActionsTasks",
+    "description": "Grants permission to get a list of audit mitigation action tasks that match the specified filters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listauditsuppressions": {
+    "name": "ListAuditSuppressions",
+    "description": "Grants permission to list your Device Defender audit suppressions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaudittasks": {
+    "name": "ListAuditTasks",
+    "description": "Grants permission to list the Device Defender audits that have been performed during a given time period",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listauthorizers": {
+    "name": "ListAuthorizers",
+    "description": "Grants permission to list the authorizers registered in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbillinggroups": {
+    "name": "ListBillingGroups",
+    "description": "Grants permission to list all billing groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcacertificates": {
+    "name": "ListCACertificates",
+    "description": "Grants permission to list the CA certificates registered for your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcertificateproviders": {
+    "name": "ListCertificateProviders",
+    "description": "Grants permission to list certificate providers in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcertificates": {
+    "name": "ListCertificates",
+    "description": "Grants permission to list your certificates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcertificatesbyca": {
+    "name": "ListCertificatesByCA",
+    "description": "Grants permission to list the device certificates signed by the specified CA certificate",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcommandexecutions": {
+    "name": "ListCommandExecutions",
+    "description": "Grants permission to list commands executions in the account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "client",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "command",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcommands": {
+    "name": "ListCommands",
+    "description": "Grants permission to list commands in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustommetrics": {
+    "name": "ListCustomMetrics",
+    "description": "Grants permission to list the custom metrics in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdetectmitigationactionsexecutions": {
+    "name": "ListDetectMitigationActionsExecutions",
+    "description": "Grants permission to lists mitigation actions executions for a Device Defender ML Detect Security Profile",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdetectmitigationactionstasks": {
+    "name": "ListDetectMitigationActionsTasks",
+    "description": "Grants permission to list Device Defender ML Detect mitigation actions tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdimensions": {
+    "name": "ListDimensions",
+    "description": "Grants permission to list the dimensions that are defined for your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomainconfigurations": {
+    "name": "ListDomainConfigurations",
+    "description": "Grants permission to list the domain configuration created by your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfleetmetrics": {
+    "name": "ListFleetMetrics",
+    "description": "Grants permission to list the fleet metrics in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listindices": {
+    "name": "ListIndices",
+    "description": "Grants permission to list all indices for fleet index",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobexecutionsforjob": {
+    "name": "ListJobExecutionsForJob",
+    "description": "Grants permission to list the job executions for a job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobexecutionsforthing": {
+    "name": "ListJobExecutionsForThing",
+    "description": "Grants permission to list the job executions for the specified thing",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobtemplates": {
+    "name": "ListJobTemplates",
+    "description": "Grants permission to list job templates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobs": {
+    "name": "ListJobs",
+    "description": "Grants permission to list jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagedjobtemplates": {
+    "name": "ListManagedJobTemplates",
+    "description": "Grants permission to list managed job templates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmetricvalues": {
+    "name": "ListMetricValues",
+    "description": "Grants permissions to list the metric values for a thing based on the metricName, and dimension if specified",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmitigationactions": {
+    "name": "ListMitigationActions",
+    "description": "Grants permission to get a list of all mitigation actions that match the specified filter criteria",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnamedshadowsforthing": {
+    "name": "ListNamedShadowsForThing",
+    "description": "Grants permission to list all named shadows for a given thing",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listotaupdates": {
+    "name": "ListOTAUpdates",
+    "description": "Grants permission to list OTA update jobs in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoutgoingcertificates": {
+    "name": "ListOutgoingCertificates",
+    "description": "Grants permission to list certificates that are being transfered but not yet accepted",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpackageversions": {
+    "name": "ListPackageVersions",
+    "description": "Grants permission to list versions for a package in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpackages": {
+    "name": "ListPackages",
+    "description": "Grants permission to list packages in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpolicies": {
+    "name": "ListPolicies",
+    "description": "Grants permission to list your policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpolicyprincipals": {
+    "name": "ListPolicyPrincipals",
+    "description": "Grants permission to list the principals associated with the specified policy",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpolicyversions": {
+    "name": "ListPolicyVersions",
+    "description": "Grants permission to list the versions of the specified policy, and identifies the default version",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprincipalpolicies": {
+    "name": "ListPrincipalPolicies",
+    "description": "Grants permission to list the policies attached to the specified principal. If you use an Amazon Cognito identity, the ID needs to be in Amazon Cognito Identity format",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprincipalthings": {
+    "name": "ListPrincipalThings",
+    "description": "Grants permission to list the things associated with the specified principal",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprincipalthingsv2": {
+    "name": "ListPrincipalThingsV2",
+    "description": "Grants permission to list the things associated with the specified principal",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprovisioningtemplateversions": {
+    "name": "ListProvisioningTemplateVersions",
+    "description": "Grants permission to get a list of fleet provisioning template versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "provisioningtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprovisioningtemplates": {
+    "name": "ListProvisioningTemplates",
+    "description": "Grants permission to list the fleet provisioning templates in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrelatedresourcesforauditfinding": {
+    "name": "ListRelatedResourcesForAuditFinding",
+    "description": "Grants permission to list related resources for a single audit finding",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listretainedmessages": {
+    "name": "ListRetainedMessages",
+    "description": "Grants permission to list the retained messages for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrolealiases": {
+    "name": "ListRoleAliases",
+    "description": "Grants permission to list role aliases",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsbomvalidationresults": {
+    "name": "ListSbomValidationResults",
+    "description": "Grants permission to list SBOM validation results of a package version",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listscheduledaudits": {
+    "name": "ListScheduledAudits",
+    "description": "Grants permission to list all of your scheduled audits",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsecurityprofiles": {
+    "name": "ListSecurityProfiles",
+    "description": "Grants permission to list the Device Defender security profiles you have created",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "custommetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dimension",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsecurityprofilesfortarget": {
+    "name": "ListSecurityProfilesForTarget",
+    "description": "Grants permission to list the Device Defender security profiles attached to a target",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreams": {
+    "name": "ListStreams",
+    "description": "Grants permission to list the streams in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags for a given resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "authorizer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "billinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cacert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "certificateprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "command",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custommetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dimension",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domainconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dynamicthinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleetmetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "jobtemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mitigationaction",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "otaupdate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioningtemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rolealias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scheduledaudit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securityprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thingtype",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtargetsforpolicy": {
+    "name": "ListTargetsForPolicy",
+    "description": "Grants permission to list targets for the specified policy",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtargetsforsecurityprofile": {
+    "name": "ListTargetsForSecurityProfile",
+    "description": "Grants permission to list the targets associated with a given Device Defender security profile",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthinggroups": {
+    "name": "ListThingGroups",
+    "description": "Grants permission to list all thing groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthinggroupsforthing": {
+    "name": "ListThingGroupsForThing",
+    "description": "Grants permission to list thing groups to which the specified thing belongs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthingprincipals": {
+    "name": "ListThingPrincipals",
+    "description": "Grants permission to list the principals associated with the specified thing",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthingprincipalsv2": {
+    "name": "ListThingPrincipalsV2",
+    "description": "Grants permission to list the principals associated with the specified thing",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthingregistrationtaskreports": {
+    "name": "ListThingRegistrationTaskReports",
+    "description": "Grants permission to list information about bulk thing registration tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthingregistrationtasks": {
+    "name": "ListThingRegistrationTasks",
+    "description": "Grants permission to list bulk thing registration tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthingtypes": {
+    "name": "ListThingTypes",
+    "description": "Grants permission to list all thing types",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthings": {
+    "name": "ListThings",
+    "description": "Grants permission to list all things",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthingsinbillinggroup": {
+    "name": "ListThingsInBillingGroup",
+    "description": "Grants permission to list all things in the specified billing group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthingsinthinggroup": {
+    "name": "ListThingsInThingGroup",
+    "description": "Grants permission to list all things in the specified thing group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtopicruledestinations": {
+    "name": "ListTopicRuleDestinations",
+    "description": "Grants permission to list all TopicRuleDestinations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtopicrules": {
+    "name": "ListTopicRules",
+    "description": "Grants permission to list the rules for the specific topic",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtunnels": {
+    "name": "ListTunnels",
+    "description": "Grants permission to list tunnels",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listv2logginglevels": {
+    "name": "ListV2LoggingLevels",
+    "description": "Grants permission to list the v2 logging levels",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listviolationevents": {
+    "name": "ListViolationEvents",
+    "description": "Grants permission to list the Device Defender security profile violations discovered during the given time period",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "opentunnel": {
+    "name": "OpenTunnel",
+    "description": "Grants permission to open a tunnel",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "iot:ThingGroupArn",
+      "iot:TunnelDestinationService"
+    ],
+    "dependentActions": []
+  },
+  "publish": {
+    "name": "Publish",
+    "description": "Grants permission to publish to the specified topic",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putverificationstateonviolation": {
+    "name": "PutVerificationStateOnViolation",
+    "description": "Grants permission to put verification state on a violation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "receive": {
+    "name": "Receive",
+    "description": "Grants permission to receive from the specified topic",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registercacertificate": {
+    "name": "RegisterCACertificate",
+    "description": "Grants permission to register a CA certificate with AWS IoT",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "registercertificate": {
+    "name": "RegisterCertificate",
+    "description": "Grants permission to register a device certificate with AWS IoT",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registercertificatewithoutca": {
+    "name": "RegisterCertificateWithoutCA",
+    "description": "Grants permission to register a device certificate with AWS IoT without a registered CA (certificate authority)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registerthing": {
+    "name": "RegisterThing",
+    "description": "Grants permission to register your thing",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectcertificatetransfer": {
+    "name": "RejectCertificateTransfer",
+    "description": "Grants permission to reject a pending certificate transfer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removethingfrombillinggroup": {
+    "name": "RemoveThingFromBillingGroup",
+    "description": "Grants permission to remove thing from the specified billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removethingfromthinggroup": {
+    "name": "RemoveThingFromThingGroup",
+    "description": "Grants permission to remove thing from the specified thing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "replacetopicrule": {
+    "name": "ReplaceTopicRule",
+    "description": "Grants permission to replace the specified rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "retainpublish": {
+    "name": "RetainPublish",
+    "description": "Grants permission to publish a retained message to the specified topic",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rotatetunnelaccesstoken": {
+    "name": "RotateTunnelAccessToken",
+    "description": "Grants permission to rotate the access token of a tunnel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tunnel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iot:ThingGroupArn",
+      "iot:TunnelDestinationService",
+      "iot:ClientMode"
+    ],
+    "dependentActions": []
+  },
+  "searchindex": {
+    "name": "SearchIndex",
+    "description": "Grants permission to search IoT fleet index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setdefaultauthorizer": {
+    "name": "SetDefaultAuthorizer",
+    "description": "Grants permission to set the default authorizer. This will be used if a websocket connection is made without specifying an authorizer",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "authorizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setdefaultpolicyversion": {
+    "name": "SetDefaultPolicyVersion",
+    "description": "Grants permission to set the specified version of the specified policy as the policy's default (operative) version",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setloggingoptions": {
+    "name": "SetLoggingOptions",
+    "description": "Grants permission to set the logging options",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setv2logginglevel": {
+    "name": "SetV2LoggingLevel",
+    "description": "Grants permission to set the v2 logging level",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setv2loggingoptions": {
+    "name": "SetV2LoggingOptions",
+    "description": "Grants permission to set the v2 logging options",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startauditmitigationactionstask": {
+    "name": "StartAuditMitigationActionsTask",
+    "description": "Grants permission to start a task that applies a set of mitigation actions to the specified target",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcommandexecution": {
+    "name": "StartCommandExecution",
+    "description": "Grants permission to start a new command execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "command",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "client",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iot:CommandExecutionParameterString/${CommandParameterName}",
+      "iot:CommandExecutionParameterBoolean/${CommandParameterName}",
+      "iot:CommandExecutionParameterNumber/${CommandParameterName}"
+    ],
+    "dependentActions": []
+  },
+  "startdetectmitigationactionstask": {
+    "name": "StartDetectMitigationActionsTask",
+    "description": "Grants permission to start a Device Defender ML Detect mitigation actions task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startondemandaudittask": {
+    "name": "StartOnDemandAuditTask",
+    "description": "Grants permission to start an on-demand Device Defender audit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startthingregistrationtask": {
+    "name": "StartThingRegistrationTask",
+    "description": "Grants permission to start a bulk thing registration task",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopthingregistrationtask": {
+    "name": "StopThingRegistrationTask",
+    "description": "Grants permission to stop a bulk thing registration task",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "subscribe": {
+    "name": "Subscribe",
+    "description": "Grants permission to subscribe to the specified TopicFilter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topicfilter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "authorizer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "billinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cacert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "certificateprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "command",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custommetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dimension",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domainconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dynamicthinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleetmetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "jobtemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mitigationaction",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "otaupdate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "package",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packageversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioningtemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rolealias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scheduledaudit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securityprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thingtype",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "testauthorization": {
+    "name": "TestAuthorization",
+    "description": "Grants permission to test the policies evaluation for group policies",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "testinvokeauthorizer": {
+    "name": "TestInvokeAuthorizer",
+    "description": "Grants permission to test invoke the specified custom authorizer for testing purposes",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "authorizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "transfercertificate": {
+    "name": "TransferCertificate",
+    "description": "Grants permission to transfer the specified certificate to the specified AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "authorizer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "billinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cacert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "certificateprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "command",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custommetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dimension",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domainconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dynamicthinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleetmetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "jobtemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mitigationaction",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "otaupdate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "package",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "packageversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioningtemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rolealias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scheduledaudit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securityprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thingtype",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateaccountauditconfiguration": {
+    "name": "UpdateAccountAuditConfiguration",
+    "description": "Grants permission to configure or reconfigure the Device Defender audit settings for this account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateauditsuppression": {
+    "name": "UpdateAuditSuppression",
+    "description": "Grants permission to update a Device Defender audit suppression",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateauthorizer": {
+    "name": "UpdateAuthorizer",
+    "description": "Grants permission to update an authorizer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "authorizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebillinggroup": {
+    "name": "UpdateBillingGroup",
+    "description": "Grants permission to update information associated with the specified billing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecacertificate": {
+    "name": "UpdateCACertificate",
+    "description": "Grants permission to update a registered CA certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cacert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatecertificate": {
+    "name": "UpdateCertificate",
+    "description": "Grants permission to update the status of the specified certificate. This operation is idempotent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecertificateprovider": {
+    "name": "UpdateCertificateProvider",
+    "description": "Grants permission to update a certificate provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificateprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecommand": {
+    "name": "UpdateCommand",
+    "description": "Grants permission to update a command",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "command",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecustommetric": {
+    "name": "UpdateCustomMetric",
+    "description": "Grants permission to update the specified custom metric",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custommetric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedimension": {
+    "name": "UpdateDimension",
+    "description": "Grants permission to update the definition for a dimension",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dimension",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedomainconfiguration": {
+    "name": "UpdateDomainConfiguration",
+    "description": "Grants permission to update a domain configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domainconfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedynamicthinggroup": {
+    "name": "UpdateDynamicThingGroup",
+    "description": "Grants permission to update a Dynamic Thing Group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dynamicthinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateencryptionconfiguration": {
+    "name": "UpdateEncryptionConfiguration",
+    "description": "Grants permission to update the encryption configuration for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateeventconfigurations": {
+    "name": "UpdateEventConfigurations",
+    "description": "Grants permission to update event configurations",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefleetmetric": {
+    "name": "UpdateFleetMetric",
+    "description": "Grants permission to update a fleet metric",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleetmetric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateindexingconfiguration": {
+    "name": "UpdateIndexingConfiguration",
+    "description": "Grants permission to update fleet indexing configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatejob": {
+    "name": "UpdateJob",
+    "description": "Grants permission to update a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemitigationaction": {
+    "name": "UpdateMitigationAction",
+    "description": "Grants permission to update the definition for the specified mitigation action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mitigationaction",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepackage": {
+    "name": "UpdatePackage",
+    "description": "Grants permission to update a package",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iot:GetIndexingConfiguration"
+    ]
+  },
+  "updatepackageconfiguration": {
+    "name": "UpdatePackageConfiguration",
+    "description": "Grants permission to update the package configuration of the account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatepackageversion": {
+    "name": "UpdatePackageVersion",
+    "description": "Grants permission to update the version of the specified package",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iot:GetIndexingConfiguration",
+          "s3:GetObjectVersion"
+        ]
+      },
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprovisioningtemplate": {
+    "name": "UpdateProvisioningTemplate",
+    "description": "Grants permission to update a fleet provisioning template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "provisioningtemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updaterolealias": {
+    "name": "UpdateRoleAlias",
+    "description": "Grants permission to update the role alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rolealias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatescheduledaudit": {
+    "name": "UpdateScheduledAudit",
+    "description": "Grants permission to update a scheduled audit, including what checks are performed and how often the audit takes place",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduledaudit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesecurityprofile": {
+    "name": "UpdateSecurityProfile",
+    "description": "Grants permission to update a Device Defender security profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securityprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custommetric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dimension",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestream": {
+    "name": "UpdateStream",
+    "description": "Grants permission to update the data for a stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatething": {
+    "name": "UpdateThing",
+    "description": "Grants permission to update information associated with the specified thing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatethinggroup": {
+    "name": "UpdateThingGroup",
+    "description": "Grants permission to update information associated with the specified thing group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatethinggroupsforthing": {
+    "name": "UpdateThingGroupsForThing",
+    "description": "Grants permission to update the thing groups to which the thing belongs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatethingshadow": {
+    "name": "UpdateThingShadow",
+    "description": "Grants permission to update the thing shadow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatethingtype": {
+    "name": "UpdateThingType",
+    "description": "Grants permission to update information associated with the specified thing type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "thingtype",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetopicruledestination": {
+    "name": "UpdateTopicRuleDestination",
+    "description": "Grants permission to update a TopicRuleDestination",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "validatesecurityprofilebehaviors": {
+    "name": "ValidateSecurityProfileBehaviors",
+    "description": "Grants permission to validate a Device Defender security profile behaviors specification",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

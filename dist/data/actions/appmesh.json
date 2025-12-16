@@ -1,0 +1,822 @@
+{
+  "creategatewayroute": {
+    "name": "CreateGatewayRoute",
+    "description": "Grants permission to create a gateway route that is associated with a virtual gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gatewayRoute",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualService",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmesh": {
+    "name": "CreateMesh",
+    "description": "Grants permission to create a service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createroute": {
+    "name": "CreateRoute",
+    "description": "Grants permission to create a route that is associated with a virtual router",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualNode",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createvirtualgateway": {
+    "name": "CreateVirtualGateway",
+    "description": "Grants permission to create a virtual gateway within a service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createvirtualnode": {
+    "name": "CreateVirtualNode",
+    "description": "Grants permission to create a virtual node within a service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualNode",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualService",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createvirtualrouter": {
+    "name": "CreateVirtualRouter",
+    "description": "Grants permission to create a virtual router within a service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualRouter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createvirtualservice": {
+    "name": "CreateVirtualService",
+    "description": "Grants permission to create a virtual service within a service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualService",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualNode",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualRouter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegatewayroute": {
+    "name": "DeleteGatewayRoute",
+    "description": "Grants permission to delete an existing gateway route",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gatewayRoute",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemesh": {
+    "name": "DeleteMesh",
+    "description": "Grants permission to delete an existing service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemeshpolicy": {
+    "name": "DeleteMeshPolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete the RAM access control policy for a mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteroute": {
+    "name": "DeleteRoute",
+    "description": "Grants permission to delete an existing route",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevirtualgateway": {
+    "name": "DeleteVirtualGateway",
+    "description": "Grants permission to delete an existing virtual gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevirtualnode": {
+    "name": "DeleteVirtualNode",
+    "description": "Grants permission to delete an existing virtual node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualNode",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevirtualrouter": {
+    "name": "DeleteVirtualRouter",
+    "description": "Grants permission to delete an existing virtual router",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualRouter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevirtualservice": {
+    "name": "DeleteVirtualService",
+    "description": "Grants permission to delete an existing virtual service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualService",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describegatewayroute": {
+    "name": "DescribeGatewayRoute",
+    "description": "Grants permission to describe an existing gateway route",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gatewayRoute",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemesh": {
+    "name": "DescribeMesh",
+    "description": "Grants permission to describe an existing service mesh",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeroute": {
+    "name": "DescribeRoute",
+    "description": "Grants permission to describe an existing route",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "route",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevirtualgateway": {
+    "name": "DescribeVirtualGateway",
+    "description": "Grants permission to describe an existing virtual gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "virtualGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevirtualnode": {
+    "name": "DescribeVirtualNode",
+    "description": "Grants permission to describe an existing virtual node",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "virtualNode",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevirtualrouter": {
+    "name": "DescribeVirtualRouter",
+    "description": "Grants permission to describe an existing virtual router",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "virtualRouter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevirtualservice": {
+    "name": "DescribeVirtualService",
+    "description": "Grants permission to describe an existing virtual service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "virtualService",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmeshpolicy": {
+    "name": "GetMeshPolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read the RAM access control policy for a mesh",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgatewayroutes": {
+    "name": "ListGatewayRoutes",
+    "description": "Grants permission to list existing gateway routes in a service mesh",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "virtualGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmeshes": {
+    "name": "ListMeshes",
+    "description": "Grants permission to list existing service meshes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listroutes": {
+    "name": "ListRoutes",
+    "description": "Grants permission to list existing routes in a service mesh",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "virtualRouter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for an App Mesh resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "gatewayRoute",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mesh",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "route",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualNode",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualRouter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualService",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvirtualgateways": {
+    "name": "ListVirtualGateways",
+    "description": "Grants permission to list existing virtual gateways in a service mesh",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvirtualnodes": {
+    "name": "ListVirtualNodes",
+    "description": "Grants permission to list existing virtual nodes",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvirtualrouters": {
+    "name": "ListVirtualRouters",
+    "description": "Grants permission to list existing virtual routers in a service mesh",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvirtualservices": {
+    "name": "ListVirtualServices",
+    "description": "Grants permission to list existing virtual services in a service mesh",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putmeshpolicy": {
+    "name": "PutMeshPolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to define the RAM access control policy for a mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "streamaggregatedresources": {
+    "name": "StreamAggregatedResources",
+    "description": "Grants permission to receive streamed resources for an App Mesh endpoint (VirtualNode/VirtualGateway)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "virtualGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualNode",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource with a specified resourceArn",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "gatewayRoute",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mesh",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "route",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualNode",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualRouter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualService",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to delete a tag from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "gatewayRoute",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mesh",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "route",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualNode",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualRouter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualService",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updategatewayroute": {
+    "name": "UpdateGatewayRoute",
+    "description": "Grants permission to update an existing gateway route for a specified service mesh and virtual gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gatewayRoute",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualService",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemesh": {
+    "name": "UpdateMesh",
+    "description": "Grants permission to update an existing service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mesh",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateroute": {
+    "name": "UpdateRoute",
+    "description": "Grants permission to update an existing route for a specified service mesh and virtual router",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualNode",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevirtualgateway": {
+    "name": "UpdateVirtualGateway",
+    "description": "Grants permission to update an existing virtual gateway in a specified service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevirtualnode": {
+    "name": "UpdateVirtualNode",
+    "description": "Grants permission to update an existing virtual node in a specified service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualNode",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevirtualrouter": {
+    "name": "UpdateVirtualRouter",
+    "description": "Grants permission to update an existing virtual router in a specified service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualRouter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatevirtualservice": {
+    "name": "UpdateVirtualService",
+    "description": "Grants permission to update an existing virtual service in a specified service mesh",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "virtualService",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualNode",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "virtualRouter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

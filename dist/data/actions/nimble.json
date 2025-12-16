@@ -1,0 +1,965 @@
+{
+  "accepteulas": {
+    "name": "AcceptEulas",
+    "description": "Grants permission to accept EULAs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eula",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlaunchprofile": {
+    "name": "CreateLaunchProfile",
+    "description": "Grants permission to create a launch profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DescribeNatGateways",
+          "ec2:DescribeNetworkAcls",
+          "ec2:DescribeRouteTables",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcEndpoints",
+          "ec2:RunInstances"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstreamingimage": {
+    "name": "CreateStreamingImage",
+    "description": "Grants permission to create a streaming image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeImages",
+          "ec2:DescribeSnapshots",
+          "ec2:ModifyInstanceAttribute",
+          "ec2:ModifySnapshotAttribute",
+          "ec2:RegisterImage"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstreamingsession": {
+    "name": "CreateStreamingSession",
+    "description": "Grants permission to create a streaming session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:CreateNetworkInterfacePermission",
+          "nimble:GetLaunchProfile",
+          "nimble:GetLaunchProfileInitialization",
+          "nimble:ListEulaAcceptances"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstreamingsessionstream": {
+    "name": "CreateStreamingSessionStream",
+    "description": "Grants permission to create a StreamingSessionStream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streaming-session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "createstudio": {
+    "name": "CreateStudio",
+    "description": "Grants permission to create a studio",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole",
+          "sso:CreateManagedApplicationInstance"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstudiocomponent": {
+    "name": "CreateStudioComponent",
+    "description": "Grants permission to create a studio component. A studio component designates a network resource to which a launch profile will provide access",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ds:AuthorizeApplication",
+          "ds:DescribeDirectories",
+          "ec2:DescribeSecurityGroups",
+          "fsx:DescribeFileSystems",
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletelaunchprofile": {
+    "name": "DeleteLaunchProfile",
+    "description": "Grants permission to delete a launch profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelaunchprofilemember": {
+    "name": "DeleteLaunchProfileMember",
+    "description": "Grants permission to delete a launch profile member",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestreamingimage": {
+    "name": "DeleteStreamingImage",
+    "description": "Grants permission to delete a streaming image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streaming-image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteSnapshot",
+      "ec2:DeregisterImage",
+      "ec2:ModifyInstanceAttribute",
+      "ec2:ModifySnapshotAttribute"
+    ]
+  },
+  "deletestreamingsession": {
+    "name": "DeleteStreamingSession",
+    "description": "Grants permission to delete a streaming session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streaming-session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DeleteNetworkInterface"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "deletestudio": {
+    "name": "DeleteStudio",
+    "description": "Grants permission to delete a studio",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso:DeleteManagedApplicationInstance"
+    ]
+  },
+  "deletestudiocomponent": {
+    "name": "DeleteStudioComponent",
+    "description": "Grants permission to delete a studio component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio-component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:UnauthorizeApplication"
+    ]
+  },
+  "deletestudiomember": {
+    "name": "DeleteStudioMember",
+    "description": "Grants permission to delete a studio member",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "geteula": {
+    "name": "GetEula",
+    "description": "Grants permission to get a EULA",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eula",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfeaturemap": {
+    "name": "GetFeatureMap",
+    "isPermissionOnly": true,
+    "description": "Grants permission to allow Nimble Studio portal to show the appropriate features for this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlaunchprofile": {
+    "name": "GetLaunchProfile",
+    "description": "Grants permission to get a launch profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlaunchprofiledetails": {
+    "name": "GetLaunchProfileDetails",
+    "description": "Grants permission to get a launch profile's details, which includes the summary of studio components and streaming images used by the launch profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlaunchprofileinitialization": {
+    "name": "GetLaunchProfileInitialization",
+    "description": "Grants permission to get a launch profile initialization. A launch profile initialization is a dereferenced version of a launch profile, including attached studio component connection information",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:DescribeDirectories",
+      "ec2:DescribeSecurityGroups",
+      "fsx:DescribeFileSystems"
+    ]
+  },
+  "getlaunchprofilemember": {
+    "name": "GetLaunchProfileMember",
+    "description": "Grants permission to get a launch profile member",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstreamingimage": {
+    "name": "GetStreamingImage",
+    "description": "Grants permission to get a streaming image",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "streaming-image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstreamingsession": {
+    "name": "GetStreamingSession",
+    "description": "Grants permission to get a streaming session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "streaming-session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "getstreamingsessionbackup": {
+    "name": "GetStreamingSessionBackup",
+    "description": "Grants permission to get a streaming session backup",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "streaming-session-backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "getstreamingsessionstream": {
+    "name": "GetStreamingSessionStream",
+    "description": "Grants permission to get a streaming session stream",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "streaming-session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "getstudio": {
+    "name": "GetStudio",
+    "description": "Grants permission to get a studio",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstudiocomponent": {
+    "name": "GetStudioComponent",
+    "description": "Grants permission to get a studio component",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio-component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstudiomember": {
+    "name": "GetStudioMember",
+    "description": "Grants permission to get a studio member",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeulaacceptances": {
+    "name": "ListEulaAcceptances",
+    "description": "Grants permission to list EULA acceptances",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eula-acceptance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeulas": {
+    "name": "ListEulas",
+    "description": "Grants permission to list EULAs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eula",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlaunchprofilemembers": {
+    "name": "ListLaunchProfileMembers",
+    "description": "Grants permission to list launch profile members",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlaunchprofiles": {
+    "name": "ListLaunchProfiles",
+    "description": "Grants permission to list launch profiles",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "nimble:principalId",
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "liststreamingimages": {
+    "name": "ListStreamingImages",
+    "description": "Grants permission to list streaming images",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreamingsessionbackups": {
+    "name": "ListStreamingSessionBackups",
+    "description": "Grants permission to list streaming session backups",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "liststreamingsessions": {
+    "name": "ListStreamingSessions",
+    "description": "Grants permission to list streaming sessions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "nimble:createdBy",
+      "nimble:ownedBy",
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "liststudiocomponents": {
+    "name": "ListStudioComponents",
+    "description": "Grants permission to list studio components",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststudiomembers": {
+    "name": "ListStudioMembers",
+    "description": "Grants permission to list studio members",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststudios": {
+    "name": "ListStudios",
+    "description": "Grants permission to list all studios",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags on a Nimble Studio resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-image",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-session-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "studio",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "studio-component",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putlaunchprofilemembers": {
+    "name": "PutLaunchProfileMembers",
+    "description": "Grants permission to add/update launch profile members",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso-directory:DescribeUsers"
+    ]
+  },
+  "putstudiologevents": {
+    "name": "PutStudioLogEvents",
+    "isPermissionOnly": true,
+    "description": "Grants permission to report metrics and logs for the Nimble Studio portal to monitor application health",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putstudiomembers": {
+    "name": "PutStudioMembers",
+    "description": "Grants permission to add/update studio members",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso-directory:DescribeUsers"
+    ]
+  },
+  "startstreamingsession": {
+    "name": "StartStreamingSession",
+    "description": "Grants permission to start a streaming session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streaming-session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "nimble:GetLaunchProfile",
+          "nimble:GetLaunchProfileMember"
+        ]
+      },
+      {
+        "name": "streaming-session-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "startstudiossoconfigurationrepair": {
+    "name": "StartStudioSSOConfigurationRepair",
+    "description": "Grants permission to repair the studio's AWS IAM Identity Center configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso:CreateManagedApplicationInstance",
+      "sso:GetManagedApplicationInstance"
+    ]
+  },
+  "stopstreamingsession": {
+    "name": "StopStreamingSession",
+    "description": "Grants permission to stop a streaming session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streaming-session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "nimble:GetLaunchProfile"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "nimble:requesterPrincipalId"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or overwrite one or more tags for the specified Nimble Studio resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-image",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-session-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "studio",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "studio-component",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to disassociate one or more tags from the specified Nimble Studio resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-image",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "streaming-session-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "studio",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "studio-component",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatelaunchprofile": {
+    "name": "UpdateLaunchProfile",
+    "description": "Grants permission to update a launch profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeNatGateways",
+      "ec2:DescribeNetworkAcls",
+      "ec2:DescribeRouteTables",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcEndpoints"
+    ]
+  },
+  "updatelaunchprofilemember": {
+    "name": "UpdateLaunchProfileMember",
+    "description": "Grants permission to update a launch profile member",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "launch-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestreamingimage": {
+    "name": "UpdateStreamingImage",
+    "description": "Grants permission to update a streaming image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "streaming-image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestudio": {
+    "name": "UpdateStudio",
+    "description": "Grants permission to update a studio",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatestudiocomponent": {
+    "name": "UpdateStudioComponent",
+    "description": "Grants permission to update a studio component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio-component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:AuthorizeApplication",
+      "ds:DescribeDirectories",
+      "ec2:DescribeSecurityGroups",
+      "fsx:DescribeFileSystems",
+      "iam:PassRole"
+    ]
+  }
+}

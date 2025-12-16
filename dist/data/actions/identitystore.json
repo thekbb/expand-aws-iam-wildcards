@@ -1,0 +1,595 @@
+{
+  "creategroup": {
+    "name": "CreateGroup",
+    "description": "Grants permission to create a group in the specified IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
+    "dependentActions": []
+  },
+  "creategroupmembership": {
+    "name": "CreateGroupMembership",
+    "description": "Grants permission to create a member to a group in the specified IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "createidentitystore": {
+    "name": "CreateIdentityStore",
+    "description": "Grants permission to create a new IdentityStore in an AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:Encrypt",
+      "kms:GenerateDataKeyWithoutPlaintext"
+    ]
+  },
+  "createuser": {
+    "name": "CreateUser",
+    "description": "Grants permission to create a user in the specified IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers",
+      "identitystore:ReservedUserId"
+    ],
+    "dependentActions": []
+  },
+  "deletegroup": {
+    "name": "DeleteGroup",
+    "description": "Grants permission to delete a group in the specified IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
+    "dependentActions": []
+  },
+  "deletegroupmembership": {
+    "name": "DeleteGroupMembership",
+    "description": "Grants permission to remove a member that is part of a group in the specified IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "GroupMembership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "deleteidentitystore": {
+    "name": "DeleteIdentityStore",
+    "description": "Grants permission to delete an IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteuser": {
+    "name": "DeleteUser",
+    "description": "Grants permission to delete a user in the specified IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers"
+    ],
+    "dependentActions": []
+  },
+  "describegroup": {
+    "name": "DescribeGroup",
+    "description": "Grants permission to retrieve information about a group in the specified IdentityStore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
+    "dependentActions": []
+  },
+  "describegroupmembership": {
+    "name": "DescribeGroupMembership",
+    "description": "Grants permission to retrieve information about a member that is part of a group in the specified IdentityStore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "GroupMembership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "describeuser": {
+    "name": "DescribeUser",
+    "description": "Grants permission to retrieve information about user in the specified IdentityStore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers"
+    ],
+    "dependentActions": []
+  },
+  "getgroupid": {
+    "name": "GetGroupId",
+    "description": "Grants permission to retrieve ID information about group in the specified IdentityStore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "getgroupmembershipid": {
+    "name": "GetGroupMembershipId",
+    "description": "Grants permission to retrieve ID information of a member which is part of a group in the specified IdentityStore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "GroupMembership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "getuserid": {
+    "name": "GetUserId",
+    "description": "Grants permission to retrieves ID information about user in the specified IdentityStore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "ismemberingroups": {
+    "name": "IsMemberInGroups",
+    "description": "Grants permission to check if a member is a part of groups in the specified IdentityStore",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AllGroupMemberships",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "listgroupmemberships": {
+    "name": "ListGroupMemberships",
+    "description": "Grants permission to retrieve all members that are part of a group in the specified IdentityStore",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AllGroupMemberships",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "listgroupmembershipsformember": {
+    "name": "ListGroupMembershipsForMember",
+    "description": "Grants permission to list groups of the target member in the specified IdentityStore",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AllGroupMemberships",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "listgroups": {
+    "name": "ListGroups",
+    "description": "Grants permission to search for groups within the specified IdentityStore",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AllGroups",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
+    "dependentActions": []
+  },
+  "listusers": {
+    "name": "ListUsers",
+    "description": "Grants permission to search for users in the specified IdentityStore",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AllUsers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers"
+    ],
+    "dependentActions": []
+  },
+  "reserveuser": {
+    "name": "ReserveUser",
+    "description": "Grants permission to reserve a user by getting a userId",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
+  "updategroup": {
+    "name": "UpdateGroup",
+    "description": "Grants permission to update information about a group in the specified IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
+    "dependentActions": []
+  },
+  "updateidentitystore": {
+    "name": "UpdateIdentityStore",
+    "description": "Grants permission to update the configuration of an IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:Encrypt",
+      "kms:GenerateDataKeyWithoutPlaintext"
+    ]
+  },
+  "updateuser": {
+    "name": "UpdateUser",
+    "description": "Grants permission to update user information in the specified IdentityStore",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      },
+      {
+        "name": "User",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers"
+    ],
+    "dependentActions": []
+  }
+}

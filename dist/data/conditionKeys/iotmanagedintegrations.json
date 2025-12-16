@@ -1,0 +1,27 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by a tag key and value pair that is allowed in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by a tag key and value pair of a resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by tag keys that are passed in the request",
+    "type": "ArrayOfString"
+  },
+  "iotmanagedintegrations:cloudconnectorid": {
+    "key": "iotmanagedintegrations:cloudConnectorId",
+    "description": "Filters access by the CloudConnectorId",
+    "type": "String"
+  },
+  "iotmanagedintegrations:connectordestinationid": {
+    "key": "iotmanagedintegrations:connectorDestinationId",
+    "description": "Filters access by the ConnectorDestinationId",
+    "type": "String"
+  }
+}

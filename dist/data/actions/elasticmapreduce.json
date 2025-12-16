@@ -1,0 +1,1184 @@
+{
+  "accessalleventlogs": {
+    "name": "AccessAllEventLogs",
+    "description": "Grants permission to view all event logs in a persistent application history server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "addinstancefleet": {
+    "name": "AddInstanceFleet",
+    "description": "Grants permission to add an instance fleet to a running cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "addinstancegroups": {
+    "name": "AddInstanceGroups",
+    "description": "Grants permission to add instance groups to a running cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "addjobflowsteps": {
+    "name": "AddJobFlowSteps",
+    "description": "Grants permission to add new steps to a running cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "elasticmapreduce:ExecutionRoleArn"
+    ],
+    "dependentActions": []
+  },
+  "addtags": {
+    "name": "AddTags",
+    "description": "Grants permission to add tags to an Amazon EMR resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "editor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "notebook-execution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "studio",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticmapreduce:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "attacheditor": {
+    "name": "AttachEditor",
+    "isPermissionOnly": true,
+    "description": "Grants permission to attach an EMR notebook to a compute engine",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelsteps": {
+    "name": "CancelSteps",
+    "description": "Grants permission to cancel a pending step or steps in a running cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createeditor": {
+    "name": "CreateEditor",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an EMR notebook",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticmapreduce:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createpersistentappui": {
+    "name": "CreatePersistentAppUI",
+    "description": "Grants permission to create a persistent application history server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createrepository": {
+    "name": "CreateRepository",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an EMR notebook repository",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsecurityconfiguration": {
+    "name": "CreateSecurityConfiguration",
+    "description": "Grants permission to create a security configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createstudio": {
+    "name": "CreateStudio",
+    "description": "Grants permission to create an EMR Studio",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticmapreduce:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createstudiopresignedurl": {
+    "name": "CreateStudioPresignedUrl",
+    "description": "Grants permission to launch an EMR Studio using IAM authentication mode",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createstudiosessionmapping": {
+    "name": "CreateStudioSessionMapping",
+    "description": "Grants permission to create an EMR Studio session mapping",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeditor": {
+    "name": "DeleteEditor",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete an EMR notebook",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterepository": {
+    "name": "DeleteRepository",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete an EMR notebook repository",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesecurityconfiguration": {
+    "name": "DeleteSecurityConfiguration",
+    "description": "Grants permission to delete a security configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestudio": {
+    "name": "DeleteStudio",
+    "description": "Grants permission to delete an EMR Studio",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestudiosessionmapping": {
+    "name": "DeleteStudioSessionMapping",
+    "description": "Grants permission to delete an EMR Studio session mapping",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteworkspaceaccess": {
+    "name": "DeleteWorkspaceAccess",
+    "isPermissionOnly": true,
+    "description": "Grants permission to block an identity from opening a collaborative workspace",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecluster": {
+    "name": "DescribeCluster",
+    "description": "Grants permission to get details about a cluster, including status, hardware and software configuration, VPC settings, and so on",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeeditor": {
+    "name": "DescribeEditor",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view information about a notebook, including status, user, role, tags, location, and more",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejobflows": {
+    "name": "DescribeJobFlows",
+    "description": "Grants permission to describe details of clusters (job flows). This API is deprecated and will eventually be removed. We recommend you use ListClusters, DescribeCluster, ListSteps, ListInstanceGroups and ListBootstrapActions instead",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describenotebookexecution": {
+    "name": "DescribeNotebookExecution",
+    "description": "Grants permission to view information about a notebook execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "notebook-execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describepersistentappui": {
+    "name": "DescribePersistentAppUI",
+    "description": "Grants permission to describe a persistent application history server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereleaselabel": {
+    "name": "DescribeReleaseLabel",
+    "description": "Grants permission to view information about an EMR release, such as which applications are supported",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerepository": {
+    "name": "DescribeRepository",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe an EMR notebook repository",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesecurityconfiguration": {
+    "name": "DescribeSecurityConfiguration",
+    "description": "Grants permission to get details of a security configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestep": {
+    "name": "DescribeStep",
+    "description": "Grants permission to get details about a cluster step",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describestudio": {
+    "name": "DescribeStudio",
+    "description": "Grants permission to view information about an EMR Studio",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "detacheditor": {
+    "name": "DetachEditor",
+    "isPermissionOnly": true,
+    "description": "Grants permission to detach an EMR notebook from a compute engine",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautoterminationpolicy": {
+    "name": "GetAutoTerminationPolicy",
+    "description": "Grants permission to retrieve the auto-termination policy associated with a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getblockpublicaccessconfiguration": {
+    "name": "GetBlockPublicAccessConfiguration",
+    "description": "Grants permission to retrieve the EMR block public access configuration for the AWS account in the Region",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getclustersessioncredentials": {
+    "name": "GetClusterSessionCredentials",
+    "description": "Grants permission to retrieve HTTP basic credentials associated with a given execution IAM Role for a fine-grained access control enabled EMR Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "elasticmapreduce:ExecutionRoleArn"
+    ],
+    "dependentActions": []
+  },
+  "getmanagedscalingpolicy": {
+    "name": "GetManagedScalingPolicy",
+    "description": "Grants permission to retrieve the managed scaling policy associated with a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getonclusterappuipresignedurl": {
+    "name": "GetOnClusterAppUIPresignedURL",
+    "description": "Grants permission to get a presigned URL for an application history server running on the cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpersistentappuipresignedurl": {
+    "name": "GetPersistentAppUIPresignedURL",
+    "description": "Grants permission to get a presigned URL for a persistent application history server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "elasticmapreduce:ExecutionRoleArn"
+    ],
+    "dependentActions": []
+  },
+  "getstudiosessionmapping": {
+    "name": "GetStudioSessionMapping",
+    "description": "Grants permission to view information about an EMR Studio session mapping",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "linkrepository": {
+    "name": "LinkRepository",
+    "isPermissionOnly": true,
+    "description": "Grants permission to link an EMR notebook repository to EMR notebooks",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbootstrapactions": {
+    "name": "ListBootstrapActions",
+    "description": "Grants permission to get details about the bootstrap actions associated with a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclusters": {
+    "name": "ListClusters",
+    "description": "Grants permission to get the status of accessible clusters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeditors": {
+    "name": "ListEditors",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list summary information for accessible EMR notebooks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinstancefleets": {
+    "name": "ListInstanceFleets",
+    "description": "Grants permission to get details of instance fleets in a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinstancegroups": {
+    "name": "ListInstanceGroups",
+    "description": "Grants permission to get details of instance groups in a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinstances": {
+    "name": "ListInstances",
+    "description": "Grants permission to get details about the Amazon EC2 instances in a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnotebookexecutions": {
+    "name": "ListNotebookExecutions",
+    "description": "Grants permission to list summary information for notebook executions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreleaselabels": {
+    "name": "ListReleaseLabels",
+    "description": "Grants permission to list and filter the available EMR releases in the current region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrepositories": {
+    "name": "ListRepositories",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list existing EMR notebook repositories",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsecurityconfigurations": {
+    "name": "ListSecurityConfigurations",
+    "description": "Grants permission to list available security configurations in this account by name, along with creation dates and times",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststeps": {
+    "name": "ListSteps",
+    "description": "Grants permission to list steps associated with a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststudiosessionmappings": {
+    "name": "ListStudioSessionMappings",
+    "description": "Grants permission to list summary information about EMR Studio session mappings",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststudios": {
+    "name": "ListStudios",
+    "description": "Grants permission to list summary information about EMR Studios",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsupportedinstancetypes": {
+    "name": "ListSupportedInstanceTypes",
+    "description": "Grants permission to list the Amazon EC2 instance types that an Amazon EMR release supports",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listworkspaceaccessidentities": {
+    "name": "ListWorkspaceAccessIdentities",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list identities that are granted access to a workspace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "modifycluster": {
+    "name": "ModifyCluster",
+    "description": "Grants permission to change cluster settings such as number of steps that can be executed concurrently for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "modifyinstancefleet": {
+    "name": "ModifyInstanceFleet",
+    "description": "Grants permission to change the target On-Demand and target Spot capacities for a instance fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "modifyinstancegroups": {
+    "name": "ModifyInstanceGroups",
+    "description": "Grants permission to change the number and configuration of EC2 instances for an instance group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "openeditorinconsole": {
+    "name": "OpenEditorInConsole",
+    "isPermissionOnly": true,
+    "description": "Grants permission to launch the Jupyter notebook editor for an EMR notebook from within the console",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putautoscalingpolicy": {
+    "name": "PutAutoScalingPolicy",
+    "description": "Grants permission to create or update an automatic scaling policy for a core instance group or task instance group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putautoterminationpolicy": {
+    "name": "PutAutoTerminationPolicy",
+    "description": "Grants permission to create or update the auto-termination policy associated with a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putblockpublicaccessconfiguration": {
+    "name": "PutBlockPublicAccessConfiguration",
+    "description": "Grants permission to create or update the EMR block public access configuration for the AWS account in the Region",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putmanagedscalingpolicy": {
+    "name": "PutManagedScalingPolicy",
+    "description": "Grants permission to create or update the managed scaling policy associated with a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putworkspaceaccess": {
+    "name": "PutWorkspaceAccess",
+    "isPermissionOnly": true,
+    "description": "Grants permission to allow an identity to open a collaborative workspace",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeautoscalingpolicy": {
+    "name": "RemoveAutoScalingPolicy",
+    "description": "Grants permission to remove an automatic scaling policy from an instance group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeautoterminationpolicy": {
+    "name": "RemoveAutoTerminationPolicy",
+    "description": "Grants permission to remove the auto-termination policy associated with a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removemanagedscalingpolicy": {
+    "name": "RemoveManagedScalingPolicy",
+    "description": "Grants permission to remove the managed scaling policy associated with a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removetags": {
+    "name": "RemoveTags",
+    "description": "Grants permission to remove tags from an Amazon EMR resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "editor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "notebook-execution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "studio",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "runjobflow": {
+    "name": "RunJobFlow",
+    "description": "Grants permission to create and launch a cluster (job flow)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticmapreduce:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "setkeepjobflowalivewhennosteps": {
+    "name": "SetKeepJobFlowAliveWhenNoSteps",
+    "description": "Grants permission to add and remove auto terminate after step execution for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setterminationprotection": {
+    "name": "SetTerminationProtection",
+    "description": "Grants permission to add and remove termination protection for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setunhealthynodereplacement": {
+    "name": "SetUnhealthyNodeReplacement",
+    "description": "Grants permission to enable or disable unhealthy node replacement for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setvisibletoallusers": {
+    "name": "SetVisibleToAllUsers",
+    "description": "Grants permission to set whether all AWS Identity and Access Management (IAM) users in the AWS account can view a cluster. This API is deprecated and your cluster may be visible to all users in your account. To restrict cluster access using an IAM policy, see AWS Identity and Access Management for Amazon EMR (https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-iam.html)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starteditor": {
+    "name": "StartEditor",
+    "isPermissionOnly": true,
+    "description": "Grants permission to start an EMR notebook",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startnotebookexecution": {
+    "name": "StartNotebookExecution",
+    "description": "Grants permission to start an EMR notebook execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticmapreduce:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "stopeditor": {
+    "name": "StopEditor",
+    "isPermissionOnly": true,
+    "description": "Grants permission to shut down an EMR notebook",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopnotebookexecution": {
+    "name": "StopNotebookExecution",
+    "description": "Grants permission to stop notebook execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "notebook-execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "terminatejobflows": {
+    "name": "TerminateJobFlows",
+    "description": "Grants permission to terminate a cluster (job flow)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "unlinkrepository": {
+    "name": "UnlinkRepository",
+    "isPermissionOnly": true,
+    "description": "Grants permission to unlink an EMR notebook repository from EMR notebooks",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateeditor": {
+    "name": "UpdateEditor",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update an EMR notebook",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "editor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterepository": {
+    "name": "UpdateRepository",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update an EMR notebook repository",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestudio": {
+    "name": "UpdateStudio",
+    "description": "Grants permission to update information about an EMR Studio",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestudiosessionmapping": {
+    "name": "UpdateStudioSessionMapping",
+    "description": "Grants permission to update an EMR Studio session mapping",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "vieweventsfromallclustersinconsole": {
+    "name": "ViewEventsFromAllClustersInConsole",
+    "isPermissionOnly": true,
+    "description": "Grants permission to use the EMR console to view events from all clusters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

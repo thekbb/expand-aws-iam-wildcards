@@ -1,0 +1,47 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the tags that are passed in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the tag keys that are passed in the request",
+    "type": "ArrayOfString"
+  },
+  "partnercentral:catalog": {
+    "key": "partnercentral:Catalog",
+    "description": "Filters access by a specific Catalog",
+    "type": "String"
+  },
+  "partnercentral:channelhandshaketype": {
+    "key": "partnercentral:ChannelHandshakeType",
+    "description": "Filters access by channel handshake types",
+    "type": "String"
+  },
+  "partnercentral:fulfillmenttypes": {
+    "key": "partnercentral:FulfillmentTypes",
+    "description": "Filters access by benefit fulfillment types",
+    "type": "ArrayOfString"
+  },
+  "partnercentral:programs": {
+    "key": "partnercentral:Programs",
+    "description": "Filters access by program",
+    "type": "ArrayOfString"
+  },
+  "partnercentral:relatedentitytype": {
+    "key": "partnercentral:RelatedEntityType",
+    "description": "Filters access by entity types for Opportunity association",
+    "type": "String"
+  },
+  "partnercentral:verificationtype": {
+    "key": "partnercentral:VerificationType",
+    "description": "Filters access by the type of verification being performed",
+    "type": "String"
+  }
+}

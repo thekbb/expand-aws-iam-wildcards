@@ -1,0 +1,236 @@
+{
+  "addtagstocertificate": {
+    "name": "AddTagsToCertificate",
+    "description": "Grants permission to add one or more tags to a certificate",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletecertificate": {
+    "name": "DeleteCertificate",
+    "description": "Grants permission to delete a certificate and its associated private key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecertificate": {
+    "name": "DescribeCertificate",
+    "description": "Grants permission to retreive a certificates and its metadata",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "exportcertificate": {
+    "name": "ExportCertificate",
+    "description": "Grants permission to export an exportable certificate for use anywhere",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "acm:DomainNames"
+    ],
+    "dependentActions": []
+  },
+  "getaccountconfiguration": {
+    "name": "GetAccountConfiguration",
+    "description": "Grants permission to retrieve account level configuration from AWS Certificate Manager",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcertificate": {
+    "name": "GetCertificate",
+    "description": "Grants permission to retrieve a certificate and certificate chain for a certificate ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importcertificate": {
+    "name": "ImportCertificate",
+    "description": "Grants permission to import a 3rd party certificate into AWS Certificate Manager (ACM)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "listcertificates": {
+    "name": "ListCertificates",
+    "description": "Grants permission to retrieve a list of the certificate ARNs and the domain name for each ARN",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforcertificate": {
+    "name": "ListTagsForCertificate",
+    "description": "Grants permission to lists the tags that have been associated with a certificate",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putaccountconfiguration": {
+    "name": "PutAccountConfiguration",
+    "description": "Grants permission to update account level configuration in AWS Certificate Manager",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removetagsfromcertificate": {
+    "name": "RemoveTagsFromCertificate",
+    "description": "Grants permission to remove one or more tags from a certificate",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "renewcertificate": {
+    "name": "RenewCertificate",
+    "description": "Grants permission to renew an eligible private certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "requestcertificate": {
+    "name": "RequestCertificate",
+    "description": "Grants permission to requests a public or private certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "acm:DomainNames",
+      "acm:CertificateTransparencyLogging",
+      "acm:ValidationMethod",
+      "acm:KeyAlgorithm",
+      "acm:CertificateAuthority",
+      "acm:Export"
+    ],
+    "dependentActions": []
+  },
+  "resendvalidationemail": {
+    "name": "ResendValidationEmail",
+    "description": "Grants permission to resend an email to request domain ownership validation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revokecertificate": {
+    "name": "RevokeCertificate",
+    "description": "Grants permission to revoke an exportable certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "acm:DomainNames"
+    ],
+    "dependentActions": []
+  },
+  "updatecertificateoptions": {
+    "name": "UpdateCertificateOptions",
+    "description": "Grants permission to update a certificate configuration. Use this to specify whether to opt in to or out of certificate transparency logging",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by requiring tag values present in a resource creation request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by requiring tag value associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by requiring the presence of mandatory tags in the request",
+    "type": "ArrayOfString"
+  },
+  "transcribe:outputbucketname": {
+    "key": "transcribe:OutputBucketName",
+    "description": "Filters access based on the output bucket name included in the request",
+    "type": "String"
+  },
+  "transcribe:outputencryptionkmskeyid": {
+    "key": "transcribe:OutputEncryptionKMSKeyId",
+    "description": "Filters access based on the KMS key id included in the request, provided in the form of a KMS key ARN",
+    "type": "String"
+  },
+  "transcribe:outputkey": {
+    "key": "transcribe:OutputKey",
+    "description": "Filters access based on the output key included in the request",
+    "type": "String"
+  },
+  "transcribe:outputlocation": {
+    "key": "transcribe:OutputLocation",
+    "description": "Filters access based on the output location included in the request",
+    "type": "String"
+  }
+}

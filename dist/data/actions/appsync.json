@@ -1,0 +1,1024 @@
+{
+  "associateapi": {
+    "name": "AssociateApi",
+    "description": "Grants permission to attach a GraphQL API to a custom domain name in AppSync",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatemergedgraphqlapi": {
+    "name": "AssociateMergedGraphqlApi",
+    "description": "Grants permission to associate a merged API to a source API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graphqlapi",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatesourcegraphqlapi": {
+    "name": "AssociateSourceGraphqlApi",
+    "description": "Grants permission to associate a source API to a merged API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graphqlapi",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapi": {
+    "name": "CreateApi",
+    "description": "Grants permission to create an API",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "createapicache": {
+    "name": "CreateApiCache",
+    "description": "Grants permission to create an API cache in AppSync",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapikey": {
+    "name": "CreateApiKey",
+    "description": "Grants permission to create a unique key that you can distribute to clients who are executing your API",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createchannelnamespace": {
+    "name": "CreateChannelNamespace",
+    "description": "Grants permission to create a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdatasource": {
+    "name": "CreateDataSource",
+    "description": "Grants permission to create a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdomainname": {
+    "name": "CreateDomainName",
+    "description": "Grants permission to create a custom domain name in AppSync",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfunction": {
+    "name": "CreateFunction",
+    "description": "Grants permission to create a new function",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "creategraphqlapi": {
+    "name": "CreateGraphqlApi",
+    "description": "Grants permission to create a GraphQL API, which is the top level AppSync resource",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "appsync:Visibility"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "createresolver": {
+    "name": "CreateResolver",
+    "description": "Grants permission to create a resolver. A resolver converts incoming requests into a format that a data source can understand, and converts the data source's responses into GraphQL",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtype": {
+    "name": "CreateType",
+    "description": "Grants permission to create a type",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapi": {
+    "name": "DeleteApi",
+    "description": "Grants permission to delete a API. This will also clean up every AppSync resource below that API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteapicache": {
+    "name": "DeleteApiCache",
+    "description": "Grants permission to delete an API cache in AppSync",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapikey": {
+    "name": "DeleteApiKey",
+    "description": "Grants permission to delete an API key",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletechannelnamespace": {
+    "name": "DeleteChannelNamespace",
+    "description": "Grants permission to delete a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletedatasource": {
+    "name": "DeleteDataSource",
+    "description": "Grants permission to delete a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedomainname": {
+    "name": "DeleteDomainName",
+    "description": "Grants permission to delete a custom domain name in AppSync",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletefunction": {
+    "name": "DeleteFunction",
+    "description": "Grants permission to delete a function",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegraphqlapi": {
+    "name": "DeleteGraphqlApi",
+    "description": "Grants permission to delete a GraphQL Api. This will also clean up every AppSync resource below that API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graphqlapi",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresolver": {
+    "name": "DeleteResolver",
+    "description": "Grants permission to delete a resolver",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to remove a resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetype": {
+    "name": "DeleteType",
+    "description": "Grants permission to delete a type",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateapi": {
+    "name": "DisassociateApi",
+    "description": "Grants permission to detach a GraphQL API to a custom domain name in AppSync",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatemergedgraphqlapi": {
+    "name": "DisassociateMergedGraphqlApi",
+    "description": "Grants permission to remove an associated source API from a merged API identified by the source API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mergedApiAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatesourcegraphqlapi": {
+    "name": "DisassociateSourceGraphqlApi",
+    "description": "Grants permission to remove an associated source API from a merged API identified by the merged API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sourceApiAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "evaluatecode": {
+    "name": "EvaluateCode",
+    "description": "Grants permission to evaluate code with a runtime and context",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "evaluatemappingtemplate": {
+    "name": "EvaluateMappingTemplate",
+    "description": "Grants permission to evaluate template mapping",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eventconnect": {
+    "name": "EventConnect",
+    "description": "Grants permission to connect to an Event API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eventpublish": {
+    "name": "EventPublish",
+    "description": "Grants permission to publish events to a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eventsubscribe": {
+    "name": "EventSubscribe",
+    "description": "Grants permission to subscribe to a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "flushapicache": {
+    "name": "FlushApiCache",
+    "description": "Grants permission to flush an API cache in AppSync",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapi": {
+    "name": "GetApi",
+    "description": "Grants permission to retrieve an API",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getapiassociation": {
+    "name": "GetApiAssociation",
+    "description": "Grants permission to read custom domain name - GraphQL API association details in AppSync",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapicache": {
+    "name": "GetApiCache",
+    "description": "Grants permission to read information about an API cache in AppSync",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannelnamespace": {
+    "name": "GetChannelNamespace",
+    "description": "Grants permission to retrieve a channel namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getdatasource": {
+    "name": "GetDataSource",
+    "description": "Grants permission to retrieve a data source",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatasourceintrospection": {
+    "name": "GetDataSourceIntrospection",
+    "description": "Grants permission to retrieve a data source introspection",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdomainname": {
+    "name": "GetDomainName",
+    "description": "Grants permission to read information about a custom domain name in AppSync",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getfunction": {
+    "name": "GetFunction",
+    "description": "Grants permission to retrieve a function",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgraphqlapi": {
+    "name": "GetGraphqlApi",
+    "description": "Grants permission to retrieve a GraphQL API",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "graphqlapi",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getgraphqlapienvironmentvariables": {
+    "name": "GetGraphqlApiEnvironmentVariables",
+    "description": "Grants permission to retrieve the environment variables for a GraphQL API",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getintrospectionschema": {
+    "name": "GetIntrospectionSchema",
+    "description": "Grants permission to retrieve the introspection schema for a GraphQL API",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresolver": {
+    "name": "GetResolver",
+    "description": "Grants permission to retrieve a resolver",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read a resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getschemacreationstatus": {
+    "name": "GetSchemaCreationStatus",
+    "description": "Grants permission to retrieve the current status of a schema creation operation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsourceapiassociation": {
+    "name": "GetSourceApiAssociation",
+    "description": "Grants permission to read information about a merged API associated source API",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sourceApiAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettype": {
+    "name": "GetType",
+    "description": "Grants permission to retrieve a type",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "graphql": {
+    "name": "GraphQL",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send a GraphQL query to a GraphQL API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "field",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapikeys": {
+    "name": "ListApiKeys",
+    "description": "Grants permission to list the API keys for a given API",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapis": {
+    "name": "ListApis",
+    "description": "Grants permission to list APIs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listchannelnamespaces": {
+    "name": "ListChannelNamespaces",
+    "description": "Grants permission to list channel namespace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listdatasources": {
+    "name": "ListDataSources",
+    "description": "Grants permission to list the data sources for a given API",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomainnames": {
+    "name": "ListDomainNames",
+    "description": "Grants permission to enumerate custom domain names in AppSync",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listfunctions": {
+    "name": "ListFunctions",
+    "description": "Grants permission to list the functions for a given API",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgraphqlapis": {
+    "name": "ListGraphqlApis",
+    "description": "Grants permission to list GraphQL APIs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresolvers": {
+    "name": "ListResolvers",
+    "description": "Grants permission to list the resolvers for a given API and type",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresolversbyfunction": {
+    "name": "ListResolversByFunction",
+    "description": "Grants permission to list the resolvers that are associated with a specific function",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsourceapiassociations": {
+    "name": "ListSourceApiAssociations",
+    "description": "Grants permission to list source APIs associated to a given merged API",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channelNamespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtypes": {
+    "name": "ListTypes",
+    "description": "Grants permission to list the types for a given API",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtypesbyassociation": {
+    "name": "ListTypesByAssociation",
+    "description": "Grants permission to list the types for a given merged API and source API association",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putgraphqlapienvironmentvariables": {
+    "name": "PutGraphqlApiEnvironmentVariables",
+    "description": "Grants permission to update the environment variables for a GraphQL API",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to set a resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setwebacl": {
+    "name": "SetWebACL",
+    "description": "Grants permission to set a web ACL",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sourcegraphql": {
+    "name": "SourceGraphQL",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send a GraphQL query to a source API of a merged API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "field",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdatasourceintrospection": {
+    "name": "StartDataSourceIntrospection",
+    "description": "Grants permission to introspect a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startschemacreation": {
+    "name": "StartSchemaCreation",
+    "description": "Grants permission to add a new schema to your GraphQL API. This operation is asynchronous - GetSchemaCreationStatus can show when it has completed",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startschemamerge": {
+    "name": "StartSchemaMerge",
+    "description": "Grants permission to initiate a schema merge for a given merged API and associated source API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sourceApiAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channelNamespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channelNamespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateapi": {
+    "name": "UpdateApi",
+    "description": "Grants permission to update an API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateapicache": {
+    "name": "UpdateApiCache",
+    "description": "Grants permission to update an API cache in AppSync",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapikey": {
+    "name": "UpdateApiKey",
+    "description": "Grants permission to update an API key for a given API",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatechannelnamespace": {
+    "name": "UpdateChannelNamespace",
+    "description": "Grants permission to update a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatedatasource": {
+    "name": "UpdateDataSource",
+    "description": "Grants permission to update a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedomainname": {
+    "name": "UpdateDomainName",
+    "description": "Grants permission to update a custom domain name in AppSync",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatefunction": {
+    "name": "UpdateFunction",
+    "description": "Grants permission to update an existing function",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updategraphqlapi": {
+    "name": "UpdateGraphqlApi",
+    "description": "Grants permission to update a GraphQL API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graphqlapi",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateresolver": {
+    "name": "UpdateResolver",
+    "description": "Grants permission to update a resolver",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesourceapiassociation": {
+    "name": "UpdateSourceApiAssociation",
+    "description": "Grants permission to update a merged API source API association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sourceApiAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetype": {
+    "name": "UpdateType",
+    "description": "Grants permission to update a type",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

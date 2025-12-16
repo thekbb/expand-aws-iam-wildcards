@@ -1,0 +1,478 @@
+{
+  "addtags": {
+    "name": "AddTags",
+    "description": "Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key and an optional value",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "batchprediction",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mlmodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbatchprediction": {
+    "name": "CreateBatchPrediction",
+    "description": "Generates predictions for a group of observations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "batchprediction",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mlmodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatasourcefromrds": {
+    "name": "CreateDataSourceFromRDS",
+    "description": "Creates a DataSource object from an Amazon RDS",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatasourcefromredshift": {
+    "name": "CreateDataSourceFromRedshift",
+    "description": "Creates a DataSource from a database hosted on an Amazon Redshift cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdatasourcefroms3": {
+    "name": "CreateDataSourceFromS3",
+    "description": "Creates a DataSource object from S3",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createevaluation": {
+    "name": "CreateEvaluation",
+    "description": "Creates a new Evaluation of an MLModel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mlmodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmlmodel": {
+    "name": "CreateMLModel",
+    "description": "Creates a new MLModel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mlmodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createrealtimeendpoint": {
+    "name": "CreateRealtimeEndpoint",
+    "description": "Creates a real-time endpoint for the MLModel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlmodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebatchprediction": {
+    "name": "DeleteBatchPrediction",
+    "description": "Assigns the DELETED status to a BatchPrediction, rendering it unusable",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "batchprediction",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatasource": {
+    "name": "DeleteDataSource",
+    "description": "Assigns the DELETED status to a DataSource, rendering it unusable",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteevaluation": {
+    "name": "DeleteEvaluation",
+    "description": "Assigns the DELETED status to an Evaluation, rendering it unusable",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "evaluation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemlmodel": {
+    "name": "DeleteMLModel",
+    "description": "Assigns the DELETED status to an MLModel, rendering it unusable",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlmodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterealtimeendpoint": {
+    "name": "DeleteRealtimeEndpoint",
+    "description": "Deletes a real time endpoint of an MLModel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlmodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetags": {
+    "name": "DeleteTags",
+    "description": "Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "batchprediction",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mlmodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebatchpredictions": {
+    "name": "DescribeBatchPredictions",
+    "description": "Returns a list of BatchPrediction operations that match the search criteria in the request",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedatasources": {
+    "name": "DescribeDataSources",
+    "description": "Returns a list of DataSource that match the search criteria in the request",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeevaluations": {
+    "name": "DescribeEvaluations",
+    "description": "Returns a list of DescribeEvaluations that match the search criteria in the request",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemlmodels": {
+    "name": "DescribeMLModels",
+    "description": "Returns a list of MLModel that match the search criteria in the request",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describetags": {
+    "name": "DescribeTags",
+    "description": "Describes one or more of the tags for your Amazon ML object",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "batchprediction",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "mlmodel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbatchprediction": {
+    "name": "GetBatchPrediction",
+    "description": "Returns a BatchPrediction that includes detailed metadata, status, and data file information",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "batchprediction",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdatasource": {
+    "name": "GetDataSource",
+    "description": "Returns a DataSource that includes metadata and data file information, as well as the current status of the DataSource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getevaluation": {
+    "name": "GetEvaluation",
+    "description": "Returns an Evaluation that includes metadata as well as the current status of the Evaluation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmlmodel": {
+    "name": "GetMLModel",
+    "description": "Returns an MLModel that includes detailed metadata, and data source information as well as the current status of the MLModel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlmodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "predict": {
+    "name": "Predict",
+    "description": "Generates a prediction for the observation using the specified ML Model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlmodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebatchprediction": {
+    "name": "UpdateBatchPrediction",
+    "description": "Updates the BatchPredictionName of a BatchPrediction",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "batchprediction",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedatasource": {
+    "name": "UpdateDataSource",
+    "description": "Updates the DataSourceName of a DataSource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateevaluation": {
+    "name": "UpdateEvaluation",
+    "description": "Updates the EvaluationName of an Evaluation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "evaluation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemlmodel": {
+    "name": "UpdateMLModel",
+    "description": "Updates the MLModelName and the ScoreThreshold of an MLModel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlmodel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

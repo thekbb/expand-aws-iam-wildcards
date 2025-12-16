@@ -1,0 +1,14 @@
+{
+  "autoscalinggroup": {
+    "key": "autoScalingGroup",
+    "arn": "arn:${Partition}:autoscaling:${Region}:${Account}:autoScalingGroup:${GroupId}:autoScalingGroupName/${GroupFriendlyName}",
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "launchconfiguration": {
+    "key": "launchConfiguration",
+    "arn": "arn:${Partition}:autoscaling:${Region}:${Account}:launchConfiguration:${Id}:launchConfigurationName/${LaunchConfigurationName}"
+  }
+}

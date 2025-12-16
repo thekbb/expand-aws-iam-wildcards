@@ -1,0 +1,1012 @@
+{
+  "abortmultipartupload": {
+    "name": "AbortMultipartUpload",
+    "description": "Grants permission to abort a multipart upload",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "createaccesspoint": {
+    "name": "CreateAccessPoint",
+    "description": "Grants permission to create a new access point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "createbucket": {
+    "name": "CreateBucket",
+    "description": "Grants permission to create a new bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "createendpoint": {
+    "name": "CreateEndpoint",
+    "description": "Grants permission to create a new endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaccesspoint": {
+    "name": "DeleteAccessPoint",
+    "description": "Grants permission to delete the access point named in the URI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesspointpolicy": {
+    "name": "DeleteAccessPointPolicy",
+    "description": "Grants permission to delete the policy on a specified access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletebucket": {
+    "name": "DeleteBucket",
+    "description": "Grants permission to delete the bucket named in the URI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletebucketpolicy": {
+    "name": "DeleteBucketPolicy",
+    "description": "Grants permission to delete the policy on a specified bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteendpoint": {
+    "name": "DeleteEndpoint",
+    "description": "Grants permission to delete the endpoint named in the URI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteobject": {
+    "name": "DeleteObject",
+    "description": "Grants permission to remove the null version of an object and insert a delete marker, which becomes the current version of the object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteobjecttagging": {
+    "name": "DeleteObjectTagging",
+    "description": "Grants permission to use the tagging subresource to remove the entire tag set from the specified object",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:ExistingObjectTag/<key>",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteobjectversion": {
+    "name": "DeleteObjectVersion",
+    "description": "Grants permission to remove a specific version of an object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:versionid",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteobjectversiontagging": {
+    "name": "DeleteObjectVersionTagging",
+    "description": "Grants permission to remove the entire tag set for a specific version of the object",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:ExistingObjectTag/<key>",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:versionid",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspoint": {
+    "name": "GetAccessPoint",
+    "description": "Grants permission to return configuration information about the specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspointpolicy": {
+    "name": "GetAccessPointPolicy",
+    "description": "Grants permission to returns the access point policy associated with the specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucket": {
+    "name": "GetBucket",
+    "description": "Grants permission to return the bucket configuration associated with an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketpolicy": {
+    "name": "GetBucketPolicy",
+    "description": "Grants permission to return the policy of the specified bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbuckettagging": {
+    "name": "GetBucketTagging",
+    "description": "Grants permission to return the tag set associated with an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketversioning": {
+    "name": "GetBucketVersioning",
+    "description": "Grants permission to return the versioning state of an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getlifecycleconfiguration": {
+    "name": "GetLifecycleConfiguration",
+    "description": "Grants permission to return the lifecycle configuration information set on an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobject": {
+    "name": "GetObject",
+    "description": "Grants permission to retrieve objects from Amazon S3",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:ExistingObjectTag/<key>",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjecttagging": {
+    "name": "GetObjectTagging",
+    "description": "Grants permission to return the tag set of an object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:ExistingObjectTag/<key>",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversion": {
+    "name": "GetObjectVersion",
+    "description": "Grants permission to retrieve a specific version of an object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:ExistingObjectTag/<key>",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:versionid",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversionforreplication": {
+    "name": "GetObjectVersionForReplication",
+    "description": "Grants permission to replicate both unencrypted objects and objects encrypted with SSE-KMS",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversiontagging": {
+    "name": "GetObjectVersionTagging",
+    "description": "Grants permission to return the tag set for a specific version of the object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:ExistingObjectTag/<key>",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:versionid",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getreplicationconfiguration": {
+    "name": "GetReplicationConfiguration",
+    "description": "Grants permission to get the replication configuration information set on an Amazon S3 bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listaccesspoints": {
+    "name": "ListAccessPoints",
+    "description": "Grants permission to list access points",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listbucket": {
+    "name": "ListBucket",
+    "description": "Grants permission to list some or all of the objects in an Amazon S3 bucket (up to 1000)",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:delimiter",
+      "s3-outposts:max-keys",
+      "s3-outposts:prefix",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listbucketmultipartuploads": {
+    "name": "ListBucketMultipartUploads",
+    "description": "Grants permission to list in-progress multipart uploads",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listbucketversions": {
+    "name": "ListBucketVersions",
+    "description": "Grants permission to list metadata about all the versions of objects in an Amazon S3 bucket",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:delimiter",
+      "s3-outposts:max-keys",
+      "s3-outposts:prefix",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listendpoints": {
+    "name": "ListEndpoints",
+    "description": "Grants permission to list endpoints",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmultipartuploadparts": {
+    "name": "ListMultipartUploadParts",
+    "description": "Grants permission to list the parts that have been uploaded for a specific multipart upload",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listoutpostswiths3": {
+    "name": "ListOutpostsWithS3",
+    "description": "Grants permission to list outposts with S3 capacity",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listregionalbuckets": {
+    "name": "ListRegionalBuckets",
+    "description": "Grants permission to list all buckets owned by the authenticated sender of the request",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listsharedendpoints": {
+    "name": "ListSharedEndpoints",
+    "description": "Grants permission to list shared endpoints",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putaccesspointpolicy": {
+    "name": "PutAccessPointPolicy",
+    "description": "Grants permission to associate an access policy with a specified access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketpolicy": {
+    "name": "PutBucketPolicy",
+    "description": "Grants permission to add or replace a bucket policy on a bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbuckettagging": {
+    "name": "PutBucketTagging",
+    "description": "Grants permission to add a set of tags to an existing Amazon S3 bucket",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketversioning": {
+    "name": "PutBucketVersioning",
+    "description": "Grants permission to set the versioning state of an existing Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putlifecycleconfiguration": {
+    "name": "PutLifecycleConfiguration",
+    "description": "Grants permission to create a new lifecycle configuration for the bucket or replace an existing lifecycle configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putobject": {
+    "name": "PutObject",
+    "description": "Grants permission to add an object to a bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:RequestObjectTag/<key>",
+      "s3-outposts:RequestObjectTagKeys",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-acl",
+      "s3-outposts:x-amz-content-sha256",
+      "s3-outposts:x-amz-copy-source",
+      "s3-outposts:x-amz-metadata-directive",
+      "s3-outposts:x-amz-server-side-encryption",
+      "s3-outposts:x-amz-storage-class"
+    ],
+    "dependentActions": []
+  },
+  "putobjectacl": {
+    "name": "PutObjectAcl",
+    "description": "Grants permission to set the access control list (ACL) permissions for an object that already exists in a bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:ExistingObjectTag/<key>",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-acl",
+      "s3-outposts:x-amz-content-sha256",
+      "s3-outposts:x-amz-storage-class"
+    ],
+    "dependentActions": []
+  },
+  "putobjecttagging": {
+    "name": "PutObjectTagging",
+    "description": "Grants permission to set the supplied tag-set to an object that already exists in a bucket",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:ExistingObjectTag/<key>",
+      "s3-outposts:RequestObjectTag/<key>",
+      "s3-outposts:RequestObjectTagKeys",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putobjectversiontagging": {
+    "name": "PutObjectVersionTagging",
+    "description": "Grants permission to set the supplied tag-set for a specific version of an object",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:DataAccessPointAccount",
+      "s3-outposts:DataAccessPointArn",
+      "s3-outposts:AccessPointNetworkOrigin",
+      "s3-outposts:ExistingObjectTag/<key>",
+      "s3-outposts:RequestObjectTag/<key>",
+      "s3-outposts:RequestObjectTagKeys",
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:versionid",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putreplicationconfiguration": {
+    "name": "PutReplicationConfiguration",
+    "description": "Grants permission to create a new replication configuration or replace an existing one",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "replicatedelete": {
+    "name": "ReplicateDelete",
+    "description": "Grants permission to replicate delete markers to the destination bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "replicateobject": {
+    "name": "ReplicateObject",
+    "description": "Grants permission to replicate objects and object tags to the destination bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256",
+      "s3-outposts:x-amz-server-side-encryption"
+    ],
+    "dependentActions": []
+  },
+  "replicatetags": {
+    "name": "ReplicateTags",
+    "description": "Grants permission to replicate object tags to the destination bucket",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3-outposts:authType",
+      "s3-outposts:signatureAge",
+      "s3-outposts:signatureversion",
+      "s3-outposts:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  }
+}

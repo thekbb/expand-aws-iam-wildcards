@@ -1,0 +1,395 @@
+{
+  "addpeercluster": {
+    "name": "AddPeerCluster",
+    "isPermissionOnly": true,
+    "description": "Grants permission to add a peer cluster to a multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dsql:PutMultiRegionProperties"
+    ]
+  },
+  "createcluster": {
+    "name": "CreateCluster",
+    "description": "Grants permission to create new clusters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dsql:WitnessRegion"
+    ],
+    "dependentActions": []
+  },
+  "dbconnect": {
+    "name": "DbConnect",
+    "description": "Grants permission to connect to the database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "dbconnectadmin": {
+    "name": "DbConnectAdmin",
+    "description": "Grants permission to connect to the database with admin role. Connecting with any other role requires DbConnect permission",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecluster": {
+    "name": "DeleteCluster",
+    "description": "Grants permission to delete a cluster and all of its data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteclusterpolicy": {
+    "name": "DeleteClusterPolicy",
+    "description": "Grants permission to remove the inline resource-based policy attached to a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbackupjob": {
+    "name": "GetBackupJob",
+    "description": "Grants permission to get the status of an Aurora DSQL cluster backup job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcluster": {
+    "name": "GetCluster",
+    "description": "Grants permission to get information about a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getclusterpolicy": {
+    "name": "GetClusterPolicy",
+    "description": "Grants permission to retrieve the inline resource-based policy attached to a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrestorejob": {
+    "name": "GetRestoreJob",
+    "description": "Grants permission to get the status of an Aurora DSQL cluster restore job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvpcendpointservicename": {
+    "name": "GetVpcEndpointServiceName",
+    "description": "Grants permission to retrieve the VPC endpoint service name for a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "injecterror": {
+    "name": "InjectError",
+    "isPermissionOnly": true,
+    "description": "Grants permission to inject errors in targeted clusters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "dsql:FisActionId",
+      "dsql:FisTargetArns"
+    ],
+    "dependentActions": []
+  },
+  "listclusters": {
+    "name": "ListClusters",
+    "description": "Grants permission to retrieve a list of clusters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags on an Aurora DSQL resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putclusterpolicy": {
+    "name": "PutClusterPolicy",
+    "description": "Grants permission to attach or update the inline resource-based policy attached to a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putmultiregionproperties": {
+    "name": "PutMultiRegionProperties",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update multi-Region properties of a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putwitnessregion": {
+    "name": "PutWitnessRegion",
+    "isPermissionOnly": true,
+    "description": "Grants permission to configure and update the witness Region of a multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "dsql:PutMultiRegionProperties"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "dsql:WitnessRegion"
+    ],
+    "dependentActions": []
+  },
+  "removepeercluster": {
+    "name": "RemovePeerCluster",
+    "isPermissionOnly": true,
+    "description": "Grants permission to remove a peer cluster from a multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dsql:PutMultiRegionProperties"
+    ]
+  },
+  "startbackupjob": {
+    "name": "StartBackupJob",
+    "description": "Grants permission to start a backup job for an Aurora DSQL cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startrestorejob": {
+    "name": "StartRestoreJob",
+    "description": "Grants permission to start a restore job for an Aurora DSQL cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dsql:CreateCluster",
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "stopbackupjob": {
+    "name": "StopBackupJob",
+    "description": "Grants permission to stop a backup job for an Aurora DSQL cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoprestorejob": {
+    "name": "StopRestoreJob",
+    "description": "Grants permission to stop a restore job for an Aurora DSQL Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to Aurora DSQL resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from Aurora DSQL resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecluster": {
+    "name": "UpdateCluster",
+    "description": "Grants permission to modify cluster attributes",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "dsql:WitnessRegion"
+    ],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,767 @@
+{
+  "associatemember": {
+    "name": "AssociateMember",
+    "description": "Grants permission to associate an account with an Amazon Inspector administrator account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchassociatecodesecurityscanconfiguration": {
+    "name": "BatchAssociateCodeSecurityScanConfiguration",
+    "description": "Grants permission to associate multiple code repositories with an Amazon Inspector code security scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdisassociatecodesecurityscanconfiguration": {
+    "name": "BatchDisassociateCodeSecurityScanConfiguration",
+    "description": "Grants permission to disassociate multiple code repositories from an Amazon Inspector code security scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetaccountstatus": {
+    "name": "BatchGetAccountStatus",
+    "description": "Grants permission to retrieve information about Amazon Inspector accounts for an account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetcodesnippet": {
+    "name": "BatchGetCodeSnippet",
+    "description": "Grants permission to retrieve code snippet information about one or more code vulnerability findings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetfindingdetails": {
+    "name": "BatchGetFindingDetails",
+    "description": "Grants permission to let a customer get enhanced vulnerability intelligence details for findings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetfreetrialinfo": {
+    "name": "BatchGetFreeTrialInfo",
+    "description": "Grants permission to retrieve free trial period eligibility about Amazon Inspector accounts for an account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetmemberec2deepinspectionstatus": {
+    "name": "BatchGetMemberEc2DeepInspectionStatus",
+    "description": "Grants permission to delegated administrator to retrieve ec2 deep inspection status of member accounts",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchupdatememberec2deepinspectionstatus": {
+    "name": "BatchUpdateMemberEc2DeepInspectionStatus",
+    "description": "Grants permission to update ec2 deep inspection status by delegated administrator for its associated member accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelfindingsreport": {
+    "name": "CancelFindingsReport",
+    "description": "Grants permission to cancel the generation of a findings report",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelsbomexport": {
+    "name": "CancelSbomExport",
+    "description": "Grants permission to cancel the generation of an SBOM report",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcisscanconfiguration": {
+    "name": "CreateCisScanConfiguration",
+    "description": "Grants permission to create and define the settings for a CIS scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "CIS Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcodesecurityintegration": {
+    "name": "CreateCodeSecurityIntegration",
+    "description": "Grants permission to create a code security integration with a source code repository provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcodesecurityscanconfiguration": {
+    "name": "CreateCodeSecurityScanConfiguration",
+    "description": "Grants permission to create a scan configuration for code security scanning",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfilter": {
+    "name": "CreateFilter",
+    "description": "Grants permission to create and define the settings for a findings filter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createfindingsreport": {
+    "name": "CreateFindingsReport",
+    "description": "Grants permission to request the generation of a findings report",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsbomexport": {
+    "name": "CreateSbomExport",
+    "description": "Grants permission to request the generation of an SBOM report",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecisscanconfiguration": {
+    "name": "DeleteCisScanConfiguration",
+    "description": "Grants permission to delete a CIS scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "CIS Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletecodesecurityintegration": {
+    "name": "DeleteCodeSecurityIntegration",
+    "description": "Grants permission to delete a code security integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecodesecurityscanconfiguration": {
+    "name": "DeleteCodeSecurityScanConfiguration",
+    "description": "Grants permission to delete a code security scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefilter": {
+    "name": "DeleteFilter",
+    "description": "Grants permission to delete a findings filter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeorganizationconfiguration": {
+    "name": "DescribeOrganizationConfiguration",
+    "description": "Grants permission to retrieve information about the Amazon Inspector configuration settings for an AWS organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disable": {
+    "name": "Disable",
+    "description": "Grants permission to disable an Amazon Inspector account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disabledelegatedadminaccount": {
+    "name": "DisableDelegatedAdminAccount",
+    "description": "Grants permission to disable an account as the delegated Amazon Inspector administrator account for an AWS organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatemember": {
+    "name": "DisassociateMember",
+    "description": "Grants permission to an Amazon Inspector administrator account to disassociate from an Inspector member account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enable": {
+    "name": "Enable",
+    "description": "Grants permission to enable and specify the configuration settings for a new Amazon Inspector account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enabledelegatedadminaccount": {
+    "name": "EnableDelegatedAdminAccount",
+    "description": "Grants permission to enable an account as the delegated Amazon Inspector administrator account for an AWS organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcisscanreport": {
+    "name": "GetCisScanReport",
+    "description": "Grants permission to retrieve a report containing information about completed CIS scans",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcisscanresultdetails": {
+    "name": "GetCisScanResultDetails",
+    "description": "Grants permission to retrieve information about all details pertaining to one CIS scan and one targeted resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getclustersforimage": {
+    "name": "GetClustersForImage",
+    "description": "Grants permission to get cluster information for a given a continuously scanned amazon Ecr image",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcodesecurityintegration": {
+    "name": "GetCodeSecurityIntegration",
+    "description": "Grants permission to retrieve information about a code security integration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcodesecurityscan": {
+    "name": "GetCodeSecurityScan",
+    "description": "Grants permission to retrieve information about a specific code security scan",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcodesecurityscanconfiguration": {
+    "name": "GetCodeSecurityScanConfiguration",
+    "description": "Grants permission to retrieve information about a code security scan configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconfiguration": {
+    "name": "GetConfiguration",
+    "description": "Grants permission to retrieve information about the Amazon Inspector configuration settings for an AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdelegatedadminaccount": {
+    "name": "GetDelegatedAdminAccount",
+    "description": "Grants permission to retrieve information about the Amazon Inspector administrator account for an account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getec2deepinspectionconfiguration": {
+    "name": "GetEc2DeepInspectionConfiguration",
+    "description": "Grants permission to retrieve ec2 deep inspection configuration for standalone accounts, delegated administrator and member account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getencryptionkey": {
+    "name": "GetEncryptionKey",
+    "description": "Grants permission to retrieve information about the KMS key used to encrypt code snippets with",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfindingsreportstatus": {
+    "name": "GetFindingsReportStatus",
+    "description": "Grants permission to retrieve status for a requested findings report",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmember": {
+    "name": "GetMember",
+    "description": "Grants permission to retrieve information about an account that's associated with an Amazon Inspector administrator account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsbomexport": {
+    "name": "GetSbomExport",
+    "description": "Grants permission to retrieve a requested SBOM report",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccountpermissions": {
+    "name": "ListAccountPermissions",
+    "description": "Grants permission to retrieve feature configuration permissions associated with an Amazon Inspector account within an organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcisscanconfigurations": {
+    "name": "ListCisScanConfigurations",
+    "description": "Grants permission to retrieve information about all CIS scan configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcisscanresultsaggregatedbychecks": {
+    "name": "ListCisScanResultsAggregatedByChecks",
+    "description": "Grants permission to retrieve information about all checks pertaining to one CIS scan",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcisscanresultsaggregatedbytargetresource": {
+    "name": "ListCisScanResultsAggregatedByTargetResource",
+    "description": "Grants permission to retrieve information about all resources pertaining to one CIS scan",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcisscans": {
+    "name": "ListCisScans",
+    "description": "Grants permission to retrieve information about completed CIS scans",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcodesecurityintegrations": {
+    "name": "ListCodeSecurityIntegrations",
+    "description": "Grants permission to list all code security integrations in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcodesecurityscanconfigurationassociations": {
+    "name": "ListCodeSecurityScanConfigurationAssociations",
+    "description": "Grants permission to list the associations between code repositories and Amazon Inspector code security scan configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcodesecurityscanconfigurations": {
+    "name": "ListCodeSecurityScanConfigurations",
+    "description": "Grants permission to list all code security scan configurations in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcoverage": {
+    "name": "ListCoverage",
+    "description": "Grants permission to retrieve the types of statistics Amazon Inspector can generate for resources Inspector monitors",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcoveragestatistics": {
+    "name": "ListCoverageStatistics",
+    "description": "Grants permission to retrieve statistical data and other information about the resources Amazon Inspector monitors",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdelegatedadminaccounts": {
+    "name": "ListDelegatedAdminAccounts",
+    "description": "Grants permission to retrieve information about the delegated Amazon Inspector administrator account for an AWS organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfilters": {
+    "name": "ListFilters",
+    "description": "Grants permission to retrieve information about all findings filters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfindingaggregations": {
+    "name": "ListFindingAggregations",
+    "description": "Grants permission to retrieve statistical data and other information about Amazon Inspector findings",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfindings": {
+    "name": "ListFindings",
+    "description": "Grants permission to retrieve a subset of information about one or more findings",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmembers": {
+    "name": "ListMembers",
+    "description": "Grants permission to retrieve information about the Amazon Inspector member accounts that are associated with an Inspector administrator account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to retrieve the tags for an Amazon Inspector resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listusagetotals": {
+    "name": "ListUsageTotals",
+    "description": "Grants permission to retrieve aggregated usage data for an account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "resetencryptionkey": {
+    "name": "ResetEncryptionKey",
+    "description": "Grants permission to let a customer reset to use an Amazon-owned KMS key to encrypt code snippets with",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchvulnerabilities": {
+    "name": "SearchVulnerabilities",
+    "description": "Grants permission to list Amazon Inspector coverage details for a specific vulnerability",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendcissessionhealth": {
+    "name": "SendCisSessionHealth",
+    "description": "Grants permission to send CIS health for a CIS scan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendcissessiontelemetry": {
+    "name": "SendCisSessionTelemetry",
+    "description": "Grants permission to send CIS telemetry for a CIS scan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcissession": {
+    "name": "StartCisSession",
+    "description": "Grants permission to start a CIS scan session",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcodesecurityscan": {
+    "name": "StartCodeSecurityScan",
+    "description": "Grants permission to initiate a code security scan on a specified repository",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopcissession": {
+    "name": "StopCisSession",
+    "description": "Grants permission to stop a CIS scan session",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or update the tags for an Amazon Inspector resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "CIS Scan Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Code Security Integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Code Security Scan Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Filter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from an Amazon Inspector resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "CIS Scan Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Code Security Integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Code Security Scan Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Filter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecisscanconfiguration": {
+    "name": "UpdateCisScanConfiguration",
+    "description": "Grants permission to update the settings for a CIS scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "CIS Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatecodesecurityintegration": {
+    "name": "UpdateCodeSecurityIntegration",
+    "description": "Grants permission to update an existing code security integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatecodesecurityscanconfiguration": {
+    "name": "UpdateCodeSecurityScanConfiguration",
+    "description": "Grants permission to update an existing code security scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateconfiguration": {
+    "name": "UpdateConfiguration",
+    "description": "Grants permission to update information about the Amazon Inspector configuration settings for an AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateec2deepinspectionconfiguration": {
+    "name": "UpdateEc2DeepInspectionConfiguration",
+    "description": "Grants permission to update ec2 deep inspection configuration by delegated administrator, member and standalone account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateencryptionkey": {
+    "name": "UpdateEncryptionKey",
+    "description": "Grants permission to let a customer use a KMS key to encrypt code snippets with",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatefilter": {
+    "name": "UpdateFilter",
+    "description": "Grants permission to update the settings for a findings filter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Filter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateorgec2deepinspectionconfiguration": {
+    "name": "UpdateOrgEc2DeepInspectionConfiguration",
+    "description": "Grants permission to update ec2 deep inspection configuration by delegated administrator for its associated member accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateorganizationconfiguration": {
+    "name": "UpdateOrganizationConfiguration",
+    "description": "Grants permission to update Amazon Inspector configuration settings for an AWS organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

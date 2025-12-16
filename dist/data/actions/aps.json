@@ -1,0 +1,1105 @@
+{
+  "createalertmanageralerts": {
+    "name": "CreateAlertManagerAlerts",
+    "description": "Grants permission to create alerts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createalertmanagerdefinition": {
+    "name": "CreateAlertManagerDefinition",
+    "description": "Grants permission to create an alert manager definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createanomalydetector": {
+    "name": "CreateAnomalyDetector",
+    "description": "Grants permission to create an anomaly detector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createloggingconfiguration": {
+    "name": "CreateLoggingConfiguration",
+    "description": "Grants permission to create a logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createqueryloggingconfiguration": {
+    "name": "CreateQueryLoggingConfiguration",
+    "description": "Grants permission to create a query logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createrulegroupsnamespace": {
+    "name": "CreateRuleGroupsNamespace",
+    "description": "Grants permission to create a rule groups namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rulegroupsnamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createscraper": {
+    "name": "CreateScraper",
+    "description": "Grants permission to create a scraper",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "aps:TagResource",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "eks:DescribeCluster",
+          "iam:CreateServiceLinkedRole"
+        ]
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createworkspace": {
+    "name": "CreateWorkspace",
+    "description": "Grants permission to create a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletealertmanagerdefinition": {
+    "name": "DeleteAlertManagerDefinition",
+    "description": "Grants permission to delete an alert manager definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletealertmanagersilence": {
+    "name": "DeleteAlertManagerSilence",
+    "description": "Grants permission to delete a silence",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteanomalydetector": {
+    "name": "DeleteAnomalyDetector",
+    "description": "Grants permission to delete an anomaly detector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteloggingconfiguration": {
+    "name": "DeleteLoggingConfiguration",
+    "description": "Grants permission to delete a logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletequeryloggingconfiguration": {
+    "name": "DeleteQueryLoggingConfiguration",
+    "description": "Grants permission to delete a query logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete workspace resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleterulegroupsnamespace": {
+    "name": "DeleteRuleGroupsNamespace",
+    "description": "Grants permission to delete a rule groups namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rulegroupsnamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletescraper": {
+    "name": "DeleteScraper",
+    "description": "Grants permission to delete a scraper",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletescraperloggingconfiguration": {
+    "name": "DeleteScraperLoggingConfiguration",
+    "description": "Grants permission to delete a scraper logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteworkspace": {
+    "name": "DeleteWorkspace",
+    "description": "Grants permission to delete a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describealertmanagerdefinition": {
+    "name": "DescribeAlertManagerDefinition",
+    "description": "Grants permission to describe an alert manager definition",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeanomalydetector": {
+    "name": "DescribeAnomalyDetector",
+    "description": "Grants permission to describe an anomaly detector",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeloggingconfiguration": {
+    "name": "DescribeLoggingConfiguration",
+    "description": "Grants permission to describe a logging configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describequeryloggingconfiguration": {
+    "name": "DescribeQueryLoggingConfiguration",
+    "description": "Grants permission to describe a query logging configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeresourcepolicy": {
+    "name": "DescribeResourcePolicy",
+    "description": "Grants permission to describe workspace resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describerulegroupsnamespace": {
+    "name": "DescribeRuleGroupsNamespace",
+    "description": "Grants permission to describe a rule groups namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rulegroupsnamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describescraper": {
+    "name": "DescribeScraper",
+    "description": "Grants permission to describe a scraper",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describescraperloggingconfiguration": {
+    "name": "DescribeScraperLoggingConfiguration",
+    "description": "Grants permission to describe a scraper logging configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeworkspace": {
+    "name": "DescribeWorkspace",
+    "description": "Grants permission to describe a workspace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeworkspaceconfiguration": {
+    "name": "DescribeWorkspaceConfiguration",
+    "description": "Grants permission to describe workspace configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getalertmanagersilence": {
+    "name": "GetAlertManagerSilence",
+    "description": "Grants permission to get a silence",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getalertmanagerstatus": {
+    "name": "GetAlertManagerStatus",
+    "description": "Grants permission to get current status of an alertmanager",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getdefaultscraperconfiguration": {
+    "name": "GetDefaultScraperConfiguration",
+    "description": "Grants permission to get default scraper configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlabels": {
+    "name": "GetLabels",
+    "description": "Grants permission to retrieve AMP workspace labels",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getmetricmetadata": {
+    "name": "GetMetricMetadata",
+    "description": "Grants permission to retrieve the metadata for AMP workspace metrics",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getseries": {
+    "name": "GetSeries",
+    "description": "Grants permission to retrieve AMP workspace time series data",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listalertmanageralertgroups": {
+    "name": "ListAlertManagerAlertGroups",
+    "description": "Grants permission to list groups",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listalertmanageralerts": {
+    "name": "ListAlertManagerAlerts",
+    "description": "Grants permission to list alerts",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listalertmanagerreceivers": {
+    "name": "ListAlertManagerReceivers",
+    "description": "Grants permission to list receivers",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listalertmanagersilences": {
+    "name": "ListAlertManagerSilences",
+    "description": "Grants permission to list silences",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listalerts": {
+    "name": "ListAlerts",
+    "description": "Grants permission to list active alerts",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listanomalydetectors": {
+    "name": "ListAnomalyDetectors",
+    "description": "Grants permission to list anomaly detectors",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listrulegroupsnamespaces": {
+    "name": "ListRuleGroupsNamespaces",
+    "description": "Grants permission to list rule groups namespaces",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listrules": {
+    "name": "ListRules",
+    "description": "Grants permission to list alerting and recording rules",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listscrapers": {
+    "name": "ListScrapers",
+    "description": "Grants permission to list scrapers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags on an AMP resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rulegroupsnamespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scraper",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listworkspaces": {
+    "name": "ListWorkspaces",
+    "description": "Grants permission to list workspaces",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "previewanomalydetector": {
+    "name": "PreviewAnomalyDetector",
+    "description": "Grants permission to preview anomaly detection on AMP workspace metrics",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putalertmanagerdefinition": {
+    "name": "PutAlertManagerDefinition",
+    "description": "Grants permission to update an alert manager definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putalertmanagersilences": {
+    "name": "PutAlertManagerSilences",
+    "description": "Grants permission to create or update a silence",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putanomalydetector": {
+    "name": "PutAnomalyDetector",
+    "description": "Grants permission to update an anomaly detector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to create and update workspace resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putrulegroupsnamespace": {
+    "name": "PutRuleGroupsNamespace",
+    "description": "Grants permission to update a rule groups namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rulegroupsnamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "querymetrics": {
+    "name": "QueryMetrics",
+    "description": "Grants permission to run a query on AMP workspace metrics",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "remotewrite": {
+    "name": "RemoteWrite",
+    "description": "Grants permission to perform a remote write operation to initiate the streaming of metrics to AMP workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an AMP resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rulegroupsnamespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scraper",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag an AMP resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rulegroupsnamespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "scraper",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateloggingconfiguration": {
+    "name": "UpdateLoggingConfiguration",
+    "description": "Grants permission to update a logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatequeryloggingconfiguration": {
+    "name": "UpdateQueryLoggingConfiguration",
+    "description": "Grants permission to update a query logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatescraper": {
+    "name": "UpdateScraper",
+    "description": "Grants permission to update a scraper",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "aps:CreateScraper",
+          "aps:TagResource"
+        ]
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatescraperloggingconfiguration": {
+    "name": "UpdateScraperLoggingConfiguration",
+    "description": "Grants permission to put a scraper logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateworkspacealias": {
+    "name": "UpdateWorkspaceAlias",
+    "description": "Grants permission to modify the alias of existing AMP workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateworkspaceconfiguration": {
+    "name": "UpdateWorkspaceConfiguration",
+    "description": "Grants permission to update workspace configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

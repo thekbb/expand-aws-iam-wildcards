@@ -1,0 +1,335 @@
+{
+  "createpipeline": {
+    "name": "CreatePipeline",
+    "description": "Grants permission to create an OpenSearch Ingestion pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:PassRole",
+      "kms:DescribeKey",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "logs:CreateLogDelivery"
+    ]
+  },
+  "createpipelineendpoint": {
+    "name": "CreatePipelineEndpoint",
+    "description": "Grants permission to create an OpenSearch Ingestion pipeline endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletepipeline": {
+    "name": "DeletePipeline",
+    "description": "Grants permission to delete an OpenSearch Ingestion pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "logs:DeleteLogDelivery",
+      "logs:GetLogDelivery",
+      "logs:ListLogDeliveries"
+    ]
+  },
+  "deletepipelineendpoint": {
+    "name": "DeletePipelineEndpoint",
+    "description": "Grants permission to delete an OpenSearch Ingestion pipeline endpoint in the current account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy for an OpenSearch Ingestion resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpipeline": {
+    "name": "GetPipeline",
+    "description": "Grants permission to retrieve configuration information for an OpenSearch Ingestion pipeline",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpipelineblueprint": {
+    "name": "GetPipelineBlueprint",
+    "description": "Grants permission to get the contents of an OpenSearch Ingestion pipeline blueprint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline-blueprint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpipelinechangeprogress": {
+    "name": "GetPipelineChangeProgress",
+    "description": "Grants permission to get granular information about the status of an OpenSearch Ingestion pipeline",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get a resource policy for an OpenSearch Ingestion resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ingest": {
+    "name": "Ingest",
+    "description": "Grants permission to ingest data through an OpenSearch Ingestion pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpipelineblueprints": {
+    "name": "ListPipelineBlueprints",
+    "description": "Grants permission to list the names of available blueprints for an OpenSearch Ingestion pipeline configuration",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpipelineendpointconnections": {
+    "name": "ListPipelineEndpointConnections",
+    "description": "Grants permission to list OpenSearch Ingestion pipeline endpoint connections to pipelines in the current account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpipelineendpoints": {
+    "name": "ListPipelineEndpoints",
+    "description": "Grants permission to list OpenSearch Ingestion pipeline endpoints in the current account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpipelines": {
+    "name": "ListPipelines",
+    "description": "Grants permission to list basic configuration for each OpenSearch Ingestion pipeline in the current account and Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all resource tags associated with an OpenSearch Ingestion pipeline",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to put a resource policy for an OpenSearch Ingestion resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revokepipelineendpointconnections": {
+    "name": "RevokePipelineEndpointConnections",
+    "description": "Grants permission to revoke an OpenSearch Ingestion pipeline endpoint connection from a pipeline in the current account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startpipeline": {
+    "name": "StartPipeline",
+    "description": "Grants permission to start an OpenSearch Ingestion pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoppipeline": {
+    "name": "StopPipeline",
+    "description": "Grants permission to stop an OpenSearch Ingestion pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to attach resource tags to an OpenSearch Ingestion pipeline",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove resource tags from an OpenSearch Ingestion Service pipeline",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatepipeline": {
+    "name": "UpdatePipeline",
+    "description": "Grants permission to modify the configuration of an OpenSearch Ingestion pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole",
+      "kms:DescribeKey",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "logs:GetLogDelivery",
+      "logs:ListLogDeliveries",
+      "logs:UpdateLogDelivery"
+    ]
+  },
+  "validatepipeline": {
+    "name": "ValidatePipeline",
+    "description": "Grants permission to validate the configuration of an OpenSearch Ingestion pipeline",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

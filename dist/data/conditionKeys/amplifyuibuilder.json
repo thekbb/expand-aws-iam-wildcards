@@ -1,0 +1,77 @@
+{
+  "amplifyuibuilder:codegenjobresourceappid": {
+    "key": "amplifyuibuilder:CodegenJobResourceAppId",
+    "description": "Filters access by the app ID",
+    "type": "String"
+  },
+  "amplifyuibuilder:codegenjobresourceenvironmentname": {
+    "key": "amplifyuibuilder:CodegenJobResourceEnvironmentName",
+    "description": "Filters access by the backend environment name",
+    "type": "String"
+  },
+  "amplifyuibuilder:codegenjobresourceid": {
+    "key": "amplifyuibuilder:CodegenJobResourceId",
+    "description": "Filters access by the codegen job ID",
+    "type": "String"
+  },
+  "amplifyuibuilder:componentresourceappid": {
+    "key": "amplifyuibuilder:ComponentResourceAppId",
+    "description": "Filters access by the app ID",
+    "type": "String"
+  },
+  "amplifyuibuilder:componentresourceenvironmentname": {
+    "key": "amplifyuibuilder:ComponentResourceEnvironmentName",
+    "description": "Filters access by the backend environment name",
+    "type": "String"
+  },
+  "amplifyuibuilder:componentresourceid": {
+    "key": "amplifyuibuilder:ComponentResourceId",
+    "description": "Filters access by the component ID",
+    "type": "String"
+  },
+  "amplifyuibuilder:formresourceappid": {
+    "key": "amplifyuibuilder:FormResourceAppId",
+    "description": "Filters access by the app ID",
+    "type": "String"
+  },
+  "amplifyuibuilder:formresourceenvironmentname": {
+    "key": "amplifyuibuilder:FormResourceEnvironmentName",
+    "description": "Filters access by the backend environment name",
+    "type": "String"
+  },
+  "amplifyuibuilder:formresourceid": {
+    "key": "amplifyuibuilder:FormResourceId",
+    "description": "Filters access by the form ID",
+    "type": "String"
+  },
+  "amplifyuibuilder:themeresourceappid": {
+    "key": "amplifyuibuilder:ThemeResourceAppId",
+    "description": "Filters access by the app ID",
+    "type": "String"
+  },
+  "amplifyuibuilder:themeresourceenvironmentname": {
+    "key": "amplifyuibuilder:ThemeResourceEnvironmentName",
+    "description": "Filters access by the backend environment name",
+    "type": "String"
+  },
+  "amplifyuibuilder:themeresourceid": {
+    "key": "amplifyuibuilder:ThemeResourceId",
+    "description": "Filters access by the theme ID",
+    "type": "String"
+  },
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the tags that are passed in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the tag keys that are passed in the request",
+    "type": "ArrayOfString"
+  }
+}

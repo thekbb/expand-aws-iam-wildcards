@@ -1,0 +1,16 @@
+{
+  "group": {
+    "key": "group",
+    "arn": "arn:${Partition}:resource-groups:${Region}:${Account}:group/${GroupName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "tagsynctask": {
+    "key": "tagSyncTask",
+    "arn": "arn:${Partition}:resource-groups:${Region}:${Account}:group/${GroupName}/tag-sync-task/${TaskId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}
