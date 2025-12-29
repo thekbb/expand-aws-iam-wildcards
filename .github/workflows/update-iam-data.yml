@@ -37,10 +37,16 @@ jobs:
         id: changes
         run: |
           if git diff --quiet src/iam-actions.ts; then
+            echo "No changes detected - IAM data is up to date"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
+            echo "Changes detected - will commit and tag new version"
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: No changes detected
+        if: steps.changes.outputs.changed == 'false'
+        run: echo "IAM action data is already up to date. Nothing to commit."
 
       - name: Commit, tag, and push
         if: steps.changes.outputs.changed == 'true'
