@@ -16,6 +16,7 @@ npm run typecheck
 
 # Lint
 npm run lint
+npm run lint:md
 
 # Build
 npm run build
@@ -25,7 +26,7 @@ npm run build
 
 1. Fork the repo and create a branch from `main`
 2. Make your changes
-3. Run `npm test` and `npm run lint`
+3. Run `npm test`, `npm run lint`, and `npm run lint:md`
 4. Run `npm run build` and commit the updated `dist/index.js` (this will help us actually run it as an action if we wish)
 5. Open a PR. Be verbose. We like to read.
 
