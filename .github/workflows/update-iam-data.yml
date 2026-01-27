@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Update iam-expand package
-        run: npm update @cloud-copilot/iam-expand
+        run: npm update @cloud-copilot/iam-expand @cloud-copilot/iam-data
 
       - name: Regenerate IAM data
         run: npm run generate-iam-data
