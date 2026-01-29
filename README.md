@@ -103,7 +103,8 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 - **No external calls** - IAM data bundled at build time (automatically updated weekly)
 - **Auditable** - ~500 lines of TypeScript, `dist/index.js` committed
 
-For strict environments, pin to a full semver or SHA:
+For tighter control, fork the repo or pin to a full semver or SHA. With a fork, you have complete control and can choose when or if
+you update.
 
 ```yaml
 uses: thekbb/expand-aws-iam-wildcards@v1.1.4

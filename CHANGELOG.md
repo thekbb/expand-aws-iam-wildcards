@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Change IAM action casing to use the action name from the data object rather than the object key
+  `dynamodb:DescribeBackup`, rather than `dynamodb:describebackup`
+
 ## [1.1.6] - 2026-01-28
 
 ### Changed
