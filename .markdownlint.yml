@@ -4,5 +4,9 @@ default: true
 MD013:
   line_length: 120
 
+# No Duplicate Headings (for Added:, Changed:, etc. in CHANGELOG)
+MD024:
+  siblings_only: true
+
 # Allow inline HTML (for <details> blocks)
 MD033: false
