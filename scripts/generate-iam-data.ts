@@ -16,8 +16,8 @@ const allActions: string[] = readdirSync(actionsDir)
       const serviceName = file.replace('.json', '');
       const data = JSON.parse(readFileSync(join(actionsDir, file), 'utf-8'));
 
-      return Object.keys(data)
-          .map((action) => `${serviceName}:${action}`);
+      return Object.values(data)
+          .map((action) => `${serviceName}:${action.name}`);
     })
     .sort();
 
