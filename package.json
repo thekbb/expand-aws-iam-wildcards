@@ -29,7 +29,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "~2.0.1",
+    "@actions/core": "~3.0.0",
     "@actions/github": "~9.0.0",
     "minimatch": "^10.0.0"
   },
