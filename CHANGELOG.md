@@ -5,14 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.8]
+## [Unreleased]
+
+### Changed
+
+- Group all NPM dependabot updates into one pull request. Having development dependencies in a separate PR had little
+  value and lead to merge conflicts in `package-lock.json`
+
+## [1.1.8] - 2026-1-31
 
 ### Fixed
 
 - Dependency updates, mainly to update [undici](https://www.npmjs.com/package/undici) due to [CVE-2026-22036](https://nvd.nist.gov/vuln/detail/CVE-2026-22036)
   TIL: Undici means eleven in Italian, the package name is a _Stranger Things_ reference.
 
-## [1.1.7]
+## [1.1.7] - 2026-1-30
 
 ### Changed
 
