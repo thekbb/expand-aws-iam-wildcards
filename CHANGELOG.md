@@ -109,6 +109,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add initial release
 
+<!-- markdownlint-disable-next-line MD053 -->
 [Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.1.8...HEAD
 [1.1.8]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.1.7...v1.1.8
 [1.1.7]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.1.6...v1.1.7
