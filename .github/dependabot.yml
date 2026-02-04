@@ -16,7 +16,8 @@ updates:
         update-types: ["version-update:semver-major"]
     groups:
       npm-dependencies:
-        dependency-type: "all"
+        patterns:
+          - "*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
