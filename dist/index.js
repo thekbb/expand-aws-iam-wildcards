@@ -36091,37 +36091,43 @@ ${actionsBlock}`;
 
 ;// CONCATENATED MODULE: ./src/diff.ts
 
+function extractFromPatch(patch, filename) {
+    const wildcardMatches = [];
+    const explicitActions = [];
+    let currentLine = 0;
+    for (const line of patch.split('\n')) {
+        const hunkStart = parseHunkHeader(line);
+        if (hunkStart !== null) {
+            currentLine = hunkStart - 1;
+            continue;
+        }
+        if (line.startsWith('-'))
+            continue;
+        currentLine++;
+        if (line.startsWith('+')) {
+            for (const action of findPotentialWildcardActions(line)) {
+                wildcardMatches.push({ action, line: currentLine, file: filename });
+            }
+            for (const action of findExplicitActions(line)) {
+                explicitActions.push(action);
+            }
+        }
+    }
+    return { wildcardMatches, explicitActions };
+}
 function parseHunkHeader(line) {
     const match = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/);
     return match?.[1] ? parseInt(match[1], 10) : null;
 }
 function extractFromDiff(files) {
-    const wildcardMatches = [];
-    const explicitActions = [];
-    for (const file of files) {
-        if (!file.patch)
-            continue;
-        let currentLine = 0;
-        for (const line of file.patch.split('\n')) {
-            const hunkStart = parseHunkHeader(line);
-            if (hunkStart !== null) {
-                currentLine = hunkStart - 1;
-                continue;
-            }
-            if (line.startsWith('-'))
-                continue;
-            currentLine++;
-            if (line.startsWith('+')) {
-                for (const action of findPotentialWildcardActions(line)) {
-                    wildcardMatches.push({ action, line: currentLine, file: file.filename });
-                }
-                for (const action of findExplicitActions(line)) {
-                    explicitActions.push(action);
-                }
-            }
-        }
-    }
-    return { wildcardMatches, explicitActions };
+    return files
+        .filter((file) => typeof file.patch === 'string')
+        .map((file) => extractFromPatch(file.patch, file.filename))
+        .reduce((acc, result) => {
+        acc.wildcardMatches.push(...result.wildcardMatches);
+        acc.explicitActions.push(...result.explicitActions);
+        return acc;
+    }, { wildcardMatches: [], explicitActions: [] });
 }
 
 ;// CONCATENATED MODULE: ./src/iam-actions.ts
@@ -42157,6 +42163,7 @@ const IAM_ACTIONS = [
     "dsql:TagResource",
     "dsql:UntagResource",
     "dsql:UpdateCluster",
+    "dynamodb:AssociateTableReplica",
     "dynamodb:BatchGetItem",
     "dynamodb:BatchWriteItem",
     "dynamodb:ConditionCheckItem",
@@ -42196,6 +42203,7 @@ const IAM_ACTIONS = [
     "dynamodb:GetResourcePolicy",
     "dynamodb:GetShardIterator",
     "dynamodb:ImportTable",
+    "dynamodb:InjectError",
     "dynamodb:ListBackups",
     "dynamodb:ListContributorInsights",
     "dynamodb:ListExports",
@@ -42212,6 +42220,8 @@ const IAM_ACTIONS = [
     "dynamodb:PutItem",
     "dynamodb:PutResourcePolicy",
     "dynamodb:Query",
+    "dynamodb:ReadDataForReplication",
+    "dynamodb:ReplicateSettings",
     "dynamodb:RestoreTableFromAwsBackup",
     "dynamodb:RestoreTableFromBackup",
     "dynamodb:RestoreTableToPointInTime",
@@ -42230,6 +42240,7 @@ const IAM_ACTIONS = [
     "dynamodb:UpdateTable",
     "dynamodb:UpdateTableReplicaAutoScaling",
     "dynamodb:UpdateTimeToLive",
+    "dynamodb:WriteDataForReplication",
     "ebs:CompleteSnapshot",
     "ebs:GetSnapshotBlock",
     "ebs:ListChangedBlocks",
@@ -42846,6 +42857,7 @@ const IAM_ACTIONS = [
     "ec2:ImportSnapshot",
     "ec2:ImportVolume",
     "ec2:InjectApiError",
+    "ec2:InjectVolumeIOLatency",
     "ec2:ListImagesInRecycleBin",
     "ec2:ListSnapshotsInRecycleBin",
     "ec2:ListVolumesInRecycleBin",
@@ -45478,6 +45490,7 @@ const IAM_ACTIONS = [
     "identitystore-auth:BatchDeleteSession",
     "identitystore-auth:BatchGetSession",
     "identitystore-auth:ListSessions",
+    "identitystore:AddRegion",
     "identitystore:CreateGroup",
     "identitystore:CreateGroupMembership",
     "identitystore:CreateIdentityStore",
@@ -45488,6 +45501,7 @@ const IAM_ACTIONS = [
     "identitystore:DeleteUser",
     "identitystore:DescribeGroup",
     "identitystore:DescribeGroupMembership",
+    "identitystore:DescribeRegion",
     "identitystore:DescribeUser",
     "identitystore:GetGroupId",
     "identitystore:GetGroupMembershipId",
@@ -45496,7 +45510,9 @@ const IAM_ACTIONS = [
     "identitystore:ListGroupMemberships",
     "identitystore:ListGroupMembershipsForMember",
     "identitystore:ListGroups",
+    "identitystore:ListRegions",
     "identitystore:ListUsers",
+    "identitystore:RemoveRegion",
     "identitystore:ReserveUser",
     "identitystore:UpdateGroup",
     "identitystore:UpdateIdentityStore",
@@ -51225,6 +51241,7 @@ const IAM_ACTIONS = [
     "redshift-serverless:GetCredentials",
     "redshift-serverless:GetCustomDomainAssociation",
     "redshift-serverless:GetEndpointAccess",
+    "redshift-serverless:GetIdentityCenterAuthToken",
     "redshift-serverless:GetManagedWorkgroup",
     "redshift-serverless:GetNamespace",
     "redshift-serverless:GetRecoveryPoint",
@@ -51385,6 +51402,7 @@ const IAM_ACTIONS = [
     "redshift:FetchResults",
     "redshift:GetClusterCredentials",
     "redshift:GetClusterCredentialsWithIAM",
+    "redshift:GetIdentityCenterAuthToken",
     "redshift:GetReservedNodeExchangeConfigurationOptions",
     "redshift:GetReservedNodeExchangeOfferings",
     "redshift:GetResourcePolicy",
@@ -52365,6 +52383,7 @@ const IAM_ACTIONS = [
     "s3:UpdateBucketMetadataJournalTableConfiguration",
     "s3:UpdateJobPriority",
     "s3:UpdateJobStatus",
+    "s3:UpdateObjectEncryption",
     "s3:UpdateStorageLensGroup",
     "s3express:CreateAccessPoint",
     "s3express:CreateBucket",
@@ -53108,42 +53127,58 @@ const IAM_ACTIONS = [
     "securityagent:AddControl",
     "securityagent:BatchDeletePentests",
     "securityagent:BatchGetAgentInstances",
+    "securityagent:BatchGetAgentSpaces",
     "securityagent:BatchGetArtifactMetadata",
     "securityagent:BatchGetFindings",
+    "securityagent:BatchGetPentestJobContentMetadata",
+    "securityagent:BatchGetPentestJobTasks",
     "securityagent:BatchGetPentestJobs",
     "securityagent:BatchGetPentests",
     "securityagent:BatchGetSecurityTestContentMetadata",
     "securityagent:BatchGetTasks",
     "securityagent:CreateAgentInstance",
+    "securityagent:CreateAgentSpace",
     "securityagent:CreateApplication",
+    "securityagent:CreateDesignReview",
     "securityagent:CreateDocumentReview",
     "securityagent:CreateIntegration",
     "securityagent:CreateMembership",
     "securityagent:CreateOneTimeLoginSession",
     "securityagent:CreatePentest",
+    "securityagent:CreateSecurityRequirement",
     "securityagent:DeleteAgentInstance",
+    "securityagent:DeleteAgentSpace",
     "securityagent:DeleteApplication",
     "securityagent:DeleteArtifact",
     "securityagent:DeleteControl",
+    "securityagent:DeleteDesignReview",
+    "securityagent:DeleteDocumentReview",
     "securityagent:DeleteIntegration",
     "securityagent:DeleteMembership",
+    "securityagent:DeleteSecurityRequirement",
     "securityagent:DescribeFindings",
     "securityagent:GetApplication",
     "securityagent:GetArtifact",
     "securityagent:GetCodeReviewTask",
     "securityagent:GetControl",
+    "securityagent:GetDesignReview",
+    "securityagent:GetDesignReviewArtifact",
     "securityagent:GetDocReviewTask",
     "securityagent:GetDocumentReview",
     "securityagent:GetDocumentReviewArtifact",
     "securityagent:GetIntegration",
     "securityagent:GetLoginSessionCredentials",
+    "securityagent:GetSecurityRequirement",
     "securityagent:HandleOneTimeLoginSession",
     "securityagent:InitiateProviderRegistration",
     "securityagent:ListAgentInstanceTasks",
     "securityagent:ListAgentInstances",
+    "securityagent:ListAgentSpaces",
     "securityagent:ListApplications",
     "securityagent:ListArtifacts",
     "securityagent:ListControls",
+    "securityagent:ListDesignReviewComments",
+    "securityagent:ListDesignReviews",
     "securityagent:ListDiscoveredEndpoints",
     "securityagent:ListDocumentReviewComments",
     "securityagent:ListDocumentReviews",
@@ -53151,20 +53186,27 @@ const IAM_ACTIONS = [
     "securityagent:ListIntegratedResources",
     "securityagent:ListIntegrations",
     "securityagent:ListMemberships",
+    "securityagent:ListPentestJobTasks",
     "securityagent:ListPentestJobsForPentest",
     "securityagent:ListPentests",
     "securityagent:ListResourcesFromIntegration",
+    "securityagent:ListSecurityRequirements",
     "securityagent:ListTasks",
     "securityagent:StartCodeRemediation",
     "securityagent:StartPentestExecution",
+    "securityagent:StartPentestJob",
     "securityagent:StopPentestExecution",
+    "securityagent:StopPentestJob",
     "securityagent:ToggleManagedControl",
+    "securityagent:ToggleManagedSecurityRequirement",
     "securityagent:UpdateAgentInstance",
+    "securityagent:UpdateAgentSpace",
     "securityagent:UpdateApplication",
     "securityagent:UpdateControl",
     "securityagent:UpdateFinding",
     "securityagent:UpdateIntegratedResources",
     "securityagent:UpdatePentest",
+    "securityagent:UpdateSecurityRequirement",
     "securityagent:VerifyTargetDomain",
     "securityhub:AcceptAdministratorInvitation",
     "securityhub:AcceptInvitation",
@@ -54482,6 +54524,7 @@ const IAM_ACTIONS = [
     "sso-oauth:CreateTokenWithIAM",
     "sso-oauth:IntrospectTokenWithIAM",
     "sso-oauth:RevokeTokenWithIAM",
+    "sso:AddRegion",
     "sso:AssociateDirectory",
     "sso:AssociateProfile",
     "sso:AttachCustomerManagedPolicyReferenceToPermissionSet",
@@ -54523,6 +54566,7 @@ const IAM_ACTIONS = [
     "sso:DescribeInstanceAccessControlAttributeConfiguration",
     "sso:DescribePermissionSet",
     "sso:DescribePermissionSetProvisioningStatus",
+    "sso:DescribeRegion",
     "sso:DescribeRegisteredRegions",
     "sso:DescribeTrustedTokenIssuer",
     "sso:DetachCustomerManagedPolicyReferenceFromPermissionSet",
@@ -54571,6 +54615,7 @@ const IAM_ACTIONS = [
     "sso:ListPermissionSetsProvisionedToAccount",
     "sso:ListProfileAssociations",
     "sso:ListProfiles",
+    "sso:ListRegions",
     "sso:ListTagsForResource",
     "sso:ListTrustedTokenIssuers",
     "sso:ProvisionPermissionSet",
@@ -54583,6 +54628,7 @@ const IAM_ACTIONS = [
     "sso:PutMfaDeviceManagementForDirectory",
     "sso:PutPermissionsBoundaryToPermissionSet",
     "sso:PutPermissionsPolicy",
+    "sso:RemoveRegion",
     "sso:SearchGroups",
     "sso:SearchUsers",
     "sso:StartSSO",
@@ -56449,6 +56495,7 @@ const openPattern = /\\{/g;
 const closePattern = /\\}/g;
 const commaPattern = /\\,/g;
 const periodPattern = /\\./g;
+const EXPANSION_MAX = 100_000;
 function numeric(str) {
     return !isNaN(str) ? parseInt(str, 10) : str.charCodeAt(0);
 }
@@ -56494,10 +56541,11 @@ function parseCommaParts(str) {
     parts.push.apply(parts, p);
     return parts;
 }
-function esm_expand(str) {
+function esm_expand(str, options = {}) {
     if (!str) {
         return [];
     }
+    const { max = EXPANSION_MAX } = options;
     // I don't know why Bash 4.3 does this, but it does.
     // Anything starting with {} will have the first two bytes preserved
     // but *only* at the top level, so {},a}b will not expand to anything,
@@ -56507,7 +56555,7 @@ function esm_expand(str) {
     if (str.slice(0, 2) === '{}') {
         str = '\\{\\}' + str.slice(2);
     }
-    return expand_(escapeBraces(str), true).map(unescapeBraces);
+    return expand_(escapeBraces(str), max, true).map(unescapeBraces);
 }
 function embrace(str) {
     return '{' + str + '}';
@@ -56521,7 +56569,7 @@ function lte(i, y) {
 function gte(i, y) {
     return i >= y;
 }
-function expand_(str, isTop) {
+function expand_(str, max, isTop) {
     /** @type {string[]} */
     const expansions = [];
     const m = balanced('{', '}', str);
@@ -56529,9 +56577,9 @@ function expand_(str, isTop) {
         return [str];
     // no need to expand pre, since it is guaranteed to be free of brace-sets
     const pre = m.pre;
-    const post = m.post.length ? expand_(m.post, false) : [''];
+    const post = m.post.length ? expand_(m.post, max, false) : [''];
     if (/\$$/.test(m.pre)) {
-        for (let k = 0; k < post.length; k++) {
+        for (let k = 0; k < post.length && k < max; k++) {
             const expansion = pre + '{' + m.body + '}' + post[k];
             expansions.push(expansion);
         }
@@ -56545,7 +56593,7 @@ function expand_(str, isTop) {
             // {a},b}
             if (m.post.match(/,(?!,).*\}/)) {
                 str = m.pre + '{' + m.body + escClose + m.post;
-                return expand_(str);
+                return expand_(str, max, true);
             }
             return [str];
         }
@@ -56557,7 +56605,7 @@ function expand_(str, isTop) {
             n = parseCommaParts(m.body);
             if (n.length === 1 && n[0] !== undefined) {
                 // x{{a,b}}y ==> x{a}y x{b}y
-                n = expand_(n[0], false).map(embrace);
+                n = expand_(n[0], max, false).map(embrace);
                 //XXX is this necessary? Can't seem to hit it in tests.
                 /* c8 ignore start */
                 if (n.length === 1) {
@@ -56611,11 +56659,11 @@ function expand_(str, isTop) {
         else {
             N = [];
             for (let j = 0; j < n.length; j++) {
-                N.push.apply(N, expand_(n[j], false));
+                N.push.apply(N, expand_(n[j], max, false));
             }
         }
         for (let j = 0; j < N.length; j++) {
-            for (let k = 0; k < post.length; k++) {
+            for (let k = 0; k < post.length && expansions.length < max; k++) {
                 const expansion = pre + N[j] + post[k];
                 if (!isTop || isSequence || expansion) {
                     expansions.push(expansion);
