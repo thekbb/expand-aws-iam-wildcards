@@ -5,10 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.1.9]
 
 ### Changed
 
+- Refactor per-patch parsing in diff processing
+- Update all dependencies
 - Group all NPM dependabot updates into one pull request. Having development dependencies in a separate PR had little
   value and lead to merge conflicts in `package-lock.json`
 
