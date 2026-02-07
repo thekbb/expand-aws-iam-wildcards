@@ -106,8 +106,9 @@ export function getActionDocUrl(action: string): string | null {
   const slug = SERVICE_DOC_SLUGS[service.toLowerCase()];
   if (!slug) return null;
 
-  // Use text fragment to highlight the action
-  return `https://docs.aws.amazon.com/service-authorization/latest/reference/list_${slug}.html#${slug}-actions-as-permissions:~:text=${actionName}`;
+  // Use text fragment only; avoids some pages overriding section hash navigation.
+  const encodedActionName = encodeURIComponent(actionName);
+  return `https://docs.aws.amazon.com/service-authorization/latest/reference/list_${slug}.html#:~:text=${encodedActionName}`;
 }
 
 export function formatActionWithLink(action: string): string {

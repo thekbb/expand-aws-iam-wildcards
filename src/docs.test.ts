@@ -5,7 +5,7 @@ describe('getActionDocUrl', () => {
   it('returns URL for known S3 action', () => {
     const url = getActionDocUrl('s3:GetObject');
     expect(url).toBe(
-      'https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-actions-as-permissions:~:text=GetObject'
+      'https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObject'
     );
   });
 
@@ -47,7 +47,7 @@ describe('formatActionWithLink', () => {
   it('formats known service action as monospace markdown link', () => {
     const result = formatActionWithLink('s3:GetObject');
     expect(result).toBe(
-      '[`s3:GetObject`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-actions-as-permissions:~:text=GetObject)'
+      '[`s3:GetObject`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObject)'
     );
   });
 
