@@ -36021,8 +36021,8 @@ const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*
 const IAM_EXPLICIT_PATTERN = /["']([a-zA-Z0-9-]+:[a-zA-Z][a-zA-Z0-9]*)["']/g;
 function findPotentialWildcardActions(line) {
     return [...line.matchAll(IAM_WILDCARD_PATTERN)]
-        .map((match) => match[1])
-        .filter((action) => action !== undefined);
+        .map((match) => match[1]?.trim())
+        .filter((action) => action !== undefined && action !== '');
 }
 function findExplicitActions(line) {
     return [...line.matchAll(IAM_EXPLICIT_PATTERN)]
@@ -56409,8 +56409,13 @@ const IAM_ACTIONS = [
 ;// CONCATENATED MODULE: ./src/expand.ts
 
 function expandIamAction(pattern) {
+    const normalized = pattern
+        .trim()
+        .replace(/\u2217/g, '*') // ∗ (unicode asterisk operator)
+        .replace(/\uFF0A/g, '*') // ＊ (fullwidth asterisk)
+        .replace(/\u204E/g, '*'); // ⁎ (low asterisk)
     // Escape regex special chars except * and ?, then convert wildcards
-    const regexPattern = pattern
+    const regexPattern = normalized
         .replace(/[.+^${}()|[\]\\]/g, '\\$&')
         .replace(/\*/g, '.*')
         .replace(/\?/g, '.');

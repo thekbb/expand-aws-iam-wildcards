@@ -6,8 +6,8 @@ const IAM_EXPLICIT_PATTERN = /["']([a-zA-Z0-9-]+:[a-zA-Z][a-zA-Z0-9]*)["']/g;
 
 export function findPotentialWildcardActions(line: string): string[] {
   return [...line.matchAll(IAM_WILDCARD_PATTERN)]
-    .map((match) => match[1])
-    .filter((action): action is string => action !== undefined);
+    .map((match) => match[1]?.trim())
+    .filter((action): action is string => action !== undefined && action !== '');
 }
 
 export function findExplicitActions(line: string): string[] {
