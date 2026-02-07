@@ -175,4 +175,47 @@ describe('extractFromDiff', () => {
     expect(wildcardMatches[0]?.action).toBe('s3:Get*');
     expect(explicitActions).toContain('s3:GetObject');
   });
+
+  it('extracts wildcards from Terraform policy diff with multiple added actions', () => {
+    const files = [
+      {
+        filename: 'policy.tf',
+        patch: `@@ -22,10 +22,12 @@
+       {
+         Effect = "Allow"
+         Action = [
++          "dynamodb:Get*",
++          "dynamodb:List*",
+           "dynamodb:Query",
+           "dynamodb:Scan",
+         ]
+         Resource = "*"
+       }`,
+      },
+    ];
+
+    const { wildcardMatches } = extractFromDiff(files);
+
+    expect(wildcardMatches).toHaveLength(2);
+    expect(wildcardMatches.map((m) => m.action).sort()).toEqual(['dynamodb:Get*', 'dynamodb:List*']);
+    expect(wildcardMatches[0]?.file).toBe('policy.tf');
+    expect(wildcardMatches[1]?.file).toBe('policy.tf');
+  });
+
+  it('skips files with empty string patch', () => {
+    const files = [
+      { filename: 'policy.tf', patch: '' },
+      {
+        filename: 'policy.json',
+        patch: `@@ -1,2 +1,2 @@
++  "Action": "s3:Get*"
+ }`,
+      },
+    ];
+
+    const { wildcardMatches } = extractFromDiff(files);
+
+    expect(wildcardMatches).toHaveLength(1);
+    expect(wildcardMatches[0]?.action).toBe('s3:Get*');
+  });
 });

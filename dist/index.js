@@ -36121,7 +36121,7 @@ function parseHunkHeader(line) {
 }
 function extractFromDiff(files) {
     return files
-        .filter((file) => typeof file.patch === 'string')
+        .filter((file) => typeof file.patch === 'string' && file.patch.length > 0)
         .map((file) => extractFromPatch(file.patch, file.filename))
         .reduce((acc, result) => {
         acc.wildcardMatches.push(...result.wildcardMatches);

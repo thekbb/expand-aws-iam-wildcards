@@ -42,7 +42,10 @@ export function parseHunkHeader(line: string): number | null {
 
 export function extractFromDiff(files: readonly PullRequestFile[]): DiffResults {
   return files
-    .filter((file): file is PullRequestFile & { patch: string } => typeof file.patch === 'string')
+    .filter(
+      (file): file is PullRequestFile & { patch: string } =>
+        typeof file.patch === 'string' && file.patch.length > 0,
+    )
     .map((file) => extractFromPatch(file.patch, file.filename))
     .reduce<DiffResults>(
       (acc, result) => {
