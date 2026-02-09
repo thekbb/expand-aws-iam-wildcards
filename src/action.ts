@@ -83,6 +83,8 @@ export interface ProcessingResult {
   readonly comments: ReviewComment[];
   readonly redundantActions: string[];
   readonly stats: ProcessingStats;
+  /** Patterns we tried to expand (for logging when expansion fails) */
+  readonly wildcardPatternsAttempted: string[];
 }
 
 export function processFiles(
@@ -99,6 +101,7 @@ export function processFiles(
       comments: [],
       redundantActions: [],
       stats: { filesScanned: 0, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+      wildcardPatternsAttempted: [],
     };
   }
 
@@ -109,6 +112,7 @@ export function processFiles(
       comments: [],
       redundantActions: [],
       stats: { filesScanned: filteredFiles.length, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+      wildcardPatternsAttempted: [],
     };
   }
 
@@ -126,6 +130,7 @@ export function processFiles(
         blocksCreated: blocks.length,
         actionsExpanded: 0,
       },
+      wildcardPatternsAttempted: uniqueActions,
     };
   }
 
@@ -141,5 +146,6 @@ export function processFiles(
       blocksCreated: blocks.length,
       actionsExpanded: expandedActions.size,
     },
+    wildcardPatternsAttempted: uniqueActions,
   };
 }

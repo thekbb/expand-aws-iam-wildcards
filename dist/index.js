@@ -58570,6 +58570,7 @@ function processFiles(files, filePatterns, collapseThreshold) {
             comments: [],
             redundantActions: [],
             stats: { filesScanned: 0, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+            wildcardPatternsAttempted: [],
         };
     }
     const { wildcardMatches, explicitActions } = extractFromDiff(filteredFiles);
@@ -58578,6 +58579,7 @@ function processFiles(files, filePatterns, collapseThreshold) {
             comments: [],
             redundantActions: [],
             stats: { filesScanned: filteredFiles.length, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+            wildcardPatternsAttempted: [],
         };
     }
     const blocks = groupIntoConsecutiveBlocks(wildcardMatches);
@@ -58593,6 +58595,7 @@ function processFiles(files, filePatterns, collapseThreshold) {
                 blocksCreated: blocks.length,
                 actionsExpanded: 0,
             },
+            wildcardPatternsAttempted: uniqueActions,
         };
     }
     const redundantActions = findRedundantActions(explicitActions, expandedActions);
@@ -58606,6 +58609,7 @@ function processFiles(files, filePatterns, collapseThreshold) {
             blocksCreated: blocks.length,
             actionsExpanded: expandedActions.size,
         },
+        wildcardPatternsAttempted: uniqueActions,
     };
 }
 
@@ -58652,19 +58656,23 @@ async function run() {
             repo,
             pull_number: pullNumber,
         });
-        const { comments, redundantActions, stats } = processFiles(files, filePatterns, collapseThreshold);
+        info(`Fetched ${files.length} file(s) from GitHub`);
+        const { comments, redundantActions, stats, wildcardPatternsAttempted } = processFiles(files, filePatterns, collapseThreshold);
         if (stats.filesScanned === 0) {
             info('No files matched the configured patterns.');
+            info(`Configured patterns: ${filePatterns.map((p) => JSON.stringify(p)).join(', ')}`);
             return;
         }
-        info(`Scanned ${stats.filesScanned} file(s)`);
+        info(`Scanned ${stats.filesScanned} file(s) matching configured patterns`);
         if (stats.wildcardsFound === 0) {
             info('No IAM wildcard actions found in the changes.');
+            info(`Configured patterns: ${filePatterns.map((p) => JSON.stringify(p)).join(', ')}`);
             return;
         }
         info(`Found ${stats.wildcardsFound} wildcard(s), grouped into ${stats.blocksCreated} block(s)`);
+        info(`Wildcard patterns found: ${wildcardPatternsAttempted.map((p) => JSON.stringify(p)).join(', ')}`);
         if (stats.actionsExpanded === 0) {
-            info('No wildcard actions could be expanded.');
+            info(`No wildcard actions could be expanded. Patterns attempted: ${wildcardPatternsAttempted.map((p) => JSON.stringify(p)).join(', ')}`);
             return;
         }
         if (redundantActions.length > 0) {

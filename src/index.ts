@@ -62,24 +62,35 @@ async function run(): Promise<void> {
       pull_number: pullNumber,
     });
 
-    const { comments, redundantActions, stats } = processFiles(files, filePatterns, collapseThreshold);
+    core.info(`Fetched ${files.length} file(s) from GitHub`);
+
+    const { comments, redundantActions, stats, wildcardPatternsAttempted } = processFiles(
+      files,
+      filePatterns,
+      collapseThreshold,
+    );
 
     if (stats.filesScanned === 0) {
       core.info('No files matched the configured patterns.');
+      core.info(`Configured patterns: ${filePatterns.map((p) => JSON.stringify(p)).join(', ')}`);
       return;
     }
 
-    core.info(`Scanned ${stats.filesScanned} file(s)`);
+    core.info(`Scanned ${stats.filesScanned} file(s) matching configured patterns`);
 
     if (stats.wildcardsFound === 0) {
       core.info('No IAM wildcard actions found in the changes.');
+      core.info(`Configured patterns: ${filePatterns.map((p) => JSON.stringify(p)).join(', ')}`);
       return;
     }
 
     core.info(`Found ${stats.wildcardsFound} wildcard(s), grouped into ${stats.blocksCreated} block(s)`);
+    core.info(`Wildcard patterns found: ${wildcardPatternsAttempted.map((p) => JSON.stringify(p)).join(', ')}`);
 
     if (stats.actionsExpanded === 0) {
-      core.info('No wildcard actions could be expanded.');
+      core.info(
+        `No wildcard actions could be expanded. Patterns attempted: ${wildcardPatternsAttempted.map((p) => JSON.stringify(p)).join(', ')}`,
+      );
       return;
     }
 
