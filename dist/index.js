@@ -38063,11 +38063,19 @@ const IAM_ACTIONS = [
     "bedrock-agentcore:UpdatePolicyEngine",
     "bedrock-agentcore:UpdateWorkloadIdentity",
     "bedrock-mantle:CallWithBearerToken",
+    "bedrock-mantle:CancelFineTuningJob",
     "bedrock-mantle:CancelInference",
+    "bedrock-mantle:CreateFile",
+    "bedrock-mantle:CreateFineTuningJob",
     "bedrock-mantle:CreateInference",
+    "bedrock-mantle:DeleteFile",
     "bedrock-mantle:DeleteInference",
+    "bedrock-mantle:GetFile",
+    "bedrock-mantle:GetFineTuningJob",
     "bedrock-mantle:GetInference",
     "bedrock-mantle:GetModel",
+    "bedrock-mantle:ListFiles",
+    "bedrock-mantle:ListFineTuningJobs",
     "bedrock-mantle:ListModels",
     "bedrock:AllowVendedLogDeliveryForResource",
     "bedrock:ApplyGuardrail",
@@ -38077,6 +38085,7 @@ const IAM_ACTIONS = [
     "bedrock:BatchDeleteEvaluationJob",
     "bedrock:CallWithBearerToken",
     "bedrock:CancelAutomatedReasoningPolicyBuildWorkflow",
+    "bedrock:CopyBlueprintStage",
     "bedrock:CountTokens",
     "bedrock:CreateAgent",
     "bedrock:CreateAgentActionGroup",
@@ -38165,6 +38174,7 @@ const IAM_ACTIONS = [
     "bedrock:GetAutomatedReasoningPolicyTestCase",
     "bedrock:GetAutomatedReasoningPolicyTestResult",
     "bedrock:GetBlueprint",
+    "bedrock:GetBlueprintOptimizationStatus",
     "bedrock:GetBlueprintRecommendation",
     "bedrock:GetCustomModel",
     "bedrock:GetCustomModelDeployment",
@@ -38202,6 +38212,7 @@ const IAM_ACTIONS = [
     "bedrock:IngestKnowledgeBaseDocuments",
     "bedrock:InvokeAgent",
     "bedrock:InvokeAutomatedReasoningPolicy",
+    "bedrock:InvokeBlueprintOptimizationAsync",
     "bedrock:InvokeBlueprintRecommendationAsync",
     "bedrock:InvokeBuilder",
     "bedrock:InvokeDataAutomation",
@@ -40566,6 +40577,7 @@ const IAM_ACTIONS = [
     "connect:AssociateLambdaFunction",
     "connect:AssociateLexBot",
     "connect:AssociatePhoneNumberContactFlow",
+    "connect:AssociateQueueEmailAddresses",
     "connect:AssociateQueueQuickConnects",
     "connect:AssociateRoutingProfileQueues",
     "connect:AssociateSecurityKey",
@@ -40600,6 +40612,7 @@ const IAM_ACTIONS = [
     "connect:CreateHoursOfOperationOverride",
     "connect:CreateInstance",
     "connect:CreateIntegrationAssociation",
+    "connect:CreateNotification",
     "connect:CreateParticipant",
     "connect:CreatePersistentContactAssociation",
     "connect:CreatePredefinedAttribute",
@@ -40636,6 +40649,7 @@ const IAM_ACTIONS = [
     "connect:DeleteHoursOfOperationOverride",
     "connect:DeleteInstance",
     "connect:DeleteIntegrationAssociation",
+    "connect:DeleteNotification",
     "connect:DeletePredefinedAttribute",
     "connect:DeletePrompt",
     "connect:DeletePushNotificationRegistration",
@@ -40672,6 +40686,7 @@ const IAM_ACTIONS = [
     "connect:DescribeInstance",
     "connect:DescribeInstanceAttribute",
     "connect:DescribeInstanceStorageConfig",
+    "connect:DescribeNotification",
     "connect:DescribePhoneNumber",
     "connect:DescribePredefinedAttribute",
     "connect:DescribePrompt",
@@ -40697,6 +40712,7 @@ const IAM_ACTIONS = [
     "connect:DisassociateLambdaFunction",
     "connect:DisassociateLexBot",
     "connect:DisassociatePhoneNumberContactFlow",
+    "connect:DisassociateQueueEmailAddresses",
     "connect:DisassociateQueueQuickConnects",
     "connect:DisassociateRoutingProfileQueues",
     "connect:DisassociateSecurityKey",
@@ -40752,10 +40768,12 @@ const IAM_ACTIONS = [
     "connect:ListIntegrationAssociations",
     "connect:ListLambdaFunctions",
     "connect:ListLexBots",
+    "connect:ListNotifications",
     "connect:ListPhoneNumbers",
     "connect:ListPhoneNumbersV2",
     "connect:ListPredefinedAttributes",
     "connect:ListPrompts",
+    "connect:ListQueueEmailAddresses",
     "connect:ListQueueQuickConnects",
     "connect:ListQueues",
     "connect:ListQuickConnects",
@@ -40776,6 +40794,7 @@ const IAM_ACTIONS = [
     "connect:ListTrafficDistributionGroups",
     "connect:ListUseCases",
     "connect:ListUserHierarchyGroups",
+    "connect:ListUserNotifications",
     "connect:ListUserProficiencies",
     "connect:ListUsers",
     "connect:ListViewVersions",
@@ -40801,6 +40820,7 @@ const IAM_ACTIONS = [
     "connect:SearchEvaluationForms",
     "connect:SearchHoursOfOperationOverrides",
     "connect:SearchHoursOfOperations",
+    "connect:SearchNotifications",
     "connect:SearchPredefinedAttributes",
     "connect:SearchPrompts",
     "connect:SearchQueues",
@@ -40866,6 +40886,7 @@ const IAM_ACTIONS = [
     "connect:UpdateHoursOfOperationOverride",
     "connect:UpdateInstanceAttribute",
     "connect:UpdateInstanceStorageConfig",
+    "connect:UpdateNotificationContent",
     "connect:UpdateParticipantAuthentication",
     "connect:UpdateParticipantRoleConfig",
     "connect:UpdatePhoneNumber",
@@ -40893,6 +40914,7 @@ const IAM_ACTIONS = [
     "connect:UpdateUserHierarchyGroupName",
     "connect:UpdateUserHierarchyStructure",
     "connect:UpdateUserIdentityInfo",
+    "connect:UpdateUserNotificationStatus",
     "connect:UpdateUserPhoneConfig",
     "connect:UpdateUserProficiencies",
     "connect:UpdateUserRoutingProfile",
@@ -44699,6 +44721,7 @@ const IAM_ACTIONS = [
     "glue:DeleteDevEndpoint",
     "glue:DeleteGlueIdentityCenterConfiguration",
     "glue:DeleteIntegration",
+    "glue:DeleteIntegrationResourceProperty",
     "glue:DeleteIntegrationTableProperties",
     "glue:DeleteJob",
     "glue:DeleteMLTransform",
@@ -44834,6 +44857,7 @@ const IAM_ACTIONS = [
     "glue:ListDataQualityRulesets",
     "glue:ListDevEndpoints",
     "glue:ListEntities",
+    "glue:ListIntegrationResourceProperties",
     "glue:ListJobUpgradeAnalyses",
     "glue:ListJobs",
     "glue:ListMLTransforms",
@@ -47650,6 +47674,7 @@ const IAM_ACTIONS = [
     "lightsail:UpdateRelationalDatabaseParameters",
     "logs:AssociateKmsKey",
     "logs:AssociateSourceToS3TableIntegration",
+    "logs:CallWithBearerToken",
     "logs:CancelExportTask",
     "logs:CancelImportTask",
     "logs:CreateDelivery",
@@ -47735,6 +47760,7 @@ const IAM_ACTIONS = [
     "logs:ListTagsLogGroup",
     "logs:ProcessWithPipeline",
     "logs:PutAccountPolicy",
+    "logs:PutBearerTokenAuthentication",
     "logs:PutDataProtectionPolicy",
     "logs:PutDeliveryDestination",
     "logs:PutDeliveryDestinationPolicy",
@@ -50028,6 +50054,7 @@ const IAM_ACTIONS = [
     "payment-cryptography:EnableDefaultKeyReplicationRegions",
     "payment-cryptography:EncryptData",
     "payment-cryptography:ExportKey",
+    "payment-cryptography:GenerateAs2805KekValidation",
     "payment-cryptography:GenerateCardValidationData",
     "payment-cryptography:GenerateMac",
     "payment-cryptography:GenerateMacEmvPinChange",
@@ -56442,7 +56469,7 @@ function expandIamAction(pattern) {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@isaacs/balanced-match/dist/esm/index.js
+;// CONCATENATED MODULE: ./node_modules/minimatch/node_modules/balanced-match/dist/esm/index.js
 const balanced = (a, b, str) => {
     const ma = a instanceof RegExp ? maybeMatch(a, str) : a;
     const mb = b instanceof RegExp ? maybeMatch(b, str) : b;
@@ -56497,7 +56524,7 @@ const range = (a, b, str) => {
     return result;
 };
 //# sourceMappingURL=index.js.map
-;// CONCATENATED MODULE: ./node_modules/@isaacs/brace-expansion/dist/esm/index.js
+;// CONCATENATED MODULE: ./node_modules/minimatch/node_modules/brace-expansion/dist/esm/index.js
 
 const escSlash = '\0SLASH' + Math.random() + '\0';
 const escOpen = '\0OPEN' + Math.random() + '\0';
@@ -56845,10 +56872,8 @@ const parseClass = (glob, position) => {
     }
     const sranges = '[' + (negate ? '^' : '') + rangesToString(ranges) + ']';
     const snegs = '[' + (negate ? '' : '^') + rangesToString(negs) + ']';
-    const comb = ranges.length && negs.length
-        ? '(' + sranges + '|' + snegs + ')'
-        : ranges.length
-            ? sranges
+    const comb = ranges.length && negs.length ? '(' + sranges + '|' + snegs + ')'
+        : ranges.length ? sranges
             : snegs;
     return [comb, uflag, endPos - pos, true];
 };
@@ -56875,14 +56900,14 @@ const parseClass = (glob, position) => {
  */
 const unescape_unescape = (s, { windowsPathsNoEscape = false, magicalBraces = true, } = {}) => {
     if (magicalBraces) {
-        return windowsPathsNoEscape
-            ? s.replace(/\[([^\/\\])\]/g, '$1')
+        return windowsPathsNoEscape ?
+            s.replace(/\[([^\/\\])\]/g, '$1')
             : s
                 .replace(/((?!\\).|^)\[([^\/\\])\]/g, '$1$2')
                 .replace(/\\([^\/])/g, '$1');
     }
-    return windowsPathsNoEscape
-        ? s.replace(/\[([^\/\\{}])\]/g, '$1')
+    return windowsPathsNoEscape ?
+        s.replace(/\[([^\/\\{}])\]/g, '$1')
         : s
             .replace(/((?!\\).|^)\[([^\/\\{}])\]/g, '$1$2')
             .replace(/\\([^\/{}])/g, '$1');
@@ -57010,7 +57035,8 @@ class AST {
             if (p === '')
                 continue;
             /* c8 ignore start */
-            if (typeof p !== 'string' && !(p instanceof AST && p.#parent === this)) {
+            if (typeof p !== 'string' &&
+                !(p instanceof AST && p.#parent === this)) {
                 throw new Error('invalid part: ' + p);
             }
             /* c8 ignore stop */
@@ -57018,8 +57044,10 @@ class AST {
         }
     }
     toJSON() {
-        const ret = this.type === null
-            ? this.#parts.slice().map(p => (typeof p === 'string' ? p : p.toJSON()))
+        const ret = this.type === null ?
+            this.#parts
+                .slice()
+                .map(p => (typeof p === 'string' ? p : p.toJSON()))
             : [this.type, ...this.#parts.map(p => p.toJSON())];
         if (this.isStart() && !this.type)
             ret.unshift([]);
@@ -57308,8 +57336,8 @@ class AST {
                 !this.#parts.some(s => typeof s !== 'string');
             const src = this.#parts
                 .map(p => {
-                const [re, _, hasMagic, uflag] = typeof p === 'string'
-                    ? AST.#parseGlob(p, this.#hasMagic, noEmpty)
+                const [re, _, hasMagic, uflag] = typeof p === 'string' ?
+                    AST.#parseGlob(p, this.#hasMagic, noEmpty)
                     : p.toRegExpSource(allowDot);
                 this.#hasMagic = this.#hasMagic || hasMagic;
                 this.#uflag = this.#uflag || uflag;
@@ -57338,7 +57366,10 @@ class AST {
                         // no need to prevent dots if it can't match a dot, or if a
                         // sub-pattern will be preventing it anyway.
                         const needNoDot = !dot && !allowDot && aps.has(src.charAt(0));
-                        start = needNoTrav ? startNoTraversal : needNoDot ? startNoDot : '';
+                        start =
+                            needNoTrav ? startNoTraversal
+                                : needNoDot ? startNoDot
+                                    : '';
                     }
                 }
             }
@@ -57374,8 +57405,8 @@ class AST {
             return [s, unescape_unescape(this.toString()), false, false];
         }
         // XXX abstract out this map method
-        let bodyDotAllowed = !repeated || allowDot || dot || !startNoDot
-            ? ''
+        let bodyDotAllowed = !repeated || allowDot || dot || !startNoDot ?
+            ''
             : this.#partsToRegExp(true);
         if (bodyDotAllowed === body) {
             bodyDotAllowed = '';
@@ -57389,20 +57420,16 @@ class AST {
             final = (this.isStart() && !dot ? startNoDot : '') + starNoEmpty;
         }
         else {
-            const close = this.type === '!'
-                ? // !() must match something,but !(x) can match ''
-                    '))' +
-                        (this.isStart() && !dot && !allowDot ? startNoDot : '') +
-                        star +
-                        ')'
-                : this.type === '@'
-                    ? ')'
-                    : this.type === '?'
-                        ? ')?'
-                        : this.type === '+' && bodyDotAllowed
-                            ? ')'
-                            : this.type === '*' && bodyDotAllowed
-                                ? `)?`
+            const close = this.type === '!' ?
+                // !() must match something,but !(x) can match ''
+                '))' +
+                    (this.isStart() && !dot && !allowDot ? startNoDot : '') +
+                    star +
+                    ')'
+                : this.type === '@' ? ')'
+                    : this.type === '?' ? ')?'
+                        : this.type === '+' && bodyDotAllowed ? ')'
+                            : this.type === '*' && bodyDotAllowed ? `)?`
                                 : `)${this.type}`;
             final = start + body + close;
         }
@@ -57434,12 +57461,25 @@ class AST {
         let escaping = false;
         let re = '';
         let uflag = false;
+        // multiple stars that aren't globstars coalesce into one *
+        let inStar = false;
         for (let i = 0; i < glob.length; i++) {
             const c = glob.charAt(i);
             if (escaping) {
                 escaping = false;
                 re += (reSpecials.has(c) ? '\\' : '') + c;
                 continue;
+            }
+            if (c === '*') {
+                if (inStar)
+                    continue;
+                inStar = true;
+                re += noEmpty && /^[*]+$/.test(glob) ? starNoEmpty : star;
+                hasMagic = true;
+                continue;
+            }
+            else {
+                inStar = false;
             }
             if (c === '\\') {
                 if (i === glob.length - 1) {
@@ -57459,11 +57499,6 @@ class AST {
                     hasMagic = hasMagic || magic;
                     continue;
                 }
-            }
-            if (c === '*') {
-                re += noEmpty && glob === '*' ? starNoEmpty : star;
-                hasMagic = true;
-                continue;
             }
             if (c === '?') {
                 re += qmark;
@@ -57494,12 +57529,12 @@ const escape_escape = (s, { windowsPathsNoEscape = false, magicalBraces = false,
     // that make those magic, and escaping ! as [!] isn't valid,
     // because [!]] is a valid glob class meaning not ']'.
     if (magicalBraces) {
-        return windowsPathsNoEscape
-            ? s.replace(/[?*()[\]{}]/g, '[$&]')
+        return windowsPathsNoEscape ?
+            s.replace(/[?*()[\]{}]/g, '[$&]')
             : s.replace(/[?*()[\]\\{}]/g, '\\$&');
     }
-    return windowsPathsNoEscape
-        ? s.replace(/[?*()[\]]/g, '[$&]')
+    return windowsPathsNoEscape ?
+        s.replace(/[?*()[\]]/g, '[$&]')
         : s.replace(/[?*()[\]\\]/g, '\\$&');
 };
 //# sourceMappingURL=escape.js.map
@@ -57569,8 +57604,8 @@ const qmarksTestNoExtDot = ([$0]) => {
     return (f) => f.length === len && f !== '.' && f !== '..';
 };
 /* c8 ignore start */
-const defaultPlatform = (typeof process === 'object' && process
-    ? (typeof process.env === 'object' &&
+const defaultPlatform = (typeof process === 'object' && process ?
+    (typeof process.env === 'object' &&
         process.env &&
         process.env.__MINIMATCH_TESTING_PLATFORM__) ||
         process.platform
@@ -57654,7 +57689,7 @@ const braceExpand = (pattern, options = {}) => {
         // shortcut. no need to expand.
         return [pattern];
     }
-    return esm_expand(pattern);
+    return esm_expand(pattern, { max: options.braceExpandMax });
 };
 minimatch.braceExpand = braceExpand;
 // parse a component of the expanded set.
@@ -57707,8 +57742,10 @@ class Minimatch {
         this.pattern = pattern;
         this.platform = options.platform || defaultPlatform;
         this.isWindows = this.platform === 'win32';
+        // avoid the annoying deprecation flag lol
+        const awe = ('allowWindow' + 'sEscape');
         this.windowsPathsNoEscape =
-            !!options.windowsPathsNoEscape || options.allowWindowsEscape === false;
+            !!options.windowsPathsNoEscape || options[awe] === false;
         if (this.windowsPathsNoEscape) {
             this.pattern = this.pattern.replace(/\\/g, '/');
         }
@@ -57721,8 +57758,8 @@ class Minimatch {
         this.partial = !!options.partial;
         this.nocase = !!this.options.nocase;
         this.windowsNoMagicRoot =
-            options.windowsNoMagicRoot !== undefined
-                ? options.windowsNoMagicRoot
+            options.windowsNoMagicRoot !== undefined ?
+                options.windowsNoMagicRoot
                 : !!(this.isWindows && this.nocase);
         this.globSet = [];
         this.globParts = [];
@@ -57785,7 +57822,10 @@ class Minimatch {
                     !globMagic.test(s[3]);
                 const isDrive = /^[a-z]:/i.test(s[0]);
                 if (isUNC) {
-                    return [...s.slice(0, 4), ...s.slice(4).map(ss => this.parse(ss))];
+                    return [
+                        ...s.slice(0, 4),
+                        ...s.slice(4).map(ss => this.parse(ss)),
+                    ];
                 }
                 else if (isDrive) {
                     return [s[0], ...s.slice(1).map(ss => this.parse(ss))];
@@ -57817,7 +57857,7 @@ class Minimatch {
     // to the right as possible, even if it increases the number
     // of patterns that we have to process.
     preprocess(globParts) {
-        // if we're not in globstar mode, then turn all ** into *
+        // if we're not in globstar mode, then turn ** into *
         if (this.options.noglobstar) {
             for (let i = 0; i < globParts.length; i++) {
                 for (let j = 0; j < globParts[i].length; j++) {
@@ -58121,10 +58161,17 @@ class Minimatch {
                 pattern[2] === '?' &&
                 typeof pattern[3] === 'string' &&
                 /^[a-z]:$/i.test(pattern[3]);
-            const fdi = fileUNC ? 3 : fileDrive ? 0 : undefined;
-            const pdi = patternUNC ? 3 : patternDrive ? 0 : undefined;
+            const fdi = fileUNC ? 3
+                : fileDrive ? 0
+                    : undefined;
+            const pdi = patternUNC ? 3
+                : patternDrive ? 0
+                    : undefined;
             if (typeof fdi === 'number' && typeof pdi === 'number') {
-                const [fd, pd] = [file[fdi], pattern[pdi]];
+                const [fd, pd] = [
+                    file[fdi],
+                    pattern[pdi],
+                ];
                 if (fd.toLowerCase() === pd.toLowerCase()) {
                     pattern[pdi] = fd;
                     if (pdi > fdi) {
@@ -58305,21 +58352,19 @@ class Minimatch {
             fastTest = options.dot ? starTestDot : starTest;
         }
         else if ((m = pattern.match(starDotExtRE))) {
-            fastTest = (options.nocase
-                ? options.dot
-                    ? starDotExtTestNocaseDot
+            fastTest = (options.nocase ?
+                options.dot ?
+                    starDotExtTestNocaseDot
                     : starDotExtTestNocase
-                : options.dot
-                    ? starDotExtTestDot
+                : options.dot ? starDotExtTestDot
                     : starDotExtTest)(m[1]);
         }
         else if ((m = pattern.match(qmarksRE))) {
-            fastTest = (options.nocase
-                ? options.dot
-                    ? qmarksTestNocaseDot
+            fastTest = (options.nocase ?
+                options.dot ?
+                    qmarksTestNocaseDot
                     : qmarksTestNocase
-                : options.dot
-                    ? qmarksTestDot
+                : options.dot ? qmarksTestDot
                     : qmarksTest)(m);
         }
         else if ((m = pattern.match(starDotStarRE))) {
@@ -58350,10 +58395,8 @@ class Minimatch {
             return this.regexp;
         }
         const options = this.options;
-        const twoStar = options.noglobstar
-            ? esm_star
-            : options.dot
-                ? twoStarDot
+        const twoStar = options.noglobstar ? esm_star
+            : options.dot ? twoStarDot
                 : twoStarNoDot;
         const flags = new Set(options.nocase ? ['i'] : []);
         // regexpify non-globstar patterns
@@ -58369,11 +58412,9 @@ class Minimatch {
                     for (const f of p.flags.split(''))
                         flags.add(f);
                 }
-                return typeof p === 'string'
-                    ? esm_regExpEscape(p)
-                    : p === GLOBSTAR
-                        ? GLOBSTAR
-                        : p._src;
+                return (typeof p === 'string' ? esm_regExpEscape(p)
+                    : p === GLOBSTAR ? GLOBSTAR
+                        : p._src);
             });
             pp.forEach((p, i) => {
                 const next = pp[i + 1];
