@@ -34,7 +34,7 @@
     "minimatch": "^10.0.0"
   },
   "devDependencies": {
-    "@cloud-copilot/iam-data": "^0.15.0",
+    "@cloud-copilot/iam-data": "^0.17.202602271",
     "@cloud-copilot/iam-expand": "~0.11.45",
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.2.1",
