@@ -34,14 +34,14 @@
     "minimatch": "^10.0.0"
   },
   "devDependencies": {
-    "@cloud-copilot/iam-data": "^0.17.202602271",
+    "@cloud-copilot/iam-data": "^0.18.202603071",
     "@cloud-copilot/iam-expand": "~0.11.45",
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.2.1",
     "@vercel/ncc": "~0.38.1",
     "@vitest/coverage-v8": "^4.0.15",
     "eslint": "^10.0.0",
-    "markdownlint-cli": "~0.47.0",
+    "markdownlint-cli": "~0.48.0",
     "tsx": "~4.21.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.54.0",
