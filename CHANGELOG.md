@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Refactor AWS documentation links, remove section from URL
 - Refactor per-patch parsing in diff processing
 - Update all dependencies
 - Group all NPM dependabot updates into one pull request. Having development dependencies in a separate PR had little
