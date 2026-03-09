@@ -36356,9 +36356,11 @@ const IAM_ACTIONS = [
     "activate:GetMemberInfo",
     "activate:GetProgram",
     "activate:PutMemberInfo",
+    "aidevops:AllowVendedLogDeliveryForResource",
     "aidevops:AssociateService",
     "aidevops:CreateAgentSpace",
     "aidevops:CreateBacklogTask",
+    "aidevops:CreateChat",
     "aidevops:CreateKnowledgeItem",
     "aidevops:CreateOneTimeLoginSession",
     "aidevops:DeleteAgentSpace",
@@ -36384,6 +36386,7 @@ const IAM_ACTIONS = [
     "aidevops:ListAgentSpaces",
     "aidevops:ListAssociations",
     "aidevops:ListBacklogTasks",
+    "aidevops:ListChats",
     "aidevops:ListExecutions",
     "aidevops:ListGoals",
     "aidevops:ListJournalRecords",
@@ -36395,9 +36398,11 @@ const IAM_ACTIONS = [
     "aidevops:RegisterService",
     "aidevops:SearchServiceAccessibleResource",
     "aidevops:SendChatMessage",
+    "aidevops:StreamMessage",
     "aidevops:UpdateAgentSpace",
     "aidevops:UpdateAssociation",
     "aidevops:UpdateBacklogTask",
+    "aidevops:UpdateGoal",
     "aidevops:UpdateKnowledgeItem",
     "aidevops:UpdateOperatorAppTeams",
     "aidevops:UpdateRecommendation",
@@ -38062,21 +38067,29 @@ const IAM_ACTIONS = [
     "bedrock-agentcore:UpdatePolicy",
     "bedrock-agentcore:UpdatePolicyEngine",
     "bedrock-agentcore:UpdateWorkloadIdentity",
+    "bedrock-mantle:ArchiveProject",
     "bedrock-mantle:CallWithBearerToken",
     "bedrock-mantle:CancelFineTuningJob",
     "bedrock-mantle:CancelInference",
     "bedrock-mantle:CreateFile",
     "bedrock-mantle:CreateFineTuningJob",
     "bedrock-mantle:CreateInference",
+    "bedrock-mantle:CreateProject",
     "bedrock-mantle:DeleteFile",
     "bedrock-mantle:DeleteInference",
     "bedrock-mantle:GetFile",
     "bedrock-mantle:GetFineTuningJob",
     "bedrock-mantle:GetInference",
     "bedrock-mantle:GetModel",
+    "bedrock-mantle:GetProject",
     "bedrock-mantle:ListFiles",
     "bedrock-mantle:ListFineTuningJobs",
     "bedrock-mantle:ListModels",
+    "bedrock-mantle:ListProjects",
+    "bedrock-mantle:ListTagsForResource",
+    "bedrock-mantle:TagResource",
+    "bedrock-mantle:UntagResource",
+    "bedrock-mantle:UpdateProject",
     "bedrock:AllowVendedLogDeliveryForResource",
     "bedrock:ApplyGuardrail",
     "bedrock:AssociateAgentCollaborator",
@@ -39556,6 +39569,7 @@ const IAM_ACTIONS = [
     "cloudwatch:BatchGetServiceLevelIndicatorReport",
     "cloudwatch:BatchGetServiceLevelObjectiveBudgetReport",
     "cloudwatch:CreateServiceLevelObjective",
+    "cloudwatch:DeleteAlarmMuteRule",
     "cloudwatch:DeleteAlarms",
     "cloudwatch:DeleteAnomalyDetector",
     "cloudwatch:DeleteDashboards",
@@ -39574,6 +39588,7 @@ const IAM_ACTIONS = [
     "cloudwatch:EnableTopologyDiscovery",
     "cloudwatch:GenerateQuery",
     "cloudwatch:GenerateQueryResultsSummary",
+    "cloudwatch:GetAlarmMuteRule",
     "cloudwatch:GetDashboard",
     "cloudwatch:GetInsightRuleReport",
     "cloudwatch:GetMetricData",
@@ -39586,6 +39601,7 @@ const IAM_ACTIONS = [
     "cloudwatch:GetTopologyDiscoveryStatus",
     "cloudwatch:GetTopologyMap",
     "cloudwatch:Link",
+    "cloudwatch:ListAlarmMuteRules",
     "cloudwatch:ListDashboards",
     "cloudwatch:ListEntitiesForMetric",
     "cloudwatch:ListManagedInsightRules",
@@ -39594,6 +39610,7 @@ const IAM_ACTIONS = [
     "cloudwatch:ListServiceLevelObjectives",
     "cloudwatch:ListServices",
     "cloudwatch:ListTagsForResource",
+    "cloudwatch:PutAlarmMuteRule",
     "cloudwatch:PutAnomalyDetector",
     "cloudwatch:PutCompositeAlarm",
     "cloudwatch:PutDashboard",
@@ -42317,6 +42334,7 @@ const IAM_ACTIONS = [
     "ec2:AttachClassicLinkVpc",
     "ec2:AttachInternetGateway",
     "ec2:AttachNetworkInterface",
+    "ec2:AttachResourcesToPlacementGroup",
     "ec2:AttachVerifiedAccessTrustProvider",
     "ec2:AttachVolume",
     "ec2:AttachVpnGateway",
@@ -42404,6 +42422,8 @@ const IAM_ACTIONS = [
     "ec2:CreateRouteServerEndpoint",
     "ec2:CreateRouteServerPeer",
     "ec2:CreateRouteTable",
+    "ec2:CreateSecondaryNetwork",
+    "ec2:CreateSecondarySubnet",
     "ec2:CreateSecurityGroup",
     "ec2:CreateSnapshot",
     "ec2:CreateSnapshots",
@@ -42500,6 +42520,8 @@ const IAM_ACTIONS = [
     "ec2:DeleteRouteServerEndpoint",
     "ec2:DeleteRouteServerPeer",
     "ec2:DeleteRouteTable",
+    "ec2:DeleteSecondaryNetwork",
+    "ec2:DeleteSecondarySubnet",
     "ec2:DeleteSecurityGroup",
     "ec2:DeleteSnapshot",
     "ec2:DeleteSpotDatafeedSubscription",
@@ -42669,6 +42691,9 @@ const IAM_ACTIONS = [
     "ec2:DescribeRouteTables",
     "ec2:DescribeScheduledInstanceAvailability",
     "ec2:DescribeScheduledInstances",
+    "ec2:DescribeSecondaryInterfaces",
+    "ec2:DescribeSecondaryNetworks",
+    "ec2:DescribeSecondarySubnets",
     "ec2:DescribeSecurityGroupReferences",
     "ec2:DescribeSecurityGroupRules",
     "ec2:DescribeSecurityGroupVpcAssociations",
@@ -42735,6 +42760,7 @@ const IAM_ACTIONS = [
     "ec2:DetachClassicLinkVpc",
     "ec2:DetachInternetGateway",
     "ec2:DetachNetworkInterface",
+    "ec2:DetachResourcesFromPlacementGroup",
     "ec2:DetachVerifiedAccessTrustProvider",
     "ec2:DetachVolume",
     "ec2:DetachVpnGateway",
@@ -43647,6 +43673,18 @@ const IAM_ACTIONS = [
     "elemental-appliances-software:StartUpload",
     "elemental-appliances-software:SubmitOrderV1",
     "elemental-appliances-software:UpdateQuote",
+    "elemental-inference:AssociateFeed",
+    "elemental-inference:CreateFeed",
+    "elemental-inference:DeleteFeed",
+    "elemental-inference:DisassociateFeed",
+    "elemental-inference:GetFeed",
+    "elemental-inference:GetMetadata",
+    "elemental-inference:ListFeeds",
+    "elemental-inference:ListTagsForResource",
+    "elemental-inference:PutMedia",
+    "elemental-inference:TagResource",
+    "elemental-inference:UntagResource",
+    "elemental-inference:UpdateFeed",
     "elemental-support-cases:AddCaseComment",
     "elemental-support-cases:CheckCasePermission",
     "elemental-support-cases:CompleteMultipartUpload",
@@ -45230,6 +45268,48 @@ const IAM_ACTIONS = [
     "guardduty:UpdateThreatEntitySet",
     "guardduty:UpdateThreatIntelSet",
     "guardduty:UpdateTrustedEntitySet",
+    "health-agent:ActivateSubscription",
+    "health-agent:CancelAppointment",
+    "health-agent:CreateAgent",
+    "health-agent:CreateDomain",
+    "health-agent:CreateIntegration",
+    "health-agent:CreateSession",
+    "health-agent:CreateSubscription",
+    "health-agent:DeactivateSubscription",
+    "health-agent:DeleteAgent",
+    "health-agent:DeleteDomain",
+    "health-agent:DeleteIntegration",
+    "health-agent:GetAgent",
+    "health-agent:GetCareTeamProvider",
+    "health-agent:GetDomain",
+    "health-agent:GetIntegration",
+    "health-agent:GetMedicalScribeListeningSession",
+    "health-agent:GetPatient",
+    "health-agent:GetPatientInsightsJob",
+    "health-agent:GetPractitioner",
+    "health-agent:GetSessionContext",
+    "health-agent:GetSubscription",
+    "health-agent:InvokeAgent",
+    "health-agent:ListAgents",
+    "health-agent:ListAppointmentSlots",
+    "health-agent:ListDomains",
+    "health-agent:ListIntegrations",
+    "health-agent:ListPatientAppointments",
+    "health-agent:ListPatientInsuranceCoverages",
+    "health-agent:ListProviders",
+    "health-agent:ListSubscriptions",
+    "health-agent:ListTagsForResource",
+    "health-agent:MatchPatient",
+    "health-agent:PublishAgent",
+    "health-agent:RescheduleAppointment",
+    "health-agent:ScheduleAppointment",
+    "health-agent:StartMedicalScribeListeningSession",
+    "health-agent:StartPatientInsightsJob",
+    "health-agent:TagResource",
+    "health-agent:UntagResource",
+    "health-agent:UpdateAgent",
+    "health-agent:UpdateIntegration",
+    "health-agent:UpdateSession",
     "health:DescribeAffectedAccountsForOrganization",
     "health:DescribeAffectedEntities",
     "health:DescribeAffectedEntitiesForOrganization",
@@ -45262,6 +45342,7 @@ const IAM_ACTIONS = [
     "healthlake:GetCapabilities",
     "healthlake:GetExportedFile",
     "healthlake:GetHistoryByResourceId",
+    "healthlake:InquirePreAuthClaim",
     "healthlake:ListFHIRDatastores",
     "healthlake:ListFHIRExportJobs",
     "healthlake:ListFHIRImportJobs",
@@ -45273,6 +45354,7 @@ const IAM_ACTIONS = [
     "healthlake:MemberRemove",
     "healthlake:PatchResource",
     "healthlake:ProcessBundle",
+    "healthlake:QuestionnairePackage",
     "healthlake:ReadResource",
     "healthlake:RetrieveAttributionStatus",
     "healthlake:SearchEverything",
@@ -45283,6 +45365,7 @@ const IAM_ACTIONS = [
     "healthlake:StartFHIRExportJobWithGet",
     "healthlake:StartFHIRExportJobWithPost",
     "healthlake:StartFHIRImportJob",
+    "healthlake:SubmitPreAuthClaim",
     "healthlake:TagResource",
     "healthlake:UntagResource",
     "healthlake:UpdateResource",
@@ -47298,6 +47381,7 @@ const IAM_ACTIONS = [
     "lex:CreateUploadUrl",
     "lex:DeleteBot",
     "lex:DeleteBotAlias",
+    "lex:DeleteBotAnalyzerRecommendation",
     "lex:DeleteBotChannel",
     "lex:DeleteBotChannelAssociation",
     "lex:DeleteBotLocale",
@@ -47318,6 +47402,7 @@ const IAM_ACTIONS = [
     "lex:DeleteUtterances",
     "lex:DescribeBot",
     "lex:DescribeBotAlias",
+    "lex:DescribeBotAnalyzerRecommendation",
     "lex:DescribeBotChannel",
     "lex:DescribeBotLocale",
     "lex:DescribeBotRecommendation",
@@ -47363,6 +47448,7 @@ const IAM_ACTIONS = [
     "lex:ListAggregatedUtterances",
     "lex:ListBotAliasReplicas",
     "lex:ListBotAliases",
+    "lex:ListBotAnalyzerRecommendations",
     "lex:ListBotChannels",
     "lex:ListBotLocales",
     "lex:ListBotRecommendations",
@@ -47400,6 +47486,7 @@ const IAM_ACTIONS = [
     "lex:RecognizeText",
     "lex:RecognizeUtterance",
     "lex:SearchAssociatedTranscripts",
+    "lex:StartBotAnalyzer",
     "lex:StartBotRecommendation",
     "lex:StartBotResourceGeneration",
     "lex:StartConversation",
@@ -47407,6 +47494,7 @@ const IAM_ACTIONS = [
     "lex:StartMigration",
     "lex:StartTestExecution",
     "lex:StartTestSetGeneration",
+    "lex:StopBotAnalyzer",
     "lex:StopBotRecommendation",
     "lex:TagResource",
     "lex:UntagResource",
@@ -48993,6 +49081,7 @@ const IAM_ACTIONS = [
     "mpa:ListTagsForResource",
     "mpa:PutResourcePolicy",
     "mpa:StartActiveApprovalTeamDeletion",
+    "mpa:StartApprovalTeamBaseline",
     "mpa:StartSession",
     "mpa:TagResource",
     "mpa:UntagResource",
@@ -53176,6 +53265,7 @@ const IAM_ACTIONS = [
     "securityagent:BatchGetPentestJobs",
     "securityagent:BatchGetPentests",
     "securityagent:BatchGetSecurityTestContentMetadata",
+    "securityagent:BatchGetTargetDomains",
     "securityagent:BatchGetTasks",
     "securityagent:CreateAgentInstance",
     "securityagent:CreateAgentSpace",
@@ -53187,6 +53277,7 @@ const IAM_ACTIONS = [
     "securityagent:CreateOneTimeLoginSession",
     "securityagent:CreatePentest",
     "securityagent:CreateSecurityRequirement",
+    "securityagent:CreateTargetDomain",
     "securityagent:DeleteAgentInstance",
     "securityagent:DeleteAgentSpace",
     "securityagent:DeleteApplication",
@@ -53197,6 +53288,7 @@ const IAM_ACTIONS = [
     "securityagent:DeleteIntegration",
     "securityagent:DeleteMembership",
     "securityagent:DeleteSecurityRequirement",
+    "securityagent:DeleteTargetDomain",
     "securityagent:DescribeFindings",
     "securityagent:GetApplication",
     "securityagent:GetArtifact",
@@ -53204,6 +53296,7 @@ const IAM_ACTIONS = [
     "securityagent:GetControl",
     "securityagent:GetDesignReview",
     "securityagent:GetDesignReviewArtifact",
+    "securityagent:GetDesignReviewFeedback",
     "securityagent:GetDocReviewTask",
     "securityagent:GetDocumentReview",
     "securityagent:GetDocumentReviewArtifact",
@@ -53232,7 +53325,9 @@ const IAM_ACTIONS = [
     "securityagent:ListPentests",
     "securityagent:ListResourcesFromIntegration",
     "securityagent:ListSecurityRequirements",
+    "securityagent:ListTargetDomains",
     "securityagent:ListTasks",
+    "securityagent:PutDesignReviewFeedback",
     "securityagent:StartCodeRemediation",
     "securityagent:StartPentestExecution",
     "securityagent:StartPentestJob",
@@ -53248,6 +53343,7 @@ const IAM_ACTIONS = [
     "securityagent:UpdateIntegratedResources",
     "securityagent:UpdatePentest",
     "securityagent:UpdateSecurityRequirement",
+    "securityagent:UpdateTargetDomain",
     "securityagent:VerifyTargetDomain",
     "securityhub:AcceptAdministratorInvitation",
     "securityhub:AcceptInvitation",
@@ -55755,6 +55851,7 @@ const IAM_ACTIONS = [
     "wafv2:GetRegexPatternSet",
     "wafv2:GetRuleGroup",
     "wafv2:GetSampledRequests",
+    "wafv2:GetTopPathStatisticsByTraffic",
     "wafv2:GetWebACL",
     "wafv2:GetWebACLForResource",
     "wafv2:ListAPIKeys",
@@ -56915,10 +57012,112 @@ const unescape_unescape = (s, { windowsPathsNoEscape = false, magicalBraces = tr
 //# sourceMappingURL=unescape.js.map
 ;// CONCATENATED MODULE: ./node_modules/minimatch/dist/esm/ast.js
 // parse a single path portion
+var _a;
 
 
 const types = new Set(['!', '?', '+', '*', '@']);
 const isExtglobType = (c) => types.has(c);
+const isExtglobAST = (c) => isExtglobType(c.type);
+// Map of which extglob types can adopt the children of a nested extglob
+//
+// anything but ! can adopt a matching type:
+// +(a|+(b|c)|d) => +(a|b|c|d)
+// *(a|*(b|c)|d) => *(a|b|c|d)
+// @(a|@(b|c)|d) => @(a|b|c|d)
+// ?(a|?(b|c)|d) => ?(a|b|c|d)
+//
+// * can adopt anything, because 0 or repetition is allowed
+// *(a|?(b|c)|d) => *(a|b|c|d)
+// *(a|+(b|c)|d) => *(a|b|c|d)
+// *(a|@(b|c)|d) => *(a|b|c|d)
+//
+// + can adopt @, because 1 or repetition is allowed
+// +(a|@(b|c)|d) => +(a|b|c|d)
+//
+// + and @ CANNOT adopt *, because 0 would be allowed
+// +(a|*(b|c)|d) => would match "", on *(b|c)
+// @(a|*(b|c)|d) => would match "", on *(b|c)
+//
+// + and @ CANNOT adopt ?, because 0 would be allowed
+// +(a|?(b|c)|d) => would match "", on ?(b|c)
+// @(a|?(b|c)|d) => would match "", on ?(b|c)
+//
+// ? can adopt @, because 0 or 1 is allowed
+// ?(a|@(b|c)|d) => ?(a|b|c|d)
+//
+// ? and @ CANNOT adopt * or +, because >1 would be allowed
+// ?(a|*(b|c)|d) => would match bbb on *(b|c)
+// @(a|*(b|c)|d) => would match bbb on *(b|c)
+// ?(a|+(b|c)|d) => would match bbb on +(b|c)
+// @(a|+(b|c)|d) => would match bbb on +(b|c)
+//
+// ! CANNOT adopt ! (nothing else can either)
+// !(a|!(b|c)|d) => !(a|b|c|d) would fail to match on b (not not b|c)
+//
+// ! can adopt @
+// !(a|@(b|c)|d) => !(a|b|c|d)
+//
+// ! CANNOT adopt *
+// !(a|*(b|c)|d) => !(a|b|c|d) would match on bbb, not allowed
+//
+// ! CANNOT adopt +
+// !(a|+(b|c)|d) => !(a|b|c|d) would match on bbb, not allowed
+//
+// ! CANNOT adopt ?
+// x!(a|?(b|c)|d) => x!(a|b|c|d) would fail to match "x"
+const adoptionMap = new Map([
+    ['!', ['@']],
+    ['?', ['?', '@']],
+    ['@', ['@']],
+    ['*', ['*', '+', '?', '@']],
+    ['+', ['+', '@']],
+]);
+// nested extglobs that can be adopted in, but with the addition of
+// a blank '' element.
+const adoptionWithSpaceMap = new Map([
+    ['!', ['?']],
+    ['@', ['?']],
+    ['+', ['?', '*']],
+]);
+// union of the previous two maps
+const adoptionAnyMap = new Map([
+    ['!', ['?', '@']],
+    ['?', ['?', '@']],
+    ['@', ['?', '@']],
+    ['*', ['*', '+', '?', '@']],
+    ['+', ['+', '@', '?', '*']],
+]);
+// Extglobs that can take over their parent if they are the only child
+// the key is parent, value maps child to resulting extglob parent type
+// '@' is omitted because it's a special case. An `@` extglob with a single
+// member can always be usurped by that subpattern.
+const usurpMap = new Map([
+    ['!', new Map([['!', '@']])],
+    [
+        '?',
+        new Map([
+            ['*', '*'],
+            ['+', '*'],
+        ]),
+    ],
+    [
+        '@',
+        new Map([
+            ['!', '!'],
+            ['?', '?'],
+            ['@', '@'],
+            ['*', '*'],
+            ['+', '+'],
+        ]),
+    ],
+    [
+        '+',
+        new Map([
+            ['?', '*'],
+            ['*', '*'],
+        ]),
+    ],
+]);
 // Patterns that get prepended to bind to the start of either the
 // entire string, or just a single path portion, to prevent dots
 // and/or traversal patterns, when needed.
@@ -56942,6 +57141,7 @@ const star = qmark + '*?';
 const starNoEmpty = qmark + '+?';
 // remove the \ chars that we added if we end up doing a nonmagic compare
 // const deslash = (s: string) => s.replace(/\\(.)/g, '$1')
+let ID = 0;
 class AST {
     type;
     #root;
@@ -56957,6 +57157,22 @@ class AST {
     // set to true if it's an extglob with no children
     // (which really means one child of '')
     #emptyExt = false;
+    id = ++ID;
+    get depth() {
+        return (this.#parent?.depth ?? -1) + 1;
+    }
+    [Symbol.for('nodejs.util.inspect.custom')]() {
+        return {
+            '@@type': 'AST',
+            id: this.id,
+            type: this.type,
+            root: this.#root.id,
+            parent: this.#parent?.id,
+            depth: this.depth,
+            partsLength: this.#parts.length,
+            parts: this.#parts,
+        };
+    }
     constructor(type, parent, options = {}) {
         this.type = type;
         // extglobs are inherently magical
@@ -57036,7 +57252,7 @@ class AST {
                 continue;
             /* c8 ignore start */
             if (typeof p !== 'string' &&
-                !(p instanceof AST && p.#parent === this)) {
+                !(p instanceof _a && p.#parent === this)) {
                 throw new Error('invalid part: ' + p);
             }
             /* c8 ignore stop */
@@ -57070,7 +57286,7 @@ class AST {
         const p = this.#parent;
         for (let i = 0; i < this.#parentIndex; i++) {
             const pp = p.#parts[i];
-            if (!(pp instanceof AST && pp.type === '!')) {
+            if (!(pp instanceof _a && pp.type === '!')) {
                 return false;
             }
         }
@@ -57098,13 +57314,14 @@ class AST {
             this.push(part.clone(this));
     }
     clone(parent) {
-        const c = new AST(this.type, parent);
+        const c = new _a(this.type, parent);
         for (const p of this.#parts) {
             c.copyIn(p);
         }
         return c;
     }
-    static #parseAST(str, ast, pos, opt) {
+    static #parseAST(str, ast, pos, opt, extDepth) {
+        const maxDepth = opt.maxExtglobRecursion ?? 2;
         let escaping = false;
         let inBrace = false;
         let braceStart = -1;
@@ -57141,11 +57358,17 @@ class AST {
                     acc += c;
                     continue;
                 }
-                if (!opt.noext && isExtglobType(c) && str.charAt(i) === '(') {
+                // we don't have to check for adoption here, because that's
+                // done at the other recursion point.
+                const doRecurse = !opt.noext &&
+                    isExtglobType(c) &&
+                    str.charAt(i) === '(' &&
+                    extDepth <= maxDepth;
+                if (doRecurse) {
                     ast.push(acc);
                     acc = '';
-                    const ext = new AST(c, ast);
-                    i = AST.#parseAST(str, ext, i, opt);
+                    const ext = new _a(c, ast);
+                    i = _a.#parseAST(str, ext, i, opt, extDepth + 1);
                     ast.push(ext);
                     continue;
                 }
@@ -57157,7 +57380,7 @@ class AST {
         // some kind of extglob, pos is at the (
         // find the next | or )
         let i = pos + 1;
-        let part = new AST(null, ast);
+        let part = new _a(null, ast);
         const parts = [];
         let acc = '';
         while (i < str.length) {
@@ -57188,19 +57411,26 @@ class AST {
                 acc += c;
                 continue;
             }
-            if (isExtglobType(c) && str.charAt(i) === '(') {
+            const doRecurse = !opt.noext &&
+                isExtglobType(c) &&
+                str.charAt(i) === '(' &&
+                /* c8 ignore start - the maxDepth is sufficient here */
+                (extDepth <= maxDepth || (ast && ast.#canAdoptType(c)));
+            /* c8 ignore stop */
+            if (doRecurse) {
+                const depthAdd = ast && ast.#canAdoptType(c) ? 0 : 1;
                 part.push(acc);
                 acc = '';
-                const ext = new AST(c, part);
+                const ext = new _a(c, part);
                 part.push(ext);
-                i = AST.#parseAST(str, ext, i, opt);
+                i = _a.#parseAST(str, ext, i, opt, extDepth + depthAdd);
                 continue;
             }
             if (c === '|') {
                 part.push(acc);
                 acc = '';
                 parts.push(part);
-                part = new AST(null, ast);
+                part = new _a(null, ast);
                 continue;
             }
             if (c === ')') {
@@ -57222,9 +57452,82 @@ class AST {
         ast.#parts = [str.substring(pos - 1)];
         return i;
     }
+    #canAdoptWithSpace(child) {
+        return this.#canAdopt(child, adoptionWithSpaceMap);
+    }
+    #canAdopt(child, map = adoptionMap) {
+        if (!child ||
+            typeof child !== 'object' ||
+            child.type !== null ||
+            child.#parts.length !== 1 ||
+            this.type === null) {
+            return false;
+        }
+        const gc = child.#parts[0];
+        if (!gc || typeof gc !== 'object' || gc.type === null) {
+            return false;
+        }
+        return this.#canAdoptType(gc.type, map);
+    }
+    #canAdoptType(c, map = adoptionAnyMap) {
+        return !!map.get(this.type)?.includes(c);
+    }
+    #adoptWithSpace(child, index) {
+        const gc = child.#parts[0];
+        const blank = new _a(null, gc, this.options);
+        blank.#parts.push('');
+        gc.push(blank);
+        this.#adopt(child, index);
+    }
+    #adopt(child, index) {
+        const gc = child.#parts[0];
+        this.#parts.splice(index, 1, ...gc.#parts);
+        for (const p of gc.#parts) {
+            if (typeof p === 'object')
+                p.#parent = this;
+        }
+        this.#toString = undefined;
+    }
+    #canUsurpType(c) {
+        const m = usurpMap.get(this.type);
+        return !!(m?.has(c));
+    }
+    #canUsurp(child) {
+        if (!child ||
+            typeof child !== 'object' ||
+            child.type !== null ||
+            child.#parts.length !== 1 ||
+            this.type === null ||
+            this.#parts.length !== 1) {
+            return false;
+        }
+        const gc = child.#parts[0];
+        if (!gc || typeof gc !== 'object' || gc.type === null) {
+            return false;
+        }
+        return this.#canUsurpType(gc.type);
+    }
+    #usurp(child) {
+        const m = usurpMap.get(this.type);
+        const gc = child.#parts[0];
+        const nt = m?.get(gc.type);
+        /* c8 ignore start - impossible */
+        if (!nt)
+            return false;
+        /* c8 ignore stop */
+        this.#parts = gc.#parts;
+        for (const p of this.#parts) {
+            if (typeof p === 'object') {
+                p.#parent = this;
+            }
+        }
+        this.type = nt;
+        this.#toString = undefined;
+        this.#emptyExt = false;
+    }
     static fromGlob(pattern, options = {}) {
-        const ast = new AST(null, undefined, options);
-        AST.#parseAST(pattern, ast, 0, options);
+        const ast = new _a(null, undefined, options);
+        _a.#parseAST(pattern, ast, 0, options, 0);
         return ast;
     }
     // returns the regular expression if there's magic, or the unescaped
@@ -57328,16 +57631,18 @@ class AST {
     // or start or whatever) and prepend ^ or / at the Regexp construction.
     toRegExpSource(allowDot) {
         const dot = allowDot ?? !!this.#options.dot;
-        if (this.#root === this)
+        if (this.#root === this) {
+            this.#flatten();
             this.#fillNegs();
-        if (!this.type) {
+        }
+        if (!isExtglobAST(this)) {
             const noEmpty = this.isStart() &&
                 this.isEnd() &&
                 !this.#parts.some(s => typeof s !== 'string');
             const src = this.#parts
                 .map(p => {
                 const [re, _, hasMagic, uflag] = typeof p === 'string' ?
-                    AST.#parseGlob(p, this.#hasMagic, noEmpty)
+                    _a.#parseGlob(p, this.#hasMagic, noEmpty)
                     : p.toRegExpSource(allowDot);
                 this.#hasMagic = this.#hasMagic || hasMagic;
                 this.#uflag = this.#uflag || uflag;
@@ -57399,12 +57704,12 @@ class AST {
             // invalid extglob, has to at least be *something* present, if it's
             // the entire path portion.
             const s = this.toString();
-            this.#parts = [s];
-            this.type = null;
-            this.#hasMagic = undefined;
+            const me = this;
+            me.#parts = [s];
+            me.type = null;
+            me.#hasMagic = undefined;
             return [s, unescape_unescape(this.toString()), false, false];
         }
-        // XXX abstract out this map method
         let bodyDotAllowed = !repeated || allowDot || dot || !startNoDot ?
             ''
             : this.#partsToRegExp(true);
@@ -57439,6 +57744,42 @@ class AST {
             (this.#hasMagic = !!this.#hasMagic),
             this.#uflag,
         ];
+    }
+    #flatten() {
+        if (!isExtglobAST(this)) {
+            for (const p of this.#parts) {
+                if (typeof p === 'object') {
+                    p.#flatten();
+                }
+            }
+        }
+        else {
+            // do up to 10 passes to flatten as much as possible
+            let iterations = 0;
+            let done = false;
+            do {
+                done = true;
+                for (let i = 0; i < this.#parts.length; i++) {
+                    const c = this.#parts[i];
+                    if (typeof c === 'object') {
+                        c.#flatten();
+                        if (this.#canAdopt(c)) {
+                            done = false;
+                            this.#adopt(c, i);
+                        }
+                        else if (this.#canAdoptWithSpace(c)) {
+                            done = false;
+                            this.#adoptWithSpace(c, i);
+                        }
+                        else if (this.#canUsurp(c)) {
+                            done = false;
+                            this.#usurp(c);
+                        }
+                    }
+                }
+            } while (!done && ++iterations < 10);
+        }
+        this.#toString = undefined;
     }
     #partsToRegExp(dot) {
         return this.#parts
@@ -57510,6 +57851,7 @@ class AST {
         return [re, unescape_unescape(glob), !!hasMagic, uflag];
     }
 }
+_a = AST;
 //# sourceMappingURL=ast.js.map
 ;// CONCATENATED MODULE: ./node_modules/minimatch/dist/esm/escape.js
 /**
@@ -57734,11 +58076,13 @@ class Minimatch {
     isWindows;
     platform;
     windowsNoMagicRoot;
+    maxGlobstarRecursion;
     regexp;
     constructor(pattern, options = {}) {
         assertValidPattern(pattern);
         options = options || {};
         this.options = options;
+        this.maxGlobstarRecursion = options.maxGlobstarRecursion ?? 200;
         this.pattern = pattern;
         this.platform = options.platform || defaultPlatform;
         this.isWindows = this.platform === 'win32';
@@ -58143,7 +58487,8 @@ class Minimatch {
     // out of pattern, then that's fine, as long as all
     // the parts match.
     matchOne(file, pattern, partial = false) {
-        const options = this.options;
+        let fileStartIndex = 0;
+        let patternStartIndex = 0;
         // UNC paths like //?/X:/... can match X:/... and vice versa
         // Drive letters in absolute drive or unc paths are always compared
         // case-insensitively.
@@ -58172,14 +58517,11 @@ class Minimatch {
                     file[fdi],
                     pattern[pdi],
                 ];
+                // start matching at the drive letter index of each
                 if (fd.toLowerCase() === pd.toLowerCase()) {
                     pattern[pdi] = fd;
-                    if (pdi > fdi) {
-                        pattern = pattern.slice(pdi);
-                    }
-                    else if (fdi > pdi) {
-                        file = file.slice(fdi);
-                    }
+                    patternStartIndex = pdi;
+                    fileStartIndex = fdi;
                 }
             }
         }
@@ -58189,99 +58531,185 @@ class Minimatch {
         if (optimizationLevel >= 2) {
             file = this.levelTwoFileOptimize(file);
         }
-        this.debug('matchOne', this, { file, pattern });
-        this.debug('matchOne', file.length, pattern.length);
-        for (var fi = 0, pi = 0, fl = file.length, pl = pattern.length; fi < fl && pi < pl; fi++, pi++) {
+        if (pattern.includes(GLOBSTAR)) {
+            return this.#matchGlobstar(file, pattern, partial, fileStartIndex, patternStartIndex);
+        }
+        return this.#matchOne(file, pattern, partial, fileStartIndex, patternStartIndex);
+    }
+    #matchGlobstar(file, pattern, partial, fileIndex, patternIndex) {
+        // split the pattern into head, tail, and middle of ** delimited parts
+        const firstgs = pattern.indexOf(GLOBSTAR, patternIndex);
+        const lastgs = pattern.lastIndexOf(GLOBSTAR);
+        // split the pattern up into globstar-delimited sections
+        // the tail has to be at the end, and the others just have
+        // to be found in order from the head.
+        const [head, body, tail] = partial ? [
+            pattern.slice(patternIndex, firstgs),
+            pattern.slice(firstgs + 1),
+            [],
+        ] : [
+            pattern.slice(patternIndex, firstgs),
+            pattern.slice(firstgs + 1, lastgs),
+            pattern.slice(lastgs + 1),
+        ];
+        // check the head, from the current file/pattern index.
+        if (head.length) {
+            const fileHead = file.slice(fileIndex, fileIndex + head.length);
+            if (!this.#matchOne(fileHead, head, partial, 0, 0)) {
+                return false;
+            }
+            fileIndex += head.length;
+            patternIndex += head.length;
+        }
+        // now we know the head matches!
+        // if the last portion is not empty, it MUST match the end
+        // check the tail
+        let fileTailMatch = 0;
+        if (tail.length) {
+            // if head + tail > file, then we cannot possibly match
+            if (tail.length + fileIndex > file.length)
+                return false;
+            // try to match the tail
+            let tailStart = file.length - tail.length;
+            if (this.#matchOne(file, tail, partial, tailStart, 0)) {
+                fileTailMatch = tail.length;
+            }
+            else {
+                // affordance for stuff like a/**/* matching a/b/
+                // if the last file portion is '', and there's more to the pattern
+                // then try without the '' bit.
+                if (file[file.length - 1] !== '' ||
+                    fileIndex + tail.length === file.length) {
+                    return false;
+                }
+                tailStart--;
+                if (!this.#matchOne(file, tail, partial, tailStart, 0)) {
+                    return false;
+                }
+                fileTailMatch = tail.length + 1;
+            }
+        }
+        // now we know the tail matches!
+        // the middle is zero or more portions wrapped in **, possibly
+        // containing more ** sections.
+        // so a/**/b/**/c/**/d has become **/b/**/c/**
+        // if it's empty, it means a/**/b, just verify we have no bad dots
+        // if there's no tail, so it ends on /**, then we must have *something*
+        // after the head, or it's not a matc
+        if (!body.length) {
+            let sawSome = !!fileTailMatch;
+            for (let i = fileIndex; i < file.length - fileTailMatch; i++) {
+                const f = String(file[i]);
+                sawSome = true;
+                if (f === '.' ||
+                    f === '..' ||
+                    (!this.options.dot && f.startsWith('.'))) {
+                    return false;
+                }
+            }
+            // in partial mode, we just need to get past all file parts
+            return partial || sawSome;
+        }
+        // now we know that there's one or more body sections, which can
+        // be matched anywhere from the 0 index (because the head was pruned)
+        // through to the length-fileTailMatch index.
+        // split the body up into sections, and note the minimum index it can
+        // be found at (start with the length of all previous segments)
+        // [section, before, after]
+        const bodySegments = [[[], 0]];
+        let currentBody = bodySegments[0];
+        let nonGsParts = 0;
+        const nonGsPartsSums = [0];
+        for (const b of body) {
+            if (b === GLOBSTAR) {
+                nonGsPartsSums.push(nonGsParts);
+                currentBody = [[], 0];
+                bodySegments.push(currentBody);
+            }
+            else {
+                currentBody[0].push(b);
+                nonGsParts++;
+            }
+        }
+        let i = bodySegments.length - 1;
+        const fileLength = file.length - fileTailMatch;
+        for (const b of bodySegments) {
+            b[1] = fileLength - (nonGsPartsSums[i--] + b[0].length);
+        }
+        return !!this.#matchGlobStarBodySections(file, bodySegments, fileIndex, 0, partial, 0, !!fileTailMatch);
+    }
+    // return false for "nope, not matching"
+    // return null for "not matching, cannot keep trying"
+    #matchGlobStarBodySections(file, 
+    // pattern section, last possible position for it
+    bodySegments, fileIndex, bodyIndex, partial, globStarDepth, sawTail) {
+        // take the first body segment, and walk from fileIndex to its "after"
+        // value at the end
+        // If it doesn't match at that position, we increment, until we hit
+        // that final possible position, and give up.
+        // If it does match, then advance and try to rest.
+        // If any of them fail we keep walking forward.
+        // this is still a bit recursively painful, but it's more constrained
+        // than previous implementations, because we never test something that
+        // can't possibly be a valid matching condition.
+        const bs = bodySegments[bodyIndex];
+        if (!bs) {
+            // just make sure that there's no bad dots
+            for (let i = fileIndex; i < file.length; i++) {
+                sawTail = true;
+                const f = file[i];
+                if (f === '.' ||
+                    f === '..' ||
+                    (!this.options.dot && f.startsWith('.'))) {
+                    return false;
+                }
+            }
+            return sawTail;
+        }
+        // have a non-globstar body section to test
+        const [body, after] = bs;
+        while (fileIndex <= after) {
+            const m = this.#matchOne(file.slice(0, fileIndex + body.length), body, partial, fileIndex, 0);
+            // if limit exceeded, no match. intentional false negative,
+            // acceptable break in correctness for security.
+            if (m && globStarDepth < this.maxGlobstarRecursion) {
+                // match! see if the rest match. if so, we're done!
+                const sub = this.#matchGlobStarBodySections(file, bodySegments, fileIndex + body.length, bodyIndex + 1, partial, globStarDepth + 1, sawTail);
+                if (sub !== false) {
+                    return sub;
+                }
+            }
+            const f = file[fileIndex];
+            if (f === '.' ||
+                f === '..' ||
+                (!this.options.dot && f.startsWith('.'))) {
+                return false;
+            }
+            fileIndex++;
+        }
+        // walked off. no point continuing
+        return partial || null;
+    }
+    #matchOne(file, pattern, partial, fileIndex, patternIndex) {
+        let fi;
+        let pi;
+        let pl;
+        let fl;
+        for (fi = fileIndex,
+            pi = patternIndex,
+            fl = file.length,
+            pl = pattern.length; fi < fl && pi < pl; fi++, pi++) {
             this.debug('matchOne loop');
-            var p = pattern[pi];
-            var f = file[fi];
+            let p = pattern[pi];
+            let f = file[fi];
             this.debug(pattern, p, f);
             // should be impossible.
             // some invalid regexp stuff in the set.
             /* c8 ignore start */
-            if (p === false) {
+            if (p === false || p === GLOBSTAR) {
                 return false;
             }
             /* c8 ignore stop */
-            if (p === GLOBSTAR) {
-                this.debug('GLOBSTAR', [pattern, p, f]);
-                // "**"
-                // a/**/b/**/c would match the following:
-                // a/b/x/y/z/c
-                // a/x/y/z/b/c
-                // a/b/x/b/x/c
-                // a/b/c
-                // To do this, take the rest of the pattern after
-                // the **, and see if it would match the file remainder.
-                // If so, return success.
-                // If not, the ** "swallows" a segment, and try again.
-                // This is recursively awful.
-                //
-                // a/**/b/**/c matching a/b/x/y/z/c
-                // - a matches a
-                // - doublestar
-                //   - matchOne(b/x/y/z/c, b/**/c)
-                //     - b matches b
-                //     - doublestar
-                //       - matchOne(x/y/z/c, c) -> no
-                //       - matchOne(y/z/c, c) -> no
-                //       - matchOne(z/c, c) -> no
-                //       - matchOne(c, c) yes, hit
-                var fr = fi;
-                var pr = pi + 1;
-                if (pr === pl) {
-                    this.debug('** at the end');
-                    // a ** at the end will just swallow the rest.
-                    // We have found a match.
-                    // however, it will not swallow /.x, unless
-                    // options.dot is set.
-                    // . and .. are *never* matched by **, for explosively
-                    // exponential reasons.
-                    for (; fi < fl; fi++) {
-                        if (file[fi] === '.' ||
-                            file[fi] === '..' ||
-                            (!options.dot && file[fi].charAt(0) === '.'))
-                            return false;
-                    }
-                    return true;
-                }
-                // ok, let's see if we can swallow whatever we can.
-                while (fr < fl) {
-                    var swallowee = file[fr];
-                    this.debug('\nglobstar while', file, fr, pattern, pr, swallowee);
-                    // XXX remove this slice.  Just pass the start index.
-                    if (this.matchOne(file.slice(fr), pattern.slice(pr), partial)) {
-                        this.debug('globstar found match!', fr, fl, swallowee);
-                        // found a match.
-                        return true;
-                    }
-                    else {
-                        // can't swallow "." or ".." ever.
-                        // can only swallow ".foo" when explicitly asked.
-                        if (swallowee === '.' ||
-                            swallowee === '..' ||
-                            (!options.dot && swallowee.charAt(0) === '.')) {
-                            this.debug('dot detected!', file, fr, pattern, pr);
-                            break;
-                        }
-                        // ** swallows a segment, and continue.
-                        this.debug('globstar swallow a segment, and continue');
-                        fr++;
-                    }
-                }
-                // no match was found.
-                // However, in partial mode, we can't say this is necessarily over.
-                /* c8 ignore start */
-                if (partial) {
-                    // ran out of file
-                    this.debug('\n>>> no match, partial?', file, fr, pattern, pr);
-                    if (fr === fl) {
-                        return true;
-                    }
-                }
-                /* c8 ignore stop */
-                return false;
-            }
             // something other than **
             // non-magic patterns just have to match exactly
             // patterns with magic have been turned into regexps.
