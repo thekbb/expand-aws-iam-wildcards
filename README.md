@@ -120,4 +120,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup.
 
 ## Credits
 
-Uses [@cloud-copilot/iam-expand](https://github.com/cloud-copilot/iam-expand) for wildcard expansion.
+Uses [@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data) for fresh AWS IAM data.
