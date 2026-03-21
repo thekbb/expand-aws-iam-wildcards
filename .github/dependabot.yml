@@ -4,6 +4,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: "deps"
     versioning-strategy: "increase-if-necessary"
@@ -20,6 +22,13 @@ updates:
           - "*"
 
   - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "ci"
+
+  - package-ecosystem: "pre-commit"
     directory: "/"
     schedule:
       interval: "weekly"
