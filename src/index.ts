@@ -1,10 +1,43 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
-import { processFiles, COMMENT_MARKER } from './action.js';
+import { processFiles, COMMENT_MARKER, type TruncatedComment } from './action.js';
 import { listPullRequestFiles } from './github.js';
 
 type Octokit = ReturnType<typeof github.getOctokit>;
+
+function getWorkflowRunUrl(owner: string, repo: string): string | undefined {
+  const runId = process.env.GITHUB_RUN_ID;
+  if (!runId) {
+    return undefined;
+  }
+
+  const serverUrl = process.env.GITHUB_SERVER_URL ?? 'https://github.com';
+  return `${serverUrl}/${owner}/${repo}/actions/runs/${runId}`;
+}
+
+function logTruncatedComments(
+  truncatedComments: readonly TruncatedComment[],
+  workflowRunUrl?: string,
+): void {
+  if (truncatedComments.length === 0) {
+    return;
+  }
+
+  const logLocation = workflowRunUrl ? ` Full lists are available in this workflow run: ${workflowRunUrl}` : '';
+  core.warning(
+    `Truncated ${truncatedComments.length} review comment(s) to stay within GitHub comment limits.${logLocation}`
+  );
+
+  for (const truncatedComment of truncatedComments) {
+    core.info([
+      `Full IAM expansion for ${truncatedComment.file}:${truncatedComment.line}`,
+      `Rendered ${truncatedComment.renderedActionsCount} of ${truncatedComment.expandedActions.length} action(s) in the PR comment.`,
+      `Wildcard patterns: ${truncatedComment.originalActions.join(', ')}`,
+      ...truncatedComment.expandedActions.map((action) => `- ${action}`),
+    ].join('\n'));
+  }
+}
 
 async function deleteExistingComments(
   octokit: Octokit,
@@ -49,6 +82,7 @@ async function run(): Promise<void> {
     const { owner, repo } = context.repo;
     const pullNumber = context.payload.pull_request.number as number;
     const commitSha = context.payload.pull_request.head.sha as string;
+    const workflowRunUrl = getWorkflowRunUrl(owner, repo);
 
     core.info(`Analyzing PR #${pullNumber} in ${owner}/${repo}`);
 
@@ -59,7 +93,12 @@ async function run(): Promise<void> {
 
     const files = await listPullRequestFiles(octokit, owner, repo, pullNumber);
 
-    const { comments, redundantActions, stats } = processFiles(files, filePatterns, collapseThreshold);
+    const { comments, redundantActions, stats, truncatedComments } = processFiles(
+      files,
+      filePatterns,
+      collapseThreshold,
+      { truncationUrl: workflowRunUrl },
+    );
 
     if (stats.filesScanned === 0) {
       core.info('No files matched the configured patterns.');
@@ -88,6 +127,8 @@ async function run(): Promise<void> {
       core.info('No comments to post.');
       return;
     }
+
+    logTruncatedComments(truncatedComments, workflowRunUrl);
 
     await octokit.rest.pulls.createReview({
       owner,

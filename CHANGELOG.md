@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Paginate pull request file retrieval so large PRs are scanned completely
+- Truncate oversized review comments that would break GitHub, and link full IAM expansions from the PR comment to the
+  workflow run logs
 
 ## [1.1.10] = 2026-3-21
 

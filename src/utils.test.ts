@@ -4,6 +4,7 @@ import {
   findExplicitActions,
   groupIntoConsecutiveBlocks,
   formatComment,
+  formatCommentResult,
 } from './utils.js';
 import type { WildcardMatch } from './types.js';
 
@@ -269,6 +270,24 @@ describe('formatComment', () => {
     const result = formatComment(['s3:Get*'], expanded, { collapseThreshold: 2 });
 
     expect(result).toContain('<details>');
+  });
+
+  it('truncates oversized comments and links to workflow logs', () => {
+    const expanded = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
+    const result = formatCommentResult(
+      ['s3:*'],
+      expanded,
+      {
+        maxCommentBodyLength: 325,
+        truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/123',
+      },
+    );
+
+    expect(result.truncated).toBe(true);
+    expect(result.renderedActionsCount).toBeGreaterThan(0);
+    expect(result.renderedActionsCount).toBeLessThan(expanded.length);
+    expect(result.body).toContain('workflow run logs');
+    expect(result.body).toContain('Showing first');
   });
 
   it('shows redundant actions warning when provided', () => {

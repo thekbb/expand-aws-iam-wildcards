@@ -156,6 +156,32 @@ describe('createReviewComments', () => {
 
     expect(result[0].body).toContain('<details>');
   });
+
+  it('truncates oversized comment bodies and links to workflow logs', () => {
+    const blocks: WildcardBlock[] = [{
+      file: 'policy.json',
+      startLine: 10,
+      endLine: 10,
+      actions: ['s3:*'],
+    }];
+    const manyActions = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
+    const expanded = new Map([['s3:*', manyActions]]);
+
+    const result = createReviewComments(
+      blocks,
+      expanded,
+      [],
+      5,
+      {
+        maxCommentBodyLength: 325,
+        truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/123',
+      },
+    );
+
+    expect(result[0].body).toContain('workflow run logs');
+    expect(result[0].body).toContain('Showing first');
+    expect(result[0].body).not.toContain('unknown:Action19');
+  });
 });
 
 describe('processFiles', () => {
@@ -195,6 +221,7 @@ describe('processFiles', () => {
     expect(result.comments).toEqual([]);
     expect(result.stats.wildcardsFound).toBe(1);
     expect(result.stats.actionsExpanded).toBe(0);
+    expect(result.truncatedComments).toEqual([]);
   });
 
   it('processes files with wildcards and creates comments', () => {
@@ -250,5 +277,26 @@ describe('processFiles', () => {
 
     expect(result.comments).toEqual([]);
     expect(result.stats.filesScanned).toBe(1);
+  });
+
+  it('returns truncated comment metadata when a comment body is trimmed', () => {
+    const files: PullRequestFile[] = [
+      { filename: 'policy.tf', patch: makePatch(['"s3:*"']) },
+    ];
+
+    const result = processFiles(
+      files,
+      [],
+      5,
+      {
+        maxCommentBodyLength: 325,
+        truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/123',
+      },
+    );
+
+    expect(result.comments).toHaveLength(1);
+    expect(result.truncatedComments).toHaveLength(1);
+    expect(result.truncatedComments[0].file).toBe('policy.tf');
+    expect(result.comments[0].body).toContain('workflow run logs');
   });
 });

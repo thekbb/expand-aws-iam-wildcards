@@ -29,7 +29,7 @@ jobs:
       - uses: thekbb/expand-aws-iam-wildcards@v1
 ```
 
-That's it. When a PR adds `s3:Get*`, reviewers see an inline comment listing every matching action with links to AWS documentation.
+That's it. When a PR adds `s3:Get*`, reviewers see an inline comment listing the matching actions with links to AWS documentation.
 
 ## What It Does
 
@@ -52,6 +52,8 @@ The action posts an inline comment:
 > 5. [`s3:GetStorageLensConfigurationTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
 
 Consecutive wildcards are grouped into a single comment. Expanded actions link to AWS documentation.
+Very large expansions are truncated in the PR comment to stay within GitHub comment limits,
+and the full list is written to the workflow run logs.
 
 ## Inputs
 
