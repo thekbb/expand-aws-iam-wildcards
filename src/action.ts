@@ -1,10 +1,28 @@
 import type { PullRequestFile, ReviewComment, WildcardBlock } from './types.js';
 import { extractFromDiff } from './diff.js';
-import { groupIntoConsecutiveBlocks, formatComment, type FormatOptions } from './utils.js';
+import { groupIntoConsecutiveBlocks, formatCommentResult, type FormatOptions } from './utils.js';
 import { expandIamAction } from './expand.js';
 import { matchesPatterns } from './patterns.js';
 
 export const COMMENT_MARKER = '**IAM Wildcard Expansion**';
+
+export interface ReviewCommentOptions {
+  readonly truncationUrl?: string;
+  readonly maxCommentBodyLength?: number;
+}
+
+export interface TruncatedComment {
+  readonly file: string;
+  readonly line: number;
+  readonly originalActions: readonly string[];
+  readonly expandedActions: readonly string[];
+  readonly renderedActionsCount: number;
+}
+
+interface ReviewCommentsResult {
+  readonly comments: ReviewComment[];
+  readonly truncatedComments: TruncatedComment[];
+}
 
 export function expandWildcards(actions: readonly string[]): Map<string, string[]> {
   const expanded = new Map<string, string[]>();
@@ -38,13 +56,17 @@ export function findRedundantActions(
   );
 }
 
-export function createReviewComments(
+function buildReviewComments(
   blocks: readonly WildcardBlock[],
   expandedActions: Map<string, string[]>,
   redundantActions: readonly string[],
   collapseThreshold: number,
-): ReviewComment[] {
-  return blocks.flatMap((block) => {
+  options: ReviewCommentOptions = {},
+): ReviewCommentsResult {
+  const comments: ReviewComment[] = [];
+  const truncatedComments: TruncatedComment[] = [];
+
+  for (const block of blocks) {
     const originalActions: string[] = [];
     const allExpanded: string[] = [];
 
@@ -56,20 +78,50 @@ export function createReviewComments(
       }
     }
 
-    if (allExpanded.length === 0) return [];
+    if (allExpanded.length === 0) {
+      continue;
+    }
 
     const uniqueExpanded = [...new Set(allExpanded)].toSorted((a, b) =>
       a.toLowerCase().localeCompare(b.toLowerCase())
     );
 
-    const options: FormatOptions = { collapseThreshold, redundantActions };
+    const formatOptions: FormatOptions = {
+      collapseThreshold,
+      redundantActions,
+      truncationUrl: options.truncationUrl,
+      maxCommentBodyLength: options.maxCommentBodyLength,
+    };
+    const formattedComment = formatCommentResult(originalActions, uniqueExpanded, formatOptions);
 
-    return {
+    comments.push({
       path: block.file,
       line: block.endLine,
-      body: formatComment(originalActions, uniqueExpanded, options),
-    };
-  });
+      body: formattedComment.body,
+    });
+
+    if (formattedComment.truncated) {
+      truncatedComments.push({
+        file: block.file,
+        line: block.endLine,
+        originalActions,
+        expandedActions: uniqueExpanded,
+        renderedActionsCount: formattedComment.renderedActionsCount,
+      });
+    }
+  }
+
+  return { comments, truncatedComments };
+}
+
+export function createReviewComments(
+  blocks: readonly WildcardBlock[],
+  expandedActions: Map<string, string[]>,
+  redundantActions: readonly string[],
+  collapseThreshold: number,
+  options: ReviewCommentOptions = {},
+): ReviewComment[] {
+  return buildReviewComments(blocks, expandedActions, redundantActions, collapseThreshold, options).comments;
 }
 
 export interface ProcessingStats {
@@ -83,12 +135,14 @@ export interface ProcessingResult {
   readonly comments: ReviewComment[];
   readonly redundantActions: string[];
   readonly stats: ProcessingStats;
+  readonly truncatedComments: TruncatedComment[];
 }
 
 export function processFiles(
   files: readonly PullRequestFile[],
   filePatterns: readonly string[],
   collapseThreshold: number,
+  options: ReviewCommentOptions = {},
 ): ProcessingResult {
   const filteredFiles = filePatterns.length > 0
     ? files.filter((f) => matchesPatterns(f.filename, filePatterns))
@@ -99,6 +153,7 @@ export function processFiles(
       comments: [],
       redundantActions: [],
       stats: { filesScanned: 0, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+      truncatedComments: [],
     };
   }
 
@@ -109,6 +164,7 @@ export function processFiles(
       comments: [],
       redundantActions: [],
       stats: { filesScanned: filteredFiles.length, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+      truncatedComments: [],
     };
   }
 
@@ -126,14 +182,21 @@ export function processFiles(
         blocksCreated: blocks.length,
         actionsExpanded: 0,
       },
+      truncatedComments: [],
     };
   }
 
   const redundantActions = findRedundantActions(explicitActions, expandedActions);
-  const comments = createReviewComments(blocks, expandedActions, redundantActions, collapseThreshold);
+  const reviewComments = buildReviewComments(
+    blocks,
+    expandedActions,
+    redundantActions,
+    collapseThreshold,
+    options,
+  );
 
   return {
-    comments,
+    comments: reviewComments.comments,
     redundantActions,
     stats: {
       filesScanned: filteredFiles.length,
@@ -141,5 +204,6 @@ export function processFiles(
       blocksCreated: blocks.length,
       actionsExpanded: expandedActions.size,
     },
+    truncatedComments: reviewComments.truncatedComments,
   };
 }
