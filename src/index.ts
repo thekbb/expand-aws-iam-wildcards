@@ -2,6 +2,7 @@ import * as core from '@actions/core';
 import * as github from '@actions/github';
 
 import { processFiles, COMMENT_MARKER } from './action.js';
+import { listPullRequestFiles } from './github.js';
 
 type Octokit = ReturnType<typeof github.getOctokit>;
 
@@ -56,11 +57,7 @@ async function run(): Promise<void> {
       core.info(`Deleted ${deletedCount} existing comment(s) from previous runs`);
     }
 
-    const { data: files } = await octokit.rest.pulls.listFiles({
-      owner,
-      repo,
-      pull_number: pullNumber,
-    });
+    const files = await listPullRequestFiles(octokit, owner, repo, pullNumber);
 
     const { comments, redundantActions, stats } = processFiles(files, filePatterns, collapseThreshold);
 
