@@ -290,6 +290,23 @@ describe('formatComment', () => {
     expect(result.body).toContain('Showing first');
   });
 
+  it('falls back to a minimal comment when even the truncated list will not fit', () => {
+    const expanded = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
+    const result = formatCommentResult(
+      ['s3:*'],
+      expanded,
+      {
+        maxCommentBodyLength: 10,
+        truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/123',
+      },
+    );
+
+    expect(result.truncated).toBe(true);
+    expect(result.renderedActionsCount).toBe(0);
+    expect(result.body).toContain('Expanded actions were omitted from this comment');
+    expect(result.body).toContain('workflow run logs');
+  });
+
   it('shows redundant actions warning when provided', () => {
     const result = formatComment(
       ['s3:Get*'],
