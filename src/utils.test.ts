@@ -290,6 +290,21 @@ describe('formatComment', () => {
     expect(result.body).toContain('Showing first');
   });
 
+  it('truncates oversized comments without adding a log link when no URL is available', () => {
+    const expanded = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
+    const result = formatCommentResult(
+      ['s3:*'],
+      expanded,
+      { maxCommentBodyLength: 325 },
+    );
+
+    expect(result.truncated).toBe(true);
+    expect(result.renderedActionsCount).toBeGreaterThan(0);
+    expect(result.renderedActionsCount).toBeLessThan(expanded.length);
+    expect(result.body).toContain('Showing first');
+    expect(result.body).not.toContain('workflow run logs');
+  });
+
   it('falls back to a minimal comment when even the truncated list will not fit', () => {
     const expanded = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
     const result = formatCommentResult(
@@ -305,6 +320,20 @@ describe('formatComment', () => {
     expect(result.renderedActionsCount).toBe(0);
     expect(result.body).toContain('Expanded actions were omitted from this comment');
     expect(result.body).toContain('workflow run logs');
+  });
+
+  it('falls back to a minimal comment without a log link when no URL is available', () => {
+    const expanded = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
+    const result = formatCommentResult(
+      ['s3:*'],
+      expanded,
+      { maxCommentBodyLength: 10 },
+    );
+
+    expect(result.truncated).toBe(true);
+    expect(result.renderedActionsCount).toBe(0);
+    expect(result.body).toContain('Expanded actions were omitted from this comment');
+    expect(result.body).not.toContain('workflow run logs');
   });
 
   it('shows redundant actions warning when provided', () => {
