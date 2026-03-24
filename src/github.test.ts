@@ -70,6 +70,37 @@ describe('listActionReviewComments', () => {
       per_page: 100,
     });
   });
+
+  it('marks action comments that have replies', async () => {
+    const reviewComments: PullRequestReviewComment[] = [
+      { id: 1, body: '**IAM Wildcard Expansion**\n\ncomment body', path: 'policy.tf', line: 10 },
+      { id: 2, body: 'human reply', in_reply_to_id: 1, path: 'policy.tf', line: 10 },
+      { id: 3, body: '**IAM Wildcard Expansion**\n\nanother comment body', path: 'policy.tf', line: 30 },
+    ];
+    const listReviewComments = {};
+    const paginate = vi.fn().mockResolvedValue(reviewComments);
+    const octokit = {
+      paginate,
+      rest: {
+        pulls: {
+          listReviewComments,
+        },
+      },
+    };
+
+    const result = await listActionReviewComments(
+      octokit,
+      'thekbb',
+      'expand-aws-iam-wildcards',
+      42,
+      '**IAM Wildcard Expansion**',
+    );
+
+    expect(result).toEqual([
+      { ...reviewComments[0], hasReplies: true },
+      reviewComments[2],
+    ]);
+  });
 });
 
 describe('syncReviewComments', () => {
@@ -113,6 +144,7 @@ describe('syncReviewComments', () => {
       unchangedCount: 1,
       deletedCount: 0,
       failedDeleteCount: 0,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.createReview).not.toHaveBeenCalled();
     expect(octokit.rest.pulls.updateReviewComment).not.toHaveBeenCalled();
@@ -140,6 +172,7 @@ describe('syncReviewComments', () => {
       unchangedCount: 0,
       deletedCount: 0,
       failedDeleteCount: 0,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.updateReviewComment).toHaveBeenCalledWith({
       owner: 'thekbb',
@@ -172,6 +205,7 @@ describe('syncReviewComments', () => {
       unchangedCount: 0,
       deletedCount: 1,
       failedDeleteCount: 0,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.createReview).toHaveBeenCalledWith({
       owner: 'thekbb',
@@ -219,6 +253,7 @@ describe('syncReviewComments', () => {
       unchangedCount: 0,
       deletedCount: 1,
       failedDeleteCount: 0,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.createReview).not.toHaveBeenCalled();
     expect(octokit.rest.pulls.updateReviewComment).not.toHaveBeenCalled();
@@ -247,6 +282,7 @@ describe('syncReviewComments', () => {
       unchangedCount: 1,
       deletedCount: 1,
       failedDeleteCount: 0,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.updateReviewComment).not.toHaveBeenCalled();
     expect(octokit.rest.pulls.deleteReviewComment).toHaveBeenCalledWith({
@@ -271,6 +307,7 @@ describe('syncReviewComments', () => {
       unchangedCount: 0,
       deletedCount: 0,
       failedDeleteCount: 0,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.updateReviewComment).toHaveBeenCalledWith({
       owner: 'thekbb',
@@ -307,6 +344,7 @@ describe('syncReviewComments', () => {
       unchangedCount: 0,
       deletedCount: 1,
       failedDeleteCount: 0,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.updateReviewComment).not.toHaveBeenCalled();
     expect(octokit.rest.pulls.createReview).toHaveBeenCalledWith({
@@ -339,6 +377,7 @@ describe('syncReviewComments', () => {
       unchangedCount: 0,
       deletedCount: 1,
       failedDeleteCount: 0,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.deleteReviewComment).toHaveBeenCalledWith({
       owner: 'thekbb',
@@ -362,6 +401,7 @@ describe('syncReviewComments', () => {
       unchangedCount: 0,
       deletedCount: 1,
       failedDeleteCount: 0,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.deleteReviewComment).toHaveBeenCalledWith({
       owner: 'thekbb',
@@ -393,7 +433,82 @@ describe('syncReviewComments', () => {
       unchangedCount: 0,
       deletedCount: 2,
       failedDeleteCount: 1,
+      preservedCount: 0,
     });
     expect(octokit.rest.pulls.deleteReviewComment).toHaveBeenCalledTimes(3);
+  });
+
+  it('preserves stale comments with replies while creating a new current comment', async () => {
+    const octokit = makeOctokit();
+    const comments: ReviewComment[] = [
+      { path: 'policy.tf', line: 12, body: '**IAM Wildcard Expansion**\n\nnew body' },
+    ];
+
+    const result = await syncReviewComments(octokit, {
+      ...baseParams,
+      comments,
+      existingComments: [
+        {
+          id: 1001,
+          path: 'policy.tf',
+          position: null,
+          line: 10,
+          original_line: 10,
+          hasReplies: true,
+          body: '**IAM Wildcard Expansion**\n\nold body',
+        },
+      ],
+    });
+
+    expect(result).toEqual({
+      createdCount: 1,
+      updatedCount: 0,
+      unchangedCount: 0,
+      deletedCount: 0,
+      failedDeleteCount: 0,
+      preservedCount: 1,
+    });
+    expect(octokit.rest.pulls.createReview).toHaveBeenCalledWith({
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      pull_number: 42,
+      commit_id: 'abc123',
+      event: 'COMMENT',
+      comments,
+    });
+    expect(octokit.rest.pulls.deleteReviewComment).not.toHaveBeenCalled();
+  });
+
+  it('prefers updating the existing comment that already has replies', async () => {
+    const octokit = makeOctokit();
+
+    const result = await syncReviewComments(octokit, {
+      ...baseParams,
+      comments: [{ path: 'policy.tf', line: 10, body: '**IAM Wildcard Expansion**\n\nnew body' }],
+      existingComments: [
+        { id: 1001, path: 'policy.tf', line: 10, body: '**IAM Wildcard Expansion**\n\nold body' },
+        { id: 1002, path: 'policy.tf', line: 10, hasReplies: true, body: '**IAM Wildcard Expansion**\n\nolder body' },
+      ],
+    });
+
+    expect(result).toEqual({
+      createdCount: 0,
+      updatedCount: 1,
+      unchangedCount: 0,
+      deletedCount: 1,
+      failedDeleteCount: 0,
+      preservedCount: 0,
+    });
+    expect(octokit.rest.pulls.updateReviewComment).toHaveBeenCalledWith({
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      comment_id: 1002,
+      body: '**IAM Wildcard Expansion**\n\nnew body',
+    });
+    expect(octokit.rest.pulls.deleteReviewComment).toHaveBeenCalledWith({
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      comment_id: 1001,
+    });
   });
 });

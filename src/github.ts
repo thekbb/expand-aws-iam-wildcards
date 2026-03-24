@@ -59,6 +59,7 @@ export interface SyncReviewCommentsResult {
   readonly unchangedCount: number;
   readonly deletedCount: number;
   readonly failedDeleteCount: number;
+  readonly preservedCount: number;
 }
 
 function getAnchorKey(path: string, line: number): string {
@@ -111,7 +112,19 @@ export async function listActionReviewComments(
     per_page: 100,
   });
 
-  return reviewComments.filter((comment) => comment.body.includes(marker));
+  const parentCommentIdsWithReplies = new Set<number>(
+    reviewComments
+      .map((comment) => comment.in_reply_to_id)
+      .filter((commentId): commentId is number => commentId !== null && commentId !== undefined),
+  );
+
+  return reviewComments
+    .filter((comment) => comment.body.includes(marker))
+    .map((comment) =>
+      parentCommentIdsWithReplies.has(comment.id)
+        ? { ...comment, hasReplies: true }
+        : comment,
+    );
 }
 
 export async function syncReviewComments(
@@ -150,7 +163,11 @@ export async function syncReviewComments(
       continue;
     }
 
-    const exactMatch = existingAtAnchor.find((existingComment) => existingComment.body === comment.body);
+    const exactMatch =
+      existingAtAnchor.find((existingComment) =>
+        existingComment.body === comment.body && existingComment.hasReplies,
+      ) ??
+      existingAtAnchor.find((existingComment) => existingComment.body === comment.body);
     if (exactMatch) {
       unchangedCount += 1;
       staleComments.push(...existingAtAnchor.filter((existingComment) => existingComment.id !== exactMatch.id));
@@ -158,8 +175,13 @@ export async function syncReviewComments(
       continue;
     }
 
-    const [commentToUpdate, ...duplicateComments] =
-      existingAtAnchor as [PullRequestReviewComment, ...PullRequestReviewComment[]];
+    const [firstComment] = existingAtAnchor as [PullRequestReviewComment, ...PullRequestReviewComment[]];
+    const commentToUpdate =
+      existingAtAnchor.find((existingComment) => existingComment.hasReplies) ??
+      firstComment;
+    const duplicateComments = existingAtAnchor.filter(
+      (existingComment) => existingComment.id !== commentToUpdate.id,
+    );
     commentsToUpdate.push({
       ...commentToUpdate,
       body: comment.body,
@@ -194,8 +216,14 @@ export async function syncReviewComments(
 
   let deletedCount = 0;
   let failedDeleteCount = 0;
+  let preservedCount = 0;
 
   for (const comment of staleComments) {
+    if (comment.hasReplies) {
+      preservedCount += 1;
+      continue;
+    }
+
     try {
       await octokit.rest.pulls.deleteReviewComment({
         owner,
@@ -214,5 +242,6 @@ export async function syncReviewComments(
     unchangedCount,
     deletedCount,
     failedDeleteCount,
+    preservedCount,
   };
 }

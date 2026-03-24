@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Truncate oversized review comments that would break GitHub, and link full IAM expansions from the PR comment to the
   workflow run logs
 - Recreate outdated review comments instead of editing stale threads that no longer map to the current diff
+- Preserve outdated bot comments that already have replies instead of deleting their discussion threads
 - Warn when the same wildcard pattern appears multiple times in the same inline comment block
 
 ## [1.1.10] = 2026-3-21

@@ -56,6 +56,12 @@ function logReviewCommentSyncResult(result: SyncReviewCommentsResult): void {
   if (result.failedDeleteCount > 0) {
     core.warning(`Failed to delete ${result.failedDeleteCount} stale comment(s) from previous runs`);
   }
+
+  if (result.preservedCount > 0) {
+    core.info(
+      `Preserved ${result.preservedCount} stale comment thread(s) because they have replies`,
+    );
+  }
 }
 
 async function run(): Promise<void> {

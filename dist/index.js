@@ -59288,7 +59288,14 @@ async function listActionReviewComments(octokit, owner, repo, pullNumber, marker
         pull_number: pullNumber,
         per_page: 100,
     });
-    return reviewComments.filter((comment) => comment.body.includes(marker));
+    const parentCommentIdsWithReplies = new Set(reviewComments
+        .map((comment) => comment.in_reply_to_id)
+        .filter((commentId) => commentId !== null && commentId !== undefined));
+    return reviewComments
+        .filter((comment) => comment.body.includes(marker))
+        .map((comment) => parentCommentIdsWithReplies.has(comment.id)
+        ? { ...comment, hasReplies: true }
+        : comment);
 }
 async function syncReviewComments(octokit, params) {
     const { owner, repo, pullNumber, commitSha, comments, existingComments } = params;
@@ -59318,14 +59325,18 @@ async function syncReviewComments(octokit, params) {
             commentsToCreate.push(comment);
             continue;
         }
-        const exactMatch = existingAtAnchor.find((existingComment) => existingComment.body === comment.body);
+        const exactMatch = existingAtAnchor.find((existingComment) => existingComment.body === comment.body && existingComment.hasReplies) ??
+            existingAtAnchor.find((existingComment) => existingComment.body === comment.body);
         if (exactMatch) {
             unchangedCount += 1;
             staleComments.push(...existingAtAnchor.filter((existingComment) => existingComment.id !== exactMatch.id));
             existingCommentsByAnchor.delete(anchorKey);
             continue;
         }
-        const [commentToUpdate, ...duplicateComments] = existingAtAnchor;
+        const [firstComment] = existingAtAnchor;
+        const commentToUpdate = existingAtAnchor.find((existingComment) => existingComment.hasReplies) ??
+            firstComment;
+        const duplicateComments = existingAtAnchor.filter((existingComment) => existingComment.id !== commentToUpdate.id);
         commentsToUpdate.push({
             ...commentToUpdate,
             body: comment.body,
@@ -59356,7 +59367,12 @@ async function syncReviewComments(octokit, params) {
     }
     let deletedCount = 0;
     let failedDeleteCount = 0;
+    let preservedCount = 0;
     for (const comment of staleComments) {
+        if (comment.hasReplies) {
+            preservedCount += 1;
+            continue;
+        }
         try {
             await octokit.rest.pulls.deleteReviewComment({
                 owner,
@@ -59375,6 +59391,7 @@ async function syncReviewComments(octokit, params) {
         unchangedCount,
         deletedCount,
         failedDeleteCount,
+        preservedCount,
     };
 }
 
@@ -59415,6 +59432,9 @@ function logReviewCommentSyncResult(result) {
     }
     if (result.failedDeleteCount > 0) {
         warning(`Failed to delete ${result.failedDeleteCount} stale comment(s) from previous runs`);
+    }
+    if (result.preservedCount > 0) {
+        info(`Preserved ${result.preservedCount} stale comment thread(s) because they have replies`);
     }
 }
 async function run() {
