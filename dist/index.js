@@ -36020,6 +36020,7 @@ function formatActionWithLink(action) {
 
 const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*)["']?/g;
 const IAM_EXPLICIT_PATTERN = /["']([a-zA-Z0-9-]+:[a-zA-Z][a-zA-Z0-9]*)["']/g;
+const MAX_COMMENT_BODY_LENGTH = 62_000;
 function findPotentialWildcardActions(line) {
     return [...line.matchAll(IAM_WILDCARD_PATTERN)]
         .map((match) => match[1]?.trim())
@@ -36063,31 +36064,92 @@ function groupIntoConsecutiveBlocks(matches) {
     blocks.push({ ...current, actions: [...current.actions] });
     return blocks;
 }
-function formatComment(originalActions, expandedActions, options = {}) {
-    const { collapseThreshold = 5, redundantActions } = options;
+function createTruncationNotice(renderedActionsCount, totalActionsCount, truncationUrl) {
+    const logMessage = truncationUrl
+        ? ` The full expanded list is in the [workflow run logs](${truncationUrl}).`
+        : '';
+    if (renderedActionsCount === 0) {
+        return `\n\nThe expanded action list is omitted here to keep this review comment within GitHub limits.${logMessage}`;
+    }
+    return `\n\nShowing first ${renderedActionsCount} of ${totalActionsCount} expanded actions to keep this review comment within GitHub limits.${logMessage}`;
+}
+function buildCommentBody(originalActions, displayedActions, totalExpandedActionsCount, options = {}) {
+    const { collapseThreshold = 5, redundantActions, truncationUrl } = options;
     const header = originalActions.length === 1
-        ? `\`${originalActions[0]}\` expands to ${expandedActions.length} action(s):`
-        : `${originalActions.length} wildcard patterns expand to ${expandedActions.length} action(s):`;
+        ? `\`${originalActions[0]}\` expands to ${totalExpandedActionsCount} action(s):`
+        : `${originalActions.length} wildcard patterns expand to ${totalExpandedActionsCount} action(s):`;
     const patterns = originalActions.length > 1
         ? `\n**Patterns:**\n${originalActions.map((a) => `- \`${a}\``).join('\n')}`
         : '';
     const warning = redundantActions && redundantActions.length > 0
         ? `\n\n**⚠️ Redundant actions detected:**\nThe following explicit actions are already covered by the wildcard pattern(s) above:\n${redundantActions.map((a) => `- \`${a}\``).join('\n')}`
         : '';
-    const actionsList = expandedActions.map((a) => `1. ${formatActionWithLink(a)}`).join('\n');
-    const actionsBlock = expandedActions.length > collapseThreshold
-        ? `<details>
+    const truncationNotice = displayedActions.length < totalExpandedActionsCount
+        ? createTruncationNotice(displayedActions.length, totalExpandedActionsCount, truncationUrl)
+        : '';
+    const actionsList = displayedActions.map((a) => `1. ${formatActionWithLink(a)}`).join('\n');
+    const actionsBlock = displayedActions.length === 0
+        ? '_Full expanded list omitted from this comment._'
+        : displayedActions.length > collapseThreshold
+            ? `<details>
 <summary>Click to expand</summary>
 
 ${actionsList}
 
 </details>`
-        : actionsList;
+            : actionsList;
     return `**IAM Wildcard Expansion**
 
-${header}${patterns}${warning}
+${header}${patterns}${warning}${truncationNotice}
 
 ${actionsBlock}`;
+}
+function createMinimalCommentBody(truncationUrl) {
+    const logMessage = truncationUrl
+        ? ` The full expanded list is in the [workflow run logs](${truncationUrl}).`
+        : '';
+    return `**IAM Wildcard Expansion**
+
+Expanded actions were omitted from this comment to stay within GitHub limits.${logMessage}`;
+}
+function formatCommentResult(originalActions, expandedActions, options = {}) {
+    const { maxCommentBodyLength = MAX_COMMENT_BODY_LENGTH } = options;
+    const safeMaxCommentBodyLength = Math.max(1, maxCommentBodyLength);
+    const fullBody = buildCommentBody(originalActions, expandedActions, expandedActions.length, options);
+    if (fullBody.length <= safeMaxCommentBodyLength) {
+        return {
+            body: fullBody,
+            renderedActionsCount: expandedActions.length,
+            truncated: false,
+        };
+    }
+    let bestCount = 0;
+    let bestBody = '';
+    let low = 0;
+    let high = expandedActions.length;
+    while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        const candidateBody = buildCommentBody(originalActions, expandedActions.slice(0, mid), expandedActions.length, options);
+        if (candidateBody.length <= safeMaxCommentBodyLength) {
+            bestCount = mid;
+            bestBody = candidateBody;
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    if (bestBody === '') {
+        bestBody = createMinimalCommentBody(options.truncationUrl);
+    }
+    return {
+        body: bestBody,
+        renderedActionsCount: bestCount,
+        truncated: true,
+    };
+}
+function formatComment(originalActions, expandedActions, options = {}) {
+    return formatCommentResult(originalActions, expandedActions, options).body;
 }
 
 ;// CONCATENATED MODULE: ./src/diff.ts
@@ -59055,8 +59117,10 @@ function findRedundantActions(explicitActions, expandedActions) {
     }
     return explicitActions.filter((action) => allExpanded.has(action.toLowerCase()));
 }
-function createReviewComments(blocks, expandedActions, redundantActions, collapseThreshold) {
-    return blocks.flatMap((block) => {
+function buildReviewComments(blocks, expandedActions, redundantActions, collapseThreshold, options = {}) {
+    const comments = [];
+    const truncatedComments = [];
+    for (const block of blocks) {
         const originalActions = [];
         const allExpanded = [];
         for (const action of block.actions) {
@@ -59066,18 +59130,38 @@ function createReviewComments(blocks, expandedActions, redundantActions, collaps
                 allExpanded.push(...expanded);
             }
         }
-        if (allExpanded.length === 0)
-            return [];
+        if (allExpanded.length === 0) {
+            continue;
+        }
         const uniqueExpanded = [...new Set(allExpanded)].toSorted((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-        const options = { collapseThreshold, redundantActions };
-        return {
+        const formatOptions = {
+            collapseThreshold,
+            redundantActions,
+            truncationUrl: options.truncationUrl,
+            maxCommentBodyLength: options.maxCommentBodyLength,
+        };
+        const formattedComment = formatCommentResult(originalActions, uniqueExpanded, formatOptions);
+        comments.push({
             path: block.file,
             line: block.endLine,
-            body: formatComment(originalActions, uniqueExpanded, options),
-        };
-    });
+            body: formattedComment.body,
+        });
+        if (formattedComment.truncated) {
+            truncatedComments.push({
+                file: block.file,
+                line: block.endLine,
+                originalActions,
+                expandedActions: uniqueExpanded,
+                renderedActionsCount: formattedComment.renderedActionsCount,
+            });
+        }
+    }
+    return { comments, truncatedComments };
 }
-function processFiles(files, filePatterns, collapseThreshold) {
+function createReviewComments(blocks, expandedActions, redundantActions, collapseThreshold, options = {}) {
+    return buildReviewComments(blocks, expandedActions, redundantActions, collapseThreshold, options).comments;
+}
+function processFiles(files, filePatterns, collapseThreshold, options = {}) {
     const filteredFiles = filePatterns.length > 0
         ? files.filter((f) => matchesPatterns(f.filename, filePatterns))
         : files;
@@ -59086,6 +59170,7 @@ function processFiles(files, filePatterns, collapseThreshold) {
             comments: [],
             redundantActions: [],
             stats: { filesScanned: 0, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+            truncatedComments: [],
         };
     }
     const { wildcardMatches, explicitActions } = extractFromDiff(filteredFiles);
@@ -59094,6 +59179,7 @@ function processFiles(files, filePatterns, collapseThreshold) {
             comments: [],
             redundantActions: [],
             stats: { filesScanned: filteredFiles.length, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+            truncatedComments: [],
         };
     }
     const blocks = groupIntoConsecutiveBlocks(wildcardMatches);
@@ -59109,12 +59195,13 @@ function processFiles(files, filePatterns, collapseThreshold) {
                 blocksCreated: blocks.length,
                 actionsExpanded: 0,
             },
+            truncatedComments: [],
         };
     }
     const redundantActions = findRedundantActions(explicitActions, expandedActions);
-    const comments = createReviewComments(blocks, expandedActions, redundantActions, collapseThreshold);
+    const reviewComments = buildReviewComments(blocks, expandedActions, redundantActions, collapseThreshold, options);
     return {
-        comments,
+        comments: reviewComments.comments,
         redundantActions,
         stats: {
             filesScanned: filteredFiles.length,
@@ -59122,6 +59209,128 @@ function processFiles(files, filePatterns, collapseThreshold) {
             blocksCreated: blocks.length,
             actionsExpanded: expandedActions.size,
         },
+        truncatedComments: reviewComments.truncatedComments,
+    };
+}
+
+;// CONCATENATED MODULE: ./src/github.ts
+function getAnchorKey(path, line) {
+    return JSON.stringify([path, line]);
+}
+function getExistingCommentAnchorKey(comment) {
+    if (!comment.path) {
+        return null;
+    }
+    const line = comment.line ?? comment.original_line;
+    if (line === null || line === undefined) {
+        return null;
+    }
+    return getAnchorKey(comment.path, line);
+}
+async function listPullRequestFiles(octokit, owner, repo, pullNumber) {
+    return octokit.paginate(octokit.rest.pulls.listFiles, {
+        owner,
+        repo,
+        pull_number: pullNumber,
+        per_page: 100,
+    });
+}
+async function listActionReviewComments(octokit, owner, repo, pullNumber, marker) {
+    const reviewComments = await octokit.paginate(octokit.rest.pulls.listReviewComments, {
+        owner,
+        repo,
+        pull_number: pullNumber,
+        per_page: 100,
+    });
+    return reviewComments.filter((comment) => comment.body.includes(marker));
+}
+async function syncReviewComments(octokit, params) {
+    const { owner, repo, pullNumber, commitSha, comments, existingComments } = params;
+    const existingCommentsByAnchor = new Map();
+    const staleComments = [];
+    for (const comment of existingComments) {
+        const anchorKey = getExistingCommentAnchorKey(comment);
+        if (!anchorKey) {
+            staleComments.push(comment);
+            continue;
+        }
+        const commentsAtAnchor = existingCommentsByAnchor.get(anchorKey);
+        if (commentsAtAnchor) {
+            commentsAtAnchor.push(comment);
+        }
+        else {
+            existingCommentsByAnchor.set(anchorKey, [comment]);
+        }
+    }
+    const commentsToCreate = [];
+    const commentsToUpdate = [];
+    let unchangedCount = 0;
+    for (const comment of comments) {
+        const anchorKey = getAnchorKey(comment.path, comment.line);
+        const existingAtAnchor = existingCommentsByAnchor.get(anchorKey);
+        if (!existingAtAnchor || existingAtAnchor.length === 0) {
+            commentsToCreate.push(comment);
+            continue;
+        }
+        const exactMatch = existingAtAnchor.find((existingComment) => existingComment.body === comment.body);
+        if (exactMatch) {
+            unchangedCount += 1;
+            staleComments.push(...existingAtAnchor.filter((existingComment) => existingComment.id !== exactMatch.id));
+            existingCommentsByAnchor.delete(anchorKey);
+            continue;
+        }
+        const [commentToUpdate, ...duplicateComments] = existingAtAnchor;
+        if (commentToUpdate) {
+            commentsToUpdate.push({
+                ...commentToUpdate,
+                body: comment.body,
+            });
+        }
+        staleComments.push(...duplicateComments);
+        existingCommentsByAnchor.delete(anchorKey);
+    }
+    for (const unmatchedComments of existingCommentsByAnchor.values()) {
+        staleComments.push(...unmatchedComments);
+    }
+    for (const comment of commentsToUpdate) {
+        await octokit.rest.pulls.updateReviewComment({
+            owner,
+            repo,
+            comment_id: comment.id,
+            body: comment.body,
+        });
+    }
+    if (commentsToCreate.length > 0) {
+        await octokit.rest.pulls.createReview({
+            owner,
+            repo,
+            pull_number: pullNumber,
+            commit_id: commitSha,
+            event: 'COMMENT',
+            comments: commentsToCreate,
+        });
+    }
+    let deletedCount = 0;
+    let failedDeleteCount = 0;
+    for (const comment of staleComments) {
+        try {
+            await octokit.rest.pulls.deleteReviewComment({
+                owner,
+                repo,
+                comment_id: comment.id,
+            });
+            deletedCount += 1;
+        }
+        catch {
+            failedDeleteCount += 1;
+        }
+    }
+    return {
+        createdCount: commentsToCreate.length,
+        updatedCount: commentsToUpdate.length,
+        unchangedCount,
+        deletedCount,
+        failedDeleteCount,
     };
 }
 
@@ -59129,17 +59338,40 @@ function processFiles(files, filePatterns, collapseThreshold) {
 
 
 
-async function deleteExistingComments(octokit, owner, repo, pullNumber) {
-    const reviewComments = await octokit.paginate(octokit.rest.pulls.listReviewComments, { owner, repo, pull_number: pullNumber, per_page: 100 });
-    const ourComments = reviewComments.filter((c) => c.body.includes(COMMENT_MARKER));
-    for (const comment of ourComments) {
-        await octokit.rest.pulls.deleteReviewComment({
-            owner,
-            repo,
-            comment_id: comment.id,
-        });
+
+function getWorkflowRunUrl(owner, repo) {
+    const runId = process.env.GITHUB_RUN_ID;
+    if (!runId) {
+        return undefined;
     }
-    return ourComments.length;
+    const serverUrl = process.env.GITHUB_SERVER_URL ?? 'https://github.com';
+    return `${serverUrl}/${owner}/${repo}/actions/runs/${runId}`;
+}
+function logTruncatedComments(truncatedComments, workflowRunUrl) {
+    if (truncatedComments.length === 0) {
+        return;
+    }
+    const logLocation = workflowRunUrl ? ` Full lists are available in this workflow run: ${workflowRunUrl}` : '';
+    warning(`Truncated ${truncatedComments.length} review comment(s) to stay within GitHub comment limits.${logLocation}`);
+    for (const truncatedComment of truncatedComments) {
+        info([
+            `Full IAM expansion for ${truncatedComment.file}:${truncatedComment.line}`,
+            `Rendered ${truncatedComment.renderedActionsCount} of ${truncatedComment.expandedActions.length} action(s) in the PR comment.`,
+            `Wildcard patterns: ${truncatedComment.originalActions.join(', ')}`,
+            ...truncatedComment.expandedActions.map((action) => `- ${action}`),
+        ].join('\n'));
+    }
+}
+function logReviewCommentSyncResult(result) {
+    if (result.createdCount > 0 || result.updatedCount > 0 || result.unchangedCount > 0) {
+        info(`Synchronized comments: ${result.createdCount} created, ${result.updatedCount} updated, ${result.unchangedCount} unchanged`);
+    }
+    if (result.deletedCount > 0) {
+        info(`Deleted ${result.deletedCount} existing comment(s) from previous runs`);
+    }
+    if (result.failedDeleteCount > 0) {
+        warning(`Failed to delete ${result.failedDeleteCount} stale comment(s) from previous runs`);
+    }
 }
 async function run() {
     try {
@@ -59158,28 +59390,46 @@ async function run() {
         const { owner, repo } = context.repo;
         const pullNumber = context.payload.pull_request.number;
         const commitSha = context.payload.pull_request.head.sha;
+        const workflowRunUrl = getWorkflowRunUrl(owner, repo);
         info(`Analyzing PR #${pullNumber} in ${owner}/${repo}`);
-        const deletedCount = await deleteExistingComments(octokit, owner, repo, pullNumber);
-        if (deletedCount > 0) {
-            info(`Deleted ${deletedCount} existing comment(s) from previous runs`);
-        }
-        const { data: files } = await octokit.rest.pulls.listFiles({
-            owner,
-            repo,
-            pull_number: pullNumber,
-        });
-        const { comments, redundantActions, stats } = processFiles(files, filePatterns, collapseThreshold);
+        const existingComments = await listActionReviewComments(octokit, owner, repo, pullNumber, COMMENT_MARKER);
+        const files = await listPullRequestFiles(octokit, owner, repo, pullNumber);
+        const { comments, redundantActions, stats, truncatedComments } = processFiles(files, filePatterns, collapseThreshold, { truncationUrl: workflowRunUrl });
         if (stats.filesScanned === 0) {
+            logReviewCommentSyncResult(await syncReviewComments(octokit, {
+                owner,
+                repo,
+                pullNumber,
+                commitSha,
+                comments: [],
+                existingComments,
+            }));
             info('No files matched the configured patterns.');
             return;
         }
         info(`Scanned ${stats.filesScanned} file(s)`);
         if (stats.wildcardsFound === 0) {
+            logReviewCommentSyncResult(await syncReviewComments(octokit, {
+                owner,
+                repo,
+                pullNumber,
+                commitSha,
+                comments: [],
+                existingComments,
+            }));
             info('No IAM wildcard actions found in the changes.');
             return;
         }
         info(`Found ${stats.wildcardsFound} wildcard(s), grouped into ${stats.blocksCreated} block(s)`);
         if (stats.actionsExpanded === 0) {
+            logReviewCommentSyncResult(await syncReviewComments(octokit, {
+                owner,
+                repo,
+                pullNumber,
+                commitSha,
+                comments: [],
+                existingComments,
+            }));
             info('No wildcard actions could be expanded.');
             return;
         }
@@ -59187,18 +59437,27 @@ async function run() {
             warning(`Found ${redundantActions.length} redundant action(s): ${redundantActions.join(', ')}`);
         }
         if (comments.length === 0) {
+            logReviewCommentSyncResult(await syncReviewComments(octokit, {
+                owner,
+                repo,
+                pullNumber,
+                commitSha,
+                comments: [],
+                existingComments,
+            }));
             info('No comments to post.');
             return;
         }
-        await octokit.rest.pulls.createReview({
+        logTruncatedComments(truncatedComments, workflowRunUrl);
+        const syncResult = await syncReviewComments(octokit, {
             owner,
             repo,
-            pull_number: pullNumber,
-            commit_id: commitSha,
-            event: 'COMMENT',
             comments,
+            pullNumber,
+            commitSha,
+            existingComments,
         });
-        info(`Posted review with ${comments.length} comment(s)`);
+        logReviewCommentSyncResult(syncResult);
     }
     catch (error) {
         setFailed(error instanceof Error ? error.message : 'An unexpected error occurred');

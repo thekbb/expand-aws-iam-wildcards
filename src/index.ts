@@ -2,9 +2,12 @@ import * as core from '@actions/core';
 import * as github from '@actions/github';
 
 import { processFiles, COMMENT_MARKER, type TruncatedComment } from './action.js';
-import { listPullRequestFiles } from './github.js';
-
-type Octokit = ReturnType<typeof github.getOctokit>;
+import {
+  listActionReviewComments,
+  listPullRequestFiles,
+  syncReviewComments,
+  type SyncReviewCommentsResult,
+} from './github.js';
 
 function getWorkflowRunUrl(owner: string, repo: string): string | undefined {
   const runId = process.env.GITHUB_RUN_ID;
@@ -39,28 +42,20 @@ function logTruncatedComments(
   }
 }
 
-async function deleteExistingComments(
-  octokit: Octokit,
-  owner: string,
-  repo: string,
-  pullNumber: number,
-): Promise<number> {
-  const reviewComments = await octokit.paginate(
-    octokit.rest.pulls.listReviewComments,
-    { owner, repo, pull_number: pullNumber, per_page: 100 }
-  );
-
-  const ourComments = reviewComments.filter((c) => c.body.includes(COMMENT_MARKER));
-
-  for (const comment of ourComments) {
-    await octokit.rest.pulls.deleteReviewComment({
-      owner,
-      repo,
-      comment_id: comment.id,
-    });
+function logReviewCommentSyncResult(result: SyncReviewCommentsResult): void {
+  if (result.createdCount > 0 || result.updatedCount > 0 || result.unchangedCount > 0) {
+    core.info(
+      `Synchronized comments: ${result.createdCount} created, ${result.updatedCount} updated, ${result.unchangedCount} unchanged`
+    );
   }
 
-  return ourComments.length;
+  if (result.deletedCount > 0) {
+    core.info(`Deleted ${result.deletedCount} existing comment(s) from previous runs`);
+  }
+
+  if (result.failedDeleteCount > 0) {
+    core.warning(`Failed to delete ${result.failedDeleteCount} stale comment(s) from previous runs`);
+  }
 }
 
 async function run(): Promise<void> {
@@ -86,10 +81,13 @@ async function run(): Promise<void> {
 
     core.info(`Analyzing PR #${pullNumber} in ${owner}/${repo}`);
 
-    const deletedCount = await deleteExistingComments(octokit, owner, repo, pullNumber);
-    if (deletedCount > 0) {
-      core.info(`Deleted ${deletedCount} existing comment(s) from previous runs`);
-    }
+    const existingComments = await listActionReviewComments(
+      octokit,
+      owner,
+      repo,
+      pullNumber,
+      COMMENT_MARKER,
+    );
 
     const files = await listPullRequestFiles(octokit, owner, repo, pullNumber);
 
@@ -101,6 +99,14 @@ async function run(): Promise<void> {
     );
 
     if (stats.filesScanned === 0) {
+      logReviewCommentSyncResult(await syncReviewComments(octokit, {
+        owner,
+        repo,
+        pullNumber,
+        commitSha,
+        comments: [],
+        existingComments,
+      }));
       core.info('No files matched the configured patterns.');
       return;
     }
@@ -108,6 +114,14 @@ async function run(): Promise<void> {
     core.info(`Scanned ${stats.filesScanned} file(s)`);
 
     if (stats.wildcardsFound === 0) {
+      logReviewCommentSyncResult(await syncReviewComments(octokit, {
+        owner,
+        repo,
+        pullNumber,
+        commitSha,
+        comments: [],
+        existingComments,
+      }));
       core.info('No IAM wildcard actions found in the changes.');
       return;
     }
@@ -115,6 +129,14 @@ async function run(): Promise<void> {
     core.info(`Found ${stats.wildcardsFound} wildcard(s), grouped into ${stats.blocksCreated} block(s)`);
 
     if (stats.actionsExpanded === 0) {
+      logReviewCommentSyncResult(await syncReviewComments(octokit, {
+        owner,
+        repo,
+        pullNumber,
+        commitSha,
+        comments: [],
+        existingComments,
+      }));
       core.info('No wildcard actions could be expanded.');
       return;
     }
@@ -124,22 +146,29 @@ async function run(): Promise<void> {
     }
 
     if (comments.length === 0) {
+      logReviewCommentSyncResult(await syncReviewComments(octokit, {
+        owner,
+        repo,
+        pullNumber,
+        commitSha,
+        comments: [],
+        existingComments,
+      }));
       core.info('No comments to post.');
       return;
     }
 
     logTruncatedComments(truncatedComments, workflowRunUrl);
 
-    await octokit.rest.pulls.createReview({
+    const syncResult = await syncReviewComments(octokit, {
       owner,
       repo,
-      pull_number: pullNumber,
-      commit_id: commitSha,
-      event: 'COMMENT',
       comments,
+      pullNumber,
+      commitSha,
+      existingComments,
     });
-
-    core.info(`Posted review with ${comments.length} comment(s)`);
+    logReviewCommentSyncResult(syncResult);
   } catch (error) {
     core.setFailed(error instanceof Error ? error.message : 'An unexpected error occurred');
   }

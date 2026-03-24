@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Reuse existing review comments when the file and line anchor are unchanged, updating comment bodies in place when
+  needed to preserve discussion threads and reduce comment churn
+
 ### Fixed
 
 - Paginate pull request file retrieval so large PRs are scanned completely
