@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "generate-iam-data": "tsx scripts/generate-iam-data.ts",
-    "update-iam-data": "npm update @cloud-copilot/iam-expand @cloud-copilot/iam-data && npm run generate-iam-data"
+    "update-iam-data": "npm update @cloud-copilot/iam-data && npm run generate-iam-data"
   },
   "keywords": [
     "github-action",
@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@cloud-copilot/iam-data": "^0.18.202603071",
-    "@cloud-copilot/iam-expand": "~0.11.45",
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.2.1",
     "@vercel/ncc": "~0.38.1",

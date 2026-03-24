@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Reuse existing review comments when the file and line anchor are unchanged, updating comment bodies in place when
   needed to preserve discussion threads and reduce comment churn
 - Simplify review comments to focus on wildcard expansion output instead of duplicate or redundant-action warnings
+- Remove the stale `@cloud-copilot/iam-expand` dependency and update docs to describe the generated IAM action list
 
 ### Fixed
 

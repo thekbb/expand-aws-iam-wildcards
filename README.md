@@ -95,7 +95,7 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 
 1. Fetches the PR diff
 2. Scans added lines for IAM wildcard patterns (`service:Action*`)
-3. Expands wildcards using [@cloud-copilot/iam-expand](https://github.com/cloud-copilot/iam-expand)
+3. Expands wildcards against the bundled IAM action list generated from [@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data)
 4. Posts inline review comments with links to AWS docs
 
 ## Security & Trust
