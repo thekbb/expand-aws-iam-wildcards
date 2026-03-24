@@ -203,4 +203,35 @@ describe('extractFromDiff', () => {
     expect(wildcardMatches).toHaveLength(1);
     expect(wildcardMatches[0]?.action).toBe('s3:Get*');
   });
+
+  it('does not count the no-newline marker as a destination line', () => {
+    const files = [
+      {
+        filename: 'policy.json',
+        patch: `@@ -1,1 +1,1 @@
+-  "Action": "s3:GetObject"
++  "Action": "s3:Get*"
+\\ No newline at end of file
+@@ -10,2 +10,3 @@
+ {
++  "Action": "ec2:Describe*"
+ }
+}`,
+      },
+    ];
+
+    const { wildcardMatches } = extractFromDiff(files);
+
+    expect(wildcardMatches).toHaveLength(2);
+    expect(wildcardMatches[0]).toEqual({
+      action: 's3:Get*',
+      line: 1,
+      file: 'policy.json',
+    });
+    expect(wildcardMatches[1]).toEqual({
+      action: 'ec2:Describe*',
+      line: 11,
+      file: 'policy.json',
+    });
+  });
 });
