@@ -36019,17 +36019,11 @@ function formatActionWithLink(action) {
 ;// CONCATENATED MODULE: ./src/utils.ts
 
 const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*)["']?/g;
-const IAM_EXPLICIT_PATTERN = /["']([a-zA-Z0-9-]+:[a-zA-Z][a-zA-Z0-9]*)["']/g;
 const MAX_COMMENT_BODY_LENGTH = 62_000;
 function findPotentialWildcardActions(line) {
     return [...line.matchAll(IAM_WILDCARD_PATTERN)]
         .map((match) => match[1]?.trim())
         .filter((action) => action !== undefined && action !== '');
-}
-function findExplicitActions(line) {
-    return [...line.matchAll(IAM_EXPLICIT_PATTERN)]
-        .map((match) => match[1])
-        .filter((action) => action !== undefined && !action.includes('*'));
 }
 function groupIntoConsecutiveBlocks(matches) {
     if (matches.length === 0)
@@ -36074,18 +36068,12 @@ function createTruncationNotice(renderedActionsCount, totalActionsCount, truncat
     return `\n\nShowing first ${renderedActionsCount} of ${totalActionsCount} expanded actions to keep this review comment within GitHub limits.${logMessage}`;
 }
 function buildCommentBody(originalActions, displayedActions, totalExpandedActionsCount, options = {}) {
-    const { collapseThreshold = 5, duplicatePatterns, redundantActions, truncationUrl } = options;
+    const { collapseThreshold = 5, truncationUrl } = options;
     const header = originalActions.length === 1
         ? `\`${originalActions[0]}\` expands to ${totalExpandedActionsCount} action(s):`
         : `${originalActions.length} wildcard patterns expand to ${totalExpandedActionsCount} action(s):`;
     const patterns = originalActions.length > 1
         ? `\n**Patterns:**\n${originalActions.map((a) => `- \`${a}\``).join('\n')}`
-        : '';
-    const duplicatePatternWarning = duplicatePatterns && duplicatePatterns.length > 0
-        ? `\n\n**⚠️ Duplicate wildcard patterns detected:**\nThe following wildcard pattern(s) appear multiple times in this block:\n${duplicatePatterns.map((a) => `- \`${a}\``).join('\n')}`
-        : '';
-    const warning = redundantActions && redundantActions.length > 0
-        ? `\n\n**⚠️ Redundant actions detected:**\nThe following explicit actions are already covered by the wildcard pattern(s) above:\n${redundantActions.map((a) => `- \`${a}\``).join('\n')}`
         : '';
     const truncationNotice = displayedActions.length < totalExpandedActionsCount
         ? createTruncationNotice(displayedActions.length, totalExpandedActionsCount, truncationUrl)
@@ -36103,7 +36091,7 @@ ${actionsList}
             : actionsList;
     return `**IAM Wildcard Expansion**
 
-${header}${patterns}${duplicatePatternWarning}${warning}${truncationNotice}
+${header}${patterns}${truncationNotice}
 
 ${actionsBlock}`;
 }
@@ -36159,7 +36147,6 @@ function formatComment(originalActions, expandedActions, options = {}) {
 
 function extractFromPatch(patch, filename) {
     const wildcardMatches = [];
-    const explicitActionMatches = [];
     let currentLine = 0;
     for (const line of patch.split('\n')) {
         const hunkStart = parseHunkHeader(line);
@@ -36174,12 +36161,9 @@ function extractFromPatch(patch, filename) {
             for (const action of findPotentialWildcardActions(line)) {
                 wildcardMatches.push({ action, line: currentLine, file: filename });
             }
-            for (const action of findExplicitActions(line)) {
-                explicitActionMatches.push({ action, line: currentLine, file: filename });
-            }
         }
     }
-    return { wildcardMatches, explicitActionMatches };
+    return { wildcardMatches };
 }
 function parseHunkHeader(line) {
     const match = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/);
@@ -36191,9 +36175,8 @@ function extractFromDiff(files) {
         .map((file) => extractFromPatch(file.patch, file.filename))
         .reduce((acc, result) => {
         acc.wildcardMatches.push(...result.wildcardMatches);
-        acc.explicitActionMatches.push(...result.explicitActionMatches);
         return acc;
-    }, { wildcardMatches: [], explicitActionMatches: [] });
+    }, { wildcardMatches: [] });
 }
 
 ;// CONCATENATED MODULE: ./src/iam-actions.ts
@@ -59111,49 +59094,9 @@ function expandWildcards(actions) {
     }
     return expanded;
 }
-function findRedundantActions(explicitActions, expandedActions) {
-    const allExpanded = new Set(expandedActions.map((action) => action.toLowerCase()));
-    const seen = new Set();
-    return explicitActions.filter((action) => {
-        const normalizedAction = action.toLowerCase();
-        if (!allExpanded.has(normalizedAction) || seen.has(normalizedAction)) {
-            return false;
-        }
-        seen.add(normalizedAction);
-        return true;
-    });
-}
-function getExplicitActionsForBlock(block, explicitActionMatches) {
-    return explicitActionMatches
-        .filter((match) => match.file === block.file &&
-        match.line >= block.startLine &&
-        match.line <= block.endLine)
-        .map((match) => match.action);
-}
-function findDuplicateWildcardActions(actions) {
-    const firstSeen = new Map();
-    const duplicates = new Set();
-    for (const action of actions) {
-        const normalizedAction = action.toLowerCase();
-        if (firstSeen.has(normalizedAction)) {
-            duplicates.add(normalizedAction);
-            continue;
-        }
-        firstSeen.set(normalizedAction, action);
-    }
-    return [...duplicates].map((normalizedAction) => firstSeen.get(normalizedAction) ?? normalizedAction);
-}
-function getWildcardActionsForBlock(block, wildcardMatches) {
-    return wildcardMatches
-        .filter((match) => match.file === block.file &&
-        match.line >= block.startLine &&
-        match.line <= block.endLine)
-        .map((match) => match.action);
-}
-function buildReviewComments(blocks, wildcardMatches, expandedActions, explicitActionMatches, collapseThreshold, options = {}) {
+function buildReviewComments(blocks, expandedActions, collapseThreshold, options = {}) {
     const comments = [];
     const truncatedComments = [];
-    const redundantActions = [];
     for (const block of blocks) {
         const originalActions = [];
         const allExpanded = [];
@@ -59168,13 +59111,8 @@ function buildReviewComments(blocks, wildcardMatches, expandedActions, explicitA
             continue;
         }
         const uniqueExpanded = [...new Set(allExpanded)].toSorted((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-        const duplicatePatterns = findDuplicateWildcardActions(getWildcardActionsForBlock(block, wildcardMatches));
-        const blockRedundantActions = findRedundantActions(getExplicitActionsForBlock(block, explicitActionMatches), uniqueExpanded);
-        redundantActions.push(...blockRedundantActions);
         const formatOptions = {
             collapseThreshold,
-            duplicatePatterns,
-            redundantActions: blockRedundantActions,
             truncationUrl: options.truncationUrl,
             maxCommentBodyLength: options.maxCommentBodyLength,
         };
@@ -59197,12 +59135,10 @@ function buildReviewComments(blocks, wildcardMatches, expandedActions, explicitA
     return {
         comments,
         truncatedComments,
-        redundantActions: [...new Set(redundantActions.map((action) => action.toLowerCase()))]
-            .map((normalizedAction) => redundantActions.find((action) => action.toLowerCase() === normalizedAction) ?? normalizedAction),
     };
 }
-function createReviewComments(blocks, wildcardMatches, expandedActions, explicitActionMatches, collapseThreshold, options = {}) {
-    return buildReviewComments(blocks, wildcardMatches, expandedActions, explicitActionMatches, collapseThreshold, options).comments;
+function createReviewComments(blocks, expandedActions, collapseThreshold, options = {}) {
+    return buildReviewComments(blocks, expandedActions, collapseThreshold, options).comments;
 }
 function processFiles(files, filePatterns, collapseThreshold, options = {}) {
     const filteredFiles = filePatterns.length > 0
@@ -59211,16 +59147,14 @@ function processFiles(files, filePatterns, collapseThreshold, options = {}) {
     if (filteredFiles.length === 0) {
         return {
             comments: [],
-            redundantActions: [],
             stats: { filesScanned: 0, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
             truncatedComments: [],
         };
     }
-    const { wildcardMatches, explicitActionMatches } = extractFromDiff(filteredFiles);
+    const { wildcardMatches } = extractFromDiff(filteredFiles);
     if (wildcardMatches.length === 0) {
         return {
             comments: [],
-            redundantActions: [],
             stats: { filesScanned: filteredFiles.length, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
             truncatedComments: [],
         };
@@ -59231,7 +59165,6 @@ function processFiles(files, filePatterns, collapseThreshold, options = {}) {
     if (expandedActions.size === 0) {
         return {
             comments: [],
-            redundantActions: [],
             stats: {
                 filesScanned: filteredFiles.length,
                 wildcardsFound: wildcardMatches.length,
@@ -59241,10 +59174,9 @@ function processFiles(files, filePatterns, collapseThreshold, options = {}) {
             truncatedComments: [],
         };
     }
-    const reviewComments = buildReviewComments(blocks, wildcardMatches, expandedActions, explicitActionMatches, collapseThreshold, options);
+    const reviewComments = buildReviewComments(blocks, expandedActions, collapseThreshold, options);
     return {
         comments: reviewComments.comments,
-        redundantActions: reviewComments.redundantActions,
         stats: {
             filesScanned: filteredFiles.length,
             wildcardsFound: wildcardMatches.length,
@@ -59458,7 +59390,7 @@ async function run() {
         info(`Analyzing PR #${pullNumber} in ${owner}/${repo}`);
         const existingComments = await listActionReviewComments(octokit, owner, repo, pullNumber, COMMENT_MARKER);
         const files = await listPullRequestFiles(octokit, owner, repo, pullNumber);
-        const { comments, redundantActions, stats, truncatedComments } = processFiles(files, filePatterns, collapseThreshold, { truncationUrl: workflowRunUrl });
+        const { comments, stats, truncatedComments } = processFiles(files, filePatterns, collapseThreshold, { truncationUrl: workflowRunUrl });
         if (stats.filesScanned === 0) {
             logReviewCommentSyncResult(await syncReviewComments(octokit, {
                 owner,
@@ -59496,9 +59428,6 @@ async function run() {
             }));
             info('No wildcard actions could be expanded.');
             return;
-        }
-        if (redundantActions.length > 0) {
-            warning(`Found ${redundantActions.length} redundant action(s): ${redundantActions.join(', ')}`);
         }
         if (comments.length === 0) {
             logReviewCommentSyncResult(await syncReviewComments(octokit, {

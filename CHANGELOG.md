@@ -11,8 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Reuse existing review comments when the file and line anchor are unchanged, updating comment bodies in place when
   needed to preserve discussion threads and reduce comment churn
-- Scope redundant-action warnings to the specific wildcard block instead of applying whole-PR redundant actions to
-  every inline comment
+- Simplify review comments to focus on wildcard expansion output instead of duplicate or redundant-action warnings
 
 ### Fixed
 
@@ -21,7 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   workflow run logs
 - Recreate outdated review comments instead of editing stale threads that no longer map to the current diff
 - Preserve outdated bot comments that already have replies instead of deleting their discussion threads
-- Warn when the same wildcard pattern appears multiple times in the same inline comment block
 
 ## [1.1.10] = 2026-3-21
 

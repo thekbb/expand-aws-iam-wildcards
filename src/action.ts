@@ -1,9 +1,7 @@
 import type {
-  ExplicitActionMatch,
   PullRequestFile,
   ReviewComment,
   WildcardBlock,
-  WildcardMatch,
 } from './types.js';
 import { extractFromDiff } from './diff.js';
 import { groupIntoConsecutiveBlocks, formatCommentResult, type FormatOptions } from './utils.js';
@@ -28,7 +26,6 @@ export interface TruncatedComment {
 interface ReviewCommentsResult {
   readonly comments: ReviewComment[];
   readonly truncatedComments: TruncatedComment[];
-  readonly redundantActions: string[];
 }
 
 export function expandWildcards(actions: readonly string[]): Map<string, string[]> {
@@ -47,78 +44,14 @@ export function expandWildcards(actions: readonly string[]): Map<string, string[
   return expanded;
 }
 
-export function findRedundantActions(
-  explicitActions: readonly string[],
-  expandedActions: readonly string[],
-): string[] {
-  const allExpanded = new Set(expandedActions.map((action) => action.toLowerCase()));
-  const seen = new Set<string>();
-
-  return explicitActions.filter((action) => {
-    const normalizedAction = action.toLowerCase();
-    if (!allExpanded.has(normalizedAction) || seen.has(normalizedAction)) {
-      return false;
-    }
-
-    seen.add(normalizedAction);
-    return true;
-  });
-}
-
-function getExplicitActionsForBlock(
-  block: WildcardBlock,
-  explicitActionMatches: readonly ExplicitActionMatch[],
-): string[] {
-  return explicitActionMatches
-    .filter((match) =>
-      match.file === block.file &&
-      match.line >= block.startLine &&
-      match.line <= block.endLine,
-    )
-    .map((match) => match.action);
-}
-
-export function findDuplicateWildcardActions(actions: readonly string[]): string[] {
-  const firstSeen = new Map<string, string>();
-  const duplicates = new Set<string>();
-
-  for (const action of actions) {
-    const normalizedAction = action.toLowerCase();
-    if (firstSeen.has(normalizedAction)) {
-      duplicates.add(normalizedAction);
-      continue;
-    }
-
-    firstSeen.set(normalizedAction, action);
-  }
-
-  return [...duplicates].map((normalizedAction) => firstSeen.get(normalizedAction) ?? normalizedAction);
-}
-
-function getWildcardActionsForBlock(
-  block: WildcardBlock,
-  wildcardMatches: readonly WildcardMatch[],
-): string[] {
-  return wildcardMatches
-    .filter((match) =>
-      match.file === block.file &&
-      match.line >= block.startLine &&
-      match.line <= block.endLine,
-    )
-    .map((match) => match.action);
-}
-
 function buildReviewComments(
   blocks: readonly WildcardBlock[],
-  wildcardMatches: readonly WildcardMatch[],
   expandedActions: Map<string, string[]>,
-  explicitActionMatches: readonly ExplicitActionMatch[],
   collapseThreshold: number,
   options: ReviewCommentOptions = {},
 ): ReviewCommentsResult {
   const comments: ReviewComment[] = [];
   const truncatedComments: TruncatedComment[] = [];
-  const redundantActions: string[] = [];
 
   for (const block of blocks) {
     const originalActions: string[] = [];
@@ -139,19 +72,9 @@ function buildReviewComments(
     const uniqueExpanded = [...new Set(allExpanded)].toSorted((a, b) =>
       a.toLowerCase().localeCompare(b.toLowerCase())
     );
-    const duplicatePatterns = findDuplicateWildcardActions(
-      getWildcardActionsForBlock(block, wildcardMatches),
-    );
-    const blockRedundantActions = findRedundantActions(
-      getExplicitActionsForBlock(block, explicitActionMatches),
-      uniqueExpanded,
-    );
-    redundantActions.push(...blockRedundantActions);
 
     const formatOptions: FormatOptions = {
       collapseThreshold,
-      duplicatePatterns,
-      redundantActions: blockRedundantActions,
       truncationUrl: options.truncationUrl,
       maxCommentBodyLength: options.maxCommentBodyLength,
     };
@@ -177,26 +100,18 @@ function buildReviewComments(
   return {
     comments,
     truncatedComments,
-    redundantActions: [...new Set(redundantActions.map((action) => action.toLowerCase()))]
-      .map((normalizedAction) =>
-        redundantActions.find((action) => action.toLowerCase() === normalizedAction) ?? normalizedAction,
-      ),
   };
 }
 
 export function createReviewComments(
   blocks: readonly WildcardBlock[],
-  wildcardMatches: readonly WildcardMatch[],
   expandedActions: Map<string, string[]>,
-  explicitActionMatches: readonly ExplicitActionMatch[],
   collapseThreshold: number,
   options: ReviewCommentOptions = {},
 ): ReviewComment[] {
   return buildReviewComments(
     blocks,
-    wildcardMatches,
     expandedActions,
-    explicitActionMatches,
     collapseThreshold,
     options,
   ).comments;
@@ -211,7 +126,6 @@ export interface ProcessingStats {
 
 export interface ProcessingResult {
   readonly comments: ReviewComment[];
-  readonly redundantActions: string[];
   readonly stats: ProcessingStats;
   readonly truncatedComments: TruncatedComment[];
 }
@@ -229,18 +143,16 @@ export function processFiles(
   if (filteredFiles.length === 0) {
     return {
       comments: [],
-      redundantActions: [],
       stats: { filesScanned: 0, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
       truncatedComments: [],
     };
   }
 
-  const { wildcardMatches, explicitActionMatches } = extractFromDiff(filteredFiles);
+  const { wildcardMatches } = extractFromDiff(filteredFiles);
 
   if (wildcardMatches.length === 0) {
     return {
       comments: [],
-      redundantActions: [],
       stats: { filesScanned: filteredFiles.length, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
       truncatedComments: [],
     };
@@ -253,7 +165,6 @@ export function processFiles(
   if (expandedActions.size === 0) {
     return {
       comments: [],
-      redundantActions: [],
       stats: {
         filesScanned: filteredFiles.length,
         wildcardsFound: wildcardMatches.length,
@@ -266,16 +177,13 @@ export function processFiles(
 
   const reviewComments = buildReviewComments(
     blocks,
-    wildcardMatches,
     expandedActions,
-    explicitActionMatches,
     collapseThreshold,
     options,
   );
 
   return {
     comments: reviewComments.comments,
-    redundantActions: reviewComments.redundantActions,
     stats: {
       filesScanned: filteredFiles.length,
       wildcardsFound: wildcardMatches.length,

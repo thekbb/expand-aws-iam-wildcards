@@ -2,19 +2,12 @@ import type { WildcardMatch, WildcardBlock } from './types.js';
 import { formatActionWithLink } from './docs.js';
 
 const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*)["']?/g;
-const IAM_EXPLICIT_PATTERN = /["']([a-zA-Z0-9-]+:[a-zA-Z][a-zA-Z0-9]*)["']/g;
 export const MAX_COMMENT_BODY_LENGTH = 62_000;
 
 export function findPotentialWildcardActions(line: string): string[] {
   return [...line.matchAll(IAM_WILDCARD_PATTERN)]
     .map((match) => match[1]?.trim())
     .filter((action): action is string => action !== undefined && action !== '');
-}
-
-export function findExplicitActions(line: string): string[] {
-  return [...line.matchAll(IAM_EXPLICIT_PATTERN)]
-    .map((match) => match[1])
-    .filter((action): action is string => action !== undefined && !action.includes('*'));
 }
 
 export function groupIntoConsecutiveBlocks(matches: readonly WildcardMatch[]): WildcardBlock[] {
@@ -58,8 +51,6 @@ export function groupIntoConsecutiveBlocks(matches: readonly WildcardMatch[]): W
 
 export interface FormatOptions {
   readonly collapseThreshold?: number;
-  readonly duplicatePatterns?: readonly string[];
-  readonly redundantActions?: readonly string[];
   readonly truncationUrl?: string;
   readonly maxCommentBodyLength?: number;
 }
@@ -92,7 +83,7 @@ function buildCommentBody(
   totalExpandedActionsCount: number,
   options: FormatOptions = {},
 ): string {
-  const { collapseThreshold = 5, duplicatePatterns, redundantActions, truncationUrl } = options;
+  const { collapseThreshold = 5, truncationUrl } = options;
 
   const header = originalActions.length === 1
     ? `\`${originalActions[0]}\` expands to ${totalExpandedActionsCount} action(s):`
@@ -100,14 +91,6 @@ function buildCommentBody(
 
   const patterns = originalActions.length > 1
     ? `\n**Patterns:**\n${originalActions.map((a) => `- \`${a}\``).join('\n')}`
-    : '';
-
-  const duplicatePatternWarning = duplicatePatterns && duplicatePatterns.length > 0
-    ? `\n\n**⚠️ Duplicate wildcard patterns detected:**\nThe following wildcard pattern(s) appear multiple times in this block:\n${duplicatePatterns.map((a) => `- \`${a}\``).join('\n')}`
-    : '';
-
-  const warning = redundantActions && redundantActions.length > 0
-    ? `\n\n**⚠️ Redundant actions detected:**\nThe following explicit actions are already covered by the wildcard pattern(s) above:\n${redundantActions.map((a) => `- \`${a}\``).join('\n')}`
     : '';
 
   const truncationNotice = displayedActions.length < totalExpandedActionsCount
@@ -129,7 +112,7 @@ ${actionsList}
 
   return `**IAM Wildcard Expansion**
 
-${header}${patterns}${duplicatePatternWarning}${warning}${truncationNotice}
+${header}${patterns}${truncationNotice}
 
 ${actionsBlock}`;
 }

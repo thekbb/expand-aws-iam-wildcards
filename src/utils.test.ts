@@ -1,231 +1,109 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+
 import {
   findPotentialWildcardActions,
-  findExplicitActions,
-  groupIntoConsecutiveBlocks,
   formatComment,
   formatCommentResult,
+  groupIntoConsecutiveBlocks,
 } from './utils.js';
 import type { WildcardMatch } from './types.js';
 
 describe('findPotentialWildcardActions', () => {
-  describe('quote handling', () => {
-    it('finds action in double quotes', () => {
-      expect(findPotentialWildcardActions('"s3:Get*"')).toEqual(['s3:Get*']);
-    });
-
-    it('finds action in single quotes', () => {
-      expect(findPotentialWildcardActions("'s3:Get*'")).toEqual(['s3:Get*']);
-    });
-
-    it('finds action without quotes', () => {
-      expect(findPotentialWildcardActions('s3:Get*')).toEqual(['s3:Get*']);
-    });
+  it('finds wildcard actions in quotes and without quotes', () => {
+    expect(findPotentialWildcardActions('"s3:Get*"')).toEqual(['s3:Get*']);
+    expect(findPotentialWildcardActions("'s3:Get*'")).toEqual(['s3:Get*']);
+    expect(findPotentialWildcardActions('s3:Get*')).toEqual(['s3:Get*']);
   });
 
-  describe('multiple matches', () => {
-    it('finds multiple wildcards on same line', () => {
-      expect(findPotentialWildcardActions('"s3:Get*", "s3:Put*"')).toEqual([
-        's3:Get*',
-        's3:Put*',
-      ]);
-    });
-
-    it('finds wildcards in JSON array', () => {
-      const line = '    "Action": ["s3:Get*", "ec2:Describe*"],';
-      expect(findPotentialWildcardActions(line)).toEqual(['s3:Get*', 'ec2:Describe*']);
-    });
-  });
-
-  describe('wildcard patterns', () => {
-    it('finds wildcards with trailing characters', () => {
-      expect(findPotentialWildcardActions('"s3:Get*Tagging"')).toEqual(['s3:Get*Tagging']);
-    });
-
-    it('finds wildcards with question marks', () => {
-      expect(findPotentialWildcardActions('"s3:Get?bject*"')).toEqual(['s3:Get?bject*']);
-    });
-
-    it('finds service:* pattern', () => {
-      expect(findPotentialWildcardActions('"s3:*"')).toEqual(['s3:*']);
-    });
-  });
-
-  describe('edge cases', () => {
-    it('returns empty for non-wildcard actions', () => {
-      expect(findPotentialWildcardActions('"s3:GetObject"')).toEqual([]);
-    });
-
-    it('returns empty for empty string', () => {
-      expect(findPotentialWildcardActions('')).toEqual([]);
-    });
-
-    it('handles service names with hyphens', () => {
-      expect(findPotentialWildcardActions('"resource-groups:Get*"')).toEqual([
-        'resource-groups:Get*',
-      ]);
-    });
-  });
-});
-
-describe('findExplicitActions', () => {
-  it('finds explicit actions in double quotes', () => {
-    expect(findExplicitActions('"s3:GetObject"')).toEqual(['s3:GetObject']);
-  });
-
-  it('finds explicit actions in single quotes', () => {
-    expect(findExplicitActions("'s3:GetObject'")).toEqual(['s3:GetObject']);
-  });
-
-  it('finds multiple explicit actions', () => {
-    expect(findExplicitActions('"s3:GetObject", "s3:PutObject"')).toEqual([
-      's3:GetObject',
-      's3:PutObject',
+  it('finds multiple wildcard actions on the same line', () => {
+    expect(findPotentialWildcardActions('"s3:Get*", "s3:Put*"')).toEqual([
+      's3:Get*',
+      's3:Put*',
     ]);
   });
 
-  it('ignores wildcard actions', () => {
-    expect(findExplicitActions('"s3:Get*"')).toEqual([]);
-  });
-
-  it('finds explicit actions mixed with wildcards', () => {
-    const line = '"s3:Get*", "s3:GetObject", "s3:PutObject"';
-    expect(findExplicitActions(line)).toEqual(['s3:GetObject', 's3:PutObject']);
-  });
-
-  it('returns empty for empty string', () => {
-    expect(findExplicitActions('')).toEqual([]);
-  });
-
-  it('handles service names with hyphens', () => {
-    expect(findExplicitActions('"resource-groups:GetGroup"')).toEqual([
-      'resource-groups:GetGroup',
+  it('supports service names with hyphens and wildcard suffixes', () => {
+    expect(findPotentialWildcardActions('"resource-groups:Get*"')).toEqual([
+      'resource-groups:Get*',
     ]);
+    expect(findPotentialWildcardActions('"s3:Get*Tagging"')).toEqual(['s3:Get*Tagging']);
+    expect(findPotentialWildcardActions('"s3:Get?bject*"')).toEqual(['s3:Get?bject*']);
+    expect(findPotentialWildcardActions('"s3:*"')).toEqual(['s3:*']);
   });
 
-  it('requires quotes around actions', () => {
-    expect(findExplicitActions('s3:GetObject')).toEqual([]);
+  it('returns an empty array for non-wildcard input', () => {
+    expect(findPotentialWildcardActions('"s3:GetObject"')).toEqual([]);
+    expect(findPotentialWildcardActions('')).toEqual([]);
   });
 });
 
 describe('groupIntoConsecutiveBlocks', () => {
-  describe('basic grouping', () => {
-    it('returns empty array for empty input', () => {
-      expect(groupIntoConsecutiveBlocks([])).toEqual([]);
-    });
+  it('returns an empty array for empty input', () => {
+    expect(groupIntoConsecutiveBlocks([])).toEqual([]);
+  });
 
-    it('creates single block for one match', () => {
-      const matches: WildcardMatch[] = [
-        { action: 's3:Get*', line: 10, file: 'policy.json' },
-      ];
+  it('creates a single block for consecutive wildcard lines', () => {
+    const matches: WildcardMatch[] = [
+      { action: 's3:Get*', line: 10, file: 'policy.json' },
+      { action: 's3:Put*', line: 11, file: 'policy.json' },
+      { action: 's3:Delete*', line: 12, file: 'policy.json' },
+    ];
 
-      expect(groupIntoConsecutiveBlocks(matches)).toEqual([
-        {
-          file: 'policy.json',
-          startLine: 10,
-          endLine: 10,
-          actions: ['s3:Get*'],
-        },
-      ]);
-    });
-
-    it('groups consecutive lines into one block', () => {
-      const matches: WildcardMatch[] = [
-        { action: 's3:Get*', line: 10, file: 'policy.json' },
-        { action: 's3:Put*', line: 11, file: 'policy.json' },
-        { action: 's3:Delete*', line: 12, file: 'policy.json' },
-      ];
-
-      const result = groupIntoConsecutiveBlocks(matches);
-
-      expect(result).toHaveLength(1);
-      expect(result[0]).toEqual({
+    expect(groupIntoConsecutiveBlocks(matches)).toEqual([
+      {
         file: 'policy.json',
         startLine: 10,
         endLine: 12,
         actions: ['s3:Get*', 's3:Put*', 's3:Delete*'],
-      });
-    });
+      },
+    ]);
   });
 
-  describe('block separation', () => {
-    it('separates non-consecutive lines', () => {
-      const matches: WildcardMatch[] = [
-        { action: 's3:Get*', line: 10, file: 'policy.json' },
-        { action: 's3:Put*', line: 20, file: 'policy.json' },
-      ];
+  it('separates non-consecutive lines and different files', () => {
+    const matches: WildcardMatch[] = [
+      { action: 's3:Get*', line: 10, file: 'policy-a.json' },
+      { action: 's3:Put*', line: 20, file: 'policy-a.json' },
+      { action: 'ec2:Describe*', line: 21, file: 'policy-b.json' },
+    ];
 
-      const result = groupIntoConsecutiveBlocks(matches);
+    const result = groupIntoConsecutiveBlocks(matches);
 
-      expect(result).toHaveLength(2);
-      expect(result[0]?.endLine).toBe(10);
-      expect(result[1]?.startLine).toBe(20);
-    });
-
-    it('separates different files', () => {
-      const matches: WildcardMatch[] = [
-        { action: 's3:Get*', line: 10, file: 'policy1.json' },
-        { action: 's3:Put*', line: 11, file: 'policy2.json' },
-      ];
-
-      const result = groupIntoConsecutiveBlocks(matches);
-
-      expect(result).toHaveLength(2);
-      expect(result[0]?.file).toBe('policy1.json');
-      expect(result[1]?.file).toBe('policy2.json');
-    });
+    expect(result).toHaveLength(3);
+    expect(result[0]?.file).toBe('policy-a.json');
+    expect(result[1]?.startLine).toBe(20);
+    expect(result[2]?.file).toBe('policy-b.json');
   });
 
-  describe('deduplication and sorting', () => {
-    it('deduplicates actions within block', () => {
-      const matches: WildcardMatch[] = [
-        { action: 's3:Get*', line: 10, file: 'policy.json' },
-        { action: 's3:Get*', line: 11, file: 'policy.json' },
-      ];
+  it('deduplicates actions within a block and sorts unsorted input by location', () => {
+    const matches: WildcardMatch[] = [
+      { action: 's3:Delete*', line: 12, file: 'policy.json' },
+      { action: 's3:Get*', line: 10, file: 'policy.json' },
+      { action: 's3:Get*', line: 11, file: 'policy.json' },
+      { action: 's3:Put*', line: 10, file: 'policy.json' },
+    ];
 
-      const result = groupIntoConsecutiveBlocks(matches);
+    const result = groupIntoConsecutiveBlocks(matches);
 
-      expect(result).toHaveLength(1);
-      expect(result[0]?.actions).toEqual(['s3:Get*']);
-    });
-
-    it('handles unsorted input', () => {
-      const matches: WildcardMatch[] = [
-        { action: 's3:Delete*', line: 12, file: 'policy.json' },
-        { action: 's3:Get*', line: 10, file: 'policy.json' },
-        { action: 's3:Put*', line: 11, file: 'policy.json' },
-      ];
-
-      const result = groupIntoConsecutiveBlocks(matches);
-
-      expect(result).toHaveLength(1);
-      expect(result[0]?.startLine).toBe(10);
-      expect(result[0]?.endLine).toBe(12);
-    });
-
-    it('handles multiple actions on same line', () => {
-      const matches: WildcardMatch[] = [
-        { action: 's3:Get*', line: 10, file: 'policy.json' },
-        { action: 's3:Put*', line: 10, file: 'policy.json' },
-      ];
-
-      const result = groupIntoConsecutiveBlocks(matches);
-
-      expect(result).toHaveLength(1);
-      expect(result[0]?.actions).toEqual(['s3:Get*', 's3:Put*']);
-    });
+    expect(result).toEqual([
+      {
+        file: 'policy.json',
+        startLine: 10,
+        endLine: 12,
+        actions: ['s3:Get*', 's3:Put*', 's3:Delete*'],
+      },
+    ]);
   });
 });
 
 describe('formatComment', () => {
-  it('formats single wildcard expansion', () => {
+  it('formats a single wildcard expansion', () => {
     const result = formatComment(['s3:Get*'], ['s3:GetObject', 's3:GetBucket']);
 
     expect(result).toContain('**IAM Wildcard Expansion**');
     expect(result).toContain('`s3:Get*` expands to 2 action(s):');
     expect(result).toContain('s3:GetObject');
     expect(result).toContain('s3:GetBucket');
-    expect(result).not.toContain('<details>'); // Below threshold
+    expect(result).not.toContain('<details>');
   });
 
   it('formats multiple wildcard patterns', () => {
@@ -240,39 +118,27 @@ describe('formatComment', () => {
     expect(result).toContain('- `s3:Put*`');
   });
 
-  it('includes all expanded actions with links', () => {
+  it('includes AWS documentation links for expanded actions', () => {
     const expanded = ['s3:GetObject', 's3:GetBucket', 's3:GetObjectAcl'];
     const result = formatComment(['s3:Get*'], expanded);
 
     for (const action of expanded) {
       expect(result).toContain(action);
-      expect(result).toContain('docs.aws.amazon.com'); // Should have links
+      expect(result).toContain('docs.aws.amazon.com');
     }
   });
 
-  it('collapses when above threshold', () => {
+  it('collapses comments when above the threshold', () => {
     const expanded = ['s3:Get1', 's3:Get2', 's3:Get3', 's3:Get4', 's3:Get5', 's3:Get6'];
-    const result = formatComment(['s3:Get*'], expanded);
 
-    expect(result).toContain('<details>');
-    expect(result).toContain('Click to expand');
+    expect(formatComment(['s3:Get*'], expanded)).toContain('<details>');
+    expect(formatComment(['s3:Get*'], ['s3:Get1', 's3:Get2', 's3:Get3'])).not.toContain('<details>');
+    expect(formatComment(['s3:Get*'], ['s3:Get1', 's3:Get2', 's3:Get3'], {
+      collapseThreshold: 2,
+    })).toContain('<details>');
   });
 
-  it('does not collapse when at threshold', () => {
-    const expanded = ['s3:Get1', 's3:Get2', 's3:Get3', 's3:Get4', 's3:Get5'];
-    const result = formatComment(['s3:Get*'], expanded);
-
-    expect(result).not.toContain('<details>');
-  });
-
-  it('respects custom collapse threshold', () => {
-    const expanded = ['s3:Get1', 's3:Get2', 's3:Get3'];
-    const result = formatComment(['s3:Get*'], expanded, { collapseThreshold: 2 });
-
-    expect(result).toContain('<details>');
-  });
-
-  it('truncates oversized comments and links to workflow logs', () => {
+  it('truncates oversized comments and links to workflow logs when available', () => {
     const expanded = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
     const result = formatCommentResult(
       ['s3:*'],
@@ -290,7 +156,7 @@ describe('formatComment', () => {
     expect(result.body).toContain('Showing first');
   });
 
-  it('truncates oversized comments without adding a log link when no URL is available', () => {
+  it('truncates oversized comments without a log link when no URL is available', () => {
     const expanded = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
     const result = formatCommentResult(
       ['s3:*'],
@@ -305,9 +171,10 @@ describe('formatComment', () => {
     expect(result.body).not.toContain('workflow run logs');
   });
 
-  it('falls back to a minimal comment when even the truncated list will not fit', () => {
+  it('falls back to a minimal comment when nothing else fits', () => {
     const expanded = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
-    const result = formatCommentResult(
+
+    const withLogLink = formatCommentResult(
       ['s3:*'],
       expanded,
       {
@@ -315,61 +182,20 @@ describe('formatComment', () => {
         truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/123',
       },
     );
-
-    expect(result.truncated).toBe(true);
-    expect(result.renderedActionsCount).toBe(0);
-    expect(result.body).toContain('Expanded actions were omitted from this comment');
-    expect(result.body).toContain('workflow run logs');
-  });
-
-  it('falls back to a minimal comment without a log link when no URL is available', () => {
-    const expanded = Array.from({ length: 20 }, (_, i) => `unknown:Action${i}`);
-    const result = formatCommentResult(
+    const withoutLogLink = formatCommentResult(
       ['s3:*'],
       expanded,
       { maxCommentBodyLength: 10 },
     );
 
-    expect(result.truncated).toBe(true);
-    expect(result.renderedActionsCount).toBe(0);
-    expect(result.body).toContain('Expanded actions were omitted from this comment');
-    expect(result.body).not.toContain('workflow run logs');
-  });
+    expect(withLogLink.truncated).toBe(true);
+    expect(withLogLink.renderedActionsCount).toBe(0);
+    expect(withLogLink.body).toContain('Expanded actions were omitted from this comment');
+    expect(withLogLink.body).toContain('workflow run logs');
 
-  it('shows redundant actions warning when provided', () => {
-    const result = formatComment(
-      ['s3:Get*'],
-      ['s3:GetObject', 's3:GetBucket'],
-      { redundantActions: ['s3:GetObject'] },
-    );
-
-    expect(result).toContain('⚠️ Redundant actions detected');
-    expect(result).toContain('`s3:GetObject`');
-  });
-
-  it('shows multiple redundant actions', () => {
-    const result = formatComment(
-      ['s3:Get*'],
-      ['s3:GetObject', 's3:GetBucket'],
-      { redundantActions: ['s3:GetObject', 's3:GetBucket'] },
-    );
-
-    expect(result).toContain('⚠️ Redundant actions detected');
-    expect(result).toContain('- `s3:GetObject`');
-    expect(result).toContain('- `s3:GetBucket`');
-  });
-
-  it('does not show warning when no redundant actions', () => {
-    const result = formatComment(['s3:Get*'], ['s3:GetObject', 's3:GetBucket']);
-
-    expect(result).not.toContain('⚠️');
-    expect(result).not.toContain('Redundant');
-  });
-
-  it('does not show warning when redundant actions is empty array', () => {
-    const result = formatComment(['s3:Get*'], ['s3:GetObject'], { redundantActions: [] });
-
-    expect(result).not.toContain('⚠️');
-    expect(result).not.toContain('Redundant');
+    expect(withoutLogLink.truncated).toBe(true);
+    expect(withoutLogLink.renderedActionsCount).toBe(0);
+    expect(withoutLogLink.body).toContain('Expanded actions were omitted from this comment');
+    expect(withoutLogLink.body).not.toContain('workflow run logs');
   });
 });

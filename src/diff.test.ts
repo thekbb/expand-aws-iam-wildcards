@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { parseHunkHeader, extractFromDiff } from './diff.js';
+import { describe, expect, it } from 'vitest';
+
+import { extractFromDiff, parseHunkHeader } from './diff.js';
 
 describe('parseHunkHeader', () => {
   it('parses simple hunk header', () => {
@@ -32,10 +33,10 @@ describe('extractFromDiff', () => {
       {
         filename: 'policy.json',
         patch: `@@ -1,3 +1,5 @@
- {
+{
 +  "Action": "s3:Get*",
    "Resource": "*"
- }`,
+}`,
       },
     ];
 
@@ -54,11 +55,11 @@ describe('extractFromDiff', () => {
       {
         filename: 'policy.json',
         patch: `@@ -1,3 +1,3 @@
- {
+{
 -  "Action": "s3:Get*",
 +  "Action": "s3:GetObject",
    "Resource": "*"
- }`,
+}`,
       },
     ];
 
@@ -139,7 +140,7 @@ describe('extractFromDiff', () => {
     });
   });
 
-  it('handles multiple wildcards on same line', () => {
+  it('handles multiple wildcards on the same line', () => {
     const files = [
       {
         filename: 'policy.json',
@@ -157,30 +158,7 @@ describe('extractFromDiff', () => {
     expect(wildcardMatches[0]?.line).toBe(wildcardMatches[1]?.line);
   });
 
-  it('extracts explicit actions', () => {
-    const files = [
-      {
-        filename: 'policy.json',
-        patch: `@@ -1,3 +1,5 @@
- {
-+  "Action": ["s3:Get*", "s3:GetObject"],
-   "Resource": "*"
- }`,
-      },
-    ];
-
-    const { wildcardMatches, explicitActionMatches } = extractFromDiff(files);
-
-    expect(wildcardMatches).toHaveLength(1);
-    expect(wildcardMatches[0]?.action).toBe('s3:Get*');
-    expect(explicitActionMatches).toContainEqual({
-      action: 's3:GetObject',
-      line: 2,
-      file: 'policy.json',
-    });
-  });
-
-  it('extracts wildcards from Terraform policy diff with multiple added actions', () => {
+  it('extracts wildcards from Terraform policy diffs with multiple added actions', () => {
     const files = [
       {
         filename: 'policy.tf',
@@ -201,12 +179,15 @@ describe('extractFromDiff', () => {
     const { wildcardMatches } = extractFromDiff(files);
 
     expect(wildcardMatches).toHaveLength(2);
-    expect(wildcardMatches.map((m) => m.action).sort()).toEqual(['dynamodb:Get*', 'dynamodb:List*']);
+    expect(wildcardMatches.map((match) => match.action).sort()).toEqual([
+      'dynamodb:Get*',
+      'dynamodb:List*',
+    ]);
     expect(wildcardMatches[0]?.file).toBe('policy.tf');
     expect(wildcardMatches[1]?.file).toBe('policy.tf');
   });
 
-  it('skips files with empty string patch', () => {
+  it('skips files with empty string patches', () => {
     const files = [
       { filename: 'policy.tf', patch: '' },
       {

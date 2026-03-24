@@ -4,12 +4,6 @@ export interface WildcardMatch {
   readonly file: string;
 }
 
-export interface ExplicitActionMatch {
-  readonly action: string;
-  readonly line: number;
-  readonly file: string;
-}
-
 export interface WildcardBlock {
   readonly file: string;
   readonly startLine: number;

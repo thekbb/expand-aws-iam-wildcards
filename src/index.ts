@@ -97,7 +97,7 @@ async function run(): Promise<void> {
 
     const files = await listPullRequestFiles(octokit, owner, repo, pullNumber);
 
-    const { comments, redundantActions, stats, truncatedComments } = processFiles(
+    const { comments, stats, truncatedComments } = processFiles(
       files,
       filePatterns,
       collapseThreshold,
@@ -145,10 +145,6 @@ async function run(): Promise<void> {
       }));
       core.info('No wildcard actions could be expanded.');
       return;
-    }
-
-    if (redundantActions.length > 0) {
-      core.warning(`Found ${redundantActions.length} redundant action(s): ${redundantActions.join(', ')}`);
     }
 
     if (comments.length === 0) {
