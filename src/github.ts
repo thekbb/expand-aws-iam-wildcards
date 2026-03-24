@@ -153,13 +153,12 @@ export async function syncReviewComments(
       continue;
     }
 
-    const [commentToUpdate, ...duplicateComments] = existingAtAnchor;
-    if (commentToUpdate) {
-      commentsToUpdate.push({
-        ...commentToUpdate,
-        body: comment.body,
-      });
-    }
+    const [commentToUpdate, ...duplicateComments] =
+      existingAtAnchor as [PullRequestReviewComment, ...PullRequestReviewComment[]];
+    commentsToUpdate.push({
+      ...commentToUpdate,
+      body: comment.body,
+    });
     staleComments.push(...duplicateComments);
     existingCommentsByAnchor.delete(anchorKey);
   }

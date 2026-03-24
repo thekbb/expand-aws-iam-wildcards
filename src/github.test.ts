@@ -303,6 +303,29 @@ describe('syncReviewComments', () => {
     });
   });
 
+  it('treats comments with a path but no line information as stale', async () => {
+    const octokit = makeOctokit();
+
+    const result = await syncReviewComments(octokit, {
+      ...baseParams,
+      comments: [],
+      existingComments: [{ id: 1001, path: 'policy.tf', body: '**IAM Wildcard Expansion**\n\nstale body' }],
+    });
+
+    expect(result).toEqual({
+      createdCount: 0,
+      updatedCount: 0,
+      unchangedCount: 0,
+      deletedCount: 1,
+      failedDeleteCount: 0,
+    });
+    expect(octokit.rest.pulls.deleteReviewComment).toHaveBeenCalledWith({
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      comment_id: 1001,
+    });
+  });
+
   it('continues deleting stale comments when one delete fails', async () => {
     const octokit = makeOctokit();
     octokit.rest.pulls.deleteReviewComment
