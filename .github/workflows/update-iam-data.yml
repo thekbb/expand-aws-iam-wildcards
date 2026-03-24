@@ -34,7 +34,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet src/iam-actions.ts; then
+          if git diff --quiet src/iam-actions.ts src/service-doc-slugs.ts; then
             echo "No changes detected - IAM data is up to date"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
@@ -55,9 +55,10 @@ jobs:
           title: "Update IAM action data"
           commit-message: "Update IAM action data"
           body: |
-            Updates IAM action data generated from @cloud-copilot/iam-data.
+            Updates IAM action data and generated service documentation metadata from @cloud-copilot/iam-data.
           assignees: thekbb
           add-paths: |
             src/iam-actions.ts
+            src/service-doc-slugs.ts
             dist/
             package-lock.json

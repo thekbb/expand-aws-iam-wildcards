@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Simplify review comments to focus on wildcard expansion output instead of duplicate or redundant-action warnings
 - Remove the stale `@cloud-copilot/iam-expand` dependency and update docs to describe the generated IAM action list
 - Move the action runtime and project workflows to Node 24
+- Generate AWS documentation link slugs from IAM service metadata, with overrides only for known AWS docs path exceptions
 
 ### Fixed
 
