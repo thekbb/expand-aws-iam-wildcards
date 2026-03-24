@@ -20,16 +20,13 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Update iam-expand package
-        run: npm update @cloud-copilot/iam-expand @cloud-copilot/iam-data
-
-      - name: Regenerate IAM data
-        run: npm run generate-iam-data
+      - name: Update IAM data package
+        run: npm run update-iam-data
 
       - name: Rebuild action
         run: npm run build
