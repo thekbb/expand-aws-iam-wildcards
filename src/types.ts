@@ -4,6 +4,12 @@ export interface WildcardMatch {
   readonly file: string;
 }
 
+export interface ExplicitActionMatch {
+  readonly action: string;
+  readonly line: number;
+  readonly file: string;
+}
+
 export interface WildcardBlock {
   readonly file: string;
   readonly startLine: number;
@@ -21,6 +27,7 @@ export interface PullRequestReviewComment {
   readonly id: number;
   readonly body: string;
   readonly path?: string;
+  readonly position?: number | null;
   readonly line?: number | null;
   readonly original_line?: number | null;
 }

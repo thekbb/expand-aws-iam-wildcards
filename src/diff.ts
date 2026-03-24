@@ -1,14 +1,14 @@
-import type { PullRequestFile, WildcardMatch } from './types.js';
+import type { ExplicitActionMatch, PullRequestFile, WildcardMatch } from './types.js';
 import { findPotentialWildcardActions, findExplicitActions } from './utils.js';
 
 export interface DiffResults {
   readonly wildcardMatches: WildcardMatch[];
-  readonly explicitActions: string[];
+  readonly explicitActionMatches: ExplicitActionMatch[];
 }
 
 function extractFromPatch(patch: string, filename: string): DiffResults {
   const wildcardMatches: WildcardMatch[] = [];
-  const explicitActions: string[] = [];
+  const explicitActionMatches: ExplicitActionMatch[] = [];
   let currentLine = 0;
 
   for (const line of patch.split('\n')) {
@@ -27,12 +27,12 @@ function extractFromPatch(patch: string, filename: string): DiffResults {
         wildcardMatches.push({ action, line: currentLine, file: filename });
       }
       for (const action of findExplicitActions(line)) {
-        explicitActions.push(action);
+        explicitActionMatches.push({ action, line: currentLine, file: filename });
       }
     }
   }
 
-  return { wildcardMatches, explicitActions };
+  return { wildcardMatches, explicitActionMatches };
 }
 
 export function parseHunkHeader(line: string): number | null {
@@ -50,9 +50,9 @@ export function extractFromDiff(files: readonly PullRequestFile[]): DiffResults 
     .reduce<DiffResults>(
       (acc, result) => {
         acc.wildcardMatches.push(...result.wildcardMatches);
-        acc.explicitActions.push(...result.explicitActions);
+        acc.explicitActionMatches.push(...result.explicitActionMatches);
         return acc;
       },
-      { wildcardMatches: [], explicitActions: [] },
+      { wildcardMatches: [], explicitActionMatches: [] },
     );
 }

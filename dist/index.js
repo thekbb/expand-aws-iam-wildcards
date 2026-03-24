@@ -36074,12 +36074,15 @@ function createTruncationNotice(renderedActionsCount, totalActionsCount, truncat
     return `\n\nShowing first ${renderedActionsCount} of ${totalActionsCount} expanded actions to keep this review comment within GitHub limits.${logMessage}`;
 }
 function buildCommentBody(originalActions, displayedActions, totalExpandedActionsCount, options = {}) {
-    const { collapseThreshold = 5, redundantActions, truncationUrl } = options;
+    const { collapseThreshold = 5, duplicatePatterns, redundantActions, truncationUrl } = options;
     const header = originalActions.length === 1
         ? `\`${originalActions[0]}\` expands to ${totalExpandedActionsCount} action(s):`
         : `${originalActions.length} wildcard patterns expand to ${totalExpandedActionsCount} action(s):`;
     const patterns = originalActions.length > 1
         ? `\n**Patterns:**\n${originalActions.map((a) => `- \`${a}\``).join('\n')}`
+        : '';
+    const duplicatePatternWarning = duplicatePatterns && duplicatePatterns.length > 0
+        ? `\n\n**⚠️ Duplicate wildcard patterns detected:**\nThe following wildcard pattern(s) appear multiple times in this block:\n${duplicatePatterns.map((a) => `- \`${a}\``).join('\n')}`
         : '';
     const warning = redundantActions && redundantActions.length > 0
         ? `\n\n**⚠️ Redundant actions detected:**\nThe following explicit actions are already covered by the wildcard pattern(s) above:\n${redundantActions.map((a) => `- \`${a}\``).join('\n')}`
@@ -36100,7 +36103,7 @@ ${actionsList}
             : actionsList;
     return `**IAM Wildcard Expansion**
 
-${header}${patterns}${warning}${truncationNotice}
+${header}${patterns}${duplicatePatternWarning}${warning}${truncationNotice}
 
 ${actionsBlock}`;
 }
@@ -36156,7 +36159,7 @@ function formatComment(originalActions, expandedActions, options = {}) {
 
 function extractFromPatch(patch, filename) {
     const wildcardMatches = [];
-    const explicitActions = [];
+    const explicitActionMatches = [];
     let currentLine = 0;
     for (const line of patch.split('\n')) {
         const hunkStart = parseHunkHeader(line);
@@ -36172,11 +36175,11 @@ function extractFromPatch(patch, filename) {
                 wildcardMatches.push({ action, line: currentLine, file: filename });
             }
             for (const action of findExplicitActions(line)) {
-                explicitActions.push(action);
+                explicitActionMatches.push({ action, line: currentLine, file: filename });
             }
         }
     }
-    return { wildcardMatches, explicitActions };
+    return { wildcardMatches, explicitActionMatches };
 }
 function parseHunkHeader(line) {
     const match = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/);
@@ -36188,9 +36191,9 @@ function extractFromDiff(files) {
         .map((file) => extractFromPatch(file.patch, file.filename))
         .reduce((acc, result) => {
         acc.wildcardMatches.push(...result.wildcardMatches);
-        acc.explicitActions.push(...result.explicitActions);
+        acc.explicitActionMatches.push(...result.explicitActionMatches);
         return acc;
-    }, { wildcardMatches: [], explicitActions: [] });
+    }, { wildcardMatches: [], explicitActionMatches: [] });
 }
 
 ;// CONCATENATED MODULE: ./src/iam-actions.ts
@@ -59109,17 +59112,48 @@ function expandWildcards(actions) {
     return expanded;
 }
 function findRedundantActions(explicitActions, expandedActions) {
-    const allExpanded = new Set();
-    for (const actions of expandedActions.values()) {
-        for (const action of actions) {
-            allExpanded.add(action.toLowerCase());
+    const allExpanded = new Set(expandedActions.map((action) => action.toLowerCase()));
+    const seen = new Set();
+    return explicitActions.filter((action) => {
+        const normalizedAction = action.toLowerCase();
+        if (!allExpanded.has(normalizedAction) || seen.has(normalizedAction)) {
+            return false;
         }
-    }
-    return explicitActions.filter((action) => allExpanded.has(action.toLowerCase()));
+        seen.add(normalizedAction);
+        return true;
+    });
 }
-function buildReviewComments(blocks, expandedActions, redundantActions, collapseThreshold, options = {}) {
+function getExplicitActionsForBlock(block, explicitActionMatches) {
+    return explicitActionMatches
+        .filter((match) => match.file === block.file &&
+        match.line >= block.startLine &&
+        match.line <= block.endLine)
+        .map((match) => match.action);
+}
+function findDuplicateWildcardActions(actions) {
+    const firstSeen = new Map();
+    const duplicates = new Set();
+    for (const action of actions) {
+        const normalizedAction = action.toLowerCase();
+        if (firstSeen.has(normalizedAction)) {
+            duplicates.add(normalizedAction);
+            continue;
+        }
+        firstSeen.set(normalizedAction, action);
+    }
+    return [...duplicates].map((normalizedAction) => firstSeen.get(normalizedAction) ?? normalizedAction);
+}
+function getWildcardActionsForBlock(block, wildcardMatches) {
+    return wildcardMatches
+        .filter((match) => match.file === block.file &&
+        match.line >= block.startLine &&
+        match.line <= block.endLine)
+        .map((match) => match.action);
+}
+function buildReviewComments(blocks, wildcardMatches, expandedActions, explicitActionMatches, collapseThreshold, options = {}) {
     const comments = [];
     const truncatedComments = [];
+    const redundantActions = [];
     for (const block of blocks) {
         const originalActions = [];
         const allExpanded = [];
@@ -59134,9 +59168,13 @@ function buildReviewComments(blocks, expandedActions, redundantActions, collapse
             continue;
         }
         const uniqueExpanded = [...new Set(allExpanded)].toSorted((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+        const duplicatePatterns = findDuplicateWildcardActions(getWildcardActionsForBlock(block, wildcardMatches));
+        const blockRedundantActions = findRedundantActions(getExplicitActionsForBlock(block, explicitActionMatches), uniqueExpanded);
+        redundantActions.push(...blockRedundantActions);
         const formatOptions = {
             collapseThreshold,
-            redundantActions,
+            duplicatePatterns,
+            redundantActions: blockRedundantActions,
             truncationUrl: options.truncationUrl,
             maxCommentBodyLength: options.maxCommentBodyLength,
         };
@@ -59156,10 +59194,15 @@ function buildReviewComments(blocks, expandedActions, redundantActions, collapse
             });
         }
     }
-    return { comments, truncatedComments };
+    return {
+        comments,
+        truncatedComments,
+        redundantActions: [...new Set(redundantActions.map((action) => action.toLowerCase()))]
+            .map((normalizedAction) => redundantActions.find((action) => action.toLowerCase() === normalizedAction) ?? normalizedAction),
+    };
 }
-function createReviewComments(blocks, expandedActions, redundantActions, collapseThreshold, options = {}) {
-    return buildReviewComments(blocks, expandedActions, redundantActions, collapseThreshold, options).comments;
+function createReviewComments(blocks, wildcardMatches, expandedActions, explicitActionMatches, collapseThreshold, options = {}) {
+    return buildReviewComments(blocks, wildcardMatches, expandedActions, explicitActionMatches, collapseThreshold, options).comments;
 }
 function processFiles(files, filePatterns, collapseThreshold, options = {}) {
     const filteredFiles = filePatterns.length > 0
@@ -59173,7 +59216,7 @@ function processFiles(files, filePatterns, collapseThreshold, options = {}) {
             truncatedComments: [],
         };
     }
-    const { wildcardMatches, explicitActions } = extractFromDiff(filteredFiles);
+    const { wildcardMatches, explicitActionMatches } = extractFromDiff(filteredFiles);
     if (wildcardMatches.length === 0) {
         return {
             comments: [],
@@ -59198,11 +59241,10 @@ function processFiles(files, filePatterns, collapseThreshold, options = {}) {
             truncatedComments: [],
         };
     }
-    const redundantActions = findRedundantActions(explicitActions, expandedActions);
-    const reviewComments = buildReviewComments(blocks, expandedActions, redundantActions, collapseThreshold, options);
+    const reviewComments = buildReviewComments(blocks, wildcardMatches, expandedActions, explicitActionMatches, collapseThreshold, options);
     return {
         comments: reviewComments.comments,
-        redundantActions,
+        redundantActions: reviewComments.redundantActions,
         stats: {
             filesScanned: filteredFiles.length,
             wildcardsFound: wildcardMatches.length,
@@ -59221,11 +59263,15 @@ function getExistingCommentAnchorKey(comment) {
     if (!comment.path) {
         return null;
     }
-    const line = comment.line ?? comment.original_line;
-    if (line === null || line === undefined) {
+    // A null position means GitHub has already marked the inline comment outdated.
+    // Updating it in place will not recreate a current thread on the active diff.
+    if (comment.position === null) {
         return null;
     }
-    return getAnchorKey(comment.path, line);
+    if (comment.line === null || comment.line === undefined) {
+        return null;
+    }
+    return getAnchorKey(comment.path, comment.line);
 }
 async function listPullRequestFiles(octokit, owner, repo, pullNumber) {
     return octokit.paginate(octokit.rest.pulls.listFiles, {
@@ -59280,12 +59326,10 @@ async function syncReviewComments(octokit, params) {
             continue;
         }
         const [commentToUpdate, ...duplicateComments] = existingAtAnchor;
-        if (commentToUpdate) {
-            commentsToUpdate.push({
-                ...commentToUpdate,
-                body: comment.body,
-            });
-        }
+        commentsToUpdate.push({
+            ...commentToUpdate,
+            body: comment.body,
+        });
         staleComments.push(...duplicateComments);
         existingCommentsByAnchor.delete(anchorKey);
     }

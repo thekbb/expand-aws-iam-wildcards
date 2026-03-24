@@ -70,12 +70,17 @@ function getExistingCommentAnchorKey(comment: PullRequestReviewComment): string 
     return null;
   }
 
-  const line = comment.line ?? comment.original_line;
-  if (line === null || line === undefined) {
+  // A null position means GitHub has already marked the inline comment outdated.
+  // Updating it in place will not recreate a current thread on the active diff.
+  if (comment.position === null) {
     return null;
   }
 
-  return getAnchorKey(comment.path, line);
+  if (comment.line === null || comment.line === undefined) {
+    return null;
+  }
+
+  return getAnchorKey(comment.path, comment.line);
 }
 
 export async function listPullRequestFiles(

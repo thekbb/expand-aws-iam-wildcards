@@ -256,13 +256,13 @@ describe('syncReviewComments', () => {
     });
   });
 
-  it('uses original_line when line is unavailable on an existing comment', async () => {
+  it('updates an existing comment when the current line anchor is still available', async () => {
     const octokit = makeOctokit();
 
     const result = await syncReviewComments(octokit, {
       ...baseParams,
       comments: [{ path: 'policy.tf', line: 10, body: '**IAM Wildcard Expansion**\n\nnew body' }],
-      existingComments: [{ id: 1001, path: 'policy.tf', line: null, original_line: 10, body: '**IAM Wildcard Expansion**\n\nold body' }],
+      existingComments: [{ id: 1001, path: 'policy.tf', line: 10, body: '**IAM Wildcard Expansion**\n\nold body' }],
     });
 
     expect(result).toEqual({
@@ -277,6 +277,50 @@ describe('syncReviewComments', () => {
       repo: 'expand-aws-iam-wildcards',
       comment_id: 1001,
       body: '**IAM Wildcard Expansion**\n\nnew body',
+    });
+  });
+
+  it('recreates outdated comments instead of updating them in place', async () => {
+    const octokit = makeOctokit();
+    const comments: ReviewComment[] = [
+      { path: 'policy.tf', line: 10, body: '**IAM Wildcard Expansion**\n\nnew body' },
+    ];
+
+    const result = await syncReviewComments(octokit, {
+      ...baseParams,
+      comments,
+      existingComments: [
+        {
+          id: 1001,
+          path: 'policy.tf',
+          position: null,
+          line: 10,
+          original_line: 10,
+          body: '**IAM Wildcard Expansion**\n\nold body',
+        },
+      ],
+    });
+
+    expect(result).toEqual({
+      createdCount: 1,
+      updatedCount: 0,
+      unchangedCount: 0,
+      deletedCount: 1,
+      failedDeleteCount: 0,
+    });
+    expect(octokit.rest.pulls.updateReviewComment).not.toHaveBeenCalled();
+    expect(octokit.rest.pulls.createReview).toHaveBeenCalledWith({
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      pull_number: 42,
+      commit_id: 'abc123',
+      event: 'COMMENT',
+      comments,
+    });
+    expect(octokit.rest.pulls.deleteReviewComment).toHaveBeenCalledWith({
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      comment_id: 1001,
     });
   });
 

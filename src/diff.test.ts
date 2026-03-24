@@ -169,11 +169,15 @@ describe('extractFromDiff', () => {
       },
     ];
 
-    const { wildcardMatches, explicitActions } = extractFromDiff(files);
+    const { wildcardMatches, explicitActionMatches } = extractFromDiff(files);
 
     expect(wildcardMatches).toHaveLength(1);
     expect(wildcardMatches[0]?.action).toBe('s3:Get*');
-    expect(explicitActions).toContain('s3:GetObject');
+    expect(explicitActionMatches).toContainEqual({
+      action: 's3:GetObject',
+      line: 2,
+      file: 'policy.json',
+    });
   });
 
   it('extracts wildcards from Terraform policy diff with multiple added actions', () => {
