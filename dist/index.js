@@ -36508,6 +36508,9 @@ function formatComment(originalActions, expandedActions, options = {}) {
 
 ;// CONCATENATED MODULE: ./src/diff.ts
 
+function isNoNewlineMarker(line) {
+    return line === '\\ No newline at end of file';
+}
 function extractFromPatch(patch, filename) {
     const wildcardMatches = [];
     let currentLine = 0;
@@ -36515,6 +36518,9 @@ function extractFromPatch(patch, filename) {
         const hunkStart = parseHunkHeader(line);
         if (hunkStart !== null) {
             currentLine = hunkStart - 1;
+            continue;
+        }
+        if (isNoNewlineMarker(line)) {
             continue;
         }
         if (line.startsWith('-'))
