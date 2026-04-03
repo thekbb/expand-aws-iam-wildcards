@@ -12,24 +12,35 @@ like this:
 
 ![screenshot](images/pr-comment-screenshot.png)
 
-## Quick Start
+## Recommended Workflow
 
 ```yaml
 # .github/workflows/iam-wildcards.yml
 name: Expand IAM Wildcards
-on: [pull_request]
 
-permissions:
-  pull-requests: write
+on:
+  pull_request:
+
+permissions: {}
 
 jobs:
   expand:
+    permissions:
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: thekbb/expand-aws-iam-wildcards@v1
+      - uses: thekbb/expand-aws-iam-wildcards@a8e0e45ccf61f65600deed5df5f01447cab28dea # v1.1.10
 ```
 
-That's it. When a PR adds `s3:Get*`, reviewers see an inline comment listing the matching actions with links to AWS documentation.
+That is the recommended setup:
+
+- trigger on `pull_request`, not `pull_request_target`
+- grant only `pull-requests: write` to the job that runs this action
+- pin to a full 40-character commit SHA for immutability
+- keep the release tag in a trailing comment so humans can see the intended version quickly
+
+No checkout step is required. The action reads the PR diff through the GitHub API and posts inline review comments
+back to the pull request.
 
 ## What It Does
 
@@ -70,50 +81,112 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 ### Terraform Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@v1
+- uses: thekbb/expand-aws-iam-wildcards@a8e0e45ccf61f65600deed5df5f01447cab28dea # v1.1.10
   with:
-    file-patterns: '**/*.tf'
+    file-patterns: '**/*.tf,**/*.tf.json'
 ```
 
 ### CloudFormation Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@v1
+- uses: thekbb/expand-aws-iam-wildcards@a8e0e45ccf61f65600deed5df5f01447cab28dea # v1.1.10
   with:
     file-patterns: '**/*.yaml,**/*.yml,**/*.json'
 ```
 
-### Higher Collapse Threshold
+## Update Strategy
+
+For security, prefer a full SHA pin over a moving tag such as `@v1`. GitHub recommends full-length commit SHAs as
+the immutable option for third-party actions. If you want automatic updates without giving up immutable pins, enable
+Dependabot for GitHub Actions in your repository:
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@v1
-  with:
-    collapse-threshold: '10'
+# .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
 ```
+
+Dependabot updates workflow `uses:` references in `.github/workflows`, including GitHub Action pins. The trailing
+`# v1.1.10` comment is mainly for human review so maintainers can see which release a pinned SHA corresponds to.
+Dependabot should keep that comment aligned when it updates the pinned SHA, but the comment is informational,
+not security-critical.
 
 ## How It Works
 
 1. Fetches the PR diff
-2. Scans added lines for IAM wildcard patterns (`service:Action*`)
-3. Expands wildcards against the bundled IAM action list generated from [@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data)
-4. Posts inline review comments with links to AWS docs
+1. Scans added lines for IAM wildcard patterns (`service:Action*`)
+1. Expands wildcards against the bundled IAM action list generated from [@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data)
+1. Posts inline review comments with links to AWS docs
+1. Reuses or updates existing bot comments in place when the anchor still matches, to reduce comment churn
 
 ## Security & Trust
 
 - **Minimal permissions** - only needs `pull-requests: write`
-- **No secrets required** - uses default `github.token`
-- **No external calls** - IAM data bundled at build time (automatically updated weekly)
-- **Auditable** - ~500 lines of TypeScript, `dist/index.js` committed
-
-For tighter control, fork the repo or pin to a full semver or SHA.
-With a fork, you have complete control and can choose when or if you update.
+- **No secrets required** - uses the default `github.token`
+- **No checkout required** - the action reads PR files through the GitHub API
+- **Safer trigger** - use `pull_request` for normal CI and review automation, not `pull_request_target`
+- **Immutable pinning available** - prefer a full 40-character commit SHA for production workflows
+- **Dependabot-friendly** - GitHub can still raise update PRs for SHA-pinned action references
+- **Auditable** - the TypeScript source is small and `dist/index.js` is committed
+- **No runtime dependency fetches** - IAM action data is bundled at build time and refreshed in this repo separately
 
 ```yaml
-uses: thekbb/expand-aws-iam-wildcards@v1.1.4
+uses: thekbb/expand-aws-iam-wildcards@a8e0e45ccf61f65600deed5df5f01447cab28dea # v1.1.10
 ```
 
+Use `@v1` only if you deliberately prefer the convenience of a moving major tag over an immutable release pin.
+
 ```yaml
-uses: thekbb/expand-aws-iam-wildcards@daedd61e3
+uses: thekbb/expand-aws-iam-wildcards@v1
+```
+
+## Verify a Release Pin
+
+All release tags in this repository are signed with the GPG key whose public half is published at
+[`keys/release-signing-key.asc`](keys/release-signing-key.asc).
+
+Fingerprint:
+
+```text
+353A AFB2 1CE8 1D84 3634 AD3E DE52 EEA6 AF0D 8779
+```
+
+Import the armored public key locally before verifying a release pin:
+
+This repo includes a helper script at the repository root:
+
+```bash
+gpg --import keys/release-signing-key.asc
+gpg --show-keys --fingerprint keys/release-signing-key.asc
+./verify-release.sh --tag v1.1.10
+./verify-release.sh --sha a8e0e45ccf61f65600deed5df5f01447cab28dea
+```
+
+`--tag` must be a semver release tag with a leading `v`. `--sha` must be a full 40-character commit SHA. The script
+derives the other value automatically, verifies the signed semver tag locally, confirms the tag resolves to the same
+commit, and checks that the commit is on `main`.
+
+For an additional cross-check, you can confirm the same public key is published on
+`keys.openpgp.org` for `kevin@thekbb.net`:
+
+```bash
+gpg --keyserver hkps://keys.openpgp.org --search-keys kevin@thekbb.net
+```
+
+The fingerprint should still match exactly:
+
+```text
+353A AFB2 1CE8 1D84 3634 AD3E DE52 EEA6 AF0D 8779
+```
+
+You can also point it at a fork or a local clone by overriding `REPO_URL`:
+
+```bash
+REPO_URL=https://github.com/your-org/expand-aws-iam-wildcards.git ./verify-release.sh --tag v1.1.10
 ```
 
 ## Contributing
