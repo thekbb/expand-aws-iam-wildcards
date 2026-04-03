@@ -29,7 +29,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: thekbb/expand-aws-iam-wildcards@a8e0e45ccf61f65600deed5df5f01447cab28dea # v1.1.10
+      - uses: thekbb/expand-aws-iam-wildcards@79572644d1ee663b60b993bb1e6193c2627312bf # v1.2.0
 ```
 
 That is the recommended setup:
@@ -81,7 +81,7 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 ### Terraform Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@a8e0e45ccf61f65600deed5df5f01447cab28dea # v1.1.10
+- uses: thekbb/expand-aws-iam-wildcards@79572644d1ee663b60b993bb1e6193c2627312bf # v1.2.0
   with:
     file-patterns: '**/*.tf,**/*.tf.json'
 ```
@@ -89,7 +89,7 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 ### CloudFormation Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@a8e0e45ccf61f65600deed5df5f01447cab28dea # v1.1.10
+- uses: thekbb/expand-aws-iam-wildcards@79572644d1ee663b60b993bb1e6193c2627312bf # v1.2.0
   with:
     file-patterns: '**/*.yaml,**/*.yml,**/*.json'
 ```
@@ -111,7 +111,7 @@ updates:
 ```
 
 Dependabot updates workflow `uses:` references in `.github/workflows`, including GitHub Action pins. The trailing
-`# v1.1.10` comment is mainly for human review so maintainers can see which release a pinned SHA corresponds to.
+`# v1.2.0` comment is mainly for human review so maintainers can see which release a pinned SHA corresponds to.
 Dependabot should keep that comment aligned when it updates the pinned SHA, but the comment is informational,
 not security-critical.
 
@@ -135,7 +135,7 @@ not security-critical.
 - **No runtime dependency fetches** - IAM action data is bundled at build time and refreshed in this repo separately
 
 ```yaml
-uses: thekbb/expand-aws-iam-wildcards@a8e0e45ccf61f65600deed5df5f01447cab28dea # v1.1.10
+uses: thekbb/expand-aws-iam-wildcards@79572644d1ee663b60b993bb1e6193c2627312bf # v1.2.0
 ```
 
 Use `@v1` only if you deliberately prefer the convenience of a moving major tag over an immutable release pin.
@@ -162,8 +162,8 @@ This repo includes a helper script at the repository root:
 ```bash
 gpg --import keys/release-signing-key.asc
 gpg --show-keys --fingerprint keys/release-signing-key.asc
-./verify-release.sh --tag v1.1.10
-./verify-release.sh --sha a8e0e45ccf61f65600deed5df5f01447cab28dea
+./verify-release.sh --tag v1.2.0
+./verify-release.sh --sha 79572644d1ee663b60b993bb1e6193c2627312bf
 ```
 
 `--tag` must be a semver release tag with a leading `v`. `--sha` must be a full 40-character commit SHA. The script
@@ -186,7 +186,7 @@ The fingerprint should still match exactly:
 You can also point it at a fork or a local clone by overriding `REPO_URL`:
 
 ```bash
-REPO_URL=https://github.com/your-org/expand-aws-iam-wildcards.git ./verify-release.sh --tag v1.1.10
+REPO_URL=https://github.com/your-org/expand-aws-iam-wildcards.git ./verify-release.sh --tag v1.2.0
 ```
 
 ## Contributing
