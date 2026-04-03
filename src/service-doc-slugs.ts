@@ -44,6 +44,7 @@ export const SERVICE_DOC_SLUGS: Readonly<Record<string, string>> = {
   "auditmanager": "awsauditmanager",
   "autoscaling": "amazonec2autoscaling",
   "autoscaling-plans": "awsautoscaling",
+  "aws-external-anthropic": "claudeplatformonaws",
   "aws-marketplace": "awsmarketplacecatalog",
   "aws-marketplace-management": "awsmarketplacemanagementportal",
   "aws-mcp": "awsmcpserver",
