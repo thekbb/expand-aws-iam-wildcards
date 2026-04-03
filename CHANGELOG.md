@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.0]
+## [UNRELEASED]
+
+## [1.2.0] - 2026-04-03
 
 ### Changed
 
@@ -24,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Recreate outdated review comments instead of editing stale threads that no longer map to the current diff
 - Preserve outdated bot comments that already have replies instead of deleting their discussion threads
 
-## [1.1.10] = 2026-3-21
+## [1.1.10] - 2026-3-21
 
 ### Changed
 
@@ -146,7 +148,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add initial release
 
 <!-- markdownlint-disable-next-line MD053 -->
-[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.1.10...HEAD
+[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.1.10...v1.2.0
 [1.1.10]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.1.9...v1.1.10
 [1.1.9]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.1.8...v1.1.9
 [1.1.8]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.1.7...v1.1.8
