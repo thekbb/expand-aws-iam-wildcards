@@ -7,16 +7,19 @@ on:
   workflow_dispatch: # Allow manual trigger
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    environment:
+      name: automation
+      deployment: false
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0 # Need full history for tags
+          persist-credentials: false
 
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
@@ -50,6 +53,8 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8.1.0
         with:
+          # Use a PAT so the PR creation triggers downstream pull_request workflows.
+          token: ${{ secrets.IAM_UPDATE_PAT }}
           branch: update-iam-actions-${{ github.run_id }}
           delete-branch: true
           title: "Update IAM action data"
