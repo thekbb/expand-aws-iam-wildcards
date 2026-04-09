@@ -354,6 +354,7 @@ export const SERVICE_DOC_SLUGS: Readonly<Record<string, string>> = {
   "s3-object-lambda": "amazons3objectlambda",
   "s3-outposts": "amazons3onoutposts",
   "s3express": "amazons3express",
+  "s3files": "amazons3files",
   "s3tables": "amazons3tables",
   "s3vectors": "amazons3vectors",
   "sagemaker": "amazonsagemaker",
