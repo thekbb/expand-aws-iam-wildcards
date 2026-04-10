@@ -97,8 +97,9 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 ## Update Strategy
 
 For security, prefer a full 40-character commit SHA over a moving tag such as `@v1`. GitHub recommends full-length
-commit SHAs as the immutable option for third-party actions. If you want automatic updates while still using immutable
-workflow references, enable Dependabot for GitHub Actions in your repository:
+commit SHAs as the immutable option for third-party actions in its
+[Secure use reference](https://docs.github.com/en/actions/reference/security/secure-use). If you want automatic
+updates while still using immutable workflow references, enable Dependabot for GitHub Actions in your repository:
 
 ```yaml
 # .github/dependabot.yml
@@ -117,7 +118,9 @@ informational, not security-critical.
 
 Published GitHub releases in this repository are immutable starting with `v1.2.1`. That means a release-specific tag
 such as `@v1.2.1` cannot be retargeted on GitHub after publication. The major tag `@v1` remains intentionally movable
-so it can track the latest compatible `v1` release.
+so it can track the latest compatible `v1` release. For GitHub's model for combining immutable releases with movable
+major tags, see
+[Using immutable releases and tags to manage your action's releases](https://docs.github.com/en/actions/how-tos/create-and-publish-actions/using-immutable-releases-and-tags-to-manage-your-actions-releases).
 
 ## How It Works
 
@@ -132,6 +135,8 @@ so it can track the latest compatible `v1` release.
 - **Minimal permissions** - only needs `pull-requests: write`
 - **No secrets required** - uses the default `github.token`
 - **No checkout required** - the action reads PR files through the GitHub API
+- **GitHub-aligned workflow security guidance** - GitHub recommends full commit SHAs for third-party actions in its
+  [Secure use reference](https://docs.github.com/en/actions/reference/security/secure-use)
 - **Immutable workflow references available** - prefer a full 40-character commit SHA for production workflows
 - **Immutable GitHub releases from `v1.2.1` onward** - published release tags cannot be retargeted after publication
 - **Dependabot-friendly** - GitHub can still raise update PRs for SHA-based action references
@@ -151,8 +156,11 @@ uses: thekbb/expand-aws-iam-wildcards@v1
 
 ## Verify a Release
 
-Published GitHub releases in this repository are immutable starting with `v1.2.1`. Earlier releases can still have
-signed tags, but they will not pass the immutable-release check.
+Published GitHub releases in this repository are
+[immutable](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases#what-immutable-releases-protect)
+starting with `v1.2.1`. Earlier releases can still have signed tags, but they will not pass the
+immutable-release check. For GitHub's release-integrity guidance, see
+[Verifying the integrity of a release](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/verifying-the-integrity-of-a-release).
 
 All release tags in this repository are signed with the GPG key whose public half is published at
 [`keys/release-signing-key.asc`](keys/release-signing-key.asc).
