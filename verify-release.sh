@@ -9,8 +9,8 @@ SHA_REGEX='^[0-9a-fA-F]{40}$'
 usage() {
   cat <<'EOF'
 Usage:
-  ./verify-release.sh --tag v1.1.10
-  ./verify-release.sh --sha a8e0e45ccf61f65600deed5df5f01447cab28dea
+  ./verify-release.sh --tag v1.2.3
+  ./verify-release.sh --sha 0123456789abcdef0123456789abcdef01234567
 
 Exactly one of --tag or --sha is required.
 
@@ -64,7 +64,7 @@ if [[ -z "$tag" && -z "$sha" ]]; then
 fi
 
 if [[ -n "$tag" && ! "$tag" =~ $TAG_REGEX ]]; then
-  fail '--tag must be a semver release like v1.1.10'
+  fail '--tag must be a semver release like v1.2.3'
 fi
 
 if [[ -n "$sha" && ! "$sha" =~ $SHA_REGEX ]]; then
