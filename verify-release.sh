@@ -16,9 +16,10 @@ Exactly one of --tag or --sha is required.
 The script runs every verification check it can and exits nonzero if any check fails.
 
 Options:
-  --tag  Semver release tag with a leading "v"
-  --sha  Full 40-character commit SHA
-  --help Show this help text
+  --tag       Semver release tag with a leading "v"
+  --sha       Full 40-character commit SHA
+  --no-color  Disable ANSI color output
+  --help      Show this help text
 
 Environment:
   REPO_URL           Git remote to verify against
@@ -53,10 +54,42 @@ extract_signature_summary() {
   printf '%s' "$(compact_message "$output")"
 }
 
+format_status() {
+  local status="$1"
+  local text=''
+  local color=''
+  local reset=''
+
+  case "$status" in
+    PASS)
+      text='OK'
+      color=$'\033[32m'
+      ;;
+    FAIL)
+      text='FAIL'
+      color=$'\033[31m'
+      ;;
+    SKIP)
+      text='SKIP'
+      color=$'\033[33m'
+      ;;
+    *)
+      fail "unknown status: $status" ;;
+  esac
+
+  if ((use_color)); then
+    reset=$'\033[0m'
+    printf '%s%s%s' "$color" "$text" "$reset"
+  else
+    printf '%s' "$text"
+  fi
+}
+
 emit_result() {
   local status="$1"
   local label="$2"
   local detail="${3:-}"
+  local display_status=''
 
   case "$status" in
     PASS) ;;
@@ -65,10 +98,12 @@ emit_result() {
     *) fail "unknown status: $status" ;;
   esac
 
+  display_status="$(format_status "$status")"
+
   if [[ -n "$detail" ]]; then
-    printf '[%s] %s: %s\n' "$status" "$label" "$detail"
+    printf '[%s] %s: %s\n' "$display_status" "$label" "$detail"
   else
-    printf '[%s] %s\n' "$status" "$label"
+    printf '[%s] %s\n' "$display_status" "$label"
   fi
 }
 
@@ -211,6 +246,7 @@ github_host=''
 github_owner=''
 github_repo=''
 overall_failed=0
+use_color=1
 
 while (($# > 0)); do
   case "$1" in
@@ -224,6 +260,9 @@ while (($# > 0)); do
       (($# > 0)) || fail '--sha requires a value'
       sha="$1"
       ;;
+    --no-color)
+      use_color=0
+      ;;
     --help|-h)
       usage
       exit 0
@@ -234,6 +273,10 @@ while (($# > 0)); do
   esac
   shift
 done
+
+if [[ ! -t 1 ]]; then
+  use_color=0
+fi
 
 if [[ -n "$tag" && -n "$sha" ]]; then
   fail 'provide exactly one of --tag or --sha'
@@ -375,12 +418,16 @@ else
 fi
 
 if ((overall_failed)); then
+  overall_status="$(format_status FAIL)"
+  printf '\n'
   if [[ -n "$resolved_tag" && -n "$resolved_sha" ]]; then
-    printf 'Overall: FAIL (%s -> %s)\n' "$resolved_tag" "$resolved_sha"
+    printf 'Overall: %s (%s -> %s)\n' "$overall_status" "$resolved_tag" "$resolved_sha"
   else
-    printf 'Overall: FAIL\n'
+    printf 'Overall: %s\n' "$overall_status"
   fi
   exit 1
 fi
 
-printf 'Overall: PASS (%s -> %s)\n' "$resolved_tag" "$resolved_sha"
+overall_status="$(format_status PASS)"
+printf '\n'
+printf 'Overall: %s (%s -> %s)\n' "$overall_status" "$resolved_tag" "$resolved_sha"

@@ -29,14 +29,14 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: thekbb/expand-aws-iam-wildcards@79572644d1ee663b60b993bb1e6193c2627312bf # v1.2.0
+      - uses: thekbb/expand-aws-iam-wildcards@8e65fcec867dca7d4d7cc124f387bba438b0aa18 # v1.2.1
 ```
 
 That is the recommended setup:
 
 - trigger on `pull_request`, not `pull_request_target`
 - grant only `pull-requests: write` to the job that runs this action
-- pin to a full 40-character commit SHA for immutability
+- use a full 40-character commit SHA if you want an immutable workflow reference
 - keep the release tag in a trailing comment so humans can see the intended version quickly
 
 No checkout step is required. The action reads the PR diff through the GitHub API and posts inline review comments
@@ -81,7 +81,7 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 ### Terraform Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@79572644d1ee663b60b993bb1e6193c2627312bf # v1.2.0
+- uses: thekbb/expand-aws-iam-wildcards@8e65fcec867dca7d4d7cc124f387bba438b0aa18 # v1.2.1
   with:
     file-patterns: '**/*.tf,**/*.tf.json'
 ```
@@ -89,16 +89,16 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 ### CloudFormation Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@79572644d1ee663b60b993bb1e6193c2627312bf # v1.2.0
+- uses: thekbb/expand-aws-iam-wildcards@8e65fcec867dca7d4d7cc124f387bba438b0aa18 # v1.2.1
   with:
     file-patterns: '**/*.yaml,**/*.yml,**/*.json'
 ```
 
 ## Update Strategy
 
-For security, prefer a full SHA pin over a moving tag such as `@v1`. GitHub recommends full-length commit SHAs as
-the immutable option for third-party actions. If you want automatic updates without giving up immutable pins, enable
-Dependabot for GitHub Actions in your repository:
+For security, prefer a full 40-character commit SHA over a moving tag such as `@v1`. GitHub recommends full-length
+commit SHAs as the immutable option for third-party actions. If you want automatic updates while still using immutable
+workflow references, enable Dependabot for GitHub Actions in your repository:
 
 ```yaml
 # .github/dependabot.yml
@@ -110,10 +110,14 @@ updates:
       interval: 'weekly'
 ```
 
-Dependabot updates workflow `uses:` references in `.github/workflows`, including GitHub Action pins. The trailing
-`# v1.2.0` comment is mainly for human review so maintainers can see which release a pinned SHA corresponds to.
-Dependabot should keep that comment aligned when it updates the pinned SHA, but the comment is informational,
-not security-critical.
+Dependabot updates workflow `uses:` references in `.github/workflows`, including commit SHAs for GitHub Actions. The
+trailing `# v1.2.1` comment is mainly for human review so maintainers can see which release a referenced SHA
+corresponds to. Dependabot should keep that comment aligned when it updates the SHA, but the comment is
+informational, not security-critical.
+
+Published GitHub releases in this repository are immutable starting with `v1.2.1`. That means a release-specific tag
+such as `@v1.2.1` cannot be retargeted on GitHub after publication. The major tag `@v1` remains intentionally movable
+so it can track the latest compatible `v1` release.
 
 ## How It Works
 
@@ -128,23 +132,27 @@ not security-critical.
 - **Minimal permissions** - only needs `pull-requests: write`
 - **No secrets required** - uses the default `github.token`
 - **No checkout required** - the action reads PR files through the GitHub API
-- **Safer trigger** - use `pull_request` for normal CI and review automation, not `pull_request_target`
-- **Immutable pinning available** - prefer a full 40-character commit SHA for production workflows
-- **Dependabot-friendly** - GitHub can still raise update PRs for SHA-pinned action references
+- **Immutable workflow references available** - prefer a full 40-character commit SHA for production workflows
+- **Immutable GitHub releases from `v1.2.1` onward** - published release tags cannot be retargeted after publication
+- **Dependabot-friendly** - GitHub can still raise update PRs for SHA-based action references
 - **Auditable** - the TypeScript source is small and `dist/index.js` is committed
 - **No runtime dependency fetches** - IAM action data is bundled at build time and refreshed in this repo separately
 
 ```yaml
-uses: thekbb/expand-aws-iam-wildcards@79572644d1ee663b60b993bb1e6193c2627312bf # v1.2.0
+uses: thekbb/expand-aws-iam-wildcards@8e65fcec867dca7d4d7cc124f387bba438b0aa18 # v1.2.1
 ```
 
-Use `@v1` only if you deliberately prefer the convenience of a moving major tag over an immutable release pin.
+If you want an immutable GitHub-side release reference and can tolerate using a tag in `uses:`, prefer a current
+release-specific tag such as `@v1.2.1`. Use `@v1` only if you deliberately want the convenience of a moving major tag.
 
 ```yaml
 uses: thekbb/expand-aws-iam-wildcards@v1
 ```
 
-## Verify a Release Pin
+## Verify a Release
+
+Published GitHub releases in this repository are immutable starting with `v1.2.1`. Earlier releases can still have
+signed tags, but they will not pass the immutable-release check.
 
 All release tags in this repository are signed with the GPG key whose public half is published at
 [`keys/release-signing-key.asc`](keys/release-signing-key.asc).
@@ -155,20 +163,20 @@ Fingerprint:
 353A AFB2 1CE8 1D84 3634 AD3E DE52 EEA6 AF0D 8779
 ```
 
-Import the armored public key locally before verifying a release pin:
+Import the armored public key locally before verifying a release:
 
 This repo includes a helper script at the repository root:
 
 ```bash
 gpg --import keys/release-signing-key.asc
 gpg --show-keys --fingerprint keys/release-signing-key.asc
-./verify-release.sh --tag v1.2.0
-./verify-release.sh --sha 79572644d1ee663b60b993bb1e6193c2627312bf
+./verify-release.sh --tag v1.2.1
+./verify-release.sh --sha 8e65fcec867dca7d4d7cc124f387bba438b0aa18
 ```
 
 `--tag` must be a semver release tag with a leading `v`. `--sha` must be a full 40-character commit SHA. The script
 derives the other value automatically, verifies the signed semver tag locally, confirms the tag resolves to the same
-commit, and checks that the commit is on `main`.
+commit, checks that GitHub has a published immutable release for that tag, and checks that the commit is on `main`.
 
 For an additional cross-check, you can confirm the same public key is published on
 `keys.openpgp.org` for `kevin@thekbb.net`:
@@ -186,7 +194,7 @@ The fingerprint should still match exactly:
 You can also point it at a fork or a local clone by overriding `REPO_URL`:
 
 ```bash
-REPO_URL=https://github.com/your-org/expand-aws-iam-wildcards.git ./verify-release.sh --tag v1.2.0
+REPO_URL=https://github.com/your-org/expand-aws-iam-wildcards.git ./verify-release.sh --tag v1.2.1
 ```
 
 ## Contributing
