@@ -190,6 +190,58 @@ describe('runAction', () => {
     );
   });
 
+  it('logs truncated comment details with a workflow run URL', async () => {
+    process.env.GITHUB_RUN_ID = '24570015955';
+    process.env.GITHUB_SERVER_URL = 'https://github.com';
+    githubMocks.context.payload = {
+      pull_request: {
+        number: 42,
+        head: {
+          sha: 'abc123',
+        },
+      },
+    };
+    actionMocks.processFiles.mockReturnValue({
+      comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
+      stats: {
+        filesScanned: 1,
+        wildcardsFound: 1,
+        blocksCreated: 1,
+        actionsExpanded: 1,
+      },
+      truncatedComments: [{
+        file: 'policy.tf',
+        line: 10,
+        originalActions: ['s3:*'],
+        expandedActions: ['s3:GetObject', 's3:PutObject'],
+        renderedActionsCount: 1,
+      }],
+    });
+
+    await runAction();
+
+    expect(actionMocks.processFiles).toHaveBeenCalledWith(
+      [],
+      ['**/*.tf', '**/*.json'],
+      5,
+      {
+        truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/24570015955',
+      },
+    );
+    expect(coreMocks.warning).toHaveBeenCalledWith(
+      'Truncated 1 review comment(s) to stay within GitHub comment limits. Full lists are available in this workflow run: https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/24570015955',
+    );
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      [
+        'Full IAM expansion for policy.tf:10',
+        'Rendered 1 of 2 action(s) in the PR comment.',
+        'Wildcard patterns: s3:*',
+        '- s3:GetObject',
+        '- s3:PutObject',
+      ].join('\n'),
+    );
+  });
+
   it('reports failures through core.setFailed', async () => {
     githubMocks.context.payload = {
       pull_request: {
