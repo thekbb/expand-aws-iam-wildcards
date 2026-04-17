@@ -29,7 +29,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: thekbb/expand-aws-iam-wildcards@8e65fcec867dca7d4d7cc124f387bba438b0aa18 # v1.2.1
+      - uses: thekbb/expand-aws-iam-wildcards@5c532fe1c93e7f81e1c311441a17db36d018c128 # v1.2.2
 ```
 
 That is the recommended setup:
@@ -81,7 +81,7 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 ### Terraform Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@8e65fcec867dca7d4d7cc124f387bba438b0aa18 # v1.2.1
+- uses: thekbb/expand-aws-iam-wildcards@5c532fe1c93e7f81e1c311441a17db36d018c128 # v1.2.2
   with:
     file-patterns: '**/*.tf,**/*.tf.json'
 ```
@@ -89,7 +89,7 @@ Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
 ### CloudFormation Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@8e65fcec867dca7d4d7cc124f387bba438b0aa18 # v1.2.1
+- uses: thekbb/expand-aws-iam-wildcards@5c532fe1c93e7f81e1c311441a17db36d018c128 # v1.2.2
   with:
     file-patterns: '**/*.yaml,**/*.yml,**/*.json'
 ```
@@ -112,7 +112,7 @@ updates:
 ```
 
 Dependabot updates workflow `uses:` references in `.github/workflows`, including commit SHAs for GitHub Actions. The
-trailing `# v1.2.1` comment is mainly for human review so maintainers can see which release a referenced SHA
+trailing `# v1.2.2` comment is mainly for human review so maintainers can see which release a referenced SHA
 corresponds to. Dependabot should keep that comment aligned when it updates the SHA, but the comment is
 informational, not security-critical.
 
@@ -144,11 +144,11 @@ major tags, see
 - **No runtime dependency fetches** - IAM action data is bundled at build time and refreshed in this repo separately
 
 ```yaml
-uses: thekbb/expand-aws-iam-wildcards@8e65fcec867dca7d4d7cc124f387bba438b0aa18 # v1.2.1
+uses: thekbb/expand-aws-iam-wildcards@5c532fe1c93e7f81e1c311441a17db36d018c128 # v1.2.2
 ```
 
 If you want an immutable GitHub-side release reference and can tolerate using a tag in `uses:`, prefer a current
-release-specific tag such as `@v1.2.1`. Use `@v1` only if you deliberately want the convenience of a moving major tag.
+release-specific tag such as `@v1.2.2`. Use `@v1` only if you deliberately want the convenience of a moving major tag.
 
 ```yaml
 uses: thekbb/expand-aws-iam-wildcards@v1
@@ -178,8 +178,8 @@ This repo includes a helper script at the repository root:
 ```bash
 gpg --import keys/release-signing-key.asc
 gpg --show-keys --fingerprint keys/release-signing-key.asc
-./verify-release.sh --tag v1.2.1
-./verify-release.sh --sha 8e65fcec867dca7d4d7cc124f387bba438b0aa18
+./verify-release.sh --tag v1.2.2
+./verify-release.sh --sha 5c532fe1c93e7f81e1c311441a17db36d018c128
 ```
 
 `--tag` must be a semver release tag with a leading `v`. `--sha` must be a full 40-character commit SHA. The script
@@ -202,7 +202,7 @@ The fingerprint should still match exactly:
 You can also point it at a fork or a local clone by overriding `REPO_URL`:
 
 ```bash
-REPO_URL=https://github.com/your-org/expand-aws-iam-wildcards.git ./verify-release.sh --tag v1.2.1
+REPO_URL=https://github.com/your-org/expand-aws-iam-wildcards.git ./verify-release.sh --tag v1.2.2
 ```
 
 ## Contributing

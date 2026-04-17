@@ -36,6 +36,5 @@ IAM action data is updated automatically via a weekly GitHub Action. To update m
 
 ```bash
 npm run update-iam-data
-npm run generate-iam-data
 npm run build
 ```
