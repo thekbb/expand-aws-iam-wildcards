@@ -436,6 +436,52 @@ describe('runAction', () => {
     );
   });
 
+  it('logs preserved stale review threads after a successful sync', async () => {
+    githubMocks.context.payload = {
+      pull_request: {
+        number: 8675309,
+        head: {
+          sha: 'decafbad',
+        },
+      },
+    };
+    actionMocks.processFiles.mockReturnValue({
+      comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
+      stats: {
+        filesScanned: 1,
+        wildcardsFound: 1,
+        blocksCreated: 1,
+        actionsExpanded: 1,
+      },
+      truncatedComments: [],
+    });
+    githubApiMocks.syncReviewComments.mockResolvedValue({
+      createdCount: 1,
+      updatedCount: 0,
+      unchangedCount: 0,
+      deletedCount: 0,
+      failedDeleteCount: 0,
+      preservedCount: 2,
+    });
+
+    await runAction();
+
+    expect(githubApiMocks.syncReviewComments).toHaveBeenCalledWith({ tag: 'octokit' }, {
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      pullNumber: 8675309,
+      commitSha: 'decafbad',
+      comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
+      existingComments: [],
+    });
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Synchronized comments: 1 created, 0 updated, 0 unchanged',
+    );
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Preserved 2 stale comment thread(s) because they have replies',
+    );
+  });
+
   it('reports failures through core.setFailed', async () => {
     githubMocks.context.payload = {
       pull_request: {
