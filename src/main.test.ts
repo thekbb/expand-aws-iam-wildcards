@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const coreMocks = vi.hoisted(() => ({
   getInput: vi.fn(),
@@ -37,8 +37,13 @@ vi.mock('./github.js', () => githubApiMocks);
 import { runAction } from './main.js';
 
 describe('runAction', () => {
+  const originalGithubRunId = process.env.GITHUB_RUN_ID;
+  const originalGithubServerUrl = process.env.GITHUB_SERVER_URL;
+
   beforeEach(() => {
     vi.clearAllMocks();
+    delete process.env.GITHUB_RUN_ID;
+    delete process.env.GITHUB_SERVER_URL;
 
     githubMocks.context.payload = {};
     githubMocks.context.repo = {
@@ -80,6 +85,20 @@ describe('runAction', () => {
       },
       truncatedComments: [],
     });
+  });
+
+  afterAll(() => {
+    if (originalGithubRunId === undefined) {
+      delete process.env.GITHUB_RUN_ID;
+    } else {
+      process.env.GITHUB_RUN_ID = originalGithubRunId;
+    }
+
+    if (originalGithubServerUrl === undefined) {
+      delete process.env.GITHUB_SERVER_URL;
+    } else {
+      process.env.GITHUB_SERVER_URL = originalGithubServerUrl;
+    }
   });
 
   it('skips cleanly outside pull request events', async () => {
