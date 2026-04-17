@@ -8,6 +8,7 @@ import {
   syncReviewComments,
   type SyncReviewCommentsResult,
 } from './github.js';
+import { parseCollapseThreshold } from './inputs.js';
 
 function getWorkflowRunUrl(owner: string, repo: string): string | undefined {
   const runId = process.env.GITHUB_RUN_ID;
@@ -67,7 +68,7 @@ function logReviewCommentSyncResult(result: SyncReviewCommentsResult): void {
 async function run(): Promise<void> {
   try {
     const token = core.getInput('github-token', { required: true });
-    const collapseThreshold = parseInt(core.getInput('collapse-threshold') || '5', 10);
+    const collapseThreshold = parseCollapseThreshold(core.getInput('collapse-threshold'));
     const filePatterns = core.getInput('file-patterns')
       .split(',')
       .map((p) => p.trim())
