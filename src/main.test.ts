@@ -114,7 +114,7 @@ describe('runAction', () => {
       pull_request: {
         number: 42,
         head: {
-          sha: 'abc123',
+          sha: 'deadbeef',
         },
       },
     };
@@ -132,7 +132,7 @@ describe('runAction', () => {
       owner: 'thekbb',
       repo: 'expand-aws-iam-wildcards',
       pullNumber: 42,
-      commitSha: 'abc123',
+      commitSha: 'deadbeef',
       comments: [],
       existingComments: [],
     });
@@ -240,6 +240,40 @@ describe('runAction', () => {
         '- s3:PutObject',
       ].join('\n'),
     );
+  });
+
+  it('syncs empty comments when scanned files contain no IAM wildcards', async () => {
+    githubMocks.context.payload = {
+      pull_request: {
+        number: 42,
+        head: {
+          sha: 'abc123',
+        },
+      },
+    };
+    actionMocks.processFiles.mockReturnValue({
+      comments: [],
+      stats: {
+        filesScanned: 2,
+        wildcardsFound: 0,
+        blocksCreated: 0,
+        actionsExpanded: 0,
+      },
+      truncatedComments: [],
+    });
+
+    await runAction();
+
+    expect(githubApiMocks.syncReviewComments).toHaveBeenCalledWith({ tag: 'octokit' }, {
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      pullNumber: 42,
+      commitSha: 'abc123',
+      comments: [],
+      existingComments: [],
+    });
+    expect(coreMocks.info).toHaveBeenCalledWith('Scanned 2 file(s)');
+    expect(coreMocks.info).toHaveBeenCalledWith('No IAM wildcard actions found in the changes.');
   });
 
   it('reports failures through core.setFailed', async () => {
