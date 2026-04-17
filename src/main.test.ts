@@ -242,6 +242,87 @@ describe('runAction', () => {
     );
   });
 
+  it('uses the default GitHub URL when a workflow run ID is present without GITHUB_SERVER_URL', async () => {
+    process.env.GITHUB_RUN_ID = '24570015955';
+    githubMocks.context.payload = {
+      pull_request: {
+        number: 9000,
+        head: {
+          sha: 'decafbad',
+        },
+      },
+    };
+    actionMocks.processFiles.mockReturnValue({
+      comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
+      stats: {
+        filesScanned: 1,
+        wildcardsFound: 1,
+        blocksCreated: 1,
+        actionsExpanded: 1,
+      },
+      truncatedComments: [],
+    });
+
+    await runAction();
+
+    expect(actionMocks.processFiles).toHaveBeenCalledWith(
+      [],
+      ['**/*.tf', '**/*.json'],
+      5,
+      {
+        truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/24570015955',
+      },
+    );
+  });
+
+  it('logs truncated comment details without a workflow run URL when none is available', async () => {
+    githubMocks.context.payload = {
+      pull_request: {
+        number: 9000,
+        head: {
+          sha: 'badc0de',
+        },
+      },
+    };
+    actionMocks.processFiles.mockReturnValue({
+      comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
+      stats: {
+        filesScanned: 1,
+        wildcardsFound: 1,
+        blocksCreated: 1,
+        actionsExpanded: 1,
+      },
+      truncatedComments: [{
+        file: 'policy.tf',
+        line: 10,
+        originalActions: ['s3:*'],
+        expandedActions: ['s3:GetObject', 's3:PutObject'],
+        renderedActionsCount: 1,
+      }],
+    });
+
+    await runAction();
+
+    expect(actionMocks.processFiles).toHaveBeenCalledWith(
+      [],
+      ['**/*.tf', '**/*.json'],
+      5,
+      { truncationUrl: undefined },
+    );
+    expect(coreMocks.warning).toHaveBeenCalledWith(
+      'Truncated 1 review comment(s) to stay within GitHub comment limits.',
+    );
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      [
+        'Full IAM expansion for policy.tf:10',
+        'Rendered 1 of 2 action(s) in the PR comment.',
+        'Wildcard patterns: s3:*',
+        '- s3:GetObject',
+        '- s3:PutObject',
+      ].join('\n'),
+    );
+  });
+
   it('syncs empty comments when scanned files contain no IAM wildcards', async () => {
     githubMocks.context.payload = {
       pull_request: {
@@ -496,6 +577,22 @@ describe('runAction', () => {
     await runAction();
 
     expect(coreMocks.setFailed).toHaveBeenCalledWith('GitHub API failed');
+  });
+
+  it('reports non-Error failures through the generic failure message', async () => {
+    githubMocks.context.payload = {
+      pull_request: {
+        number: 9000,
+        head: {
+          sha: 'badc0de',
+        },
+      },
+    };
+    githubApiMocks.listActionReviewComments.mockRejectedValue('boom');
+
+    await runAction();
+
+    expect(coreMocks.setFailed).toHaveBeenCalledWith('An unexpected error occurred');
   });
 
   it('reports invalid collapse-threshold input through core.setFailed', async () => {
