@@ -276,6 +276,41 @@ describe('runAction', () => {
     expect(coreMocks.info).toHaveBeenCalledWith('No IAM wildcard actions found in the changes.');
   });
 
+  it('syncs empty comments when found wildcards do not expand', async () => {
+    githubMocks.context.payload = {
+      pull_request: {
+        number: 1337,
+        head: {
+          sha: 'babecafe',
+        },
+      },
+    };
+    actionMocks.processFiles.mockReturnValue({
+      comments: [],
+      stats: {
+        filesScanned: 1,
+        wildcardsFound: 2,
+        blocksCreated: 1,
+        actionsExpanded: 0,
+      },
+      truncatedComments: [],
+    });
+
+    await runAction();
+
+    expect(githubApiMocks.syncReviewComments).toHaveBeenCalledWith({ tag: 'octokit' }, {
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      pullNumber: 1337,
+      commitSha: 'babecafe',
+      comments: [],
+      existingComments: [],
+    });
+    expect(coreMocks.info).toHaveBeenCalledWith('Scanned 1 file(s)');
+    expect(coreMocks.info).toHaveBeenCalledWith('Found 2 wildcard(s), grouped into 1 block(s)');
+    expect(coreMocks.info).toHaveBeenCalledWith('No wildcard actions could be expanded.');
+  });
+
   it('reports failures through core.setFailed', async () => {
     githubMocks.context.payload = {
       pull_request: {
