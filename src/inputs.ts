@@ -1,4 +1,12 @@
 export const DEFAULT_COLLAPSE_THRESHOLD = 5;
+const COLLAPSE_THRESHOLD_ERROR_SUFFIX =
+  'Expected a non-negative safe integer.';
+
+function createCollapseThresholdError(rawInput: string | undefined): Error {
+  return new Error(
+    `Invalid collapse-threshold input: "${rawInput}". ${COLLAPSE_THRESHOLD_ERROR_SUFFIX}`,
+  );
+}
 
 export function parseCollapseThreshold(rawInput: string | undefined): number {
   const normalizedInput = rawInput?.trim();
@@ -8,17 +16,13 @@ export function parseCollapseThreshold(rawInput: string | undefined): number {
   }
 
   if (!/^\d+$/.test(normalizedInput)) {
-    throw new Error(
-      `Invalid collapse-threshold input: "${rawInput}". Expected a non-negative integer.`,
-    );
+    throw createCollapseThresholdError(rawInput);
   }
 
   const value = Number.parseInt(normalizedInput, 10);
 
   if (!Number.isSafeInteger(value)) {
-    throw new Error(
-      `Invalid collapse-threshold input: "${rawInput}". Expected a non-negative integer.`,
-    );
+    throw createCollapseThresholdError(rawInput);
   }
 
   return value;
