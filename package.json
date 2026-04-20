@@ -9,7 +9,7 @@
     "node": ">=20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "build": "ncc build src/index.ts -o dist --no-source-map-register --license licenses.txt && rm -f dist/licenses.txt dist/package.json",
+    "build": "ncc build src/index.ts -o dist --no-source-map-register --license licenses.txt && rm -rf dist/licenses.txt dist/package.json dist/src dist/scripts",
     "lint": "eslint .",
     "lint:md": "markdownlint '**/*.md' --ignore node_modules",
     "typecheck": "tsc --noEmit",

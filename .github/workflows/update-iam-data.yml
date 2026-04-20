@@ -65,5 +65,5 @@ jobs:
           add-paths: |
             src/iam-actions.ts
             src/service-doc-slugs.ts
-            dist/
+            dist/index.js
             package-lock.json

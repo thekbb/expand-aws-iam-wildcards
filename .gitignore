@@ -7,6 +7,11 @@ dist/*.cjs
 dist/*.js
 !dist/index.js
 dist/*.d.ts
+dist/**/*.map
+dist/**/*.d.ts
+dist/**/*.d.ts.map
+dist/src/
+dist/scripts/
 dist/licenses.txt
 dist/package.json
 dist/sourcemap*
