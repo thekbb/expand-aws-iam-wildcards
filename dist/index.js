@@ -31922,6 +31922,19 @@ function getProxyFetch(destinationUrl) {
 function getApiBaseUrl() {
     return process.env['GITHUB_API_URL'] || 'https://api.github.com';
 }
+function getUserAgentWithOrchestrationId(baseUserAgent) {
+    var _a;
+    const orchId = (_a = process.env['ACTIONS_ORCHESTRATION_ID']) === null || _a === void 0 ? void 0 : _a.trim();
+    if (orchId) {
+        const sanitizedId = orchId.replace(/[^a-z0-9_.-]/gi, '_');
+        const tag = `actions_orchestration_id/${sanitizedId}`;
+        if (baseUserAgent === null || baseUserAgent === void 0 ? void 0 : baseUserAgent.includes(tag))
+            return baseUserAgent;
+        const ua = baseUserAgent ? `${baseUserAgent} ` : '';
+        return `${ua}${tag}`;
+    }
+    return baseUserAgent;
+}
 //# sourceMappingURL=utils.js.map
 ;// CONCATENATED MODULE: ./node_modules/universal-user-agent/index.js
 function getUserAgent() {
@@ -35876,6 +35889,7 @@ const defaults = {
     }
 };
 const GitHub = Octokit.plugin(restEndpointMethods, paginateRest).defaults(defaults);
+
 /**
  * Convience function to correctly format Octokit Options to pass into the constructor.
  *
@@ -35888,6 +35902,11 @@ function getOctokitOptions(token, options) {
     const auth = getAuthString(token, opts);
     if (auth) {
         opts.auth = auth;
+    }
+    // Orchestration ID
+    const userAgent = getUserAgentWithOrchestrationId(opts.userAgent);
+    if (userAgent) {
+        opts.userAgent = userAgent;
     }
     return opts;
 }
@@ -40116,6 +40135,7 @@ const IAM_ACTIONS = [
     "cloudwatch:GetMetricStatistics",
     "cloudwatch:GetMetricStream",
     "cloudwatch:GetMetricWidgetImage",
+    "cloudwatch:GetOTelEnrichment",
     "cloudwatch:GetService",
     "cloudwatch:GetServiceData",
     "cloudwatch:GetServiceLevelObjective",
@@ -40142,7 +40162,9 @@ const IAM_ACTIONS = [
     "cloudwatch:PutMetricStream",
     "cloudwatch:SetAlarmState",
     "cloudwatch:StartMetricStreams",
+    "cloudwatch:StartOTelEnrichment",
     "cloudwatch:StopMetricStreams",
+    "cloudwatch:StopOTelEnrichment",
     "cloudwatch:TagResource",
     "cloudwatch:UntagResource",
     "cloudwatch:UpdateServiceLevelObjective",
@@ -59862,7 +59884,29 @@ async function syncReviewComments(octokit, params) {
     };
 }
 
-;// CONCATENATED MODULE: ./src/index.ts
+;// CONCATENATED MODULE: ./src/inputs.ts
+const DEFAULT_COLLAPSE_THRESHOLD = 5;
+const COLLAPSE_THRESHOLD_ERROR_SUFFIX = 'Expected a non-negative safe integer.';
+function createCollapseThresholdError(rawInput) {
+    return new Error(`Invalid collapse-threshold input: "${rawInput}". ${COLLAPSE_THRESHOLD_ERROR_SUFFIX}`);
+}
+function parseCollapseThreshold(rawInput) {
+    const normalizedInput = rawInput?.trim();
+    if (!normalizedInput) {
+        return DEFAULT_COLLAPSE_THRESHOLD;
+    }
+    if (!/^\d+$/.test(normalizedInput)) {
+        throw createCollapseThresholdError(rawInput);
+    }
+    const value = Number.parseInt(normalizedInput, 10);
+    if (!Number.isSafeInteger(value)) {
+        throw createCollapseThresholdError(rawInput);
+    }
+    return value;
+}
+
+;// CONCATENATED MODULE: ./src/main.ts
+
 
 
 
@@ -59904,20 +59948,20 @@ function logReviewCommentSyncResult(result) {
         info(`Preserved ${result.preservedCount} stale comment thread(s) because they have replies`);
     }
 }
-async function run() {
+async function runAction() {
     try {
-        const token = getInput('github-token', { required: true });
-        const collapseThreshold = parseInt(getInput('collapse-threshold') || '5', 10);
-        const filePatterns = getInput('file-patterns')
-            .split(',')
-            .map((p) => p.trim())
-            .filter(Boolean);
-        const octokit = getOctokit(token);
         const { /* context */ "_": context } = github_namespaceObject;
         if (!context.payload.pull_request) {
             info('This action only runs on pull requests. Skipping.');
             return;
         }
+        const token = getInput('github-token', { required: true });
+        const collapseThreshold = parseCollapseThreshold(getInput('collapse-threshold'));
+        const filePatterns = getInput('file-patterns')
+            .split(',')
+            .map((p) => p.trim())
+            .filter(Boolean);
+        const octokit = getOctokit(token);
         const { owner, repo } = context.repo;
         const pullNumber = context.payload.pull_request.number;
         const commitSha = context.payload.pull_request.head.sha;
@@ -59991,5 +60035,8 @@ async function run() {
         setFailed(error instanceof Error ? error.message : 'An unexpected error occurred');
     }
 }
-run();
+
+;// CONCATENATED MODULE: ./src/index.ts
+
+void runAction();
 
