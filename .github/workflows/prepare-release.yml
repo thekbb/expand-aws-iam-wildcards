@@ -1,0 +1,96 @@
+name: Prepare Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch, tag, or commit to prepare for release
+        required: true
+        default: main
+        type: string
+      version:
+        description: Semver release version without a leading v
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate requested release version
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Expected version input like 1.2.3"
+            exit 1
+          fi
+
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ inputs.ref }}
+
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: '24.14.0'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Lint Markdown
+        run: npm run lint:md
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Run unit tests
+        run: npm test -- --coverage
+
+      - name: Update package version
+        env:
+          VERSION: ${{ inputs.version }}
+        run: npm version --no-git-tag-version "$VERSION"
+
+      - name: Build action bundle on Linux
+        run: npm run build
+
+      - name: Create or update the release preparation branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          BRANCH="release-candidate/v${VERSION}"
+          git switch -c "$BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json dist/
+
+          if git diff --cached --quiet; then
+            echo "No release preparation changes were generated."
+            exit 1
+          fi
+
+          git commit -m "Prepare v${VERSION} release"
+          git push --force-with-lease "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${BRANCH}"
+
+          pr_number="$(gh pr list --head "$BRANCH" --base main --json number --jq '.[0].number // empty')"
+          if [[ -n "$pr_number" ]]; then
+            echo "Updated existing release preparation PR #$pr_number"
+            exit 0
+          fi
+
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "Prepare v${VERSION} release" \
+            --body "Generates the release bundle on Ubuntu, updates package metadata for v${VERSION}, and prepares the exact commit that should be signed and tagged for release."
