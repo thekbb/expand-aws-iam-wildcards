@@ -122,6 +122,18 @@ so it can track the latest compatible `v1` release. For GitHub's model for combi
 major tags, see
 [Using immutable releases and tags to manage your action's releases](https://docs.github.com/en/actions/how-tos/create-and-publish-actions/using-immutable-releases-and-tags-to-manage-your-actions-releases).
 
+## Release Process
+
+Published releases are prepared and verified in GitHub Actions on Ubuntu.
+
+1. Run the `Prepare Release` workflow with the source ref and target version.
+1. Review and merge the resulting `release-candidate/vX.Y.Z` pull request.
+1. Create a signed `vX.Y.Z` tag from that merged commit.
+1. Create a draft GitHub release for the tag.
+1. Run the `Verify Draft Release` workflow with that tag.
+1. If verification succeeds, the workflow will generate an OIDC-backed attestation for
+   `dist/index.js` and publish the draft release.
+
 ## How It Works
 
 1. Fetches the PR diff
@@ -142,6 +154,8 @@ major tags, see
 - **Dependabot-friendly** - GitHub can still raise update PRs for SHA-based action references
 - **Auditable** - the TypeScript source is small and `dist/index.js` is committed
 - **No runtime dependency fetches** - IAM action data is bundled at build time and refreshed in this repo separately
+- **Linux-generated release bundles** - the `Prepare Release` workflow builds `dist/index.js` on Ubuntu before tagging
+- **OIDC-backed release provenance** - the `Verify Draft Release` workflow attests the shipped action bundle before publication
 
 ```yaml
 uses: thekbb/expand-aws-iam-wildcards@5c532fe1c93e7f81e1c311441a17db36d018c128 # v1.2.2
@@ -184,7 +198,21 @@ gpg --show-keys --fingerprint keys/release-signing-key.asc
 
 `--tag` must be a semver release tag with a leading `v`. `--sha` must be a full 40-character commit SHA. The script
 derives the other value automatically, verifies the signed semver tag locally, confirms the tag resolves to the same
-commit, checks that GitHub has a published immutable release for that tag, and checks that the commit is on `main`.
+commit, checks that GitHub has a published immutable release for that tag, verifies the GitHub artifact attestation
+for `dist/index.js` when `gh` is installed, and checks that the commit is on `main`. That release should have been
+prepared from a Linux-generated `release-candidate/vX.Y.Z` commit and published only after the
+`Verify Draft Release` workflow attested `dist/index.js`.
+
+For a separate manual cross-check of the GitHub artifact attestation, check out the release tag and verify
+`dist/index.js` against this repository and the release verification workflow:
+
+```bash
+git checkout v1.2.2
+gh attestation verify dist/index.js \
+  --repo thekbb/expand-aws-iam-wildcards \
+  --signer-workflow thekbb/expand-aws-iam-wildcards/.github/workflows/verify-draft-release.yml \
+  --source-ref refs/tags/v1.2.2
+```
 
 For an additional cross-check, you can confirm the same public key is published on
 `keys.openpgp.org` for `kevin@thekbb.net`:

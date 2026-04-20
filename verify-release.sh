@@ -14,6 +14,7 @@ Usage:
 
 Exactly one of --tag or --sha is required.
 The script runs every verification check it can and exits nonzero if any check fails.
+If GitHub CLI is installed, it also verifies the artifact attestation for `dist/index.js`.
 
 Options:
   --tag       Semver release tag with a leading "v"
@@ -240,6 +241,65 @@ collect_release_metadata() {
   esac
 }
 
+verify_release_attestation() {
+  local artifact_path=''
+  local artifact_label='dist/index.js'
+  local signer_workflow=''
+  local attestation_output=''
+  local -a gh_args=()
+
+  if [[ -z "$resolved_tag" || -z "$resolved_sha" ]]; then
+    emit_result SKIP 'Artifact attestation is valid' 'release tag or commit could not be determined'
+    return
+  fi
+
+  if ! command -v gh >/dev/null 2>&1; then
+    emit_result SKIP 'Artifact attestation is valid' 'GitHub CLI is not installed, so artifact attestation could not be verified'
+    return
+  fi
+
+  if ! resolve_github_repo; then
+    emit_result SKIP 'Artifact attestation is valid' 'GitHub repository could not be determined'
+    return
+  fi
+
+  if ! git -C "$tmp_dir" checkout -q --detach "$resolved_sha" >/dev/null 2>&1; then
+    emit_result FAIL 'Artifact attestation is valid' "unable to check out ${resolved_sha}"
+    return
+  fi
+
+  artifact_path="${tmp_dir}/${artifact_label}"
+  if [[ ! -f "$artifact_path" ]]; then
+    emit_result FAIL 'Artifact attestation is valid' "artifact not found at ${artifact_path}"
+    return
+  fi
+
+  signer_workflow="${github_owner}/${github_repo}/.github/workflows/verify-draft-release.yml"
+  gh_args=(
+    attestation
+    verify
+    "$artifact_path"
+    --repo
+    "${github_owner}/${github_repo}"
+    --signer-workflow
+    "$signer_workflow"
+    --source-ref
+    "refs/tags/${resolved_tag}"
+  )
+
+  if [[ "$github_host" != 'github.com' ]]; then
+    gh_args+=(--hostname "$github_host")
+  fi
+
+  if attestation_output="$(gh "${gh_args[@]}" 2>&1)"; then
+    emit_result PASS 'Artifact attestation is valid' "$(compact_message "$attestation_output")"
+  elif [[ "$attestation_output" == *'HTTP 404:'* ]]; then
+    emit_result FAIL 'Artifact attestation is valid' "no artifact attestation found for ${artifact_label} at refs/tags/${resolved_tag}; this release may predate attestation support"
+  else
+    emit_result FAIL 'Artifact attestation is valid' "$(compact_message "$attestation_output")"
+  fi
+}
+
 tag=''
 sha=''
 github_host=''
@@ -406,6 +466,8 @@ else
   emit_result SKIP 'Published GitHub release exists' 'release tag could not be determined'
   emit_result SKIP 'GitHub release is immutable' 'release tag could not be determined'
 fi
+
+verify_release_attestation
 
 if [[ -n "$resolved_sha" ]] && ((fetch_ok)); then
   if git -C "$tmp_dir" merge-base --is-ancestor "$resolved_sha" origin/main; then
