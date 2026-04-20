@@ -198,9 +198,21 @@ gpg --show-keys --fingerprint keys/release-signing-key.asc
 
 `--tag` must be a semver release tag with a leading `v`. `--sha` must be a full 40-character commit SHA. The script
 derives the other value automatically, verifies the signed semver tag locally, confirms the tag resolves to the same
-commit, checks that GitHub has a published immutable release for that tag, and checks that the commit is on `main`.
-That release should have been prepared from a Linux-generated `release-candidate/vX.Y.Z` commit and published only
-after the `Verify Draft Release` workflow attested `dist/index.js`.
+commit, checks that GitHub has a published immutable release for that tag, verifies the GitHub artifact attestation
+for `dist/index.js` when `gh` is installed, and checks that the commit is on `main`. That release should have been
+prepared from a Linux-generated `release-candidate/vX.Y.Z` commit and published only after the
+`Verify Draft Release` workflow attested `dist/index.js`.
+
+For a separate manual cross-check of the GitHub artifact attestation, check out the release tag and verify
+`dist/index.js` against this repository and the release verification workflow:
+
+```bash
+git checkout v1.2.2
+gh attestation verify dist/index.js \
+  --repo thekbb/expand-aws-iam-wildcards \
+  --signer-workflow thekbb/expand-aws-iam-wildcards/.github/workflows/verify-draft-release.yml \
+  --source-ref refs/tags/v1.2.2
+```
 
 For an additional cross-check, you can confirm the same public key is published on
 `keys.openpgp.org` for `kevin@thekbb.net`:
