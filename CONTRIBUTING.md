@@ -42,8 +42,8 @@ npm run build
 
 Release bundles are generated on Ubuntu through GitHub Actions rather than being committed from a local machine.
 
-1. Make sure the source branch already contains any changelog or source changes you want in the release.
-2. Run the `Prepare Release` workflow with the source ref and target version.
+1. Make sure `main` already contains any changelog or source changes you want in the release.
+2. Run the `Prepare Release` workflow from `main` with the target version.
 3. Review the resulting `release-candidate/vX.Y.Z` pull request and merge it.
 4. Create and push a signed `vX.Y.Z` tag from the merged release-candidate commit.
 5. Create a draft GitHub release for that tag.
