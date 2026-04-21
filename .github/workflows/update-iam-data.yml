@@ -37,7 +37,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet -- src/iam-actions.ts src/service-doc-slugs.ts dist package-lock.json; then
+          if git diff --quiet -- src/iam-actions.ts src/service-doc-slugs.ts dist/index.js package-lock.json; then
             echo "No generated changes detected - IAM data is up to date"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
