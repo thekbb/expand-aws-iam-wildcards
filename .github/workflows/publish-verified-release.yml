@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  attestations: read
 
 jobs:
   publish:
@@ -17,14 +18,67 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.event.client_payload.tag }}
 
-      - name: Ensure a verified draft release exists for the requested tag
+      - name: Verify release before publishing
         env:
           GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
           TAG: ${{ github.event.client_payload.tag }}
+          VERIFIED_REF: ${{ github.event.client_payload.verified_ref }}
+          VERIFIED_RUN_ID: ${{ github.event.client_payload.verified_run_id }}
         run: |
-          if [[ -z "$TAG" ]]; then
-            echo "Missing release tag in repository_dispatch payload."
+          if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Expected semver release tag in repository_dispatch payload, got: $TAG"
+            exit 1
+          fi
+
+          expected_ref="refs/tags/${TAG}"
+          if [[ "$VERIFIED_REF" != "$expected_ref" ]]; then
+            echo "Expected verified_ref $expected_ref, got: $VERIFIED_REF"
+            exit 1
+          fi
+
+          if [[ -z "$VERIFIED_RUN_ID" ]]; then
+            echo "Missing verified_run_id in repository_dispatch payload."
+            exit 1
+          fi
+
+          echo "Publishing $TAG after verification run ${VERIFIED_RUN_ID}."
+
+          git fetch --no-tags origin main:refs/remotes/origin/main
+
+          if [[ "$(git cat-file -t "$TAG")" != "tag" ]]; then
+            echo "Expected $TAG to be an annotated tag."
+            exit 1
+          fi
+
+          gpg --import keys/release-signing-key.asc
+          git verify-tag "$TAG"
+
+          tag_commit="$(git rev-parse "$TAG^{commit}")"
+          head_commit="$(git rev-parse HEAD)"
+          if [[ "$tag_commit" != "$head_commit" ]]; then
+            echo "Expected checked out commit $head_commit to match $TAG commit $tag_commit."
+            exit 1
+          fi
+
+          if ! git merge-base --is-ancestor "$tag_commit" origin/main; then
+            echo "Expected $TAG commit $tag_commit to be reachable from origin/main."
+            exit 1
+          fi
+
+          expected_version="${TAG#v}"
+          package_version="$(node -p "require('./package.json').version")"
+          lockfile_version="$(node -p "require('./package-lock.json').version")"
+
+          if [[ "$package_version" != "$expected_version" ]]; then
+            echo "Expected package.json version $expected_version, got $package_version."
+            exit 1
+          fi
+
+          if [[ "$lockfile_version" != "$expected_version" ]]; then
+            echo "Expected package-lock.json version $expected_version, got $lockfile_version."
             exit 1
           fi
 
@@ -33,6 +87,21 @@ jobs:
             echo "Expected tag $TAG to still have a draft release before publishing."
             exit 1
           fi
+
+          for attempt in {1..6}; do
+            if gh attestation verify dist/index.js \
+              --repo "${GITHUB_REPOSITORY}" \
+              --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/verify-draft-release.yml" \
+              --source-ref "$expected_ref"; then
+              exit 0
+            fi
+
+            echo "Attestation was not available yet; retrying in 10 seconds."
+            sleep 10
+          done
+
+          echo "Failed to verify artifact attestation for dist/index.js."
+          exit 1
 
       - name: Publish the verified draft release
         env:

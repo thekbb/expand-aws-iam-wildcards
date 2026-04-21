@@ -157,4 +157,6 @@ jobs:
           gh api "repos/${{ github.repository }}/dispatches" \
             --method POST \
             -f event_type='publish_verified_release' \
-            -F client_payload[tag]="$TAG"
+            -F client_payload[tag]="$TAG" \
+            -F client_payload[verified_ref]="${GITHUB_REF}" \
+            -F client_payload[verified_run_id]="${GITHUB_RUN_ID}"
