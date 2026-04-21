@@ -40,7 +40,34 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+          fetch-depth: 0
           ref: ${{ inputs.tag }}
+
+      - name: Verify signed release tag
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          git fetch --no-tags origin main:refs/remotes/origin/main
+
+          if [[ "$(git cat-file -t "$TAG")" != "tag" ]]; then
+            echo "Expected $TAG to be an annotated tag."
+            exit 1
+          fi
+
+          gpg --import keys/release-signing-key.asc
+          git verify-tag "$TAG"
+
+          tag_commit="$(git rev-parse "$TAG^{commit}")"
+          head_commit="$(git rev-parse HEAD)"
+          if [[ "$tag_commit" != "$head_commit" ]]; then
+            echo "Expected checked out commit $head_commit to match $TAG commit $tag_commit."
+            exit 1
+          fi
+
+          if ! git merge-base --is-ancestor "$tag_commit" origin/main; then
+            echo "Expected $TAG commit $tag_commit to be reachable from origin/main."
+            exit 1
+          fi
 
       - name: Ensure a draft release exists for the requested tag
         env:
@@ -57,6 +84,24 @@ jobs:
         with:
           node-version: '24.14.0'
           cache: 'npm'
+
+      - name: Verify package metadata matches release tag
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          expected_version="${TAG#v}"
+          package_version="$(node -p "require('./package.json').version")"
+          lockfile_version="$(node -p "require('./package-lock.json').version")"
+
+          if [[ "$package_version" != "$expected_version" ]]; then
+            echo "Expected package.json version $expected_version, got $package_version."
+            exit 1
+          fi
+
+          if [[ "$lockfile_version" != "$expected_version" ]]; then
+            echo "Expected package-lock.json version $expected_version, got $lockfile_version."
+            exit 1
+          fi
 
       - name: Install dependencies
         run: npm ci
@@ -83,6 +128,26 @@ jobs:
         uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
         with:
           subject-path: dist/index.js
+
+      - name: Verify generated build provenance attestation
+        env:
+          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          for attempt in {1..6}; do
+            if gh attestation verify dist/index.js \
+              --repo "${GITHUB_REPOSITORY}" \
+              --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/verify-draft-release.yml" \
+              --source-ref "refs/tags/${TAG}"; then
+              exit 0
+            fi
+
+            echo "Attestation was not available yet; retrying in 10 seconds."
+            sleep 10
+          done
+
+          echo "Failed to verify generated artifact attestation for dist/index.js."
+          exit 1
 
       - name: Dispatch the publish workflow
         env:
