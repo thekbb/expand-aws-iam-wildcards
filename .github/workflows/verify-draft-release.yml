@@ -20,6 +20,23 @@ jobs:
       name: automation
       deployment: false
     steps:
+      - name: Validate release tag input and workflow ref
+        env:
+          TAG: ${{ inputs.tag }}
+          WORKFLOW_REF: ${{ github.ref }}
+        run: |
+          if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Expected tag input like v1.2.3."
+            exit 1
+          fi
+
+          expected_ref="refs/tags/${TAG}"
+          if [[ "$WORKFLOW_REF" != "$expected_ref" ]]; then
+            echo "Run this workflow from the $TAG tag, not $WORKFLOW_REF."
+            echo "In the GitHub UI, choose $TAG in the Run workflow branch/tag dropdown."
+            exit 1
+          fi
+
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
