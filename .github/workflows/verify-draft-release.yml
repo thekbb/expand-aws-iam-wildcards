@@ -16,6 +16,9 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    environment:
+      name: automation
+      deployment: false
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -66,7 +69,7 @@ jobs:
 
       - name: Dispatch the publish workflow
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
           TAG: ${{ inputs.tag }}
         run: |
           gh api "repos/${{ github.repository }}/dispatches" \
