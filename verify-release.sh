@@ -108,6 +108,10 @@ emit_result() {
   fi
 }
 
+indent_lines() {
+  sed 's/^/  /'
+}
+
 parse_github_repo() {
   local remote_url="$1"
   local host=''
@@ -275,6 +279,7 @@ verify_release_attestation() {
   fi
 
   signer_workflow="${github_owner}/${github_repo}/.github/workflows/verify-draft-release.yml"
+  # shellcheck disable=SC2016 # jq interpolation must be passed literally.
   gh_args=(
     attestation
     verify
@@ -285,6 +290,10 @@ verify_release_attestation() {
     "$signer_workflow"
     --source-ref
     "refs/tags/${resolved_tag}"
+    --format
+    json
+    --jq
+    '.[0].verificationResult as $r | "artifact: \($r.statement.subject[0].name)\nsha256: \($r.statement.subject[0].digest.sha256)\nsigner: \($r.signature.certificate.githubWorkflowName) @ \($r.signature.certificate.sourceRepositoryRef)\nrun: \($r.signature.certificate.runInvocationURI)\ntlog: \($r.verifiedTimestamps[0].timestamp)"'
   )
 
   if [[ "$github_host" != 'github.com' ]]; then
@@ -292,7 +301,8 @@ verify_release_attestation() {
   fi
 
   if attestation_output="$(gh "${gh_args[@]}" 2>&1)"; then
-    emit_result PASS 'Artifact attestation is valid' "$(compact_message "$attestation_output")"
+    emit_result PASS 'Artifact attestation is valid' 'verified GitHub Actions provenance'
+    printf '%s\n' "$attestation_output" | indent_lines
   elif [[ "$attestation_output" == *'HTTP 404:'* ]]; then
     emit_result FAIL 'Artifact attestation is valid' "no artifact attestation found for ${artifact_label} at refs/tags/${resolved_tag}; this release may predate attestation support"
   else
@@ -453,6 +463,16 @@ else
   emit_result SKIP 'Tag signature is valid' 'release tag could not be determined'
 fi
 
+if [[ -n "$resolved_sha" ]] && ((fetch_ok)); then
+  if git -C "$tmp_dir" merge-base --is-ancestor "$resolved_sha" origin/main; then
+    emit_result PASS 'Commit is reachable from origin/main' "$resolved_sha"
+  else
+    emit_result FAIL 'Commit is reachable from origin/main' "${resolved_sha} is not reachable from origin/main"
+  fi
+else
+  emit_result SKIP 'Commit is reachable from origin/main' 'commit could not be resolved'
+fi
+
 api_tag="$resolved_tag"
 if [[ -z "$api_tag" && -n "$requested_tag" ]]; then
   api_tag="$requested_tag"
@@ -468,16 +488,6 @@ else
 fi
 
 verify_release_attestation
-
-if [[ -n "$resolved_sha" ]] && ((fetch_ok)); then
-  if git -C "$tmp_dir" merge-base --is-ancestor "$resolved_sha" origin/main; then
-    emit_result PASS 'Commit is reachable from origin/main' "$resolved_sha"
-  else
-    emit_result FAIL 'Commit is reachable from origin/main' "${resolved_sha} is not reachable from origin/main"
-  fi
-else
-  emit_result SKIP 'Commit is reachable from origin/main' 'commit could not be resolved'
-fi
 
 if ((overall_failed)); then
   overall_status="$(format_status FAIL)"
