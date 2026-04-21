@@ -1,6 +1,6 @@
 {
   "name": "expand-aws-iam-wildcards",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "packageManager": "npm@10.8.0",
   "description": "GitHub Action to expand IAM wildcard actions in PR comments",
   "type": "module",
