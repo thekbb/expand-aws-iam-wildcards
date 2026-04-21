@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+## [1.2.3] - 2026-04-20
+
+### Added
+
+- Add OIDC-backed release attestation for the shipped `dist/index.js` action bundle
+- Add release verification docs and extend `verify-release.sh` to check artifact attestations when GitHub CLI is
+  available
+- Add action entrypoint orchestration tests covering pull request handling, comment sync paths, truncation logging, and
+  failure reporting
+
+### Changed
+
+- Refresh bundled IAM action data from AWS
+- Generate release bundles on Ubuntu through the `Prepare Release` workflow instead of from a local machine
+- Include the IAM data generator script in TypeScript checking
+- Update npm dependencies
+
+### Fixed
+
+- Validate the `collapse-threshold` input and fail clearly for invalid values instead of accepting partial parses
+
 ## [1.2.2] - 2026-04-13
 
 ### Changed
@@ -160,7 +181,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add initial release
 
 <!-- markdownlint-disable-next-line MD053 -->
-[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.2...HEAD
+[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.3...HEAD
+[1.2.3]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.1.10...v1.2.0
