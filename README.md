@@ -126,7 +126,7 @@ major tags, see
 
 Published releases are prepared and verified in GitHub Actions on Ubuntu.
 
-1. Run the `Prepare Release` workflow with the source ref and target version.
+1. Run the `Prepare Release` workflow from `main` with the target version.
 1. Review and merge the resulting `release-candidate/vX.Y.Z` pull request.
 1. Create a signed `vX.Y.Z` tag from that merged commit.
 1. Create a draft GitHub release for the tag.

@@ -3,11 +3,6 @@ name: Prepare Release
 on:
   workflow_dispatch:
     inputs:
-      ref:
-        description: Branch, tag, or commit to prepare for release
-        required: true
-        default: main
-        type: string
       version:
         description: Semver release version without a leading v
         required: true
@@ -37,7 +32,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-          ref: ${{ inputs.ref }}
+          ref: main
 
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
