@@ -27,7 +27,7 @@ jobs:
 
       - name: Ensure a draft release exists for the requested tag
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
           TAG: ${{ inputs.tag }}
         run: |
           is_draft="$(gh release view "$TAG" --json isDraft --jq '.isDraft')"

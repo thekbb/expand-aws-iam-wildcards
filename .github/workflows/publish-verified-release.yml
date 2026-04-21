@@ -10,10 +10,13 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment:
+      name: automation
+      deployment: false
     steps:
       - name: Ensure a verified draft release exists for the requested tag
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
           TAG: ${{ github.event.client_payload.tag }}
         run: |
           if [[ -z "$TAG" ]]; then
@@ -29,6 +32,6 @@ jobs:
 
       - name: Publish the verified draft release
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
           TAG: ${{ github.event.client_payload.tag }}
         run: gh release edit "$TAG" --draft=false
