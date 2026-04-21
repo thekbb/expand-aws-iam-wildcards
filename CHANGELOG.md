@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+## [1.2.4] - 2026-04-21
+
+### Fixed
+
+- Require the `Verify Draft Release` workflow to run from the same release tag it verifies, so artifact attestations can
+  be verified with `--source-ref refs/tags/vX.Y.Z` instead of a commit SHA
+
 ## [1.2.3] - 2026-04-20
 
 ### Added
@@ -181,7 +188,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add initial release
 
 <!-- markdownlint-disable-next-line MD053 -->
-[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.3...HEAD
+[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.4...HEAD
+[1.2.4]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.0...v1.2.1
