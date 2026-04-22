@@ -88,7 +88,7 @@ jobs:
             exit 1
           fi
 
-          for attempt in {1..6}; do
+          for _ in {1..6}; do
             if gh attestation verify dist/index.js \
               --repo "${GITHUB_REPOSITORY}" \
               --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/verify-draft-release.yml" \

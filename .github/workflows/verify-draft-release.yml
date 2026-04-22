@@ -134,7 +134,7 @@ jobs:
           GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
           TAG: ${{ inputs.tag }}
         run: |
-          for attempt in {1..6}; do
+          for _ in {1..6}; do
             if gh attestation verify dist/index.js \
               --repo "${GITHUB_REPOSITORY}" \
               --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/verify-draft-release.yml" \
@@ -157,6 +157,6 @@ jobs:
           gh api "repos/${{ github.repository }}/dispatches" \
             --method POST \
             -f event_type='publish_verified_release' \
-            -F client_payload[tag]="$TAG" \
-            -F client_payload[verified_ref]="${GITHUB_REF}" \
-            -F client_payload[verified_run_id]="${GITHUB_RUN_ID}"
+            --field "client_payload[tag]=$TAG" \
+            --field "client_payload[verified_ref]=${GITHUB_REF}" \
+            --field "client_payload[verified_run_id]=${GITHUB_RUN_ID}"
