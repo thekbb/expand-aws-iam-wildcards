@@ -34,7 +34,7 @@
     "minimatch": "^10.0.0"
   },
   "devDependencies": {
-    "@cloud-copilot/iam-data": "^0.18.202603071",
+    "@cloud-copilot/iam-data": "^0.19.202604181",
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.2.1",
     "@vercel/ncc": "~0.38.1",
