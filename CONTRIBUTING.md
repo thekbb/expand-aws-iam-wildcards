@@ -29,6 +29,16 @@ npm run build
 3. Run `npm test`, `npm run lint`, and `npm run lint:md`
 4. Open a PR. Be verbose. We like to read.
 
+## Integration Test
+
+This repository includes a mocked GitHub integration test in
+[`src/integration.test.ts`](src/integration.test.ts).
+
+It runs as part of the normal `npm test` suite and exercises the real action flow against a
+stateful mocked Octokit client. It verifies that a pull request diff containing an IAM wildcard
+produces the expected inline review comment on the first run and reuses that same comment unchanged
+on the second run.
+
 ## Updating IAM Data
 
 IAM action data is updated automatically via a weekly GitHub Action. To update manually:
