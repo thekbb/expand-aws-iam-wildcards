@@ -66,16 +66,11 @@ Release bundles are generated on Ubuntu through GitHub Actions rather than being
 
    ```bash
    gh workflow run prepare-release.yml -f version="$VERSION"
-   gh run list --workflow prepare-release.yml --limit 1
+   run_id="$(gh run list --workflow prepare-release.yml --limit 1 --json databaseId --jq '.[0].databaseId')"
+   gh run watch "$run_id"
    ```
 
 4. Review and merge the resulting `release-candidate/$TAG` pull request.
-
-   If you want to find it from the CLI:
-
-   ```bash
-   gh pr list --head "release-candidate/$TAG" --base main
-   ```
 
 5. After that PR is merged, create and push the signed release tag and the movable major tag:
 
@@ -99,7 +94,8 @@ Release bundles are generated on Ubuntu through GitHub Actions rather than being
 
    ```bash
    gh workflow run verify-draft-release.yml --ref "$TAG" -f tag="$TAG"
-   gh run list --workflow verify-draft-release.yml --limit 1
+   run_id="$(gh run list --workflow verify-draft-release.yml --limit 1 --json databaseId --jq '.[0].databaseId')"
+   gh run watch "$run_id"
    ```
 
    That workflow verifies the signed tag, rebuilds `dist/index.js` on Ubuntu, attests the bundle,
@@ -114,7 +110,12 @@ Release bundles are generated on Ubuntu through GitHub Actions rather than being
 9. Run the local verification script at the end:
 
    ```bash
+   ./verify-release.sh --tag "$TAG"
+   ```
+
+If you need the keys, import them
+
+   ```bash
    gpg --import keys/release-signing-key.asc
    gpg --show-keys --fingerprint keys/release-signing-key.asc
-   ./verify-release.sh --tag "$TAG"
    ```
