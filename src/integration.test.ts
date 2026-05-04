@@ -45,7 +45,7 @@ describe('runAction integration', () => {
     pull_number: number;
     commit_id: string;
     event: 'COMMENT';
-    comments: Array<{ path: string; line: number; body: string }>;
+    comments: { path: string; line: number; body: string }[];
   }) => {
     for (const comment of parameters.comments) {
       reviewComments.push({
