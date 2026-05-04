@@ -35,9 +35,8 @@ This repository includes a mocked GitHub integration test in
 [`src/integration.test.ts`](src/integration.test.ts).
 
 It runs as part of the normal `npm test` suite and exercises the real action flow against a
-stateful mocked Octokit client. It verifies that a pull request diff containing an IAM wildcard
-produces the expected inline review comment on the first run and reuses that same comment unchanged
-on the second run.
+stateful mocked Octokit client. The goal is to cover the main review-comment lifecycle against a
+realistic mocked pull request without depending on live GitHub review comment state in CI.
 
 ## Updating IAM Data
 
