@@ -37,7 +37,23 @@ describe('runAction integration', () => {
   const files: PullRequestFile[] = [];
   const listFilesRoute = {};
   const listReviewCommentsRoute = {};
+  const fixturePath = 'fixtures/integration/smoke/policy.tf';
   let nextCommentId = 1000;
+
+  function setWildcardPatch(action: string): void {
+    files.length = 0;
+    files.push({
+      filename: fixturePath,
+      patch: [
+        '@@ -0,0 +1,5 @@',
+        '+locals {',
+        '+  smoke_policy_actions = [',
+        `+    "${action}",`,
+        '+  ]',
+        '+}',
+      ].join('\n'),
+    });
+  }
 
   const createReview = vi.fn(async (parameters: {
     owner: string;
@@ -103,17 +119,7 @@ describe('runAction integration', () => {
     files.length = 0;
     nextCommentId = 1000;
 
-    files.push({
-      filename: 'fixtures/e2e/smoke/policy.tf',
-      patch: [
-        '@@ -0,0 +1,5 @@',
-        '+locals {',
-        '+  smoke_policy_actions = [',
-        '+    "s3:Get*Tagging",',
-        '+  ]',
-        '+}',
-      ].join('\n'),
-    });
+    setWildcardPatch('s3:Get*Tagging');
 
     coreMocks.getInput.mockImplementation((name: string) => {
       switch (name) {
@@ -153,7 +159,7 @@ describe('runAction integration', () => {
 
     const [comment] = reviewComments;
 
-    expect(comment?.path).toBe('fixtures/e2e/smoke/policy.tf');
+    expect(comment?.path).toBe(fixturePath);
     expect(comment?.line).toBe(3);
     expect(comment?.body).toContain('**IAM Wildcard Expansion**');
     expect(comment?.body).toContain('`s3:Get*Tagging` expands to 5 action(s):');
@@ -168,6 +174,34 @@ describe('runAction integration', () => {
     );
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Synchronized comments: 0 created, 0 updated, 1 unchanged',
+    );
+  });
+
+  it('updates an existing review comment in place when the wildcard changes at the same anchor', async () => {
+    await runAction();
+
+    setWildcardPatch('s3:Put*Tagging');
+
+    await runAction();
+
+    expect(createReview).toHaveBeenCalledTimes(1);
+    expect(updateReviewComment).toHaveBeenCalledTimes(1);
+    expect(deleteReviewComment).not.toHaveBeenCalled();
+    expect(reviewComments).toHaveLength(1);
+
+    const [comment] = reviewComments;
+
+    expect(comment?.path).toBe(fixturePath);
+    expect(comment?.line).toBe(3);
+    expect(comment?.body).toContain('`s3:Put*Tagging` expands to ');
+    expect(comment?.body).toContain('[`s3:PutBucketTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=PutBucketTagging)');
+    expect(comment?.body).not.toContain('`s3:Get*Tagging` expands to 5 action(s):');
+
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Synchronized comments: 1 created, 0 updated, 0 unchanged',
+    );
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Synchronized comments: 0 created, 1 updated, 0 unchanged',
     );
   });
 });
