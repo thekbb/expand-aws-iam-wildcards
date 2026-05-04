@@ -52,10 +52,69 @@ npm run build
 
 Release bundles are generated on Ubuntu through GitHub Actions rather than being committed from a local machine.
 
-1. Make sure `main` already contains any changelog or source changes you want in the release.
-2. Run the `Prepare Release` workflow from `main` with the target version.
-3. Review the resulting `release-candidate/vX.Y.Z` pull request and merge it.
-4. Create and push a signed `vX.Y.Z` tag from the merged release-candidate commit.
-5. Create a draft GitHub release for that tag.
-6. Run the `Verify Draft Release` workflow with that tag.
-7. If verification succeeds, the workflow will attest the bundle and publish the draft release.
+1. Make sure `main` already contains the changelog entry and source changes you want in the
+   release.
+2. Set the release variables:
+
+   ```bash
+   VERSION=1.2.5
+   TAG="v$VERSION"
+   MAJOR_TAG="v${VERSION%%.*}"
+   ```
+
+3. Run `Prepare Release` from `main`:
+
+   ```bash
+   gh workflow run prepare-release.yml -f version="$VERSION"
+   gh run list --workflow prepare-release.yml --limit 1
+   ```
+
+4. Review and merge the resulting `release-candidate/$TAG` pull request.
+
+   If you want to find it from the CLI:
+
+   ```bash
+   gh pr list --head "release-candidate/$TAG" --base main
+   ```
+
+5. After that PR is merged, create and push the signed release tag and the movable major tag:
+
+   ```bash
+   old_major_tag="$(git ls-remote --refs --tags origin "refs/tags/$MAJOR_TAG" | awk '{print $1}')"
+   git fetch origin main --tags
+   git tag -s "$TAG" origin/main -m "$TAG"
+   git tag -s -f "$MAJOR_TAG" origin/main -m "$MAJOR_TAG"
+   git push origin "refs/tags/$TAG"
+   git push --force-with-lease="refs/tags/$MAJOR_TAG:$old_major_tag" origin "refs/tags/$MAJOR_TAG"
+   ```
+
+6. Create the draft GitHub release:
+
+   ```bash
+   gh release create "$TAG" --draft --verify-tag --generate-notes
+   gh release view "$TAG" --json isDraft,tagName,url
+   ```
+
+7. Run `Verify Draft Release` from the release tag itself:
+
+   ```bash
+   gh workflow run verify-draft-release.yml --ref "$TAG" -f tag="$TAG"
+   gh run list --workflow verify-draft-release.yml --limit 1
+   ```
+
+   That workflow verifies the signed tag, rebuilds `dist/index.js` on Ubuntu, attests the bundle,
+   and dispatches `Publish Verified Release` if verification succeeds.
+
+8. Check that the release is now published and immutable:
+
+   ```bash
+   gh release view "$TAG" --json isDraft,isImmutable,isPrerelease,tagName,targetCommitish,url
+   ```
+
+9. Run the local verification script at the end:
+
+   ```bash
+   gpg --import keys/release-signing-key.asc
+   gpg --show-keys --fingerprint keys/release-signing-key.asc
+   ./verify-release.sh --tag "$TAG"
+   ```
