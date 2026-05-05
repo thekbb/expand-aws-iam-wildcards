@@ -47,7 +47,7 @@ describe('runAction integration', () => {
       patch: [
         '@@ -0,0 +1,5 @@',
         '+locals {',
-        '+  smoke_policy_actions = [',
+        '+  policy_actions = [',
         `+    "${action}",`,
         '+  ]',
         '+}',
@@ -62,7 +62,7 @@ describe('runAction integration', () => {
       patch: [
         '@@ -0,0 +1,5 @@',
         '+locals {',
-        '+  smoke_policy_actions = [',
+        '+  policy_actions = [',
         '+    "s3:GetObject",',
         '+  ]',
         '+}',
