@@ -37,7 +37,38 @@ describe('runAction integration', () => {
   const files: PullRequestFile[] = [];
   const listFilesRoute = {};
   const listReviewCommentsRoute = {};
+  const fixturePath = 'fixtures/integration/policy.tf';
   let nextCommentId = 1000;
+
+  function setWildcardPatch(action: string): void {
+    files.length = 0;
+    files.push({
+      filename: fixturePath,
+      patch: [
+        '@@ -0,0 +1,5 @@',
+        '+locals {',
+        '+  smoke_policy_actions = [',
+        `+    "${action}",`,
+        '+  ]',
+        '+}',
+      ].join('\n'),
+    });
+  }
+
+  function setNoWildcardPatch(): void {
+    files.length = 0;
+    files.push({
+      filename: fixturePath,
+      patch: [
+        '@@ -0,0 +1,5 @@',
+        '+locals {',
+        '+  smoke_policy_actions = [',
+        '+    "s3:GetObject",',
+        '+  ]',
+        '+}',
+      ].join('\n'),
+    });
+  }
 
   const createReview = vi.fn(async (parameters: {
     owner: string;
@@ -103,17 +134,7 @@ describe('runAction integration', () => {
     files.length = 0;
     nextCommentId = 1000;
 
-    files.push({
-      filename: 'fixtures/e2e/smoke/policy.tf',
-      patch: [
-        '@@ -0,0 +1,5 @@',
-        '+locals {',
-        '+  smoke_policy_actions = [',
-        '+    "s3:Get*Tagging",',
-        '+  ]',
-        '+}',
-      ].join('\n'),
-    });
+    setWildcardPatch('s3:Get*Tagging');
 
     coreMocks.getInput.mockImplementation((name: string) => {
       switch (name) {
@@ -153,7 +174,7 @@ describe('runAction integration', () => {
 
     const [comment] = reviewComments;
 
-    expect(comment?.path).toBe('fixtures/e2e/smoke/policy.tf');
+    expect(comment?.path).toBe(fixturePath);
     expect(comment?.line).toBe(3);
     expect(comment?.body).toContain('**IAM Wildcard Expansion**');
     expect(comment?.body).toContain('`s3:Get*Tagging` expands to 5 action(s):');
@@ -168,6 +189,28 @@ describe('runAction integration', () => {
     );
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Synchronized comments: 0 created, 0 updated, 1 unchanged',
+    );
+  });
+
+  it('deletes a stale review comment when the same anchor no longer contains a wildcard', async () => {
+    await runAction();
+
+    setNoWildcardPatch();
+
+    await runAction();
+
+    expect(createReview).toHaveBeenCalledTimes(1);
+    expect(updateReviewComment).not.toHaveBeenCalled();
+    expect(deleteReviewComment).toHaveBeenCalledTimes(1);
+    expect(reviewComments).toHaveLength(0);
+
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Synchronized comments: 1 created, 0 updated, 0 unchanged',
+    );
+    expect(coreMocks.info).toHaveBeenCalledWith('Scanned 1 file(s)');
+    expect(coreMocks.info).toHaveBeenCalledWith('No IAM wildcard actions found in the changes.');
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Deleted 1 existing comment(s) from previous runs',
     );
   });
 });
