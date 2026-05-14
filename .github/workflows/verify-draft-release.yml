@@ -18,6 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: automation
+    outputs:
+      tag: ${{ steps.meta.outputs.tag }}
+      verified_ref: ${{ steps.meta.outputs.verified_ref }}
+      verified_run_id: ${{ steps.meta.outputs.verified_run_id }}
+      verified_sha: ${{ steps.meta.outputs.verified_sha }}
     steps:
       - name: Validate release tag input and workflow ref
         env:
@@ -35,6 +40,21 @@ jobs:
             echo "In the GitHub UI, choose $TAG in the Run workflow branch/tag dropdown."
             exit 1
           fi
+
+      - name: Record verified release metadata
+        id: meta
+        env:
+          TAG: ${{ inputs.tag }}
+          VERIFIED_REF: ${{ github.ref }}
+          VERIFIED_RUN_ID: ${{ github.run_id }}
+          VERIFIED_SHA: ${{ github.sha }}
+        run: |
+          {
+            echo "tag=$TAG"
+            echo "verified_ref=$VERIFIED_REF"
+            echo "verified_run_id=$VERIFIED_RUN_ID"
+            echo "verified_sha=$VERIFIED_SHA"
+          } >> "$GITHUB_OUTPUT"
 
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -151,11 +171,15 @@ jobs:
       - name: Dispatch the publish workflow
         env:
           GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
-          TAG: ${{ inputs.tag }}
+          TAG: ${{ steps.meta.outputs.tag }}
+          VERIFIED_REF: ${{ steps.meta.outputs.verified_ref }}
+          VERIFIED_RUN_ID: ${{ steps.meta.outputs.verified_run_id }}
+          VERIFIED_SHA: ${{ steps.meta.outputs.verified_sha }}
         run: |
           gh api "repos/${{ github.repository }}/dispatches" \
             --method POST \
             -f event_type='publish_verified_release' \
             --field "client_payload[tag]=$TAG" \
-            --field "client_payload[verified_ref]=${GITHUB_REF}" \
-            --field "client_payload[verified_run_id]=${GITHUB_RUN_ID}"
+            --field "client_payload[verified_ref]=$VERIFIED_REF" \
+            --field "client_payload[verified_run_id]=$VERIFIED_RUN_ID" \
+            --field "client_payload[verified_sha]=$VERIFIED_SHA"
