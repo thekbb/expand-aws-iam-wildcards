@@ -153,3 +153,26 @@ jobs:
           GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
           TAG: ${{ github.event.client_payload.tag }}
         run: gh release edit "$TAG" --draft=false
+
+      - name: Verify published release is immutable
+        env:
+          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
+          TAG: ${{ github.event.client_payload.tag }}
+        run: |
+          for attempt in 1 2 3 4 5; do
+            is_draft="$(gh release view "$TAG" --json isDraft --jq '.isDraft')"
+            is_immutable="$(gh release view "$TAG" --json isImmutable --jq '.isImmutable')"
+
+            if [[ "$is_draft" == "false" && "$is_immutable" == "true" ]]; then
+              exit 0
+            fi
+
+            if [[ "$attempt" -lt 5 ]]; then
+              sleep 2
+            fi
+          done
+
+          echo "Published release $TAG is not immutable."
+          echo "Expected isDraft=false and isImmutable=true after publishing."
+          echo "Enable GitHub release immutability for this repository before publishing releases."
+          exit 1
