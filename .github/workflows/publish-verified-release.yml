@@ -5,6 +5,7 @@ on:
     types: [publish_verified_release]
 
 permissions:
+  actions: read
   contents: write
   attestations: read
 
@@ -26,6 +27,7 @@ jobs:
           TAG: ${{ github.event.client_payload.tag }}
           VERIFIED_REF: ${{ github.event.client_payload.verified_ref }}
           VERIFIED_RUN_ID: ${{ github.event.client_payload.verified_run_id }}
+          VERIFIED_SHA: ${{ github.event.client_payload.verified_sha }}
         run: |
           if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "Expected semver release tag in repository_dispatch payload, got: $TAG"
@@ -43,7 +45,46 @@ jobs:
             exit 1
           fi
 
+          if [[ ! "$VERIFIED_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Missing or invalid verified_sha in repository_dispatch payload."
+            exit 1
+          fi
+
           echo "Publishing $TAG after verification run ${VERIFIED_RUN_ID}."
+
+          run_json="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${VERIFIED_RUN_ID}")"
+
+          run_name="$(jq -r '.name // empty' <<<"$run_json")"
+          run_event="$(jq -r '.event // empty' <<<"$run_json")"
+          run_status="$(jq -r '.status // empty' <<<"$run_json")"
+          run_conclusion="$(jq -r '.conclusion // empty' <<<"$run_json")"
+          run_head_branch="$(jq -r '.head_branch // empty' <<<"$run_json")"
+          run_head_sha="$(jq -r '.head_sha // empty' <<<"$run_json")"
+
+          if [[ "$run_name" != "Verify Draft Release" ]]; then
+            echo "Workflow run ${VERIFIED_RUN_ID} is ${run_name:-unnamed}, not Verify Draft Release."
+            exit 1
+          fi
+
+          if [[ "$run_event" != "workflow_dispatch" ]]; then
+            echo "Workflow run ${VERIFIED_RUN_ID} was triggered by ${run_event:-unknown}, not workflow_dispatch."
+            exit 1
+          fi
+
+          if [[ "$run_status" != "completed" || "$run_conclusion" != "success" ]]; then
+            echo "Workflow run ${VERIFIED_RUN_ID} is ${run_status:-unknown}/${run_conclusion:-unknown}, not completed/success."
+            exit 1
+          fi
+
+          if [[ "$run_head_branch" != "$TAG" ]]; then
+            echo "Workflow run ${VERIFIED_RUN_ID} was recorded on ${run_head_branch:-unknown}, not ${TAG}."
+            exit 1
+          fi
+
+          if [[ "$run_head_sha" != "$VERIFIED_SHA" ]]; then
+            echo "Workflow run ${VERIFIED_RUN_ID} head SHA ${run_head_sha:-unknown} does not match verified SHA ${VERIFIED_SHA}."
+            exit 1
+          fi
 
           git fetch --no-tags origin main:refs/remotes/origin/main
 
@@ -59,6 +100,11 @@ jobs:
           head_commit="$(git rev-parse HEAD)"
           if [[ "$tag_commit" != "$head_commit" ]]; then
             echo "Expected checked out commit $head_commit to match $TAG commit $tag_commit."
+            exit 1
+          fi
+
+          if [[ "$tag_commit" != "$VERIFIED_SHA" ]]; then
+            echo "Expected checked out tag commit $tag_commit to match verified SHA $VERIFIED_SHA."
             exit 1
           fi
 
