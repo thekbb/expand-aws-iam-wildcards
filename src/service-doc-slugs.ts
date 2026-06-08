@@ -170,6 +170,7 @@ export const SERVICE_DOC_SLUGS: Readonly<Record<string, string>> = {
   "evidently": "amazoncloudwatchevidently",
   "evs": "amazonelasticvmwareservice",
   "execute-api": "amazonapigateway",
+  "finops-agent": "awsfinopsagent",
   "finspace": "amazonfinspace",
   "finspace-api": "amazonfinspaceapi",
   "firehose": "amazonkinesisfirehose",
