@@ -167,6 +167,7 @@ export const SERVICE_DOC_SLUGS: Readonly<Record<string, string>> = {
   "entityresolution": "awsentityresolution",
   "es": "amazonelasticsearchservice",
   "events": "amazoneventbridge",
+  "eventsbilltoaws": "awsreinventeventpassamountchargetocustomerawsaccount",
   "evidently": "amazoncloudwatchevidently",
   "evs": "amazonelasticvmwareservice",
   "execute-api": "amazonapigateway",
