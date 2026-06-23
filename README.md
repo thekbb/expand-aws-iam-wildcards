@@ -133,6 +133,7 @@ Published releases are prepared and verified in GitHub Actions on Ubuntu.
 1. Run the `Verify Draft Release` workflow with that tag.
 1. If verification succeeds, the workflow will generate an OIDC-backed attestation for
    `dist/index.js` and publish the draft release.
+1. After publication is confirmed immutable, move the signed major tag (for example, `v1`) to the release commit.
 
 ## How It Works
 
