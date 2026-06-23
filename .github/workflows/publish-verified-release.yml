@@ -52,12 +52,25 @@ jobs:
 
           echo "Publishing $TAG after verification run ${VERIFIED_RUN_ID}."
 
-          run_json="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${VERIFIED_RUN_ID}")"
+          run_status=''
+          run_conclusion=''
+          for attempt in {1..30}; do
+            run_json="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${VERIFIED_RUN_ID}")"
+            run_status="$(jq -r '.status // empty' <<<"$run_json")"
+            run_conclusion="$(jq -r '.conclusion // empty' <<<"$run_json")"
+
+            if [[ "$run_status" == "completed" ]]; then
+              break
+            fi
+
+            if [[ "$attempt" -lt 30 ]]; then
+              echo "Verification run ${VERIFIED_RUN_ID} is ${run_status:-unknown}; waiting for completion."
+              sleep 2
+            fi
+          done
 
           run_name="$(jq -r '.name // empty' <<<"$run_json")"
           run_event="$(jq -r '.event // empty' <<<"$run_json")"
-          run_status="$(jq -r '.status // empty' <<<"$run_json")"
-          run_conclusion="$(jq -r '.conclusion // empty' <<<"$run_json")"
           run_head_branch="$(jq -r '.head_branch // empty' <<<"$run_json")"
           run_head_sha="$(jq -r '.head_sha // empty' <<<"$run_json")"
 

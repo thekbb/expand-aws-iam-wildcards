@@ -72,15 +72,12 @@ Release bundles are generated on Ubuntu through GitHub Actions rather than being
 
 4. Review and merge the resulting `release-candidate/$TAG` pull request.
 
-5. After that PR is merged, create and push the signed release tag and the movable major tag:
+5. After that PR is merged, create and push the signed release tag:
 
    ```bash
-   old_major_tag="$(git ls-remote --refs --tags origin "refs/tags/$MAJOR_TAG" | awk '{print $1}')"
    git fetch origin main --tags
    git tag -s "$TAG" origin/main -m "$TAG"
-   git tag -s -f "$MAJOR_TAG" origin/main -m "$MAJOR_TAG"
    git push origin "refs/tags/$TAG"
-   git push --force-with-lease="refs/tags/$MAJOR_TAG:$old_major_tag" origin "refs/tags/$MAJOR_TAG"
    ```
 
 6. Create the draft GitHub release:
@@ -107,11 +104,19 @@ Release bundles are generated on Ubuntu through GitHub Actions rather than being
    gh release view "$TAG" --json isDraft,isImmutable,isPrerelease,tagName,targetCommitish,url
    ```
 
-9. Run the local verification script at the end:
+9. Run the local verification script:
 
    ```bash
    ./verify-release.sh --tag "$TAG"
    ```
+
+10. After publication and verification succeed, move the signed major tag to the release commit:
+
+    ```bash
+    old_major_tag="$(git ls-remote --refs --tags origin "refs/tags/$MAJOR_TAG" | awk '{print $1}')"
+    git tag -s -f "$MAJOR_TAG" "$TAG^{commit}" -m "$MAJOR_TAG"
+    git push --force-with-lease="refs/tags/$MAJOR_TAG:$old_major_tag" origin "refs/tags/$MAJOR_TAG"
+    ```
 
 If you need the keys, import them
 
