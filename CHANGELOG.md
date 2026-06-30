@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Wait for the draft-release verification workflow to finish before publishing the release
 - Move the signed major tag only after the release is published, verified, and immutable
+- Identify release workflow runs by their release-specific names and propagate workflow failures to the operator
+- Tag the exact release preparation PR merge commit instead of whichever commit is latest on `main`
 
 ## [1.2.6] - 2026-05-14
 

@@ -52,31 +52,57 @@ npm run build
 
 Release bundles are generated on Ubuntu through GitHub Actions rather than being committed from a local machine.
 
-1. Make sure `main` already contains the changelog entry and source changes you want in the
-   release.
+1. Make sure `main` already contains the changelog entry and source changes you want in the release. The release
+   commands require authenticated `gh`, `git`, and `gpg` clients and a local secret key configured as Git's signing
+   key:
+
+   ```bash
+   gh auth status
+   signing_key="$(git config --get user.signingkey)"
+   test -n "$signing_key"
+   gpg --list-secret-keys "$signing_key"
+   ```
+
 2. Set the release variables:
 
    ```bash
    VERSION=1.2.5
    TAG="v$VERSION"
    MAJOR_TAG="v${VERSION%%.*}"
+   BRANCH="release-candidate/$TAG"
    ```
 
 3. Run `Prepare Release` from `main`:
 
    ```bash
+   run_name="Prepare $TAG"
+   previous_run_id="$(gh run list --workflow prepare-release.yml --event workflow_dispatch --limit 50 \
+     --json databaseId,displayTitle --jq ".[] | select(.displayTitle == \"$run_name\") | .databaseId" | head -n 1)"
    gh workflow run prepare-release.yml -f version="$VERSION"
-   run_id="$(gh run list --workflow prepare-release.yml --limit 1 --json databaseId --jq '.[0].databaseId')"
-   gh run watch "$run_id"
+   run_id=''
+   for _ in {1..30}; do
+     sleep 2
+     run_id="$(gh run list --workflow prepare-release.yml --event workflow_dispatch --limit 50 \
+       --json databaseId,displayTitle --jq ".[] | select(.displayTitle == \"$run_name\") | .databaseId" | head -n 1)"
+     [[ -n "$run_id" && "$run_id" != "$previous_run_id" ]] && break
+   done
+   test -n "$run_id"
+   test "$run_id" != "$previous_run_id"
+   gh run watch "$run_id" --exit-status
    ```
 
-4. Review and merge the resulting `release-candidate/$TAG` pull request.
+4. Review and merge the resulting `$BRANCH` pull request.
 
-5. After that PR is merged, create and push the signed release tag:
+5. After that PR is merged, resolve its exact merge commit, then create and push the signed release tag. Do not tag
+   the latest `main` by name because another PR could merge between these steps.
 
    ```bash
+   pr_state="$(gh pr view "$BRANCH" --json state --jq '.state')"
+   test "$pr_state" = MERGED
+   release_sha="$(gh pr view "$BRANCH" --json mergeCommit --jq '.mergeCommit.oid')"
    git fetch origin main --tags
-   git tag -s "$TAG" origin/main -m "$TAG"
+   git merge-base --is-ancestor "$release_sha" origin/main
+   git tag -s "$TAG" "$release_sha" -m "$TAG"
    git push origin "refs/tags/$TAG"
    ```
 
@@ -90,9 +116,22 @@ Release bundles are generated on Ubuntu through GitHub Actions rather than being
 7. Run `Verify Draft Release` from the release tag itself:
 
    ```bash
+   run_name="Verify $TAG"
+   previous_run_id="$(gh run list --workflow verify-draft-release.yml --event workflow_dispatch --branch "$TAG" \
+     --limit 50 --json databaseId,displayTitle \
+     --jq ".[] | select(.displayTitle == \"$run_name\") | .databaseId" | head -n 1)"
    gh workflow run verify-draft-release.yml --ref "$TAG" -f tag="$TAG"
-   run_id="$(gh run list --workflow verify-draft-release.yml --limit 1 --json databaseId --jq '.[0].databaseId')"
-   gh run watch "$run_id"
+   run_id=''
+   for _ in {1..30}; do
+     sleep 2
+     run_id="$(gh run list --workflow verify-draft-release.yml --event workflow_dispatch --branch "$TAG" \
+       --limit 50 --json databaseId,displayTitle \
+       --jq ".[] | select(.displayTitle == \"$run_name\") | .databaseId" | head -n 1)"
+     [[ -n "$run_id" && "$run_id" != "$previous_run_id" ]] && break
+   done
+   test -n "$run_id"
+   test "$run_id" != "$previous_run_id"
+   gh run watch "$run_id" --exit-status
    ```
 
    That workflow verifies the signed tag, rebuilds `dist/index.js` on Ubuntu, attests the bundle,
