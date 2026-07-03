@@ -82,6 +82,13 @@ prepare workflow.
    ! git ls-remote --exit-code --heads origin "$BRANCH"
    ```
 
+   Instead of running the preflight checks and `Prepare Release` commands manually, use the release script. It stops
+   after the release preparation PR is ready; if you use it, skip step 3 and continue at step 4.
+
+   ```bash
+   scripts/release.sh "$VERSION"
+   ```
+
 3. Run `Prepare Release` from `main`:
 
    ```bash
