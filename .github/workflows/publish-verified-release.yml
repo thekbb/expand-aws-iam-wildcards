@@ -74,8 +74,9 @@ jobs:
           run_head_branch="$(jq -r '.head_branch // empty' <<<"$run_json")"
           run_head_sha="$(jq -r '.head_sha // empty' <<<"$run_json")"
 
-          if [[ "$run_name" != "Verify Draft Release" ]]; then
-            echo "Workflow run ${VERIFIED_RUN_ID} is ${run_name:-unnamed}, not Verify Draft Release."
+          expected_run_name="Verify ${TAG}"
+          if [[ "$run_name" != "$expected_run_name" ]]; then
+            echo "Workflow run ${VERIFIED_RUN_ID} is ${run_name:-unnamed}, not ${expected_run_name}."
             exit 1
           fi
 
