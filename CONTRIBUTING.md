@@ -51,25 +51,35 @@ npm run build
 ## Preparing a Release
 
 Release bundles are generated on Ubuntu through GitHub Actions rather than being committed from a local machine.
+Releases originate from `main`; the `release-candidate/$TAG` branch is a temporary review branch created by the
+prepare workflow.
 
-1. Make sure `main` already contains the changelog entry and source changes you want in the release. The release
-   commands require authenticated `gh`, `git`, and `gpg` clients and a local secret key configured as Git's signing
-   key:
-
-   ```bash
-   gh auth status
-   signing_key="$(git config --get user.signingkey)"
-   test -n "$signing_key"
-   gpg --list-secret-keys "$signing_key"
-   ```
-
-2. Set the release variables:
+1. Set the release variables:
 
    ```bash
+   set -euo pipefail
    VERSION=1.2.5
    TAG="v$VERSION"
    MAJOR_TAG="v${VERSION%%.*}"
    BRANCH="release-candidate/$TAG"
+   ```
+
+2. Run the release preflight checks. `main` must already contain the changelog entry and source changes you want in
+   the release.
+
+   ```bash
+   gh auth status
+   printf '%s\n' "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'
+   test "$(git branch --show-current)" = main
+   git fetch origin main --tags
+   test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+   test -z "$(git status --porcelain)"
+   test -n "$(git config --get user.signingkey)"
+   gpg --list-secret-keys "$(git config --get user.signingkey)"
+   grep -q "^## \\[$VERSION\\]" CHANGELOG.md
+   ! git rev-parse -q --verify "refs/tags/$TAG"
+   ! git ls-remote --exit-code --tags origin "$TAG"
+   ! git ls-remote --exit-code --heads origin "$BRANCH"
    ```
 
 3. Run `Prepare Release` from `main`:
@@ -156,6 +166,19 @@ Release bundles are generated on Ubuntu through GitHub Actions rather than being
     git tag -s -f "$MAJOR_TAG" "$TAG^{commit}" -m "$MAJOR_TAG"
     git push --force-with-lease="refs/tags/$MAJOR_TAG:$old_major_tag" origin "refs/tags/$MAJOR_TAG"
     ```
+
+The release process is safe to resume from the latest completed checkpoint:
+
+1. release variables set and preflight checks passed
+2. prepare workflow dispatched
+3. release preparation pull request created from `$BRANCH`
+4. release preparation pull request reviewed and merged into `main`
+5. signed version tag pushed to the release preparation PR merge commit
+6. draft release created for `$TAG`
+7. draft release verified from the tag ref
+8. release published and immutable
+9. local release verification passed
+10. signed major tag moved to the release commit
 
 If you need the keys, import them
 
