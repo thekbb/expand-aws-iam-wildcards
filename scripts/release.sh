@@ -11,8 +11,9 @@ Examples:
   scripts/release.sh 1.2.8
   scripts/release.sh 1.2.8 --continue
 
-Without --continue, prepares a release candidate PR and stops for review.
-With --continue, resumes after the release candidate PR is merged and completes the release.
+Without --continue, prepares a release candidate PR and waits for review.
+After you merge that PR, press Enter and the script completes the release.
+With --continue, resumes after the release candidate PR is already merged.
 EOF
 }
 
@@ -53,6 +54,19 @@ require_clean_main() {
   if [[ -n "$(git status --porcelain)" ]]; then
     die "working tree must be clean"
   fi
+}
+
+sync_clean_main() {
+  if [[ "$(git branch --show-current)" != "main" ]]; then
+    die "release must run from main"
+  fi
+
+  if [[ -n "$(git status --porcelain)" ]]; then
+    die "working tree must be clean"
+  fi
+
+  git fetch origin main --tags
+  git merge --ff-only origin/main
 }
 
 require_signing_key() {
@@ -175,9 +189,10 @@ prepare_release() {
 Release preparation PR is ready:
 $pr_url
 
-Stop here. Review and merge the release preparation PR before continuing.
+Review and merge the release preparation PR before continuing.
 
-After the PR is merged, run:
+If this script is still running, press Enter after the PR is merged.
+To resume later instead, run:
 scripts/release.sh $VERSION --continue
 
 Release state:
@@ -186,6 +201,15 @@ Release state:
   major tag: $MAJOR_TAG
   branch:    $BRANCH
 EOF
+
+  if [[ ! -t 0 ]]; then
+    echo
+    echo "No interactive terminal detected; run scripts/release.sh $VERSION --continue after merging the PR."
+    return 0
+  fi
+
+  read -r -p "Press Enter after the release preparation PR is merged, or Ctrl-C to resume later with --continue. "
+  continue_release
 }
 
 ensure_version_tag() {
@@ -299,7 +323,7 @@ continue_release() {
   echo "Continuing release for $TAG"
 
   gh auth status >/dev/null
-  require_clean_main
+  sync_clean_main
   require_signing_key
 
   pr_state="$(gh pr list --state all --head "$BRANCH" --base main --json state --jq '.[0].state // empty')"
