@@ -83,7 +83,7 @@ prepare workflow.
    ```
 
    Instead of running the preflight checks and `Prepare Release` commands manually, use the release script. It stops
-   after the release preparation PR is ready; if you use it, skip step 3 and continue at step 4.
+   after the release preparation PR is ready for review; if you use it, skip step 3 and continue at step 4.
 
    ```bash
    scripts/release.sh "$VERSION"
@@ -109,6 +109,14 @@ prepare workflow.
    ```
 
 4. Review and merge the resulting `$BRANCH` pull request.
+
+   After merging the pull request, the release script can complete the remaining steps:
+
+   ```bash
+   scripts/release.sh "$VERSION" --continue
+   ```
+
+   If you use `--continue`, skip the remaining manual steps.
 
 5. After that PR is merged, resolve its exact merge commit, then create and push the signed release tag. Do not tag
    the latest `main` by name because another PR could merge between these steps.
