@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
-## [1.2.7]
+## [1.2.7] - 2026-07-03
 
 ### Fixed
 
@@ -220,7 +220,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add initial release
 
 <!-- markdownlint-disable-next-line MD053 -->
-[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.6...HEAD
+[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.7...HEAD
+[1.2.7]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.6...v1.2.7
 [1.2.6]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.5...v1.2.6
 [1.2.5]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.4...v1.2.5
 [1.2.4]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.3...v1.2.4
