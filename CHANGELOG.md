@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Fixed
+
+- Accept release-specific verify workflow run names before publishing a verified release
+
 ## [1.2.7] - 2026-07-03
 
 ### Fixed
