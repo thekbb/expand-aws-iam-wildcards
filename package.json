@@ -40,7 +40,7 @@
     "@vercel/ncc": "~0.44.0",
     "@vitest/coverage-v8": "^4.0.15",
     "eslint": "^10.0.0",
-    "markdownlint-cli": "~0.48.0",
+    "markdownlint-cli": "~0.49.0",
     "tsx": "~4.22.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.54.0",
