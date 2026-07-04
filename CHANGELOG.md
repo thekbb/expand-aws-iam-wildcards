@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Accept release-specific verify workflow run names before publishing a verified release
+- Add a release script continuation mode for tagging, publishing, verifying, and moving the major tag
+- Make the default release script flow wait for PR review and then continue the release
 
 ## [1.2.7] - 2026-07-03
 

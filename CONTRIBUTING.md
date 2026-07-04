@@ -82,8 +82,8 @@ prepare workflow.
    ! git ls-remote --exit-code --heads origin "$BRANCH"
    ```
 
-   Instead of running the preflight checks and `Prepare Release` commands manually, use the release script. It stops
-   after the release preparation PR is ready; if you use it, skip step 3 and continue at step 4.
+   Instead of running the preflight checks and `Prepare Release` commands manually, use the release script. It waits
+   after the release preparation PR is ready for review; after you merge that PR, press Enter to continue the release.
 
    ```bash
    scripts/release.sh "$VERSION"
@@ -109,6 +109,14 @@ prepare workflow.
    ```
 
 4. Review and merge the resulting `$BRANCH` pull request.
+
+   If you stopped the script after creating the release preparation PR, resume after merging the pull request:
+
+   ```bash
+   scripts/release.sh "$VERSION" --continue
+   ```
+
+   If you use the release script, skip the remaining manual steps.
 
 5. After that PR is merged, resolve its exact merge commit, then create and push the signed release tag. Do not tag
    the latest `main` by name because another PR could merge between these steps.
