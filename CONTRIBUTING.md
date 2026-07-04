@@ -76,7 +76,7 @@ prepare workflow.
    test -z "$(git status --porcelain)"
    test -n "$(git config --get user.signingkey)"
    gpg --list-secret-keys "$(git config --get user.signingkey)"
-   grep -q "^## \\[$VERSION\\]" CHANGELOG.md
+   grep -q "^## \\[UNRELEASED\\]" CHANGELOG.md
    ! git rev-parse -q --verify "refs/tags/$TAG"
    ! git ls-remote --exit-code --tags origin "$TAG"
    ! git ls-remote --exit-code --heads origin "$BRANCH"
@@ -84,9 +84,15 @@ prepare workflow.
 
    Instead of running the preflight checks and `Prepare Release` commands manually, use the release script. It waits
    after the release preparation PR is ready for review; after you merge that PR, press Enter to continue the release.
+   By default, the release preparation PR finalizes the changelog with the requested version, date, and compare links.
+   If the changelog was already finalized manually, pass `--no-finalize-changelog`.
 
    ```bash
    scripts/release.sh "$VERSION"
+   ```
+
+   ```bash
+   scripts/release.sh "$VERSION" --no-finalize-changelog
    ```
 
 3. Run `Prepare Release` from `main`:
