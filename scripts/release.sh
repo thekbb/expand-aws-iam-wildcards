@@ -6,14 +6,19 @@ usage() {
 Usage:
   scripts/release.sh VERSION
   scripts/release.sh VERSION --continue
+  scripts/release.sh VERSION --no-finalize-changelog
+  scripts/release.sh VERSION --finalize-changelog
 
 Examples:
   scripts/release.sh 1.2.8
   scripts/release.sh 1.2.8 --continue
+  scripts/release.sh 1.2.8 --no-finalize-changelog
 
-Without --continue, prepares a release candidate PR and waits for review.
+Without --continue, prepares a release candidate PR, finalizes CHANGELOG.md, and waits for review.
 After you merge that PR, press Enter and the script completes the release.
 With --continue, resumes after the release candidate PR is already merged.
+With --no-finalize-changelog, expects CHANGELOG.md to already have the release heading and links.
+With --finalize-changelog, updates CHANGELOG.md for the release preparation PR.
 EOF
 }
 
@@ -78,6 +83,64 @@ require_signing_key() {
   fi
 
   gpg --list-secret-keys "$signing_key" >/dev/null
+}
+
+finalize_changelog() {
+  node - "$VERSION" <<'NODE'
+const fs = require('fs');
+
+const version = process.argv[2];
+const repoUrl = 'https://github.com/thekbb/expand-aws-iam-wildcards';
+const date = process.env.RELEASE_DATE || new Date().toISOString().slice(0, 10);
+const tag = `v${version}`;
+const changelogPath = 'CHANGELOG.md';
+let changelog = fs.readFileSync(changelogPath, 'utf8');
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function fail(message) {
+  console.error(`error: ${message}`);
+  process.exit(1);
+}
+
+if (!/^## \[UNRELEASED\]$/m.test(changelog)) {
+  fail('CHANGELOG.md is missing an [UNRELEASED] heading');
+}
+
+const versionHeadingPattern = new RegExp(`^## \\[${escapeRegExp(version)}\\](?:\\s|-|$)`, 'm');
+if (versionHeadingPattern.test(changelog)) {
+  fail(`CHANGELOG.md already has a ${version} heading`);
+}
+
+const versionLinkPattern = new RegExp(`^\\[${escapeRegExp(version)}\\]:\\s`, 'm');
+if (versionLinkPattern.test(changelog)) {
+  fail(`CHANGELOG.md already has a ${version} link`);
+}
+
+const unreleasedLinkPattern = new RegExp(
+  `^\\[Unreleased\\]: ${escapeRegExp(repoUrl)}/compare/v([0-9]+\\.[0-9]+\\.[0-9]+)\\.\\.\\.HEAD$`,
+  'm',
+);
+const unreleasedLink = changelog.match(unreleasedLinkPattern);
+if (!unreleasedLink) {
+  fail('CHANGELOG.md is missing the expected [Unreleased] compare link');
+}
+
+const previousVersion = unreleasedLink[1];
+changelog = changelog.replace(
+  /^## \[UNRELEASED\]\n/m,
+  `## [UNRELEASED]\n\n## [${version}] - ${date}\n`,
+);
+
+changelog = changelog.replace(
+  unreleasedLinkPattern,
+  `[Unreleased]: ${repoUrl}/compare/${tag}...HEAD\n[${version}]: ${repoUrl}/compare/v${previousVersion}...${tag}`,
+);
+
+fs.writeFileSync(changelogPath, changelog);
+NODE
 }
 
 find_new_workflow_run() {
@@ -156,7 +219,12 @@ prepare_release() {
   require_clean_main
   require_signing_key
 
-  grep -q "^## \\[$VERSION\\]" CHANGELOG.md || die "CHANGELOG.md is missing an entry for $VERSION"
+  if [[ "$FINALIZE_CHANGELOG" == "true" ]]; then
+    grep -q "^## \\[UNRELEASED\\]" CHANGELOG.md || die "CHANGELOG.md is missing an [UNRELEASED] entry"
+  else
+    grep -q "^## \\[$VERSION\\] - " CHANGELOG.md || die "CHANGELOG.md is missing a dated $VERSION entry"
+    grep -q "^\\[$VERSION\\]: .*v${VERSION}$" CHANGELOG.md || die "CHANGELOG.md is missing the $VERSION compare link"
+  fi
 
   if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; then
     die "local tag already exists: $TAG"
@@ -173,7 +241,7 @@ prepare_release() {
   echo "Dispatching Prepare Release for $TAG"
 
   previous_run_id="$(latest_workflow_run_id prepare-release.yml "$PREPARE_RUN_NAME")"
-  gh workflow run prepare-release.yml -f version="$VERSION"
+  gh workflow run prepare-release.yml -f version="$VERSION" -f finalize_changelog="$FINALIZE_CHANGELOG"
   run_id="$(find_new_workflow_run prepare-release.yml "$PREPARE_RUN_NAME" "$previous_run_id")" \
     || die "could not find the newly dispatched Prepare Release workflow run"
 
@@ -319,6 +387,7 @@ continue_release() {
   local release_sha
   local package_version
   local lockfile_version
+  local changelog
 
   echo "Continuing release for $TAG"
 
@@ -354,6 +423,15 @@ continue_release() {
     die "package-lock.json at $release_sha has version $lockfile_version, expected $VERSION"
   fi
 
+  changelog="$(git show "$release_sha:CHANGELOG.md")"
+  if ! grep -q "^## \\[$VERSION\\] - " <<<"$changelog"; then
+    die "CHANGELOG.md at $release_sha is missing a dated $VERSION heading"
+  fi
+
+  if ! grep -q "^\\[$VERSION\\]: .*v${VERSION}$" <<<"$changelog"; then
+    die "CHANGELOG.md at $release_sha is missing the $VERSION compare link"
+  fi
+
   ensure_version_tag "$release_sha"
   ensure_draft_release
   verify_and_publish_release
@@ -376,19 +454,35 @@ if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
   exit 0
 fi
 
-if [[ "$#" -lt 1 || "$#" -gt 2 ]]; then
+if [[ "$#" -lt 1 || "$#" -gt 3 ]]; then
   usage >&2
   exit 2
 fi
 
 VERSION=$1
 MODE=prepare
+FINALIZE_CHANGELOG=true
 
-if [[ "${2:-}" == "--continue" ]]; then
-  MODE=post_merge
-elif [[ -n "${2:-}" ]]; then
-  usage >&2
-  exit 2
+for arg in "${@:2}"; do
+  case "$arg" in
+    --continue)
+      MODE=post_merge
+      ;;
+    --finalize-changelog)
+      MODE=finalize_changelog
+      ;;
+    --no-finalize-changelog)
+      FINALIZE_CHANGELOG=false
+      ;;
+    *)
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+if [[ "$MODE" != "prepare" && "$FINALIZE_CHANGELOG" == "false" ]]; then
+  die "--no-finalize-changelog is only valid for the default release preparation mode"
 fi
 
 if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
@@ -398,16 +492,22 @@ fi
 TAG="v$VERSION"
 MAJOR_TAG="v${VERSION%%.*}"
 BRANCH="release-candidate/$TAG"
-PREPARE_RUN_NAME="Prepare $TAG"
-VERIFY_RUN_NAME="Verify $TAG"
-
 require_command awk
-require_command gh
 require_command git
-require_command gpg
 require_command grep
 require_command head
 require_command node
+
+if [[ "$MODE" == "finalize_changelog" ]]; then
+  finalize_changelog
+  exit 0
+fi
+
+PREPARE_RUN_NAME="Prepare $TAG"
+VERIFY_RUN_NAME="Verify $TAG"
+
+require_command gh
+require_command gpg
 
 if [[ "$MODE" == "post_merge" ]]; then
   continue_release

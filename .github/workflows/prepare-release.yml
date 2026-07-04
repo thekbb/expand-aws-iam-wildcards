@@ -8,6 +8,11 @@ on:
         description: Semver release version without a leading v
         required: true
         type: string
+      finalize_changelog:
+        description: Finalize CHANGELOG.md with the requested release version
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: write
@@ -49,6 +54,12 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Finalize changelog
+        if: inputs.finalize_changelog
+        env:
+          VERSION: ${{ inputs.version }}
+        run: scripts/release.sh "$VERSION" --finalize-changelog
+
       - name: Lint Markdown
         run: npm run lint:md
 
@@ -75,7 +86,7 @@ jobs:
           git switch -c "$BRANCH"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json dist/index.js
+          git add CHANGELOG.md package.json package-lock.json dist/index.js
 
           if git diff --cached --quiet; then
             echo "No release preparation changes were generated."
