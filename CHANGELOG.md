@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+## [1.3.0] - 2026-07-06
+
 ### Changed
 
 - Refresh bundled IAM action data from AWS
@@ -235,7 +237,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add initial release
 
 <!-- markdownlint-disable-next-line MD053 -->
-[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.7...HEAD
+[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.7...v1.3.0
 [1.2.7]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.6...v1.2.7
 [1.2.6]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.5...v1.2.6
 [1.2.5]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v1.2.4...v1.2.5
