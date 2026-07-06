@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Changed
+
+- Refresh bundled IAM action data from AWS
+
 ### Fixed
 
 - Accept release-specific verify workflow run names before publishing a verified release
@@ -17,9 +21,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.2.7] - 2026-07-03
 
-### Fixed
+### Changed
 
 - Refresh bundled IAM action data from AWS
+
+### Fixed
+
 - Wait for the draft-release verification workflow to finish before publishing the release
 - Move the signed major tag only after the release is published, verified, and immutable
 - Identify release workflow runs by their release-specific names and propagate workflow failures to the operator
