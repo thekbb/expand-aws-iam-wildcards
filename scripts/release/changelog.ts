@@ -62,25 +62,42 @@ export function finalizeChangelogFile(
   writeFileSync(changelogPath, finalizeChangelogContent(changelog, options));
 }
 
-function main(): void {
-  const version = process.argv[2];
+export interface FinalizeChangelogCliOptions {
+  argv: readonly string[];
+  env: NodeJS.ProcessEnv;
+  stderr: Pick<typeof console, 'error'>;
+}
+
+export function runFinalizeChangelogCli({
+  argv,
+  env,
+  stderr,
+}: FinalizeChangelogCliOptions): number {
+  const version = argv[2];
   if (version === undefined || version === '') {
-    console.error('error: expected version input like 1.2.3');
-    process.exit(1);
+    stderr.error('error: expected version input like 1.2.3');
+    return 1;
   }
 
   try {
     finalizeChangelogFile('CHANGELOG.md', {
-      date: process.env.RELEASE_DATE ?? new Date().toISOString().slice(0, 10),
+      date: env.RELEASE_DATE ?? new Date().toISOString().slice(0, 10),
       version,
     });
+    return 0;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    console.error(`error: ${message}`);
-    process.exit(1);
+    stderr.error(`error: ${message}`);
+    return 1;
   }
 }
 
+/* c8 ignore next 3 */
+function main(): void {
+  process.exit(runFinalizeChangelogCli({ argv: process.argv, env: process.env, stderr: console }));
+}
+
+/* c8 ignore next 3 */
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main();
 }

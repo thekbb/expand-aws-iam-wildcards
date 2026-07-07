@@ -1,6 +1,13 @@
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-import { finalizeChangelogContent } from './changelog.js';
+import {
+  finalizeChangelogContent,
+  finalizeChangelogFile,
+  runFinalizeChangelogCli,
+} from './changelog.js';
 
 const baseChangelog = `# Changelog
 
@@ -92,5 +99,73 @@ describe('finalizeChangelogContent', () => {
         },
       ),
     ).toThrow('CHANGELOG.md is missing the expected [Unreleased] compare link');
+  });
+});
+
+describe('finalizeChangelogFile', () => {
+  it('updates a changelog file in place', () => {
+    const changelogPath = join(mkdtempSync(join(tmpdir(), 'release-changelog-')), 'CHANGELOG.md');
+    writeFileSync(changelogPath, baseChangelog);
+
+    finalizeChangelogFile(changelogPath, {
+      date: '2026-07-06',
+      version: '1.3.0',
+    });
+
+    expect(readFileSync(changelogPath, 'utf8')).toContain('## [1.3.0] - 2026-07-06');
+  });
+});
+
+describe('runFinalizeChangelogCli', () => {
+  it('finalizes CHANGELOG.md in the current working directory', () => {
+    const previousCwd = process.cwd();
+    const workspace = mkdtempSync(join(tmpdir(), 'release-changelog-cli-'));
+    writeFileSync(join(workspace, 'CHANGELOG.md'), baseChangelog);
+
+    process.chdir(workspace);
+    try {
+      const exitCode = runFinalizeChangelogCli({
+        argv: ['node', 'changelog.ts', '1.3.0'],
+        env: { RELEASE_DATE: '2026-07-06' },
+        stderr: console,
+      });
+
+      expect(exitCode).toBe(0);
+      expect(readFileSync('CHANGELOG.md', 'utf8')).toContain('## [1.3.0] - 2026-07-06');
+    } finally {
+      process.chdir(previousCwd);
+    }
+  });
+
+  it('rejects a missing version argument', () => {
+    const errors: string[] = [];
+
+    const exitCode = runFinalizeChangelogCli({
+      argv: ['node', 'changelog.ts'],
+      env: {},
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual(['error: expected version input like 1.2.3']);
+  });
+
+  it('reports changelog finalization errors', () => {
+    const errors: string[] = [];
+    const previousCwd = process.cwd();
+
+    process.chdir(mkdtempSync(join(tmpdir(), 'release-changelog-empty-')));
+    try {
+      const exitCode = runFinalizeChangelogCli({
+        argv: ['node', 'changelog.ts', '1.3.0'],
+        env: { RELEASE_DATE: '2026-07-06' },
+        stderr: { error: (message: string) => errors.push(message) },
+      });
+
+      expect(exitCode).toBe(1);
+      expect(errors).toEqual(['error: ENOENT: no such file or directory, open \'CHANGELOG.md\'']);
+    } finally {
+      process.chdir(previousCwd);
+    }
   });
 });
