@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
 usage() {
   cat <<'EOF'
 Usage:
@@ -86,61 +89,13 @@ require_signing_key() {
 }
 
 finalize_changelog() {
-  node - "$VERSION" <<'NODE'
-const fs = require('fs');
+  local tsx_loader="$REPO_ROOT/node_modules/tsx/dist/loader.mjs"
 
-const version = process.argv[2];
-const repoUrl = 'https://github.com/thekbb/expand-aws-iam-wildcards';
-const date = process.env.RELEASE_DATE || new Date().toISOString().slice(0, 10);
-const tag = `v${version}`;
-const changelogPath = 'CHANGELOG.md';
-let changelog = fs.readFileSync(changelogPath, 'utf8');
+  if [[ ! -f "$tsx_loader" ]]; then
+    die "tsx is not installed; run npm install first"
+  fi
 
-function escapeRegExp(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function fail(message) {
-  console.error(`error: ${message}`);
-  process.exit(1);
-}
-
-if (!/^## \[UNRELEASED\]$/m.test(changelog)) {
-  fail('CHANGELOG.md is missing an [UNRELEASED] heading');
-}
-
-const versionHeadingPattern = new RegExp(`^## \\[${escapeRegExp(version)}\\](?:\\s|-|$)`, 'm');
-if (versionHeadingPattern.test(changelog)) {
-  fail(`CHANGELOG.md already has a ${version} heading`);
-}
-
-const versionLinkPattern = new RegExp(`^\\[${escapeRegExp(version)}\\]:\\s`, 'm');
-if (versionLinkPattern.test(changelog)) {
-  fail(`CHANGELOG.md already has a ${version} link`);
-}
-
-const unreleasedLinkPattern = new RegExp(
-  `^\\[Unreleased\\]: ${escapeRegExp(repoUrl)}/compare/v([0-9]+\\.[0-9]+\\.[0-9]+)\\.\\.\\.HEAD$`,
-  'm',
-);
-const unreleasedLink = changelog.match(unreleasedLinkPattern);
-if (!unreleasedLink) {
-  fail('CHANGELOG.md is missing the expected [Unreleased] compare link');
-}
-
-const previousVersion = unreleasedLink[1];
-changelog = changelog.replace(
-  /^## \[UNRELEASED\]\n/m,
-  `## [UNRELEASED]\n\n## [${version}] - ${date}\n`,
-);
-
-changelog = changelog.replace(
-  unreleasedLinkPattern,
-  `[Unreleased]: ${repoUrl}/compare/${tag}...HEAD\n[${version}]: ${repoUrl}/compare/v${previousVersion}...${tag}`,
-);
-
-fs.writeFileSync(changelogPath, changelog);
-NODE
+  node --import "$tsx_loader" "$SCRIPT_DIR/release/changelog.ts" "$VERSION"
 }
 
 find_new_workflow_run() {
