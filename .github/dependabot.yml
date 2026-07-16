@@ -29,6 +29,10 @@ updates:
       default-days: 7
     commit-message:
       prefix: "ci"
+    groups:
+      codeql:
+        patterns:
+          - "github/codeql-action*"
 
   - package-ecosystem: "pre-commit"
     directory: "/"
