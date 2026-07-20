@@ -410,6 +410,7 @@ export const SERVICE_DOC_SLUGS: Readonly<Record<string, string>> = {
   "support": "awssupport",
   "support-console": "awssupportconsole",
   "supportapp": "awssupportappinslack",
+  "supportauthz": "awssupportauthorization",
   "supportplans": "awssupportplans",
   "sustainability": "awssustainability",
   "swf": "amazonsimpleworkflowservice",
