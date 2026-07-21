@@ -8,6 +8,7 @@ import {
   type ReleaseRuntime,
   createCommandRunner,
   defaultRuntime,
+  createPromptEnter,
   requireCommand,
   readUntilEnter,
   runChecked,
@@ -56,10 +57,51 @@ describe('defaultRuntime', () => {
   });
 });
 
+describe('createPromptEnter', () => {
+  it('writes the prompt and returns after Enter', () => {
+    const path = join(tmpdir(), `release-prompt-${process.pid}-${Date.now()}`);
+    writeFileSync(path, `\nremaining input`);
+    const fd = openSync(path, 'r');
+    const output: string[] = [];
+
+    try {
+      createPromptEnter({ fd, write: (message) => output.push(message) })('Press Enter. ');
+    } finally {
+      closeSync(fd);
+    }
+
+    expect(output).toEqual(['Press Enter. ']);
+  });
+});
+
 describe('readUntilEnter', () => {
   it('returns when it reads a newline without waiting for EOF', () => {
     const path = join(tmpdir(), `release-enter-${process.pid}-${Date.now()}`);
     writeFileSync(path, `\nremaining input`);
+    const fd = openSync(path, 'r');
+
+    try {
+      expect(() => readUntilEnter(fd)).not.toThrow();
+    } finally {
+      closeSync(fd);
+    }
+  });
+
+  it('returns when it reads a carriage return', () => {
+    const path = join(tmpdir(), `release-enter-cr-${process.pid}-${Date.now()}`);
+    writeFileSync(path, `\rremaining input`);
+    const fd = openSync(path, 'r');
+
+    try {
+      expect(() => readUntilEnter(fd)).not.toThrow();
+    } finally {
+      closeSync(fd);
+    }
+  });
+
+  it('returns at EOF', () => {
+    const path = join(tmpdir(), `release-enter-eof-${process.pid}-${Date.now()}`);
+    writeFileSync(path, '');
     const fd = openSync(path, 'r');
 
     try {

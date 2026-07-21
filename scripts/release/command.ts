@@ -44,14 +44,24 @@ export function createCommandRunner(): CommandRunner {
 export function defaultRuntime(stdout: Pick<typeof console, 'log'>): ReleaseRuntime {
   return {
     env: process.env,
-    promptEnter: (message) => {
-      process.stdout.write(message);
-      readUntilEnter(0);
-    },
+    promptEnter: createPromptEnter(),
     run: createCommandRunner(),
     sleep: (milliseconds) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, milliseconds),
     stdinIsTTY: process.stdin.isTTY,
     stdout,
+  };
+}
+
+export function createPromptEnter({
+  fd = 0,
+  write = (message: string) => process.stdout.write(message),
+}: {
+  fd?: number;
+  write?: (message: string) => void;
+} = {}): (message: string) => void {
+  return (message) => {
+    write(message);
+    readUntilEnter(fd);
   };
 }
 
