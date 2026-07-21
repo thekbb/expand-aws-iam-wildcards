@@ -82,17 +82,17 @@ prepare workflow.
    ! git ls-remote --exit-code --heads origin "$BRANCH"
    ```
 
-   Instead of running the preflight checks and `Prepare Release` commands manually, use the release script. It waits
+   Instead of running the preflight checks and `Prepare Release` commands manually, use the release command. It waits
    after the release preparation PR is ready for review; after you merge that PR, press Enter to continue the release.
    By default, the release preparation PR finalizes the changelog with the requested version, date, and compare links.
-   If the changelog was already finalized manually, pass `--no-finalize-changelog`.
+   If the changelog was already finalized manually, pass `--no-finalize-changelog` after the npm argument separator.
 
    ```bash
-   scripts/release.sh "$VERSION"
+   npm run release -- "$VERSION"
    ```
 
    ```bash
-   scripts/release.sh "$VERSION" --no-finalize-changelog
+   npm run release -- "$VERSION" --no-finalize-changelog
    ```
 
 3. Run `Prepare Release` from `main`:
@@ -119,10 +119,10 @@ prepare workflow.
    If you stopped the script after creating the release preparation PR, resume after merging the pull request:
 
    ```bash
-   scripts/release.sh "$VERSION" --continue
+   npm run release -- "$VERSION" --continue
    ```
 
-   If you use the release script, skip the remaining manual steps.
+   If you use the release command, skip the remaining manual steps.
 
 5. After that PR is merged, resolve its exact merge commit, then create and push the signed release tag. Do not tag
    the latest `main` by name because another PR could merge between these steps.

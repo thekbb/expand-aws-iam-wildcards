@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Move changelog release preparation into tested TypeScript
+- Add tested TypeScript parsing for release command arguments and release names
+- Move release orchestration into the TypeScript release entry point
+- Add `npm run release -- ...` as the release command entry point
+- Split release automation into typed command, Git, GitHub CLI, and orchestration modules with broader failure coverage
 
 ## [1.3.0] - 2026-07-06
 

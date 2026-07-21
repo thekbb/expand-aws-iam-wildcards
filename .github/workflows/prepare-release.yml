@@ -58,7 +58,7 @@ jobs:
         if: inputs.finalize_changelog
         env:
           VERSION: ${{ inputs.version }}
-        run: scripts/release.sh "$VERSION" --finalize-changelog
+        run: npm run release -- "$VERSION" --finalize-changelog
 
       - name: Lint Markdown
         run: npm run lint:md
