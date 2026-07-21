@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readSync } from 'node:fs';
 
 export interface CommandResult {
   status: number;
@@ -44,15 +44,37 @@ export function createCommandRunner(): CommandRunner {
 export function defaultRuntime(stdout: Pick<typeof console, 'log'>): ReleaseRuntime {
   return {
     env: process.env,
-    promptEnter: (message) => {
-      process.stdout.write(message);
-      readFileSync(0, 'utf8');
-    },
+    // Process-global binding; createPromptEnter is tested with injected IO.
+    /* c8 ignore next */
+    promptEnter: createPromptEnter(0, (message) => process.stdout.write(message)),
     run: createCommandRunner(),
+    // Blocking production sleep; release tests inject a no-op sleeper.
+    /* c8 ignore next */
     sleep: (milliseconds) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, milliseconds),
     stdinIsTTY: process.stdin.isTTY,
     stdout,
   };
+}
+
+export function createPromptEnter(
+  fd: number,
+  write: (message: string) => void,
+): (message: string) => void {
+  return (message) => {
+    write(message);
+    readUntilEnter(fd);
+  };
+}
+
+export function readUntilEnter(fd: number): void {
+  const buffer = Buffer.alloc(1);
+
+  while (true) {
+    const bytesRead = readSync(fd, buffer, 0, 1, null);
+    if (bytesRead === 0 || buffer[0] === 10 || buffer[0] === 13) {
+      return;
+    }
+  }
 }
 
 export function runChecked(
