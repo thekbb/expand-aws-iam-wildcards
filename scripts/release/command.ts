@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readSync } from 'node:fs';
 
 export interface CommandResult {
   status: number;
@@ -46,13 +46,24 @@ export function defaultRuntime(stdout: Pick<typeof console, 'log'>): ReleaseRunt
     env: process.env,
     promptEnter: (message) => {
       process.stdout.write(message);
-      readFileSync(0, 'utf8');
+      readUntilEnter(0);
     },
     run: createCommandRunner(),
     sleep: (milliseconds) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, milliseconds),
     stdinIsTTY: process.stdin.isTTY,
     stdout,
   };
+}
+
+export function readUntilEnter(fd: number): void {
+  const buffer = Buffer.alloc(1);
+
+  while (true) {
+    const bytesRead = readSync(fd, buffer, 0, 1, null);
+    if (bytesRead === 0 || buffer[0] === 10 || buffer[0] === 13) {
+      return;
+    }
+  }
 }
 
 export function runChecked(

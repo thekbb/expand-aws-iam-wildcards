@@ -1,3 +1,6 @@
+import { closeSync, openSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -6,6 +9,7 @@ import {
   createCommandRunner,
   defaultRuntime,
   requireCommand,
+  readUntilEnter,
   runChecked,
   runText,
 } from './command.js';
@@ -49,6 +53,20 @@ describe('defaultRuntime', () => {
     expect(runtime.run(process.execPath, ['-e', 'process.stdout.write("ok")']).stdout).toBe('ok');
     expect(typeof runtime.sleep).toBe('function');
     expect(runtime.stdinIsTTY).toBe(process.stdin.isTTY);
+  });
+});
+
+describe('readUntilEnter', () => {
+  it('returns when it reads a newline without waiting for EOF', () => {
+    const path = join(tmpdir(), `release-enter-${process.pid}-${Date.now()}`);
+    writeFileSync(path, `\nremaining input`);
+    const fd = openSync(path, 'r');
+
+    try {
+      expect(() => readUntilEnter(fd)).not.toThrow();
+    } finally {
+      closeSync(fd);
+    }
   });
 });
 
