@@ -65,7 +65,7 @@ describe('createPromptEnter', () => {
     const output: string[] = [];
 
     try {
-      createPromptEnter({ fd, write: (message) => output.push(message) })('Press Enter. ');
+      createPromptEnter(fd, (message) => output.push(message))('Press Enter. ');
     } finally {
       closeSync(fd);
     }
