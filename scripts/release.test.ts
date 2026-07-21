@@ -14,16 +14,23 @@ function result(stdout = '', status = 0): CommandResult {
 function createRuntime(responses: ReadonlyMap<string, CommandResult[]>): {
   calls: string[];
   output: string[];
+  prompts: string[];
   runtime: Partial<ReleaseRuntime>;
 } {
   const calls: string[] = [];
   const output: string[] = [];
+  const prompts: string[] = [];
 
   return {
     calls,
     output,
+    prompts,
     runtime: {
       env: { RELEASE_DATE: '2026-07-06' },
+      promptEnter: (message) => {
+        prompts.push(message);
+        throw new Error('stop after prompt');
+      },
       run: (command, args) => {
         const key = [command, ...args].join(' ');
         calls.push(key);
@@ -264,6 +271,52 @@ describe('runReleaseCli', () => {
     expect(errors).toEqual([]);
     expect(calls).toContain('gh workflow run prepare-release.yml -f version=1.3.0 -f finalize_changelog=true');
     expect(output.join('\n')).toContain('Release preparation PR is ready:');
+  });
+
+  it('prints the release preparation PR URL before the interactive merge prompt', () => {
+    const errors: string[] = [];
+    const prUrl = 'https://github.com/thekbb/expand-aws-iam-wildcards/pull/123';
+    const { output, prompts, runtime } = createRuntime(
+      new Map([
+        ['which git', [result()]],
+        ['which gh', [result()]],
+        ['which gpg', [result()]],
+        ['gh auth status', [result()]],
+        ['git branch --show-current', [result('main\n')]],
+        ['git fetch origin main --tags', [result()]],
+        ['git rev-parse HEAD', [result(`${releaseSha}\n`)]],
+        ['git rev-parse origin/main', [result(`${releaseSha}\n`)]],
+        ['git status --porcelain', [result('')]],
+        ['git config --get user.signingkey', [result('ABC123\n')]],
+        ['gpg --list-secret-keys ABC123', [result()]],
+        ['git show HEAD:CHANGELOG.md', [result('## [UNRELEASED]\n')]],
+        ['git rev-parse -q --verify refs/tags/v1.3.0', [result('', 1)]],
+        ['git ls-remote --exit-code origin refs/tags/v1.3.0', [result('', 2)]],
+        ['git ls-remote --exit-code origin refs/heads/release-candidate/v1.3.0', [result('', 2)]],
+        [
+          'gh run list --workflow prepare-release.yml --event workflow_dispatch --limit 50 --json databaseId,displayTitle',
+          [result('[]'), result('[{"databaseId":123,"displayTitle":"Prepare v1.3.0"}]')],
+        ],
+        ['gh workflow run prepare-release.yml -f version=1.3.0 -f finalize_changelog=true', [result()]],
+        ['gh run watch 123 --exit-status', [result()]],
+        [
+          'gh pr list --state all --head release-candidate/v1.3.0 --base main --json url',
+          [result(`[{"url":"${prUrl}"}]`)],
+        ],
+      ]),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0'],
+      runtime: { ...runtime, stdinIsTTY: true },
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual(['error: stop after prompt']);
+    expect(output.join('\n')).toContain(prUrl);
+    expect(prompts).toEqual(['Press Enter after the release preparation PR is merged, or Ctrl-C to resume later with --continue. ']);
   });
 
   it('runs prepare release orchestration with a manually finalized changelog', () => {
