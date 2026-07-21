@@ -46,6 +46,7 @@ const releaseSha = 'babecafebabecafebabecafebabecafebabecafe';
 
 function continueResponses({
   changelog = '## [1.3.0] - 2026-07-06\n\n[1.3.0]: https://example.test/compare/v1.2.7...v1.3.0\n',
+  draftReleaseExists = false,
   immutableReleaseAfterVerify = true,
   localTagCommit,
   lockfileVersion = '1.3.0',
@@ -56,6 +57,7 @@ function continueResponses({
   remoteTagCommit,
 }: {
   changelog?: string;
+  draftReleaseExists?: boolean;
   immutableReleaseAfterVerify?: boolean;
   localTagCommit?: string;
   lockfileVersion?: string;
@@ -107,7 +109,9 @@ function continueResponses({
     [
       'gh release view v1.3.0 --json isDraft,isImmutable,tagName,url',
       [
-        releaseAlreadyPublished
+        draftReleaseExists
+          ? result('{"isDraft":true,"isImmutable":false,"tagName":"v1.3.0","url":"https://example.test/release"}')
+          : releaseAlreadyPublished
           ? result('{"isDraft":false,"isImmutable":true,"tagName":"v1.3.0","url":"https://example.test/release"}')
           : result('', 1),
         releaseAlreadyPublished
@@ -116,11 +120,15 @@ function continueResponses({
         ...releaseViewsAfterVerify,
       ],
     ],
-    ...(releaseAlreadyPublished
+    ...(releaseAlreadyPublished || draftReleaseExists
       ? []
       : ([
           ['gh release create v1.3.0 --draft --verify-tag --generate-notes', [result()]],
           ['gh release view v1.3.0 --json isDraft,tagName,url', [result('{"isDraft":true,"tagName":"v1.3.0"}')]],
+        ] as const)),
+    ...(releaseAlreadyPublished
+      ? []
+      : ([
           [
             'gh run list --workflow verify-draft-release.yml --event workflow_dispatch --limit 50 --json databaseId,displayTitle --branch v1.3.0',
             [result('[]'), result('[{"databaseId":456,"displayTitle":"Verify v1.3.0"}]')],
@@ -365,6 +373,149 @@ describe('runReleaseCli', () => {
     expect(errors).toEqual(['error: remote release candidate branch already exists: release-candidate/v1.3.0']);
   });
 
+  it('rejects prepare mode when the local release tag already exists', () => {
+    const errors: string[] = [];
+    const { runtime } = createRuntime(
+      new Map([
+        ['which git', [result()]],
+        ['which gh', [result()]],
+        ['which gpg', [result()]],
+        ['gh auth status', [result()]],
+        ['git branch --show-current', [result('main\n')]],
+        ['git fetch origin main --tags', [result()]],
+        ['git rev-parse HEAD', [result(`${releaseSha}\n`)]],
+        ['git rev-parse origin/main', [result(`${releaseSha}\n`)]],
+        ['git status --porcelain', [result('')]],
+        ['git config --get user.signingkey', [result('ABC123\n')]],
+        ['gpg --list-secret-keys ABC123', [result()]],
+        ['git show HEAD:CHANGELOG.md', [result('## [UNRELEASED]\n')]],
+        ['git rev-parse -q --verify refs/tags/v1.3.0', [result()]],
+      ]),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual(['error: local tag already exists: v1.3.0']);
+  });
+
+  it('rejects prepare mode when the remote release tag already exists', () => {
+    const errors: string[] = [];
+    const { runtime } = createRuntime(
+      new Map([
+        ['which git', [result()]],
+        ['which gh', [result()]],
+        ['which gpg', [result()]],
+        ['gh auth status', [result()]],
+        ['git branch --show-current', [result('main\n')]],
+        ['git fetch origin main --tags', [result()]],
+        ['git rev-parse HEAD', [result(`${releaseSha}\n`)]],
+        ['git rev-parse origin/main', [result(`${releaseSha}\n`)]],
+        ['git status --porcelain', [result('')]],
+        ['git config --get user.signingkey', [result('ABC123\n')]],
+        ['gpg --list-secret-keys ABC123', [result()]],
+        ['git show HEAD:CHANGELOG.md', [result('## [UNRELEASED]\n')]],
+        ['git rev-parse -q --verify refs/tags/v1.3.0', [result('', 1)]],
+        ['git ls-remote --exit-code origin refs/tags/v1.3.0', [result(`${releaseSha}\trefs/tags/v1.3.0\n`)]],
+      ]),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual(['error: remote tag already exists: v1.3.0']);
+  });
+
+  it('rejects prepare mode when the newly dispatched workflow run cannot be found', () => {
+    const errors: string[] = [];
+    const { runtime } = createRuntime(
+      new Map([
+        ['which git', [result()]],
+        ['which gh', [result()]],
+        ['which gpg', [result()]],
+        ['gh auth status', [result()]],
+        ['git branch --show-current', [result('main\n')]],
+        ['git fetch origin main --tags', [result()]],
+        ['git rev-parse HEAD', [result(`${releaseSha}\n`)]],
+        ['git rev-parse origin/main', [result(`${releaseSha}\n`)]],
+        ['git status --porcelain', [result('')]],
+        ['git config --get user.signingkey', [result('ABC123\n')]],
+        ['gpg --list-secret-keys ABC123', [result()]],
+        ['git show HEAD:CHANGELOG.md', [result('## [UNRELEASED]\n')]],
+        ['git rev-parse -q --verify refs/tags/v1.3.0', [result('', 1)]],
+        ['git ls-remote --exit-code origin refs/tags/v1.3.0', [result('', 2)]],
+        ['git ls-remote --exit-code origin refs/heads/release-candidate/v1.3.0', [result('', 2)]],
+        [
+          'gh run list --workflow prepare-release.yml --event workflow_dispatch --limit 50 --json databaseId,displayTitle',
+          [result('[]'), ...Array.from({ length: 30 }, () => result('[]'))],
+        ],
+        ['gh workflow run prepare-release.yml -f version=1.3.0 -f finalize_changelog=true', [result()]],
+      ]),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual(['error: could not find the newly dispatched Prepare v1.3.0 workflow run']);
+  });
+
+  it('rejects prepare mode when no release preparation PR is created', () => {
+    const errors: string[] = [];
+    const { runtime } = createRuntime(
+      new Map([
+        ['which git', [result()]],
+        ['which gh', [result()]],
+        ['which gpg', [result()]],
+        ['gh auth status', [result()]],
+        ['git branch --show-current', [result('main\n')]],
+        ['git fetch origin main --tags', [result()]],
+        ['git rev-parse HEAD', [result(`${releaseSha}\n`)]],
+        ['git rev-parse origin/main', [result(`${releaseSha}\n`)]],
+        ['git status --porcelain', [result('')]],
+        ['git config --get user.signingkey', [result('ABC123\n')]],
+        ['gpg --list-secret-keys ABC123', [result()]],
+        ['git show HEAD:CHANGELOG.md', [result('## [UNRELEASED]\n')]],
+        ['git rev-parse -q --verify refs/tags/v1.3.0', [result('', 1)]],
+        ['git ls-remote --exit-code origin refs/tags/v1.3.0', [result('', 2)]],
+        ['git ls-remote --exit-code origin refs/heads/release-candidate/v1.3.0', [result('', 2)]],
+        [
+          'gh run list --workflow prepare-release.yml --event workflow_dispatch --limit 50 --json databaseId,displayTitle',
+          [result('[]'), result('[{"databaseId":123,"displayTitle":"Prepare v1.3.0"}]')],
+        ],
+        ['gh workflow run prepare-release.yml -f version=1.3.0 -f finalize_changelog=true', [result()]],
+        ['gh run watch 123 --exit-status', [result()]],
+        ['gh pr list --state all --head release-candidate/v1.3.0 --base main --json url', [result('[]')]],
+      ]),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual([
+      'error: Prepare Release completed, but no release preparation PR was found for release-candidate/v1.3.0',
+    ]);
+  });
+
   it('runs continue release orchestration through publication and major tag move', () => {
     const errors: string[] = [];
     const { calls, output, runtime } = createRuntime(continueResponses());
@@ -424,6 +575,23 @@ describe('runReleaseCli', () => {
     expect(errors).toEqual([]);
     expect(calls).not.toContain(`git tag -s v1.3.0 ${releaseSha} -m v1.3.0`);
     expect(calls).toContain('git push origin refs/tags/v1.3.0');
+  });
+
+  it('continues a release when the draft release already exists', () => {
+    const errors: string[] = [];
+    const { calls, output, runtime } = createRuntime(continueResponses({ draftReleaseExists: true }));
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0', '--continue'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(0);
+    expect(errors).toEqual([]);
+    expect(calls).not.toContain('gh release create v1.3.0 --draft --verify-tag --generate-notes');
+    expect(output.join('\n')).toContain('Draft release already exists for v1.3.0');
   });
 
   it('rejects an existing remote release tag that points at a different commit', () => {
@@ -584,5 +752,90 @@ describe('runReleaseCli', () => {
     expect(errors).toEqual([
       'error: release-candidate/v1.3.0 pull request must be merged before continuing; current state: OPEN',
     ]);
+  });
+
+  it('rejects continue mode when the working tree is dirty', () => {
+    const errors: string[] = [];
+    const { runtime } = createRuntime(
+      new Map([
+        ['which git', [result()]],
+        ['which gh', [result()]],
+        ['which gpg', [result()]],
+        ['gh auth status', [result()]],
+        ['git branch --show-current', [result('main\n')]],
+        ['git status --porcelain', [result(' M package.json\n')]],
+      ]),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0', '--continue'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual(['error: working tree must be clean']);
+  });
+
+  it('rejects continue mode when the release preparation PR cannot be found', () => {
+    const errors: string[] = [];
+    const { runtime } = createRuntime(
+      new Map([
+        ['which git', [result()]],
+        ['which gh', [result()]],
+        ['which gpg', [result()]],
+        ['gh auth status', [result()]],
+        ['git branch --show-current', [result('main\n')]],
+        ['git status --porcelain', [result('')]],
+        ['git fetch origin main --tags', [result()]],
+        ['git merge --ff-only origin/main', [result()]],
+        ['git config --get user.signingkey', [result('ABC123\n')]],
+        ['gpg --list-secret-keys ABC123', [result()]],
+        ['gh pr list --state all --head release-candidate/v1.3.0 --base main --json state,mergeCommit', [result('[]')]],
+      ]),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0', '--continue'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual(['error: could not find a release preparation pull request for release-candidate/v1.3.0']);
+  });
+
+  it('rejects continue mode when the release preparation PR has no valid merge commit', () => {
+    const errors: string[] = [];
+    const { runtime } = createRuntime(
+      new Map([
+        ['which git', [result()]],
+        ['which gh', [result()]],
+        ['which gpg', [result()]],
+        ['gh auth status', [result()]],
+        ['git branch --show-current', [result('main\n')]],
+        ['git status --porcelain', [result('')]],
+        ['git fetch origin main --tags', [result()]],
+        ['git merge --ff-only origin/main', [result()]],
+        ['git config --get user.signingkey', [result('ABC123\n')]],
+        ['gpg --list-secret-keys ABC123', [result()]],
+        [
+          'gh pr list --state all --head release-candidate/v1.3.0 --base main --json state,mergeCommit',
+          [result('[{"state":"MERGED","mergeCommit":{"oid":"not-a-sha"}}]')],
+        ],
+      ]),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0', '--continue'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual(['error: could not resolve release preparation PR merge commit']);
   });
 });
