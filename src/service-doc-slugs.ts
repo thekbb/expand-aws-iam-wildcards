@@ -64,6 +64,7 @@ export const SERVICE_DOC_SLUGS: Readonly<Record<string, string>> = {
   "bedrock": "amazonbedrock",
   "bedrock-agentcore": "amazonbedrockagentcore",
   "bedrock-mantle": "amazonbedrockpoweredbyawsmantle",
+  "bedrock-websearch": "amazonbedrockwebsearch",
   "billing": "awsbilling",
   "billingconductor": "awsbillingconductor",
   "braket": "amazonbraket",

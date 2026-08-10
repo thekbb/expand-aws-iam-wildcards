@@ -35992,6 +35992,7 @@ const SERVICE_DOC_SLUGS = {
     "bedrock": "amazonbedrock",
     "bedrock-agentcore": "amazonbedrockagentcore",
     "bedrock-mantle": "amazonbedrockpoweredbyawsmantle",
+    "bedrock-websearch": "amazonbedrockwebsearch",
     "billing": "awsbilling",
     "billingconductor": "awsbillingconductor",
     "braket": "amazonbraket",
@@ -38749,6 +38750,7 @@ const IAM_ACTIONS = [
     "bedrock-agentcore:ListGatewayTargets",
     "bedrock-agentcore:ListGateways",
     "bedrock-agentcore:ListHarnessEndpoints",
+    "bedrock-agentcore:ListHarnessVersions",
     "bedrock-agentcore:ListHarnesses",
     "bedrock-agentcore:ListMemories",
     "bedrock-agentcore:ListMemoryExtractionJobs",
@@ -38859,6 +38861,9 @@ const IAM_ACTIONS = [
     "bedrock-mantle:UntagResource",
     "bedrock-mantle:UpdateProject",
     "bedrock-mantle:UpdateReservation",
+    "bedrock-websearch:ExternalWebAccess",
+    "bedrock-websearch:InvokeFetch",
+    "bedrock-websearch:InvokeSearch",
     "bedrock:AgenticRetrieveStream",
     "bedrock:AllowVendedLogDeliveryForResource",
     "bedrock:ApplyGuardrail",
@@ -39128,10 +39133,13 @@ const IAM_ACTIONS = [
     "billing:GetContractInformation",
     "billing:GetCreditAllocationHistory",
     "billing:GetCredits",
+    "billing:GetEnterpriseSupportChargeSummary",
+    "billing:GetEnterpriseSupportContractDetails",
     "billing:GetIAMAccessPreference",
     "billing:GetResourcePolicy",
     "billing:GetSellerOfRecord",
     "billing:ListBillingViews",
+    "billing:ListEnterpriseSupportLinkedAccountCharges",
     "billing:ListSourceViewsForBillingView",
     "billing:ListTagsForResource",
     "billing:PutContractInformation",
@@ -42657,6 +42665,7 @@ const IAM_ACTIONS = [
     "directconnect:DescribeVirtualInterfaces",
     "directconnect:DisassociateConnectionFromLag",
     "directconnect:DisassociateMacSecKey",
+    "directconnect:ListVirtualInterfaceRoutes",
     "directconnect:ListVirtualInterfaceTestHistory",
     "directconnect:StartBgpFailoverTest",
     "directconnect:StopBgpFailoverTest",
@@ -44775,6 +44784,7 @@ const IAM_ACTIONS = [
     "es:GetDirectQueryDataSource",
     "es:GetDomainMaintenanceStatus",
     "es:GetIndex",
+    "es:GetMigration",
     "es:GetPackageVersionHistory",
     "es:GetUpgradeHistory",
     "es:GetUpgradeStatus",
@@ -44791,6 +44801,7 @@ const IAM_ACTIONS = [
     "es:ListElasticsearchVersions",
     "es:ListInsights",
     "es:ListInstanceTypeDetails",
+    "es:ListMigrations",
     "es:ListPackagesForDomain",
     "es:ListScheduledActions",
     "es:ListTags",
@@ -44810,6 +44821,7 @@ const IAM_ACTIONS = [
     "es:RollbackServiceSoftwareUpdate",
     "es:StartDomainMaintenance",
     "es:StartElasticsearchServiceSoftwareUpdate",
+    "es:StartMigration",
     "es:StartServiceSoftwareUpdate",
     "es:UpdateApplication",
     "es:UpdateDataSource",
@@ -45490,6 +45502,7 @@ const IAM_ACTIONS = [
     "gameliftstreams:CreateStreamGroup",
     "gameliftstreams:CreateStreamSessionAdminShell",
     "gameliftstreams:CreateStreamSessionConnection",
+    "gameliftstreams:CreateStreamUrl",
     "gameliftstreams:DeleteApplication",
     "gameliftstreams:DeleteStreamGroup",
     "gameliftstreams:DisassociateApplications",
@@ -45497,12 +45510,16 @@ const IAM_ACTIONS = [
     "gameliftstreams:GetApplication",
     "gameliftstreams:GetStreamGroup",
     "gameliftstreams:GetStreamSession",
+    "gameliftstreams:GetStreamUrl",
+    "gameliftstreams:ListApplicationShaderCaches",
     "gameliftstreams:ListApplications",
     "gameliftstreams:ListStreamGroups",
     "gameliftstreams:ListStreamSessions",
     "gameliftstreams:ListStreamSessionsByAccount",
+    "gameliftstreams:ListStreamUrls",
     "gameliftstreams:ListTagsForResource",
     "gameliftstreams:RemoveStreamGroupLocations",
+    "gameliftstreams:RevokeStreamUrl",
     "gameliftstreams:StartStreamSession",
     "gameliftstreams:TagResource",
     "gameliftstreams:TerminateStreamSession",
@@ -46899,6 +46916,8 @@ const IAM_ACTIONS = [
     "invoicing:ListInvoiceSummaries",
     "invoicing:ListInvoiceUnits",
     "invoicing:ListProcurementPortalPreferences",
+    "invoicing:ListProcurementPortalSuppliers",
+    "invoicing:ListProcurementPortals",
     "invoicing:ListTagsForResource",
     "invoicing:PutInvoiceEmailDeliveryPreferences",
     "invoicing:PutProcurementPortalPreference",
@@ -47447,13 +47466,20 @@ const IAM_ACTIONS = [
     "iotmanagedintegrations:UpdateOtaTask",
     "iotsitewise:AssociateAssets",
     "iotsitewise:AssociateTimeSeriesToAssetProperty",
+    "iotsitewise:BatchAssociateDataSegmentsToDataset",
     "iotsitewise:BatchAssociateProjectAssets",
+    "iotsitewise:BatchDeleteDatasetDataSegments",
+    "iotsitewise:BatchDisassociateDataSegmentsFromDataset",
     "iotsitewise:BatchDisassociateProjectAssets",
     "iotsitewise:BatchGetAssetPropertyAggregates",
     "iotsitewise:BatchGetAssetPropertyValue",
     "iotsitewise:BatchGetAssetPropertyValueHistory",
     "iotsitewise:BatchPutAssetPropertyValue",
+    "iotsitewise:CancelEnrichmentJob",
+    "iotsitewise:CancelPipelineExecution",
+    "iotsitewise:CancelQuery",
     "iotsitewise:CreateAccessPolicy",
+    "iotsitewise:CreateApplication",
     "iotsitewise:CreateAsset",
     "iotsitewise:CreateAssetModel",
     "iotsitewise:CreateAssetModelCompositeModel",
@@ -47461,10 +47487,16 @@ const IAM_ACTIONS = [
     "iotsitewise:CreateComputationModel",
     "iotsitewise:CreateDashboard",
     "iotsitewise:CreateDataset",
+    "iotsitewise:CreateDatasetExportJob",
+    "iotsitewise:CreateEnrichmentJob",
     "iotsitewise:CreateGateway",
+    "iotsitewise:CreatePipeline",
     "iotsitewise:CreatePortal",
     "iotsitewise:CreateProject",
+    "iotsitewise:CreateTask",
+    "iotsitewise:CreateWorkspace",
     "iotsitewise:DeleteAccessPolicy",
+    "iotsitewise:DeleteApplication",
     "iotsitewise:DeleteAsset",
     "iotsitewise:DeleteAssetModel",
     "iotsitewise:DeleteAssetModelCompositeModel",
@@ -47473,11 +47505,15 @@ const IAM_ACTIONS = [
     "iotsitewise:DeleteDashboard",
     "iotsitewise:DeleteDataset",
     "iotsitewise:DeleteGateway",
+    "iotsitewise:DeletePipeline",
     "iotsitewise:DeletePortal",
     "iotsitewise:DeleteProject",
+    "iotsitewise:DeleteTask",
     "iotsitewise:DeleteTimeSeries",
+    "iotsitewise:DeleteWorkspace",
     "iotsitewise:DescribeAccessPolicy",
     "iotsitewise:DescribeAction",
+    "iotsitewise:DescribeApplication",
     "iotsitewise:DescribeAsset",
     "iotsitewise:DescribeAssetCompositeModel",
     "iotsitewise:DescribeAssetModel",
@@ -47489,15 +47525,23 @@ const IAM_ACTIONS = [
     "iotsitewise:DescribeComputationModelExecutionSummary",
     "iotsitewise:DescribeDashboard",
     "iotsitewise:DescribeDataset",
+    "iotsitewise:DescribeDatasetExportJob",
     "iotsitewise:DescribeDefaultEncryptionConfiguration",
+    "iotsitewise:DescribeEnrichmentJob",
     "iotsitewise:DescribeExecution",
     "iotsitewise:DescribeGateway",
     "iotsitewise:DescribeGatewayCapabilityConfiguration",
     "iotsitewise:DescribeLoggingOptions",
+    "iotsitewise:DescribePipeline",
+    "iotsitewise:DescribePipelineExecution",
     "iotsitewise:DescribePortal",
     "iotsitewise:DescribeProject",
+    "iotsitewise:DescribeQuery",
+    "iotsitewise:DescribeSearch",
     "iotsitewise:DescribeStorageConfiguration",
+    "iotsitewise:DescribeTask",
     "iotsitewise:DescribeTimeSeries",
+    "iotsitewise:DescribeWorkspace",
     "iotsitewise:DisassociateAssets",
     "iotsitewise:DisassociateTimeSeriesFromAssetProperty",
     "iotsitewise:EnableSiteWiseIntegration",
@@ -47506,10 +47550,14 @@ const IAM_ACTIONS = [
     "iotsitewise:GetAssetPropertyAggregates",
     "iotsitewise:GetAssetPropertyValue",
     "iotsitewise:GetAssetPropertyValueHistory",
+    "iotsitewise:GetCaptureData",
     "iotsitewise:GetInterpolatedAssetPropertyValues",
+    "iotsitewise:GetQueryResults",
+    "iotsitewise:GetSearchResults",
     "iotsitewise:InvokeAssistant",
     "iotsitewise:ListAccessPolicies",
     "iotsitewise:ListActions",
+    "iotsitewise:ListApplications",
     "iotsitewise:ListAssetModelCompositeModels",
     "iotsitewise:ListAssetModelProperties",
     "iotsitewise:ListAssetModels",
@@ -47523,19 +47571,32 @@ const IAM_ACTIONS = [
     "iotsitewise:ListComputationModelResolveToResources",
     "iotsitewise:ListComputationModels",
     "iotsitewise:ListDashboards",
+    "iotsitewise:ListDatasetDataSegmentRelationships",
+    "iotsitewise:ListDatasetDataSegments",
+    "iotsitewise:ListDatasetExportJobs",
     "iotsitewise:ListDatasets",
+    "iotsitewise:ListEnrichmentJobs",
     "iotsitewise:ListExecutions",
     "iotsitewise:ListGateways",
     "iotsitewise:ListInterfaceRelationships",
+    "iotsitewise:ListPipelineExecutions",
+    "iotsitewise:ListPipelines",
     "iotsitewise:ListPortals",
     "iotsitewise:ListProjectAssets",
     "iotsitewise:ListProjects",
+    "iotsitewise:ListQueries",
+    "iotsitewise:ListSearches",
     "iotsitewise:ListTagsForResource",
+    "iotsitewise:ListTasks",
     "iotsitewise:ListTimeSeries",
+    "iotsitewise:ListWorkspaces",
     "iotsitewise:PutAssetModelInterfaceRelationship",
     "iotsitewise:PutDefaultEncryptionConfiguration",
     "iotsitewise:PutLoggingOptions",
     "iotsitewise:PutStorageConfiguration",
+    "iotsitewise:StartPipelineExecution",
+    "iotsitewise:StartQuery",
+    "iotsitewise:StartSearch",
     "iotsitewise:TagResource",
     "iotsitewise:UntagResource",
     "iotsitewise:UpdateAccessPolicy",
@@ -47549,8 +47610,11 @@ const IAM_ACTIONS = [
     "iotsitewise:UpdateDataset",
     "iotsitewise:UpdateGateway",
     "iotsitewise:UpdateGatewayCapabilityConfiguration",
+    "iotsitewise:UpdatePipeline",
     "iotsitewise:UpdatePortal",
     "iotsitewise:UpdateProject",
+    "iotsitewise:UpdateTask",
+    "iotsitewise:UpdateWorkspace",
     "iottwinmaker:BatchPutPropertyValues",
     "iottwinmaker:CancelMetadataTransferJob",
     "iottwinmaker:CreateComponentType",
@@ -47891,18 +47955,21 @@ const IAM_ACTIONS = [
     "kafka-cluster:WriteDataIdempotently",
     "kafka:BatchAssociateScramSecret",
     "kafka:BatchDisassociateScramSecret",
+    "kafka:CreateChannel",
     "kafka:CreateCluster",
     "kafka:CreateClusterV2",
     "kafka:CreateConfiguration",
     "kafka:CreateReplicator",
     "kafka:CreateTopic",
     "kafka:CreateVpcConnection",
+    "kafka:DeleteChannel",
     "kafka:DeleteCluster",
     "kafka:DeleteClusterPolicy",
     "kafka:DeleteConfiguration",
     "kafka:DeleteReplicator",
     "kafka:DeleteTopic",
     "kafka:DeleteVpcConnection",
+    "kafka:DescribeChannel",
     "kafka:DescribeCluster",
     "kafka:DescribeClusterOperation",
     "kafka:DescribeClusterOperationV2",
@@ -47916,6 +47983,7 @@ const IAM_ACTIONS = [
     "kafka:GetBootstrapBrokers",
     "kafka:GetClusterPolicy",
     "kafka:GetCompatibleKafkaVersions",
+    "kafka:ListChannels",
     "kafka:ListClientVpcConnections",
     "kafka:ListClusterOperations",
     "kafka:ListClusterOperationsV2",
@@ -47938,6 +48006,7 @@ const IAM_ACTIONS = [
     "kafka:UpdateBrokerCount",
     "kafka:UpdateBrokerStorage",
     "kafka:UpdateBrokerType",
+    "kafka:UpdateChannel",
     "kafka:UpdateClusterConfiguration",
     "kafka:UpdateClusterKafkaVersion",
     "kafka:UpdateConfiguration",
@@ -51547,6 +51616,7 @@ const IAM_ACTIONS = [
     "pricing:GetPriceListFileUrl",
     "pricing:GetProducts",
     "pricing:ListPriceLists",
+    "pricingplanmanager:ApprovePaidSubscription",
     "pricingplanmanager:AssociateResourcesToSubscription",
     "pricingplanmanager:CancelSubscription",
     "pricingplanmanager:CancelSubscriptionChange",
@@ -52267,6 +52337,7 @@ const IAM_ACTIONS = [
     "quicksight:ListVPCConnections",
     "quicksight:PassDataSet",
     "quicksight:PassDataSource",
+    "quicksight:PassTopic",
     "quicksight:PredictQAResults",
     "quicksight:PutDataSetRefreshProperties",
     "quicksight:QuickSuiteUsageMetrics",
@@ -52977,6 +53048,7 @@ const IAM_ACTIONS = [
     "resiliencehub:CreateServiceFunction",
     "resiliencehub:CreateServiceFunctionResources",
     "resiliencehub:CreateSystem",
+    "resiliencehub:CreateTest",
     "resiliencehub:CreateUserJourney",
     "resiliencehub:DeleteApp",
     "resiliencehub:DeleteAppAssessment",
@@ -52992,6 +53064,8 @@ const IAM_ACTIONS = [
     "resiliencehub:DeleteServiceFunction",
     "resiliencehub:DeleteServiceFunctionResources",
     "resiliencehub:DeleteSystem",
+    "resiliencehub:DeleteTest",
+    "resiliencehub:DeleteTestSources",
     "resiliencehub:DeleteUserJourney",
     "resiliencehub:DescribeApp",
     "resiliencehub:DescribeAppAssessment",
@@ -53008,6 +53082,9 @@ const IAM_ACTIONS = [
     "resiliencehub:GetPolicy",
     "resiliencehub:GetService",
     "resiliencehub:GetSystem",
+    "resiliencehub:GetTest",
+    "resiliencehub:GetTestRun",
+    "resiliencehub:GetTestTemplate",
     "resiliencehub:GetUserJourney",
     "resiliencehub:ImportApp",
     "resiliencehub:ImportPolicy",
@@ -53034,6 +53111,7 @@ const IAM_ACTIONS = [
     "resiliencehub:ListRecommendationTemplates",
     "resiliencehub:ListReports",
     "resiliencehub:ListResiliencyPolicies",
+    "resiliencehub:ListResolvedTestRunTargetResources",
     "resiliencehub:ListResourceGroupingRecommendations",
     "resiliencehub:ListResources",
     "resiliencehub:ListServiceEvents",
@@ -53046,10 +53124,17 @@ const IAM_ACTIONS = [
     "resiliencehub:ListSystems",
     "resiliencehub:ListTagsForResource",
     "resiliencehub:ListTestRecommendations",
+    "resiliencehub:ListTestRunEvents",
+    "resiliencehub:ListTestRunSources",
+    "resiliencehub:ListTestRuns",
+    "resiliencehub:ListTestSources",
+    "resiliencehub:ListTestTemplates",
+    "resiliencehub:ListTests",
     "resiliencehub:ListUnsupportedAppVersionResources",
     "resiliencehub:ListUserJourneys",
     "resiliencehub:PublishAppVersion",
     "resiliencehub:PutDraftAppVersionTemplate",
+    "resiliencehub:PutTestSources",
     "resiliencehub:RejectResourceGroupingRecommendations",
     "resiliencehub:RemoveDraftAppVersionResourceMappings",
     "resiliencehub:ResolveAppVersionResources",
@@ -53057,6 +53142,8 @@ const IAM_ACTIONS = [
     "resiliencehub:StartFailureModeAssessment",
     "resiliencehub:StartMetricsExport",
     "resiliencehub:StartResourceGroupingRecommendationTask",
+    "resiliencehub:StartTestRun",
+    "resiliencehub:StopTestRun",
     "resiliencehub:TagResource",
     "resiliencehub:UntagResource",
     "resiliencehub:UpdateApp",
@@ -53071,6 +53158,7 @@ const IAM_ACTIONS = [
     "resiliencehub:UpdateService",
     "resiliencehub:UpdateServiceFunction",
     "resiliencehub:UpdateSystem",
+    "resiliencehub:UpdateTest",
     "resiliencehub:UpdateUserJourney",
     "resource-explorer-2:AssociateDefaultView",
     "resource-explorer-2:BatchGetView",
@@ -55261,6 +55349,7 @@ const IAM_ACTIONS = [
     "ses:ListVerifiedEmailAddresses",
     "ses:PutAccountDedicatedIpWarmupAttributes",
     "ses:PutAccountDetails",
+    "ses:PutAccountPricingAttributes",
     "ses:PutAccountSendingAttributes",
     "ses:PutAccountSuppressionAttributes",
     "ses:PutAccountVdmAttributes",
@@ -55425,12 +55514,15 @@ const IAM_ACTIONS = [
     "simspaceweaver:UntagResource",
     "sms-voice:AssociateOriginationIdentity",
     "sms-voice:AssociateProtectConfiguration",
+    "sms-voice:CarrierLookup",
     "sms-voice:CreateConfigurationSet",
     "sms-voice:CreateConfigurationSetEventDestination",
     "sms-voice:CreateEventDestination",
+    "sms-voice:CreateNotifyConfiguration",
     "sms-voice:CreateOptOutList",
     "sms-voice:CreatePool",
     "sms-voice:CreateProtectConfiguration",
+    "sms-voice:CreateRcsAgent",
     "sms-voice:CreateRegistration",
     "sms-voice:CreateRegistrationAssociation",
     "sms-voice:CreateRegistrationAttachment",
@@ -55444,11 +55536,15 @@ const IAM_ACTIONS = [
     "sms-voice:DeleteEventDestination",
     "sms-voice:DeleteKeyword",
     "sms-voice:DeleteMediaMessageSpendLimitOverride",
+    "sms-voice:DeleteNotifyConfiguration",
+    "sms-voice:DeleteNotifyMessageSpendLimitOverride",
     "sms-voice:DeleteOptOutList",
     "sms-voice:DeleteOptedOutNumber",
     "sms-voice:DeletePool",
     "sms-voice:DeleteProtectConfiguration",
     "sms-voice:DeleteProtectConfigurationRuleSetNumberOverride",
+    "sms-voice:DeleteRcsAgent",
+    "sms-voice:DeleteRcsMessageSpendLimitOverride",
     "sms-voice:DeleteRegistration",
     "sms-voice:DeleteRegistrationAttachment",
     "sms-voice:DeleteRegistrationFieldValue",
@@ -55460,11 +55556,15 @@ const IAM_ACTIONS = [
     "sms-voice:DescribeAccountLimits",
     "sms-voice:DescribeConfigurationSets",
     "sms-voice:DescribeKeywords",
+    "sms-voice:DescribeNotifyConfigurations",
+    "sms-voice:DescribeNotifyTemplates",
     "sms-voice:DescribeOptOutLists",
     "sms-voice:DescribeOptedOutNumbers",
     "sms-voice:DescribePhoneNumbers",
     "sms-voice:DescribePools",
     "sms-voice:DescribeProtectConfigurations",
+    "sms-voice:DescribeRcsAgentCountryLaunchStatus",
+    "sms-voice:DescribeRcsAgents",
     "sms-voice:DescribeRegistrationAttachments",
     "sms-voice:DescribeRegistrationFieldDefinitions",
     "sms-voice:DescribeRegistrationFieldValues",
@@ -55482,6 +55582,7 @@ const IAM_ACTIONS = [
     "sms-voice:GetProtectConfigurationCountryRuleSet",
     "sms-voice:GetResourcePolicy",
     "sms-voice:ListConfigurationSets",
+    "sms-voice:ListNotifyCountries",
     "sms-voice:ListPoolOriginationIdentities",
     "sms-voice:ListProtectConfigurationRuleSetNumberOverrides",
     "sms-voice:ListRegistrationAssociations",
@@ -55498,6 +55599,9 @@ const IAM_ACTIONS = [
     "sms-voice:RequestSenderId",
     "sms-voice:SendDestinationNumberVerificationCode",
     "sms-voice:SendMediaMessage",
+    "sms-voice:SendNotifyTextMessage",
+    "sms-voice:SendNotifyVoiceMessage",
+    "sms-voice:SendRcsMessage",
     "sms-voice:SendTextMessage",
     "sms-voice:SendVoiceMessage",
     "sms-voice:SetAccountDefaultProtectConfiguration",
@@ -55505,6 +55609,8 @@ const IAM_ACTIONS = [
     "sms-voice:SetDefaultMessageType",
     "sms-voice:SetDefaultSenderId",
     "sms-voice:SetMediaMessageSpendLimitOverride",
+    "sms-voice:SetNotifyMessageSpendLimitOverride",
+    "sms-voice:SetRcsMessageSpendLimitOverride",
     "sms-voice:SetTextMessageSpendLimitOverride",
     "sms-voice:SetVoiceMessageSpendLimitOverride",
     "sms-voice:SubmitRegistrationVersion",
@@ -55512,10 +55618,12 @@ const IAM_ACTIONS = [
     "sms-voice:UntagResource",
     "sms-voice:UpdateConfigurationSetEventDestination",
     "sms-voice:UpdateEventDestination",
+    "sms-voice:UpdateNotifyConfiguration",
     "sms-voice:UpdatePhoneNumber",
     "sms-voice:UpdatePool",
     "sms-voice:UpdateProtectConfiguration",
     "sms-voice:UpdateProtectConfigurationCountryRuleSet",
+    "sms-voice:UpdateRcsAgent",
     "sms-voice:UpdateSenderId",
     "sms-voice:VerifyDestinationNumber",
     "sms:CreateApp",
@@ -56630,14 +56738,18 @@ const IAM_ACTIONS = [
     "thinclient:UpdateDevice",
     "thinclient:UpdateEnvironment",
     "thinclient:UpdateSoftwareSet",
+    "timestream-influxdb:CreateDbBackup",
     "timestream-influxdb:CreateDbCluster",
     "timestream-influxdb:CreateDbInstance",
     "timestream-influxdb:CreateDbParameterGroup",
+    "timestream-influxdb:DeleteDbBackup",
     "timestream-influxdb:DeleteDbCluster",
     "timestream-influxdb:DeleteDbInstance",
+    "timestream-influxdb:GetDbBackup",
     "timestream-influxdb:GetDbCluster",
     "timestream-influxdb:GetDbInstance",
     "timestream-influxdb:GetDbParameterGroup",
+    "timestream-influxdb:ListDbBackups",
     "timestream-influxdb:ListDbClusters",
     "timestream-influxdb:ListDbInstances",
     "timestream-influxdb:ListDbInstancesForCluster",
@@ -56645,6 +56757,7 @@ const IAM_ACTIONS = [
     "timestream-influxdb:ListTagsForResource",
     "timestream-influxdb:RebootDbCluster",
     "timestream-influxdb:RebootDbInstance",
+    "timestream-influxdb:RestoreFromDbBackup",
     "timestream-influxdb:TagResource",
     "timestream-influxdb:UntagResource",
     "timestream-influxdb:UpdateDbCluster",
@@ -58189,6 +58302,17 @@ const closePattern = /\\}/g;
 const commaPattern = /\\,/g;
 const periodPattern = /\\\./g;
 const EXPANSION_MAX = 100_000;
+// `EXPANSION_MAX` caps the *number* of expansions, but not their length. An
+// input like `'{a,b}'.repeat(1500)` stays under that count - its output is
+// truncated to 100k results - while making every result ~1500 characters
+// long. The result set, and the intermediate arrays built while combining
+// brace sets, then grow large enough to exhaust memory and crash the process
+// (CVE-2026-14257). `EXPANSION_MAX_LENGTH` bounds the total number of
+// characters the accumulator may hold at any point, so memory stays flat no
+// matter how many brace groups are chained. The limit sits well above any
+// realistic expansion (100k results hitting `EXPANSION_MAX` measure ~1M
+// characters) so legitimate input is unaffected.
+const EXPANSION_MAX_LENGTH = 4_000_000;
 function numeric(str) {
     return !isNaN(str) ? parseInt(str, 10) : str.charCodeAt(0);
 }
@@ -58238,7 +58362,7 @@ function esm_expand(str, options = {}) {
     if (!str) {
         return [];
     }
-    const { max = EXPANSION_MAX } = options;
+    const { max = EXPANSION_MAX, maxLength = EXPANSION_MAX_LENGTH } = options;
     // I don't know why Bash 4.3 does this, but it does.
     // Anything starting with {} will have the first two bytes preserved
     // but *only* at the top level, so {},a}b will not expand to anything,
@@ -58248,7 +58372,7 @@ function esm_expand(str, options = {}) {
     if (str.slice(0, 2) === '{}') {
         str = '\\{\\}' + str.slice(2);
     }
-    return expand_(escapeBraces(str), max, true).map(unescapeBraces);
+    return expand_(escapeBraces(str), max, maxLength, true).map(unescapeBraces);
 }
 function embrace(str) {
     return '{' + str + '}';
@@ -58262,22 +58386,117 @@ function lte(i, y) {
 function gte(i, y) {
     return i >= y;
 }
-function expand_(str, max, isTop) {
-    /** @type {string[]} */
-    const expansions = [];
-    const m = balanced('{', '}', str);
-    if (!m)
-        return [str];
-    // no need to expand pre, since it is guaranteed to be free of brace-sets
-    const pre = m.pre;
-    const post = m.post.length ? expand_(m.post, max, false) : [''];
-    if (/\$$/.test(m.pre)) {
-        for (let k = 0; k < post.length && k < max; k++) {
-            const expansion = pre + '{' + m.body + '}' + post[k];
-            expansions.push(expansion);
+// Build `{ acc[a] + pre + values[v] }` for every combination, capping the
+// number of results at `max` and the total number of characters at `maxLength`.
+// This is the one place output grows, so bounding it here keeps the single
+// accumulator - and therefore memory - flat regardless of how many brace groups
+// are combined (CVE-2026-14257).
+function combine(acc, pre, values, max, maxLength, dropEmpties) {
+    const out = [];
+    let length = 0;
+    for (let a = 0; a < acc.length; a++) {
+        for (let v = 0; v < values.length; v++) {
+            if (out.length >= max)
+                return out;
+            const expansion = acc[a] + pre + values[v];
+            // Bash drops empty results at the top level. Skip them before they count
+            // against `max`, so `max` bounds the number of *kept* results.
+            if (dropEmpties && !expansion)
+                continue;
+            if (length + expansion.length > maxLength)
+                return out;
+            out.push(expansion);
+            length += expansion.length;
         }
     }
-    else {
+    return out;
+}
+// The expansion values of a single numeric (`1..5`) or alphabetic (`a..e..2`)
+// sequence body.
+function expandSequence(body, isAlphaSequence, max, maxLength) {
+    const n = body.split(/\.\./);
+    const N = [];
+    // A sequence body always splits into two or three parts, but the compiler
+    // can't know that.
+    /* c8 ignore start */
+    if (n[0] === undefined || n[1] === undefined) {
+        return N;
+    }
+    /* c8 ignore stop */
+    const x = numeric(n[0]);
+    const y = numeric(n[1]);
+    const width = Math.max(n[0].length, n[1].length);
+    let incr = n.length === 3 && n[2] !== undefined ?
+        Math.max(Math.abs(numeric(n[2])), 1)
+        : 1;
+    let test = lte;
+    const reverse = y < x;
+    if (reverse) {
+        incr *= -1;
+        test = gte;
+    }
+    const pad = n.some(isPadded);
+    let length = 0;
+    for (let i = x; test(i, y) && N.length < max; i += incr) {
+        let c;
+        if (isAlphaSequence) {
+            c = String.fromCharCode(i);
+            if (c === '\\') {
+                c = '';
+            }
+        }
+        else {
+            c = String(i);
+            if (pad) {
+                const need = width - c.length;
+                if (need > 0) {
+                    const z = new Array(need + 1).join('0');
+                    if (i < 0) {
+                        c = '-' + z + c.slice(1);
+                    }
+                    else {
+                        c = z + c;
+                    }
+                }
+            }
+        }
+        if (length + c.length > maxLength)
+            break;
+        N.push(c);
+        length += c.length;
+    }
+    return N;
+}
+function expand_(str, max, maxLength, isTop) {
+    // Consume the string's top-level brace groups left to right, threading a
+    // running set of combined prefixes (`acc`). Expanding the tail iteratively -
+    // rather than recursing on `m.post` once per group - keeps the native stack
+    // depth constant, so deeply chained input (`'{a,b}'.repeat(3000)`) can no
+    // longer overflow the stack, and leaves a single accumulator whose size
+    // `maxLength` bounds directly (CVE-2026-14257).
+    let acc = [''];
+    // Bash drops empty results, but only when the *first* top-level group is a
+    // comma set - a sequence like `{a..\}` may legitimately yield ''. The drop
+    // is on the final strings, so it is applied to whichever `combine` produces
+    // them (the one with no brace set left in the tail).
+    let dropEmpties = false;
+    let firstGroup = true;
+    for (;;) {
+        const m = balanced('{', '}', str);
+        // No brace set left: the rest of the string is literal.
+        if (!m) {
+            return combine(acc, str, [''], max, maxLength, dropEmpties);
+        }
+        // no need to expand pre, since it is guaranteed to be free of brace-sets
+        const pre = m.pre;
+        if (/\$$/.test(pre)) {
+            acc = combine(acc, pre + '{' + m.body + '}', [''], max, maxLength, dropEmpties && !m.post.length);
+            firstGroup = false;
+            if (!m.post.length)
+                break;
+            str = m.post;
+            continue;
+        }
         const isNumericSequence = /^-?\d+\.\.-?\d+(?:\.\.-?\d+)?$/.test(m.body);
         const isAlphaSequence = /^[a-zA-Z]\.\.[a-zA-Z](?:\.\.-?\d+)?$/.test(m.body);
         const isSequence = isNumericSequence || isAlphaSequence;
@@ -58286,87 +58505,69 @@ function expand_(str, max, isTop) {
             // {a},b}
             if (m.post.match(/,(?!,).*\}/)) {
                 str = m.pre + '{' + m.body + escClose + m.post;
-                return expand_(str, max, true);
+                isTop = true;
+                continue;
             }
-            return [str];
+            // Nothing here expands, so the whole remaining string is literal.
+            return combine(acc, pre + '{' + m.body + '}' + m.post, [''], max, maxLength, dropEmpties);
         }
-        let n;
+        if (firstGroup) {
+            dropEmpties = isTop && !isSequence;
+            firstGroup = false;
+        }
+        let values;
         if (isSequence) {
-            n = m.body.split(/\.\./);
+            values = expandSequence(m.body, isAlphaSequence, max, maxLength);
         }
         else {
-            n = parseCommaParts(m.body);
+            let n = parseCommaParts(m.body);
             if (n.length === 1 && n[0] !== undefined) {
                 // x{{a,b}}y ==> x{a}y x{b}y
-                n = expand_(n[0], max, false).map(embrace);
+                n = expand_(n[0], max, maxLength, false).map(embrace);
                 //XXX is this necessary? Can't seem to hit it in tests.
                 /* c8 ignore start */
                 if (n.length === 1) {
-                    return post.map(p => m.pre + n[0] + p);
+                    acc = combine(acc, pre + n[0], [''], max, maxLength, dropEmpties && !m.post.length);
+                    if (!m.post.length)
+                        break;
+                    str = m.post;
+                    continue;
                 }
                 /* c8 ignore stop */
             }
-        }
-        // at this point, n is the parts, and we know it's not a comma set
-        // with a single entry.
-        let N;
-        if (isSequence && n[0] !== undefined && n[1] !== undefined) {
-            const x = numeric(n[0]);
-            const y = numeric(n[1]);
-            const width = Math.max(n[0].length, n[1].length);
-            let incr = n.length === 3 && n[2] !== undefined ?
-                Math.max(Math.abs(numeric(n[2])), 1)
-                : 1;
-            let test = lte;
-            const reverse = y < x;
-            if (reverse) {
-                incr *= -1;
-                test = gte;
+            // Values that `combine` is going to drop as empty produce no result, so
+            // they must not count against `max` - otherwise `{a,,b}` with `max: 2`
+            // would stop at `['a', '']` and yield one result instead of two. Skipping
+            // them outright keeps `values` bounded while leaving `max` a bound on
+            // *kept* results.
+            let dropsEmpties = dropEmpties && !m.post.length && !pre;
+            for (let d = 0; dropsEmpties && d < acc.length; d++) {
+                if (acc[d]) {
+                    dropsEmpties = false;
+                }
             }
-            const pad = n.some(isPadded);
-            N = [];
-            for (let i = x; test(i, y); i += incr) {
-                let c;
-                if (isAlphaSequence) {
-                    c = String.fromCharCode(i);
-                    if (c === '\\') {
-                        c = '';
+            values = [];
+            let valuesLength = 0;
+            outer: for (let j = 0; j < n.length; j++) {
+                const expanded = expand_(n[j], max, maxLength, false);
+                for (let k = 0; k < expanded.length; k++) {
+                    const v = expanded[k];
+                    if (dropsEmpties && !v)
+                        continue;
+                    if (values.length >= max || valuesLength + v.length > maxLength) {
+                        break outer;
                     }
-                }
-                else {
-                    c = String(i);
-                    if (pad) {
-                        const need = width - c.length;
-                        if (need > 0) {
-                            const z = new Array(need + 1).join('0');
-                            if (i < 0) {
-                                c = '-' + z + c.slice(1);
-                            }
-                            else {
-                                c = z + c;
-                            }
-                        }
-                    }
-                }
-                N.push(c);
-            }
-        }
-        else {
-            N = [];
-            for (let j = 0; j < n.length; j++) {
-                N.push.apply(N, expand_(n[j], max, false));
-            }
-        }
-        for (let j = 0; j < N.length; j++) {
-            for (let k = 0; k < post.length && expansions.length < max; k++) {
-                const expansion = pre + N[j] + post[k];
-                if (!isTop || isSequence || expansion) {
-                    expansions.push(expansion);
+                    values.push(v);
+                    valuesLength += v.length;
                 }
             }
         }
+        acc = combine(acc, pre, values, max, maxLength, dropEmpties && !m.post.length);
+        if (!m.post.length)
+            break;
+        str = m.post;
     }
-    return expansions;
+    return acc;
 }
 //# sourceMappingURL=index.js.map
 ;// CONCATENATED MODULE: ./node_modules/minimatch/dist/esm/assert-valid-pattern.js
