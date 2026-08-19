@@ -6,7 +6,7 @@
   "type": "module",
   "main": "dist/index.js",
   "engines": {
-    "node": ">=24.14.0"
+    "node": ">=24.19.0"
   },
   "scripts": {
     "build": "ncc build src/index.ts -o dist --no-source-map-register --license licenses.txt && rm -rf dist/licenses.txt dist/package.json dist/src dist/scripts",
