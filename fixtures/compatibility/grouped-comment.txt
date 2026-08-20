@@ -1,0 +1,15 @@
+**IAM Wildcard Expansion**
+
+2 wildcard patterns expand to 3 action(s):
+**Patterns:**
+- `s3:Get*`
+- `s3:GetB*`
+
+<details>
+<summary>Click to expand</summary>
+
+1. [`s3:GetBucket`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetBucket)
+1. [`s3:GetBucketAcl`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetBucketAcl)
+1. [`s3:GetObject`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObject)
+
+</details>

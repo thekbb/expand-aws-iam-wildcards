@@ -1,0 +1,41 @@
+[
+  {
+    "name": "no files match",
+    "files": [
+      { "filename": "README.md", "patch": "@@ -0,0 +1 @@\n+no IAM policy here" }
+    ],
+    "filePatterns": ["**/*.tf"],
+    "expectedStats": {
+      "filesScanned": 0,
+      "wildcardsFound": 0,
+      "blocksCreated": 0,
+      "actionsExpanded": 0
+    }
+  },
+  {
+    "name": "matched files contain no wildcards",
+    "files": [
+      { "filename": "policy.tf", "patch": "@@ -0,0 +1 @@\n+\"s3:GetObject\"" }
+    ],
+    "filePatterns": ["**/*.tf"],
+    "expectedStats": {
+      "filesScanned": 1,
+      "wildcardsFound": 0,
+      "blocksCreated": 0,
+      "actionsExpanded": 0
+    }
+  },
+  {
+    "name": "wildcards do not expand",
+    "files": [
+      { "filename": "policy.tf", "patch": "@@ -0,0 +1 @@\n+\"unknownservice:Get*\"" }
+    ],
+    "filePatterns": ["**/*.tf"],
+    "expectedStats": {
+      "filesScanned": 1,
+      "wildcardsFound": 1,
+      "blocksCreated": 1,
+      "actionsExpanded": 0
+    }
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "originalActions": ["s3:*"],
+  "expandedActions": [
+    "unknown:Action0",
+    "unknown:Action1",
+    "unknown:Action2"
+  ],
+  "maxCommentBodyLength": 10,
+  "truncationUrl": "https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/123"
+}
