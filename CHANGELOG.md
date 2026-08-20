@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Typecheck production, release tooling, and tests with exact optional property types
+- Check README input defaults, example inputs, and runtime paths against action metadata
 
 ## [1.4.0] - 2026-07-21
 

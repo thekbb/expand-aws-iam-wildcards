@@ -17,6 +17,9 @@ npm test
 # Run tests with the CI coverage configuration
 npm run test:coverage
 
+# Check action metadata and README examples
+npm run docs:check
+
 # Type check
 npm run typecheck
 
@@ -30,6 +33,9 @@ npm run build
 
 `npm run typecheck` checks production code, release tooling, and tests with the
 same strict TypeScript configuration.
+
+`npm run docs:check` keeps README input names, defaults, example inputs, and the
+runtime entry aligned with `action.yml` and `package.json`.
 
 ## Pull Requests
 
