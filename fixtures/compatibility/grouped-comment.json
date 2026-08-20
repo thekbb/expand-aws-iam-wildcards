@@ -1,0 +1,18 @@
+{
+  "matches": [
+    { "action": "s3:Get*", "line": 10, "file": "policy.json" },
+    { "action": "s3:GetB*", "line": 10, "file": "policy.json" },
+    { "action": "s3:Get*", "line": 11, "file": "policy.json" }
+  ],
+  "expandedActions": [
+    ["s3:Get*", ["s3:GetObject", "s3:GetBucket"]],
+    ["s3:GetB*", ["s3:GetBucket", "s3:GetBucketAcl"]]
+  ],
+  "collapseThreshold": 2,
+  "expectedBlock": {
+    "file": "policy.json",
+    "startLine": 10,
+    "endLine": 11,
+    "actions": ["s3:Get*", "s3:GetB*"]
+  }
+}

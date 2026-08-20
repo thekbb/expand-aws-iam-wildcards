@@ -1,0 +1,83 @@
+[
+  {
+    "name": "leaves an exact match unchanged",
+    "comments": [
+      { "path": "policy.tf", "line": 10, "body": "**IAM Wildcard Expansion**\n\nsame body" }
+    ],
+    "existingComments": [
+      { "id": 1001, "path": "policy.tf", "line": 10, "body": "**IAM Wildcard Expansion**\n\nsame body" }
+    ],
+    "expectedResult": {
+      "createdCount": 0,
+      "updatedCount": 0,
+      "unchangedCount": 1,
+      "deletedCount": 0,
+      "failedDeleteCount": 0,
+      "preservedCount": 0
+    },
+    "expectedUpdatedIds": [],
+    "expectedDeletedIds": [],
+    "expectedCreatedComments": []
+  },
+  {
+    "name": "updates the replied thread and deletes its duplicate",
+    "comments": [
+      { "path": "policy.tf", "line": 10, "body": "**IAM Wildcard Expansion**\n\nnew body" }
+    ],
+    "existingComments": [
+      { "id": 1001, "path": "policy.tf", "line": 10, "body": "**IAM Wildcard Expansion**\n\nold duplicate" },
+      { "id": 1002, "path": "policy.tf", "line": 10, "body": "**IAM Wildcard Expansion**\n\nold thread", "hasReplies": true }
+    ],
+    "expectedResult": {
+      "createdCount": 0,
+      "updatedCount": 1,
+      "unchangedCount": 0,
+      "deletedCount": 1,
+      "failedDeleteCount": 0,
+      "preservedCount": 0
+    },
+    "expectedUpdatedIds": [1002],
+    "expectedDeletedIds": [1001],
+    "expectedCreatedComments": []
+  },
+  {
+    "name": "creates a current comment and preserves a stale replied thread",
+    "comments": [
+      { "path": "policy.tf", "line": 10, "body": "**IAM Wildcard Expansion**\n\nnew body" }
+    ],
+    "existingComments": [
+      { "id": 1001, "path": "policy.tf", "line": 20, "body": "**IAM Wildcard Expansion**\n\nstale thread", "hasReplies": true }
+    ],
+    "expectedResult": {
+      "createdCount": 1,
+      "updatedCount": 0,
+      "unchangedCount": 0,
+      "deletedCount": 0,
+      "failedDeleteCount": 0,
+      "preservedCount": 1
+    },
+    "expectedUpdatedIds": [],
+    "expectedDeletedIds": [],
+    "expectedCreatedComments": [
+      { "path": "policy.tf", "line": 10, "body": "**IAM Wildcard Expansion**\n\nnew body" }
+    ]
+  },
+  {
+    "name": "deletes an unthreaded stale comment",
+    "comments": [],
+    "existingComments": [
+      { "id": 1001, "path": "policy.tf", "line": 20, "body": "**IAM Wildcard Expansion**\n\nstale body" }
+    ],
+    "expectedResult": {
+      "createdCount": 0,
+      "updatedCount": 0,
+      "unchangedCount": 0,
+      "deletedCount": 1,
+      "failedDeleteCount": 0,
+      "preservedCount": 0
+    },
+    "expectedUpdatedIds": [],
+    "expectedDeletedIds": [1001],
+    "expectedCreatedComments": []
+  }
+]

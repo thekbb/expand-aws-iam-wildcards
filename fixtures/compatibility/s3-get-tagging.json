@@ -1,0 +1,18 @@
+{
+  "files": [
+    {
+      "filename": "fixtures/compatibility/policy.tf",
+      "patch": "@@ -0,0 +1,5 @@\n+locals {\n+  policy_actions = [\n+    \"s3:Get*Tagging\",\n+  ]\n+}"
+    }
+  ],
+  "filePatterns": ["**/*.tf"],
+  "collapseThreshold": 5,
+  "expectedStats": {
+    "filesScanned": 1,
+    "wildcardsFound": 1,
+    "blocksCreated": 1,
+    "actionsExpanded": 1
+  },
+  "expectedPath": "fixtures/compatibility/policy.tf",
+  "expectedLine": 3
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "input": "-1",
+    "message": "Invalid collapse-threshold input: \"-1\". Expected a non-negative safe integer."
+  },
+  {
+    "input": "1.5",
+    "message": "Invalid collapse-threshold input: \"1.5\". Expected a non-negative safe integer."
+  },
+  {
+    "input": "not-a-number",
+    "message": "Invalid collapse-threshold input: \"not-a-number\". Expected a non-negative safe integer."
+  },
+  {
+    "input": "9007199254740992",
+    "message": "Invalid collapse-threshold input: \"9007199254740992\". Expected a non-negative safe integer."
+  }
+]
