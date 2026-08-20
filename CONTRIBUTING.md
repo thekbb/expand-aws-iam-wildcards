@@ -28,6 +28,9 @@ npm run lint:md
 npm run build
 ```
 
+`npm run typecheck` checks production code, release tooling, and tests with the
+same strict TypeScript configuration.
+
 ## Pull Requests
 
 1. Fork the repo and create a branch from `main`

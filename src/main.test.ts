@@ -175,7 +175,7 @@ describe('runAction', () => {
       [{ filename: 'policy.tf', patch: '+ "s3:Get*"' }],
       ['**/*.tf', '**/*.json'],
       5,
-      { truncationUrl: undefined },
+      {},
     );
     expect(githubApiMocks.syncReviewComments).toHaveBeenCalledWith({ tag: 'octokit' }, {
       owner: 'thekbb',
@@ -307,7 +307,7 @@ describe('runAction', () => {
       [],
       ['**/*.tf', '**/*.json'],
       5,
-      { truncationUrl: undefined },
+      {},
     );
     expect(coreMocks.warning).toHaveBeenCalledWith(
       'Truncated 1 review comment(s) to stay within GitHub comment limits.',

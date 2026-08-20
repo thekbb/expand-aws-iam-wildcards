@@ -73,11 +73,7 @@ function buildReviewComments(
       a.toLowerCase().localeCompare(b.toLowerCase())
     );
 
-    const formatOptions: FormatOptions = {
-      collapseThreshold,
-      truncationUrl: options.truncationUrl,
-      maxCommentBodyLength: options.maxCommentBodyLength,
-    };
+    const formatOptions: FormatOptions = { collapseThreshold, ...options };
     const formattedComment = formatCommentResult(originalActions, uniqueExpanded, formatOptions);
 
     comments.push({
