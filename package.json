@@ -10,11 +10,13 @@
   },
   "scripts": {
     "build": "ncc build src/index.ts -o dist --no-source-map-register --license licenses.txt && rm -rf dist/licenses.txt dist/package.json dist/src dist/scripts",
+    "check": "npm run lint && npm run lint:md && npm run typecheck && npm run test:coverage && npm run build",
     "lint": "eslint .",
     "lint:md": "markdownlint '**/*.md' --ignore node_modules",
     "release": "tsx scripts/release.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "generate-iam-data": "tsx scripts/generate-iam-data.ts",
     "update-iam-data": "npm update @cloud-copilot/iam-data && npm run generate-iam-data"
   },

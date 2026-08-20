@@ -8,8 +8,14 @@ Thank you for your interest in contributing!
 # Install dependencies
 npm install
 
+# Run the same checks as the main CI job
+npm run check
+
 # Run tests
 npm test
+
+# Run tests with the CI coverage configuration
+npm run test:coverage
 
 # Type check
 npm run typecheck
@@ -26,7 +32,7 @@ npm run build
 
 1. Fork the repo and create a branch from `main`
 2. Make your changes
-3. Run `npm test`, `npm run lint`, and `npm run lint:md`
+3. Run `npm run check`
 4. Open a PR. Be verbose. We like to read.
 
 ## Integration Test
