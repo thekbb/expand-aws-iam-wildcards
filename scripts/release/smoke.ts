@@ -24,7 +24,7 @@ export function resolveActionRuntime(actionYaml: string, outputDirectory: string
   }
 
   const relativeRuntime = posix.relative('dist', metadata.runs.main);
-  if (relativeRuntime === '' || relativeRuntime.startsWith('../') || posix.isAbsolute(relativeRuntime)) {
+  if (relativeRuntime === '' || relativeRuntime.startsWith('../')) {
     throw new Error(`action.yml runtime must be a file under dist/: ${metadata.runs.main}`);
   }
   return resolve(outputDirectory, relativeRuntime);

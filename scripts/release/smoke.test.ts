@@ -27,15 +27,27 @@ function withRuntime(
 
 describe('compiled action smoke test', () => {
   it('runs the declared action entry with a safe non-PR event', () => {
-    withRuntime(`
-      const fs = require('node:fs');
-      const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
-      if (process.env.GITHUB_EVENT_NAME !== 'push') process.exit(2);
-      if (Object.keys(event).length !== 0) process.exit(3);
-      process.stdout.write('${EXPECTED_SKIP_MESSAGE}');
-    `, (outputDirectory) => {
-      expect(() => smokeTestAction(actionYaml, outputDirectory)).not.toThrow();
-    });
+    const previousValue = process.env.EXPAND_IAM_SMOKE_PARENT_SECRET;
+    process.env.EXPAND_IAM_SMOKE_PARENT_SECRET = 'must-not-reach-child';
+
+    try {
+      withRuntime(`
+        const fs = require('node:fs');
+        const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+        if (process.env.GITHUB_EVENT_NAME !== 'push') process.exit(2);
+        if (Object.keys(event).length !== 0) process.exit(3);
+        if (process.env.EXPAND_IAM_SMOKE_PARENT_SECRET !== undefined) process.exit(4);
+        process.stdout.write('${EXPECTED_SKIP_MESSAGE}');
+      `, (outputDirectory) => {
+        expect(() => smokeTestAction(actionYaml, outputDirectory)).not.toThrow();
+      });
+    } finally {
+      if (previousValue === undefined) {
+        delete process.env.EXPAND_IAM_SMOKE_PARENT_SECRET;
+      } else {
+        process.env.EXPAND_IAM_SMOKE_PARENT_SECRET = previousValue;
+      }
+    }
   });
 
   it('fails when the declared runtime is stale', () => {
