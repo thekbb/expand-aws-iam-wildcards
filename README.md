@@ -68,13 +68,11 @@ and the full list is written to the workflow run logs.
 
 ## Inputs
 
-| Name                  | Description                                          | Default                         |
-| --------------------- |------------------------------------------------------| ------------------------------- |
-| `github-token`        | GitHub token for API access                          | `${{ github.token }}`           |
-| `file-patterns`       | Glob patterns to scan (comma-separated)              | See below                       |
-| `collapse-threshold`  | Number of actions before collapsing into `<details>` | `5`                             |
-
-Default file patterns: `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js`
+| Name | Description | Default |
+| --- | --- | --- |
+| `github-token` | GitHub token for API access | `${{ github.token }}` |
+| `file-patterns` | Comma-separated glob patterns to scan | `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js` |
+| `collapse-threshold` | Number of expanded actions before collapsing into details element | `5` |
 
 ## Usage Examples
 

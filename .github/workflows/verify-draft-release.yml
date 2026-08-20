@@ -136,6 +136,9 @@ jobs:
       - name: Lint Markdown
         run: npm run lint:md
 
+      - name: Check documentation contracts
+        run: npm run docs:check
+
       - name: Type check
         run: npm run typecheck
 

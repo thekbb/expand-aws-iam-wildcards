@@ -12,7 +12,7 @@ inputs:
     required: false
     default: ${{ github.token }}
   file-patterns:
-    description: 'Glob patterns for files to scan (comma-separated)'
+    description: 'Comma-separated glob patterns to scan'
     required: false
     default: '**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js'
   collapse-threshold:

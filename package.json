@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build": "ncc build src/index.ts -o dist --no-source-map-register --license licenses.txt && rm -rf dist/licenses.txt dist/package.json dist/src dist/scripts",
-    "check": "npm run lint && npm run lint:md && npm run typecheck && npm run test:coverage && npm run build",
+    "check": "npm run lint && npm run lint:md && npm run docs:check && npm run typecheck && npm run test:coverage && npm run build",
+    "docs:check": "tsx scripts/check-docs.ts",
     "lint": "eslint .",
     "lint:md": "markdownlint '**/*.md' --ignore node_modules",
     "release": "tsx scripts/release.ts",
@@ -43,6 +44,7 @@
     "@vercel/ncc": "~0.44.0",
     "@vitest/coverage-v8": "^4.0.15",
     "eslint": "^10.0.0",
+    "js-yaml": "^5.3.0",
     "markdownlint-cli": "~0.49.0",
     "tsx": "~4.23.0",
     "typescript": "~5.9.3",
