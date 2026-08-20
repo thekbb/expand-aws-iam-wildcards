@@ -80,6 +80,36 @@ describe('validateDocsContract', () => {
     ]));
   });
 
+  it('supports inputs without defaults', () => {
+    const actionWithoutDefault = actionYaml.replace(
+      'runs:',
+      '  optional-input: {}\nruns:',
+    );
+    const readmeWithoutDefault = readme.replace(
+      '## Example',
+      '| `optional-input` | Optional input |  |\n\n## Example',
+    );
+
+    expect(validateDocsContract(source({
+      actionYaml: actionWithoutDefault,
+      readme: readmeWithoutDefault,
+    }))).toEqual([]);
+  });
+
+  it('allows action examples without inputs and ignores unrelated YAML', () => {
+    const readmeWithoutInputs = readme
+      .replace("  with:\n    file-patterns: '**/*.tf'\n", '')
+      .replace('## Example', '```yaml\nversion: 2\n```\n\n## Example');
+
+    expect(validateDocsContract(source({ readme: readmeWithoutInputs }))).toEqual([]);
+  });
+
+  it('supports an Inputs section at the end of the README', () => {
+    const inputsOnlyReadme = readme.slice(0, readme.indexOf('## Example'));
+
+    expect(validateDocsContract(source({ readme: inputsOnlyReadme }))).toEqual([]);
+  });
+
   it('reports malformed metadata and documentation', () => {
     expect(validateDocsContract(source({ actionYaml: 'name: invalid' }))).toEqual([
       'action.yml must define inputs and runs mappings',
@@ -87,5 +117,14 @@ describe('validateDocsContract', () => {
     expect(validateDocsContract(source({ readme: '# No inputs' }))).toEqual([
       'README.md must contain an Inputs section',
     ]);
+    expect(validateDocsContract(source({
+      actionYaml: actionYaml.replace('main: dist/index.js', 'main: 42'),
+    }))).toEqual(['action.yml runs.main must be a string']);
+    expect(validateDocsContract(source({
+      actionYaml: actionYaml.replace('github-token:\n    default: ${{ github.token }}', 'github-token: invalid'),
+    }))).toEqual(['action.yml input github-token must be a mapping']);
+    expect(validateDocsContract(source({ packageJson: '{}' }))).toContain(
+      'package.json main does not match action.yml runs.main',
+    );
   });
 });
