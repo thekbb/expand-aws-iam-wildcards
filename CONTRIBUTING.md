@@ -32,6 +32,9 @@ npm run build
 
 # Rebuild twice and compare without changing dist/
 npm run build:check
+
+# Build temporarily and run the compiled action with a safe non-PR event
+npm run build:smoke
 ```
 
 `npm run typecheck` checks production code, release tooling, and tests with the
@@ -43,7 +46,9 @@ runtime entry aligned with `action.yml` and `package.json`.
 `npm run build` compiles through the repository-local `ncc` executable in a
 temporary directory before replacing `dist/index.js`. `npm run build:check`
 rebuilds twice and compares both results with the committed bundle without
-modifying `dist/`.
+modifying `dist/`. `npm run build:smoke` builds temporarily, executes the entry
+declared by `action.yml` with a synthetic non-PR event, and cleans up without
+changing `dist/`.
 
 ## Pull Requests
 

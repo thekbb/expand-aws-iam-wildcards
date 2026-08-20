@@ -11,7 +11,8 @@
   "scripts": {
     "build": "tsx scripts/build.ts",
     "build:check": "tsx scripts/build.ts --check",
-    "check": "npm run lint && npm run lint:md && npm run docs:check && npm run typecheck && npm run test:coverage && npm run build",
+    "build:smoke": "tsx scripts/build.ts --smoke",
+    "check": "npm run lint && npm run lint:md && npm run docs:check && npm run typecheck && npm run test:coverage && npm run build:smoke",
     "docs:check": "tsx scripts/check-docs.ts",
     "lint": "eslint .",
     "lint:md": "markdownlint '**/*.md' --ignore node_modules",

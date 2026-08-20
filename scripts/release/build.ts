@@ -11,7 +11,7 @@ import {
 import { tmpdir } from 'node:os';
 import { join, posix, resolve } from 'node:path';
 
-const RELEASE_FILE = 'index.js';
+export const RELEASE_FILE = 'index.js';
 const NCC_AUXILIARY_OUTPUTS = ['licenses.txt', 'package.json', 'src', 'scripts'] as const;
 
 export type BundleCompiler = (outputDirectory: string) => void;
