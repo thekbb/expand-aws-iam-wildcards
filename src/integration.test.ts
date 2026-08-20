@@ -95,12 +95,13 @@ describe('runAction integration', () => {
     comment_id: number;
     body: string;
   }) => {
-    const comment = reviewComments.find((entry) => entry.id === parameters.comment_id);
+    const commentIndex = reviewComments.findIndex((entry) => entry.id === parameters.comment_id);
+    const comment = reviewComments[commentIndex];
     if (!comment) {
       throw new Error(`Missing mocked review comment ${parameters.comment_id}`);
     }
 
-    comment.body = parameters.body;
+    reviewComments[commentIndex] = { ...comment, body: parameters.body };
     return {};
   });
 

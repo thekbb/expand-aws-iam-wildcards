@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Changed
+
+- Typecheck production, release tooling, and tests with exact optional property types
+
 ## [1.4.0] - 2026-07-21
 
 ### Changed

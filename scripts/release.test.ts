@@ -75,7 +75,7 @@ function continueResponses({
         result('{"isDraft":true,"isImmutable":false,"tagName":"v1.3.0","url":"https://example.test/release"}'),
       );
 
-  return new Map([
+  const responses = new Map<string, CommandResult[]>([
     ['which git', [result()]],
     ['which gh', [result()]],
     ['which gpg', [result()]],
@@ -98,14 +98,10 @@ function continueResponses({
       'git rev-parse -q --verify refs/tags/v1.3.0',
       localTagExists ? [result(), result()] : [result('', 1), result('', 1)],
     ],
-    ...(localTagExists ? ([[`git rev-parse v1.3.0^{commit}`, [result(`${localTagCommit}\n`)]]] as const) : []),
     [
       'git ls-remote --exit-code origin refs/tags/v1.3.0',
       remoteTagExists ? [result(`${remoteTagCommit}\trefs/tags/v1.3.0\n`)] : [result('', 2)],
     ],
-    ...(remoteTagExists
-      ? ([[`git ls-remote --tags origin refs/tags/v1.3.0^{}`, [result(`${remoteTagCommit}\trefs/tags/v1.3.0^{}\n`)]]] as const)
-      : ([[`git tag -s v1.3.0 ${releaseSha} -m v1.3.0`, [result()]], ['git push origin refs/tags/v1.3.0', [result()]]] as const)),
     [
       'gh release view v1.3.0 --json isDraft,isImmutable,tagName,url',
       [
@@ -120,38 +116,50 @@ function continueResponses({
         ...releaseViewsAfterVerify,
       ],
     ],
-    ...(releaseAlreadyPublished || draftReleaseExists
-      ? []
-      : ([
-          ['gh release create v1.3.0 --draft --verify-tag --generate-notes', [result()]],
-          ['gh release view v1.3.0 --json isDraft,tagName,url', [result('{"isDraft":true,"tagName":"v1.3.0"}')]],
-        ] as const)),
-    ...(releaseAlreadyPublished
-      ? []
-      : ([
-          [
-            'gh run list --workflow verify-draft-release.yml --event workflow_dispatch --limit 50 --json databaseId,displayTitle --branch v1.3.0',
-            [result('[]'), result('[{"databaseId":456,"displayTitle":"Verify v1.3.0"}]')],
-          ],
-          ['gh workflow run verify-draft-release.yml --ref v1.3.0 -f tag=v1.3.0', [result()]],
-          ['gh run watch 456 --exit-status', [result()]],
-        ] as const)),
     ['./verify-release.sh --tag v1.3.0', [result()]],
     [
       'git ls-remote --refs --tags origin refs/tags/v1',
       [result(oldMajorTagCommit === '' ? '' : `${oldMajorTagCommit}\trefs/tags/v1\n`)],
     ],
     ['git tag -s -f v1 v1.3.0^{commit} -m v1', [result()]],
-    ...(oldMajorTagCommit === ''
-      ? ([['git push origin refs/tags/v1', [result()]]] as const)
-      : ([
-          [
-            `git push --force-with-lease=refs/tags/v1:${oldMajorTagCommit} origin refs/tags/v1`,
-            [result()],
-          ],
-        ] as const)),
     [`git ls-remote --tags origin refs/tags/v1^{}`, [result(`${majorTagCommit}\trefs/tags/v1^{}\n`)]],
   ]);
+
+  if (localTagExists) {
+    responses.set(`git rev-parse v1.3.0^{commit}`, [result(`${localTagCommit}\n`)]);
+  }
+
+  if (remoteTagExists) {
+    responses.set(`git ls-remote --tags origin refs/tags/v1.3.0^{}`, [
+      result(`${remoteTagCommit}\trefs/tags/v1.3.0^{}\n`),
+    ]);
+  } else {
+    responses.set(`git tag -s v1.3.0 ${releaseSha} -m v1.3.0`, [result()]);
+    responses.set('git push origin refs/tags/v1.3.0', [result()]);
+  }
+
+  if (!releaseAlreadyPublished && !draftReleaseExists) {
+    responses.set('gh release create v1.3.0 --draft --verify-tag --generate-notes', [result()]);
+    responses.set('gh release view v1.3.0 --json isDraft,tagName,url', [
+      result('{"isDraft":true,"tagName":"v1.3.0"}'),
+    ]);
+  }
+
+  if (!releaseAlreadyPublished) {
+    responses.set(
+      'gh run list --workflow verify-draft-release.yml --event workflow_dispatch --limit 50 --json databaseId,displayTitle --branch v1.3.0',
+      [result('[]'), result('[{"databaseId":456,"displayTitle":"Verify v1.3.0"}]')],
+    );
+    responses.set('gh workflow run verify-draft-release.yml --ref v1.3.0 -f tag=v1.3.0', [result()]);
+    responses.set('gh run watch 456 --exit-status', [result()]);
+  }
+
+  const pushMajorTagCommand = oldMajorTagCommit === ''
+    ? 'git push origin refs/tags/v1'
+    : `git push --force-with-lease=refs/tags/v1:${oldMajorTagCommit} origin refs/tags/v1`;
+  responses.set(pushMajorTagCommand, [result()]);
+
+  return responses;
 }
 
 describe('runReleaseCli', () => {

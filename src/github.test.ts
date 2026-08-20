@@ -220,8 +220,8 @@ describe('syncReviewComments', () => {
       repo: 'expand-aws-iam-wildcards',
       comment_id: 1001,
     });
-    expect(octokit.rest.pulls.createReview.mock.invocationCallOrder[0]).toBeLessThan(
-      octokit.rest.pulls.deleteReviewComment.mock.invocationCallOrder[0],
+    expect(octokit.rest.pulls.createReview).toHaveBeenCalledBefore(
+      octokit.rest.pulls.deleteReviewComment,
     );
   });
 

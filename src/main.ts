@@ -85,6 +85,9 @@ export async function runAction(): Promise<void> {
     const pullNumber = context.payload.pull_request.number as number;
     const commitSha = context.payload.pull_request.head.sha as string;
     const workflowRunUrl = getWorkflowRunUrl(owner, repo);
+    const reviewCommentOptions = workflowRunUrl === undefined
+      ? {}
+      : { truncationUrl: workflowRunUrl };
 
     core.info(`Analyzing PR #${pullNumber} in ${owner}/${repo}`);
 
@@ -102,7 +105,7 @@ export async function runAction(): Promise<void> {
       files,
       filePatterns,
       collapseThreshold,
-      { truncationUrl: workflowRunUrl },
+      reviewCommentOptions,
     );
 
     if (stats.filesScanned === 0) {
