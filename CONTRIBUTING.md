@@ -29,6 +29,9 @@ npm run lint:md
 
 # Build
 npm run build
+
+# Rebuild twice and compare without changing dist/
+npm run build:check
 ```
 
 `npm run typecheck` checks production code, release tooling, and tests with the
@@ -36,6 +39,11 @@ same strict TypeScript configuration.
 
 `npm run docs:check` keeps README input names, defaults, example inputs, and the
 runtime entry aligned with `action.yml` and `package.json`.
+
+`npm run build` compiles through the repository-local `ncc` executable in a
+temporary directory before replacing `dist/index.js`. `npm run build:check`
+rebuilds twice and compares both results with the committed bundle without
+modifying `dist/`.
 
 ## Pull Requests
 

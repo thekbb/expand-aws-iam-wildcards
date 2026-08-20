@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Typecheck production, release tooling, and tests with exact optional property types
 - Check README input defaults, example inputs, and runtime paths against action metadata
+- Build and verify the action bundle through an isolated, deterministic TypeScript driver
 
 ## [1.4.0] - 2026-07-21
 
