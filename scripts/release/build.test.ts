@@ -93,6 +93,14 @@ describe('build output validation', () => {
     });
   });
 
+  it('creates dist when it does not exist', () => {
+    withFixture((repositoryRoot) => {
+      writeCommittedBundle(repositoryRoot, compiler({ 'index.js': 'new bundle' }));
+
+      expect(readFileSync(join(repositoryRoot, 'dist/index.js'), 'utf8')).toBe('new bundle');
+    });
+  });
+
   it('checks two clean builds and the committed bundle', () => {
     withFixture((repositoryRoot) => {
       writeFiles(join(repositoryRoot, 'dist'), { 'index.js': 'same bundle' });
