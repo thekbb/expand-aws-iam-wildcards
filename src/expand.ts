@@ -1,6 +1,9 @@
 import { IAM_ACTIONS } from './iam-actions.js';
 
-export function expandIamAction(pattern: string): string[] {
+export function expandIamAction(
+  pattern: string,
+  iamActions: readonly string[] = IAM_ACTIONS,
+): string[] {
   const normalized = pattern
     .trim()
     .replace(/\u2217/g, '*')  // ∗ (unicode asterisk operator)
@@ -14,7 +17,7 @@ export function expandIamAction(pattern: string): string[] {
 
   try {
     const regex = new RegExp('^' + regexPattern + '$', 'i');
-    return IAM_ACTIONS.filter((action) => regex.test(action));
+    return iamActions.filter((action) => regex.test(action));
   } catch {
     return [];
   }

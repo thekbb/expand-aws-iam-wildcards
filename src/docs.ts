@@ -1,10 +1,13 @@
 import { SERVICE_DOC_SLUGS } from './service-doc-slugs.js';
 
-export function getActionDocUrl(action: string): string | null {
+export function getActionDocUrl(
+  action: string,
+  serviceDocSlugs: Readonly<Record<string, string>> = SERVICE_DOC_SLUGS,
+): string | null {
   const [service, actionName] = action.split(':');
   if (!service || !actionName) return null;
 
-  const slug = SERVICE_DOC_SLUGS[service.toLowerCase()];
+  const slug = serviceDocSlugs[service.toLowerCase()];
   if (!slug) return null;
 
   // Use text fragment only; avoids some pages overriding section hash navigation.
