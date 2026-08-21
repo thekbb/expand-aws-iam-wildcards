@@ -1,4 +1,5 @@
 import type { WildcardMatch, WildcardBlock } from './types.js';
+import { withCurrentCommentMarker } from './comment-identity.js';
 import { formatActionWithLink } from './docs.js';
 
 const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*)["']?/g;
@@ -110,11 +111,11 @@ ${actionsList}
 </details>`
     : actionsList;
 
-  return `**IAM Wildcard Expansion**
+  return withCurrentCommentMarker(`**IAM Wildcard Expansion**
 
 ${header}${patterns}${truncationNotice}
 
-${actionsBlock}`;
+${actionsBlock}`);
 }
 
 function createMinimalCommentBody(truncationUrl?: string): string {
@@ -122,9 +123,9 @@ function createMinimalCommentBody(truncationUrl?: string): string {
     ? ` The full expanded list is in the [workflow run logs](${truncationUrl}).`
     : '';
 
-  return `**IAM Wildcard Expansion**
+  return withCurrentCommentMarker(`**IAM Wildcard Expansion**
 
-Expanded actions were omitted from this comment to stay within GitHub limits.${logMessage}`;
+Expanded actions were omitted from this comment to stay within GitHub limits.${logMessage}`);
 }
 
 export function formatCommentResult(

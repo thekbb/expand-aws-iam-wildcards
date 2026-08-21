@@ -6,6 +6,7 @@ import {
   formatCommentResult,
   groupIntoConsecutiveBlocks,
 } from './utils.js';
+import { CURRENT_COMMENT_MARKER } from './comment-identity.js';
 import type { WildcardMatch } from './types.js';
 
 describe('findPotentialWildcardActions', () => {
@@ -100,6 +101,7 @@ describe('formatComment', () => {
     const result = formatComment(['s3:Get*'], ['s3:GetObject', 's3:GetBucket']);
 
     expect(result).toContain('**IAM Wildcard Expansion**');
+    expect(result).toContain(CURRENT_COMMENT_MARKER);
     expect(result).toContain('`s3:Get*` expands to 2 action(s):');
     expect(result).toContain('s3:GetObject');
     expect(result).toContain('s3:GetBucket');
@@ -144,7 +146,7 @@ describe('formatComment', () => {
       ['s3:*'],
       expanded,
       {
-        maxCommentBodyLength: 325,
+        maxCommentBodyLength: 600,
         truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/123',
       },
     );
@@ -154,6 +156,8 @@ describe('formatComment', () => {
     expect(result.renderedActionsCount).toBeLessThan(expanded.length);
     expect(result.body).toContain('workflow run logs');
     expect(result.body).toContain('Showing first');
+    expect(result.body).toContain(CURRENT_COMMENT_MARKER);
+    expect(result.body.length).toBeLessThanOrEqual(600);
   });
 
   it('truncates oversized comments without a log link when no URL is available', () => {
@@ -161,7 +165,7 @@ describe('formatComment', () => {
     const result = formatCommentResult(
       ['s3:*'],
       expanded,
-      { maxCommentBodyLength: 325 },
+      { maxCommentBodyLength: 600 },
     );
 
     expect(result.truncated).toBe(true);
@@ -169,6 +173,8 @@ describe('formatComment', () => {
     expect(result.renderedActionsCount).toBeLessThan(expanded.length);
     expect(result.body).toContain('Showing first');
     expect(result.body).not.toContain('workflow run logs');
+    expect(result.body).toContain(CURRENT_COMMENT_MARKER);
+    expect(result.body.length).toBeLessThanOrEqual(600);
   });
 
   it('falls back to a minimal comment when nothing else fits', () => {
@@ -192,10 +198,12 @@ describe('formatComment', () => {
     expect(withLogLink.renderedActionsCount).toBe(0);
     expect(withLogLink.body).toContain('Expanded actions were omitted from this comment');
     expect(withLogLink.body).toContain('workflow run logs');
+    expect(withLogLink.body).toContain(CURRENT_COMMENT_MARKER);
 
     expect(withoutLogLink.truncated).toBe(true);
     expect(withoutLogLink.renderedActionsCount).toBe(0);
     expect(withoutLogLink.body).toContain('Expanded actions were omitted from this comment');
     expect(withoutLogLink.body).not.toContain('workflow run logs');
+    expect(withoutLogLink.body).toContain(CURRENT_COMMENT_MARKER);
   });
 });
