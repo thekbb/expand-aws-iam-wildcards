@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Restrict review comment updates and deletion to safely owned current or legacy comments
 - Report analyzed, binary, empty, missing, and failed pull-request diff states
 - Recover omitted patches from the full pull-request diff and preserve stale comments if analysis remains incomplete
+- Exercise the compiled action lifecycle against a paginated local GitHub API fixture
 
 ## [1.4.0] - 2026-07-21
 

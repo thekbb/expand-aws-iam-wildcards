@@ -96,6 +96,24 @@ export function withTemporaryBundle<T>(
   }
 }
 
+export async function withTemporaryBundleAsync<T>(
+  compile: BundleCompiler,
+  useBundle: (outputDirectory: string) => Promise<T>,
+): Promise<T> {
+  const temporaryRoot = mkdtempSync(join(tmpdir(), 'expand-aws-iam-wildcards-build-'));
+  const outputDirectory = join(temporaryRoot, 'dist');
+
+  try {
+    mkdirSync(outputDirectory, { recursive: true });
+    compile(outputDirectory);
+    removeNccAuxiliaryOutputs(outputDirectory);
+    assertBundleOutput(outputDirectory, 'generated');
+    return await useBundle(outputDirectory);
+  } finally {
+    rmSync(temporaryRoot, { force: true, recursive: true });
+  }
+}
+
 function assertReplaceableDist(directory: string): void {
   if (!existsSync(directory)) return;
   const status = lstatSync(directory);

@@ -18,6 +18,7 @@ import {
   type BundleCompiler,
   checkCommittedBundle,
   withTemporaryBundle,
+  withTemporaryBundleAsync,
   writeCommittedBundle,
 } from './build.js';
 
@@ -186,6 +187,37 @@ describe('build output validation', () => {
       outputDirectory = output;
       throw new Error('compiler failed');
     }, () => undefined)).toThrow('compiler failed');
+    expect(existsSync(outputDirectory)).toBe(false);
+  });
+
+  it('keeps temporary output available for asynchronous verification and cleans it afterward', async () => {
+    let outputDirectory = '';
+
+    await expect(withTemporaryBundleAsync(
+      compiler({ 'index.js': 'bundle' }),
+      async (output) => {
+        outputDirectory = output;
+        await Promise.resolve();
+        expect(readFileSync(join(output, 'index.js'), 'utf8')).toBe('bundle');
+        return 'verified';
+      },
+    )).resolves.toBe('verified');
+
+    expect(existsSync(outputDirectory)).toBe(false);
+  });
+
+  it('cleans asynchronous temporary output after verification fails', async () => {
+    let outputDirectory = '';
+
+    await expect(withTemporaryBundleAsync(
+      compiler({ 'index.js': 'bundle' }),
+      async (output) => {
+        outputDirectory = output;
+        await Promise.resolve();
+        throw new Error('verification failed');
+      },
+    )).rejects.toThrow('verification failed');
+
     expect(existsSync(outputDirectory)).toBe(false);
   });
 

@@ -33,7 +33,7 @@ npm run build
 # Rebuild twice and compare without changing dist/
 npm run build:check
 
-# Build temporarily and run the compiled action with a safe non-PR event
+# Build temporarily and run compiled smoke and mocked-API integration tests
 npm run build:smoke
 ```
 
@@ -60,7 +60,8 @@ the repository-local `ncc` executable. The workspace is removed afterward.
 `npm run build:check` rebuilds twice and compares both results with the
 committed bundle without modifying `dist/`. `npm run build:smoke` builds
 temporarily, executes the entry declared by `action.yml` with a synthetic
-non-PR event, and cleans up without changing `dist/`.
+non-PR event, then exercises the compiled review lifecycle against a stateful
+local GitHub API fixture. It cleans up without changing `dist/`.
 
 ## Pull Requests
 
@@ -71,13 +72,15 @@ non-PR event, and cleans up without changing `dist/`.
 
 ## Integration Test
 
-This repository includes a mocked GitHub integration test in
-[`src/integration.test.ts`](src/integration.test.ts).
+This repository includes a source-level mocked GitHub integration test in
+[`src/integration.test.ts`](src/integration.test.ts) and a compiled-runtime
+integration harness in [`scripts/compiled-integration.ts`](scripts/compiled-integration.ts).
 
-It runs as part of the normal `npm test` suite and exercises the real action flow against a
-stateful mocked Octokit client. It verifies that a pull request diff containing an IAM wildcard
-produces the expected inline review comment on the first run and reuses that same comment unchanged
-on the second run.
+The source test runs as part of `npm test` against a stateful mocked Octokit
+client. The compiled harness runs as part of `npm run build:smoke` against a
+local HTTP server. Together they cover pagination, comment creation, unchanged
+reruns, updates, stale cleanup, truncation, and no-op behavior through both the
+TypeScript modules and the generated action entry point.
 
 Generated review comments include a versioned HTML marker used for machine
 identity. The visible heading remains part of the legacy migration contract;

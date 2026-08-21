@@ -45,5 +45,5 @@ jobs:
         with:
           files: ./coverage/lcov.info
 
-      - name: Smoke test compiled action
+      - name: Test compiled action
         run: npm run build:smoke
