@@ -10,7 +10,7 @@ import {
 } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { LOCKED_CATALOG_MINIMUMS } from '../iam-data/catalog.js';
@@ -52,6 +52,16 @@ describe('withGeneratedBuildWorkspace', () => {
   it('replaces tracked catalog modules with data from the locked package', () => {
     withFixture((directory) => {
       const repositoryRoot = createRepository(directory);
+      const realRepository = resolve(import.meta.dirname, '../..');
+      const fixtureData = join(
+        repositoryRoot,
+        'node_modules/@cloud-copilot/iam-data/data',
+      );
+      mkdirSync(dirname(fixtureData), { recursive: true });
+      symlinkSync(
+        join(realRepository, 'node_modules/@cloud-copilot/iam-data/data'),
+        fixtureData,
+      );
       let workspaceRoot = '';
 
       withGeneratedBuildWorkspace(repositoryRoot, (workspace) => {

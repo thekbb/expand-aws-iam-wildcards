@@ -6,8 +6,7 @@ import {
   readdirSync,
   rmSync,
 } from 'node:fs';
-import { dirname, join, posix, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, posix, resolve } from 'node:path';
 
 import {
   LOCKED_CATALOG_MINIMUMS,
@@ -17,13 +16,12 @@ import {
   generateIamData,
   type IamDataGenerationResult,
 } from '../iam-data/generator.js';
+import { installedIamDataDirectory } from './iam-data.js';
 
 const GENERATED_CATALOG_MODULES = new Set([
   'iam-actions.ts',
   'service-doc-slugs.ts',
 ]);
-const LOCKED_PACKAGE_ENTRY = fileURLToPath(import.meta.resolve('@cloud-copilot/iam-data'));
-const LOCKED_DATA_DIRECTORY = resolve(dirname(LOCKED_PACKAGE_ENTRY), '../../data');
 
 export interface GeneratedBuildWorkspace {
   readonly rootDirectory: string;
@@ -95,7 +93,7 @@ export function withGeneratedBuildWorkspace<T>(
   try {
     copySourceTree(sourceDirectory, workspaceSource);
     const catalog = generateIamData({
-      dataDirectory: options.dataDirectory ?? LOCKED_DATA_DIRECTORY,
+      dataDirectory: options.dataDirectory ?? installedIamDataDirectory(resolvedRepository),
       outputDirectory: workspaceSource,
       repositoryRoot: resolvedRepository,
       minimums: options.minimums ?? LOCKED_CATALOG_MINIMUMS,

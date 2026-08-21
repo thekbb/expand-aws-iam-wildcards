@@ -54,6 +54,16 @@ jobs:
       - name: Select latest IAM data
         run: npm run release:select-iam-data
 
+      - name: Reinstall selected dependencies
+        run: npm ci
+
+      - name: Report selected IAM data
+        id: iam_data
+        run: npm run release:report-iam-data
+
+      - name: Show IAM dependency changes
+        run: git diff -- package.json package-lock.json
+
       - name: Lint
         run: npm run lint
 
@@ -86,9 +96,13 @@ jobs:
       - name: Create or update the release preparation branch
         env:
           GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
+          IAM_ACTION_COUNT: ${{ steps.iam_data.outputs.action_count }}
+          IAM_DATA_VERSION: ${{ steps.iam_data.outputs.version }}
+          IAM_SERVICE_COUNT: ${{ steps.iam_data.outputs.service_count }}
           VERSION: ${{ inputs.version }}
         run: |
           BRANCH="release-candidate/v${VERSION}"
+          BODY="Selects IAM data ${IAM_DATA_VERSION} with ${IAM_ACTION_COUNT} actions across ${IAM_SERVICE_COUNT} services, generates the release bundle on Ubuntu, and updates package metadata for v${VERSION}."
           git switch -c "$BRANCH"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -104,6 +118,7 @@ jobs:
 
           pr_number="$(gh pr list --head "$BRANCH" --base main --json number --jq '.[0].number // empty')"
           if [[ -n "$pr_number" ]]; then
+            gh pr edit "$pr_number" --body "$BODY"
             echo "Updated existing release preparation PR #$pr_number"
             exit 0
           fi
@@ -112,4 +127,4 @@ jobs:
             --base main \
             --head "$BRANCH" \
             --title "Prepare v${VERSION} release" \
-            --body "Selects and locks the latest IAM data, generates the release bundle on Ubuntu, updates package metadata for v${VERSION}, and prepares the exact commit that should be signed and tagged for release."
+            --body "$BODY"

@@ -93,9 +93,10 @@ actions, complete service documentation mappings, conservative count floors,
 and representative expansion and link parity.
 
 Release preparation selects the latest numeric IAM-data version, rejects
-downgrades, records the selected version exactly in `package.json` and
-`package-lock.json`, and runs the release checks and bundle build with that
-installed package.
+downgrades, and records the selected version exactly in `package.json` and
+`package-lock.json`. It then reinstalls with `npm ci`, verifies the installed
+package against the lockfile, validates and reports catalog counts, and runs the
+release checks and bundle build with that clean installation.
 
 ## Preparing a Release
 

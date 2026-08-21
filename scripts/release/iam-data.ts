@@ -48,7 +48,11 @@ function readJson<T>(path: string): T {
   return JSON.parse(readFileSync(path, 'utf8')) as T;
 }
 
-function lockedIamDataVersion(repositoryRoot: string): string {
+export function installedIamDataDirectory(repositoryRoot: string): string {
+  return join(resolve(repositoryRoot), 'node_modules', IAM_DATA_PACKAGE, 'data');
+}
+
+export function lockedIamDataVersion(repositoryRoot: string): string {
   const lockfile = readJson<PackageLock>(join(repositoryRoot, 'package-lock.json'));
   const version = lockfile.packages?.[IAM_DATA_LOCK_PATH]?.version;
   if (version === undefined) {
@@ -67,7 +71,10 @@ function runNpm(run: CommandRunner, args: readonly string[]): string {
   return result.stdout.trim();
 }
 
-function assertRecordedVersion(repositoryRoot: string, selectedVersion: string): void {
+export function assertRecordedIamDataVersion(
+  repositoryRoot: string,
+  selectedVersion: string,
+): void {
   const packageJson = readJson<PackageJson>(join(repositoryRoot, 'package.json'));
   const lockfile = readJson<PackageLock>(join(repositoryRoot, 'package-lock.json'));
   const manifestVersion = packageJson.devDependencies?.[IAM_DATA_PACKAGE];
@@ -105,9 +112,10 @@ export function selectIamDataVersion(
     'install',
     '--save-dev',
     '--save-exact',
+    '--package-lock-only',
     `${IAM_DATA_PACKAGE}@${selectedVersion}`,
   ]);
-  assertRecordedVersion(resolvedRepository, selectedVersion);
+  assertRecordedIamDataVersion(resolvedRepository, selectedVersion);
 
   return {
     changed: selectedVersion !== previousVersion,
