@@ -20,6 +20,10 @@ export interface ReviewComment {
 export interface PullRequestReviewComment {
   readonly id: number;
   readonly body: string;
+  readonly user?: {
+    readonly login?: string | null;
+    readonly type?: string | null;
+  } | null;
   readonly in_reply_to_id?: number | null;
   readonly hasReplies?: boolean;
   readonly path?: string;

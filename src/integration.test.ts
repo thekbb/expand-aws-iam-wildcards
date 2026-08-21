@@ -85,6 +85,7 @@ describe('runAction integration', () => {
         line: comment.line,
         position: comment.line,
         body: comment.body,
+        user: { login: 'github-actions[bot]', type: 'Bot' },
       });
     }
 
@@ -152,6 +153,7 @@ describe('runAction integration', () => {
 
     githubMocks.getOctokit.mockReturnValue({
       paginate,
+      graphql: vi.fn().mockResolvedValue({ viewer: { login: 'github-actions[bot]' } }),
       rest: {
         pulls: {
           listFiles: listFilesRoute,

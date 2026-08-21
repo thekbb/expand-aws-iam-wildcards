@@ -19,7 +19,6 @@ const githubMocks = vi.hoisted(() => ({
 }));
 
 const actionMocks = vi.hoisted(() => ({
-  COMMENT_MARKER: '**IAM Wildcard Expansion**',
   processFiles: vi.fn(),
 }));
 
@@ -126,7 +125,6 @@ describe('runAction', () => {
       'thekbb',
       'expand-aws-iam-wildcards',
       42,
-      '**IAM Wildcard Expansion**',
     );
     expect(githubApiMocks.syncReviewComments).toHaveBeenCalledWith({ tag: 'octokit' }, {
       owner: 'thekbb',

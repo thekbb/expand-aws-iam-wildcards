@@ -5,6 +5,7 @@ import {
   listActionReviewComments,
   syncReviewComments,
 } from './github.js';
+import { CURRENT_COMMENT_MARKER } from './comment-identity.js';
 import type { PullRequestFile, PullRequestReviewComment, ReviewComment } from './types.js';
 
 describe('listPullRequestFiles', () => {
@@ -37,19 +38,91 @@ describe('listPullRequestFiles', () => {
 });
 
 describe('listActionReviewComments', () => {
-  it('returns only comments that include the action marker', async () => {
+  const currentBody = `**IAM Wildcard Expansion**\n\n\`s3:Get*\` expands to 5 action(s):\n\nresults\n\n${CURRENT_COMMENT_MARKER}`;
+  const legacyBody = '**IAM Wildcard Expansion**\n\n`s3:Get*` expands to 5 action(s):\n\nresults';
+
+  it('does not resolve token identity when no comment has a recognized shape', async () => {
+    const getAuthenticated = vi.fn();
+    const graphql = vi.fn();
+    const octokit = {
+      paginate: vi.fn().mockResolvedValue([{
+        id: 1,
+        body: '**IAM Wildcard Expansion**\n\nA human-readable heading is not ownership.',
+        user: { login: 'github-actions[bot]', type: 'Bot' },
+      }]),
+      graphql,
+      rest: {
+        pulls: { listReviewComments: {} },
+        users: { getAuthenticated },
+      },
+    };
+
+    await expect(listActionReviewComments(
+      octokit,
+      'thekbb',
+      'expand-aws-iam-wildcards',
+      42,
+    )).resolves.toEqual([]);
+    expect(getAuthenticated).not.toHaveBeenCalled();
+    expect(graphql).not.toHaveBeenCalled();
+  });
+
+  it('returns only safely shaped comments from the configured GitHub Actions identity', async () => {
     const reviewComments: PullRequestReviewComment[] = [
-      { id: 1, body: '**IAM Wildcard Expansion**\n\ncomment body', path: 'policy.tf', line: 10 },
-      { id: 2, body: 'other bot comment', path: 'policy.tf', line: 20 },
-      { id: 3, body: '**IAM Wildcard Expansion**\n\nanother comment body', path: 'policy.tf', line: 30 },
+      {
+        id: 1,
+        body: currentBody,
+        user: { login: 'github-actions[bot]', type: 'Bot' },
+      },
+      {
+        id: 2,
+        body: legacyBody,
+        user: { login: 'github-actions[bot]', type: 'Bot' },
+      },
+      {
+        id: 3,
+        body: currentBody,
+        user: { login: 'reviewer', type: 'User' },
+      },
+      {
+        id: 4,
+        body: currentBody,
+        user: { login: 'unrelated[bot]', type: 'Bot' },
+      },
+      {
+        id: 5,
+        body: currentBody,
+        user: { login: 'iam-reviewer[bot]', type: 'Bot' },
+      },
+      {
+        id: 6,
+        body: '**IAM Wildcard Expansion**\n\nA human-readable heading is not ownership.',
+        user: { login: 'github-actions[bot]', type: 'Bot' },
+      },
+      {
+        id: 7,
+        body: `${legacyBody}\n\n<!-- expand-aws-iam-wildcards:review-comment:v2 -->`,
+        user: { login: 'github-actions[bot]', type: 'Bot' },
+      },
+      {
+        id: 8,
+        body: currentBody,
+        user: { login: null, type: 'Bot' },
+      },
     ];
     const listReviewComments = {};
     const paginate = vi.fn().mockResolvedValue(reviewComments);
+    const getAuthenticated = vi.fn().mockRejectedValue(new Error('not a user token'));
+    const graphql = vi.fn().mockResolvedValue({ viewer: { login: 'github-actions' } });
     const octokit = {
       paginate,
+      graphql,
       rest: {
         pulls: {
           listReviewComments,
+        },
+        users: {
+          getAuthenticated,
         },
       },
     };
@@ -59,10 +132,13 @@ describe('listActionReviewComments', () => {
       'thekbb',
       'expand-aws-iam-wildcards',
       42,
-      '**IAM Wildcard Expansion**',
     );
 
-    expect(result).toEqual([reviewComments[0], reviewComments[2]]);
+    expect(result).toEqual([reviewComments[0], reviewComments[1]]);
+    expect(getAuthenticated).toHaveBeenCalledOnce();
+    expect(graphql).toHaveBeenCalledWith(
+      'query ExpandAwsIamWildcardsViewer { viewer { login } }',
+    );
     expect(paginate).toHaveBeenCalledWith(listReviewComments, {
       owner: 'thekbb',
       repo: 'expand-aws-iam-wildcards',
@@ -73,14 +149,27 @@ describe('listActionReviewComments', () => {
 
   it('marks action comments that have replies', async () => {
     const reviewComments: PullRequestReviewComment[] = [
-      { id: 1, body: '**IAM Wildcard Expansion**\n\ncomment body', path: 'policy.tf', line: 10 },
+      {
+        id: 1,
+        body: currentBody,
+        user: { login: 'github-actions[bot]', type: 'Bot' },
+        path: 'policy.tf',
+        line: 10,
+      },
       { id: 2, body: 'human reply', in_reply_to_id: 1, path: 'policy.tf', line: 10 },
-      { id: 3, body: '**IAM Wildcard Expansion**\n\nanother comment body', path: 'policy.tf', line: 30 },
+      {
+        id: 3,
+        body: legacyBody,
+        user: { login: 'github-actions[bot]', type: 'Bot' },
+        path: 'policy.tf',
+        line: 30,
+      },
     ];
     const listReviewComments = {};
     const paginate = vi.fn().mockResolvedValue(reviewComments);
     const octokit = {
       paginate,
+      graphql: vi.fn().mockResolvedValue({ viewer: { login: 'github-actions[bot]' } }),
       rest: {
         pulls: {
           listReviewComments,
@@ -93,13 +182,148 @@ describe('listActionReviewComments', () => {
       'thekbb',
       'expand-aws-iam-wildcards',
       42,
-      '**IAM Wildcard Expansion**',
     );
 
     expect(result).toEqual([
       { ...reviewComments[0], hasReplies: true },
       reviewComments[2],
     ]);
+  });
+
+  it('accepts comments from the configured GitHub App bot', async () => {
+    const reviewComments: PullRequestReviewComment[] = [
+      { id: 1, body: currentBody, user: { login: 'iam-reviewer[bot]', type: 'Bot' } },
+      { id: 2, body: currentBody, user: { login: 'other-app[bot]', type: 'Bot' } },
+    ];
+    const octokit = {
+      paginate: vi.fn().mockResolvedValue(reviewComments),
+      graphql: vi.fn().mockResolvedValue({ viewer: { login: 'iam-reviewer' } }),
+      rest: {
+        pulls: { listReviewComments: {} },
+        users: { getAuthenticated: vi.fn().mockRejectedValue(new Error('not a user token')) },
+      },
+    };
+
+    const result = await listActionReviewComments(
+      octokit,
+      'thekbb',
+      'expand-aws-iam-wildcards',
+      42,
+    );
+
+    expect(result).toEqual([reviewComments[0]]);
+  });
+
+  it('accepts only comments authored by the authenticated PAT user', async () => {
+    const reviewComments: PullRequestReviewComment[] = [
+      { id: 1, body: currentBody, user: { login: 'TheKBB', type: 'User' } },
+      { id: 2, body: legacyBody, user: { login: 'thekbb', type: 'User' } },
+      { id: 3, body: currentBody, user: { login: 'someone-else', type: 'User' } },
+    ];
+    const getAuthenticated = vi.fn().mockResolvedValue({ data: { login: 'thekbb' } });
+    const octokit = {
+      paginate: vi.fn().mockResolvedValue(reviewComments),
+      graphql: vi.fn().mockRejectedValue(new Error('not available')),
+      rest: {
+        pulls: { listReviewComments: {} },
+        users: { getAuthenticated },
+      },
+    };
+
+    const result = await listActionReviewComments(
+      octokit,
+      'thekbb',
+      'expand-aws-iam-wildcards',
+      42,
+    );
+
+    expect(result).toEqual([reviewComments[0], reviewComments[1]]);
+    expect(getAuthenticated).toHaveBeenCalledOnce();
+  });
+
+  it('leaves user-authored comments unmanaged when PAT identity cannot be resolved', async () => {
+    const reviewComments: PullRequestReviewComment[] = [
+      { id: 1, body: currentBody, user: { login: 'thekbb', type: 'User' } },
+    ];
+    const octokit = {
+      paginate: vi.fn().mockResolvedValue(reviewComments),
+      rest: {
+        pulls: { listReviewComments: {} },
+        users: { getAuthenticated: vi.fn().mockRejectedValue(new Error('not available')) },
+      },
+    };
+
+    await expect(listActionReviewComments(
+      octokit,
+      'thekbb',
+      'expand-aws-iam-wildcards',
+      42,
+    )).resolves.toEqual([]);
+  });
+
+  it('removes only owned duplicates and leaves an unrelated matching comment untouched', async () => {
+    const reviewComments: PullRequestReviewComment[] = [
+      {
+        id: 1,
+        body: currentBody,
+        path: 'policy.tf',
+        line: 10,
+        user: { login: 'github-actions[bot]', type: 'Bot' },
+      },
+      {
+        id: 2,
+        body: currentBody,
+        path: 'policy.tf',
+        line: 10,
+        user: { login: 'github-actions[bot]', type: 'Bot' },
+      },
+      {
+        id: 3,
+        body: currentBody,
+        path: 'policy.tf',
+        line: 10,
+        user: { login: 'reviewer', type: 'User' },
+      },
+    ];
+    const deleteReviewComment = vi.fn().mockResolvedValue({});
+    const octokit = {
+      paginate: vi.fn().mockResolvedValue(reviewComments),
+      graphql: vi.fn().mockResolvedValue({ viewer: { login: 'github-actions' } }),
+      rest: {
+        pulls: {
+          listReviewComments: {},
+          createReview: vi.fn().mockResolvedValue({}),
+          updateReviewComment: vi.fn().mockResolvedValue({}),
+          deleteReviewComment,
+        },
+      },
+    };
+    const existingComments = await listActionReviewComments(
+      octokit,
+      'thekbb',
+      'expand-aws-iam-wildcards',
+      42,
+    );
+
+    const result = await syncReviewComments(octokit, {
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      pullNumber: 42,
+      commitSha: 'abc123',
+      comments: [{ path: 'policy.tf', line: 10, body: currentBody }],
+      existingComments,
+    });
+
+    expect(result.unchangedCount).toBe(1);
+    expect(result.deletedCount).toBe(1);
+    expect(deleteReviewComment).toHaveBeenCalledWith({
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      comment_id: 2,
+    });
+    expect(deleteReviewComment).not.toHaveBeenCalledWith(
+      expect.objectContaining({ comment_id: 3 }),
+    );
   });
 });
 
@@ -179,6 +403,28 @@ describe('syncReviewComments', () => {
       repo: 'expand-aws-iam-wildcards',
       comment_id: 1001,
       body: '**IAM Wildcard Expansion**\n\nnew body',
+    });
+    expect(octokit.rest.pulls.createReview).not.toHaveBeenCalled();
+    expect(octokit.rest.pulls.deleteReviewComment).not.toHaveBeenCalled();
+  });
+
+  it('migrates an owned legacy comment to the machine marker in place', async () => {
+    const existingBody = '**IAM Wildcard Expansion**\n\n`s3:Get*` expands to 5 action(s):\n\nold results';
+    const body = `${existingBody}\n\n${CURRENT_COMMENT_MARKER}`;
+    const octokit = makeOctokit();
+
+    const result = await syncReviewComments(octokit, {
+      ...baseParams,
+      comments: [{ path: 'policy.tf', line: 10, body }],
+      existingComments: [{ id: 1001, path: 'policy.tf', line: 10, body: existingBody }],
+    });
+
+    expect(result.updatedCount).toBe(1);
+    expect(octokit.rest.pulls.updateReviewComment).toHaveBeenCalledWith({
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      comment_id: 1001,
+      body,
     });
     expect(octokit.rest.pulls.createReview).not.toHaveBeenCalled();
     expect(octokit.rest.pulls.deleteReviewComment).not.toHaveBeenCalled();

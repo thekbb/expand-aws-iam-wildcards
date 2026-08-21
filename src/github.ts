@@ -1,4 +1,5 @@
 import type { PullRequestFile, PullRequestReviewComment, ReviewComment } from './types.js';
+import { hasCurrentCommentMarker, hasLegacyCommentShape } from './comment-identity.js';
 
 interface PaginatedPullsClient<TItem> {
   readonly paginate: (
@@ -15,7 +16,15 @@ interface PaginatedPullsClient<TItem> {
       readonly listFiles?: unknown;
       readonly listReviewComments?: unknown;
     };
+    readonly users?: {
+      readonly getAuthenticated?: () => Promise<{
+        readonly data: { readonly login: string };
+      }>;
+    };
   };
+  readonly graphql?: (query: string) => Promise<{
+    readonly viewer: { readonly login: string };
+  }>;
 }
 
 interface ReviewSyncClient {
@@ -103,7 +112,6 @@ export async function listActionReviewComments(
   owner: string,
   repo: string,
   pullNumber: number,
-  marker: string,
 ): Promise<PullRequestReviewComment[]> {
   const reviewComments = await octokit.paginate(octokit.rest.pulls.listReviewComments, {
     owner,
@@ -118,8 +126,47 @@ export async function listActionReviewComments(
       .filter((commentId): commentId is number => commentId !== null && commentId !== undefined),
   );
 
-  return reviewComments
-    .filter((comment) => comment.body.includes(marker))
+  const candidates = reviewComments.filter((comment) =>
+    hasCurrentCommentMarker(comment.body) || hasLegacyCommentShape(comment.body),
+  );
+  let authenticatedLogin: string | undefined;
+
+  if (candidates.length > 0) {
+    try {
+      const response = await octokit.rest.users?.getAuthenticated?.();
+      authenticatedLogin = response?.data.login;
+    } catch {
+      // Installation tokens do not authenticate as users. GraphQL's viewer
+      // resolves the bot identity used for their comments.
+    }
+
+    if (authenticatedLogin === undefined) {
+      try {
+        const response = await octokit.graphql?.(
+          'query ExpandAwsIamWildcardsViewer { viewer { login } }',
+        );
+        authenticatedLogin = response?.viewer.login;
+      } catch {
+        // An unresolved token identity leaves all candidates unmanaged.
+      }
+    }
+  }
+
+  return candidates
+    .filter((comment) => {
+      const login = comment.user?.login;
+      if (!login || authenticatedLogin === undefined) return false;
+
+      const normalizedLogin = login.toLowerCase();
+      const normalizedAuthenticatedLogin = authenticatedLogin.toLowerCase();
+      if (comment.user?.type === 'Bot') {
+        return normalizedLogin.replace(/\[bot\]$/, '')
+          === normalizedAuthenticatedLogin.replace(/\[bot\]$/, '');
+      }
+
+      return comment.user?.type === 'User'
+        && normalizedLogin === normalizedAuthenticatedLogin;
+    })
     .map((comment) =>
       parentCommentIdsWithReplies.has(comment.id)
         ? { ...comment, hasReplies: true }

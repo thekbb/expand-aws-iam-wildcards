@@ -5,6 +5,7 @@ import {
   CURRENT_COMMENT_MARKER,
   getCommentMarkerVersion,
   hasCurrentCommentMarker,
+  hasLegacyCommentShape,
   withCurrentCommentMarker,
 } from './comment-identity.js';
 
@@ -48,6 +49,25 @@ describe('comment marker identity', () => {
     expect(getCommentMarkerVersion(
       `${CURRENT_COMMENT_MARKER}\n${CURRENT_COMMENT_MARKER}`,
     )).toBeNull();
+  });
+
+  it.each([
+    '**IAM Wildcard Expansion**\n\n`s3:Get*` expands to 5 action(s):\n\n1. `s3:GetObject`',
+    '**IAM Wildcard Expansion**\r\n\r\n2 wildcard patterns expand to 8 action(s):\r\n\r\nresults',
+    '**IAM Wildcard Expansion**\n\nExpanded actions were omitted from this comment to stay within GitHub limits.',
+    '**IAM Wildcard Expansion**\n\nExpanded actions were omitted from this comment to stay within GitHub limits. The full expanded list is in the [workflow run logs](https://github.com/example/actions/runs/1).',
+  ])('recognizes a generated legacy comment shape in %j', (body) => {
+    expect(hasLegacyCommentShape(body)).toBe(true);
+  });
+
+  it.each([
+    '**IAM Wildcard Expansion**',
+    '**IAM Wildcard Expansion**\n\nA human wrote this heading.',
+    `**IAM Wildcard Expansion**\n\n\`s3:Get*\` expands to 5 action(s):\n\n${CURRENT_COMMENT_MARKER}`,
+    '**IAM Wildcard Expansion**\n\n`broken` expands to 0 action(s):',
+    '**IAM Wildcard Expansion**\n\nExpanded actions were omitted from this comment to stay within GitHub limits. Extra text.',
+  ])('rejects a marker-bearing or non-generated legacy shape in %j', (body) => {
+    expect(hasLegacyCommentShape(body)).toBe(false);
   });
 
   it('appends the marker once without changing visible content', () => {
