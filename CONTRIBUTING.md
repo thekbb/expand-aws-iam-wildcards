@@ -43,6 +43,12 @@ same strict TypeScript configuration.
 `npm run docs:check` keeps README input names, defaults, example inputs, and the
 runtime entry aligned with `action.yml` and `package.json`.
 
+Diff processing models every matching file as analyzed, binary, empty, missing
+patch text, or failed analysis. An absent API patch is never guessed to be
+binary because GitHub can also omit large text patches. Tests for this boundary
+must cover mixed-state counts, explicit binary data, malformed patches,
+renames, removals, empty patches, and no-wildcard logging.
+
 Each build copies the TypeScript source into an ignored workspace, replaces the
 tracked IAM modules there with data from the lock-selected
 `@cloud-copilot/iam-data` package, validates the catalog, and compiles through

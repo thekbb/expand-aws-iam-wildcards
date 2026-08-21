@@ -66,6 +66,11 @@ Consecutive wildcards are grouped into a single comment. Expanded actions link t
 Very large expansions are truncated in the PR comment to stay within GitHub comment limits,
 and the full list is written to the workflow run logs.
 
+Each run reports matching diff files as analyzed, binary, empty, missing patch
+text, or failed analysis. Missing or malformed patch data produces an explicit
+incomplete-analysis warning, and no-wildcard messages apply only to the files
+that were actually analyzed.
+
 The action only updates or removes comments that have its machine marker and an
 author matching the configured token. It also recognizes safely shaped comments
 from earlier releases so they can be migrated in place without duplicating

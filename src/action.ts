@@ -3,7 +3,7 @@ import type {
   ReviewComment,
   WildcardBlock,
 } from './types.js';
-import { extractFromDiff } from './diff.js';
+import { extractFromDiff, type DiffAnalysisCounts } from './diff.js';
 import { groupIntoConsecutiveBlocks, formatCommentResult, type FormatOptions } from './utils.js';
 import { expandIamAction } from './expand.js';
 import { matchesPatterns } from './patterns.js';
@@ -117,7 +117,8 @@ export function createReviewComments(
 }
 
 export interface ProcessingStats {
-  readonly filesScanned: number;
+  readonly filesMatched: number;
+  readonly fileAnalysis: DiffAnalysisCounts;
   readonly wildcardsFound: number;
   readonly blocksCreated: number;
   readonly actionsExpanded: number;
@@ -142,17 +143,29 @@ export function processFiles(
   if (filteredFiles.length === 0) {
     return {
       comments: [],
-      stats: { filesScanned: 0, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+      stats: {
+        filesMatched: 0,
+        fileAnalysis: { analyzed: 0, binary: 0, empty: 0, missingPatch: 0, failed: 0 },
+        wildcardsFound: 0,
+        blocksCreated: 0,
+        actionsExpanded: 0,
+      },
       truncatedComments: [],
     };
   }
 
-  const { wildcardMatches } = extractFromDiff(filteredFiles);
+  const { wildcardMatches, counts: fileAnalysis } = extractFromDiff(filteredFiles);
 
   if (wildcardMatches.length === 0) {
     return {
       comments: [],
-      stats: { filesScanned: filteredFiles.length, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+      stats: {
+        filesMatched: filteredFiles.length,
+        fileAnalysis,
+        wildcardsFound: 0,
+        blocksCreated: 0,
+        actionsExpanded: 0,
+      },
       truncatedComments: [],
     };
   }
@@ -165,7 +178,8 @@ export function processFiles(
     return {
       comments: [],
       stats: {
-        filesScanned: filteredFiles.length,
+        filesMatched: filteredFiles.length,
+        fileAnalysis,
         wildcardsFound: wildcardMatches.length,
         blocksCreated: blocks.length,
         actionsExpanded: 0,
@@ -184,7 +198,8 @@ export function processFiles(
   return {
     comments: reviewComments.comments,
     stats: {
-      filesScanned: filteredFiles.length,
+      filesMatched: filteredFiles.length,
+      fileAnalysis,
       wildcardsFound: wildcardMatches.length,
       blocksCreated: blocks.length,
       actionsExpanded: expandedActions.size,

@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
-import { processFiles, type TruncatedComment } from './action.js';
+import { processFiles, type ProcessingStats, type TruncatedComment } from './action.js';
 import {
   listActionReviewComments,
   listPullRequestFiles,
@@ -65,6 +65,26 @@ function logReviewCommentSyncResult(result: SyncReviewCommentsResult): void {
   }
 }
 
+function logDiffAnalysis(stats: ProcessingStats): void {
+  const { analyzed, binary, empty, missingPatch, failed } = stats.fileAnalysis;
+  const summary = [
+    `${analyzed} analyzed`,
+    `${binary} binary`,
+    `${empty} empty`,
+    `${missingPatch} missing patch`,
+    `${failed} failed`,
+  ].join(', ');
+  core.info(`Diff analysis: ${summary}`);
+
+  const incompleteCount = missingPatch + failed;
+  if (incompleteCount > 0) {
+    const incompleteSummary = `${missingPatch} missing patch, ${failed} failed`;
+    core.warning(
+      `Diff analysis was incomplete for ${incompleteCount} file(s): ${incompleteSummary}`,
+    );
+  }
+}
+
 export async function runAction(): Promise<void> {
   try {
     const { context } = github;
@@ -107,7 +127,7 @@ export async function runAction(): Promise<void> {
       reviewCommentOptions,
     );
 
-    if (stats.filesScanned === 0) {
+    if (stats.filesMatched === 0) {
       logReviewCommentSyncResult(await syncReviewComments(octokit, {
         owner,
         repo,
@@ -120,7 +140,7 @@ export async function runAction(): Promise<void> {
       return;
     }
 
-    core.info(`Scanned ${stats.filesScanned} file(s)`);
+    logDiffAnalysis(stats);
 
     if (stats.wildcardsFound === 0) {
       logReviewCommentSyncResult(await syncReviewComments(octokit, {
@@ -131,7 +151,7 @@ export async function runAction(): Promise<void> {
         comments: [],
         existingComments,
       }));
-      core.info('No IAM wildcard actions found in the changes.');
+      core.info('No IAM wildcard actions found in the analyzed files.');
       return;
     }
 

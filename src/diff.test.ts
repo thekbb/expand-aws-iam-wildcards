@@ -68,6 +68,28 @@ describe('extractFromDiff', () => {
     expect(wildcardMatches).toHaveLength(0);
   });
 
+  it('analyzes renamed and removed text files without scanning removed lines', () => {
+    const result = extractFromDiff([
+      {
+        filename: 'renamed-policy.tf',
+        patch: '@@ -1 +1 @@\n-"s3:GetObject"\n+"s3:Get*"',
+      },
+      {
+        filename: 'removed-policy.tf',
+        patch: '@@ -1 +0,0 @@\n-"ec2:Describe*"',
+      },
+    ]);
+
+    expect(result.files.map((file) => [file.filename, file.state])).toEqual([
+      ['renamed-policy.tf', 'analyzed'],
+      ['removed-policy.tf', 'analyzed'],
+    ]);
+    expect(result.wildcardMatches).toEqual([
+      { action: 's3:Get*', line: 1, file: 'renamed-policy.tf' },
+    ]);
+    expect(result.counts.analyzed).toBe(2);
+  });
+
   it('handles multiple files', () => {
     const files = [
       {
@@ -91,9 +113,9 @@ describe('extractFromDiff', () => {
     expect(wildcardMatches[1]?.file).toBe('policy2.json');
   });
 
-  it('handles files without patches', () => {
+  it('reports files without patch text as missing instead of silently skipping them', () => {
     const files = [
-      { filename: 'binary.png' },
+      { filename: 'large-policy.json' },
       {
         filename: 'policy.json',
         patch: `@@ -1,2 +1,2 @@
@@ -102,10 +124,63 @@ describe('extractFromDiff', () => {
       },
     ];
 
-    const { wildcardMatches } = extractFromDiff(files);
+    const result = extractFromDiff(files);
 
-    expect(wildcardMatches).toHaveLength(1);
-    expect(wildcardMatches[0]?.file).toBe('policy.json');
+    expect(result.wildcardMatches).toHaveLength(1);
+    expect(result.wildcardMatches[0]?.file).toBe('policy.json');
+    expect(result.files).toEqual([
+      { filename: 'large-policy.json', state: 'missing-patch', wildcardMatches: [] },
+      {
+        filename: 'policy.json',
+        state: 'analyzed',
+        wildcardMatches: result.wildcardMatches,
+      },
+    ]);
+    expect(result.counts).toEqual({
+      analyzed: 1,
+      binary: 0,
+      empty: 0,
+      missingPatch: 1,
+      failed: 0,
+    });
+  });
+
+  it.each([
+    'Binary files a/image.png and b/image.png differ',
+    'GIT binary patch\nliteral 0',
+  ])('reports an explicit binary patch without analyzing %j', (patch) => {
+    const result = extractFromDiff([{ filename: 'image.png', patch }]);
+
+    expect(result.files).toEqual([
+      { filename: 'image.png', state: 'binary', wildcardMatches: [] },
+    ]);
+    expect(result.counts.binary).toBe(1);
+    expect(result.wildcardMatches).toEqual([]);
+  });
+
+  it('reports malformed nonempty patch text as failed analysis', () => {
+    const result = extractFromDiff([{
+      filename: 'policy.tf',
+      patch: '+ "s3:Get*"',
+    }]);
+
+    expect(result.files).toEqual([
+      { filename: 'policy.tf', state: 'failed', wildcardMatches: [] },
+    ]);
+    expect(result.counts.failed).toBe(1);
+    expect(result.wildcardMatches).toEqual([]);
+  });
+
+  it('discards partial matches when a later hunk header is malformed', () => {
+    const result = extractFromDiff([{
+      filename: 'policy.tf',
+      patch: '@@ -1 +1 @@\n+"s3:Get*"\n@@ malformed @@\n+"ec2:Describe*"',
+    }]);
+
+    expect(result.files).toEqual([
+      { filename: 'policy.tf', state: 'failed', wildcardMatches: [] },
+    ]);
+    expect(result.wildcardMatches).toEqual([]);
   });
 
   it('tracks line numbers across multiple hunks', () => {
@@ -187,7 +262,7 @@ describe('extractFromDiff', () => {
     expect(wildcardMatches[1]?.file).toBe('policy.tf');
   });
 
-  it('skips files with empty string patches', () => {
+  it('reports empty string patches while retaining other file results', () => {
     const files = [
       { filename: 'policy.tf', patch: '' },
       {
@@ -198,10 +273,16 @@ describe('extractFromDiff', () => {
       },
     ];
 
-    const { wildcardMatches } = extractFromDiff(files);
+    const result = extractFromDiff(files);
 
-    expect(wildcardMatches).toHaveLength(1);
-    expect(wildcardMatches[0]?.action).toBe('s3:Get*');
+    expect(result.wildcardMatches).toHaveLength(1);
+    expect(result.wildcardMatches[0]?.action).toBe('s3:Get*');
+    expect(result.files[0]).toEqual({
+      filename: 'policy.tf',
+      state: 'empty',
+      wildcardMatches: [],
+    });
+    expect(result.counts.empty).toBe(1);
   });
 
   it('does not count the no-newline marker as a destination line', () => {
