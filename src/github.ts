@@ -1,5 +1,6 @@
 import type { PullRequestFile, PullRequestReviewComment, ReviewComment } from './types.js';
 import { hasCurrentCommentMarker, hasLegacyCommentShape } from './comment-identity.js';
+import { extractFromDiff, recoverFilePatchesFromDiff } from './diff.js';
 
 interface PaginatedPullsClient<TItem> {
   readonly paginate: (
@@ -25,6 +26,18 @@ interface PaginatedPullsClient<TItem> {
   readonly graphql?: (query: string) => Promise<{
     readonly viewer: { readonly login: string };
   }>;
+}
+
+interface PullRequestFilesClient extends PaginatedPullsClient<PullRequestFile> {
+  readonly request: (
+    route: string,
+    parameters: {
+      owner: string;
+      repo: string;
+      pull_number: number;
+      headers: { readonly accept: string };
+    },
+  ) => Promise<{ readonly data: unknown }>;
 }
 
 interface ReviewSyncClient {
@@ -60,6 +73,7 @@ export interface SyncReviewCommentsParams {
   readonly commitSha: string;
   readonly comments: ReviewComment[];
   readonly existingComments: readonly PullRequestReviewComment[];
+  readonly deleteStaleComments?: boolean;
 }
 
 export interface SyncReviewCommentsResult {
@@ -94,17 +108,36 @@ function getExistingCommentAnchorKey(comment: PullRequestReviewComment): string 
 }
 
 export async function listPullRequestFiles(
-  octokit: PaginatedPullsClient<PullRequestFile>,
+  octokit: PullRequestFilesClient,
   owner: string,
   repo: string,
   pullNumber: number,
 ): Promise<PullRequestFile[]> {
-  return octokit.paginate(octokit.rest.pulls.listFiles, {
+  const files = await octokit.paginate(octokit.rest.pulls.listFiles, {
     owner,
     repo,
     pull_number: pullNumber,
     per_page: 100,
   });
+
+  const needsFallback = extractFromDiff(files).files.some((file) =>
+    file.state === 'missing-patch' || file.state === 'failed',
+  );
+  if (!needsFallback) return files;
+
+  try {
+    const response = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
+      owner,
+      repo,
+      pull_number: pullNumber,
+      headers: { accept: 'application/vnd.github.diff' },
+    });
+    return typeof response.data === 'string'
+      ? recoverFilePatchesFromDiff(files, response.data)
+      : files;
+  } catch {
+    return files;
+  }
 }
 
 export async function listActionReviewComments(
@@ -180,7 +213,15 @@ export async function syncReviewComments(
   octokit: ReviewSyncClient,
   params: SyncReviewCommentsParams,
 ): Promise<SyncReviewCommentsResult> {
-  const { owner, repo, pullNumber, commitSha, comments, existingComments } = params;
+  const {
+    owner,
+    repo,
+    pullNumber,
+    commitSha,
+    comments,
+    existingComments,
+    deleteStaleComments = true,
+  } = params;
   const existingCommentsByAnchor = new Map<string, PullRequestReviewComment[]>();
   const staleComments: PullRequestReviewComment[] = [];
 
@@ -268,7 +309,7 @@ export async function syncReviewComments(
   let preservedCount = 0;
 
   for (const comment of staleComments) {
-    if (comment.hasReplies) {
+    if (!deleteStaleComments || comment.hasReplies) {
       preservedCount += 1;
       continue;
     }

@@ -11,13 +11,15 @@ import type { PullRequestFile, PullRequestReviewComment, ReviewComment } from '.
 describe('listPullRequestFiles', () => {
   it('paginates pull request files with a page size of 100', async () => {
     const files: PullRequestFile[] = [
-      { filename: 'policy-1.tf', patch: '+ "s3:Get*"' },
-      { filename: 'policy-2.tf', patch: '+ "ec2:Describe*"' },
+      { filename: 'policy-1.tf', patch: '@@ -0,0 +1 @@\n+"s3:Get*"' },
+      { filename: 'policy-2.tf', patch: '@@ -0,0 +1 @@\n+"ec2:Describe*"' },
     ];
     const listFiles = {};
     const paginate = vi.fn().mockResolvedValue(files);
+    const request = vi.fn();
     const octokit = {
       paginate,
+      request,
       rest: {
         pulls: {
           listFiles,
@@ -34,6 +36,79 @@ describe('listPullRequestFiles', () => {
       pull_number: 42,
       per_page: 100,
     });
+    expect(request).not.toHaveBeenCalled();
+  });
+
+  it('recovers omitted file patches from the full pull request diff', async () => {
+    const files: PullRequestFile[] = [
+      { filename: 'policy.tf' },
+      { filename: 'complete.tf', patch: '@@ -1 +1 @@\n+"s3:Get*"' },
+    ];
+    const listFiles = {};
+    const request = vi.fn().mockResolvedValue({
+      data: `diff --git a/policy.tf b/policy.tf
+--- a/policy.tf
++++ b/policy.tf
+@@ -1 +1 @@
+-"s3:GetObject"
++"s3:Get*"`,
+    });
+    const octokit = {
+      paginate: vi.fn().mockResolvedValue(files),
+      request,
+      rest: { pulls: { listFiles } },
+    };
+
+    const result = await listPullRequestFiles(
+      octokit,
+      'thekbb',
+      'expand-aws-iam-wildcards',
+      42,
+    );
+
+    expect(result[0]?.patch).toBe('@@ -1 +1 @@\n-"s3:GetObject"\n+"s3:Get*"');
+    expect(result[1]).toBe(files[1]);
+    expect(request).toHaveBeenCalledWith(
+      'GET /repos/{owner}/{repo}/pulls/{pull_number}',
+      {
+        owner: 'thekbb',
+        repo: 'expand-aws-iam-wildcards',
+        pull_number: 42,
+        headers: { accept: 'application/vnd.github.diff' },
+      },
+    );
+  });
+
+  it('keeps omitted patches explicit when full-diff retrieval fails', async () => {
+    const files: PullRequestFile[] = [{ filename: 'policy.tf' }];
+    const octokit = {
+      paginate: vi.fn().mockResolvedValue(files),
+      request: vi.fn().mockRejectedValue(new Error('Resource not accessible by integration')),
+      rest: { pulls: { listFiles: {} } },
+    };
+
+    await expect(listPullRequestFiles(
+      octokit,
+      'thekbb',
+      'expand-aws-iam-wildcards',
+      42,
+    )).resolves.toEqual(files);
+  });
+
+  it('ignores an unexpected non-diff fallback response', async () => {
+    const files: PullRequestFile[] = [{ filename: 'policy.tf' }];
+    const octokit = {
+      paginate: vi.fn().mockResolvedValue(files),
+      request: vi.fn().mockResolvedValue({ data: { message: 'unexpected response' } }),
+      rest: { pulls: { listFiles: {} } },
+    };
+
+    await expect(listPullRequestFiles(
+      octokit,
+      'thekbb',
+      'expand-aws-iam-wildcards',
+      42,
+    )).resolves.toEqual(files);
   });
 });
 
@@ -508,6 +583,50 @@ describe('syncReviewComments', () => {
       repo: 'expand-aws-iam-wildcards',
       comment_id: 1001,
     });
+  });
+
+  it('updates known comments but preserves stale comments after incomplete analysis', async () => {
+    const octokit = makeOctokit();
+
+    const result = await syncReviewComments(octokit, {
+      ...baseParams,
+      comments: [{
+        path: 'analyzed.tf',
+        line: 10,
+        body: '**IAM Wildcard Expansion**\n\nnew body',
+      }],
+      existingComments: [
+        {
+          id: 1001,
+          path: 'analyzed.tf',
+          line: 10,
+          body: '**IAM Wildcard Expansion**\n\nold body',
+        },
+        {
+          id: 1002,
+          path: 'missing.tf',
+          line: 20,
+          body: '**IAM Wildcard Expansion**\n\nstale body',
+        },
+      ],
+      deleteStaleComments: false,
+    });
+
+    expect(result).toEqual({
+      createdCount: 0,
+      updatedCount: 1,
+      unchangedCount: 0,
+      deletedCount: 0,
+      failedDeleteCount: 0,
+      preservedCount: 1,
+    });
+    expect(octokit.rest.pulls.updateReviewComment).toHaveBeenCalledWith({
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      comment_id: 1001,
+      body: '**IAM Wildcard Expansion**\n\nnew body',
+    });
+    expect(octokit.rest.pulls.deleteReviewComment).not.toHaveBeenCalled();
   });
 
   it('deletes duplicate comments when one exact match is kept', async () => {

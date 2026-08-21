@@ -45,9 +45,12 @@ runtime entry aligned with `action.yml` and `package.json`.
 
 Diff processing models every matching file as analyzed, binary, empty, missing
 patch text, or failed analysis. An absent API patch is never guessed to be
-binary because GitHub can also omit large text patches. Tests for this boundary
-must cover mixed-state counts, explicit binary data, malformed patches,
-renames, removals, empty patches, and no-wildcard logging.
+binary because GitHub can also omit large text patches. Missing and failed
+patches are retried from the full pull-request diff. If retrieval fails or the
+full diff is incomplete, partial findings remain usable but stale-comment
+deletion is disabled for that run. Tests for this boundary must cover mixed
+states, explicit binary data, malformed patches, renames, removals, quoted
+paths, fallback permissions and truncation, and protected stale comments.
 
 Each build copies the TypeScript source into an ignored workspace, replaces the
 tracked IAM modules there with data from the lock-selected

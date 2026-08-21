@@ -138,6 +138,7 @@ describe('runAction', () => {
       commitSha: 'deadbeef',
       comments: [],
       existingComments: [],
+      deleteStaleComments: true,
     });
     expect(coreMocks.info).toHaveBeenCalledWith('No files matched the configured patterns.');
   });
@@ -188,6 +189,7 @@ describe('runAction', () => {
       commitSha: 'abc123',
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       existingComments: [{ id: 99 }],
+      deleteStaleComments: true,
     });
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Synchronized comments: 1 created, 0 updated, 0 unchanged',
@@ -360,6 +362,7 @@ describe('runAction', () => {
       commitSha: 'abc123',
       comments: [],
       existingComments: [],
+      deleteStaleComments: true,
     });
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Diff analysis: 2 analyzed, 0 binary, 0 empty, 0 missing patch, 0 failed',
@@ -395,14 +398,26 @@ describe('runAction', () => {
       },
       truncatedComments: [],
     });
+    githubApiMocks.listActionReviewComments.mockResolvedValue([{ id: 99 }]);
 
     await runAction();
+
+    expect(githubApiMocks.syncReviewComments).toHaveBeenCalledWith({ tag: 'octokit' }, {
+      owner: 'thekbb',
+      repo: 'expand-aws-iam-wildcards',
+      pullNumber: 42,
+      commitSha: 'abc123',
+      comments: [],
+      existingComments: [{ id: 99 }],
+      deleteStaleComments: false,
+    });
 
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Diff analysis: 1 analyzed, 0 binary, 0 empty, 1 missing patch, 1 failed',
     );
     expect(coreMocks.warning).toHaveBeenCalledWith(
-      'Diff analysis was incomplete for 2 file(s): 1 missing patch, 1 failed',
+      'Diff analysis was incomplete for 2 file(s): 1 missing patch, 1 failed. '
+        + 'Stale comment deletion is disabled for this run.',
     );
     expect(coreMocks.info).toHaveBeenCalledWith(
       'No IAM wildcard actions found in the analyzed files.',
@@ -439,6 +454,7 @@ describe('runAction', () => {
       commitSha: 'babecafe',
       comments: [],
       existingComments: [],
+      deleteStaleComments: true,
     });
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Diff analysis: 1 analyzed, 0 binary, 0 empty, 0 missing patch, 0 failed',
@@ -477,6 +493,7 @@ describe('runAction', () => {
       commitSha: 'badc0de',
       comments: [],
       existingComments: [],
+      deleteStaleComments: true,
     });
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Diff analysis: 1 analyzed, 0 binary, 0 empty, 0 missing patch, 0 failed',
@@ -523,6 +540,7 @@ describe('runAction', () => {
       commitSha: 'decafbad',
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       existingComments: [],
+      deleteStaleComments: true,
     });
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Synchronized comments: 1 created, 0 updated, 0 unchanged',
@@ -568,6 +586,7 @@ describe('runAction', () => {
       commitSha: 'badc0de',
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       existingComments: [],
+      deleteStaleComments: true,
     });
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Synchronized comments: 1 created, 0 updated, 0 unchanged',
@@ -615,12 +634,13 @@ describe('runAction', () => {
       commitSha: 'decafbad',
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       existingComments: [],
+      deleteStaleComments: true,
     });
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Synchronized comments: 1 created, 0 updated, 0 unchanged',
     );
     expect(coreMocks.info).toHaveBeenCalledWith(
-      'Preserved 2 stale comment thread(s) because they have replies',
+      'Preserved 2 stale comment thread(s)',
     );
   });
 

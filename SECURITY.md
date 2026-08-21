@@ -21,7 +21,8 @@ and an author matching the identity resolved from the configured token. This
 supports GitHub Actions, GitHub App installation tokens, and personal access
 tokens without trusting comments from other users or bots. Safely owned
 comments from older releases are recognized by their generated body shape and
-migrated to the current machine marker in place.
+migrated to the current machine marker in place. Stale comments are not deleted
+when pull-request diff analysis remains incomplete after fallback retrieval.
 
 ## Release Verification
 

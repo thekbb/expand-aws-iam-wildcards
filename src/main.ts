@@ -59,9 +59,7 @@ function logReviewCommentSyncResult(result: SyncReviewCommentsResult): void {
   }
 
   if (result.preservedCount > 0) {
-    core.info(
-      `Preserved ${result.preservedCount} stale comment thread(s) because they have replies`,
-    );
+    core.info(`Preserved ${result.preservedCount} stale comment thread(s)`);
   }
 }
 
@@ -79,8 +77,10 @@ function logDiffAnalysis(stats: ProcessingStats): void {
   const incompleteCount = missingPatch + failed;
   if (incompleteCount > 0) {
     const incompleteSummary = `${missingPatch} missing patch, ${failed} failed`;
+    const incompleteMessage =
+      `Diff analysis was incomplete for ${incompleteCount} file(s): ${incompleteSummary}.`;
     core.warning(
-      `Diff analysis was incomplete for ${incompleteCount} file(s): ${incompleteSummary}`,
+      `${incompleteMessage} Stale comment deletion is disabled for this run.`,
     );
   }
 }
@@ -126,16 +126,20 @@ export async function runAction(): Promise<void> {
       collapseThreshold,
       reviewCommentOptions,
     );
+    const incompleteAnalysisCount = stats.fileAnalysis.missingPatch
+      + stats.fileAnalysis.failed;
+    const syncComments = (commentsToSync: typeof comments) => syncReviewComments(octokit, {
+      owner,
+      repo,
+      pullNumber,
+      commitSha,
+      comments: commentsToSync,
+      existingComments,
+      deleteStaleComments: incompleteAnalysisCount === 0,
+    });
 
     if (stats.filesMatched === 0) {
-      logReviewCommentSyncResult(await syncReviewComments(octokit, {
-        owner,
-        repo,
-        pullNumber,
-        commitSha,
-        comments: [],
-        existingComments,
-      }));
+      logReviewCommentSyncResult(await syncComments([]));
       core.info('No files matched the configured patterns.');
       return;
     }
@@ -143,14 +147,7 @@ export async function runAction(): Promise<void> {
     logDiffAnalysis(stats);
 
     if (stats.wildcardsFound === 0) {
-      logReviewCommentSyncResult(await syncReviewComments(octokit, {
-        owner,
-        repo,
-        pullNumber,
-        commitSha,
-        comments: [],
-        existingComments,
-      }));
+      logReviewCommentSyncResult(await syncComments([]));
       core.info('No IAM wildcard actions found in the analyzed files.');
       return;
     }
@@ -158,41 +155,20 @@ export async function runAction(): Promise<void> {
     core.info(`Found ${stats.wildcardsFound} wildcard(s), grouped into ${stats.blocksCreated} block(s)`);
 
     if (stats.actionsExpanded === 0) {
-      logReviewCommentSyncResult(await syncReviewComments(octokit, {
-        owner,
-        repo,
-        pullNumber,
-        commitSha,
-        comments: [],
-        existingComments,
-      }));
+      logReviewCommentSyncResult(await syncComments([]));
       core.info('No wildcard actions could be expanded.');
       return;
     }
 
     if (comments.length === 0) {
-      logReviewCommentSyncResult(await syncReviewComments(octokit, {
-        owner,
-        repo,
-        pullNumber,
-        commitSha,
-        comments: [],
-        existingComments,
-      }));
+      logReviewCommentSyncResult(await syncComments([]));
       core.info('No comments to post.');
       return;
     }
 
     logTruncatedComments(truncatedComments, workflowRunUrl);
 
-    const syncResult = await syncReviewComments(octokit, {
-      owner,
-      repo,
-      comments,
-      pullNumber,
-      commitSha,
-      existingComments,
-    });
+    const syncResult = await syncComments(comments);
     logReviewCommentSyncResult(syncResult);
   } catch (error) {
     core.setFailed(error instanceof Error ? error.message : 'An unexpected error occurred');
