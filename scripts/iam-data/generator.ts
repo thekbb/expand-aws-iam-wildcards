@@ -9,6 +9,8 @@ import {
 import { tmpdir } from 'node:os';
 import { isAbsolute, join, relative, resolve, sep } from 'node:path';
 
+import { assertIamCatalog, type IamCatalog } from './catalog.js';
+
 interface IamDataAction {
   readonly name: string;
 }
@@ -114,31 +116,39 @@ function validateOutputFiles(paths: readonly string[]): void {
   }
 }
 
+export function readIamCatalog(dataDirectory: string): IamCatalog {
+  const resolvedDataDirectory = resolve(dataDirectory);
+  const actionsDirectory = join(resolvedDataDirectory, 'actions');
+  const serviceNamesPath = join(resolvedDataDirectory, 'serviceNames.json');
+  const servicePrefixes = readServicePrefixes(actionsDirectory);
+  const actions = readAllActions(actionsDirectory, servicePrefixes);
+  const serviceNames = JSON.parse(readFileSync(serviceNamesPath, 'utf8')) as Record<string, string>;
+  const serviceDocSlugs = generateServiceDocSlugs(servicePrefixes, serviceNames);
+  const catalog = { actions, serviceDocSlugs };
+  assertIamCatalog(catalog);
+  return catalog;
+}
+
 export function generateIamData(options: GenerateIamDataOptions): IamDataGenerationResult {
   const dataDirectory = resolve(options.dataDirectory);
-  const actionsDirectory = join(dataDirectory, 'actions');
-  const serviceNamesPath = join(dataDirectory, 'serviceNames.json');
   const outputDirectory = validateGeneratorOutputDirectory(
     options.repositoryRoot,
     options.outputDirectory,
   );
 
-  const servicePrefixes = readServicePrefixes(actionsDirectory);
-  const allActions = readAllActions(actionsDirectory, servicePrefixes);
-  const serviceNames = JSON.parse(readFileSync(serviceNamesPath, 'utf8')) as Record<string, string>;
-  const serviceDocSlugs = generateServiceDocSlugs(servicePrefixes, serviceNames);
+  const catalog = readIamCatalog(dataDirectory);
   const actionsOutputPath = join(outputDirectory, 'iam-actions.ts');
   const serviceDocSlugsOutputPath = join(outputDirectory, 'service-doc-slugs.ts');
 
   const actionsOutput = `// Auto-generated - do not edit
 // Run: npm run generate-iam-data
 
-export const IAM_ACTIONS: readonly string[] = ${JSON.stringify(allActions, null, 2)};
+export const IAM_ACTIONS: readonly string[] = ${JSON.stringify(catalog.actions, null, 2)};
 `;
   const serviceDocSlugsOutput = `// Auto-generated - do not edit
 // Run: npm run generate-iam-data
 
-export const SERVICE_DOC_SLUGS: Readonly<Record<string, string>> = ${JSON.stringify(serviceDocSlugs, null, 2)};
+export const SERVICE_DOC_SLUGS: Readonly<Record<string, string>> = ${JSON.stringify(catalog.serviceDocSlugs, null, 2)};
 `;
 
   mkdirSync(outputDirectory, { recursive: true });
@@ -147,7 +157,7 @@ export const SERVICE_DOC_SLUGS: Readonly<Record<string, string>> = ${JSON.string
   writeFileSync(serviceDocSlugsOutputPath, serviceDocSlugsOutput, 'utf8');
 
   return {
-    actionCount: allActions.length,
-    serviceCount: servicePrefixes.length,
+    actionCount: catalog.actions.length,
+    serviceCount: Object.keys(catalog.serviceDocSlugs).length,
   };
 }

@@ -85,6 +85,9 @@ npm run generate-iam-data -- --output-dir /tmp/expand-aws-iam-data
 ```
 
 Generation from one locked IAM-data package is byte-for-byte deterministic.
+Generated and tracked catalogs must also retain sorted, unique, well-formed
+actions, complete service documentation mappings, conservative count floors,
+and representative expansion and link parity.
 
 ## Preparing a Release
 
