@@ -24,6 +24,14 @@ comments from older releases are recognized by their generated body shape and
 migrated to the current machine marker in place. Stale comments are not deleted
 when pull-request diff analysis remains incomplete after fallback retrieval.
 
+## Hosted End-to-End Test
+
+The end-to-end workflow is manual-only and runs only from `main`. Its single
+job receives only `contents: write` and `pull-requests: write` through the
+short-lived `GITHUB_TOKEN`. It does not execute fork code or use a PAT. Every
+run creates a uniquely named draft fixture pull request, then closes the pull
+request and deletes its branch in an `always()` cleanup step.
+
 ## Release Verification
 
 Release tags are signed with a GPG key. The armored public key is published at
