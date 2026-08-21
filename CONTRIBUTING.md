@@ -92,6 +92,11 @@ Generated and tracked catalogs must also retain sorted, unique, well-formed
 actions, complete service documentation mappings, conservative count floors,
 and representative expansion and link parity.
 
+Release preparation selects the latest numeric IAM-data version, rejects
+downgrades, records the selected version exactly in `package.json` and
+`package-lock.json`, and runs the release checks and bundle build with that
+installed package.
+
 ## Preparing a Release
 
 Release bundles are generated on Ubuntu through GitHub Actions rather than being committed from a local machine.
