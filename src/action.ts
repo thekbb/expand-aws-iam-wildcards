@@ -7,8 +7,11 @@ import { extractFromDiff } from './diff.js';
 import { groupIntoConsecutiveBlocks, formatCommentResult, type FormatOptions } from './utils.js';
 import { expandIamAction } from './expand.js';
 import { matchesPatterns } from './patterns.js';
+import { LEGACY_COMMENT_HEADING } from './comment-identity.js';
 
-export const COMMENT_MARKER = '**IAM Wildcard Expansion**';
+// TODO(v2): Remove this visible-marker compatibility export and use the comment
+// heading only from the formatter after the v1 migration window closes.
+export const COMMENT_MARKER = LEGACY_COMMENT_HEADING;
 
 export interface ReviewCommentOptions {
   readonly truncationUrl?: string;

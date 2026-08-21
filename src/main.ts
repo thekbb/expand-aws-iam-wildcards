@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
-import { processFiles, COMMENT_MARKER, type TruncatedComment } from './action.js';
+import { processFiles, type TruncatedComment } from './action.js';
 import {
   listActionReviewComments,
   listPullRequestFiles,
@@ -96,7 +96,6 @@ export async function runAction(): Promise<void> {
       owner,
       repo,
       pullNumber,
-      COMMENT_MARKER,
     );
 
     const files = await listPullRequestFiles(octokit, owner, repo, pullNumber);

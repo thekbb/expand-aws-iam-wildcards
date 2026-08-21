@@ -66,6 +66,11 @@ Consecutive wildcards are grouped into a single comment. Expanded actions link t
 Very large expansions are truncated in the PR comment to stay within GitHub comment limits,
 and the full list is written to the workflow run logs.
 
+The action only updates or removes comments that have its machine marker and an
+author matching the configured token. It also recognizes safely shaped comments
+from earlier releases so they can be migrated in place without duplicating
+threads.
+
 ## Inputs
 
 | Name | Description | Default |

@@ -74,6 +74,15 @@ Generated review comments include a versioned HTML marker used for machine
 identity. The visible heading remains part of the legacy migration contract;
 change either marker only with collision, migration, and synchronization tests.
 
+Existing-comment discovery requires both a recognized comment shape and the
+author identity resolved from the configured token. PAT identity is resolved
+through GitHub's authenticated-user endpoint; GitHub Actions and GitHub App
+installation tokens fall back to GraphQL's viewer identity. User-authored
+collisions, comments from other bots, malformed markers, ambiguous markers,
+and unsupported marker versions remain unmanaged. Legacy comments are accepted
+only when their visible body matches a generated shape, then updated with the
+current machine marker when their diff anchor is reused.
+
 ## Updating IAM Data
 
 IAM data is selected and locked only during release preparation. There is no
