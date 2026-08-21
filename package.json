@@ -12,18 +12,18 @@
     "build": "tsx scripts/build.ts",
     "build:check": "tsx scripts/build.ts --check",
     "build:smoke": "tsx scripts/build.ts --smoke",
-    "check": "npm run lint && npm run lint:md && npm run docs:check && npm run typecheck && npm run test:coverage && npm run build:smoke",
+    "check": "npm run generate-iam-data && npm run lint && npm run lint:md && npm run docs:check && npm run typecheck && npm run test:coverage && npm run build:smoke",
     "docs:check": "tsx scripts/check-docs.ts",
     "lint": "eslint .",
     "lint:md": "markdownlint '**/*.md' --ignore node_modules",
+    "prepare": "npm run generate-iam-data",
     "release": "tsx scripts/release.ts",
     "release:report-iam-data": "tsx scripts/report-iam-data.ts",
     "release:select-iam-data": "tsx scripts/select-iam-data.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "generate-iam-data": "tsx scripts/generate-iam-data.ts",
-    "update-iam-data": "npm update @cloud-copilot/iam-data && npm run generate-iam-data"
+    "generate-iam-data": "tsx scripts/generate-iam-data.ts"
   },
   "keywords": [
     "github-action",

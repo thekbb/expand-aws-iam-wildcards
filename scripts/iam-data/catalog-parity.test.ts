@@ -12,14 +12,14 @@ const repositoryRoot = resolve(import.meta.dirname, '../..');
 const lockedCatalog = readIamCatalog(
   resolve(repositoryRoot, 'node_modules/@cloud-copilot/iam-data/data'),
 );
-const trackedCatalog = {
+const generatedSourceCatalog = {
   actions: IAM_ACTIONS,
   serviceDocSlugs: SERVICE_DOC_SLUGS,
 };
 
-describe('IAM catalog shadow parity', () => {
-  it('validates tracked and locked catalogs against production floors', () => {
-    expect(() => assertIamCatalog(trackedCatalog, LOCKED_CATALOG_MINIMUMS)).not.toThrow();
+describe('generated IAM source catalog parity', () => {
+  it('validates generated source and locked catalogs against production floors', () => {
+    expect(() => assertIamCatalog(generatedSourceCatalog, LOCKED_CATALOG_MINIMUMS)).not.toThrow();
     expect(() => assertIamCatalog(lockedCatalog, LOCKED_CATALOG_MINIMUMS)).not.toThrow();
   });
 
@@ -28,7 +28,9 @@ describe('IAM catalog shadow parity', () => {
     'iam:GetRolePolicy',
     'ec2:DescribeInstances',
   ])('preserves representative expansion for %s', (pattern) => {
-    expect(expandIamAction(pattern, lockedCatalog.actions)).toEqual(expandIamAction(pattern));
+    expect(expandIamAction(pattern, lockedCatalog.actions)).toEqual(
+      expandIamAction(pattern, generatedSourceCatalog.actions),
+    );
   });
 
   it.each([
@@ -36,6 +38,8 @@ describe('IAM catalog shadow parity', () => {
     'elasticfilesystem:DescribeFileSystems',
     'sso:CreateApplication',
   ])('preserves representative documentation links for %s', (action) => {
-    expect(getActionDocUrl(action, lockedCatalog.serviceDocSlugs)).toBe(getActionDocUrl(action));
+    expect(getActionDocUrl(action, lockedCatalog.serviceDocSlugs)).toBe(
+      getActionDocUrl(action, generatedSourceCatalog.serviceDocSlugs),
+    );
   });
 });

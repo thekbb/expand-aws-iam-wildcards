@@ -34,5 +34,15 @@ jobs:
         with:
           languages: ${{ matrix.language }}
 
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        if: matrix.language == 'javascript-typescript'
+        with:
+          node-version: '24.14.0'
+          cache: 'npm'
+
+      - name: Install dependencies and generate IAM source modules
+        if: matrix.language == 'javascript-typescript'
+        run: npm ci
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@5595ccaf912efad79be6eef63a5619ff05969be3 # v4.37.6

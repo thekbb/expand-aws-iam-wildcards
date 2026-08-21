@@ -2,6 +2,10 @@ coverage/
 node_modules/
 .build/
 
+# Generated from the locked IAM data package for source checks
+src/iam-actions.ts
+src/service-doc-slugs.ts
+
 # Build artifacts (only keep dist/index.js)
 dist/*.map
 dist/*.cjs

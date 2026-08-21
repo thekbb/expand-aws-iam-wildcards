@@ -72,31 +72,36 @@ on the second run.
 
 ## Updating IAM Data
 
-IAM action data is updated automatically via a weekly GitHub Action. To update manually:
+IAM data is selected and locked only during release preparation. There is no
+standalone IAM update workflow or generated-data pull request.
+
+Installation and the full check suite generate ignored source modules from the
+currently locked package for TypeScript analysis and source tests:
 
 ```bash
-npm run update-iam-data
-npm run build
+npm run generate-iam-data
 ```
 
-The generator writes to `src/` by default. To inspect generated modules without
-changing the tracked files, provide a repository-local or temporary output
-directory:
+To inspect generated modules outside `src/`, provide a repository-local or
+temporary output directory:
 
 ```bash
 npm run generate-iam-data -- --output-dir /tmp/expand-aws-iam-data
 ```
 
 Generation from one locked IAM-data package is byte-for-byte deterministic.
-Generated and tracked catalogs must also retain sorted, unique, well-formed
-actions, complete service documentation mappings, conservative count floors,
-and representative expansion and link parity.
+Generated catalogs must retain sorted, unique, well-formed actions, complete
+service documentation mappings, conservative count floors, and representative
+expansion and link behavior.
 
 Release preparation selects the latest numeric IAM-data version, rejects
 downgrades, and records the selected version exactly in `package.json` and
 `package-lock.json`. It then reinstalls with `npm ci`, verifies the installed
 package against the lockfile, validates and reports catalog counts, and runs the
 release checks and bundle build with that clean installation.
+
+The release build does not bundle the ignored source copies. It generates and
+validates the same locked catalog independently inside its isolated workspace.
 
 ## Preparing a Release
 

@@ -238,4 +238,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup.
 
 ## Credits
 
-Uses [@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data) for fresh AWS IAM data.
+Uses [@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data) selected during release preparation.
+The catalog is bundled into the action, so execution does not download IAM data at runtime.
