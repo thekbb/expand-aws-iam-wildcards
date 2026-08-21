@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Check README input defaults, example inputs, and runtime paths against action metadata
 - Build and verify the action bundle through an isolated, deterministic TypeScript driver
 - Smoke-test the compiled action without changing the committed runtime bundle
+- Generate IAM catalog modules deterministically into an explicit validated directory
 
 ## [1.4.0] - 2026-07-21
 
