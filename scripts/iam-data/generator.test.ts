@@ -123,6 +123,20 @@ describe('generateIamData', () => {
       expect(() => readFileSync(join(outputDirectory, 'service-doc-slugs.ts'), 'utf8')).toThrow();
     });
   });
+
+  it('refuses a directory at a generated output file path', () => {
+    withFixture((repositoryRoot) => {
+      const dataDirectory = createDataFixture(repositoryRoot);
+      const outputDirectory = join(repositoryRoot, 'generated');
+      const actionsOutputPath = join(outputDirectory, 'iam-actions.ts');
+      mkdirSync(actionsOutputPath, { recursive: true });
+
+      expect(() => generateIamData({ dataDirectory, outputDirectory, repositoryRoot })).toThrow(
+        `IAM data output file must be a regular file: ${actionsOutputPath}`,
+      );
+      expect(() => readFileSync(join(outputDirectory, 'service-doc-slugs.ts'), 'utf8')).toThrow();
+    });
+  });
 });
 
 describe('validateGeneratorOutputDirectory', () => {
