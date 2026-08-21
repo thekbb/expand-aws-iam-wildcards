@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Validate IAM catalog structure, size, documentation mappings, and transitional behavior parity
 - Build the action bundle from lock-selected IAM data in an ignored workspace
 - Select and lock IAM data as part of release preparation
+- Reinstall and report the selected IAM catalog before release builds
 
 ## [1.4.0] - 2026-07-21
 

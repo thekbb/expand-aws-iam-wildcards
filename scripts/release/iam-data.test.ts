@@ -106,7 +106,8 @@ describe('selectIamDataVersion', () => {
       });
       expect(calls).toEqual([
         `npm view ${IAM_DATA_PACKAGE} version`,
-        `npm install --save-dev --save-exact ${IAM_DATA_PACKAGE}@0.21.202608201`,
+        `npm install --save-dev --save-exact --package-lock-only ` +
+        `${IAM_DATA_PACKAGE}@0.21.202608201`,
       ]);
       expect(JSON.parse(readFileSync(join(directory, 'package.json'), 'utf8')))
         .toMatchObject({ devDependencies: { [IAM_DATA_PACKAGE]: '0.21.202608201' } });
@@ -128,7 +129,7 @@ describe('selectIamDataVersion', () => {
         selectedVersion: '0.21.2',
       });
       expect(calls).toEqual([
-        `npm install --save-dev --save-exact ${IAM_DATA_PACKAGE}@0.21.2`,
+        `npm install --save-dev --save-exact --package-lock-only ${IAM_DATA_PACKAGE}@0.21.2`,
       ]);
     });
   });
@@ -195,7 +196,8 @@ describe('selectIamDataVersion', () => {
 
       const installFailure: CommandRunner = () => result('', 9);
       expect(() => selectIamDataVersion(directory, '0.21.3', installFailure)).toThrow(
-        `npm install --save-dev --save-exact ${IAM_DATA_PACKAGE}@0.21.3 failed: exit status 9`,
+        `npm install --save-dev --save-exact --package-lock-only ` +
+        `${IAM_DATA_PACKAGE}@0.21.3 failed: exit status 9`,
       );
     });
   });

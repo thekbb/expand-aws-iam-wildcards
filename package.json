@@ -17,6 +17,7 @@
     "lint": "eslint .",
     "lint:md": "markdownlint '**/*.md' --ignore node_modules",
     "release": "tsx scripts/release.ts",
+    "release:report-iam-data": "tsx scripts/report-iam-data.ts",
     "release:select-iam-data": "tsx scripts/select-iam-data.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
