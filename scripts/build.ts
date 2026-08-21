@@ -9,27 +9,30 @@ import {
   writeCommittedBundle,
 } from './release/build.js';
 import { smokeTestAction } from './release/smoke.js';
+import { withGeneratedBuildWorkspace } from './release/workspace.js';
 
 const repositoryRoot = resolve(import.meta.dirname, '..');
 const nccCli = resolve(repositoryRoot, 'node_modules/@vercel/ncc/dist/ncc/cli.js');
 
 const compile: BundleCompiler = (outputDirectory) => {
-  const result = spawnSync(process.execPath, [
-    nccCli,
-    'build',
-    'src/index.ts',
-    '-o',
-    outputDirectory,
-    '--no-source-map-register',
-    '--license',
-    'licenses.txt',
-  ], {
-    cwd: repositoryRoot,
-    stdio: 'inherit',
-  });
+  withGeneratedBuildWorkspace(repositoryRoot, (workspace) => {
+    const result = spawnSync(process.execPath, [
+      nccCli,
+      'build',
+      workspace.entryPoint,
+      '-o',
+      outputDirectory,
+      '--no-source-map-register',
+      '--license',
+      'licenses.txt',
+    ], {
+      cwd: repositoryRoot,
+      stdio: 'inherit',
+    });
 
-  if (result.error !== undefined) throw result.error;
-  if (result.status !== 0) throw new Error(`ncc failed with exit status ${result.status ?? 1}`);
+    if (result.error !== undefined) throw result.error;
+    if (result.status !== 0) throw new Error(`ncc failed with exit status ${result.status ?? 1}`);
+  });
 };
 
 try {
