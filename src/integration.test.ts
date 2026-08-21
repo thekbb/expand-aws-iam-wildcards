@@ -70,6 +70,11 @@ describe('runAction integration', () => {
     });
   }
 
+  function setMissingPatch(): void {
+    files.length = 0;
+    files.push({ filename: fixturePath });
+  }
+
   const createReview = vi.fn(async (parameters: {
     owner: string;
     repo: string;
@@ -129,12 +134,14 @@ describe('runAction integration', () => {
 
     throw new Error('Unexpected paginate route');
   });
+  const request = vi.fn();
 
   beforeEach(() => {
     vi.clearAllMocks();
     reviewComments.length = 0;
     files.length = 0;
     nextCommentId = 1000;
+    request.mockRejectedValue(new Error('Full diff unavailable'));
 
     setWildcardPatch('s3:Get*Tagging');
 
@@ -154,6 +161,7 @@ describe('runAction integration', () => {
     githubMocks.getOctokit.mockReturnValue({
       paginate,
       graphql: vi.fn().mockResolvedValue({ viewer: { login: 'github-actions[bot]' } }),
+      request,
       rest: {
         pulls: {
           listFiles: listFilesRoute,
@@ -219,5 +227,32 @@ describe('runAction integration', () => {
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Deleted 1 existing comment(s) from previous runs',
     );
+  });
+
+  it('preserves an existing comment when fallback diff retrieval fails', async () => {
+    await runAction();
+
+    setMissingPatch();
+
+    await runAction();
+
+    expect(request).toHaveBeenCalledWith(
+      'GET /repos/{owner}/{repo}/pulls/{pull_number}',
+      {
+        owner: 'thekbb',
+        repo: 'expand-aws-iam-wildcards',
+        pull_number: 42,
+        headers: { accept: 'application/vnd.github.diff' },
+      },
+    );
+    expect(createReview).toHaveBeenCalledTimes(1);
+    expect(updateReviewComment).not.toHaveBeenCalled();
+    expect(deleteReviewComment).not.toHaveBeenCalled();
+    expect(reviewComments).toHaveLength(1);
+    expect(coreMocks.warning).toHaveBeenCalledWith(
+      'Diff analysis was incomplete for 1 file(s): 1 missing patch, 0 failed. '
+        + 'Stale comment deletion is disabled for this run.',
+    );
+    expect(coreMocks.info).toHaveBeenCalledWith('Preserved 1 stale comment thread(s)');
   });
 });

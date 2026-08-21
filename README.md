@@ -67,9 +67,11 @@ Very large expansions are truncated in the PR comment to stay within GitHub comm
 and the full list is written to the workflow run logs.
 
 Each run reports matching diff files as analyzed, binary, empty, missing patch
-text, or failed analysis. Missing or malformed patch data produces an explicit
-incomplete-analysis warning, and no-wildcard messages apply only to the files
-that were actually analyzed.
+text, or failed analysis. Missing or malformed patch data triggers a
+full-PR-diff fallback. If files remain unresolved because the fallback is
+unavailable or incomplete, the action reports an incomplete-analysis warning,
+keeps findings from analyzed files, and preserves stale comments. No-wildcard
+messages apply only to the files that were actually analyzed.
 
 The action only updates or removes comments that have its machine marker and an
 author matching the configured token. It also recognizes safely shaped comments

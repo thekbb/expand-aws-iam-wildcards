@@ -1,3 +1,5 @@
+import { Buffer } from 'node:buffer';
+
 import type { PullRequestFile, WildcardMatch } from './types.js';
 import { findPotentialWildcardActions } from './utils.js';
 
@@ -95,6 +97,184 @@ function analyzeFile(file: PullRequestFile): FileDiffAnalysis {
   return result.hasHunk && !result.failed
     ? { filename: file.filename, state: 'analyzed', wildcardMatches: result.wildcardMatches }
     : { filename: file.filename, state: 'failed', wildcardMatches: [] };
+}
+
+function decodeGitPath(value: string): string | null {
+  if (!value.startsWith('"')) return value;
+  if (!value.endsWith('"')) return null;
+
+  const bytes: number[] = [];
+  const escapedCharacters: Readonly<Record<string, string>> = {
+    a: '\u0007',
+    b: '\b',
+    f: '\f',
+    n: '\n',
+    r: '\r',
+    t: '\t',
+    v: '\u000b',
+    '\\': '\\',
+    '"': '"',
+  };
+
+  for (let index = 1; index < value.length - 1; index++) {
+    const character = value.charAt(index);
+    if (character !== '\\') {
+      bytes.push(...Buffer.from(character));
+      continue;
+    }
+
+    const escape = value.charAt(++index);
+
+    if (/^[0-7]$/.test(escape)) {
+      let octal = escape;
+      while (octal.length < 3 && /^[0-7]$/.test(value.charAt(index + 1))) {
+        octal += value[++index];
+      }
+      bytes.push(parseInt(octal, 8));
+      continue;
+    }
+
+    const decoded = escapedCharacters[escape];
+    if (decoded === undefined) return null;
+    bytes.push(...Buffer.from(decoded));
+  }
+
+  return Buffer.from(bytes).toString('utf8');
+}
+
+function getDiffHeaderFilename(line: string): string | null {
+  const encodedPath = line.slice(4);
+  const path = decodeGitPath(encodedPath);
+  if (path === null || path === '/dev/null') return null;
+  return path.startsWith('a/') || path.startsWith('b/') ? path.slice(2) : null;
+}
+
+function findClosingQuote(value: string, start: number): number | null {
+  for (let index = start + 1; index < value.length; index++) {
+    if (value[index] === '\\') {
+      index++;
+    } else if (value[index] === '"') {
+      return index;
+    }
+  }
+  return null;
+}
+
+function getDiffGitFilename(line: string): string | null {
+  const paths = line.slice('diff --git '.length);
+  let currentPath: string;
+
+  if (paths.startsWith('"')) {
+    const previousPathEnd = findClosingQuote(paths, 0);
+    if (previousPathEnd === null) return null;
+    currentPath = paths.slice(previousPathEnd + 1).trimStart();
+  } else {
+    const currentPathStart = paths.lastIndexOf(' b/');
+    if (currentPathStart < 0) return null;
+    currentPath = paths.slice(currentPathStart + 1);
+  }
+
+  const decodedPath = decodeGitPath(currentPath);
+  return decodedPath?.startsWith('b/') ? decodedPath.slice(2) : null;
+}
+
+function isCompleteHunkPatch(lines: readonly string[]): boolean {
+  let oldLinesRemaining = 0;
+  let newLinesRemaining = 0;
+  let hasHunk = false;
+
+  for (const line of lines) {
+    const header = line.match(/^@@ -\d+(?:,(\d+))? \+\d+(?:,(\d+))? @@/);
+    if (header) {
+      if (hasHunk && (oldLinesRemaining !== 0 || newLinesRemaining !== 0)) return false;
+      oldLinesRemaining = parseInt(header[1] ?? '1', 10);
+      newLinesRemaining = parseInt(header[2] ?? '1', 10);
+      hasHunk = true;
+      continue;
+    }
+
+    if (!hasHunk || isNoNewlineMarker(line)) continue;
+    if (line.startsWith(' ')) {
+      oldLinesRemaining--;
+      newLinesRemaining--;
+    } else if (line.startsWith('-')) {
+      oldLinesRemaining--;
+    } else if (line.startsWith('+')) {
+      newLinesRemaining--;
+    } else {
+      return false;
+    }
+
+    if (oldLinesRemaining < 0 || newLinesRemaining < 0) return false;
+  }
+
+  return hasHunk && oldLinesRemaining === 0 && newLinesRemaining === 0;
+}
+
+function getFilePatchFromSection(lines: readonly string[]): string | null {
+  const hunkIndex = lines.findIndex((line) => line.startsWith('@@'));
+  if (hunkIndex >= 0) {
+    const patchLines = lines.slice(hunkIndex);
+    if (patchLines.at(-1) === '') patchLines.pop();
+    return isCompleteHunkPatch(patchLines) ? patchLines.join('\n') : null;
+  }
+
+  const binaryLines = lines.filter((line) =>
+    line === 'GIT binary patch' || /^Binary files .+ differ$/.test(line),
+  );
+  if (binaryLines.length > 0) return binaryLines.join('\n');
+
+  const hasKnownEmptyBlob = lines.some((line) =>
+    /^index (?:0+\.\.e69de29[0-9a-f]*|e69de29[0-9a-f]*\.\.0+)(?: |$)/.test(line)
+  );
+  const isExactRename = lines.includes('similarity index 100%');
+  const isKnownContentFreeChange = hasKnownEmptyBlob || isExactRename;
+  return isKnownContentFreeChange ? '' : null;
+}
+
+function parsePullRequestDiff(diff: string): ReadonlyMap<string, string> {
+  const sections: string[][] = [];
+  let currentSection: string[] | undefined;
+
+  for (const line of diff.split('\n')) {
+    if (line.startsWith('diff --git ')) {
+      currentSection = [line];
+      sections.push(currentSection);
+    } else {
+      currentSection?.push(line);
+    }
+  }
+
+  const patches = new Map<string, string>();
+  for (const section of sections) {
+    const [diffHeader] = section as [string, ...string[]];
+    const currentPathLine = section.find((line) => line.startsWith('+++ '));
+    const previousPathLine = section.find((line) => line.startsWith('--- '));
+    const currentFilename = currentPathLine === undefined
+      ? null
+      : getDiffHeaderFilename(currentPathLine);
+    const previousFilename = previousPathLine === undefined
+      ? null
+      : getDiffHeaderFilename(previousPathLine);
+    const filename = currentFilename ?? previousFilename ?? getDiffGitFilename(diffHeader);
+    const patch = getFilePatchFromSection(section);
+    if (filename !== null && patch !== null) patches.set(filename, patch);
+  }
+
+  return patches;
+}
+
+export function recoverFilePatchesFromDiff(
+  files: readonly PullRequestFile[],
+  diff: string,
+): PullRequestFile[] {
+  const patches = parsePullRequestDiff(diff);
+  return files.map((file) => {
+    const state = analyzeFile(file).state;
+    if (state !== 'missing-patch' && state !== 'failed') return file;
+    const patch = patches.get(file.filename);
+    return patch === undefined ? file : { ...file, patch };
+  });
 }
 
 function countAnalyses(files: readonly FileDiffAnalysis[]): DiffAnalysisCounts {
