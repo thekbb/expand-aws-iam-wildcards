@@ -51,6 +51,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Select latest IAM data
+        run: npm run release:select-iam-data
+
       - name: Lint
         run: npm run lint
 
@@ -109,4 +112,4 @@ jobs:
             --base main \
             --head "$BRANCH" \
             --title "Prepare v${VERSION} release" \
-            --body "Generates the release bundle on Ubuntu, updates package metadata for v${VERSION}, and prepares the exact commit that should be signed and tagged for release."
+            --body "Selects and locks the latest IAM data, generates the release bundle on Ubuntu, updates package metadata for v${VERSION}, and prepares the exact commit that should be signed and tagged for release."
