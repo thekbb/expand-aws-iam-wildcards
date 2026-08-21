@@ -5,9 +5,10 @@ import { resolve } from 'node:path';
 import {
   checkCommittedBundle,
   type BundleCompiler,
-  withTemporaryBundle,
+  withTemporaryBundleAsync,
   writeCommittedBundle,
 } from './release/build.js';
+import { integrationTestAction } from './compiled-integration.js';
 import { smokeTestAction } from './release/smoke.js';
 import { withGeneratedBuildWorkspace } from './release/workspace.js';
 
@@ -35,7 +36,7 @@ const compile: BundleCompiler = (outputDirectory) => {
   });
 };
 
-try {
+async function main(): Promise<void> {
   const [operation, ...unexpectedArguments] = process.argv.slice(2);
   if (
     unexpectedArguments.length > 0 ||
@@ -49,13 +50,18 @@ try {
     console.log('Repeated builds match the committed dist/index.js.');
   } else if (operation === '--smoke') {
     const actionYaml = readFileSync(resolve(repositoryRoot, 'action.yml'), 'utf8');
-    withTemporaryBundle(compile, (outputDirectory) => smokeTestAction(actionYaml, outputDirectory));
-    console.log('Temporary dist/index.js passed the non-PR smoke test.');
+    await withTemporaryBundleAsync(compile, async (outputDirectory) => {
+      smokeTestAction(actionYaml, outputDirectory);
+      await integrationTestAction(actionYaml, outputDirectory);
+    });
+    console.log('Temporary dist/index.js passed compiled smoke and integration tests.');
   } else {
     writeCommittedBundle(repositoryRoot, compile);
     console.log('Built dist/index.js.');
   }
-} catch (error) {
+}
+
+void main().catch((error: unknown) => {
   console.error(error instanceof Error ? error.message : String(error));
   process.exitCode = 1;
-}
+});
