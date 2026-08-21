@@ -34,8 +34,8 @@ function createRepository(directory: string): string {
   const repositoryRoot = join(directory, 'repository');
   writeFile(join(repositoryRoot, 'src/index.ts'), "import './iam-actions.js';\n");
   writeFile(join(repositoryRoot, 'src/nested/helper.ts'), 'export const helper = true;\n');
-  writeFile(join(repositoryRoot, 'src/iam-actions.ts'), 'tracked actions sentinel\n');
-  writeFile(join(repositoryRoot, 'src/service-doc-slugs.ts'), 'tracked slugs sentinel\n');
+  writeFile(join(repositoryRoot, 'src/iam-actions.ts'), 'source actions sentinel\n');
+  writeFile(join(repositoryRoot, 'src/service-doc-slugs.ts'), 'source slugs sentinel\n');
   return repositoryRoot;
 }
 
@@ -49,7 +49,7 @@ function createDataFixture(directory: string): string {
 }
 
 describe('withGeneratedBuildWorkspace', () => {
-  it('replaces tracked catalog modules with data from the locked package', () => {
+  it('replaces source catalog copies with data from the locked package', () => {
     withFixture((directory) => {
       const repositoryRoot = createRepository(directory);
       const realRepository = resolve(import.meta.dirname, '../..');
@@ -76,9 +76,9 @@ describe('withGeneratedBuildWorkspace', () => {
           'export const helper = true;\n',
         );
         expect(readFileSync(join(workspace.rootDirectory, 'src/iam-actions.ts'), 'utf8'))
-          .not.toContain('tracked actions sentinel');
+          .not.toContain('source actions sentinel');
         expect(readFileSync(join(workspace.rootDirectory, 'src/service-doc-slugs.ts'), 'utf8'))
-          .not.toContain('tracked slugs sentinel');
+          .not.toContain('source slugs sentinel');
       });
 
       expect(existsSync(workspaceRoot)).toBe(false);

@@ -14,10 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Build and verify the action bundle through an isolated, deterministic TypeScript driver
 - Smoke-test the compiled action without changing the committed runtime bundle
 - Generate IAM catalog modules deterministically into an explicit validated directory
-- Validate IAM catalog structure, size, documentation mappings, and transitional behavior parity
+- Validate IAM catalog structure, size, documentation mappings, and generated-source behavior parity
 - Build the action bundle from lock-selected IAM data in an ignored workspace
 - Select and lock IAM data as part of release preparation
 - Reinstall and report the selected IAM catalog before release builds
+- Remove tracked IAM catalog modules and the standalone IAM update workflow
 
 ## [1.4.0] - 2026-07-21
 
