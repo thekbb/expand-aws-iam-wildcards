@@ -6,6 +6,7 @@ import {
   expandWildcards,
   processFiles,
 } from './action.js';
+import { CURRENT_COMMENT_MARKER } from './comment-identity.js';
 import type { PullRequestFile, WildcardBlock } from './types.js';
 
 describe('COMMENT_MARKER', () => {
@@ -129,13 +130,15 @@ describe('createReviewComments', () => {
       expanded,
       5,
       {
-        maxCommentBodyLength: 325,
+        maxCommentBodyLength: 600,
         truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/123',
       },
     );
 
     expect(result[0]?.body).toContain('workflow run logs');
     expect(result[0]?.body).toContain('Showing first');
+    expect(result[0]?.body).toContain(CURRENT_COMMENT_MARKER);
+    expect(result[0]?.body.length).toBeLessThanOrEqual(600);
     expect(result[0]?.body).not.toContain('unknown:Action19');
   });
 });
@@ -235,7 +238,7 @@ describe('processFiles', () => {
       [],
       5,
       {
-        maxCommentBodyLength: 325,
+        maxCommentBodyLength: 600,
         truncationUrl: 'https://github.com/thekbb/expand-aws-iam-wildcards/actions/runs/123',
       },
     );
@@ -247,5 +250,7 @@ describe('processFiles', () => {
       line: 1,
     });
     expect(result.comments[0]?.body).toContain('workflow run logs');
+    expect(result.comments[0]?.body).toContain(CURRENT_COMMENT_MARKER);
+    expect(result.comments[0]?.body.length).toBeLessThanOrEqual(600);
   });
 });

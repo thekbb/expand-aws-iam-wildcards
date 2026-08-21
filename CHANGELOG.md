@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Select and lock IAM data as part of release preparation
 - Reinstall and report the selected IAM catalog before release builds
 - Remove tracked IAM catalog modules and the standalone IAM update workflow
+- Add a versioned machine marker to generated review comments
 
 ## [1.4.0] - 2026-07-21
 

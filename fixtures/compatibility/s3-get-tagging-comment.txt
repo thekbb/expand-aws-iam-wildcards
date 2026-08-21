@@ -7,3 +7,5 @@
 1. [`s3:GetObjectTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObjectTagging)
 1. [`s3:GetObjectVersionTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObjectVersionTagging)
 1. [`s3:GetStorageLensConfigurationTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetStorageLensConfigurationTagging)
+
+<!-- expand-aws-iam-wildcards:review-comment:v1 -->

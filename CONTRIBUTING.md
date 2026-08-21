@@ -70,6 +70,10 @@ stateful mocked Octokit client. It verifies that a pull request diff containing 
 produces the expected inline review comment on the first run and reuses that same comment unchanged
 on the second run.
 
+Generated review comments include a versioned HTML marker used for machine
+identity. The visible heading remains part of the legacy migration contract;
+change either marker only with collision, migration, and synchronization tests.
+
 ## Updating IAM Data
 
 IAM data is selected and locked only during release preparation. There is no

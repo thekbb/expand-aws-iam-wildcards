@@ -13,3 +13,5 @@
 1. [`s3:GetObject`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObject)
 
 </details>
+
+<!-- expand-aws-iam-wildcards:review-comment:v1 -->
