@@ -82,6 +82,26 @@ local HTTP server. Together they cover pagination, comment creation, unchanged
 reruns, updates, stale cleanup, truncation, and no-op behavior through both the
 TypeScript modules and the generated action entry point.
 
+The manual `End-to-End Test` workflow lives in the dedicated
+[`thekbb/expand-aws-iam-wildcards-e2e`](https://github.com/thekbb/expand-aws-iam-wildcards-e2e)
+fixture repository and runs only from its `main` branch. It accepts a full
+commit SHA from this repository's `main` history, checks out and builds that
+exact source, and runs the compiled action against the real GitHub API. It
+verifies creation, unchanged reruns, in-place updates, stale cleanup, and reply
+preservation before closing the pull request and deleting its branch in an
+`always()` cleanup step.
+
+Before its first run, enable `Allow GitHub Actions to create and approve pull
+requests` under the fixture repository's Actions settings. Run `End-to-End
+Test` there with its `main` branch selected and provide the source commit as
+`source_sha`. The workflow uses only a job-scoped `GITHUB_TOKEN` with write
+access to the fixture repository; it does not require source-repository write
+access, a PAT, or a repository secret.
+
+The fixture branch is named `e2e/run-<run-id>-<attempt>`. If a runner-level
+cancellation prevents the cleanup step from running, close the draft fixture
+pull request and delete that exact branch manually.
+
 Generated review comments include a versioned HTML marker used for machine
 identity. The visible heading remains part of the legacy migration contract;
 change either marker only with collision, migration, and synchronization tests.
