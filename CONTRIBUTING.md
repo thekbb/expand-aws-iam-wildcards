@@ -43,12 +43,15 @@ same strict TypeScript configuration.
 `npm run docs:check` keeps README input names, defaults, example inputs, and the
 runtime entry aligned with `action.yml` and `package.json`.
 
-`npm run build` compiles through the repository-local `ncc` executable in a
-temporary directory before replacing `dist/index.js`. `npm run build:check`
-rebuilds twice and compares both results with the committed bundle without
-modifying `dist/`. `npm run build:smoke` builds temporarily, executes the entry
-declared by `action.yml` with a synthetic non-PR event, and cleans up without
-changing `dist/`.
+Each build copies the TypeScript source into an ignored workspace, replaces the
+tracked IAM modules there with data from the lock-selected
+`@cloud-copilot/iam-data` package, validates the catalog, and compiles through
+the repository-local `ncc` executable. The workspace is removed afterward.
+`npm run build` replaces `dist/index.js` only after that isolated build succeeds.
+`npm run build:check` rebuilds twice and compares both results with the
+committed bundle without modifying `dist/`. `npm run build:smoke` builds
+temporarily, executes the entry declared by `action.yml` with a synthetic
+non-PR event, and cleans up without changing `dist/`.
 
 ## Pull Requests
 

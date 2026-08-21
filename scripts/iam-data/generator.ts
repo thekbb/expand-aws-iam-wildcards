@@ -9,7 +9,11 @@ import {
 import { tmpdir } from 'node:os';
 import { isAbsolute, join, relative, resolve, sep } from 'node:path';
 
-import { assertIamCatalog, type IamCatalog } from './catalog.js';
+import {
+  assertIamCatalog,
+  type IamCatalog,
+  type IamCatalogMinimums,
+} from './catalog.js';
 
 interface IamDataAction {
   readonly name: string;
@@ -19,6 +23,7 @@ export interface GenerateIamDataOptions {
   readonly dataDirectory: string;
   readonly outputDirectory: string;
   readonly repositoryRoot: string;
+  readonly minimums?: IamCatalogMinimums;
 }
 
 export interface IamDataGenerationResult {
@@ -116,7 +121,10 @@ function validateOutputFiles(paths: readonly string[]): void {
   }
 }
 
-export function readIamCatalog(dataDirectory: string): IamCatalog {
+export function readIamCatalog(
+  dataDirectory: string,
+  minimums?: IamCatalogMinimums,
+): IamCatalog {
   const resolvedDataDirectory = resolve(dataDirectory);
   const actionsDirectory = join(resolvedDataDirectory, 'actions');
   const serviceNamesPath = join(resolvedDataDirectory, 'serviceNames.json');
@@ -125,7 +133,7 @@ export function readIamCatalog(dataDirectory: string): IamCatalog {
   const serviceNames = JSON.parse(readFileSync(serviceNamesPath, 'utf8')) as Record<string, string>;
   const serviceDocSlugs = generateServiceDocSlugs(servicePrefixes, serviceNames);
   const catalog = { actions, serviceDocSlugs };
-  assertIamCatalog(catalog);
+  assertIamCatalog(catalog, minimums);
   return catalog;
 }
 
@@ -136,7 +144,7 @@ export function generateIamData(options: GenerateIamDataOptions): IamDataGenerat
     options.outputDirectory,
   );
 
-  const catalog = readIamCatalog(dataDirectory);
+  const catalog = readIamCatalog(dataDirectory, options.minimums);
   const actionsOutputPath = join(outputDirectory, 'iam-actions.ts');
   const serviceDocSlugsOutputPath = join(outputDirectory, 'service-doc-slugs.ts');
 

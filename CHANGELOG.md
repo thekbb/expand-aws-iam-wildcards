@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Smoke-test the compiled action without changing the committed runtime bundle
 - Generate IAM catalog modules deterministically into an explicit validated directory
 - Validate IAM catalog structure, size, documentation mappings, and transitional behavior parity
+- Build the action bundle from lock-selected IAM data in an ignored workspace
 
 ## [1.4.0] - 2026-07-21
 
