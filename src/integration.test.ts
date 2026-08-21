@@ -210,8 +210,12 @@ describe('runAction integration', () => {
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Synchronized comments: 1 created, 0 updated, 0 unchanged',
     );
-    expect(coreMocks.info).toHaveBeenCalledWith('Scanned 1 file(s)');
-    expect(coreMocks.info).toHaveBeenCalledWith('No IAM wildcard actions found in the changes.');
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Diff analysis: 1 analyzed, 0 binary, 0 empty, 0 missing patch, 0 failed',
+    );
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'No IAM wildcard actions found in the analyzed files.',
+    );
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Deleted 1 existing comment(s) from previous runs',
     );

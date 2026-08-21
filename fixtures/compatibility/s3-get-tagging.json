@@ -8,7 +8,14 @@
   "filePatterns": ["**/*.tf"],
   "collapseThreshold": 5,
   "expectedStats": {
-    "filesScanned": 1,
+    "filesMatched": 1,
+    "fileAnalysis": {
+      "analyzed": 1,
+      "binary": 0,
+      "empty": 0,
+      "missingPatch": 0,
+      "failed": 0
+    },
     "wildcardsFound": 1,
     "blocksCreated": 1,
     "actionsExpanded": 1

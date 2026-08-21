@@ -35,6 +35,10 @@ vi.mock('./github.js', () => githubApiMocks);
 
 import { runAction } from './main.js';
 
+function analyzedFiles(count: number) {
+  return { analyzed: count, binary: 0, empty: 0, missingPatch: 0, failed: 0 };
+}
+
 describe('runAction', () => {
   const originalGithubRunId = process.env.GITHUB_RUN_ID;
   const originalGithubServerUrl = process.env.GITHUB_SERVER_URL;
@@ -77,7 +81,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [],
       stats: {
-        filesScanned: 0,
+        filesMatched: 0,
+        fileAnalysis: analyzedFiles(0),
         wildcardsFound: 0,
         blocksCreated: 0,
         actionsExpanded: 0,
@@ -151,7 +156,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       stats: {
-        filesScanned: 1,
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
         wildcardsFound: 1,
         blocksCreated: 1,
         actionsExpanded: 1,
@@ -202,7 +208,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       stats: {
-        filesScanned: 1,
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
         wildcardsFound: 1,
         blocksCreated: 1,
         actionsExpanded: 1,
@@ -253,7 +260,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       stats: {
-        filesScanned: 1,
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
         wildcardsFound: 1,
         blocksCreated: 1,
         actionsExpanded: 1,
@@ -285,7 +293,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       stats: {
-        filesScanned: 1,
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
         wildcardsFound: 1,
         blocksCreated: 1,
         actionsExpanded: 1,
@@ -321,7 +330,7 @@ describe('runAction', () => {
     );
   });
 
-  it('syncs empty comments when scanned files contain no IAM wildcards', async () => {
+  it('syncs empty comments when analyzed files contain no IAM wildcards', async () => {
     githubMocks.context.payload = {
       pull_request: {
         number: 42,
@@ -333,7 +342,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [],
       stats: {
-        filesScanned: 2,
+        filesMatched: 2,
+        fileAnalysis: analyzedFiles(2),
         wildcardsFound: 0,
         blocksCreated: 0,
         actionsExpanded: 0,
@@ -351,8 +361,52 @@ describe('runAction', () => {
       comments: [],
       existingComments: [],
     });
-    expect(coreMocks.info).toHaveBeenCalledWith('Scanned 2 file(s)');
-    expect(coreMocks.info).toHaveBeenCalledWith('No IAM wildcard actions found in the changes.');
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Diff analysis: 2 analyzed, 0 binary, 0 empty, 0 missing patch, 0 failed',
+    );
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'No IAM wildcard actions found in the analyzed files.',
+    );
+  });
+
+  it('warns when a no-wildcard result is based on incomplete diff analysis', async () => {
+    githubMocks.context.payload = {
+      pull_request: {
+        number: 42,
+        head: {
+          sha: 'abc123',
+        },
+      },
+    };
+    actionMocks.processFiles.mockReturnValue({
+      comments: [],
+      stats: {
+        filesMatched: 3,
+        fileAnalysis: {
+          analyzed: 1,
+          binary: 0,
+          empty: 0,
+          missingPatch: 1,
+          failed: 1,
+        },
+        wildcardsFound: 0,
+        blocksCreated: 0,
+        actionsExpanded: 0,
+      },
+      truncatedComments: [],
+    });
+
+    await runAction();
+
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Diff analysis: 1 analyzed, 0 binary, 0 empty, 1 missing patch, 1 failed',
+    );
+    expect(coreMocks.warning).toHaveBeenCalledWith(
+      'Diff analysis was incomplete for 2 file(s): 1 missing patch, 1 failed',
+    );
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'No IAM wildcard actions found in the analyzed files.',
+    );
   });
 
   it('syncs empty comments when found wildcards do not expand', async () => {
@@ -367,7 +421,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [],
       stats: {
-        filesScanned: 1,
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
         wildcardsFound: 2,
         blocksCreated: 1,
         actionsExpanded: 0,
@@ -385,7 +440,9 @@ describe('runAction', () => {
       comments: [],
       existingComments: [],
     });
-    expect(coreMocks.info).toHaveBeenCalledWith('Scanned 1 file(s)');
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Diff analysis: 1 analyzed, 0 binary, 0 empty, 0 missing patch, 0 failed',
+    );
     expect(coreMocks.info).toHaveBeenCalledWith('Found 2 wildcard(s), grouped into 1 block(s)');
     expect(coreMocks.info).toHaveBeenCalledWith('No wildcard actions could be expanded.');
   });
@@ -402,7 +459,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [],
       stats: {
-        filesScanned: 1,
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
         wildcardsFound: 2,
         blocksCreated: 1,
         actionsExpanded: 2,
@@ -420,7 +478,9 @@ describe('runAction', () => {
       comments: [],
       existingComments: [],
     });
-    expect(coreMocks.info).toHaveBeenCalledWith('Scanned 1 file(s)');
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      'Diff analysis: 1 analyzed, 0 binary, 0 empty, 0 missing patch, 0 failed',
+    );
     expect(coreMocks.info).toHaveBeenCalledWith('Found 2 wildcard(s), grouped into 1 block(s)');
     expect(coreMocks.info).toHaveBeenCalledWith('No comments to post.');
   });
@@ -437,7 +497,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       stats: {
-        filesScanned: 1,
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
         wildcardsFound: 1,
         blocksCreated: 1,
         actionsExpanded: 1,
@@ -481,7 +542,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       stats: {
-        filesScanned: 1,
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
         wildcardsFound: 1,
         blocksCreated: 1,
         actionsExpanded: 1,
@@ -527,7 +589,8 @@ describe('runAction', () => {
     actionMocks.processFiles.mockReturnValue({
       comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
       stats: {
-        filesScanned: 1,
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
         wildcardsFound: 1,
         blocksCreated: 1,
         actionsExpanded: 1,

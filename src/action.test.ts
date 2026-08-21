@@ -155,7 +155,14 @@ describe('processFiles', () => {
     const result = processFiles(files, ['**/*.tf'], 5);
 
     expect(result.comments).toEqual([]);
-    expect(result.stats.filesScanned).toBe(0);
+    expect(result.stats.filesMatched).toBe(0);
+    expect(result.stats.fileAnalysis).toEqual({
+      analyzed: 0,
+      binary: 0,
+      empty: 0,
+      missingPatch: 0,
+      failed: 0,
+    });
   });
 
   it('returns empty result for files with no wildcards', () => {
@@ -166,7 +173,8 @@ describe('processFiles', () => {
     const result = processFiles(files, [], 5);
 
     expect(result.comments).toEqual([]);
-    expect(result.stats.filesScanned).toBe(1);
+    expect(result.stats.filesMatched).toBe(1);
+    expect(result.stats.fileAnalysis.analyzed).toBe(1);
     expect(result.stats.wildcardsFound).toBe(0);
   });
 
@@ -203,10 +211,10 @@ describe('processFiles', () => {
 
     const result = processFiles(files, ['**/*.tf'], 5);
 
-    expect(result.stats.filesScanned).toBe(1);
+    expect(result.stats.filesMatched).toBe(1);
   });
 
-  it('scans all files when no patterns are provided', () => {
+  it('matches all files when no patterns are provided', () => {
     const files: PullRequestFile[] = [
       { filename: 'a.tf', patch: makePatch(['"s3:Get*"']) },
       { filename: 'b.json', patch: makePatch(['"ec2:Describe*"']) },
@@ -214,10 +222,10 @@ describe('processFiles', () => {
 
     const result = processFiles(files, [], 5);
 
-    expect(result.stats.filesScanned).toBe(2);
+    expect(result.stats.filesMatched).toBe(2);
   });
 
-  it('handles files without patches', () => {
+  it('reports matched files without patches as incomplete analysis', () => {
     const files: PullRequestFile[] = [
       { filename: 'policy.tf' },
     ];
@@ -225,7 +233,37 @@ describe('processFiles', () => {
     const result = processFiles(files, [], 5);
 
     expect(result.comments).toEqual([]);
-    expect(result.stats.filesScanned).toBe(1);
+    expect(result.stats.filesMatched).toBe(1);
+    expect(result.stats.fileAnalysis).toEqual({
+      analyzed: 0,
+      binary: 0,
+      empty: 0,
+      missingPatch: 1,
+      failed: 0,
+    });
+  });
+
+  it('retains wildcard results while counting every diff analysis state', () => {
+    const files: PullRequestFile[] = [
+      { filename: 'analyzed.tf', patch: makePatch(['"s3:Get*"']) },
+      { filename: 'binary.tf', patch: 'Binary files a/binary.tf and b/binary.tf differ' },
+      { filename: 'empty.tf', patch: '' },
+      { filename: 'missing.tf' },
+      { filename: 'failed.tf', patch: '+ "ec2:Describe*"' },
+    ];
+
+    const result = processFiles(files, [], 5);
+
+    expect(result.stats.filesMatched).toBe(5);
+    expect(result.stats.fileAnalysis).toEqual({
+      analyzed: 1,
+      binary: 1,
+      empty: 1,
+      missingPatch: 1,
+      failed: 1,
+    });
+    expect(result.stats.wildcardsFound).toBe(1);
+    expect(result.comments).toHaveLength(1);
   });
 
   it('returns truncated comment metadata when a comment body is trimmed', () => {

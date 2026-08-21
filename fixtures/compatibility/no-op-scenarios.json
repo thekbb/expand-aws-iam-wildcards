@@ -6,7 +6,14 @@
     ],
     "filePatterns": ["**/*.tf"],
     "expectedStats": {
-      "filesScanned": 0,
+      "filesMatched": 0,
+      "fileAnalysis": {
+        "analyzed": 0,
+        "binary": 0,
+        "empty": 0,
+        "missingPatch": 0,
+        "failed": 0
+      },
       "wildcardsFound": 0,
       "blocksCreated": 0,
       "actionsExpanded": 0
@@ -19,7 +26,14 @@
     ],
     "filePatterns": ["**/*.tf"],
     "expectedStats": {
-      "filesScanned": 1,
+      "filesMatched": 1,
+      "fileAnalysis": {
+        "analyzed": 1,
+        "binary": 0,
+        "empty": 0,
+        "missingPatch": 0,
+        "failed": 0
+      },
       "wildcardsFound": 0,
       "blocksCreated": 0,
       "actionsExpanded": 0
@@ -32,7 +46,14 @@
     ],
     "filePatterns": ["**/*.tf"],
     "expectedStats": {
-      "filesScanned": 1,
+      "filesMatched": 1,
+      "fileAnalysis": {
+        "analyzed": 1,
+        "binary": 0,
+        "empty": 0,
+        "missingPatch": 0,
+        "failed": 0
+      },
       "wildcardsFound": 1,
       "blocksCreated": 1,
       "actionsExpanded": 0
