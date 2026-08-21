@@ -1,6 +1,7 @@
 export const COMMENT_MARKER_VERSION = 1;
 export const CURRENT_COMMENT_MARKER =
   '<!-- expand-aws-iam-wildcards:review-comment:v1 -->';
+// TODO(v2): Rename this to COMMENT_HEADING when legacy body matching is removed.
 export const LEGACY_COMMENT_HEADING = '**IAM Wildcard Expansion**';
 
 const COMMENT_MARKER_NAMESPACE = 'expand-aws-iam-wildcards:review-comment:';
@@ -33,6 +34,8 @@ export function getCommentMarkerVersion(body: string): number | null {
   return marker.kind === 'valid' ? marker.version : null;
 }
 
+// TODO(v2): Remove this helper, its migration fixtures, and the related legacy
+// documentation after supported v1 comments have had time to gain a marker.
 export function hasLegacyCommentShape(body: string): boolean {
   if (getCommentMarkerState(body).kind !== 'none') return false;
 

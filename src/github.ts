@@ -126,6 +126,8 @@ export async function listActionReviewComments(
       .filter((commentId): commentId is number => commentId !== null && commentId !== undefined),
   );
 
+  // TODO(v2): Require the current machine marker and remove the legacy shape
+  // fallback after supported v1 comments have had time to migrate in place.
   const candidates = reviewComments.filter((comment) =>
     hasCurrentCommentMarker(comment.body) || hasLegacyCommentShape(comment.body),
   );
