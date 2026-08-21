@@ -76,6 +76,16 @@ npm run update-iam-data
 npm run build
 ```
 
+The generator writes to `src/` by default. To inspect generated modules without
+changing the tracked files, provide a repository-local or temporary output
+directory:
+
+```bash
+npm run generate-iam-data -- --output-dir /tmp/expand-aws-iam-data
+```
+
+Generation from one locked IAM-data package is byte-for-byte deterministic.
+
 ## Preparing a Release
 
 Release bundles are generated on Ubuntu through GitHub Actions rather than being committed from a local machine.
