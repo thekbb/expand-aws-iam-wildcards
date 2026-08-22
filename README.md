@@ -218,8 +218,9 @@ gpg --show-keys --fingerprint keys/release-signing-key.asc
 
 `--tag` must be a semver release tag with a leading `v`. `--sha` must be a full 40-character commit SHA. The script
 derives the other value automatically, verifies the signed semver tag locally, confirms the tag resolves to the same
-commit, checks that GitHub has a published immutable release for that tag, verifies the GitHub artifact attestation
-for `dist/index.js` when `gh` is installed, and checks that the commit is on `main`. That release should have been
+commit, checks its GitHub web-flow signature when `gh` is installed, checks that GitHub has a published immutable
+release for that tag, verifies the GitHub artifact attestation for `dist/index.js` when `gh` is installed, and checks
+that the commit is on `main`. That release should have been
 prepared from a Linux-generated `release-candidate/vX.Y.Z` commit and published only after the
 `Verify Draft Release` workflow attested `dist/index.js`.
 

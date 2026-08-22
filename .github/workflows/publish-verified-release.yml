@@ -127,6 +127,8 @@ jobs:
             exit 1
           fi
 
+          bash scripts/verify-github-commit.sh "$GITHUB_REPOSITORY" "$tag_commit"
+
           expected_version="${TAG#v}"
           package_version="$(node -p "require('./package.json').version")"
           lockfile_version="$(node -p "require('./package-lock.json').version")"

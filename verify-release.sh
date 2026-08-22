@@ -5,6 +5,7 @@ set -euo pipefail
 REPO_URL="${REPO_URL:-https://github.com/thekbb/expand-aws-iam-wildcards.git}"
 TAG_REGEX='^v[0-9]+\.[0-9]+\.[0-9]+$'
 SHA_REGEX='^[0-9a-fA-F]{40}$'
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 usage() {
   cat <<'EOF'
@@ -315,6 +316,32 @@ verify_release_attestation() {
   fi
 }
 
+verify_release_commit_signature() {
+  local signature_output=''
+
+  if [[ -z "$resolved_sha" ]]; then
+    emit_result SKIP 'Release commit signature is valid' 'release commit could not be determined'
+    return
+  fi
+
+  if ! command -v gh >/dev/null 2>&1; then
+    emit_result SKIP 'Release commit signature is valid' 'GitHub CLI is not installed'
+    return
+  fi
+
+  if ! resolve_github_repo; then
+    emit_result SKIP 'Release commit signature is valid' 'GitHub repository could not be determined'
+    return
+  fi
+
+  if signature_output="$(bash "$SCRIPT_DIR/scripts/verify-github-commit.sh" \
+    "${github_owner}/${github_repo}" "$resolved_sha" 2>&1)"; then
+    emit_result PASS 'Release commit signature is valid' "$signature_output"
+  else
+    emit_result FAIL 'Release commit signature is valid' "$(compact_message "$signature_output")"
+  fi
+}
+
 tag=''
 sha=''
 github_host=''
@@ -477,6 +504,8 @@ if [[ -n "$resolved_sha" ]] && ((fetch_ok)); then
 else
   emit_result SKIP 'Commit is reachable from origin/main' 'commit could not be resolved'
 fi
+
+verify_release_commit_signature
 
 api_tag="$resolved_tag"
 if [[ -z "$api_tag" && -n "$requested_tag" ]]; then

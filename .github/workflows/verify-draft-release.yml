@@ -69,6 +69,7 @@ jobs:
 
       - name: Verify signed release tag
         env:
+          GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.tag }}
         run: |
           git fetch --no-tags origin main:refs/remotes/origin/main
@@ -92,6 +93,8 @@ jobs:
             echo "Expected $TAG commit $tag_commit to be reachable from origin/main."
             exit 1
           fi
+
+          bash scripts/verify-github-commit.sh "$GITHUB_REPOSITORY" "$tag_commit"
 
       - name: Ensure a draft release exists for the requested tag
         env:
