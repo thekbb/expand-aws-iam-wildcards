@@ -15,8 +15,8 @@ on:
         type: boolean
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  pull-requests: read
 
 concurrency:
   group: prepare-release-v${{ inputs.version }}
@@ -25,6 +25,7 @@ concurrency:
 jobs:
   prepare:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     environment:
       name: automation
     steps:
@@ -87,38 +88,23 @@ jobs:
       - name: Check release-managed files
         run: npm run release:check-files
 
-      - name: Create or update the release preparation branch
-        env:
-          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
-          IAM_ACTION_COUNT: ${{ steps.iam_data.outputs.action_count }}
-          IAM_DATA_VERSION: ${{ steps.iam_data.outputs.version }}
-          IAM_SERVICE_COUNT: ${{ steps.iam_data.outputs.service_count }}
-          VERSION: ${{ inputs.version }}
-        run: |
-          BRANCH="release-candidate/v${VERSION}"
-          BODY="Uses locked IAM data ${IAM_DATA_VERSION} with ${IAM_ACTION_COUNT} actions across ${IAM_SERVICE_COUNT} services, generates the release bundle on Ubuntu, and updates package metadata for v${VERSION}."
-          git switch -c "$BRANCH"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CHANGELOG.md package.json package-lock.json dist/index.js
-
-          if git diff --cached --quiet; then
-            echo "No release preparation changes were generated."
-            exit 1
-          fi
-
-          git commit -m "Prepare v${VERSION} release"
-          git push --force-with-lease "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${BRANCH}"
-
-          pr_number="$(gh pr list --head "$BRANCH" --base main --json number --jq '.[0].number // empty')"
-          if [[ -n "$pr_number" ]]; then
-            gh pr edit "$pr_number" --body "$BODY"
-            echo "Updated existing release preparation PR #$pr_number"
-            exit 0
-          fi
-
-          gh pr create \
-            --base main \
-            --head "$BRANCH" \
-            --title "Prepare v${VERSION} release" \
-            --body "$BODY"
+      - name: Create or update the release preparation pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.IAM_UPDATE_PAT }}
+          base: main
+          branch: release-candidate/v${{ inputs.version }}
+          delete-branch: true
+          title: Prepare v${{ inputs.version }} release
+          commit-message: Prepare v${{ inputs.version }} release
+          body: |
+            Uses locked IAM data ${{ steps.iam_data.outputs.version }} with
+            ${{ steps.iam_data.outputs.action_count }} actions across
+            ${{ steps.iam_data.outputs.service_count }} services, generates the
+            release bundle on Ubuntu, and updates package metadata for
+            v${{ inputs.version }}.
+          add-paths: |
+            CHANGELOG.md
+            dist/index.js
+            package-lock.json
+            package.json

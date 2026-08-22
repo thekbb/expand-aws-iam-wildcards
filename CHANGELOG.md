@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Recover omitted patches from the full pull-request diff and preserve stale comments if analysis remains incomplete
 - Exercise the compiled action lifecycle against a paginated local GitHub API fixture
 - Verify comment creation, reruns, updates, cleanup, and reply preservation in a controlled GitHub pull request
+- Make release-candidate reruns refresh the existing pull request with an explicit file allowlist
 
 ## [1.4.0] - 2026-07-21
 
