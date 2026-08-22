@@ -75,13 +75,8 @@ jobs:
         run: |
           git fetch --no-tags origin main:refs/remotes/origin/main
 
-          if [[ "$(git cat-file -t "$TAG")" != "tag" ]]; then
-            echo "Expected $TAG to be an annotated tag."
-            exit 1
-          fi
-
           gpg --import keys/release-signing-key.asc
-          git verify-tag "$TAG"
+          bash scripts/verify-release-tag.sh . "$TAG"
 
           tag_commit="$(git rev-parse "$TAG^{commit}")"
           head_commit="$(git rev-parse HEAD)"

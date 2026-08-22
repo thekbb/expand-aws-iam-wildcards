@@ -67,22 +67,26 @@ function continueResponses({
   immutableReleaseAfterVerify = true,
   localTagCommit,
   lockfileVersion = '1.3.0',
+  majorTagSignatureValid = true,
   majorTagCommit = releaseSha,
   oldMajorTagCommit = releaseSha,
   packageVersion = '1.3.0',
   releaseAlreadyPublished = false,
   remoteTagCommit,
+  versionTagSignatureValid = true,
 }: {
   changelog?: string;
   draftReleaseExists?: boolean;
   immutableReleaseAfterVerify?: boolean;
   localTagCommit?: string;
   lockfileVersion?: string;
+  majorTagSignatureValid?: boolean;
   majorTagCommit?: string;
   oldMajorTagCommit?: string;
   packageVersion?: string;
   releaseAlreadyPublished?: boolean;
   remoteTagCommit?: string;
+  versionTagSignatureValid?: boolean;
 } = {}): Map<string, CommandResult[]> {
   const localTagExists = localTagCommit !== undefined;
   const remoteTagExists = remoteTagCommit !== undefined;
@@ -155,6 +159,10 @@ function continueResponses({
     ],
     ['./verify-release.sh --tag v1.3.0', [result()]],
     [
+      'bash scripts/verify-release-tag.sh . v1',
+      [majorTagSignatureValid ? result() : result('', 1)],
+    ],
+    [
       'git ls-remote --refs --tags origin refs/tags/v1',
       [result(oldMajorTagCommit === '' ? '' : `${oldMajorTagCommit}\trefs/tags/v1\n`)],
     ],
@@ -172,6 +180,9 @@ function continueResponses({
     ]);
   } else {
     responses.set(`git tag -s v1.3.0 ${releaseSha} -m v1.3.0`, [result()]);
+    responses.set('bash scripts/verify-release-tag.sh . v1.3.0', [
+      versionTagSignatureValid ? result() : result('', 1),
+    ]);
     responses.set('git push origin refs/tags/v1.3.0', [result()]);
   }
 
@@ -688,6 +699,26 @@ describe('runReleaseCli', () => {
     expect(calls).toContain('git push origin refs/tags/v1.3.0');
   });
 
+  it('does not push a version tag signed by an unapproved key', () => {
+    const errors: string[] = [];
+    const { calls, runtime } = createRuntime(
+      continueResponses({ versionTagSignatureValid: false }),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0', '--continue'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual([
+      'error: bash scripts/verify-release-tag.sh . v1.3.0 failed: exit status 1',
+    ]);
+    expect(calls).not.toContain('git push origin refs/tags/v1.3.0');
+  });
+
   it('continues a release when the draft release already exists', () => {
     const errors: string[] = [];
     const { calls, output, runtime } = createRuntime(continueResponses({ draftReleaseExists: true }));
@@ -735,6 +766,28 @@ describe('runReleaseCli', () => {
     expect(exitCode).toBe(0);
     expect(errors).toEqual([]);
     expect(calls).toContain('git push origin refs/tags/v1');
+  });
+
+  it('does not push a major tag signed by an unapproved key', () => {
+    const errors: string[] = [];
+    const { calls, runtime } = createRuntime(
+      continueResponses({ majorTagSignatureValid: false }),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0', '--continue'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual([
+      'error: bash scripts/verify-release-tag.sh . v1 failed: exit status 1',
+    ]);
+    expect(calls).not.toContain(
+      'git push --force-with-lease=refs/tags/v1:babecafebabecafebabecafebabecafebabecafe origin refs/tags/v1',
+    );
   });
 
   it('rejects an existing local release tag that points at a different commit', () => {
