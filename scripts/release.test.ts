@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { type CommandResult, type ReleaseRuntime } from './release/command.js';
 import { runReleaseCli } from './release.js';
 import { usage } from './release/cli.js';
+import { GITHUB_COMMIT_SIGNATURE_QUERY } from './release/github.js';
 
 function result(stdout = '', status = 0): CommandResult {
   return { status, stderr: '', stdout };
@@ -43,6 +44,22 @@ function createRuntime(responses: ReadonlyMap<string, CommandResult[]>): {
 }
 
 const releaseSha = 'babecafebabecafebabecafebabecafebabecafe';
+
+function commitSignatureCommand(sha: string): string {
+  return [
+    'gh',
+    'api',
+    'graphql',
+    '-f',
+    `query=${GITHUB_COMMIT_SIGNATURE_QUERY}`,
+    '-f',
+    'owner=thekbb',
+    '-f',
+    'name=expand-aws-iam-wildcards',
+    '-f',
+    `oid=${sha}`,
+  ].join(' ');
+}
 
 function continueResponses({
   changelog = '## [1.3.0] - 2026-07-06\n\n[1.3.0]: https://example.test/compare/v1.2.7...v1.3.0\n',
@@ -91,6 +108,26 @@ function continueResponses({
       [result(`[{"state":"MERGED","mergeCommit":{"oid":"${releaseSha}"}}]`)],
     ],
     [`git merge-base --is-ancestor ${releaseSha} origin/main`, [result()]],
+    [
+      commitSignatureCommand(releaseSha),
+      [result(JSON.stringify({
+        data: {
+          repository: {
+            object: {
+              oid: releaseSha,
+              signature: {
+                __typename: 'GpgSignature',
+                isValid: true,
+                keyId: 'B5690EEEBB952194',
+                signer: { login: 'web-flow' },
+                state: 'VALID',
+                wasSignedByGitHub: true,
+              },
+            },
+          },
+        },
+      }))],
+    ],
     [`git show ${releaseSha}:package.json`, [result(`{"version":"${packageVersion}"}`)]],
     [`git show ${releaseSha}:package-lock.json`, [result(`{"version":"${lockfileVersion}"}`)]],
     [`git show ${releaseSha}:CHANGELOG.md`, [result(changelog)]],
