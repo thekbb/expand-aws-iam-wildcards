@@ -81,6 +81,12 @@ describe('assertIamCatalog', () => {
       actionDocSlugs: { 's3:Unknown': 's3-legacy' },
     }))).toThrow('IAM action documentation override has no action: s3:Unknown');
     expect(() => assertIamCatalog(catalog({
+      actionDocSlugs: { 's3:GetObject': 'bad-' },
+    }))).toThrow('Invalid IAM action documentation slug for s3:GetObject: bad-');
+    expect(() => assertIamCatalog(catalog({
+      actionDocSlugs: { 's3:GetObject': undefined as unknown as string },
+    }))).toThrow('Invalid IAM action documentation slug for s3:GetObject: <missing>');
+    expect(() => assertIamCatalog(catalog({
       actionDocSlugs: { 's3:GetObject': 's3' },
     }))).toThrow('Redundant IAM action documentation override: s3:GetObject');
     expect(() => assertIamCatalog(catalog({

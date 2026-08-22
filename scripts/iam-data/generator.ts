@@ -174,7 +174,7 @@ function generateActionDocSlugs(servicePrefixes: readonly string[]): Record<stri
   const services = new Set(servicePrefixes);
   return Object.fromEntries(Object.entries(ACTION_DOC_PAGE_OVERRIDES)
     .filter(([action]) => services.has(action.slice(0, action.indexOf(':'))))
-    .sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0)));
+    .sort(([left], [right]) => (left < right ? -1 : 1)));
 }
 
 function validateOutputFiles(paths: readonly string[]): void {
