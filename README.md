@@ -56,13 +56,19 @@ The action posts an inline comment:
 >
 > `s3:Get*Tagging` expands to 5 action(s):
 >
-> 1. [`s3:GetBucketTagging`][s3-actions]
-> 2. [`s3:GetJobTagging`][s3-actions]
-> 3. [`s3:GetObjectTagging`][s3-actions]
-> 4. [`s3:GetObjectVersionTagging`][s3-actions]
-> 5. [`s3:GetStorageLensConfigurationTagging`][s3-actions]
+> 1. [`s3:GetBucketTagging`][s3-get-bucket-tagging]
+> 2. [`s3:GetJobTagging`][s3-get-job-tagging]
+> 3. [`s3:GetObjectTagging`][s3-get-object-tagging]
+> 4. [`s3:GetObjectVersionTagging`][s3-get-object-version-tagging]
+> 5. [`s3:GetStorageLensConfigurationTagging`][s3-get-storage-lens-configuration-tagging]
 
-[s3-actions]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html
+<!-- markdownlint-disable MD013 -->
+[s3-get-bucket-tagging]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html#list_s3-action-GetBucketTagging
+[s3-get-job-tagging]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html#list_s3-action-GetJobTagging
+[s3-get-object-tagging]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html#list_s3-action-GetObjectTagging
+[s3-get-object-version-tagging]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html#list_s3-action-GetObjectVersionTagging
+[s3-get-storage-lens-configuration-tagging]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html#list_s3-action-GetStorageLensConfigurationTagging
+<!-- markdownlint-enable MD013 -->
 
 Consecutive wildcards are grouped into a single comment. Expanded actions link to AWS documentation.
 Very large expansions are truncated in the PR comment to stay within GitHub comment limits,
