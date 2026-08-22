@@ -53,7 +53,7 @@ states, explicit binary data, malformed patches, renames, removals, quoted
 paths, fallback permissions and truncation, and protected stale comments.
 
 Each build copies the TypeScript source into an ignored workspace, replaces the
-tracked IAM modules there with data from the lock-selected
+tracked IAM modules there with data from the locked
 `@cloud-copilot/iam-data` package, validates the catalog, and compiles through
 the repository-local `ncc` executable. The workspace is removed afterward.
 `npm run build` replaces `dist/index.js` only after that isolated build succeeds.
@@ -118,8 +118,13 @@ current machine marker when their diff anchor is reused.
 
 ## Updating IAM Data
 
-IAM data is selected and locked only during release preparation. There is no
-standalone IAM update workflow or generated-data pull request.
+IAM data is updated through normal dependency pull requests. Dependabot may
+raise `@cloud-copilot/iam-data` updates, and those pull requests should show the
+exact version in both `package.json` and `package-lock.json`.
+
+Generated IAM catalog modules are not committed. A dependency update pull
+request changes dependency metadata and proves the generated catalog still
+passes the source and bundle checks.
 
 Installation and the full check suite generate ignored source modules from the
 currently locked package for TypeScript analysis and source tests:
@@ -140,11 +145,10 @@ Generated catalogs must retain sorted, unique, well-formed actions, complete
 service documentation mappings, conservative count floors, and representative
 expansion and link behavior.
 
-Release preparation selects the latest numeric IAM-data version, rejects
-downgrades, and records the selected version exactly in `package.json` and
-`package-lock.json`. It then reinstalls with `npm ci`, verifies the installed
-package against the lockfile, validates and reports catalog counts, and runs the
-release checks and bundle build with that clean installation.
+Release preparation does not select a new IAM-data version. It installs from the
+reviewed lockfile, verifies the installed package against package metadata,
+validates and reports catalog counts, and runs the release checks and bundle
+build with that clean installation.
 
 The release build does not bundle the ignored source copies. It generates and
 validates the same locked catalog independently inside its isolated workspace.

@@ -19,7 +19,6 @@
     "prepare": "npm run generate-iam-data",
     "release": "tsx scripts/release.ts",
     "release:report-iam-data": "tsx scripts/report-iam-data.ts",
-    "release:select-iam-data": "tsx scripts/select-iam-data.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -42,7 +41,7 @@
     "minimatch": "^10.0.0"
   },
   "devDependencies": {
-    "@cloud-copilot/iam-data": "^0.21.202607301",
+    "@cloud-copilot/iam-data": "0.21.202608081",
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.2.1",
     "@vercel/ncc": "~0.45.0",
