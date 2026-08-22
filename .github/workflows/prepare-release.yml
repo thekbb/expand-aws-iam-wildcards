@@ -83,7 +83,7 @@ jobs:
         run: npm run typecheck
 
       - name: Run unit tests
-        run: npm test -- --coverage
+        run: npm run test:coverage
 
       - name: Update package version
         env:
