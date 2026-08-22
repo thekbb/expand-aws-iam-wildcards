@@ -4,6 +4,8 @@ import { type ParsedReleaseArgs } from './cli.js';
 import { createGitClient, type GitClient } from './git.js';
 import { createGitHubClient, type GitHubClient } from './github.js';
 
+const ACTION_REPOSITORY = 'thekbb/expand-aws-iam-wildcards';
+
 export interface ReleaseServices {
   git: GitClient;
   github: GitHubClient;
@@ -310,7 +312,12 @@ Release complete:
   version:   ${args.version}
   tag:       ${args.names.tag}
   major tag: ${args.names.majorTag}
-  commit:    ${releaseSha}`);
+  commit:    ${releaseSha}
+
+Consumer references:
+  preferred: ${ACTION_REPOSITORY}@${args.names.tag}
+  automatic: ${ACTION_REPOSITORY}@${args.names.majorTag}
+  full SHA:  ${ACTION_REPOSITORY}@${releaseSha}`);
 }
 
 export function runRelease(args: ParsedReleaseArgs, services: ReleaseServices): void {
