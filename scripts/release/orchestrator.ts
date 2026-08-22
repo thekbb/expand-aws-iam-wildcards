@@ -280,6 +280,7 @@ function continueRelease(services: ReleaseServices, args: ParsedReleaseArgs): vo
   }
 
   git.assertReleaseCommitOnOriginMain(releaseSha);
+  github.assertReleaseCommitSignature(releaseSha);
 
   const packageVersion = fileVersionAt(services, releaseSha, 'package.json');
   const lockfileVersion = fileVersionAt(services, releaseSha, 'package-lock.json');

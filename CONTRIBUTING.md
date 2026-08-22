@@ -159,6 +159,22 @@ Release bundles are generated on Ubuntu through GitHub Actions rather than being
 Releases originate from `main`; the `release-candidate/$TAG` branch is a temporary review branch created by the
 prepare workflow.
 
+The `main` branch ruleset must require signed commits and must not let release
+automation bypass that requirement. Merge release-candidate pull requests in
+the GitHub interface so GitHub creates the signed merge commit.
+
+Before creating a version tag, the release command resolves the candidate pull
+request's exact merge SHA and checks its GitHub signature record. The commit
+must be valid, signed by GitHub's `web-flow` signer, and use an approved GitHub
+web-flow signing key. The currently approved key ID is
+`B5690EEEBB952194`.
+
+If GitHub rotates that key, verify the new key against
+[GitHub's published web-flow key](https://github.com/web-flow.gpg) and a known
+GitHub-created merge commit before adding its ID to the allowlist in
+`scripts/release/github.ts`. Do not bypass the signature check to complete a
+release.
+
 1. Set the release variables:
 
    ```bash
@@ -241,6 +257,42 @@ prepare workflow.
    release_sha="$(gh pr view "$BRANCH" --json mergeCommit --jq '.mergeCommit.oid')"
    git fetch origin main --tags
    git merge-base --is-ancestor "$release_sha" origin/main
+   signature_query='
+   query($owner: String!, $name: String!, $oid: GitObjectID!) {
+     repository(owner: $owner, name: $name) {
+       object(oid: $oid) {
+         ... on Commit {
+           oid
+           signature {
+             isValid
+             signer { login }
+             state
+             wasSignedByGitHub
+             ... on GpgSignature { keyId }
+           }
+         }
+       }
+     }
+   }'
+   signature_filter='
+   .data.repository.object
+   | [
+       .oid,
+       .signature.isValid,
+       .signature.state,
+       .signature.wasSignedByGitHub,
+       .signature.signer.login,
+       .signature.keyId
+     ]
+   | @tsv'
+   signature_record="$(gh api graphql \
+     -f query="$signature_query" \
+     -f owner=thekbb \
+     -f name=expand-aws-iam-wildcards \
+     -f oid="$release_sha" \
+     --jq "$signature_filter")"
+   expected_signature_record="$release_sha"$'\ttrue\tVALID\ttrue\tweb-flow\tB5690EEEBB952194'
+   test "$signature_record" = "$expected_signature_record"
    git tag -s "$TAG" "$release_sha" -m "$TAG"
    git push origin "refs/tags/$TAG"
    ```
