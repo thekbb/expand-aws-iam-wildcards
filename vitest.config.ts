@@ -1,5 +1,12 @@
 import { defineConfig } from 'vitest/config';
 
+export const COVERAGE_THRESHOLDS = {
+  statements: 95,
+  branches: 95,
+  functions: 100,
+  lines: 95,
+};
+
 export default defineConfig({
   test: {
     globals: true,
@@ -9,6 +16,7 @@ export default defineConfig({
       reporter: ['text', 'lcov'],
       reportsDirectory: './coverage',
       provider: 'v8',
+      thresholds: COVERAGE_THRESHOLDS,
       include: [
         'src/**/*.ts',
         'scripts/docs-contract.ts',
