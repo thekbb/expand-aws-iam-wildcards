@@ -8,6 +8,9 @@ import { resolveActionRuntime } from '../release/smoke.js';
 
 export const ACTION_COMMENT_MARKER =
   '<!-- expand-aws-iam-wildcards:review-comment:v1 -->';
+export const EXPECTED_S3_DOCUMENTATION_LINK =
+  'https://docs.aws.amazon.com/service-authorization/latest/reference/'
+    + 'list_s3.html#list_s3-action-GetBucketTagging';
 const API_VERSION = '2026-03-10';
 const REQUEST_TIMEOUT_MS = 15_000;
 const RUNTIME_TIMEOUT_MS = 60_000;
@@ -98,6 +101,32 @@ export function getActionParentComments(
   );
 }
 
+export function assertActionDocumentationLink(comments: readonly ReviewComment[]): void {
+  if (!comments.some((comment) => comment.body?.includes(EXPECTED_S3_DOCUMENTATION_LINK))) {
+    throw new Error('created comments omitted the current AWS action documentation link');
+  }
+}
+
+export function assertActionDocumentationPage(
+  responseUrl: string,
+  responseStatus: number,
+  responseBody: string,
+): void {
+  const expectedUrl = new URL(EXPECTED_S3_DOCUMENTATION_LINK);
+  const expectedAnchor = expectedUrl.hash.slice(1);
+  expectedUrl.hash = '';
+
+  if (responseStatus !== 200) {
+    throw new Error(`AWS action documentation returned HTTP ${responseStatus}`);
+  }
+  if (responseUrl !== expectedUrl.href) {
+    throw new Error(`AWS action documentation redirected to ${responseUrl}`);
+  }
+  if (!responseBody.includes(`id="${expectedAnchor}"`)) {
+    throw new Error(`AWS action documentation omitted anchor ${expectedAnchor}`);
+  }
+}
+
 function formatOutput(result: RuntimeResult): string {
   return [result.stdout.trim(), result.stderr.trim()].filter(Boolean).join('\n');
 }
@@ -147,6 +176,30 @@ function assertParentCount(
 
 async function delay(milliseconds: number): Promise<void> {
   await new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+async function verifyActionDocumentationPage(): Promise<void> {
+  const pageUrl = new URL(EXPECTED_S3_DOCUMENTATION_LINK);
+  pageUrl.hash = '';
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= RETRY_ATTEMPTS; attempt++) {
+    try {
+      const response = await fetch(pageUrl, {
+        headers: { 'user-agent': 'expand-aws-iam-wildcards-e2e' },
+        redirect: 'follow',
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
+      const responseBody = await response.text();
+      assertActionDocumentationPage(response.url, response.status, responseBody);
+      return;
+    } catch (error) {
+      lastError = error;
+      if (attempt < RETRY_ATTEMPTS) await delay(RETRY_DELAY_MS);
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error(String(lastError));
 }
 
 async function githubRequest<T>(
@@ -328,6 +381,8 @@ export async function runPullRequestE2e(): Promise<void> {
       'Synchronized comments: 2 created, 0 updated, 0 unchanged',
     ]);
     const first = await waitForParentCount(fixture, 2, 'create');
+    assertActionDocumentationLink(first.parents);
+    await verifyActionDocumentationPage();
     if (first.parents.some((comment) => comment.body?.includes('<details>'))) {
       throw new Error('create phase unexpectedly collapsed an action list');
     }

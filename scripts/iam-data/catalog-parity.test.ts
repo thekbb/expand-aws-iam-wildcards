@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { getActionDocUrl } from '../../src/docs.js';
 import { expandIamAction } from '../../src/expand.js';
 import { IAM_ACTIONS } from '../../src/iam-actions.js';
-import { SERVICE_DOC_SLUGS } from '../../src/service-doc-slugs.js';
+import { ACTION_DOC_SLUGS, SERVICE_DOC_SLUGS } from '../../src/service-doc-slugs.js';
 import { assertIamCatalog, LOCKED_CATALOG_MINIMUMS } from './catalog.js';
 import { readIamCatalog } from './generator.js';
 
@@ -14,6 +14,7 @@ const lockedCatalog = readIamCatalog(
 );
 const generatedSourceCatalog = {
   actions: IAM_ACTIONS,
+  actionDocSlugs: ACTION_DOC_SLUGS,
   serviceDocSlugs: SERVICE_DOC_SLUGS,
 };
 
@@ -38,8 +39,14 @@ describe('generated IAM source catalog parity', () => {
     'elasticfilesystem:DescribeFileSystems',
     'sso:CreateApplication',
   ])('preserves representative documentation links for %s', (action) => {
-    expect(getActionDocUrl(action, lockedCatalog.serviceDocSlugs)).toBe(
-      getActionDocUrl(action, generatedSourceCatalog.serviceDocSlugs),
-    );
+    expect(getActionDocUrl(
+      action,
+      lockedCatalog.serviceDocSlugs,
+      lockedCatalog.actionDocSlugs,
+    )).toBe(getActionDocUrl(
+      action,
+      generatedSourceCatalog.serviceDocSlugs,
+      generatedSourceCatalog.actionDocSlugs,
+    ));
   });
 });

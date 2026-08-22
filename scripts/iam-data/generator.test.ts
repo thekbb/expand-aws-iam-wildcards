@@ -59,8 +59,8 @@ describe('generateIamData', () => {
       });
       const [actions, slugs] = generatedFiles(outputDirectory);
       expect(actions).toContain('[\n  "sso:CreateApplication",\n  "zeta:Alpha",\n  "zeta:Beta"\n]');
-      expect(slugs).toContain('"sso": "awsiamidentitycentersuccessortoawssinglesignon"');
-      expect(slugs).toContain('"zeta": "awszetaservice"');
+      expect(slugs).toContain('"sso": "iam-identity-center"');
+      expect(slugs).toContain('"zeta": "zeta"');
     });
   });
 
@@ -97,13 +97,34 @@ describe('generateIamData', () => {
   it('fails when a service name is missing', () => {
     withFixture((repositoryRoot) => {
       const dataDirectory = createDataFixture(repositoryRoot);
-      writeFileSync(join(dataDirectory, 'serviceNames.json'), JSON.stringify({ sso: 'Identity Center' }));
+      writeFileSync(join(dataDirectory, 'serviceNames.json'), JSON.stringify({
+        sso: 'AWS IAM Identity Center',
+      }));
 
       expect(() => generateIamData({
         dataDirectory,
         outputDirectory: join(repositoryRoot, 'generated'),
         repositoryRoot,
       })).toThrow('Missing service name metadata for IAM service prefix: zeta');
+    });
+  });
+
+  it('fails when an exceptional documentation page changes service identity', () => {
+    withFixture((repositoryRoot) => {
+      const dataDirectory = createDataFixture(repositoryRoot);
+      writeFileSync(join(dataDirectory, 'serviceNames.json'), JSON.stringify({
+        sso: 'A different Identity Center service',
+        zeta: 'AWS Zeta-Service!',
+      }));
+
+      expect(() => generateIamData({
+        dataDirectory,
+        outputDirectory: join(repositoryRoot, 'generated'),
+        repositoryRoot,
+      })).toThrow(
+        'IAM documentation page override for sso expects AWS IAM Identity Center, '
+          + 'got A different Identity Center service',
+      );
     });
   });
 

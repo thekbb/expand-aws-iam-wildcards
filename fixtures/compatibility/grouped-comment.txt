@@ -8,9 +8,9 @@
 <details>
 <summary>Click to expand</summary>
 
-1. [`s3:GetBucket`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetBucket)
-1. [`s3:GetBucketAcl`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetBucketAcl)
-1. [`s3:GetObject`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObject)
+1. [`s3:GetBucket`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html#list_s3-action-GetBucket)
+1. [`s3:GetBucketAcl`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html#list_s3-action-GetBucketAcl)
+1. [`s3:GetObject`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html#list_s3-action-GetObject)
 
 </details>
 
