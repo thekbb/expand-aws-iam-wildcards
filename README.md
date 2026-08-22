@@ -174,6 +174,7 @@ Published releases are prepared and verified in GitHub Actions on Ubuntu.
 - **Auditable** - the TypeScript source is small and `dist/index.js` is committed
 - **No runtime dependency fetches** - IAM action data is bundled at build time and refreshed in this repo separately
 - **Linux-generated release bundles** - the `Prepare Release` workflow builds `dist/index.js` on Ubuntu before tagging
+- **Verified release commits** - version tags target the exact GitHub-signed and verified release-candidate merge SHA
 - **OIDC-backed release provenance** - the `Verify Draft Release` workflow attests the shipped action bundle before publication
 
 ```yaml
@@ -230,7 +231,10 @@ git checkout v1.2.4
 gh attestation verify dist/index.js \
   --repo thekbb/expand-aws-iam-wildcards \
   --signer-workflow thekbb/expand-aws-iam-wildcards/.github/workflows/verify-draft-release.yml \
-  --source-ref refs/tags/v1.2.4
+  --signer-digest a328eb86c5d294a3bc93ea3c334b9f2ef669efbf \
+  --source-ref refs/tags/v1.2.4 \
+  --source-digest a328eb86c5d294a3bc93ea3c334b9f2ef669efbf \
+  --deny-self-hosted-runners
 ```
 
 For an additional cross-check, you can confirm the same public key is published on

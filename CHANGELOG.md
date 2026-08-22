@@ -19,10 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Smoke-test the compiled action without changing the committed runtime bundle
 - Generate IAM catalog modules deterministically into an explicit validated directory
 - Validate IAM catalog structure, size, documentation mappings, and generated-source behavior parity
-- Build the action bundle from locked IAM data in an ignored workspace
-- Reinstall and report the locked IAM catalog before release builds
-- Keep the IAM data dependency version explicit in package metadata so Dependabot can update it
-- Remove tracked IAM catalog modules from source control
 - Add a versioned machine marker to generated review comments
 - Restrict review comment updates and deletion to safely owned current or legacy comments
 - Report analyzed, binary, empty, missing, and failed pull-request diff states
@@ -30,6 +26,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Exercise the compiled action lifecycle against a paginated local GitHub API fixture
 - Verify comment creation, reruns, updates, cleanup, and reply preservation in a controlled GitHub pull request
 - Make release-candidate reruns refresh the existing pull request with an explicit file allowlist
+- Require the exact release-candidate merge commit to carry an approved GitHub signature before tagging
+- Bind release attestations to the exact tag commit and verification workflow revision
 
 ## [1.4.0] - 2026-07-21
 

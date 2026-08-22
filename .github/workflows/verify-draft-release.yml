@@ -157,12 +157,16 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
           TAG: ${{ inputs.tag }}
+          VERIFIED_SHA: ${{ steps.meta.outputs.verified_sha }}
         run: |
           for _ in {1..6}; do
             if gh attestation verify dist/index.js \
               --repo "${GITHUB_REPOSITORY}" \
               --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/verify-draft-release.yml" \
-              --source-ref "refs/tags/${TAG}"; then
+              --signer-digest "$VERIFIED_SHA" \
+              --source-ref "refs/tags/${TAG}" \
+              --source-digest "$VERIFIED_SHA" \
+              --deny-self-hosted-runners; then
               exit 0
             fi
 

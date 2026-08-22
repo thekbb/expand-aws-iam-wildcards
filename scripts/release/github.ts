@@ -18,7 +18,36 @@ export interface ReleaseView {
   url?: string;
 }
 
+interface CommitSignature {
+  __typename?: string;
+  isValid?: boolean;
+  keyId?: string | null;
+  signer?: { login?: string } | null;
+  state?: string;
+  wasSignedByGitHub?: boolean;
+}
+
+interface CommitSignatureResponse {
+  data?: {
+    repository?: {
+      object?: {
+        oid?: string;
+        signature?: CommitSignature | null;
+      } | null;
+    } | null;
+  };
+}
+
+const RELEASE_REPOSITORY_OWNER = 'thekbb';
+const RELEASE_REPOSITORY_NAME = 'expand-aws-iam-wildcards';
+const GITHUB_WEB_FLOW_SIGNER = 'web-flow';
+const GITHUB_WEB_FLOW_SIGNING_KEY_IDS = new Set(['B5690EEEBB952194']);
+
+export const GITHUB_COMMIT_SIGNATURE_QUERY =
+  'query($owner:String!,$name:String!,$oid:GitObjectID!){repository(owner:$owner,name:$name){object(oid:$oid){... on Commit{oid signature{__typename isValid signer{login} state wasSignedByGitHub ... on GpgSignature{keyId}}}}}}';
+
 export interface GitHubClient {
+  assertReleaseCommitSignature: (sha: string) => void;
   authStatus: () => void;
   createDraftRelease: (tag: string) => void;
   dispatchPrepareRelease: (version: string, finalizeChangelog: boolean) => void;
@@ -45,6 +74,46 @@ function listWorkflowRuns(
 
 export function createGitHubClient(runtime: ReleaseRuntime): GitHubClient {
   return {
+    assertReleaseCommitSignature: (sha) => {
+      const response = JSON.parse(
+        runText(runtime, 'gh', [
+          'api',
+          'graphql',
+          '-f',
+          `query=${GITHUB_COMMIT_SIGNATURE_QUERY}`,
+          '-f',
+          `owner=${RELEASE_REPOSITORY_OWNER}`,
+          '-f',
+          `name=${RELEASE_REPOSITORY_NAME}`,
+          '-f',
+          `oid=${sha}`,
+        ]),
+      ) as CommitSignatureResponse;
+      const commit = response.data?.repository?.object;
+      if (commit?.oid !== sha) {
+        throw new Error(`GitHub returned the wrong release commit: ${commit?.oid ?? 'missing'}, expected ${sha}`);
+      }
+
+      const signature = commit.signature;
+      if (signature === null || signature === undefined) {
+        throw new Error(`release commit ${sha} is unsigned`);
+      }
+
+      if (signature.isValid !== true || signature.state !== 'VALID') {
+        throw new Error(`release commit ${sha} signature is not verified: ${signature.state ?? 'UNKNOWN'}`);
+      }
+
+      if (signature.wasSignedByGitHub !== true || signature.signer?.login !== GITHUB_WEB_FLOW_SIGNER) {
+        throw new Error(`release commit ${sha} was not signed by GitHub web-flow`);
+      }
+
+      if (signature.__typename !== 'GpgSignature' ||
+          signature.keyId === null ||
+          signature.keyId === undefined ||
+          !GITHUB_WEB_FLOW_SIGNING_KEY_IDS.has(signature.keyId)) {
+        throw new Error(`release commit ${sha} uses an unapproved GitHub signing key: ${signature.keyId ?? 'unknown'}`);
+      }
+    },
     authStatus: () => runChecked(runtime, 'gh', ['auth', 'status']),
     createDraftRelease: (tag) => runChecked(runtime, 'gh', ['release', 'create', tag, '--draft', '--verify-tag', '--generate-notes']),
     dispatchPrepareRelease: (version, finalizeChangelog) =>
