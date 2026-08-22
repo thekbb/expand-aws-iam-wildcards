@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Link expanded actions to the current AWS Service Authorization Reference pages and native action anchors
+- Validate the exact draft-verification workflow run before publishing a release
 
 ### Changed
 
