@@ -1,18 +1,21 @@
-import { SERVICE_DOC_SLUGS } from './service-doc-slugs.js';
+import { ACTION_DOC_SLUGS, SERVICE_DOC_SLUGS } from './service-doc-slugs.js';
 
 export function getActionDocUrl(
   action: string,
   serviceDocSlugs: Readonly<Record<string, string>> = SERVICE_DOC_SLUGS,
+  actionDocSlugs: Readonly<Record<string, string>> = ACTION_DOC_SLUGS,
 ): string | null {
   const [service, actionName] = action.split(':');
   if (!service || !actionName) return null;
 
-  const slug = serviceDocSlugs[service.toLowerCase()];
+  const canonicalAction = `${service.toLowerCase()}:${actionName}`;
+  const slug = actionDocSlugs[canonicalAction] ?? serviceDocSlugs[service.toLowerCase()];
   if (!slug) return null;
 
-  // Use text fragment only; avoids some pages overriding section hash navigation.
   const encodedActionName = encodeURIComponent(actionName);
-  return `https://docs.aws.amazon.com/service-authorization/latest/reference/list_${slug}.html#:~:text=${encodedActionName}`;
+  const page = `list_${slug}`;
+  const baseUrl = 'https://docs.aws.amazon.com/service-authorization/latest/reference';
+  return `${baseUrl}/${page}.html#${page}-action-${encodedActionName}`;
 }
 
 export function formatActionWithLink(action: string): string {

@@ -189,11 +189,27 @@ describe('runAction integration', () => {
     expect(comment?.line).toBe(3);
     expect(comment?.body).toContain('**IAM Wildcard Expansion**');
     expect(comment?.body).toContain('`s3:Get*Tagging` expands to 5 action(s):');
-    expect(comment?.body).toContain('[`s3:GetBucketTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetBucketTagging)');
-    expect(comment?.body).toContain('[`s3:GetJobTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetJobTagging)');
-    expect(comment?.body).toContain('[`s3:GetObjectTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObjectTagging)');
-    expect(comment?.body).toContain('[`s3:GetObjectVersionTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObjectVersionTagging)');
-    expect(comment?.body).toContain('[`s3:GetStorageLensConfigurationTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetStorageLensConfigurationTagging)');
+    expect(comment?.body).toContain(
+      '[`s3:GetBucketTagging`](https://docs.aws.amazon.com/service-authorization/latest/'
+        + 'reference/list_s3.html#list_s3-action-GetBucketTagging)',
+    );
+    expect(comment?.body).toContain(
+      '[`s3:GetJobTagging`](https://docs.aws.amazon.com/service-authorization/latest/'
+        + 'reference/list_s3.html#list_s3-action-GetJobTagging)',
+    );
+    expect(comment?.body).toContain(
+      '[`s3:GetObjectTagging`](https://docs.aws.amazon.com/service-authorization/latest/'
+        + 'reference/list_s3.html#list_s3-action-GetObjectTagging)',
+    );
+    expect(comment?.body).toContain(
+      '[`s3:GetObjectVersionTagging`](https://docs.aws.amazon.com/service-authorization/latest/'
+        + 'reference/list_s3.html#list_s3-action-GetObjectVersionTagging)',
+    );
+    expect(comment?.body).toContain(
+      '[`s3:GetStorageLensConfigurationTagging`](https://docs.aws.amazon.com/'
+        + 'service-authorization/latest/reference/list_s3.html'
+        + '#list_s3-action-GetStorageLensConfigurationTagging)',
+    );
 
     expect(coreMocks.info).toHaveBeenCalledWith(
       'Synchronized comments: 1 created, 0 updated, 0 unchanged',

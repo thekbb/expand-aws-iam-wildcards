@@ -88,8 +88,9 @@ fixture repository and runs only from its `main` branch. It accepts a full
 commit SHA from this repository's `main` history, checks out and builds that
 exact source, and runs the compiled action against the real GitHub API. It
 verifies creation, unchanged reruns, in-place updates, stale cleanup, and reply
-preservation before closing the pull request and deleting its branch in an
-`always()` cleanup step.
+preservation. It also follows a representative AWS documentation link and
+requires its native action anchor. An `always()` cleanup step closes the pull
+request and deletes its branch.
 
 Before its first run, enable `Allow GitHub Actions to create and approve pull
 requests` under the fixture repository's Actions settings. Run `End-to-End

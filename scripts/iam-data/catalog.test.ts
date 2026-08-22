@@ -9,7 +9,8 @@ import {
 function catalog(overrides: Partial<IamCatalog> = {}): IamCatalog {
   return {
     actions: ['s3:GetObject', 's3:PutObject'],
-    serviceDocSlugs: { s3: 'amazons3' },
+    actionDocSlugs: {},
+    serviceDocSlugs: { s3: 's3' },
     ...overrides,
   };
 }
@@ -19,7 +20,7 @@ describe('assertIamCatalog', () => {
     expect(() => assertIamCatalog(catalog())).not.toThrow();
     expect(() => assertIamCatalog(catalog({
       actions: ['vpc-lattice:AssociateViaAWSService-EventsAndStates'],
-      serviceDocSlugs: { 'vpc-lattice': 'amazonvpclattice' },
+      serviceDocSlugs: { 'vpc-lattice': 'vpc-lattice' },
     }))).not.toThrow();
   });
 
@@ -47,11 +48,14 @@ describe('assertIamCatalog', () => {
   it('rejects unsorted service prefixes and invalid slugs', () => {
     expect(() => assertIamCatalog(catalog({
       actions: ['ec2:DescribeInstances', 's3:GetObject'],
-      serviceDocSlugs: { s3: 'amazons3', ec2: 'amazonec2' },
+      serviceDocSlugs: { s3: 's3', ec2: 'ec2' },
     }))).toThrow('IAM service prefixes are not sorted: s3');
     expect(() => assertIamCatalog(catalog({
       serviceDocSlugs: { s3: 'Amazon S3' },
     }))).toThrow('Invalid IAM service documentation slug for s3: Amazon S3');
+    expect(() => assertIamCatalog(catalog({
+      serviceDocSlugs: { s3: 'bad-' },
+    }))).toThrow('Invalid IAM service documentation slug for s3: bad-');
     expect(() => assertIamCatalog(catalog({
       serviceDocSlugs: { s3: undefined as unknown as string },
     }))).toThrow('Invalid IAM service documentation slug for s3: <missing>');
@@ -59,12 +63,38 @@ describe('assertIamCatalog', () => {
 
   it('rejects missing and extra service documentation mappings', () => {
     expect(() => assertIamCatalog(catalog({
-      serviceDocSlugs: { ec2: 'amazonec2', s3: 'amazons3' },
+      serviceDocSlugs: { ec2: 'ec2', s3: 's3' },
     }))).toThrow('IAM service documentation has no actions: ec2');
     expect(() => assertIamCatalog(catalog({
       actions: ['ec2:DescribeInstances', 's3:GetObject'],
-      serviceDocSlugs: { s3: 'amazons3' },
+      serviceDocSlugs: { s3: 's3' },
     }))).toThrow('Missing IAM service documentation slug: ec2');
+  });
+
+  it('validates sorted action-level documentation overrides', () => {
+    expect(() => assertIamCatalog(catalog({
+      actions: ['elasticloadbalancing:ApplySecurityGroupsToLoadBalancer'],
+      actionDocSlugs: { 'elasticloadbalancing:ApplySecurityGroupsToLoadBalancer': 'elb' },
+      serviceDocSlugs: { elasticloadbalancing: 'elbv2' },
+    }))).not.toThrow();
+    expect(() => assertIamCatalog(catalog({
+      actionDocSlugs: { 's3:Unknown': 's3-legacy' },
+    }))).toThrow('IAM action documentation override has no action: s3:Unknown');
+    expect(() => assertIamCatalog(catalog({
+      actionDocSlugs: { 's3:GetObject': 'bad-' },
+    }))).toThrow('Invalid IAM action documentation slug for s3:GetObject: bad-');
+    expect(() => assertIamCatalog(catalog({
+      actionDocSlugs: { 's3:GetObject': undefined as unknown as string },
+    }))).toThrow('Invalid IAM action documentation slug for s3:GetObject: <missing>');
+    expect(() => assertIamCatalog(catalog({
+      actionDocSlugs: { 's3:GetObject': 's3' },
+    }))).toThrow('Redundant IAM action documentation override: s3:GetObject');
+    expect(() => assertIamCatalog(catalog({
+      actionDocSlugs: {
+        's3:PutObject': 's3-write',
+        's3:GetObject': 's3-read',
+      },
+    }))).toThrow('IAM action documentation overrides are not sorted: s3:PutObject');
   });
 
   it('defines conservative locked-catalog floors', () => {

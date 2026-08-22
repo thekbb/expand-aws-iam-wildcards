@@ -10,38 +10,39 @@ describe('getActionDocUrl', () => {
   it('returns URL for known S3 action', () => {
     const url = getActionDocUrl('s3:GetObject');
     expect(url).toBe(
-      'https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObject'
+      'https://docs.aws.amazon.com/service-authorization/latest/reference/'
+        + 'list_s3.html#list_s3-action-GetObject',
     );
   });
 
   it('returns URL for known DynamoDB action', () => {
     const url = getActionDocUrl('dynamodb:GetItem');
-    expect(url).toContain('list_amazondynamodb.html');
-    expect(url).toContain(':~:text=GetItem');
+    expect(url).toContain('list_dynamodb.html');
+    expect(url).toContain('#list_dynamodb-action-GetItem');
   });
 
   it('returns URL for known EC2 action', () => {
     const url = getActionDocUrl('ec2:DescribeInstances');
-    expect(url).toContain('list_amazonec2.html');
-    expect(url).toContain(':~:text=DescribeInstances');
+    expect(url).toContain('list_ec2.html');
+    expect(url).toContain('#list_ec2-action-DescribeInstances');
   });
 
   it('returns URL for known IAM action', () => {
     const url = getActionDocUrl('iam:CreateRole');
-    expect(url).toContain('list_awsidentityandaccessmanagementiam.html');
-    expect(url).toContain(':~:text=CreateRole');
+    expect(url).toContain('list_iam.html');
+    expect(url).toContain('#list_iam-action-CreateRole');
   });
 
-  it('returns URL for a service derived from generated IAM service names', () => {
+  it('returns URL for a service with a current AWS page override', () => {
     const url = getActionDocUrl('elasticfilesystem:DescribeFileSystems');
-    expect(url).toContain('list_amazonelasticfilesystem.html');
-    expect(url).toContain(':~:text=DescribeFileSystems');
+    expect(url).toContain('list_efs.html');
+    expect(url).toContain('#list_efs-action-DescribeFileSystems');
   });
 
   it('uses override slugs for services whose docs path does not match the normalized service name', () => {
     const url = getActionDocUrl('sso:CreateApplication');
-    expect(url).toContain('list_awsiamidentitycentersuccessortoawssinglesignon.html');
-    expect(url).toContain(':~:text=CreateApplication');
+    expect(url).toContain('list_iam-identity-center.html');
+    expect(url).toContain('#list_iam-identity-center-action-CreateApplication');
   });
 
   it('returns null for unknown service', () => {
@@ -56,7 +57,7 @@ describe('getActionDocUrl', () => {
 
   it('handles case-insensitive service prefix', () => {
     const url = getActionDocUrl('S3:GetObject');
-    expect(url).toContain('list_amazons3.html');
+    expect(url).toContain('list_s3.html');
   });
 });
 
@@ -64,7 +65,8 @@ describe('formatActionWithLink', () => {
   it('formats known service action as monospace markdown link', () => {
     const result = formatActionWithLink('s3:GetObject');
     expect(result).toBe(
-      '[`s3:GetObject`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#:~:text=GetObject)'
+      '[`s3:GetObject`](https://docs.aws.amazon.com/service-authorization/latest/'
+        + 'reference/list_s3.html#list_s3-action-GetObject)',
     );
   });
 

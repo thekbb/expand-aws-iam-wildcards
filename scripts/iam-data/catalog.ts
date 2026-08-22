@@ -1,5 +1,6 @@
 export interface IamCatalog {
   readonly actions: readonly string[];
+  readonly actionDocSlugs: Readonly<Record<string, string>>;
   readonly serviceDocSlugs: Readonly<Record<string, string>>;
 }
 
@@ -14,7 +15,7 @@ export const LOCKED_CATALOG_MINIMUMS: IamCatalogMinimums = {
 };
 
 const ACTION_PATTERN = /^[a-z0-9][a-z0-9-]*:[A-Za-z0-9][A-Za-z0-9-]*$/;
-const DOC_SLUG_PATTERN = /^[a-z0-9]+$/;
+const DOC_SLUG_PATTERN = /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
 export function assertIamCatalog(
   catalog: IamCatalog,
@@ -64,6 +65,25 @@ export function assertIamCatalog(
   for (const servicePrefix of actionServices) {
     if (!Object.hasOwn(catalog.serviceDocSlugs, servicePrefix)) {
       throw new Error(`Missing IAM service documentation slug: ${servicePrefix}`);
+    }
+  }
+
+  const actionDocOverrides = Object.keys(catalog.actionDocSlugs);
+  const sortedActionDocOverrides = [...actionDocOverrides].sort();
+  for (const [index, action] of actionDocOverrides.entries()) {
+    if (action !== sortedActionDocOverrides[index]) {
+      throw new Error(`IAM action documentation overrides are not sorted: ${action}`);
+    }
+    if (!actionSet.has(action)) {
+      throw new Error(`IAM action documentation override has no action: ${action}`);
+    }
+    const slug = catalog.actionDocSlugs[action];
+    if (slug === undefined || !DOC_SLUG_PATTERN.test(slug)) {
+      throw new Error(`Invalid IAM action documentation slug for ${action}: ${slug ?? '<missing>'}`);
+    }
+    const servicePrefix = action.slice(0, action.indexOf(':'));
+    if (catalog.serviceDocSlugs[servicePrefix] === slug) {
+      throw new Error(`Redundant IAM action documentation override: ${action}`);
     }
   }
 }

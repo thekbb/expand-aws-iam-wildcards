@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Fixed
+
+- Link expanded actions to the current AWS Service Authorization Reference pages and native action anchors
+
 ### Changed
 
 - Typecheck production, release tooling, and tests with exact optional property types

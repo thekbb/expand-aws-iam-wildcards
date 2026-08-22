@@ -56,11 +56,13 @@ The action posts an inline comment:
 >
 > `s3:Get*Tagging` expands to 5 action(s):
 >
-> 1. [`s3:GetBucketTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 2. [`s3:GetJobTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 3. [`s3:GetObjectTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 4. [`s3:GetObjectVersionTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
-> 5. [`s3:GetStorageLensConfigurationTagging`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html)
+> 1. [`s3:GetBucketTagging`][s3-actions]
+> 2. [`s3:GetJobTagging`][s3-actions]
+> 3. [`s3:GetObjectTagging`][s3-actions]
+> 4. [`s3:GetObjectVersionTagging`][s3-actions]
+> 5. [`s3:GetStorageLensConfigurationTagging`][s3-actions]
+
+[s3-actions]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html
 
 Consecutive wildcards are grouped into a single comment. Expanded actions link to AWS documentation.
 Very large expansions are truncated in the PR comment to stay within GitHub comment limits,

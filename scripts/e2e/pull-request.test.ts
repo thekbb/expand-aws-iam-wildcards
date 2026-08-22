@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest';
 
 import {
   ACTION_COMMENT_MARKER,
+  EXPECTED_S3_DOCUMENTATION_LINK,
+  assertActionDocumentationLink,
+  assertActionDocumentationPage,
   assertRuntimeResult,
   getActionParentComments,
   getNextLink,
@@ -87,5 +90,39 @@ describe('pull request E2E helpers', () => {
       stderr: '',
       stdout: '',
     }, [])).toThrow(error);
+  });
+
+  it('requires the current AWS action documentation link', () => {
+    expect(() => assertActionDocumentationLink([{
+      id: 1,
+      body: `result\n${EXPECTED_S3_DOCUMENTATION_LINK}`,
+    }])).not.toThrow();
+    expect(() => assertActionDocumentationLink([{
+      id: 1,
+      body: 'result with a stale documentation link',
+    }])).toThrow('created comments omitted the current AWS action documentation link');
+  });
+
+  it('requires the AWS page to retain its URL and native action anchor', () => {
+    const pageUrl = EXPECTED_S3_DOCUMENTATION_LINK.slice(
+      0,
+      EXPECTED_S3_DOCUMENTATION_LINK.indexOf('#'),
+    );
+    expect(() => assertActionDocumentationPage(
+      pageUrl,
+      200,
+      '<span id="list_s3-action-GetBucketTagging"></span>',
+    )).not.toThrow();
+    expect(() => assertActionDocumentationPage(
+      'https://docs.aws.amazon.com/service-authorization/latest/reference/reference.html',
+      200,
+      '<span id="list_s3-action-GetBucketTagging"></span>',
+    )).toThrow('AWS action documentation redirected');
+    expect(() => assertActionDocumentationPage(pageUrl, 503, '')).toThrow(
+      'AWS action documentation returned HTTP 503',
+    );
+    expect(() => assertActionDocumentationPage(pageUrl, 200, '<html></html>')).toThrow(
+      'AWS action documentation omitted anchor list_s3-action-GetBucketTagging',
+    );
   });
 });
