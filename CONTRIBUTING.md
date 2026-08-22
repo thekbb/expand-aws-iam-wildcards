@@ -169,6 +169,12 @@ must be valid, signed by GitHub's `web-flow` signer, and use an approved GitHub
 web-flow signing key. The currently approved key ID is
 `B5690EEEBB952194`.
 
+The version and major tags must be signed by release key fingerprint
+`353AAFB21CE81D843634AD3EDE52EEA6AF0D8779`. Hosted publication and the local
+verifier enforce that fingerprint through `scripts/verify-release-tag.sh`.
+Rotate the key only by updating the published key, verifier, and security
+documentation together before using the replacement key.
+
 If GitHub rotates that key, verify the new key against
 [GitHub's published web-flow key](https://github.com/web-flow.gpg) and a known
 GitHub-created merge commit before adding its ID to the allowlist in

@@ -227,22 +227,23 @@ Fingerprint:
 353A AFB2 1CE8 1D84 3634 AD3E DE52 EEA6 AF0D 8779
 ```
 
-Import the armored public key locally before verifying a release:
-
-This repo includes a helper script at the repository root:
+Import the armored public key and authenticate GitHub CLI before running the
+helper script at the repository root:
 
 ```bash
 gpg --import keys/release-signing-key.asc
 gpg --show-keys --fingerprint keys/release-signing-key.asc
+gh auth status
 ./verify-release.sh --tag v1.2.4
 ./verify-release.sh --sha a328eb86c5d294a3bc93ea3c334b9f2ef669efbf
 ```
 
 `--tag` must be a semver release tag with a leading `v`. `--sha` must be a full 40-character commit SHA. The script
-derives the other value automatically, verifies the signed semver tag locally, confirms the tag resolves to the same
-commit, checks its GitHub web-flow signature when `gh` is installed, checks that GitHub has a published immutable
-release for that tag, verifies the GitHub artifact attestation for `dist/index.js` when `gh` is installed, and checks
-that the commit is on `main`. That release should have been
+requires an authenticated GitHub CLI, derives the other value automatically, verifies that the semver tag was signed
+by the documented release-signing fingerprint, confirms the tag resolves to the same commit, checks its GitHub
+web-flow signature, checks that GitHub has a published immutable release for that tag, verifies the GitHub artifact
+attestation for `dist/index.js`, and checks that the commit is on `main`. An unavailable required check fails the
+verification. That release should have been
 prepared from a Linux-generated `release-candidate/vX.Y.Z` commit and published only after the
 `Verify Draft Release` workflow attested `dist/index.js`.
 

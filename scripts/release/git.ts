@@ -20,6 +20,7 @@ export interface GitClient {
   requireAvailable: () => void;
   showFile: (revisionPath: string) => string;
   statusPorcelain: () => string;
+  verifyTagSignature: (tag: string) => void;
 }
 
 function firstSha(output: string): string {
@@ -74,5 +75,7 @@ export function createGitClient(runtime: ReleaseRuntime): GitClient {
     },
     showFile: (revisionPath) => runText(runtime, 'git', ['show', revisionPath]),
     statusPorcelain: () => runText(runtime, 'git', ['status', '--porcelain']),
+    verifyTagSignature: (tag) =>
+      runChecked(runtime, 'bash', ['scripts/verify-release-tag.sh', '.', tag]),
   };
 }

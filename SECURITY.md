@@ -43,5 +43,6 @@ Fingerprint:
 353A AFB2 1CE8 1D84 3634 AD3E DE52 EEA6 AF0D 8779
 ```
 
-Users can import that key and verify release pins locally with `git verify-tag` and
-`./verify-release.sh`.
+Hosted publication and `./verify-release.sh` require the tag signature to match
+this exact fingerprint. The local verifier also requires GitHub CLI so release
+commit signatures and artifact attestations cannot be silently skipped.

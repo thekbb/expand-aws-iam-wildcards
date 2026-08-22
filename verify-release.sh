@@ -14,8 +14,8 @@ Usage:
   ./verify-release.sh --sha 0123456789abcdef0123456789abcdef01234567
 
 Exactly one of --tag or --sha is required.
-The script runs every verification check it can and exits nonzero if any check fails.
-If GitHub CLI is installed, it also verifies the artifact attestation for `dist/index.js`.
+The script requires GitHub CLI, runs every release verification check, and exits
+nonzero if any check fails or cannot be completed.
 
 Options:
   --tag       Semver release tag with a leading "v"
@@ -41,19 +41,6 @@ compact_message() {
 
   text="${text//$'\n'/ }"
   printf '%s' "$text" | sed -E 's/[[:space:]]+/ /g; s/^ //; s/ $//'
-}
-
-extract_signature_summary() {
-  local output="$1"
-  local summary=''
-
-  summary="$(printf '%s\n' "$output" | grep -m1 'Good signature from' || true)"
-  if [[ -n "$summary" ]]; then
-    printf '%s' "$summary"
-    return
-  fi
-
-  printf '%s' "$(compact_message "$output")"
 }
 
 format_status() {
@@ -258,13 +245,8 @@ verify_release_attestation() {
     return
   fi
 
-  if ! command -v gh >/dev/null 2>&1; then
-    emit_result SKIP 'Artifact attestation is valid' 'GitHub CLI is not installed, so artifact attestation could not be verified'
-    return
-  fi
-
   if ! resolve_github_repo; then
-    emit_result SKIP 'Artifact attestation is valid' 'GitHub repository could not be determined'
+    emit_result FAIL 'Artifact attestation is valid' 'GitHub repository could not be determined'
     return
   fi
 
@@ -324,13 +306,8 @@ verify_release_commit_signature() {
     return
   fi
 
-  if ! command -v gh >/dev/null 2>&1; then
-    emit_result SKIP 'Release commit signature is valid' 'GitHub CLI is not installed'
-    return
-  fi
-
   if ! resolve_github_repo; then
-    emit_result SKIP 'Release commit signature is valid' 'GitHub repository could not be determined'
+    emit_result FAIL 'Release commit signature is valid' 'GitHub repository could not be determined'
     return
   fi
 
@@ -394,6 +371,13 @@ fi
 
 if [[ -n "$sha" && ! "$sha" =~ $SHA_REGEX ]]; then
   fail '--sha must be a full 40-character commit SHA'
+fi
+
+if ! command -v gh >/dev/null 2>&1; then
+  fail 'GitHub CLI is required to verify release commit signatures and artifact attestations'
+fi
+if ! gh auth status >/dev/null 2>&1; then
+  fail 'GitHub CLI must be authenticated to verify release commit signatures and artifact attestations'
 fi
 
 sha="$(printf '%s' "$sha" | tr 'A-F' 'a-f')"
@@ -486,8 +470,8 @@ fi
 
 if [[ -n "$resolved_tag" ]] && ((fetch_ok)); then
   verify_output=''
-  if verify_output="$(git -C "$tmp_dir" verify-tag "$resolved_tag" 2>&1)"; then
-    emit_result PASS 'Tag signature is valid' "$(extract_signature_summary "$verify_output")"
+  if verify_output="$(bash "$SCRIPT_DIR/scripts/verify-release-tag.sh" "$tmp_dir" "$resolved_tag" 2>&1)"; then
+    emit_result PASS 'Tag signature is valid' "$verify_output"
   else
     emit_result FAIL 'Tag signature is valid' "$(compact_message "$verify_output")"
   fi

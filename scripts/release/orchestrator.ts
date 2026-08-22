@@ -178,6 +178,7 @@ function ensureVersionTag({ git, runtime }: ReleaseServices, args: ParsedRelease
     git.createSignedTag(args.names.tag, releaseSha);
   }
 
+  git.verifyTagSignature(args.names.tag);
   git.pushTag(args.names.tag);
 }
 
@@ -242,6 +243,7 @@ function moveMajorTag({ git }: ReleaseServices, args: ParsedReleaseArgs, release
   const oldMajorTag = git.remoteRefSha(`refs/tags/${args.names.majorTag}`);
 
   git.createOrReplaceSignedTag(args.names.majorTag, `${args.names.tag}^{commit}`);
+  git.verifyTagSignature(args.names.majorTag);
 
   if (oldMajorTag !== '') {
     git.forcePushTagWithLease(args.names.majorTag, oldMajorTag);
