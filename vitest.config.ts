@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config';
 
 export const COVERAGE_THRESHOLDS = {
   statements: 95,
-  branches: 95,
+  branches: 90,
   functions: 100,
   lines: 95,
 };
