@@ -151,7 +151,10 @@ jobs:
             if gh attestation verify dist/index.js \
               --repo "${GITHUB_REPOSITORY}" \
               --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/verify-draft-release.yml" \
-              --source-ref "$expected_ref"; then
+              --signer-digest "$VERIFIED_SHA" \
+              --source-ref "$expected_ref" \
+              --source-digest "$VERIFIED_SHA" \
+              --deny-self-hosted-runners; then
               exit 0
             fi
 

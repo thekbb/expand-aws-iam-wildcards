@@ -325,8 +325,10 @@ release.
    gh run watch "$run_id" --exit-status
    ```
 
-   That workflow verifies the signed tag, rebuilds `dist/index.js` on Ubuntu, attests the bundle,
-   and dispatches `Publish Verified Release` if verification succeeds.
+   That workflow verifies the signed tag, rebuilds `dist/index.js` on Ubuntu,
+   attests the bundle, and immediately verifies that the provenance names the
+   exact repository, workflow, tag ref, and tag commit before dispatching
+   `Publish Verified Release`.
 
 8. Check that the release is now published and immutable:
 

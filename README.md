@@ -231,7 +231,10 @@ git checkout v1.2.4
 gh attestation verify dist/index.js \
   --repo thekbb/expand-aws-iam-wildcards \
   --signer-workflow thekbb/expand-aws-iam-wildcards/.github/workflows/verify-draft-release.yml \
-  --source-ref refs/tags/v1.2.4
+  --signer-digest a328eb86c5d294a3bc93ea3c334b9f2ef669efbf \
+  --source-ref refs/tags/v1.2.4 \
+  --source-digest a328eb86c5d294a3bc93ea3c334b9f2ef669efbf \
+  --deny-self-hosted-runners
 ```
 
 For an additional cross-check, you can confirm the same public key is published on

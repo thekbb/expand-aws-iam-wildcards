@@ -288,8 +288,13 @@ verify_release_attestation() {
     "${github_owner}/${github_repo}"
     --signer-workflow
     "$signer_workflow"
+    --signer-digest
+    "$resolved_sha"
     --source-ref
     "refs/tags/${resolved_tag}"
+    --source-digest
+    "$resolved_sha"
+    --deny-self-hosted-runners
     --format
     json
     --jq
