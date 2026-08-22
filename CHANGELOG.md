@@ -19,10 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Smoke-test the compiled action without changing the committed runtime bundle
 - Generate IAM catalog modules deterministically into an explicit validated directory
 - Validate IAM catalog structure, size, documentation mappings, and generated-source behavior parity
-- Build the action bundle from lock-selected IAM data in an ignored workspace
-- Select and lock IAM data as part of release preparation
-- Reinstall and report the selected IAM catalog before release builds
-- Remove tracked IAM catalog modules and the standalone IAM update workflow
+- Build the action bundle from locked IAM data in an ignored workspace
+- Reinstall and report the locked IAM catalog before release builds
+- Keep the IAM data dependency version explicit in package metadata so Dependabot can update it
+- Remove tracked IAM catalog modules from source control
 - Add a versioned machine marker to generated review comments
 - Restrict review comment updates and deletion to safely owned current or legacy comments
 - Report analyzed, binary, empty, missing, and failed pull-request diff states

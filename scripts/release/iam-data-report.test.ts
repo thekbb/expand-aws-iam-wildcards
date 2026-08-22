@@ -34,20 +34,9 @@ function writeFile(path: string, contents: string): void {
 
 function writePackageState(
   directory: string,
-  lockedVersion: string,
-  installedVersion = lockedVersion,
-  manifestVersion = lockedVersion,
+  installedVersion: string,
 ): string {
   const installedPackage = join(directory, 'node_modules', IAM_DATA_PACKAGE);
-  writeFile(join(directory, 'package.json'), JSON.stringify({
-    devDependencies: { [IAM_DATA_PACKAGE]: manifestVersion },
-  }));
-  writeFile(join(directory, 'package-lock.json'), JSON.stringify({
-    packages: {
-      '': { devDependencies: { [IAM_DATA_PACKAGE]: manifestVersion } },
-      [`node_modules/${IAM_DATA_PACKAGE}`]: { version: lockedVersion },
-    },
-  }));
   writeFile(join(installedPackage, 'package.json'), JSON.stringify({ version: installedVersion }));
   return installedPackage;
 }
@@ -63,7 +52,7 @@ function writeSmallCatalog(installedPackage: string): void {
 }
 
 describe('createIamDataReport', () => {
-  it('reports the real lock-selected catalog against production floors', () => {
+  it('reports the real locked catalog against production floors', () => {
     withFixture((directory) => {
       const repositoryRoot = resolve(import.meta.dirname, '../..');
       const realInstalledPackage = join(repositoryRoot, 'node_modules', IAM_DATA_PACKAGE);
@@ -97,19 +86,6 @@ describe('createIamDataReport', () => {
     });
   });
 
-  it('rejects disagreement with the installed package', () => {
-    withFixture((directory) => {
-      writePackageState(directory, '0.21.2', '0.21.1');
-
-      expect(() => createIamDataReport(
-        directory,
-        { actionCount: 1, serviceCount: 1 },
-      )).toThrow(
-        `Installed ${IAM_DATA_PACKAGE} version 0.21.1 does not match locked version 0.21.2`,
-      );
-    });
-  });
-
   it('rejects missing installed version metadata', () => {
     withFixture((directory) => {
       const installedPackage = writePackageState(directory, '0.21.2');
@@ -119,19 +95,8 @@ describe('createIamDataReport', () => {
         directory,
         { actionCount: 1, serviceCount: 1 },
       )).toThrow(
-        `Installed ${IAM_DATA_PACKAGE} version <missing> does not match locked version 0.21.2`,
+        `Installed ${IAM_DATA_PACKAGE} package metadata is missing a version`,
       );
-    });
-  });
-
-  it('rejects package metadata disagreement before reading the catalog', () => {
-    withFixture((directory) => {
-      writePackageState(directory, '0.21.2', '0.21.2', '^0.21.1');
-
-      expect(() => createIamDataReport(
-        directory,
-        { actionCount: 1, serviceCount: 1 },
-      )).toThrow(`npm did not record ${IAM_DATA_PACKAGE}@0.21.2 exactly`);
     });
   });
 
@@ -174,6 +139,9 @@ describe('writeIamDataReport', () => {
         'service_count=456',
         '',
       ].join('\n'));
+      expect(readFileSync(summaryPath, 'utf8')).toContain(
+        '## Locked IAM catalog',
+      );
       expect(readFileSync(summaryPath, 'utf8')).toContain(
         '| @cloud-copilot/iam-data | 0.21.202608201 | 21234 | 456 |',
       );

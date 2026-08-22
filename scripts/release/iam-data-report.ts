@@ -7,10 +7,8 @@ import {
 } from '../iam-data/catalog.js';
 import { readIamCatalog } from '../iam-data/generator.js';
 import {
-  assertRecordedIamDataVersion,
   IAM_DATA_PACKAGE,
   installedIamDataDirectory,
-  lockedIamDataVersion,
 } from './iam-data.js';
 
 interface InstalledPackageJson {
@@ -33,9 +31,6 @@ export function createIamDataReport(
   minimums: IamCatalogMinimums = LOCKED_CATALOG_MINIMUMS,
 ): IamDataReport {
   const resolvedRepository = resolve(repositoryRoot);
-  const lockedVersion = lockedIamDataVersion(resolvedRepository);
-  assertRecordedIamDataVersion(resolvedRepository, lockedVersion);
-
   const installedPackagePath = join(
     resolvedRepository,
     'node_modules',
@@ -45,18 +40,15 @@ export function createIamDataReport(
   const installedPackage = JSON.parse(
     readFileSync(installedPackagePath, 'utf8'),
   ) as InstalledPackageJson;
-  if (installedPackage.version !== lockedVersion) {
-    throw new Error(
-      `Installed ${IAM_DATA_PACKAGE} version ${installedPackage.version ?? '<missing>'} ` +
-      `does not match locked version ${lockedVersion}`,
-    );
+  if (installedPackage.version === undefined) {
+    throw new Error(`Installed ${IAM_DATA_PACKAGE} package metadata is missing a version`);
   }
 
   const catalog = readIamCatalog(installedIamDataDirectory(resolvedRepository), minimums);
   return {
     actionCount: catalog.actions.length,
     serviceCount: Object.keys(catalog.serviceDocSlugs).length,
-    version: lockedVersion,
+    version: installedPackage.version,
   };
 }
 
@@ -74,7 +66,7 @@ export function writeIamDataReport(
     appendFileSync(
       destinations.githubSummaryPath,
       [
-        '## Selected IAM catalog',
+        '## Locked IAM catalog',
         '',
         '| Package | Version | Actions | Services |',
         '| --- | --- | ---: | ---: |',
