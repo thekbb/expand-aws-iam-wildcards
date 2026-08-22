@@ -636,6 +636,15 @@ describe('runReleaseCli', () => {
       'git push --force-with-lease=refs/tags/v1:babecafebabecafebabecafebabecafebabecafe origin refs/tags/v1',
     );
     expect(output.join('\n')).toContain('Release complete:');
+    expect(output.join('\n')).toContain(
+      'preferred: thekbb/expand-aws-iam-wildcards@v1.3.0',
+    );
+    expect(output.join('\n')).toContain(
+      'automatic: thekbb/expand-aws-iam-wildcards@v1',
+    );
+    expect(output.join('\n')).toContain(
+      `full SHA:  thekbb/expand-aws-iam-wildcards@${releaseSha}`,
+    );
   });
 
   it('continues a release when the version tag and immutable release already exist', () => {

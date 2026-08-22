@@ -29,7 +29,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: thekbb/expand-aws-iam-wildcards@a328eb86c5d294a3bc93ea3c334b9f2ef669efbf # v1.2.4
+      - uses: thekbb/expand-aws-iam-wildcards@v2.0.0
 ```
 
 That is the recommended setup:
@@ -99,7 +99,7 @@ threads.
 ### Terraform Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@a328eb86c5d294a3bc93ea3c334b9f2ef669efbf # v1.2.4
+- uses: thekbb/expand-aws-iam-wildcards@v2.0.0
   with:
     file-patterns: '**/*.tf,**/*.tf.json'
 ```
@@ -107,17 +107,30 @@ threads.
 ### CloudFormation Only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@a328eb86c5d294a3bc93ea3c334b9f2ef669efbf # v1.2.4
+- uses: thekbb/expand-aws-iam-wildcards@v2.0.0
   with:
     file-patterns: '**/*.yaml,**/*.yml,**/*.json'
 ```
 
 ## Update Strategy
 
-For security, prefer a full 40-character commit SHA over a moving tag such as `@v1`. GitHub recommends full-length
-commit SHAs as the immutable option for third-party actions in its
-[Secure use reference](https://docs.github.com/en/actions/reference/security/secure-use). If you want automatic
-updates while still using immutable workflow references, enable Dependabot for GitHub Actions in your repository:
+Prefer an exact semantic release such as `@v2.0.0` after confirming that its
+GitHub release is immutable. Immutable releases lock the release-specific tag
+to its commit, while semantic references remain eligible for Dependabot
+security alerts and security update pull requests.
+
+Use the moving `@v2` reference in repositories you own when you want compatible
+releases without pull requests that edit the workflow file. The signed `v2` tag
+moves only after the corresponding version release is verified, published, and
+immutable.
+
+A full 40-character commit SHA remains the strongest direct pin. Use it only
+when that property outweighs GitHub's current limitation that
+[Dependabot alerts for Actions require semantic version references](https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-alerts#limitations).
+SHA consumers must monitor advisories through another process.
+
+Enable Dependabot for GitHub Actions to receive reviewed version or security
+update pull requests for exact semantic references:
 
 ```yaml
 # .github/dependabot.yml
@@ -129,15 +142,16 @@ updates:
       interval: 'weekly'
 ```
 
-Dependabot updates workflow `uses:` references in `.github/workflows`, including commit SHAs for GitHub Actions. The
-trailing `# v1.2.4` comment is mainly for human review so maintainers can see which release a referenced SHA
-corresponds to. Dependabot should keep that comment aligned when it updates the SHA, but the comment is
-informational, not security-critical.
+Dependabot version updates can update workflow `uses:` references in
+`.github/workflows`. Dependabot security alerts and their security update pull
+requests require a semantic version reference for GitHub Actions; SHA-pinned
+Actions do not receive those alerts.
 
-Published GitHub releases in this repository are immutable starting with `v1.2.1`. That means a release-specific tag
-such as `@v1.2.1` cannot be retargeted on GitHub after publication. The major tag `@v1` remains intentionally movable
-so it can track the latest compatible `v1` release. For GitHub's model for combining immutable releases with movable
-major tags, see
+Published GitHub releases in this repository are immutable starting with
+`v1.2.1`. That means a release-specific tag such as `@v2.0.0` cannot be
+retargeted after publication. Major tags such as `@v2` remain intentionally
+movable so they can track the latest compatible release. For GitHub's model for
+combining immutable releases with movable major tags, see
 [Using immutable releases and tags to manage your action's releases](https://docs.github.com/en/actions/how-tos/create-and-publish-actions/using-immutable-releases-and-tags-to-manage-your-actions-releases).
 
 ## Release Process
@@ -151,7 +165,7 @@ Published releases are prepared and verified in GitHub Actions on Ubuntu.
 1. Run the `Verify Draft Release` workflow with that tag.
 1. If verification succeeds, the workflow will generate an OIDC-backed attestation for
    `dist/index.js` and publish the draft release.
-1. After publication is confirmed immutable, move the signed major tag (for example, `v1`) to the release commit.
+1. After publication is confirmed immutable, move the signed major tag (for example, `v2`) to the release commit.
 
 ## How It Works
 
@@ -166,9 +180,8 @@ Published releases are prepared and verified in GitHub Actions on Ubuntu.
 - **Minimal permissions** - only needs `pull-requests: write`
 - **No secrets required** - uses the default `github.token`
 - **No checkout required** - the action reads PR files through the GitHub API
-- **GitHub-aligned workflow security guidance** - GitHub recommends full commit SHAs for third-party actions in its
-  [Secure use reference](https://docs.github.com/en/actions/reference/security/secure-use)
-- **Immutable workflow references available** - prefer a full 40-character commit SHA for production workflows
+- **Immutable semantic releases** - prefer a verified immutable release tag such as `@v2.0.0` for Dependabot security alerts
+- **Full-SHA references available** - use a full commit SHA when direct pinning outweighs Dependabot alert coverage
 - **Immutable GitHub releases from `v1.2.1` onward** - published release tags cannot be retargeted after publication
 - **Dependabot-friendly** - GitHub can still raise update PRs for SHA-based action references
 - **Auditable** - the TypeScript source is small and `dist/index.js` is committed
@@ -177,15 +190,24 @@ Published releases are prepared and verified in GitHub Actions on Ubuntu.
 - **Verified release commits** - version tags target the exact GitHub-signed and verified release-candidate merge SHA
 - **OIDC-backed release provenance** - the `Verify Draft Release` workflow attests the shipped action bundle before publication
 
+Prefer the exact semantic release after confirming it is immutable:
+
 ```yaml
-uses: thekbb/expand-aws-iam-wildcards@a328eb86c5d294a3bc93ea3c334b9f2ef669efbf # v1.2.4
+uses: thekbb/expand-aws-iam-wildcards@v2.0.0
 ```
 
-If you want an immutable GitHub-side release reference and can tolerate using a tag in `uses:`, prefer a current
-release-specific tag such as `@v1.2.4`. Use `@v1` only if you deliberately want the convenience of a moving major tag.
+Use the moving major reference for compatible automatic updates without
+workflow changes in repositories you control:
 
 ```yaml
-uses: thekbb/expand-aws-iam-wildcards@v1
+uses: thekbb/expand-aws-iam-wildcards@v2
+```
+
+Use the full release commit SHA only when direct pinning is required and
+Dependabot security alerts are covered another way:
+
+```yaml
+uses: thekbb/expand-aws-iam-wildcards@a328eb86c5d294a3bc93ea3c334b9f2ef669efbf # v1.2.4
 ```
 
 ## Verify a Release

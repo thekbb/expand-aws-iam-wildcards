@@ -349,8 +349,23 @@ release.
     ```bash
     old_major_tag="$(git ls-remote --refs --tags origin "refs/tags/$MAJOR_TAG" | awk '{print $1}')"
     git tag -s -f "$MAJOR_TAG" "$TAG^{commit}" -m "$MAJOR_TAG"
-    git push --force-with-lease="refs/tags/$MAJOR_TAG:$old_major_tag" origin "refs/tags/$MAJOR_TAG"
+    if [[ -n "$old_major_tag" ]]; then
+      git push --force-with-lease="refs/tags/$MAJOR_TAG:$old_major_tag" origin "refs/tags/$MAJOR_TAG"
+    else
+      git push origin "refs/tags/$MAJOR_TAG"
+    fi
+
+    remote_major_commit="$(git ls-remote --tags origin "refs/tags/$MAJOR_TAG^{}" | awk '{print $1}')"
+    test "$remote_major_commit" = "$release_sha"
     ```
+
+    The release command prints three consumer references. Prefer the exact
+    semantic version after verifying its release is immutable, because it
+    retains Dependabot security alerts. Use the moving major reference for
+    owned repositories that should receive compatible releases without
+    workflow-edit pull requests. Use the full release commit SHA only when
+    direct pinning is required and security advisories are monitored another
+    way.
 
 The release process is safe to resume from the latest completed checkpoint:
 
