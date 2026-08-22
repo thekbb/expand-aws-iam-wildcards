@@ -326,9 +326,11 @@ release.
    ```
 
    That workflow verifies the signed tag, rebuilds `dist/index.js` on Ubuntu,
-   attests the bundle, and immediately verifies that the provenance names the
-   exact repository, workflow, tag ref, and tag commit before dispatching
-   `Publish Verified Release`.
+   rechecks the tagged commit's GitHub web-flow signature, attests the bundle,
+   and immediately verifies that the provenance names the exact repository,
+   workflow, tag ref, and tag commit before dispatching `Publish Verified
+   Release`. The publish workflow independently repeats the signed commit,
+   signed tag, ancestry, metadata, draft release, and attestation checks.
 
 8. Check that the release is now published and immutable:
 
