@@ -27,7 +27,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Verify comment creation, reruns, updates, cleanup, and reply preservation in a controlled GitHub pull request
 - Make release-candidate reruns refresh the existing pull request with an explicit file allowlist
 - Require the exact release-candidate merge commit to carry an approved GitHub signature before tagging
-- Bind release attestations to the exact tag commit and verification workflow revision
 
 ## [1.4.0] - 2026-07-21
 
