@@ -18,6 +18,7 @@
     "lint:md": "markdownlint '**/*.md' --ignore node_modules",
     "prepare": "npm run generate-iam-data",
     "release": "tsx scripts/release.ts",
+    "release:check-files": "tsx scripts/check-release-files.ts",
     "release:report-iam-data": "tsx scripts/report-iam-data.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
