@@ -348,7 +348,7 @@ describe('runReleaseCli', () => {
     expect(errors).toEqual(['error: working tree must be clean']);
   });
 
-  it('rejects prepare mode when the remote release candidate branch exists', () => {
+  it('rejects prepare mode when the remote release candidate branch has no open pull request', () => {
     const errors: string[] = [];
     const { runtime } = createRuntime(
       new Map([
@@ -367,6 +367,10 @@ describe('runReleaseCli', () => {
         ['git rev-parse -q --verify refs/tags/v1.3.0', [result('', 1)]],
         ['git ls-remote --exit-code origin refs/tags/v1.3.0', [result('', 2)]],
         ['git ls-remote --exit-code origin refs/heads/release-candidate/v1.3.0', [result('branch\n')]],
+        [
+          'gh pr list --state all --head release-candidate/v1.3.0 --base main --json state',
+          [result('[]')],
+        ],
       ]),
     );
 
@@ -378,7 +382,60 @@ describe('runReleaseCli', () => {
     });
 
     expect(exitCode).toBe(1);
-    expect(errors).toEqual(['error: remote release candidate branch already exists: release-candidate/v1.3.0']);
+    expect(errors).toEqual([
+      'error: remote release candidate branch has no open pull request: release-candidate/v1.3.0',
+    ]);
+  });
+
+  it('refreshes an existing open release candidate pull request', () => {
+    const errors: string[] = [];
+    const { calls, output, runtime } = createRuntime(
+      new Map([
+        ['which git', [result()]],
+        ['which gh', [result()]],
+        ['which gpg', [result()]],
+        ['gh auth status', [result()]],
+        ['git branch --show-current', [result('main\n')]],
+        ['git fetch origin main --tags', [result()]],
+        ['git rev-parse HEAD', [result(`${releaseSha}\n`)]],
+        ['git rev-parse origin/main', [result(`${releaseSha}\n`)]],
+        ['git status --porcelain', [result('')]],
+        ['git config --get user.signingkey', [result('ABC123\n')]],
+        ['gpg --list-secret-keys ABC123', [result()]],
+        ['git show HEAD:CHANGELOG.md', [result('## [UNRELEASED]\n')]],
+        ['git rev-parse -q --verify refs/tags/v1.3.0', [result('', 1)]],
+        ['git ls-remote --exit-code origin refs/tags/v1.3.0', [result('', 2)]],
+        ['git ls-remote --exit-code origin refs/heads/release-candidate/v1.3.0', [result('branch\n')]],
+        [
+          'gh pr list --state all --head release-candidate/v1.3.0 --base main --json state',
+          [result('[{"state":"OPEN"}]')],
+        ],
+        [
+          'gh run list --workflow prepare-release.yml --event workflow_dispatch --limit 50 --json databaseId,displayTitle',
+          [result('[]'), result('[{"databaseId":123,"displayTitle":"Prepare v1.3.0"}]')],
+        ],
+        ['gh workflow run prepare-release.yml -f version=1.3.0 -f finalize_changelog=true', [result()]],
+        ['gh run watch 123 --exit-status', [result()]],
+        [
+          'gh pr list --state all --head release-candidate/v1.3.0 --base main --json url',
+          [result('[{"url":"https://github.com/thekbb/expand-aws-iam-wildcards/pull/123"}]')],
+        ],
+      ]),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(0);
+    expect(errors).toEqual([]);
+    expect(calls).toContain('gh workflow run prepare-release.yml -f version=1.3.0 -f finalize_changelog=true');
+    expect(output.join('\n')).toContain(
+      'Refreshing existing release preparation PR for release-candidate/v1.3.0',
+    );
   });
 
   it('rejects prepare mode when the local release tag already exists', () => {

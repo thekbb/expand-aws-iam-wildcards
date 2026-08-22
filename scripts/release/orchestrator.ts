@@ -105,7 +105,12 @@ function prepareRelease(services: ReleaseServices, args: ParsedReleaseArgs): voi
   }
 
   if (git.refExistsOnOrigin(`refs/heads/${args.names.branch}`)) {
-    throw new Error(`remote release candidate branch already exists: ${args.names.branch}`);
+    const candidate = github.firstPullRequest(args.names.branch, 'state');
+    if (candidate?.state !== 'OPEN') {
+      throw new Error(`remote release candidate branch has no open pull request: ${args.names.branch}`);
+    }
+
+    runtime.stdout.log(`Refreshing existing release preparation PR for ${args.names.branch}`);
   }
 
   runtime.stdout.log(`Dispatching Prepare Release for ${args.names.tag}`);

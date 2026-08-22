@@ -184,7 +184,6 @@ prepare workflow.
    grep -q "^## \\[UNRELEASED\\]" CHANGELOG.md
    ! git rev-parse -q --verify "refs/tags/$TAG"
    ! git ls-remote --exit-code --tags origin "$TAG"
-   ! git ls-remote --exit-code --heads origin "$BRANCH"
    ```
 
    Instead of running the preflight checks and `Prepare Release` commands manually, use the release command. It waits
@@ -220,6 +219,10 @@ prepare workflow.
    ```
 
 4. Review and merge the resulting `$BRANCH` pull request.
+
+   Rerunning `Prepare Release` for the same version refreshes the existing open
+   pull request from `main`. The workflow limits the candidate commit to
+   `CHANGELOG.md`, `dist/index.js`, `package.json`, and `package-lock.json`.
 
    If you stopped the script after creating the release preparation PR, resume after merging the pull request:
 
