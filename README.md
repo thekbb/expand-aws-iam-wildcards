@@ -248,12 +248,6 @@ The fingerprint should still match exactly:
 353A AFB2 1CE8 1D84 3634 AD3E DE52 EEA6 AF0D 8779
 ```
 
-To verify a github.com fork or local clone, override `REPO_URL`:
-
-```bash
-REPO_URL=https://github.com/your-org/expand-aws-iam-wildcards.git ./verify-release.sh --tag v1.2.4
-```
-
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup.
