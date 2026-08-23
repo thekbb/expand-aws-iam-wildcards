@@ -181,180 +181,68 @@ GitHub-created merge commit before adding its ID to the allowlist in
 `scripts/verify-github-commit.sh`. Do not bypass the signature check to
 complete a release.
 
-1. Set the release variables:
+### Prerequisites
 
-   ```bash
-   set -euo pipefail
-   VERSION=1.2.5
-   TAG="v$VERSION"
-   MAJOR_TAG="v${VERSION%%.*}"
-   BRANCH="release-candidate/$TAG"
-   ```
+The release command requires an authenticated GitHub CLI and the documented
+release signing key in the local GPG keyring. If necessary, import the key:
 
-2. Run the release preflight checks. `main` must already contain the changelog entry and source changes you want in
-   the release.
+```bash
+gpg --import keys/release-signing-key.asc
+gpg --show-keys --fingerprint keys/release-signing-key.asc
+```
 
-   ```bash
-   gh auth status
-   printf '%s\n' "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'
-   test "$(git branch --show-current)" = main
-   git fetch origin main --tags
-   test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
-   test -z "$(git status --porcelain)"
-   test -n "$(git config --get user.signingkey)"
-   gpg --list-secret-keys "$(git config --get user.signingkey)"
-   grep -q "^## \\[UNRELEASED\\]" CHANGELOG.md
-   ! git rev-parse -q --verify "refs/tags/$TAG"
-   ! git ls-remote --exit-code --tags origin "$TAG"
-   ```
+Start from a clean `main` branch containing the complete `[UNRELEASED]`
+changelog. The command verifies that local `main` matches `origin/main`, the
+signing key is available, and the requested version, tag, and release-candidate
+branch do not conflict with existing release state.
 
-   Instead of running the preflight checks and `Prepare Release` commands manually, use the release command. It waits
-   after the release preparation PR is ready for review; after you merge that PR, press Enter to continue the release.
-   By default, the release preparation PR finalizes the changelog with the requested version, date, and compare links.
-   If the changelog was already finalized manually, pass `--no-finalize-changelog` after the npm argument separator.
+### Run a Release
 
-   ```bash
-   npm run release -- "$VERSION"
-   ```
+Set the semantic version without a leading `v`, then run the release command:
 
-   ```bash
-   npm run release -- "$VERSION" --no-finalize-changelog
-   ```
+```bash
+VERSION=2.0.0
+npm run release -- "$VERSION"
+```
 
-3. Run `Prepare Release` from `main`:
+The command dispatches `Prepare Release` and watches it to completion. That
+workflow installs from the lockfile, reports the IAM-data version and catalog
+counts, runs the release checks, finalizes the changelog, updates package
+metadata, builds `dist/index.js` on Ubuntu, and opens
+`release-candidate/v$VERSION`. The candidate is limited to `CHANGELOG.md`,
+`dist/index.js`, `package.json`, and `package-lock.json`.
 
-   ```bash
-   run_name="Prepare $TAG"
-   previous_run_id="$(gh run list --workflow prepare-release.yml --event workflow_dispatch --limit 50 \
-     --json databaseId,displayTitle --jq ".[] | select(.displayTitle == \"$run_name\") | .databaseId" | head -n 1)"
-   gh workflow run prepare-release.yml -f version="$VERSION"
-   run_id=''
-   for _ in {1..30}; do
-     sleep 2
-     run_id="$(gh run list --workflow prepare-release.yml --event workflow_dispatch --limit 50 \
-       --json databaseId,displayTitle --jq ".[] | select(.displayTitle == \"$run_name\") | .databaseId" | head -n 1)"
-     [[ -n "$run_id" && "$run_id" != "$previous_run_id" ]] && break
-   done
-   test -n "$run_id"
-   test "$run_id" != "$previous_run_id"
-   gh run watch "$run_id" --exit-status
-   ```
+Review and merge that pull request in the GitHub interface. Return to the
+release command and press Enter. If the original command is no longer running,
+resume it after the merge:
 
-4. Review and merge the resulting `$BRANCH` pull request.
+```bash
+npm run release -- "$VERSION" --continue
+```
 
-   Rerunning `Prepare Release` for the same version refreshes the existing open
-   pull request from `main`. The workflow limits the candidate commit to
-   `CHANGELOG.md`, `dist/index.js`, `package.json`, and `package-lock.json`.
+The continuation synchronizes local `main`, resolves and verifies the exact
+release-candidate merge commit, creates the signed version tag, creates the
+draft release, and dispatches `Verify Draft Release`. The hosted workflows
+rebuild and compare the bundle, verify the commit and tag signatures, attest
+`dist/index.js`, publish the release, and confirm it is immutable. The command
+then runs the standalone verifier, moves the signed major tag with
+force-with-lease, verifies its target, and prints the supported consumer
+references.
 
-   If you stopped the script after creating the release preparation PR, resume after merging the pull request:
+If the changelog was finalized before running release preparation, use:
 
-   ```bash
-   npm run release -- "$VERSION" --continue
-   ```
+```bash
+npm run release -- "$VERSION" --no-finalize-changelog
+```
 
-   If you use the release command, skip the remaining manual steps.
+### Resume or Recover
 
-5. After that PR is merged, resolve its exact merge commit, then create and push the signed release tag. Do not tag
-   the latest `main` by name because another PR could merge between these steps.
+The release command is safe to rerun for the same version. Before the candidate
+pull request is merged, rerun the normal command to refresh it from `main`.
+After it is merged, use `--continue`. Existing matching tags, draft releases,
+and immutable releases are recognized so the command can continue from the
+latest completed checkpoint.
 
-   ```bash
-   pr_state="$(gh pr view "$BRANCH" --json state --jq '.state')"
-   test "$pr_state" = MERGED
-   release_sha="$(gh pr view "$BRANCH" --json mergeCommit --jq '.mergeCommit.oid')"
-   git fetch origin main --tags
-   git merge-base --is-ancestor "$release_sha" origin/main
-   bash scripts/verify-github-commit.sh \
-     thekbb/expand-aws-iam-wildcards "$release_sha"
-   git tag -s "$TAG" "$release_sha" -m "$TAG"
-   git push origin "refs/tags/$TAG"
-   ```
-
-6. Create the draft GitHub release:
-
-   ```bash
-   gh release create "$TAG" --draft --verify-tag --generate-notes
-   gh release view "$TAG" --json isDraft,tagName,url
-   ```
-
-7. Run `Verify Draft Release` from the release tag itself:
-
-   ```bash
-   run_name="Verify $TAG"
-   previous_run_id="$(gh run list --workflow verify-draft-release.yml --event workflow_dispatch --branch "$TAG" \
-     --limit 50 --json databaseId,displayTitle \
-     --jq ".[] | select(.displayTitle == \"$run_name\") | .databaseId" | head -n 1)"
-   gh workflow run verify-draft-release.yml --ref "$TAG" -f tag="$TAG"
-   run_id=''
-   for _ in {1..30}; do
-     sleep 2
-     run_id="$(gh run list --workflow verify-draft-release.yml --event workflow_dispatch --branch "$TAG" \
-       --limit 50 --json databaseId,displayTitle \
-       --jq ".[] | select(.displayTitle == \"$run_name\") | .databaseId" | head -n 1)"
-     [[ -n "$run_id" && "$run_id" != "$previous_run_id" ]] && break
-   done
-   test -n "$run_id"
-   test "$run_id" != "$previous_run_id"
-   gh run watch "$run_id" --exit-status
-   ```
-
-   That workflow verifies the signed tag, rebuilds `dist/index.js` on Ubuntu,
-   rechecks the tagged commit's GitHub web-flow signature, attests the bundle,
-   and immediately verifies that the provenance names the exact repository,
-   workflow, tag ref, and tag commit before dispatching `Publish Verified
-   Release`. The publish workflow independently repeats the signed commit,
-   signed tag, ancestry, metadata, draft release, and attestation checks.
-
-8. Check that the release is now published and immutable:
-
-   ```bash
-   gh release view "$TAG" --json isDraft,isImmutable,isPrerelease,tagName,targetCommitish,url
-   ```
-
-9. Run the local verification script:
-
-   ```bash
-   ./verify-release.sh --tag "$TAG"
-   ```
-
-10. After publication and verification succeed, move the signed major tag to the release commit:
-
-    ```bash
-    old_major_tag="$(git ls-remote --refs --tags origin "refs/tags/$MAJOR_TAG" | awk '{print $1}')"
-    git tag -s -f "$MAJOR_TAG" "$TAG^{commit}" -m "$MAJOR_TAG"
-    if [[ -n "$old_major_tag" ]]; then
-      git push --force-with-lease="refs/tags/$MAJOR_TAG:$old_major_tag" origin "refs/tags/$MAJOR_TAG"
-    else
-      git push origin "refs/tags/$MAJOR_TAG"
-    fi
-
-    remote_major_commit="$(git ls-remote --tags origin "refs/tags/$MAJOR_TAG^{}" | awk '{print $1}')"
-    test "$remote_major_commit" = "$release_sha"
-    ```
-
-    The release command prints three consumer references. Prefer the exact
-    semantic version after verifying its release is immutable, because it
-    retains Dependabot security alerts. Use the moving major reference for
-    owned repositories that should receive compatible releases without
-    workflow-edit pull requests. Use the full release commit SHA only when
-    direct pinning is required and security advisories are monitored another
-    way.
-
-The release process is safe to resume from the latest completed checkpoint:
-
-1. release variables set and preflight checks passed
-2. prepare workflow dispatched
-3. release preparation pull request created from `$BRANCH`
-4. release preparation pull request reviewed and merged into `main`
-5. signed version tag pushed to the release preparation PR merge commit
-6. draft release created for `$TAG`
-7. draft release verified from the tag ref
-8. release published and immutable
-9. local release verification passed
-10. signed major tag moved to the release commit
-
-If you need the keys, import them
-
-   ```bash
-   gpg --import keys/release-signing-key.asc
-   gpg --show-keys --fingerprint keys/release-signing-key.asc
-   ```
+Do not manually bypass a failed signature, ancestry, metadata, attestation, or
+immutability check. Fix the reported state and rerun the command. Never rewrite
+an exact semantic version tag or immutable release.

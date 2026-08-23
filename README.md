@@ -36,8 +36,6 @@ That is the recommended setup:
 
 - trigger on `pull_request`, not `pull_request_target`
 - grant only `pull-requests: write` to the job that runs this action
-- use a full 40-character commit SHA if you want an immutable workflow reference
-- keep the release tag in a trailing comment so humans can see the intended version quickly
 
 No checkout step is required. The action reads the PR diff through the GitHub API and posts inline review comments
 back to the pull request.
@@ -160,12 +158,10 @@ Published releases are prepared and verified in GitHub Actions on Ubuntu.
 
 1. Run `npm run release -- X.Y.Z` from `main` with the target version.
 1. Review and merge the resulting `release-candidate/vX.Y.Z` pull request.
-1. Create a signed `vX.Y.Z` tag from that merged commit.
-1. Create a draft GitHub release for the tag.
-1. Run the `Verify Draft Release` workflow with that tag.
-1. If verification succeeds, the workflow will generate an OIDC-backed attestation for
-   `dist/index.js` and publish the draft release.
-1. After publication is confirmed immutable, move the signed major tag (for example, `v2`) to the release commit.
+1. Return to the release command, or resume it with `--continue`.
+1. The command signs the version tag and starts verified publication.
+1. After publication, the command verifies the immutable release and moves the
+   signed major tag, such as `v2`, to the release commit.
 
 ## How It Works
 
@@ -180,35 +176,13 @@ Published releases are prepared and verified in GitHub Actions on Ubuntu.
 - **Minimal permissions** - only needs `pull-requests: write`
 - **No secrets required** - uses the default `github.token`
 - **No checkout required** - the action reads PR files through the GitHub API
-- **Immutable semantic releases** - prefer a verified immutable release tag such as `@v2.0.0` for Dependabot security alerts
-- **Full-SHA references available** - use a full commit SHA when direct pinning outweighs Dependabot alert coverage
-- **Immutable GitHub releases from `v1.2.1` onward** - published release tags cannot be retargeted after publication
-- **Dependabot-friendly** - GitHub can still raise update PRs for SHA-based action references
+- **Verified immutable releases** - signed version tags are rebuilt, attested,
+  and made immutable before publication completes
 - **Auditable** - the TypeScript source is small and `dist/index.js` is committed
 - **No runtime dependency fetches** - IAM action data is bundled at build time and refreshed in this repo separately
 - **Linux-generated release bundles** - the `Prepare Release` workflow builds `dist/index.js` on Ubuntu before tagging
 - **Verified release commits** - version tags target the exact GitHub-signed and verified release-candidate merge SHA
 - **OIDC-backed release provenance** - the `Verify Draft Release` workflow attests the shipped action bundle before publication
-
-Prefer the exact semantic release after confirming it is immutable:
-
-```yaml
-uses: thekbb/expand-aws-iam-wildcards@v2.0.0
-```
-
-Use the moving major reference for compatible automatic updates without
-workflow changes in repositories you control:
-
-```yaml
-uses: thekbb/expand-aws-iam-wildcards@v2
-```
-
-Use the full release commit SHA only when direct pinning is required and
-Dependabot security alerts are covered another way:
-
-```yaml
-uses: thekbb/expand-aws-iam-wildcards@a328eb86c5d294a3bc93ea3c334b9f2ef669efbf # v1.2.4
-```
 
 ## Verify a Release
 
