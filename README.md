@@ -4,15 +4,19 @@
 [![codecov](https://codecov.io/gh/thekbb/expand-aws-iam-wildcards/branch/main/graph/badge.svg)](https://codecov.io/gh/thekbb/expand-aws-iam-wildcards)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Automatically expands IAM wildcard actions in PR diffs and posts inline comments showing what
-each wildcard matches, with links to AWS docs.
+An IAM wildcard in a pull request can hide a much larger permission change.
+This action expands wildcards added by the pull request and posts an inline
+comment listing the matching AWS actions.
 
-The goal is to make it easier and faster for reviewers to understand changes to security posture with inline comments
-like this:
+This action reads the PR diff through the GitHub API and links each result to the AWS
+Service Authorization Reference. It does not need AWS credentials or check out
+the repository.
 
-![screenshot](images/pr-comment-screenshot.png)
+![Example IAM wildcard expansion comment](images/pr-comment-screenshot.png)
 
-## Recommended Workflow
+## Quick start
+
+Add this workflow to the repository where you want IAM wildcard review:
 
 ```yaml
 # .github/workflows/iam-wildcards.yml
@@ -23,32 +27,31 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: iam-wildcards-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   expand:
+    runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-    runs-on: ubuntu-latest
     steps:
       - uses: thekbb/expand-aws-iam-wildcards@v2.0.0
 ```
 
-That is the recommended setup:
+No checkout step or repository secret is needed. Use `pull_request`, not
+`pull_request_target`, and grant `pull-requests: write` only to this job.
 
-- trigger on `pull_request`, not `pull_request_target`
-- grant only `pull-requests: write` to the job that runs this action
+## What gets commented
 
-No checkout step is required. The action reads the PR diff through the GitHub API and posts inline review comments
-back to the pull request.
-
-## What It Does
-
-When your PR introduces:
+For example, if a PR adds:
 
 ```hcl
 "s3:Get*Tagging",
 ```
 
-The action posts an inline comment:
+the action leaves an inline comment:
 
 > **IAM Wildcard Expansion**
 >
@@ -68,21 +71,26 @@ The action posts an inline comment:
 [s3-get-storage-lens-configuration-tagging]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_s3.html#list_s3-action-GetStorageLensConfigurationTagging
 <!-- markdownlint-enable MD013 -->
 
-Consecutive wildcards are grouped into a single comment. Expanded actions link to AWS documentation.
-Very large expansions are truncated in the PR comment to stay within GitHub comment limits,
-and the full list is written to the workflow run logs.
+Consecutive wildcard lines are grouped into one comment. Running the workflow
+again updates its existing comments instead of adding duplicate threads.
 
-Each run reports matching diff files as analyzed, binary, empty, missing patch
-text, or failed analysis. Missing or malformed patch data triggers a
-full-PR-diff fallback. If files remain unresolved because the fallback is
-unavailable or incomplete, the action reports an incomplete-analysis warning,
-keeps findings from analyzed files, and preserves stale comments. No-wildcard
-messages apply only to the files that were actually analyzed.
+## What it scans
 
-The action only updates or removes comments that have its machine marker and an
-author matching the configured token. It also recognizes safely shaped comments
-from earlier releases so they can be migrated in place without duplicating
-threads.
+The action looks for `service:action` strings on added lines in matching files.
+It understands both IAM wildcard characters:
+
+- `*` matches zero or more characters, as in `ec2:Describe*`
+- `?` matches one character, as in `sqs:?etQueueAttributes`
+
+Matching is case-insensitive. Because the action scans added text, it can report
+patterns used in either `Action` or `NotAction`.
+
+This is not a policy parser. It does not:
+
+- inspect unchanged lines
+- analyze resource wildcards, conditions, or effective permissions
+- interpret the effect of `Allow`, `Deny`, or `NotAction`
+- replace IAM Access Analyzer or your own policy tests
 
 ## Inputs
 
@@ -92,9 +100,12 @@ threads.
 | `file-patterns` | Comma-separated glob patterns to scan | `**/*.json,**/*.yaml,**/*.yml,**/*.tf,**/*.ts,**/*.js` |
 | `collapse-threshold` | Number of expanded actions before collapsing into details element | `5` |
 
-## Usage Examples
+`file-patterns` is a positive include list. It does not support ordered
+`!pattern` exclusions.
 
-### Terraform Only
+## Examples
+
+### Terraform only
 
 ```yaml
 - uses: thekbb/expand-aws-iam-wildcards@v2.0.0
@@ -102,7 +113,7 @@ threads.
     file-patterns: '**/*.tf,**/*.tf.json'
 ```
 
-### CloudFormation Only
+### CloudFormation only
 
 ```yaml
 - uses: thekbb/expand-aws-iam-wildcards@v2.0.0
@@ -110,25 +121,53 @@ threads.
     file-patterns: '**/*.yaml,**/*.yml,**/*.json'
 ```
 
-## Update Strategy
+## Troubleshooting
 
-Prefer an exact semantic release such as `@v2.0.0` after confirming that its
-GitHub release is immutable. Immutable releases lock the release-specific tag
-to its commit, while semantic references remain eligible for Dependabot
-security alerts and security update pull requests.
+### No comments were posted
 
-Use the moving `@v2` reference in repositories you own when you want compatible
-releases without pull requests that edit the workflow file. The signed `v2` tag
-moves only after the corresponding version release is verified, published, and
-immutable.
+Confirm that the PR adds a wildcard action in a file matched by
+`file-patterns`. Existing lines, resource wildcards, and patterns with no
+matching AWS action are ignored.
 
-A full 40-character commit SHA remains the strongest direct pin. Use it only
-when that property outweighs GitHub's current limitation that
-[Dependabot alerts for Actions require semantic version references](https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-alerts#limitations).
-SHA consumers must monitor advisories through another process.
+### The action cannot post a comment
 
-Enable Dependabot for GitHub Actions to receive reviewed version or security
-update pull requests for exact semantic references:
+Confirm that its job has `pull-requests: write`. The default `github-token`
+uses only the permissions granted to the job.
+
+### Diff analysis was incomplete
+
+GitHub may omit patch text for large or unusual files. The action retries using
+the full PR diff. If files remain unresolved, it reports a warning, keeps valid
+findings, and preserves stale comments rather than deleting potentially useful
+review history.
+
+### An expansion was truncated
+
+Very large expansions are shortened to fit GitHub's comment limit. The complete
+action list is written to the workflow run logs.
+
+## Version pinning
+
+For most repositories, use an exact semantic release such as `@v2.0.0` and
+enable Dependabot for GitHub Actions. Releases in this repository are
+[immutable][immutable-releases] starting with `v1.2.1`, while semantic version
+references remain eligible for [Dependabot alerts and updates][dependabot-alerts].
+
+A full 40-character commit SHA is the strongest direct pin, but GitHub does not
+currently provide Dependabot security alerts for SHA-pinned Actions. SHA users
+must monitor advisories another way. This is the second-best way to consume the
+action. Add a semantic version comment after the SHA, so
+Dependabot can keep the human-readable version up to date.
+
+For `v2.0.0`, that looks like:
+
+```yaml
+- uses: thekbb/expand-aws-iam-wildcards@3f24ae0bed4f39f34f68e0da355e6c1180c83cb6 # v2.0.0
+```
+
+Use `@v2` when you deliberately want the latest compatible release without a
+workflow-file update. The signed major tag moves only after the corresponding
+release is verified, published, and immutable.
 
 ```yaml
 # .github/dependabot.yml
@@ -140,119 +179,53 @@ updates:
       interval: 'weekly'
 ```
 
-Dependabot version updates can update workflow `uses:` references in
-`.github/workflows`. Dependabot security alerts and their security update pull
-requests require a semantic version reference for GitHub Actions; SHA-pinned
-Actions do not receive those alerts.
+## Security
 
-Published GitHub releases in this repository are immutable starting with
-`v1.2.1`. That means a release-specific tag such as `@v2.0.0` cannot be
-retargeted after publication. Major tags such as `@v2` remain intentionally
-movable so they can track the latest compatible release. For GitHub's model for
-combining immutable releases with movable major tags, see
-[Using immutable releases and tags to manage your action's releases](https://docs.github.com/en/actions/how-tos/create-and-publish-actions/using-immutable-releases-and-tags-to-manage-your-actions-releases).
+- The action needs only `pull-requests: write` and the default GitHub token.
+- It does not check out PR code or fetch runtime IAM data or dependencies.
+- `dist/index.js` is committed so the shipped JavaScript can be reviewed.
+- Release tags are GPG-signed.
+- Release bundles are rebuilt on a GitHub-hosted Ubuntu runner and receive a
+  [GitHub artifact attestation][artifact-attestations].
+- Published version releases are [immutable][immutable-releases].
 
-## Release Process
+See [SECURITY.md](SECURITY.md) for vulnerability reporting and the runtime trust
+model.
 
-Published releases are prepared and verified in GitHub Actions on Ubuntu.
+## Verifying a release
 
-1. Run `npm run release -- X.Y.Z` from `main` with the target version.
-1. Review and merge the resulting `release-candidate/vX.Y.Z` pull request.
-1. Return to the release command, or resume it with `--continue`.
-1. The command signs the version tag and starts verified publication.
-1. After publication, the command verifies the immutable release and moves the
-   signed major tag, such as `v2`, to the release commit.
-
-## How It Works
-
-1. Fetches the PR diff
-1. Scans added lines for IAM wildcard patterns (`service:Action*` or `service:Action?`)
-1. Expands wildcards against the bundled IAM action list generated from [@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data)
-1. Posts inline review comments with links to AWS docs
-1. Reuses or updates existing bot comments in place when the anchor still matches, to reduce comment churn
-
-## Security & Trust
-
-- **Minimal permissions** - only needs `pull-requests: write`
-- **No secrets required** - uses the default `github.token`
-- **No checkout required** - the action reads PR files through the GitHub API
-- **Verified immutable releases** - signed version tags are rebuilt, attested,
-  and made immutable before publication completes
-- **Auditable** - the TypeScript source is small and `dist/index.js` is committed
-- **No runtime dependency fetches** - IAM action data is bundled at build time and refreshed in this repo separately
-- **Linux-generated release bundles** - the `Prepare Release` workflow builds `dist/index.js` on Ubuntu before tagging
-- **Verified release commits** - version tags target the exact GitHub-signed and verified release-candidate merge SHA
-- **OIDC-backed release provenance** - the `Verify Draft Release` workflow attests the shipped action bundle before publication
-
-## Verify a Release
-
-Published GitHub releases in this repository are
-[immutable](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases#what-immutable-releases-protect)
-starting with `v1.2.1`. Earlier releases can still have signed tags, but they will not pass the
-immutable-release check. For GitHub's release-integrity guidance, see
-[Verifying the integrity of a release](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/verifying-the-integrity-of-a-release).
-
-All release tags in this repository are signed with the GPG key whose public half is published at
-[`keys/release-signing-key.asc`](keys/release-signing-key.asc).
-
-Fingerprint:
-
-```text
-353A AFB2 1CE8 1D84 3634 AD3E DE52 EEA6 AF0D 8779
-```
-
-Import the armored public key and authenticate GitHub CLI before running the
-helper script at the repository root:
+[`verify-release.sh`](verify-release.sh) checks the signed tag, GitHub-signed
+release commit, immutable release, and `dist/index.js` build attestation:
 
 ```bash
 gpg --import keys/release-signing-key.asc
-gpg --show-keys --fingerprint keys/release-signing-key.asc
 gh auth status
-./verify-release.sh --tag v1.2.4
-./verify-release.sh --sha a328eb86c5d294a3bc93ea3c334b9f2ef669efbf
+./verify-release.sh --tag v2.0.0
 ```
 
-`--tag` must be a semver release tag with a leading `v`. `--sha` must be a full 40-character commit SHA. The script
-requires an authenticated GitHub CLI, derives the other value automatically, verifies that the semver tag was signed
-by the documented release-signing fingerprint, confirms the tag resolves to the same commit, checks its GitHub
-web-flow signature, checks that GitHub has a published immutable release for that tag, verifies the GitHub artifact
-attestation for `dist/index.js`, and checks that the commit is on `main`. An unavailable required check fails the
-verification. That release should have been
-prepared from a Linux-generated `release-candidate/vX.Y.Z` commit and published only after the
-`Verify Draft Release` workflow attested `dist/index.js`.
-
-For a separate manual cross-check of the GitHub artifact attestation, check out the release tag and verify
-`dist/index.js` against this repository and the release verification workflow:
-
-```bash
-git checkout v1.2.4
-gh attestation verify dist/index.js \
-  --repo thekbb/expand-aws-iam-wildcards \
-  --signer-workflow thekbb/expand-aws-iam-wildcards/.github/workflows/verify-draft-release.yml \
-  --signer-digest a328eb86c5d294a3bc93ea3c334b9f2ef669efbf \
-  --source-ref refs/tags/v1.2.4 \
-  --source-digest a328eb86c5d294a3bc93ea3c334b9f2ef669efbf \
-  --deny-self-hosted-runners
-```
-
-For an additional cross-check, you can confirm the same public key is published on
-`keys.openpgp.org` for `kevin@thekbb.net`:
-
-```bash
-gpg --keyserver hkps://keys.openpgp.org --search-keys kevin@thekbb.net
-```
-
-The fingerprint should still match exactly:
+The approved release-key fingerprint is:
 
 ```text
 353A AFB2 1CE8 1D84 3634 AD3E DE52 EEA6 AF0D 8779
 ```
 
+For background on these checks, see GitHub's guides to
+[verifying release integrity][verify-release-integrity] and
+[artifact attestations][artifact-attestations].
+
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development and release operation.
 
 ## Credits
 
-Uses [@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data) pinned in package metadata.
-The catalog is bundled into the action, so execution does not download IAM data at runtime.
+AWS action data comes from
+[@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data), pinned in
+package metadata and bundled at build time.
+
+<!-- markdownlint-disable MD013 -->
+[artifact-attestations]: https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations
+[dependabot-alerts]: https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-alerts#limitations
+[immutable-releases]: https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases
+[verify-release-integrity]: https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity
+<!-- markdownlint-enable MD013 -->
