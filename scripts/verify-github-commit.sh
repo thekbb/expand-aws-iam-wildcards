@@ -49,7 +49,7 @@ signature_filter='
   ]
 | @tsv'
 
-signature_record="$(gh api graphql \
+signature_record="$(gh api --hostname github.com graphql \
   -f query="$signature_query" \
   -f owner="$owner" \
   -f name="$name" \

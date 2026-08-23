@@ -24,9 +24,9 @@ Options:
   --help      Show this help text
 
 Environment:
-  REPO_URL           Git remote to verify against
-  GITHUB_REPOSITORY  Optional owner/repo override for release API checks
-  GITHUB_API_URL     Optional GitHub API base URL override
+  REPO_URL           github.com Git remote or local clone to verify
+  GITHUB_REPOSITORY  Optional github.com owner/repo override
+  GH_TOKEN           Optional GitHub CLI token
   GITHUB_TOKEN       Optional token for private repos or higher API rate limits
 EOF
 }
@@ -100,54 +100,38 @@ indent_lines() {
   sed 's/^/  /'
 }
 
-parse_github_repo() {
+parse_github_com_repo() {
   local remote_url="$1"
-  local host=''
   local path=''
 
   case "$remote_url" in
-    https://*/*|http://*/*)
-      remote_url="${remote_url#http://}"
-      remote_url="${remote_url#https://}"
-      host="${remote_url%%/*}"
-      path="${remote_url#*/}"
+    https://github.com/*)
+      path="${remote_url#https://github.com/}"
       ;;
-    ssh://git@*/*)
-      remote_url="${remote_url#ssh://git@}"
-      host="${remote_url%%/*}"
-      path="${remote_url#*/}"
+    ssh://git@github.com/*)
+      path="${remote_url#ssh://git@github.com/}"
       ;;
-    git@*:*/*)
-      remote_url="${remote_url#git@}"
-      host="${remote_url%%:*}"
-      path="${remote_url#*:}"
+    git@github.com:*/*)
+      path="${remote_url#git@github.com:}"
       ;;
     *)
       return 1
       ;;
   esac
 
-  host="${host##*@}"
   path="${path%.git}"
-
-  [[ "$path" == */* ]] || return 1
-
-  github_host="$host"
+  [[ "$path" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]] || return 1
   github_owner="${path%%/*}"
   github_repo="${path#*/}"
-  github_repo="${github_repo%%/*}"
-
-  [[ -n "$github_host" && -n "$github_owner" && -n "$github_repo" ]] || return 1
 }
 
 resolve_github_repo() {
   local remote_url="$REPO_URL"
 
   if [[ -n "${GITHUB_REPOSITORY:-}" ]]; then
+    [[ "$GITHUB_REPOSITORY" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]] || return 1
     github_owner="${GITHUB_REPOSITORY%%/*}"
     github_repo="${GITHUB_REPOSITORY#*/}"
-    github_host='github.com'
-    [[ -n "$github_owner" && -n "$github_repo" && "$github_repo" != "$GITHUB_REPOSITORY" ]] || return 1
     return 0
   fi
 
@@ -155,17 +139,14 @@ resolve_github_repo() {
     remote_url="$(git -C "$REPO_URL" remote get-url origin 2>/dev/null || true)"
   fi
 
-  parse_github_repo "$remote_url"
+  parse_github_com_repo "$remote_url"
 }
 
 collect_release_metadata() {
   local lookup_tag="$1"
-  local api_base=''
-  local api_url=''
-  local release_file="$tmp_dir/release.json"
-  local http_status=''
-  local compact_json=''
-  local -a curl_args=()
+  local release_record=''
+  local is_draft=''
+  local is_immutable=''
 
   release_lookup_state='FAIL'
   release_lookup_detail=''
@@ -178,59 +159,31 @@ collect_release_metadata() {
     return
   fi
 
-  if [[ -n "${GITHUB_API_URL:-}" ]]; then
-    api_base="${GITHUB_API_URL%/}"
-  elif [[ "$github_host" == 'github.com' ]]; then
-    api_base='https://api.github.com'
-  else
-    api_base="https://${github_host}/api/v3"
-  fi
-
-  api_url="${api_base}/repos/${github_owner}/${github_repo}/releases/tags/${lookup_tag}"
-  curl_args=(
-    -sS
-    -o
-    "$release_file"
-    -w
-    '%{http_code}'
-    -H
-    'Accept: application/vnd.github+json'
-    -H
-    'X-GitHub-Api-Version: 2026-03-10'
-  )
-
-  if [[ -n "${GITHUB_TOKEN:-}" ]]; then
-    curl_args+=(-H "Authorization: Bearer ${GITHUB_TOKEN}")
-  fi
-
-  if ! http_status="$(curl "${curl_args[@]}" "$api_url")"; then
-    release_lookup_detail="failed to query GitHub release metadata at ${api_url}"
+  if ! release_record="$(gh api --hostname github.com \
+    -H 'Accept: application/vnd.github+json' \
+    -H 'X-GitHub-Api-Version: 2026-03-10' \
+    "repos/${github_owner}/${github_repo}/releases/tags/${lookup_tag}" \
+    --jq '[.draft, .immutable] | @tsv' 2>&1)"; then
+    release_lookup_detail="$(compact_message "$release_record")"
     immutable_detail='GitHub release metadata request failed'
     return
   fi
 
-  case "$http_status" in
-    200)
-      release_lookup_state='PASS'
-      release_lookup_detail="published release ${lookup_tag} exists on GitHub"
-      compact_json="$(tr -d '[:space:]' < "$release_file")"
-      if [[ "$compact_json" == *'"immutable":true'* ]]; then
-        immutable_state='PASS'
-        immutable_detail="release ${lookup_tag} is marked immutable by GitHub"
-      else
-        immutable_state='FAIL'
-        immutable_detail="release ${lookup_tag} is not marked immutable by GitHub"
-      fi
-      ;;
-    404)
-      release_lookup_detail="published GitHub release not found for ${lookup_tag}"
-      immutable_detail='published release not found'
-      ;;
-    *)
-      release_lookup_detail="GitHub release metadata request failed with HTTP ${http_status} at ${api_url}"
-      immutable_detail='GitHub release metadata request failed'
-      ;;
-  esac
+  IFS=$'\t' read -r is_draft is_immutable <<<"$release_record"
+  if [[ "$is_draft" == 'false' ]]; then
+    release_lookup_state='PASS'
+    release_lookup_detail="published release ${lookup_tag} exists on GitHub"
+  else
+    release_lookup_detail="release ${lookup_tag} is still a draft"
+  fi
+
+  if [[ "$is_immutable" == 'true' ]]; then
+    immutable_state='PASS'
+    immutable_detail="release ${lookup_tag} is marked immutable by GitHub"
+  else
+    immutable_state='FAIL'
+    immutable_detail="release ${lookup_tag} is not marked immutable by GitHub"
+  fi
 }
 
 verify_release_attestation() {
@@ -284,10 +237,6 @@ verify_release_attestation() {
     '.[0].verificationResult as $r | "artifact: \($r.statement.subject[0].name)\nsha256: \($r.statement.subject[0].digest.sha256)\nsigner: \($r.signature.certificate.githubWorkflowName) @ \($r.signature.certificate.sourceRepositoryRef)\nrun: \($r.signature.certificate.runInvocationURI)\ntlog: \($r.verifiedTimestamps[0].timestamp)"'
   )
 
-  if [[ "$github_host" != 'github.com' ]]; then
-    gh_args+=(--hostname "$github_host")
-  fi
-
   if attestation_output="$(gh "${gh_args[@]}" 2>&1)"; then
     emit_result PASS 'Artifact attestation is valid' 'verified GitHub Actions provenance'
     printf '%s\n' "$attestation_output" | indent_lines
@@ -321,7 +270,6 @@ verify_release_commit_signature() {
 
 tag=''
 sha=''
-github_host=''
 github_owner=''
 github_repo=''
 overall_failed=0
