@@ -6,7 +6,6 @@ import { describe, expect, it } from 'vitest';
 import { type CommandResult, type ReleaseRuntime } from './release/command.js';
 import { runReleaseCli } from './release.js';
 import { usage } from './release/cli.js';
-import { GITHUB_COMMIT_SIGNATURE_QUERY } from './release/github.js';
 
 function result(stdout = '', status = 0): CommandResult {
   return { status, stderr: '', stdout };
@@ -46,23 +45,12 @@ function createRuntime(responses: ReadonlyMap<string, CommandResult[]>): {
 const releaseSha = 'babecafebabecafebabecafebabecafebabecafe';
 
 function commitSignatureCommand(sha: string): string {
-  return [
-    'gh',
-    'api',
-    'graphql',
-    '-f',
-    `query=${GITHUB_COMMIT_SIGNATURE_QUERY}`,
-    '-f',
-    'owner=thekbb',
-    '-f',
-    'name=expand-aws-iam-wildcards',
-    '-f',
-    `oid=${sha}`,
-  ].join(' ');
+  return `bash scripts/verify-github-commit.sh thekbb/expand-aws-iam-wildcards ${sha}`;
 }
 
 function continueResponses({
   changelog = '## [1.3.0] - 2026-07-06\n\n[1.3.0]: https://example.test/compare/v1.2.7...v1.3.0\n',
+  commitSignatureValid = true,
   draftReleaseExists = false,
   immutableReleaseAfterVerify = true,
   localTagCommit,
@@ -76,6 +64,7 @@ function continueResponses({
   versionTagSignatureValid = true,
 }: {
   changelog?: string;
+  commitSignatureValid?: boolean;
   draftReleaseExists?: boolean;
   immutableReleaseAfterVerify?: boolean;
   localTagCommit?: string;
@@ -114,23 +103,7 @@ function continueResponses({
     [`git merge-base --is-ancestor ${releaseSha} origin/main`, [result()]],
     [
       commitSignatureCommand(releaseSha),
-      [result(JSON.stringify({
-        data: {
-          repository: {
-            object: {
-              oid: releaseSha,
-              signature: {
-                __typename: 'GpgSignature',
-                isValid: true,
-                keyId: 'B5690EEEBB952194',
-                signer: { login: 'web-flow' },
-                state: 'VALID',
-                wasSignedByGitHub: true,
-              },
-            },
-          },
-        },
-      }))],
+      [commitSignatureValid ? result() : result('', 1)],
     ],
     [`git show ${releaseSha}:package.json`, [result(`{"version":"${packageVersion}"}`)]],
     [`git show ${releaseSha}:package-lock.json`, [result(`{"version":"${lockfileVersion}"}`)]],
@@ -656,6 +629,26 @@ describe('runReleaseCli', () => {
     expect(output.join('\n')).toContain(
       `full SHA:  thekbb/expand-aws-iam-wildcards@${releaseSha}`,
     );
+  });
+
+  it('does not create a release tag when commit signature verification fails', () => {
+    const errors: string[] = [];
+    const { calls, runtime } = createRuntime(
+      continueResponses({ commitSignatureValid: false }),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0', '--continue'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual([
+      `error: ${commitSignatureCommand(releaseSha)} failed: exit status 1`,
+    ]);
+    expect(calls).not.toContain(`git tag -s v1.3.0 ${releaseSha} -m v1.3.0`);
   });
 
   it('continues a release when the version tag and immutable release already exist', () => {

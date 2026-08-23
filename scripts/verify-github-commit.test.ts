@@ -12,7 +12,12 @@ function verify(record: string, repository = 'thekbb/expand-aws-iam-wildcards', 
   const fixture = mkdtempSync(join(tmpdir(), 'github-commit-verifier-'));
   try {
     const fakeGh = join(fixture, 'gh');
-    writeFileSync(fakeGh, '#!/usr/bin/env bash\nprintf \'%s\\n\' "$SIGNATURE_RECORD"\n');
+    writeFileSync(fakeGh, [
+      '#!/usr/bin/env bash',
+      '[[ "$1" == api && "$2" == --hostname && "$3" == github.com && "$4" == graphql ]] || exit 64',
+      'printf \'%s\\n\' "$SIGNATURE_RECORD"',
+      '',
+    ].join('\n'));
     chmodSync(fakeGh, 0o755);
 
     return spawnSync('bash', [verifier, repository, commit], {
