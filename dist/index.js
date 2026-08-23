@@ -28840,6 +28840,9 @@ __webpack_unused_export__ = defaultContentType
 /******/ }
 /******/ 
 /************************************************************************/
+/******/ /* webpack/runtime/asset-relocator-loader */
+/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = decodeURIComponent(new URL('.', import.meta.url).pathname).slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
+/******/ 
 /******/ /* webpack/runtime/define property getters */
 /******/ (() => {
 /******/ 	// define getter functions for harmony exports
@@ -28867,10 +28870,6 @@ __webpack_unused_export__ = defaultContentType
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 	};
 /******/ })();
-/******/ 
-/******/ /* webpack/runtime/compat */
-/******/ 
-/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
@@ -35926,479 +35925,1029 @@ function getOctokit(token, options, ...additionalPlugins) {
     return new GitHubWithPlugins(getOctokitOptions(token, options));
 }
 //# sourceMappingURL=github.js.map
-;// CONCATENATED MODULE: ./src/service-doc-slugs.ts
+// EXTERNAL MODULE: external "node:buffer"
+var external_node_buffer_ = __nccwpck_require__(4573);
+;// CONCATENATED MODULE: ./.build/workspace/src/comment-identity.ts
+const COMMENT_MARKER_VERSION = 1;
+const CURRENT_COMMENT_MARKER = '<!-- expand-aws-iam-wildcards:review-comment:v1 -->';
+// TODO(v2): Rename this to COMMENT_HEADING when legacy body matching is removed.
+const comment_identity_LEGACY_COMMENT_HEADING = '**IAM Wildcard Expansion**';
+const COMMENT_MARKER_NAMESPACE = 'expand-aws-iam-wildcards:review-comment:';
+const COMMENT_MARKER_PATTERN = /^<!-- expand-aws-iam-wildcards:review-comment:v([1-9][0-9]*) -->$/;
+function getCommentMarkerState(body) {
+    const markerLines = body
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter((line) => line.includes(COMMENT_MARKER_NAMESPACE));
+    if (markerLines.length === 0)
+        return { kind: 'none' };
+    if (markerLines.length !== 1)
+        return { kind: 'invalid' };
+    const match = COMMENT_MARKER_PATTERN.exec(markerLines.join(''));
+    const version = Number(match?.[1]);
+    return match && Number.isSafeInteger(version)
+        ? { kind: 'valid', version }
+        : { kind: 'invalid' };
+}
+function getCommentMarkerVersion(body) {
+    const marker = getCommentMarkerState(body);
+    return marker.kind === 'valid' ? marker.version : null;
+}
+// TODO(v2): Remove this helper, its migration fixtures, and the related legacy
+// documentation after supported v1 comments have had time to gain a marker.
+function hasLegacyCommentShape(body) {
+    if (getCommentMarkerState(body).kind !== 'none')
+        return false;
+    const normalizedBody = body.replaceAll('\r\n', '\n');
+    const content = normalizedBody.slice(`${comment_identity_LEGACY_COMMENT_HEADING}\n\n`.length);
+    if (!normalizedBody.startsWith(`${comment_identity_LEGACY_COMMENT_HEADING}\n\n`))
+        return false;
+    return /^`[^`\n]+` expands to [1-9][0-9]* action\(s\):(?:\n|$)/.test(content)
+        || /^[1-9][0-9]* wildcard patterns expand to [1-9][0-9]* action\(s\):(?:\n|$)/.test(content)
+        || content === 'Expanded actions were omitted from this comment to stay within GitHub limits.'
+        || /^Expanded actions were omitted from this comment to stay within GitHub limits\. The full expanded list is in the \[workflow run logs\]\([^)\n]+\)\.$/.test(content);
+}
+function hasCurrentCommentMarker(body) {
+    return getCommentMarkerVersion(body) === COMMENT_MARKER_VERSION;
+}
+function withCurrentCommentMarker(body) {
+    return hasCurrentCommentMarker(body)
+        ? body
+        : `${body}\n\n${CURRENT_COMMENT_MARKER}`;
+}
+
+;// CONCATENATED MODULE: ./.build/workspace/src/service-doc-slugs.ts
 // Auto-generated - do not edit
 // Run: npm run generate-iam-data
 const SERVICE_DOC_SLUGS = {
-    "a2c": "awsapp2container",
-    "a4b": "alexaforbusiness",
-    "access-analyzer": "awsiamaccessanalyzer",
-    "account": "awsaccountmanagement",
-    "account-access": "accountaccessmanager",
-    "acm": "awscertificatemanager",
-    "acm-pca": "awsprivatecertificateauthority",
-    "aco-automation": "awscomputeoptimizerautomation",
-    "action-recommendations": "awsactionrecommendations",
-    "activate": "awsactivate",
-    "agent-registry": "awsagentregistry",
-    "agentaccess-mcp": "amazonworkspacesagentaccessmcpserver",
-    "aidevops": "awsdevopsagentservice",
-    "aiops": "amazonaioperations",
-    "airflow": "amazonmanagedworkflowsforapacheairflow",
-    "airflow-serverless": "awsmwaaserverless",
-    "amplify": "awsamplify",
-    "amplifybackend": "awsamplifyadmin",
-    "amplifyuibuilder": "awsamplifyuibuilder",
-    "aoss": "amazonopensearchserverless",
-    "apigateway": "amazonapigateway",
-    "app-integrations": "amazonappintegrations",
-    "appconfig": "awsappconfig",
-    "appfabric": "awsappfabric",
-    "appflow": "amazonappflow",
-    "application-autoscaling": "applicationautoscaling",
-    "application-signals": "amazoncloudwatchapplicationsignals",
-    "application-signals-mcp": "amazoncloudwatchapplicationsignalsmcpserver",
-    "application-transformation": "awsapplicationtransformationservice",
-    "applicationinsights": "amazoncloudwatchapplicationinsights",
-    "appmesh": "awsappmesh",
-    "appmesh-preview": "awsappmeshpreview",
-    "apprunner": "awsapprunner",
-    "appstream": "amazonappstream20",
-    "appstudio": "awsappstudio",
-    "appsync": "awsappsync",
-    "apptest": "awsmainframemodernizationapplicationtesting",
-    "aps": "amazonmanagedserviceforprometheus",
-    "arc-region-switch": "amazonarcregionswitch",
-    "arc-zonal-shift": "amazonapplicationrecoverycontrollerzonalshift",
-    "arsenal": "applicationdiscoveryarsenal",
-    "artifact": "awsartifact",
-    "athena": "amazonathena",
-    "auditmanager": "awsauditmanager",
-    "autoscaling": "amazonec2autoscaling",
-    "autoscaling-plans": "awsautoscaling",
-    "aws-external-anthropic": "claudeplatformonaws",
-    "aws-marketplace": "awsmarketplacecatalog",
-    "aws-marketplace-management": "awsmarketplacemanagementportal",
-    "aws-portal": "awsbillingconsole",
-    "awsconnector": "awsconnectorservice",
-    "b2bi": "awsb2bdatainterchange",
-    "backup": "awsbackup",
-    "backup-gateway": "awsbackupgateway",
-    "backup-search": "awsbackupsearch",
-    "backup-storage": "awsbackupstorage",
-    "batch": "awsbatch",
-    "bcm-dashboards": "awsbillingandcostmanagementdashboards",
-    "bcm-data-exports": "awsbillingandcostmanagementdataexports",
-    "bcm-pricing-calculator": "awsbillingandcostmanagementpricingcalculator",
-    "bcm-recommended-actions": "awsbillingandcostmanagementrecommendedactions",
-    "bedrock": "amazonbedrock",
-    "bedrock-agentcore": "amazonbedrockagentcore",
-    "bedrock-mantle": "amazonbedrockpoweredbyawsmantle",
-    "bedrock-websearch": "amazonbedrockwebsearch",
-    "billing": "awsbilling",
-    "billingconductor": "awsbillingconductor",
-    "braket": "amazonbraket",
-    "budgets": "awsbudgetservice",
-    "bugbust": "awsbugbust",
-    "cases": "amazonconnectcases",
-    "cassandra": "amazonkeyspacesforapachecassandra",
-    "ce": "awscostexplorerservice",
-    "chatbot": "awschatbot",
-    "chime": "amazonchime",
-    "cleanrooms": "awscleanrooms",
-    "cleanrooms-ml": "awscleanroomsml",
-    "cloud9": "awscloud9",
-    "clouddirectory": "amazonclouddirectory",
-    "cloudformation": "awscloudformation",
-    "cloudfront": "amazoncloudfront",
-    "cloudfront-keyvaluestore": "amazoncloudfrontkeyvaluestore",
-    "cloudhsm": "awscloudhsm",
-    "cloudsearch": "amazoncloudsearch",
-    "cloudshell": "awscloudshell",
-    "cloudtrail": "awscloudtrail",
-    "cloudtrail-data": "awscloudtraildata",
-    "cloudwatch": "amazoncloudwatch",
-    "codeartifact": "awscodeartifact",
-    "codebuild": "awscodebuild",
-    "codecatalyst": "amazoncodecatalyst",
-    "codecommit": "awscodecommit",
-    "codeconnections": "awscodeconnections",
-    "codedeploy": "awscodedeploy",
-    "codedeploy-commands-secure": "awscodedeploysecurehostcommandsservice",
-    "codeguru": "amazoncodeguru",
-    "codeguru-profiler": "amazoncodeguruprofiler",
-    "codeguru-reviewer": "amazoncodegurureviewer",
-    "codeguru-security": "amazoncodegurusecurity",
-    "codepipeline": "awscodepipeline",
-    "codestar": "awscodestar",
-    "codestar-connections": "awscodestarconnections",
-    "codestar-notifications": "awscodestarnotifications",
-    "codewhisperer": "amazoncodewhisperer",
-    "cognito-identity": "amazoncognitoidentity",
-    "cognito-idp": "amazoncognitouserpools",
-    "cognito-sync": "amazoncognitosync",
-    "comprehend": "amazoncomprehend",
-    "comprehendmedical": "amazoncomprehendmedical",
-    "compute-optimizer": "awscomputeoptimizer",
-    "config": "awsconfig",
-    "connect": "amazonconnect",
-    "connect-campaigns": "amazonconnectoutboundcampaigns",
-    "consoleapp": "awsmanagementconsolemobileapp",
-    "consolidatedbilling": "awsconsolidatedbilling",
-    "controlcatalog": "awscontrolcatalog",
-    "controltower": "awscontroltower",
-    "cost-optimization-hub": "awscostoptimizationhub",
-    "cur": "awscostandusagereport",
-    "customer-verification": "awscustomerverificationservice",
-    "databrew": "awsgluedatabrew",
-    "dataexchange": "awsdataexchange",
-    "datapipeline": "awsdatapipeline",
-    "datasync": "awsdatasync",
-    "datazone": "amazondatazone",
-    "dax": "amazondynamodbacceleratordax",
-    "dbqms": "databasequerymetadataservice",
-    "deadline": "awsdeadlinecloud",
-    "detective": "amazondetective",
-    "devicefarm": "awsdevicefarm",
-    "devops-guru": "amazondevopsguru",
-    "directconnect": "awsdirectconnect",
-    "discovery": "awsapplicationdiscoveryservice",
-    "dlm": "amazondatalifecyclemanager",
-    "dms": "awsdatabasemigrationservice",
-    "docdb-elastic": "amazondocumentdbelasticclusters",
-    "drs": "awselasticdisasterrecovery",
-    "ds": "awsdirectoryservice",
-    "ds-data": "awsdirectoryservicedata",
-    "dsql": "amazonauroradsql",
-    "dynamodb": "amazondynamodb",
-    "ebs": "amazonelasticblockstore",
-    "ec2": "amazonec2",
-    "ec2-instance-connect": "amazonec2instanceconnect",
-    "ec2messages": "amazonmessagedeliveryservice",
-    "ecr": "amazonelasticcontainerregistry",
-    "ecr-public": "amazonelasticcontainerregistrypublic",
-    "ecs": "amazonelasticcontainerservice",
-    "ecs-mcp": "amazonecsmcpservice",
-    "eks": "amazonelastickubernetesservice",
-    "eks-auth": "amazoneksauth",
-    "eks-mcp": "amazoneksmcpserver",
-    "elasticache": "amazonelasticache",
-    "elasticbeanstalk": "awselasticbeanstalk",
-    "elasticfilesystem": "amazonelasticfilesystem",
-    "elasticloadbalancing": "elasticloadbalancing",
-    "elasticmapreduce": "amazonelasticmapreduce",
-    "elastictranscoder": "amazonelastictranscoder",
-    "elemental-activations": "awselementalappliancesandsoftwareactivationservice",
-    "elemental-appliances-software": "awselementalappliancesandsoftware",
-    "elemental-inference": "awselementalinference",
-    "elemental-support-cases": "awselementalsupportcases",
-    "elemental-support-content": "awselementalsupportcontent",
-    "emr-containers": "amazonemroneksemrcontainers",
-    "emr-serverless": "amazonemrserverless",
-    "entityresolution": "awsentityresolution",
-    "es": "amazonelasticsearchservice",
-    "events": "amazoneventbridge",
-    "eventsbilltoaws": "awsreinventeventpassamountchargetocustomerawsaccount",
-    "evidently": "amazoncloudwatchevidently",
-    "evs": "amazonelasticvmwareservice",
-    "execute-api": "amazonapigateway",
-    "finops-agent": "awsfinopsagent",
-    "finspace": "amazonfinspace",
-    "finspace-api": "amazonfinspaceapi",
-    "firehose": "amazonkinesisfirehose",
-    "fis": "awsfaultinjectionservice",
-    "fms": "awsfirewallmanager",
-    "forecast": "amazonforecast",
-    "frauddetector": "amazonfrauddetector",
-    "freertos": "amazonfreertos",
-    "freetier": "awsfreetier",
-    "fsx": "amazonfsx",
-    "gamelift": "amazongameliftservers",
-    "gameliftstreams": "amazongameliftstreams",
-    "geo": "amazonlocation",
-    "geo-maps": "amazonlocationservicemaps",
-    "geo-places": "amazonlocationserviceplaces",
-    "geo-routes": "amazonlocationserviceroutes",
-    "glacier": "s3glacier",
-    "globalaccelerator": "awsglobalaccelerator",
-    "glue": "awsglue",
-    "grafana": "amazonmanagedgrafana",
-    "greengrass": "awsiotgreengrassv2",
-    "groundstation": "awsgroundstation",
-    "groundtruthlabeling": "amazongroundtruthlabeling",
-    "guardduty": "amazonguardduty",
-    "health": "awshealthapisandnotifications",
-    "health-agent": "amazonconnecthealth",
-    "healthlake": "awshealthlake",
-    "honeycode": "amazonhoneycode",
-    "iam": "awsidentityandaccessmanagementiam",
-    "identity-sync": "awsidentitysync",
-    "identitystore": "awsidentitystore",
-    "identitystore-auth": "awsidentitystoreauth",
-    "imagebuilder": "amazonec2imagebuilder",
-    "importexport": "awsimportexportdiskservice",
-    "inspector": "amazoninspector",
-    "inspector-scan": "amazoninspectorscan",
-    "inspector2": "amazoninspector2",
-    "inspector2-telemetry": "amazoninspector2telemetrychannel",
-    "interconnect": "awsinterconnect",
-    "internetmonitor": "amazoncloudwatchinternetmonitor",
-    "invoicing": "awsinvoicingservice",
-    "iot": "awsiot",
-    "iot-device-tester": "awsiotdevicetester",
-    "iotanalytics": "awsiotanalytics",
-    "iotdeviceadvisor": "awsiotcoredeviceadvisor",
-    "iotevents": "awsiotevents",
-    "iotfleethub": "awsiotfleethubfordevicemanagement",
-    "iotfleetwise": "awsiotfleetwise",
-    "iotjobsdata": "awsiotjobsdataplane",
-    "iotmanagedintegrations": "awsiotmanagedintegrations",
-    "iotsitewise": "awsiotsitewise",
-    "iottwinmaker": "awsiottwinmaker",
-    "iotwireless": "awsiotwireless",
-    "iq": "awsiq",
-    "iq-permission": "awsiqpermissions",
-    "ivs": "amazoninteractivevideoservice",
-    "ivschat": "amazoninteractivevideoservicechat",
-    "kafka": "amazonmanagedstreamingforapachekafka",
-    "kafka-cluster": "apachekafkaapisforamazonmskclusters",
-    "kafkaconnect": "amazonmanagedstreamingforkafkaconnect",
-    "kendra": "amazonkendra",
-    "kendra-ranking": "amazonkendraintelligentranking",
-    "kinesis": "amazonkinesis",
-    "kinesisanalytics": "amazonkinesisanalyticsv2",
-    "kinesisvideo": "amazonkinesisvideostreams",
-    "kms": "awskeymanagementservice",
-    "lakeformation": "awslakeformation",
-    "lambda": "awslambda",
-    "launchwizard": "awslaunchwizard",
-    "lex": "amazonlexv2",
-    "license-manager": "awslicensemanager",
-    "license-manager-linux-subscriptions": "awslicensemanagerlinuxsubscriptionsmanager",
-    "license-manager-user-subscriptions": "awslicensemanagerusersubscriptions",
-    "lightsail": "amazonlightsail",
-    "logs": "amazoncloudwatchlogs",
-    "lookoutequipment": "amazonlookoutforequipment",
-    "lookoutmetrics": "amazonlookoutformetrics",
-    "lookoutvision": "amazonlookoutforvision",
-    "m2": "awsmainframemodernizationservice",
-    "machinelearning": "amazonmachinelearning",
-    "macie2": "amazonmacie",
-    "managedblockchain": "amazonmanagedblockchain",
-    "managedblockchain-query": "amazonmanagedblockchainquery",
-    "mapcredits": "awsmigrationaccelerationprogramcredits",
-    "marketplacecommerceanalytics": "awsmarketplacecommerceanalyticsservice",
-    "mechanicalturk": "amazonmechanicalturk",
-    "mediaconnect": "awselementalmediaconnect",
-    "mediaconvert": "awselementalmediaconvert",
-    "mediaimport": "amazonmediaimport",
-    "medialive": "awselementalmedialive",
-    "mediapackage": "awselementalmediapackage",
-    "mediapackage-vod": "awselementalmediapackagevod",
-    "mediapackagev2": "awselementalmediapackagev2",
-    "mediastore": "awselementalmediastore",
-    "mediatailor": "awselementalmediatailor",
-    "medical-imaging": "awshealthimaging",
-    "memorydb": "amazonmemorydb",
-    "mgh": "awsmigrationhub",
-    "mgn": "awsapplicationmigrationservice",
-    "migrationhub-orchestrator": "awsmigrationhuborchestrator",
-    "migrationhub-strategy": "awsmigrationhubstrategyrecommendations",
-    "mobileanalytics": "amazonmobileanalytics",
-    "mobiletargeting": "amazonpinpoint",
-    "monitron": "amazonmonitron",
-    "mpa": "multipartyapproval",
-    "mq": "amazonmq",
-    "neptune-db": "amazonneptune",
-    "neptune-graph": "amazonneptuneanalytics",
-    "network-firewall": "awsnetworkfirewall",
-    "network-security-director": "awsshieldnetworksecuritydirector",
+    "a2c": "a2c",
+    "a4b": "a4b",
+    "access-analyzer": "accessanalyzer",
+    "account": "account",
+    "account-access": "account-access",
+    "acm": "acm",
+    "acm-pca": "acm-pca",
+    "aco-automation": "compute-optimizer-automation",
+    "action-recommendations": "action-recommendations",
+    "activate": "activate",
+    "agent-registry": "agent-registry",
+    "agentaccess-mcp": "agentaccess-mcp",
+    "aidevops": "devops-agent",
+    "aiops": "aiops",
+    "airflow": "mwaa",
+    "airflow-serverless": "mwaa-serverless",
+    "amplify": "amplify",
+    "amplifybackend": "amplifybackend",
+    "amplifyuibuilder": "amplifyuibuilder",
+    "aoss": "opensearchserverless",
+    "apigateway": "apigatewayv2",
+    "app-integrations": "appintegrations",
+    "appconfig": "appconfig",
+    "appfabric": "appfabric",
+    "appflow": "appflow",
+    "application-autoscaling": "application-autoscaling",
+    "application-signals": "application-signals",
+    "application-signals-mcp": "application-signals-mcp",
+    "application-transformation": "application-transformation",
+    "applicationinsights": "application-insights",
+    "appmesh": "appmesh",
+    "appmesh-preview": "appmesh-preview",
+    "apprunner": "apprunner",
+    "appstream": "appstream",
+    "appstudio": "appstudio",
+    "appsync": "appsync",
+    "apptest": "apptest",
+    "aps": "amp",
+    "arc-region-switch": "arc-region-switch",
+    "arc-zonal-shift": "arc-zonal-shift",
+    "arsenal": "arsenal",
+    "artifact": "artifact",
+    "athena": "athena",
+    "auditmanager": "auditmanager",
+    "autoscaling": "autoscaling",
+    "autoscaling-plans": "autoscaling-plans",
+    "aws-external-anthropic": "aws-external-anthropic",
+    "aws-marketplace": "marketplace-catalog",
+    "aws-marketplace-management": "aws-marketplace-management",
+    "aws-portal": "aws-portal",
+    "awsconnector": "awsconnector",
+    "b2bi": "b2bi",
+    "backup": "backup",
+    "backup-gateway": "backup-gateway",
+    "backup-search": "backupsearch",
+    "backup-storage": "backup-storage",
+    "batch": "batch",
+    "bcm-dashboards": "bcm-dashboards",
+    "bcm-data-exports": "bcm-data-exports",
+    "bcm-pricing-calculator": "bcm-pricing-calculator",
+    "bcm-recommended-actions": "bcm-recommended-actions",
+    "bedrock": "bedrock",
+    "bedrock-agentcore": "bedrock-agentcore",
+    "bedrock-mantle": "bedrock-mantle",
+    "bedrock-websearch": "bedrock-websearch",
+    "billing": "billing",
+    "billingconductor": "billingconductor",
+    "braket": "braket",
+    "budgets": "budgets",
+    "bugbust": "bugbust",
+    "cases": "connectcases",
+    "cassandra": "keyspaces",
+    "ce": "ce",
+    "chatbot": "chatbot",
+    "chime": "chime",
+    "cleanrooms": "cleanrooms",
+    "cleanrooms-ml": "cleanroomsml",
+    "cloud9": "cloud9",
+    "clouddirectory": "clouddirectory",
+    "cloudformation": "cloudcontrol",
+    "cloudfront": "cloudfront",
+    "cloudfront-keyvaluestore": "cloudfront-keyvaluestore",
+    "cloudhsm": "cloudhsm",
+    "cloudsearch": "cloudsearch",
+    "cloudshell": "cloudshell",
+    "cloudtrail": "cloudtrail",
+    "cloudtrail-data": "cloudtrail-data",
+    "cloudwatch": "cloudwatch",
+    "codeartifact": "codeartifact",
+    "codebuild": "codebuild",
+    "codecatalyst": "codecatalyst",
+    "codecommit": "codecommit",
+    "codeconnections": "codeconnections",
+    "codedeploy": "codedeploy",
+    "codedeploy-commands-secure": "codedeploy-commands-secure",
+    "codeguru": "codeguru",
+    "codeguru-profiler": "codeguruprofiler",
+    "codeguru-reviewer": "codeguru-reviewer",
+    "codeguru-security": "codeguru-security",
+    "codepipeline": "codepipeline",
+    "codestar": "codestar",
+    "codestar-connections": "codestar-connections",
+    "codestar-notifications": "codestar-notifications",
+    "codewhisperer": "codewhisperer",
+    "cognito-identity": "cognito-identity",
+    "cognito-idp": "cognito-idp",
+    "cognito-sync": "cognito-sync",
+    "comprehend": "comprehend",
+    "comprehendmedical": "comprehendmedical",
+    "compute-optimizer": "compute-optimizer",
+    "config": "config",
+    "connect": "connect",
+    "connect-campaigns": "connect-outbound-campaigns",
+    "consoleapp": "consoleapp",
+    "consolidatedbilling": "consolidatedbilling",
+    "controlcatalog": "controlcatalog",
+    "controltower": "controltower",
+    "cost-optimization-hub": "cost-optimization-hub",
+    "cur": "cur",
+    "customer-verification": "customer-verification",
+    "databrew": "databrew",
+    "dataexchange": "dataexchange",
+    "datapipeline": "datapipeline",
+    "datasync": "datasync",
+    "datazone": "datazone",
+    "dax": "dax",
+    "dbqms": "dbqms",
+    "deadline": "deadline",
+    "detective": "detective",
+    "devicefarm": "devicefarm",
+    "devops-guru": "devops-guru",
+    "directconnect": "directconnect",
+    "discovery": "discovery",
+    "dlm": "dlm",
+    "dms": "dms",
+    "docdb-elastic": "docdb-elastic",
+    "drs": "drs",
+    "ds": "ds",
+    "ds-data": "ds-data",
+    "dsql": "dsql",
+    "dynamodb": "dynamodb",
+    "ebs": "ebs",
+    "ec2": "ec2",
+    "ec2-instance-connect": "ec2-instance-connect",
+    "ec2messages": "ec2messages",
+    "ecr": "ecr",
+    "ecr-public": "ecr-public",
+    "ecs": "ecs",
+    "ecs-mcp": "ecs-mcp",
+    "eks": "eks",
+    "eks-auth": "eks-auth",
+    "eks-mcp": "eks-mcp",
+    "elasticache": "elasticache",
+    "elasticbeanstalk": "elasticbeanstalk",
+    "elasticfilesystem": "efs",
+    "elasticloadbalancing": "elbv2",
+    "elasticmapreduce": "emr",
+    "elastictranscoder": "elastictranscoder",
+    "elemental-activations": "elemental-activations",
+    "elemental-appliances-software": "elemental-appliances-software",
+    "elemental-inference": "elementalinference",
+    "elemental-support-cases": "elemental-support-cases",
+    "elemental-support-content": "elemental-support-content",
+    "emr-containers": "emr-containers",
+    "emr-serverless": "emr-serverless",
+    "entityresolution": "entityresolution",
+    "es": "es",
+    "events": "events",
+    "eventsbilltoaws": "eventsbilltoaws",
+    "evidently": "evidently",
+    "evs": "evs",
+    "execute-api": "apigatewaymanagementapi",
+    "finops-agent": "finops-agent",
+    "finspace": "finspace",
+    "finspace-api": "finspace-data",
+    "firehose": "firehose",
+    "fis": "fis",
+    "fms": "fms",
+    "forecast": "forecast",
+    "frauddetector": "frauddetector",
+    "freertos": "freertos",
+    "freetier": "freetier",
+    "fsx": "fsx",
+    "gamelift": "gamelift",
+    "gameliftstreams": "gameliftstreams",
+    "geo": "location",
+    "geo-maps": "geo-maps",
+    "geo-places": "geo-places",
+    "geo-routes": "geo-routes",
+    "glacier": "glacier",
+    "globalaccelerator": "globalaccelerator",
+    "glue": "glue",
+    "grafana": "grafana",
+    "greengrass": "greengrassv2",
+    "groundstation": "groundstation",
+    "groundtruthlabeling": "groundtruthlabeling",
+    "guardduty": "guardduty",
+    "health": "health",
+    "health-agent": "connecthealth",
+    "healthlake": "healthlake",
+    "honeycode": "honeycode",
+    "iam": "iam",
+    "identity-sync": "identity-sync",
+    "identitystore": "identitystore",
+    "identitystore-auth": "identitystore-auth",
+    "imagebuilder": "imagebuilder",
+    "importexport": "importexport",
+    "inspector": "inspector",
+    "inspector-scan": "inspector-scan",
+    "inspector2": "inspector2",
+    "inspector2-telemetry": "inspector2-telemetry",
+    "interconnect": "interconnect",
+    "internetmonitor": "internetmonitor",
+    "invoicing": "invoicing",
+    "iot": "iot",
+    "iot-device-tester": "iot-device-tester",
+    "iotanalytics": "iotanalytics",
+    "iotdeviceadvisor": "iotdeviceadvisor",
+    "iotevents": "iotevents",
+    "iotfleethub": "iotfleethub",
+    "iotfleetwise": "iotfleetwise",
+    "iotjobsdata": "iot-jobs-data",
+    "iotmanagedintegrations": "iot-managed-integrations",
+    "iotsitewise": "iotsitewise",
+    "iottwinmaker": "iottwinmaker",
+    "iotwireless": "iotwireless",
+    "iq": "iq",
+    "iq-permission": "iq-permission",
+    "ivs": "interactive-video-service",
+    "ivschat": "ivschat",
+    "kafka": "kafka",
+    "kafka-cluster": "kafka-cluster",
+    "kafkaconnect": "kafkaconnect",
+    "kendra": "kendra",
+    "kendra-ranking": "kendra-ranking",
+    "kinesis": "kinesis",
+    "kinesisanalytics": "kinesisanalyticsv2",
+    "kinesisvideo": "kinesis-video-streams",
+    "kms": "kms",
+    "lakeformation": "lakeformation",
+    "lambda": "lambda",
+    "launchwizard": "launch-wizard",
+    "lex": "lex-v2",
+    "license-manager": "license-manager",
+    "license-manager-linux-subscriptions": "license-manager-linux-subscriptions",
+    "license-manager-user-subscriptions": "license-manager-user-subscriptions",
+    "lightsail": "lightsail",
+    "logs": "logs",
+    "lookoutequipment": "lookoutequipment",
+    "lookoutmetrics": "lookoutmetrics",
+    "lookoutvision": "lookoutvision",
+    "m2": "m2",
+    "machinelearning": "machinelearning",
+    "macie2": "macie2",
+    "managedblockchain": "managedblockchain",
+    "managedblockchain-query": "managedblockchain-query",
+    "mapcredits": "mapcredits",
+    "marketplacecommerceanalytics": "marketplacecommerceanalytics",
+    "mechanicalturk": "mturk",
+    "mediaconnect": "mediaconnect",
+    "mediaconvert": "mediaconvert",
+    "mediaimport": "mediaimport",
+    "medialive": "medialive",
+    "mediapackage": "mediapackage",
+    "mediapackage-vod": "mediapackage-vod",
+    "mediapackagev2": "mediapackagev2",
+    "mediastore": "mediastore",
+    "mediatailor": "mediatailor",
+    "medical-imaging": "medical-imaging",
+    "memorydb": "memorydb",
+    "mgh": "migration-hub",
+    "mgn": "mgn",
+    "migrationhub-orchestrator": "migrationhuborchestrator",
+    "migrationhub-strategy": "migrationhubstrategy",
+    "mobileanalytics": "mobileanalytics",
+    "mobiletargeting": "pinpoint",
+    "monitron": "monitron",
+    "mpa": "mpa",
+    "mq": "mq",
+    "neptune-db": "neptunedata",
+    "neptune-graph": "neptune-graph",
+    "network-firewall": "network-firewall",
+    "network-security-director": "network-security-director",
     "networkflowmonitor": "networkflowmonitor",
-    "networkmanager": "awsnetworkmanager",
-    "networkmanager-chat": "awsnetworkmanagerchat",
-    "networkmonitor": "amazoncloudwatchnetworksyntheticmonitor",
-    "nimble": "amazonnimblestudio",
-    "notifications": "awsusernotifications",
-    "notifications-contacts": "awsusernotificationscontacts",
-    "nova-act": "amazonnovaact",
-    "oam": "amazoncloudwatchobservabilityaccessmanager",
-    "observabilityadmin": "amazoncloudwatchobservabilityadminservice",
-    "odb": "awsserviceoracledatabaseaws",
-    "omics": "awshealthomics",
-    "one": "amazononeenterprise",
-    "opensearch": "amazonopensearchservice",
-    "opsworks": "awsopsworks",
-    "opsworks-cm": "awsopsworksconfigurationmanagement",
-    "organizations": "awsorganizations",
-    "osis": "amazonopensearchingestion",
-    "outposts": "awsoutposts",
-    "panorama": "awspanorama",
-    "partnercentral": "awspartnercentral",
-    "partnercentral-account-management": "awspartnercentralaccountmanagement",
-    "payment-cryptography": "awspaymentcryptography",
-    "payments": "awspayments",
-    "pca-connector-ad": "awsprivatecaconnectorforactivedirectory",
-    "pca-connector-scep": "awsprivatecaconnectorforscep",
-    "pcs": "awsparallelcomputingservice",
-    "personalize": "amazonpersonalize",
-    "pi": "awsperformanceinsights",
-    "pipes": "amazoneventbridgepipes",
-    "polly": "amazonpolly",
-    "pricing": "awspricelistservice",
-    "pricingplanmanager": "awspricingplanmanagerservice",
-    "private-networks": "awsserviceprovidingmanagedprivatenetworks",
-    "profile": "amazonconnectcustomerprofiles",
-    "proton": "awsproton",
-    "purchase-orders": "awspurchaseordersconsole",
-    "q": "amazonq",
-    "qapps": "amazonqbusinessqapps",
-    "qbusiness": "amazonqbusiness",
-    "qdeveloper": "amazonqdeveloper",
-    "qldb": "amazonqldb",
-    "quicksight": "amazonquicksight",
-    "ram": "awsresourceaccessmanagerram",
-    "rbin": "awsrecyclebin",
-    "rds": "amazonrds",
-    "rds-data": "amazonrdsdataapi",
-    "rds-db": "amazonrdsiamauthentication",
-    "redshift": "amazonredshift",
-    "redshift-data": "amazonredshiftdataapi",
-    "redshift-serverless": "amazonredshiftserverless",
-    "refactor-spaces": "awsmigrationhubrefactorspaces",
-    "rekognition": "amazonrekognition",
-    "repostspace": "awsrepostprivate",
-    "researchstudio": "amazonbiodiscovery",
-    "resiliencehub": "awsresiliencehub",
-    "resource-explorer": "tageditor",
-    "resource-explorer-2": "awsresourceexplorer",
-    "resource-groups": "awsresourcegroups",
-    "rhelkb": "amazonrhelknowledgebaseportal",
-    "robomaker": "awsrobomaker",
-    "rolesanywhere": "awsidentityandaccessmanagementrolesanywhere",
-    "route53": "amazonroute53",
-    "route53-recovery-cluster": "amazonroute53recoverycluster",
-    "route53-recovery-control-config": "amazonroute53recoverycontrols",
-    "route53-recovery-readiness": "amazonroute53recoveryreadiness",
-    "route53domains": "amazonroute53domains",
-    "route53globalresolver": "awsroute53globalresolver",
-    "route53profiles": "amazonroute53profiles",
-    "route53resolver": "amazonroute53resolver",
-    "rtbfabric": "awsrtbfabric",
-    "rum": "awscloudwatchrum",
-    "s3": "amazons3",
-    "s3-object-lambda": "amazons3objectlambda",
-    "s3-outposts": "amazons3onoutposts",
-    "s3express": "amazons3express",
-    "s3files": "amazons3files",
-    "s3tables": "amazons3tables",
-    "s3vectors": "amazons3vectors",
-    "sagemaker": "amazonsagemaker",
-    "sagemaker-data-science-assistant": "amazonsagemakerdatascienceassistant",
-    "sagemaker-geospatial": "amazonsagemakergeospatialcapabilities",
-    "sagemaker-mlflow": "amazonsagemakerwithmlflow",
-    "sagemaker-unified-studio-mcp": "amazonsagemakerunifiedstudiomcp",
-    "savingsplans": "awssavingsplans",
-    "scheduler": "amazoneventbridgescheduler",
-    "schemas": "amazoneventbridgeschemas",
-    "scn": "awssupplychain",
-    "sdb": "amazonsimpledb",
-    "secretsmanager": "awssecretsmanager",
-    "security-ir": "awssecurityincidentresponse",
-    "securityagent": "awssecurityagent",
-    "securityhub": "awssecurityhub",
-    "securitylake": "amazonsecuritylake",
-    "serverlessrepo": "awsserverlessapplicationrepository",
-    "servicecatalog": "awsservicecatalog",
-    "servicediscovery": "awscloudmap",
-    "serviceextract": "awsmicroserviceextractorfornet",
-    "servicequotas": "servicequotas",
-    "ses": "amazonpinpointemailservice",
-    "shield": "awsshield",
-    "signer": "awssigner",
-    "signin": "awssignin",
-    "simspaceweaver": "awssimspaceweaver",
-    "sms": "awsservermigrationservice",
-    "sms-voice": "awsendusermessagingsmsandvoicev2",
-    "snow-device-management": "awssnowdevicemanagement",
-    "snowball": "awssnowball",
-    "sns": "amazonsns",
-    "social-messaging": "awsendusermessagingsocial",
-    "sqlworkbench": "awssqlworkbench",
-    "sqs": "amazonsqs",
-    "ssm": "awssystemsmanager",
-    "ssm-contacts": "awssystemsmanagerincidentmanagercontacts",
-    "ssm-guiconnect": "awssystemsmanagerguiconnect",
-    "ssm-incidents": "awssystemsmanagerincidentmanager",
-    "ssm-quicksetup": "awssystemsmanagerquicksetup",
-    "ssm-sap": "awssystemsmanagerforsap",
-    "ssmmessages": "amazonmessagegatewayservice",
-    "sso": "awsiamidentitycentersuccessortoawssinglesignon",
-    "sso-directory": "awsiamidentitycenterdirectory",
-    "sso-oauth": "awsiamidentitycenteroidcservice",
-    "states": "awsstepfunctions",
-    "storagegateway": "awsstoragegateway",
-    "sts": "awssecuritytokenservice",
-    "support": "awssupport",
-    "support-console": "awssupportconsole",
-    "supportapp": "awssupportappinslack",
-    "supportauthz": "awssupportauthorization",
-    "supportplans": "awssupportplans",
-    "sustainability": "awssustainability",
-    "swf": "amazonsimpleworkflowservice",
-    "synthetics": "amazoncloudwatchsynthetics",
-    "tag": "amazonresourcegrouptaggingapi",
-    "tax": "awstaxsettings",
-    "textract": "amazontextract",
-    "thinclient": "amazonworkspacesthinclient",
-    "timestream": "amazontimestream",
-    "timestream-influxdb": "amazontimestreaminfluxdb",
-    "tiros": "awstiros",
-    "tnb": "awstelconetworkbuilder",
-    "transcribe": "amazontranscribe",
-    "transfer": "awstransferfamily",
-    "transform": "awstransform",
-    "transform-custom": "awstransformcustom",
-    "translate": "amazontranslate",
-    "trustedadvisor": "awstrustedadvisor",
-    "ts": "awsdiagnostictools",
-    "user-subscriptions": "awsusersubscriptions",
-    "uxc": "awsuserexperiencecustomization",
-    "vendor-insights": "awsmarketplacevendorinsights",
-    "verified-access": "awsverifiedaccess",
-    "verifiedpermissions": "amazonverifiedpermissions",
-    "voiceid": "amazonconnectvoiceid",
-    "vpc-lattice": "amazonvpclattice",
-    "vpc-lattice-svcs": "amazonvpclatticeservices",
-    "vpce": "awsprivatelink",
-    "waf": "awswaf",
-    "waf-regional": "awswafregional",
-    "wafv2": "awswafv2",
-    "wam": "amazonworkspacesapplicationmanager",
-    "wellarchitected": "awswellarchitectedtool",
-    "wickr": "awswickr",
-    "wisdom": "amazonqinconnect",
-    "workdocs": "amazonworkdocs",
-    "worklink": "amazonworklink",
-    "workmail": "amazonworkmail",
-    "workmailmessageflow": "amazonworkmailmessageflow",
-    "workspaces": "amazonworkspaces",
-    "workspaces-instances": "awsworkspacesmanagedinstances",
-    "workspaces-web": "amazonworkspacessecurebrowser",
-    "xray": "awsxray"
+    "networkmanager": "networkmanager",
+    "networkmanager-chat": "networkmanager-chat",
+    "networkmonitor": "networkmonitor",
+    "nimble": "nimble",
+    "notifications": "notifications",
+    "notifications-contacts": "notificationscontacts",
+    "nova-act": "nova-act",
+    "oam": "oam",
+    "observabilityadmin": "observabilityadmin",
+    "odb": "odb",
+    "omics": "omics",
+    "one": "one",
+    "opensearch": "opensearch",
+    "opsworks": "opsworks",
+    "opsworks-cm": "opsworks-cm",
+    "organizations": "organizations",
+    "osis": "osis",
+    "outposts": "outposts",
+    "panorama": "panorama",
+    "partnercentral": "partner-central",
+    "partnercentral-account-management": "partnercentral-account-management",
+    "payment-cryptography": "payment-cryptography",
+    "payments": "payments",
+    "pca-connector-ad": "pca-connector-ad",
+    "pca-connector-scep": "pca-connector-scep",
+    "pcs": "pcs",
+    "personalize": "personalize",
+    "pi": "pi",
+    "pipes": "pipes",
+    "polly": "polly",
+    "pricing": "pricing",
+    "pricingplanmanager": "pricing-plan-manager",
+    "private-networks": "private-networks",
+    "profile": "customer-profiles",
+    "proton": "proton",
+    "purchase-orders": "purchase-orders",
+    "q": "q",
+    "qapps": "qapps",
+    "qbusiness": "qbusiness",
+    "qdeveloper": "qdeveloper",
+    "qldb": "qldb",
+    "quicksight": "quicksight",
+    "ram": "ram",
+    "rbin": "rbin",
+    "rds": "rds",
+    "rds-data": "rds-data",
+    "rds-db": "rds-db",
+    "redshift": "redshift",
+    "redshift-data": "redshift-data",
+    "redshift-serverless": "redshift-serverless",
+    "refactor-spaces": "migration-hub-refactor-spaces",
+    "rekognition": "rekognition",
+    "repostspace": "repostspace",
+    "researchstudio": "researchstudio",
+    "resiliencehub": "resilience-hub",
+    "resource-explorer": "resource-explorer",
+    "resource-explorer-2": "resource-explorer-2",
+    "resource-groups": "resource-groups",
+    "rhelkb": "rhelkb",
+    "robomaker": "robomaker",
+    "rolesanywhere": "rolesanywhere",
+    "route53": "route53",
+    "route53-recovery-cluster": "route53-recovery-cluster",
+    "route53-recovery-control-config": "route53-recovery-control-config",
+    "route53-recovery-readiness": "route53-recovery-readiness",
+    "route53domains": "route53domains",
+    "route53globalresolver": "route53globalresolver",
+    "route53profiles": "route53profiles",
+    "route53resolver": "route53resolver",
+    "rtbfabric": "rtbfabric",
+    "rum": "rum",
+    "s3": "s3",
+    "s3-object-lambda": "s3-object-lambda",
+    "s3-outposts": "s3outposts",
+    "s3express": "s3express",
+    "s3files": "s3files",
+    "s3tables": "s3tables",
+    "s3vectors": "s3vectors",
+    "sagemaker": "sagemaker",
+    "sagemaker-data-science-assistant": "sagemaker-data-science-assistant",
+    "sagemaker-geospatial": "sagemaker-geospatial",
+    "sagemaker-mlflow": "sagemaker-mlflow",
+    "sagemaker-unified-studio-mcp": "sagemaker-unified-studio-mcp",
+    "savingsplans": "savingsplans",
+    "scheduler": "scheduler",
+    "schemas": "schemas",
+    "scn": "supplychain",
+    "sdb": "simpledb",
+    "secretsmanager": "secretsmanager",
+    "security-ir": "security-ir",
+    "securityagent": "securityagent",
+    "securityhub": "securityhub",
+    "securitylake": "securitylake",
+    "serverlessrepo": "serverlessrepo",
+    "servicecatalog": "service-catalog",
+    "servicediscovery": "servicediscovery",
+    "serviceextract": "serviceextract",
+    "servicequotas": "service-quotas",
+    "ses": "pinpoint-email",
+    "shield": "shield",
+    "signer": "signer",
+    "signin": "signin",
+    "simspaceweaver": "simspaceweaver",
+    "sms": "sms",
+    "sms-voice": "pinpoint-sms-voice-v2",
+    "snow-device-management": "snow-device-management",
+    "snowball": "snowball",
+    "sns": "sns",
+    "social-messaging": "socialmessaging",
+    "sqlworkbench": "sqlworkbench",
+    "sqs": "sqs",
+    "ssm": "ssm",
+    "ssm-contacts": "ssm-contacts",
+    "ssm-guiconnect": "ssm-guiconnect",
+    "ssm-incidents": "ssm-incidents",
+    "ssm-quicksetup": "ssm-quicksetup",
+    "ssm-sap": "ssm-sap",
+    "ssmmessages": "ssmmessages",
+    "sso": "iam-identity-center",
+    "sso-directory": "sso-directory",
+    "sso-oauth": "sso-oidc",
+    "states": "stepfunctions",
+    "storagegateway": "storagegateway",
+    "sts": "sts",
+    "support": "support",
+    "support-console": "support-console",
+    "supportapp": "support-app",
+    "supportauthz": "supportauthz",
+    "supportplans": "supportplans",
+    "sustainability": "sustainability",
+    "swf": "swf",
+    "synthetics": "synthetics",
+    "tag": "resourcegroupstaggingapi",
+    "tax": "taxsettings",
+    "textract": "textract",
+    "thinclient": "workspaces-thin-client",
+    "timestream": "timestream",
+    "timestream-influxdb": "timestream-influxdb",
+    "tiros": "tiros",
+    "tnb": "tnb",
+    "transcribe": "transcribe",
+    "transfer": "transfer",
+    "transform": "transform",
+    "transform-custom": "transform-custom",
+    "translate": "translate",
+    "trustedadvisor": "trustedadvisor",
+    "ts": "ts",
+    "user-subscriptions": "user-subscriptions",
+    "uxc": "uxc",
+    "vendor-insights": "vendor-insights",
+    "verified-access": "verified-access",
+    "verifiedpermissions": "verifiedpermissions",
+    "voiceid": "voice-id",
+    "vpc-lattice": "vpc-lattice",
+    "vpc-lattice-svcs": "vpc-lattice-svcs",
+    "vpce": "vpce",
+    "waf": "waf",
+    "waf-regional": "waf-regional",
+    "wafv2": "wafv2",
+    "wam": "wam",
+    "wellarchitected": "wellarchitected",
+    "wickr": "wickr",
+    "wisdom": "q-in-connect",
+    "workdocs": "workdocs",
+    "worklink": "worklink",
+    "workmail": "workmail",
+    "workmailmessageflow": "workmailmessageflow",
+    "workspaces": "workspaces",
+    "workspaces-instances": "workspaces-instances",
+    "workspaces-web": "workspaces-web",
+    "xray": "xray"
+};
+const ACTION_DOC_SLUGS = {
+    "apigateway:AddCertificateToDomain": "apigateway",
+    "apigateway:CreateAccessAssociation": "apigateway",
+    "apigateway:RejectAccessAssociation": "apigateway",
+    "apigateway:RemoveCertificateFromDomain": "apigateway",
+    "apigateway:SetWebACL": "apigateway",
+    "apigateway:UpdateDomainNameManagementPolicy": "apigateway",
+    "apigateway:UpdateDomainNamePolicy": "apigateway",
+    "apigateway:UpdateRestApiPolicy": "apigateway",
+    "aws-marketplace:AcceptAgreementApprovalRequest": "marketplace-agreement",
+    "aws-marketplace:AcceptAgreementCancellationRequest": "marketplace-agreement",
+    "aws-marketplace:AcceptAgreementPaymentRequest": "marketplace-agreement",
+    "aws-marketplace:AcceptAgreementRequest": "marketplace-agreement",
+    "aws-marketplace:AssociateProductsWithPrivateMarketplace": "private-marketplace",
+    "aws-marketplace:BatchCreateBillingAdjustmentRequest": "marketplace-agreement",
+    "aws-marketplace:BatchMeterUsage": "meteringmarketplace",
+    "aws-marketplace:CancelAgreement": "marketplace-agreement",
+    "aws-marketplace:CancelAgreementCancellationRequest": "marketplace-agreement",
+    "aws-marketplace:CancelAgreementPaymentRequest": "marketplace-agreement",
+    "aws-marketplace:CancelAgreementRequest": "marketplace-agreement",
+    "aws-marketplace:CreateAgreementRequest": "marketplace-agreement",
+    "aws-marketplace:CreatePrivateMarketplaceRequests": "private-marketplace",
+    "aws-marketplace:DescribeAgreement": "marketplace-agreement",
+    "aws-marketplace:DescribeBuilds": "marketplace-image-build",
+    "aws-marketplace:DescribePrivateMarketplaceRequests": "private-marketplace",
+    "aws-marketplace:DescribeProcurementSystemConfiguration": "marketplace-procurement-integration",
+    "aws-marketplace:DisassociateProductsFromPrivateMarketplace": "private-marketplace",
+    "aws-marketplace:GetAgreementApprovalRequest": "marketplace-agreement",
+    "aws-marketplace:GetAgreementCancellationRequest": "marketplace-agreement",
+    "aws-marketplace:GetAgreementEntitlements": "marketplace-agreement",
+    "aws-marketplace:GetAgreementPaymentRequest": "marketplace-agreement",
+    "aws-marketplace:GetAgreementRequest": "marketplace-agreement",
+    "aws-marketplace:GetAgreementTerms": "marketplace-agreement",
+    "aws-marketplace:GetBillingAdjustmentRequest": "marketplace-agreement",
+    "aws-marketplace:GetBuyerDashboard": "marketplace-reporting",
+    "aws-marketplace:GetEntitlements": "marketplace-entitlement",
+    "aws-marketplace:GetListing": "marketplace-discovery",
+    "aws-marketplace:GetOffer": "marketplace-discovery",
+    "aws-marketplace:GetOfferSet": "marketplace-discovery",
+    "aws-marketplace:GetOfferTerms": "marketplace-discovery",
+    "aws-marketplace:GetProduct": "marketplace-discovery",
+    "aws-marketplace:GetSellerDashboard": "marketplace-seller-reporting",
+    "aws-marketplace:ListAgreementApprovalRequests": "marketplace-agreement",
+    "aws-marketplace:ListAgreementCancellationRequests": "marketplace-agreement",
+    "aws-marketplace:ListAgreementCharges": "marketplace-agreement",
+    "aws-marketplace:ListAgreementInvoiceLineItems": "marketplace-agreement",
+    "aws-marketplace:ListAgreementPaymentRequests": "marketplace-agreement",
+    "aws-marketplace:ListAgreementRequests": "marketplace-agreement",
+    "aws-marketplace:ListBillingAdjustmentRequests": "marketplace-agreement",
+    "aws-marketplace:ListBuilds": "marketplace-image-build",
+    "aws-marketplace:ListEntitlementDetails": "marketplace-agreement",
+    "aws-marketplace:ListFulfillmentOptions": "marketplace-discovery",
+    "aws-marketplace:ListPrivateListings": "marketplace-discovery",
+    "aws-marketplace:ListPrivateMarketplaceRequests": "private-marketplace",
+    "aws-marketplace:ListPurchaseOptions": "marketplace-discovery",
+    "aws-marketplace:MeterUsage": "meteringmarketplace",
+    "aws-marketplace:PutDeploymentParameter": "marketplace-deployment",
+    "aws-marketplace:PutProcurementSystemConfiguration": "marketplace-procurement-integration",
+    "aws-marketplace:RegisterUsage": "meteringmarketplace",
+    "aws-marketplace:RejectAgreementApprovalRequest": "marketplace-agreement",
+    "aws-marketplace:RejectAgreementCancellationRequest": "marketplace-agreement",
+    "aws-marketplace:RejectAgreementPaymentRequest": "marketplace-agreement",
+    "aws-marketplace:ResolveCustomer": "meteringmarketplace",
+    "aws-marketplace:SearchAgreements": "marketplace-agreement",
+    "aws-marketplace:SearchFacets": "marketplace-discovery",
+    "aws-marketplace:SearchListings": "marketplace-discovery",
+    "aws-marketplace:SendAgreementCancellationRequest": "marketplace-agreement",
+    "aws-marketplace:SendAgreementPaymentRequest": "marketplace-agreement",
+    "aws-marketplace:StartBuild": "marketplace-image-build",
+    "aws-marketplace:Subscribe": "marketplace-agreement",
+    "aws-marketplace:Unsubscribe": "marketplace-agreement",
+    "aws-marketplace:UpdateAgreementApprovalRequest": "marketplace-agreement",
+    "aws-marketplace:UpdatePurchaseOrders": "marketplace-agreement",
+    "aws-marketplace:ViewSubscriptions": "marketplace-agreement",
+    "cloudformation:ActivateOrganizationsAccess": "cloudformation",
+    "cloudformation:ActivateType": "cloudformation",
+    "cloudformation:BatchDescribeTypeConfigurations": "cloudformation",
+    "cloudformation:CancelUpdateStack": "cloudformation",
+    "cloudformation:ContinueUpdateRollback": "cloudformation",
+    "cloudformation:CreateChangeSet": "cloudformation",
+    "cloudformation:CreateGeneratedTemplate": "cloudformation",
+    "cloudformation:CreateStack": "cloudformation",
+    "cloudformation:CreateStackInstances": "cloudformation",
+    "cloudformation:CreateStackRefactor": "cloudformation",
+    "cloudformation:CreateStackSet": "cloudformation",
+    "cloudformation:CreateUploadBucket": "cloudformation",
+    "cloudformation:DeactivateOrganizationsAccess": "cloudformation",
+    "cloudformation:DeactivateType": "cloudformation",
+    "cloudformation:DeleteChangeSet": "cloudformation",
+    "cloudformation:DeleteGeneratedTemplate": "cloudformation",
+    "cloudformation:DeleteStack": "cloudformation",
+    "cloudformation:DeleteStackInstances": "cloudformation",
+    "cloudformation:DeleteStackSet": "cloudformation",
+    "cloudformation:DeregisterType": "cloudformation",
+    "cloudformation:DescribeAccountLimits": "cloudformation",
+    "cloudformation:DescribeChangeSet": "cloudformation",
+    "cloudformation:DescribeChangeSetHooks": "cloudformation",
+    "cloudformation:DescribeEvents": "cloudformation",
+    "cloudformation:DescribeGeneratedTemplate": "cloudformation",
+    "cloudformation:DescribeOrganizationsAccess": "cloudformation",
+    "cloudformation:DescribePublisher": "cloudformation",
+    "cloudformation:DescribeResourceScan": "cloudformation",
+    "cloudformation:DescribeStackDriftDetectionStatus": "cloudformation",
+    "cloudformation:DescribeStackEvents": "cloudformation",
+    "cloudformation:DescribeStackInstance": "cloudformation",
+    "cloudformation:DescribeStackRefactor": "cloudformation",
+    "cloudformation:DescribeStackResource": "cloudformation",
+    "cloudformation:DescribeStackResourceDrifts": "cloudformation",
+    "cloudformation:DescribeStackResources": "cloudformation",
+    "cloudformation:DescribeStackSet": "cloudformation",
+    "cloudformation:DescribeStackSetOperation": "cloudformation",
+    "cloudformation:DescribeStacks": "cloudformation",
+    "cloudformation:DescribeType": "cloudformation",
+    "cloudformation:DescribeTypeRegistration": "cloudformation",
+    "cloudformation:DetectStackDrift": "cloudformation",
+    "cloudformation:DetectStackResourceDrift": "cloudformation",
+    "cloudformation:DetectStackSetDrift": "cloudformation",
+    "cloudformation:EstimateTemplateCost": "cloudformation",
+    "cloudformation:ExecuteChangeSet": "cloudformation",
+    "cloudformation:ExecuteStackRefactor": "cloudformation",
+    "cloudformation:GetGeneratedTemplate": "cloudformation",
+    "cloudformation:GetHookResult": "cloudformation",
+    "cloudformation:GetStackPolicy": "cloudformation",
+    "cloudformation:GetTemplate": "cloudformation",
+    "cloudformation:GetTemplateSummary": "cloudformation",
+    "cloudformation:ImportStacksToStackSet": "cloudformation",
+    "cloudformation:ListAllHookResults": "cloudformation",
+    "cloudformation:ListChangeSets": "cloudformation",
+    "cloudformation:ListExports": "cloudformation",
+    "cloudformation:ListGeneratedTemplates": "cloudformation",
+    "cloudformation:ListHookResults": "cloudformation",
+    "cloudformation:ListImports": "cloudformation",
+    "cloudformation:ListResourceScanRelatedResources": "cloudformation",
+    "cloudformation:ListResourceScanResources": "cloudformation",
+    "cloudformation:ListResourceScans": "cloudformation",
+    "cloudformation:ListStackInstanceResourceDrifts": "cloudformation",
+    "cloudformation:ListStackInstances": "cloudformation",
+    "cloudformation:ListStackRefactorActions": "cloudformation",
+    "cloudformation:ListStackRefactors": "cloudformation",
+    "cloudformation:ListStackResources": "cloudformation",
+    "cloudformation:ListStackSetAutoDeploymentTargets": "cloudformation",
+    "cloudformation:ListStackSetOperationResults": "cloudformation",
+    "cloudformation:ListStackSetOperations": "cloudformation",
+    "cloudformation:ListStackSets": "cloudformation",
+    "cloudformation:ListStacks": "cloudformation",
+    "cloudformation:ListTypeRegistrations": "cloudformation",
+    "cloudformation:ListTypeVersions": "cloudformation",
+    "cloudformation:ListTypes": "cloudformation",
+    "cloudformation:PublishType": "cloudformation",
+    "cloudformation:RecordHandlerProgress": "cloudformation",
+    "cloudformation:RegisterPublisher": "cloudformation",
+    "cloudformation:RegisterType": "cloudformation",
+    "cloudformation:RollbackStack": "cloudformation",
+    "cloudformation:SetStackPolicy": "cloudformation",
+    "cloudformation:SetTypeConfiguration": "cloudformation",
+    "cloudformation:SetTypeDefaultVersion": "cloudformation",
+    "cloudformation:SignalResource": "cloudformation",
+    "cloudformation:StartResourceScan": "cloudformation",
+    "cloudformation:StopStackSetOperation": "cloudformation",
+    "cloudformation:TagResource": "cloudformation",
+    "cloudformation:TestType": "cloudformation",
+    "cloudformation:UntagResource": "cloudformation",
+    "cloudformation:UpdateGeneratedTemplate": "cloudformation",
+    "cloudformation:UpdateStack": "cloudformation",
+    "cloudformation:UpdateStackInstances": "cloudformation",
+    "cloudformation:UpdateStackSet": "cloudformation",
+    "cloudformation:UpdateTerminationProtection": "cloudformation",
+    "cloudformation:ValidateTemplate": "cloudformation",
+    "elasticloadbalancing:ApplySecurityGroupsToLoadBalancer": "elb",
+    "elasticloadbalancing:AttachLoadBalancerToSubnets": "elb",
+    "elasticloadbalancing:ConfigureHealthCheck": "elb",
+    "elasticloadbalancing:CreateAppCookieStickinessPolicy": "elb",
+    "elasticloadbalancing:CreateLBCookieStickinessPolicy": "elb",
+    "elasticloadbalancing:CreateLoadBalancerListeners": "elb",
+    "elasticloadbalancing:CreateLoadBalancerPolicy": "elb",
+    "elasticloadbalancing:DeleteLoadBalancerListeners": "elb",
+    "elasticloadbalancing:DeleteLoadBalancerPolicy": "elb",
+    "elasticloadbalancing:DeregisterInstancesFromLoadBalancer": "elb",
+    "elasticloadbalancing:DescribeInstanceHealth": "elb",
+    "elasticloadbalancing:DescribeLoadBalancerPolicies": "elb",
+    "elasticloadbalancing:DescribeLoadBalancerPolicyTypes": "elb",
+    "elasticloadbalancing:DetachLoadBalancerFromSubnets": "elb",
+    "elasticloadbalancing:DisableAvailabilityZonesForLoadBalancer": "elb",
+    "elasticloadbalancing:EnableAvailabilityZonesForLoadBalancer": "elb",
+    "elasticloadbalancing:RegisterInstancesWithLoadBalancer": "elb",
+    "elasticloadbalancing:SetLoadBalancerListenerSSLCertificate": "elb",
+    "elasticloadbalancing:SetLoadBalancerPoliciesForBackendServer": "elb",
+    "elasticloadbalancing:SetLoadBalancerPoliciesOfListener": "elb",
+    "greengrass:AssociateRoleToGroup": "greengrass",
+    "greengrass:CreateConnectorDefinition": "greengrass",
+    "greengrass:CreateConnectorDefinitionVersion": "greengrass",
+    "greengrass:CreateCoreDefinition": "greengrass",
+    "greengrass:CreateCoreDefinitionVersion": "greengrass",
+    "greengrass:CreateDeviceDefinition": "greengrass",
+    "greengrass:CreateDeviceDefinitionVersion": "greengrass",
+    "greengrass:CreateFunctionDefinition": "greengrass",
+    "greengrass:CreateFunctionDefinitionVersion": "greengrass",
+    "greengrass:CreateGroup": "greengrass",
+    "greengrass:CreateGroupCertificateAuthority": "greengrass",
+    "greengrass:CreateGroupVersion": "greengrass",
+    "greengrass:CreateLoggerDefinition": "greengrass",
+    "greengrass:CreateLoggerDefinitionVersion": "greengrass",
+    "greengrass:CreateResourceDefinition": "greengrass",
+    "greengrass:CreateResourceDefinitionVersion": "greengrass",
+    "greengrass:CreateSoftwareUpdateJob": "greengrass",
+    "greengrass:CreateSubscriptionDefinition": "greengrass",
+    "greengrass:CreateSubscriptionDefinitionVersion": "greengrass",
+    "greengrass:DeleteConnectorDefinition": "greengrass",
+    "greengrass:DeleteCoreDefinition": "greengrass",
+    "greengrass:DeleteDeviceDefinition": "greengrass",
+    "greengrass:DeleteFunctionDefinition": "greengrass",
+    "greengrass:DeleteGroup": "greengrass",
+    "greengrass:DeleteLoggerDefinition": "greengrass",
+    "greengrass:DeleteResourceDefinition": "greengrass",
+    "greengrass:DeleteSubscriptionDefinition": "greengrass",
+    "greengrass:DisassociateRoleFromGroup": "greengrass",
+    "greengrass:Discover": "greengrass",
+    "greengrass:GetAssociatedRole": "greengrass",
+    "greengrass:GetBulkDeploymentStatus": "greengrass",
+    "greengrass:GetConnectorDefinition": "greengrass",
+    "greengrass:GetConnectorDefinitionVersion": "greengrass",
+    "greengrass:GetCoreDefinition": "greengrass",
+    "greengrass:GetCoreDefinitionVersion": "greengrass",
+    "greengrass:GetDeploymentStatus": "greengrass",
+    "greengrass:GetDeviceDefinition": "greengrass",
+    "greengrass:GetDeviceDefinitionVersion": "greengrass",
+    "greengrass:GetFunctionDefinition": "greengrass",
+    "greengrass:GetFunctionDefinitionVersion": "greengrass",
+    "greengrass:GetGroup": "greengrass",
+    "greengrass:GetGroupCertificateAuthority": "greengrass",
+    "greengrass:GetGroupCertificateConfiguration": "greengrass",
+    "greengrass:GetGroupVersion": "greengrass",
+    "greengrass:GetLoggerDefinition": "greengrass",
+    "greengrass:GetLoggerDefinitionVersion": "greengrass",
+    "greengrass:GetResourceDefinition": "greengrass",
+    "greengrass:GetResourceDefinitionVersion": "greengrass",
+    "greengrass:GetSubscriptionDefinition": "greengrass",
+    "greengrass:GetSubscriptionDefinitionVersion": "greengrass",
+    "greengrass:GetThingRuntimeConfiguration": "greengrass",
+    "greengrass:ListBulkDeploymentDetailedReports": "greengrass",
+    "greengrass:ListBulkDeployments": "greengrass",
+    "greengrass:ListConnectorDefinitionVersions": "greengrass",
+    "greengrass:ListConnectorDefinitions": "greengrass",
+    "greengrass:ListCoreDefinitionVersions": "greengrass",
+    "greengrass:ListCoreDefinitions": "greengrass",
+    "greengrass:ListDeviceDefinitionVersions": "greengrass",
+    "greengrass:ListDeviceDefinitions": "greengrass",
+    "greengrass:ListFunctionDefinitionVersions": "greengrass",
+    "greengrass:ListFunctionDefinitions": "greengrass",
+    "greengrass:ListGroupCertificateAuthorities": "greengrass",
+    "greengrass:ListGroupVersions": "greengrass",
+    "greengrass:ListGroups": "greengrass",
+    "greengrass:ListLoggerDefinitionVersions": "greengrass",
+    "greengrass:ListLoggerDefinitions": "greengrass",
+    "greengrass:ListResourceDefinitionVersions": "greengrass",
+    "greengrass:ListResourceDefinitions": "greengrass",
+    "greengrass:ListSubscriptionDefinitionVersions": "greengrass",
+    "greengrass:ListSubscriptionDefinitions": "greengrass",
+    "greengrass:ResetDeployments": "greengrass",
+    "greengrass:StartBulkDeployment": "greengrass",
+    "greengrass:StopBulkDeployment": "greengrass",
+    "greengrass:UpdateConnectorDefinition": "greengrass",
+    "greengrass:UpdateCoreDefinition": "greengrass",
+    "greengrass:UpdateDeviceDefinition": "greengrass",
+    "greengrass:UpdateFunctionDefinition": "greengrass",
+    "greengrass:UpdateGroup": "greengrass",
+    "greengrass:UpdateGroupCertificateConfiguration": "greengrass",
+    "greengrass:UpdateLoggerDefinition": "greengrass",
+    "greengrass:UpdateResourceDefinition": "greengrass",
+    "greengrass:UpdateSubscriptionDefinition": "greengrass",
+    "greengrass:UpdateThingRuntimeConfiguration": "greengrass",
+    "kinesisanalytics:GetApplicationState": "kinesisanalytics",
+    "lex:CreateIntentVersion": "lex",
+    "lex:CreateSlotTypeVersion": "lex",
+    "lex:DeleteBotChannelAssociation": "lex",
+    "lex:DeleteIntentVersion": "lex",
+    "lex:DeleteSlotTypeVersion": "lex",
+    "lex:GetBot": "lex",
+    "lex:GetBotAlias": "lex",
+    "lex:GetBotAliases": "lex",
+    "lex:GetBotChannelAssociation": "lex",
+    "lex:GetBotChannelAssociations": "lex",
+    "lex:GetBotVersions": "lex",
+    "lex:GetBots": "lex",
+    "lex:GetBuiltinIntent": "lex",
+    "lex:GetBuiltinIntents": "lex",
+    "lex:GetBuiltinSlotTypes": "lex",
+    "lex:GetExport": "lex",
+    "lex:GetImport": "lex",
+    "lex:GetIntent": "lex",
+    "lex:GetIntentVersions": "lex",
+    "lex:GetIntents": "lex",
+    "lex:GetMigration": "lex",
+    "lex:GetMigrations": "lex",
+    "lex:GetSlotType": "lex",
+    "lex:GetSlotTypeVersions": "lex",
+    "lex:GetSlotTypes": "lex",
+    "lex:GetUtterancesView": "lex",
+    "lex:PostContent": "lex",
+    "lex:PostText": "lex",
+    "lex:PutBot": "lex",
+    "lex:PutBotAlias": "lex",
+    "lex:PutIntent": "lex",
+    "lex:PutSlotType": "lex",
+    "lex:StartMigration": "lex",
+    "ses:AllowVendedLogDeliveryForResource": "mailmanager",
+    "ses:BatchGetMetricData": "sesv2",
+    "ses:CancelExportJob": "sesv2",
+    "ses:CloneReceiptRuleSet": "ses",
+    "ses:CreateAddonInstance": "mailmanager",
+    "ses:CreateAddonSubscription": "mailmanager",
+    "ses:CreateAddressList": "mailmanager",
+    "ses:CreateAddressListImportJob": "mailmanager",
+    "ses:CreateArchive": "mailmanager",
+    "ses:CreateConfigurationSetTrackingOptions": "ses",
+    "ses:CreateContact": "sesv2",
+    "ses:CreateContactList": "sesv2",
+    "ses:CreateCustomVerificationEmailTemplate": "ses",
+    "ses:CreateEmailIdentityPolicy": "sesv2",
+    "ses:CreateEmailTemplate": "sesv2",
+    "ses:CreateExportJob": "sesv2",
+    "ses:CreateImportJob": "sesv2",
+    "ses:CreateIngressPoint": "mailmanager",
+    "ses:CreateMultiRegionEndpoint": "sesv2",
+    "ses:CreateReceiptFilter": "ses",
+    "ses:CreateReceiptRule": "ses",
+    "ses:CreateReceiptRuleSet": "ses",
+    "ses:CreateRelay": "mailmanager",
+    "ses:CreateRuleSet": "mailmanager",
+    "ses:CreateTemplate": "ses",
+    "ses:CreateTenant": "sesv2",
+    "ses:CreateTenantResourceAssociation": "sesv2",
+    "ses:CreateTrafficPolicy": "mailmanager",
+    "ses:DeleteAddonInstance": "mailmanager",
+    "ses:DeleteAddonSubscription": "mailmanager",
+    "ses:DeleteAddressList": "mailmanager",
+    "ses:DeleteArchive": "mailmanager",
+    "ses:DeleteConfigurationSetTrackingOptions": "ses",
+    "ses:DeleteContact": "sesv2",
+    "ses:DeleteContactList": "sesv2",
+    "ses:DeleteCustomVerificationEmailTemplate": "ses",
+    "ses:DeleteEmailIdentityPolicy": "sesv2",
+    "ses:DeleteEmailTemplate": "sesv2",
+    "ses:DeleteIdentity": "ses",
+    "ses:DeleteIdentityPolicy": "ses",
+    "ses:DeleteIngressPoint": "mailmanager",
+    "ses:DeleteMultiRegionEndpoint": "sesv2",
+    "ses:DeleteReceiptFilter": "ses",
+    "ses:DeleteReceiptRule": "ses",
+    "ses:DeleteReceiptRuleSet": "ses",
+    "ses:DeleteRelay": "mailmanager",
+    "ses:DeleteRuleSet": "mailmanager",
+    "ses:DeleteSuppressedDestination": "sesv2",
+    "ses:DeleteTemplate": "ses",
+    "ses:DeleteTenant": "sesv2",
+    "ses:DeleteTenantResourceAssociation": "sesv2",
+    "ses:DeleteTrafficPolicy": "mailmanager",
+    "ses:DeleteVerifiedEmailAddress": "ses",
+    "ses:DeregisterMemberFromAddressList": "mailmanager",
+    "ses:DescribeActiveReceiptRuleSet": "ses",
+    "ses:DescribeConfigurationSet": "ses",
+    "ses:DescribeReceiptRule": "ses",
+    "ses:DescribeReceiptRuleSet": "ses",
+    "ses:GetAccountSendingEnabled": "ses",
+    "ses:GetAddonInstance": "mailmanager",
+    "ses:GetAddonSubscription": "mailmanager",
+    "ses:GetAddressList": "mailmanager",
+    "ses:GetAddressListImportJob": "mailmanager",
+    "ses:GetArchive": "mailmanager",
+    "ses:GetArchiveExport": "mailmanager",
+    "ses:GetArchiveMessage": "mailmanager",
+    "ses:GetArchiveMessageContent": "mailmanager",
+    "ses:GetArchiveSearch": "mailmanager",
+    "ses:GetArchiveSearchResults": "mailmanager",
+    "ses:GetContact": "sesv2",
+    "ses:GetContactList": "sesv2",
+    "ses:GetCustomVerificationEmailTemplate": "ses",
+    "ses:GetDedicatedIpPool": "sesv2",
+    "ses:GetEmailAddressInsights": "sesv2",
+    "ses:GetEmailIdentityPolicies": "sesv2",
+    "ses:GetEmailTemplate": "sesv2",
+    "ses:GetExportJob": "sesv2",
+    "ses:GetIdentityDkimAttributes": "ses",
+    "ses:GetIdentityMailFromDomainAttributes": "ses",
+    "ses:GetIdentityNotificationAttributes": "ses",
+    "ses:GetIdentityPolicies": "ses",
+    "ses:GetIdentityVerificationAttributes": "ses",
+    "ses:GetImportJob": "sesv2",
+    "ses:GetIngressPoint": "mailmanager",
+    "ses:GetMemberOfAddressList": "mailmanager",
+    "ses:GetMessageInsights": "sesv2",
+    "ses:GetMultiRegionEndpoint": "sesv2",
+    "ses:GetRelay": "mailmanager",
+    "ses:GetReputationEntity": "sesv2",
+    "ses:GetRuleSet": "mailmanager",
+    "ses:GetSendQuota": "ses",
+    "ses:GetSendStatistics": "ses",
+    "ses:GetSuppressedDestination": "sesv2",
+    "ses:GetTemplate": "ses",
+    "ses:GetTenant": "sesv2",
+    "ses:GetTrafficPolicy": "mailmanager",
+    "ses:ListAddonInstances": "mailmanager",
+    "ses:ListAddonSubscriptions": "mailmanager",
+    "ses:ListAddressListImportJobs": "mailmanager",
+    "ses:ListAddressLists": "mailmanager",
+    "ses:ListArchiveExports": "mailmanager",
+    "ses:ListArchiveSearches": "mailmanager",
+    "ses:ListArchives": "mailmanager",
+    "ses:ListContactLists": "sesv2",
+    "ses:ListContacts": "sesv2",
+    "ses:ListCustomVerificationEmailTemplates": "ses",
+    "ses:ListEmailTemplates": "sesv2",
+    "ses:ListExportJobs": "sesv2",
+    "ses:ListIdentities": "ses",
+    "ses:ListIdentityPolicies": "ses",
+    "ses:ListImportJobs": "sesv2",
+    "ses:ListIngressPoints": "mailmanager",
+    "ses:ListMembersOfAddressList": "mailmanager",
+    "ses:ListMultiRegionEndpoints": "sesv2",
+    "ses:ListReceiptFilters": "ses",
+    "ses:ListReceiptRuleSets": "ses",
+    "ses:ListRecommendations": "sesv2",
+    "ses:ListRelays": "mailmanager",
+    "ses:ListReputationEntities": "sesv2",
+    "ses:ListResourceTenants": "sesv2",
+    "ses:ListRuleSets": "mailmanager",
+    "ses:ListSuppressedDestinations": "sesv2",
+    "ses:ListTemplates": "ses",
+    "ses:ListTenantResources": "sesv2",
+    "ses:ListTenants": "sesv2",
+    "ses:ListTrafficPolicies": "mailmanager",
+    "ses:ListVerifiedEmailAddresses": "ses",
+    "ses:PutAccountDetails": "sesv2",
+    "ses:PutAccountPricingAttributes": "sesv2",
+    "ses:PutAccountSuppressionAttributes": "sesv2",
+    "ses:PutAccountVdmAttributes": "sesv2",
+    "ses:PutConfigurationSetArchivingOptions": "sesv2",
+    "ses:PutConfigurationSetSuppressionOptions": "sesv2",
+    "ses:PutConfigurationSetVdmOptions": "sesv2",
+    "ses:PutDedicatedIpPoolScalingAttributes": "sesv2",
+    "ses:PutEmailIdentityConfigurationSetAttributes": "sesv2",
+    "ses:PutEmailIdentityDkimSigningAttributes": "sesv2",
+    "ses:PutIdentityPolicy": "ses",
+    "ses:PutSuppressedDestination": "sesv2",
+    "ses:PutTenantSuppressionAttributes": "sesv2",
+    "ses:RegisterMemberToAddressList": "mailmanager",
+    "ses:ReorderReceiptRuleSet": "ses",
+    "ses:ReplicateEmailIdentityDkimSigningKey": "sesv2",
+    "ses:SendBounce": "ses",
+    "ses:SendBulkEmail": "sesv2",
+    "ses:SendBulkTemplatedEmail": "ses",
+    "ses:SendCustomVerificationEmail": "ses",
+    "ses:SendRawEmail": "ses",
+    "ses:SendTemplatedEmail": "ses",
+    "ses:SetActiveReceiptRuleSet": "ses",
+    "ses:SetIdentityDkimEnabled": "ses",
+    "ses:SetIdentityFeedbackForwardingEnabled": "ses",
+    "ses:SetIdentityHeadersInNotificationsEnabled": "ses",
+    "ses:SetIdentityMailFromDomain": "ses",
+    "ses:SetIdentityNotificationTopic": "ses",
+    "ses:SetReceiptRulePosition": "ses",
+    "ses:StartAddressListImportJob": "mailmanager",
+    "ses:StartArchiveExport": "mailmanager",
+    "ses:StartArchiveSearch": "mailmanager",
+    "ses:StopAddressListImportJob": "mailmanager",
+    "ses:StopArchiveExport": "mailmanager",
+    "ses:StopArchiveSearch": "mailmanager",
+    "ses:TestRenderEmailTemplate": "sesv2",
+    "ses:TestRenderTemplate": "ses",
+    "ses:UpdateAccountSendingEnabled": "ses",
+    "ses:UpdateArchive": "mailmanager",
+    "ses:UpdateConfigurationSetReputationMetricsEnabled": "ses",
+    "ses:UpdateConfigurationSetSendingEnabled": "ses",
+    "ses:UpdateConfigurationSetTrackingOptions": "ses",
+    "ses:UpdateContact": "sesv2",
+    "ses:UpdateContactList": "sesv2",
+    "ses:UpdateCustomVerificationEmailTemplate": "ses",
+    "ses:UpdateEmailIdentityPolicy": "sesv2",
+    "ses:UpdateEmailTemplate": "sesv2",
+    "ses:UpdateIngressPoint": "mailmanager",
+    "ses:UpdateReceiptRule": "ses",
+    "ses:UpdateRelay": "mailmanager",
+    "ses:UpdateReputationEntityCustomerManagedStatus": "sesv2",
+    "ses:UpdateReputationEntityPolicy": "sesv2",
+    "ses:UpdateRuleSet": "mailmanager",
+    "ses:UpdateTemplate": "ses",
+    "ses:UpdateTrafficPolicy": "mailmanager",
+    "ses:VerifyDomainDkim": "ses",
+    "ses:VerifyDomainIdentity": "ses",
+    "ses:VerifyEmailAddress": "ses",
+    "ses:VerifyEmailIdentity": "ses",
+    "sms-voice:CreateConfigurationSetEventDestination": "pinpoint-sms-voice",
+    "sms-voice:DeleteConfigurationSetEventDestination": "pinpoint-sms-voice",
+    "sms-voice:GetConfigurationSetEventDestinations": "pinpoint-sms-voice",
+    "sms-voice:ListConfigurationSets": "pinpoint-sms-voice",
+    "sms-voice:UpdateConfigurationSetEventDestination": "pinpoint-sms-voice"
 };
 
-;// CONCATENATED MODULE: ./src/docs.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/docs.ts
 
-function getActionDocUrl(action) {
+function getActionDocUrl(action, serviceDocSlugs = SERVICE_DOC_SLUGS, actionDocSlugs = ACTION_DOC_SLUGS) {
     const [service, actionName] = action.split(':');
     if (!service || !actionName)
         return null;
-    const slug = SERVICE_DOC_SLUGS[service.toLowerCase()];
+    const canonicalAction = `${service.toLowerCase()}:${actionName}`;
+    const slug = actionDocSlugs[canonicalAction] ?? serviceDocSlugs[service.toLowerCase()];
     if (!slug)
         return null;
-    // Use text fragment only; avoids some pages overriding section hash navigation.
     const encodedActionName = encodeURIComponent(actionName);
-    return `https://docs.aws.amazon.com/service-authorization/latest/reference/list_${slug}.html#:~:text=${encodedActionName}`;
+    const page = `list_${slug}`;
+    const baseUrl = 'https://docs.aws.amazon.com/service-authorization/latest/reference';
+    return `${baseUrl}/${page}.html#${page}-action-${encodedActionName}`;
 }
 function formatActionWithLink(action) {
     const url = getActionDocUrl(action);
@@ -36408,7 +36957,8 @@ function formatActionWithLink(action) {
     return `\`${action}\``;
 }
 
-;// CONCATENATED MODULE: ./src/utils.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/utils.ts
+
 
 const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*)["']?/g;
 const MAX_COMMENT_BODY_LENGTH = 62_000;
@@ -36481,19 +37031,19 @@ ${actionsList}
 
 </details>`
             : actionsList;
-    return `**IAM Wildcard Expansion**
+    return withCurrentCommentMarker(`${comment_identity_LEGACY_COMMENT_HEADING}
 
 ${header}${patterns}${truncationNotice}
 
-${actionsBlock}`;
+${actionsBlock}`);
 }
 function createMinimalCommentBody(truncationUrl) {
     const logMessage = truncationUrl
         ? ` The full expanded list is in the [workflow run logs](${truncationUrl}).`
         : '';
-    return `**IAM Wildcard Expansion**
+    return withCurrentCommentMarker(`${comment_identity_LEGACY_COMMENT_HEADING}
 
-Expanded actions were omitted from this comment to stay within GitHub limits.${logMessage}`;
+Expanded actions were omitted from this comment to stay within GitHub limits.${logMessage}`);
 }
 function formatCommentResult(originalActions, expandedActions, options = {}) {
     const { maxCommentBodyLength = MAX_COMMENT_BODY_LENGTH } = options;
@@ -36535,24 +37085,34 @@ function formatComment(originalActions, expandedActions, options = {}) {
     return formatCommentResult(originalActions, expandedActions, options).body;
 }
 
-;// CONCATENATED MODULE: ./src/diff.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/diff.ts
+
 
 function isNoNewlineMarker(line) {
     return line === '\\ No newline at end of file';
 }
+function isExplicitBinaryPatch(patch) {
+    return patch.split('\n').some((line) => line === 'GIT binary patch' || /^Binary files .+ differ$/.test(line));
+}
 function extractFromPatch(patch, filename) {
     const wildcardMatches = [];
     let currentLine = 0;
+    let hasHunk = false;
+    let failed = false;
     for (const line of patch.split('\n')) {
         const hunkStart = parseHunkHeader(line);
         if (hunkStart !== null) {
             currentLine = hunkStart - 1;
+            hasHunk = true;
             continue;
         }
-        if (isNoNewlineMarker(line)) {
+        if (line.startsWith('@@')) {
+            failed = true;
             continue;
         }
-        if (line.startsWith('-'))
+        if (isNoNewlineMarker(line))
+            continue;
+        if (!hasHunk || line.startsWith('-'))
             continue;
         currentLine++;
         if (line.startsWith('+')) {
@@ -36561,23 +37121,231 @@ function extractFromPatch(patch, filename) {
             }
         }
     }
-    return { wildcardMatches };
+    return { wildcardMatches, hasHunk, failed };
+}
+function analyzeFile(file) {
+    if (file.patch === undefined) {
+        return { filename: file.filename, state: 'missing-patch', wildcardMatches: [] };
+    }
+    if (file.patch.length === 0) {
+        return { filename: file.filename, state: 'empty', wildcardMatches: [] };
+    }
+    if (isExplicitBinaryPatch(file.patch)) {
+        return { filename: file.filename, state: 'binary', wildcardMatches: [] };
+    }
+    const result = extractFromPatch(file.patch, file.filename);
+    return result.hasHunk && !result.failed
+        ? { filename: file.filename, state: 'analyzed', wildcardMatches: result.wildcardMatches }
+        : { filename: file.filename, state: 'failed', wildcardMatches: [] };
+}
+function decodeGitPath(value) {
+    if (!value.startsWith('"'))
+        return value;
+    if (!value.endsWith('"'))
+        return null;
+    const bytes = [];
+    const escapedCharacters = {
+        a: '\u0007',
+        b: '\b',
+        f: '\f',
+        n: '\n',
+        r: '\r',
+        t: '\t',
+        v: '\u000b',
+        '\\': '\\',
+        '"': '"',
+    };
+    for (let index = 1; index < value.length - 1; index++) {
+        const character = value.charAt(index);
+        if (character !== '\\') {
+            bytes.push(...external_node_buffer_.Buffer.from(character));
+            continue;
+        }
+        const escape = value.charAt(++index);
+        if (/^[0-7]$/.test(escape)) {
+            let octal = escape;
+            while (octal.length < 3 && /^[0-7]$/.test(value.charAt(index + 1))) {
+                octal += value[++index];
+            }
+            bytes.push(parseInt(octal, 8));
+            continue;
+        }
+        const decoded = escapedCharacters[escape];
+        if (decoded === undefined)
+            return null;
+        bytes.push(...external_node_buffer_.Buffer.from(decoded));
+    }
+    return external_node_buffer_.Buffer.from(bytes).toString('utf8');
+}
+function getDiffHeaderFilename(line) {
+    const encodedPath = line.slice(4);
+    const path = decodeGitPath(encodedPath);
+    if (path === null || path === '/dev/null')
+        return null;
+    return path.startsWith('a/') || path.startsWith('b/') ? path.slice(2) : null;
+}
+function findClosingQuote(value, start) {
+    for (let index = start + 1; index < value.length; index++) {
+        if (value[index] === '\\') {
+            index++;
+        }
+        else if (value[index] === '"') {
+            return index;
+        }
+    }
+    return null;
+}
+function getDiffGitFilename(line) {
+    const paths = line.slice('diff --git '.length);
+    let currentPath;
+    if (paths.startsWith('"')) {
+        const previousPathEnd = findClosingQuote(paths, 0);
+        if (previousPathEnd === null)
+            return null;
+        currentPath = paths.slice(previousPathEnd + 1).trimStart();
+    }
+    else {
+        const currentPathStart = paths.lastIndexOf(' b/');
+        if (currentPathStart < 0)
+            return null;
+        currentPath = paths.slice(currentPathStart + 1);
+    }
+    const decodedPath = decodeGitPath(currentPath);
+    return decodedPath?.startsWith('b/') ? decodedPath.slice(2) : null;
+}
+function isCompleteHunkPatch(lines) {
+    let oldLinesRemaining = 0;
+    let newLinesRemaining = 0;
+    let hasHunk = false;
+    for (const line of lines) {
+        const header = line.match(/^@@ -\d+(?:,(\d+))? \+\d+(?:,(\d+))? @@/);
+        if (header) {
+            if (hasHunk && (oldLinesRemaining !== 0 || newLinesRemaining !== 0))
+                return false;
+            oldLinesRemaining = parseInt(header[1] ?? '1', 10);
+            newLinesRemaining = parseInt(header[2] ?? '1', 10);
+            hasHunk = true;
+            continue;
+        }
+        if (!hasHunk || isNoNewlineMarker(line))
+            continue;
+        if (line.startsWith(' ')) {
+            oldLinesRemaining--;
+            newLinesRemaining--;
+        }
+        else if (line.startsWith('-')) {
+            oldLinesRemaining--;
+        }
+        else if (line.startsWith('+')) {
+            newLinesRemaining--;
+        }
+        else {
+            return false;
+        }
+        if (oldLinesRemaining < 0 || newLinesRemaining < 0)
+            return false;
+    }
+    return hasHunk && oldLinesRemaining === 0 && newLinesRemaining === 0;
+}
+function getFilePatchFromSection(lines) {
+    const hunkIndex = lines.findIndex((line) => line.startsWith('@@'));
+    if (hunkIndex >= 0) {
+        const patchLines = lines.slice(hunkIndex);
+        if (patchLines.at(-1) === '')
+            patchLines.pop();
+        return isCompleteHunkPatch(patchLines) ? patchLines.join('\n') : null;
+    }
+    const binaryLines = lines.filter((line) => line === 'GIT binary patch' || /^Binary files .+ differ$/.test(line));
+    if (binaryLines.length > 0)
+        return binaryLines.join('\n');
+    const hasKnownEmptyBlob = lines.some((line) => /^index (?:0+\.\.e69de29[0-9a-f]*|e69de29[0-9a-f]*\.\.0+)(?: |$)/.test(line));
+    const isExactRename = lines.includes('similarity index 100%');
+    const isKnownContentFreeChange = hasKnownEmptyBlob || isExactRename;
+    return isKnownContentFreeChange ? '' : null;
+}
+function parsePullRequestDiff(diff) {
+    const sections = [];
+    let currentSection;
+    for (const line of diff.split('\n')) {
+        if (line.startsWith('diff --git ')) {
+            currentSection = [line];
+            sections.push(currentSection);
+        }
+        else {
+            currentSection?.push(line);
+        }
+    }
+    const patches = new Map();
+    for (const section of sections) {
+        const [diffHeader] = section;
+        const currentPathLine = section.find((line) => line.startsWith('+++ '));
+        const previousPathLine = section.find((line) => line.startsWith('--- '));
+        const currentFilename = currentPathLine === undefined
+            ? null
+            : getDiffHeaderFilename(currentPathLine);
+        const previousFilename = previousPathLine === undefined
+            ? null
+            : getDiffHeaderFilename(previousPathLine);
+        const filename = currentFilename ?? previousFilename ?? getDiffGitFilename(diffHeader);
+        const patch = getFilePatchFromSection(section);
+        if (filename !== null && patch !== null)
+            patches.set(filename, patch);
+    }
+    return patches;
+}
+function recoverFilePatchesFromDiff(files, diff) {
+    const patches = parsePullRequestDiff(diff);
+    return files.map((file) => {
+        const state = analyzeFile(file).state;
+        if (state !== 'missing-patch' && state !== 'failed')
+            return file;
+        const patch = patches.get(file.filename);
+        return patch === undefined ? file : { ...file, patch };
+    });
+}
+function countAnalyses(files) {
+    const counts = {
+        analyzed: 0,
+        binary: 0,
+        empty: 0,
+        missingPatch: 0,
+        failed: 0,
+    };
+    for (const file of files) {
+        switch (file.state) {
+            case 'analyzed':
+                counts.analyzed += 1;
+                break;
+            case 'binary':
+                counts.binary += 1;
+                break;
+            case 'empty':
+                counts.empty += 1;
+                break;
+            case 'missing-patch':
+                counts.missingPatch += 1;
+                break;
+            case 'failed':
+                counts.failed += 1;
+                break;
+        }
+    }
+    return counts;
 }
 function parseHunkHeader(line) {
     const match = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/);
     return match?.[1] ? parseInt(match[1], 10) : null;
 }
 function extractFromDiff(files) {
-    return files
-        .filter((file) => typeof file.patch === 'string' && file.patch.length > 0)
-        .map((file) => extractFromPatch(file.patch, file.filename))
-        .reduce((acc, result) => {
-        acc.wildcardMatches.push(...result.wildcardMatches);
-        return acc;
-    }, { wildcardMatches: [] });
+    const analyses = files.map(analyzeFile);
+    return {
+        wildcardMatches: analyses.flatMap((file) => file.wildcardMatches),
+        files: analyses,
+        counts: countAnalyses(analyses),
+    };
 }
 
-;// CONCATENATED MODULE: ./src/iam-actions.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/iam-actions.ts
 // Auto-generated - do not edit
 // Run: npm run generate-iam-data
 const IAM_ACTIONS = [
@@ -58305,9 +59073,9 @@ const IAM_ACTIONS = [
     "xray:UpdateTraceSegmentDestination"
 ];
 
-;// CONCATENATED MODULE: ./src/expand.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/expand.ts
 
-function expandIamAction(pattern) {
+function expandIamAction(pattern, iamActions = IAM_ACTIONS) {
     const normalized = pattern
         .trim()
         .replace(/\u2217/g, '*') // ∗ (unicode asterisk operator)
@@ -58320,7 +59088,7 @@ function expandIamAction(pattern) {
         .replace(/\?/g, '.');
     try {
         const regex = new RegExp('^' + regexPattern + '$', 'i');
-        return IAM_ACTIONS.filter((action) => regex.test(action));
+        return iamActions.filter((action) => regex.test(action));
     }
     catch {
         return [];
@@ -60845,18 +61613,21 @@ minimatch.Minimatch = Minimatch;
 minimatch.escape = escape_escape;
 minimatch.unescape = unescape_unescape;
 //# sourceMappingURL=index.js.map
-;// CONCATENATED MODULE: ./src/patterns.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/patterns.ts
 
 function matchesPatterns(filename, patterns) {
     return patterns.some((pattern) => minimatch(filename, pattern));
 }
 
-;// CONCATENATED MODULE: ./src/action.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/action.ts
 
 
 
 
-const COMMENT_MARKER = '**IAM Wildcard Expansion**';
+
+// TODO(v2): Remove this visible-marker compatibility export and use the comment
+// heading only from the formatter after the v1 migration window closes.
+const COMMENT_MARKER = (/* unused pure expression or super */ null && (LEGACY_COMMENT_HEADING));
 function expandWildcards(actions) {
     const expanded = new Map();
     for (const action of actions) {
@@ -60886,11 +61657,7 @@ function buildReviewComments(blocks, expandedActions, collapseThreshold, options
             continue;
         }
         const uniqueExpanded = [...new Set(allExpanded)].toSorted((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-        const formatOptions = {
-            collapseThreshold,
-            truncationUrl: options.truncationUrl,
-            maxCommentBodyLength: options.maxCommentBodyLength,
-        };
+        const formatOptions = { collapseThreshold, ...options };
         const formattedComment = formatCommentResult(originalActions, uniqueExpanded, formatOptions);
         comments.push({
             path: block.file,
@@ -60922,15 +61689,27 @@ function processFiles(files, filePatterns, collapseThreshold, options = {}) {
     if (filteredFiles.length === 0) {
         return {
             comments: [],
-            stats: { filesScanned: 0, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+            stats: {
+                filesMatched: 0,
+                fileAnalysis: { analyzed: 0, binary: 0, empty: 0, missingPatch: 0, failed: 0 },
+                wildcardsFound: 0,
+                blocksCreated: 0,
+                actionsExpanded: 0,
+            },
             truncatedComments: [],
         };
     }
-    const { wildcardMatches } = extractFromDiff(filteredFiles);
+    const { wildcardMatches, counts: fileAnalysis } = extractFromDiff(filteredFiles);
     if (wildcardMatches.length === 0) {
         return {
             comments: [],
-            stats: { filesScanned: filteredFiles.length, wildcardsFound: 0, blocksCreated: 0, actionsExpanded: 0 },
+            stats: {
+                filesMatched: filteredFiles.length,
+                fileAnalysis,
+                wildcardsFound: 0,
+                blocksCreated: 0,
+                actionsExpanded: 0,
+            },
             truncatedComments: [],
         };
     }
@@ -60941,7 +61720,8 @@ function processFiles(files, filePatterns, collapseThreshold, options = {}) {
         return {
             comments: [],
             stats: {
-                filesScanned: filteredFiles.length,
+                filesMatched: filteredFiles.length,
+                fileAnalysis,
                 wildcardsFound: wildcardMatches.length,
                 blocksCreated: blocks.length,
                 actionsExpanded: 0,
@@ -60953,7 +61733,8 @@ function processFiles(files, filePatterns, collapseThreshold, options = {}) {
     return {
         comments: reviewComments.comments,
         stats: {
-            filesScanned: filteredFiles.length,
+            filesMatched: filteredFiles.length,
+            fileAnalysis,
             wildcardsFound: wildcardMatches.length,
             blocksCreated: blocks.length,
             actionsExpanded: expandedActions.size,
@@ -60962,7 +61743,9 @@ function processFiles(files, filePatterns, collapseThreshold, options = {}) {
     };
 }
 
-;// CONCATENATED MODULE: ./src/github.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/github.ts
+
+
 function getAnchorKey(path, line) {
     return JSON.stringify([path, line]);
 }
@@ -60981,14 +61764,31 @@ function getExistingCommentAnchorKey(comment) {
     return getAnchorKey(comment.path, comment.line);
 }
 async function listPullRequestFiles(octokit, owner, repo, pullNumber) {
-    return octokit.paginate(octokit.rest.pulls.listFiles, {
+    const files = await octokit.paginate(octokit.rest.pulls.listFiles, {
         owner,
         repo,
         pull_number: pullNumber,
         per_page: 100,
     });
+    const needsFallback = extractFromDiff(files).files.some((file) => file.state === 'missing-patch' || file.state === 'failed');
+    if (!needsFallback)
+        return files;
+    try {
+        const response = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
+            owner,
+            repo,
+            pull_number: pullNumber,
+            headers: { accept: 'application/vnd.github.diff' },
+        });
+        return typeof response.data === 'string'
+            ? recoverFilePatchesFromDiff(files, response.data)
+            : files;
+    }
+    catch {
+        return files;
+    }
 }
-async function listActionReviewComments(octokit, owner, repo, pullNumber, marker) {
+async function listActionReviewComments(octokit, owner, repo, pullNumber) {
     const reviewComments = await octokit.paginate(octokit.rest.pulls.listReviewComments, {
         owner,
         repo,
@@ -60998,14 +61798,49 @@ async function listActionReviewComments(octokit, owner, repo, pullNumber, marker
     const parentCommentIdsWithReplies = new Set(reviewComments
         .map((comment) => comment.in_reply_to_id)
         .filter((commentId) => commentId !== null && commentId !== undefined));
-    return reviewComments
-        .filter((comment) => comment.body.includes(marker))
+    // TODO(v2): Require the current machine marker and remove the legacy shape
+    // fallback after supported v1 comments have had time to migrate in place.
+    const candidates = reviewComments.filter((comment) => hasCurrentCommentMarker(comment.body) || hasLegacyCommentShape(comment.body));
+    let authenticatedLogin;
+    if (candidates.length > 0) {
+        try {
+            const response = await octokit.rest.users?.getAuthenticated?.();
+            authenticatedLogin = response?.data.login;
+        }
+        catch {
+            // Installation tokens do not authenticate as users. GraphQL's viewer
+            // resolves the bot identity used for their comments.
+        }
+        if (authenticatedLogin === undefined) {
+            try {
+                const response = await octokit.graphql?.('query ExpandAwsIamWildcardsViewer { viewer { login } }');
+                authenticatedLogin = response?.viewer.login;
+            }
+            catch {
+                // An unresolved token identity leaves all candidates unmanaged.
+            }
+        }
+    }
+    return candidates
+        .filter((comment) => {
+        const login = comment.user?.login;
+        if (!login || authenticatedLogin === undefined)
+            return false;
+        const normalizedLogin = login.toLowerCase();
+        const normalizedAuthenticatedLogin = authenticatedLogin.toLowerCase();
+        if (comment.user?.type === 'Bot') {
+            return normalizedLogin.replace(/\[bot\]$/, '')
+                === normalizedAuthenticatedLogin.replace(/\[bot\]$/, '');
+        }
+        return comment.user?.type === 'User'
+            && normalizedLogin === normalizedAuthenticatedLogin;
+    })
         .map((comment) => parentCommentIdsWithReplies.has(comment.id)
         ? { ...comment, hasReplies: true }
         : comment);
 }
 async function syncReviewComments(octokit, params) {
-    const { owner, repo, pullNumber, commitSha, comments, existingComments } = params;
+    const { owner, repo, pullNumber, commitSha, comments, existingComments, deleteStaleComments = true, } = params;
     const existingCommentsByAnchor = new Map();
     const staleComments = [];
     for (const comment of existingComments) {
@@ -61076,7 +61911,7 @@ async function syncReviewComments(octokit, params) {
     let failedDeleteCount = 0;
     let preservedCount = 0;
     for (const comment of staleComments) {
-        if (comment.hasReplies) {
+        if (!deleteStaleComments || comment.hasReplies) {
             preservedCount += 1;
             continue;
         }
@@ -61102,7 +61937,7 @@ async function syncReviewComments(octokit, params) {
     };
 }
 
-;// CONCATENATED MODULE: ./src/inputs.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/inputs.ts
 const DEFAULT_COLLAPSE_THRESHOLD = 5;
 const COLLAPSE_THRESHOLD_ERROR_SUFFIX = 'Expected a non-negative safe integer.';
 function createCollapseThresholdError(rawInput) {
@@ -61123,7 +61958,7 @@ function parseCollapseThreshold(rawInput) {
     return value;
 }
 
-;// CONCATENATED MODULE: ./src/main.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/main.ts
 
 
 
@@ -61163,7 +61998,24 @@ function logReviewCommentSyncResult(result) {
         warning(`Failed to delete ${result.failedDeleteCount} stale comment(s) from previous runs`);
     }
     if (result.preservedCount > 0) {
-        info(`Preserved ${result.preservedCount} stale comment thread(s) because they have replies`);
+        info(`Preserved ${result.preservedCount} stale comment thread(s)`);
+    }
+}
+function logDiffAnalysis(stats) {
+    const { analyzed, binary, empty, missingPatch, failed } = stats.fileAnalysis;
+    const summary = [
+        `${analyzed} analyzed`,
+        `${binary} binary`,
+        `${empty} empty`,
+        `${missingPatch} missing patch`,
+        `${failed} failed`,
+    ].join(', ');
+    info(`Diff analysis: ${summary}`);
+    const incompleteCount = missingPatch + failed;
+    if (incompleteCount > 0) {
+        const incompleteSummary = `${missingPatch} missing patch, ${failed} failed`;
+        const incompleteMessage = `Diff analysis was incomplete for ${incompleteCount} file(s): ${incompleteSummary}.`;
+        warning(`${incompleteMessage} Stale comment deletion is disabled for this run.`);
     }
 }
 async function runAction() {
@@ -61184,69 +62036,48 @@ async function runAction() {
         const pullNumber = context.payload.pull_request.number;
         const commitSha = context.payload.pull_request.head.sha;
         const workflowRunUrl = getWorkflowRunUrl(owner, repo);
+        const reviewCommentOptions = workflowRunUrl === undefined
+            ? {}
+            : { truncationUrl: workflowRunUrl };
         info(`Analyzing PR #${pullNumber} in ${owner}/${repo}`);
-        const existingComments = await listActionReviewComments(octokit, owner, repo, pullNumber, COMMENT_MARKER);
+        const existingComments = await listActionReviewComments(octokit, owner, repo, pullNumber);
         const files = await listPullRequestFiles(octokit, owner, repo, pullNumber);
-        const { comments, stats, truncatedComments } = processFiles(files, filePatterns, collapseThreshold, { truncationUrl: workflowRunUrl });
-        if (stats.filesScanned === 0) {
-            logReviewCommentSyncResult(await syncReviewComments(octokit, {
-                owner,
-                repo,
-                pullNumber,
-                commitSha,
-                comments: [],
-                existingComments,
-            }));
+        const { comments, stats, truncatedComments } = processFiles(files, filePatterns, collapseThreshold, reviewCommentOptions);
+        const incompleteAnalysisCount = stats.fileAnalysis.missingPatch
+            + stats.fileAnalysis.failed;
+        const syncComments = (commentsToSync) => syncReviewComments(octokit, {
+            owner,
+            repo,
+            pullNumber,
+            commitSha,
+            comments: commentsToSync,
+            existingComments,
+            deleteStaleComments: incompleteAnalysisCount === 0,
+        });
+        if (stats.filesMatched === 0) {
+            logReviewCommentSyncResult(await syncComments([]));
             info('No files matched the configured patterns.');
             return;
         }
-        info(`Scanned ${stats.filesScanned} file(s)`);
+        logDiffAnalysis(stats);
         if (stats.wildcardsFound === 0) {
-            logReviewCommentSyncResult(await syncReviewComments(octokit, {
-                owner,
-                repo,
-                pullNumber,
-                commitSha,
-                comments: [],
-                existingComments,
-            }));
-            info('No IAM wildcard actions found in the changes.');
+            logReviewCommentSyncResult(await syncComments([]));
+            info('No IAM wildcard actions found in the analyzed files.');
             return;
         }
         info(`Found ${stats.wildcardsFound} wildcard(s), grouped into ${stats.blocksCreated} block(s)`);
         if (stats.actionsExpanded === 0) {
-            logReviewCommentSyncResult(await syncReviewComments(octokit, {
-                owner,
-                repo,
-                pullNumber,
-                commitSha,
-                comments: [],
-                existingComments,
-            }));
+            logReviewCommentSyncResult(await syncComments([]));
             info('No wildcard actions could be expanded.');
             return;
         }
         if (comments.length === 0) {
-            logReviewCommentSyncResult(await syncReviewComments(octokit, {
-                owner,
-                repo,
-                pullNumber,
-                commitSha,
-                comments: [],
-                existingComments,
-            }));
+            logReviewCommentSyncResult(await syncComments([]));
             info('No comments to post.');
             return;
         }
         logTruncatedComments(truncatedComments, workflowRunUrl);
-        const syncResult = await syncReviewComments(octokit, {
-            owner,
-            repo,
-            comments,
-            pullNumber,
-            commitSha,
-            existingComments,
-        });
+        const syncResult = await syncComments(comments);
         logReviewCommentSyncResult(syncResult);
     }
     catch (error) {
@@ -61254,7 +62085,7 @@ async function runAction() {
     }
 }
 
-;// CONCATENATED MODULE: ./src/index.ts
+;// CONCATENATED MODULE: ./.build/workspace/src/index.ts
 
 void runAction();
 
