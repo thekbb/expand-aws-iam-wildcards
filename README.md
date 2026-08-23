@@ -166,7 +166,7 @@ Published releases are prepared and verified in GitHub Actions on Ubuntu.
 ## How It Works
 
 1. Fetches the PR diff
-1. Scans added lines for IAM wildcard patterns (`service:Action*`)
+1. Scans added lines for IAM wildcard patterns (`service:Action*` or `service:Action?`)
 1. Expands wildcards against the bundled IAM action list generated from [@cloud-copilot/iam-data](https://github.com/cloud-copilot/iam-data)
 1. Posts inline review comments with links to AWS docs
 1. Reuses or updates existing bot comments in place when the anchor still matches, to reduce comment churn

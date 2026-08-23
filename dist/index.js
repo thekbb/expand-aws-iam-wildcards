@@ -36960,12 +36960,14 @@ function formatActionWithLink(action) {
 ;// CONCATENATED MODULE: ./.build/workspace/src/utils.ts
 
 
-const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*)["']?/g;
+const IAM_ACTION_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]+)["']?/g;
 const MAX_COMMENT_BODY_LENGTH = 62_000;
 function findPotentialWildcardActions(line) {
-    return [...line.matchAll(IAM_WILDCARD_PATTERN)]
+    return [...line.matchAll(IAM_ACTION_PATTERN)]
         .map((match) => match[1]?.trim())
-        .filter((action) => action !== undefined && action !== '');
+        .filter((action) => action !== undefined
+        && action !== ''
+        && (action.includes('*') || action.includes('?')));
 }
 function groupIntoConsecutiveBlocks(matches) {
     if (matches.length === 0)

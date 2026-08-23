@@ -2,13 +2,17 @@ import type { WildcardMatch, WildcardBlock } from './types.js';
 import { LEGACY_COMMENT_HEADING, withCurrentCommentMarker } from './comment-identity.js';
 import { formatActionWithLink } from './docs.js';
 
-const IAM_WILDCARD_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]*\*[a-zA-Z0-9*?]*)["']?/g;
+const IAM_ACTION_PATTERN = /["']?([a-zA-Z0-9-]+:[a-zA-Z0-9*?]+)["']?/g;
 export const MAX_COMMENT_BODY_LENGTH = 62_000;
 
 export function findPotentialWildcardActions(line: string): string[] {
-  return [...line.matchAll(IAM_WILDCARD_PATTERN)]
+  return [...line.matchAll(IAM_ACTION_PATTERN)]
     .map((match) => match[1]?.trim())
-    .filter((action): action is string => action !== undefined && action !== '');
+    .filter((action): action is string =>
+      action !== undefined
+      && action !== ''
+      && (action.includes('*') || action.includes('?'))
+    );
 }
 
 export function groupIntoConsecutiveBlocks(matches: readonly WildcardMatch[]): WildcardBlock[] {
