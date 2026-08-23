@@ -203,6 +203,20 @@ describe('processFiles', () => {
     expect(result.stats.actionsExpanded).toBe(1);
   });
 
+  it('processes question-mark-only wildcards and creates comments', () => {
+    const files: PullRequestFile[] = [
+      { filename: 'policy.tf', patch: makePatch(['"sqs:?etQueueAttributes"']) },
+    ];
+
+    const result = processFiles(files, [], 5);
+
+    expect(result.stats.wildcardsFound).toBe(1);
+    expect(result.stats.actionsExpanded).toBe(1);
+    expect(result.comments).toHaveLength(1);
+    expect(result.comments[0]?.body).toContain('sqs:GetQueueAttributes');
+    expect(result.comments[0]?.body).toContain('sqs:SetQueueAttributes');
+  });
+
   it('filters files by patterns', () => {
     const files: PullRequestFile[] = [
       { filename: 'policy.tf', patch: makePatch(['"s3:Get*"']) },

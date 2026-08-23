@@ -32,6 +32,12 @@ describe('findPotentialWildcardActions', () => {
     expect(findPotentialWildcardActions('"s3:*"')).toEqual(['s3:*']);
   });
 
+  it('finds question-mark-only wildcard actions', () => {
+    expect(findPotentialWildcardActions('"sqs:?etQueueAttributes"')).toEqual([
+      'sqs:?etQueueAttributes',
+    ]);
+  });
+
   it('returns an empty array for non-wildcard input', () => {
     expect(findPotentialWildcardActions('"s3:GetObject"')).toEqual([]);
     expect(findPotentialWildcardActions('')).toEqual([]);
