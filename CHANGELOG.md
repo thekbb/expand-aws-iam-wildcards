@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Security
+
+- Keep pull-request content on data-only paths and escape filenames written to workflow logs
+
 ### Fixed
 
 - Detect question-mark-only IAM action wildcards such as `sqs:?etQueueAttributes`

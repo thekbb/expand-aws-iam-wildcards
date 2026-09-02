@@ -182,7 +182,9 @@ updates:
 ## Security
 
 - The action needs only `pull-requests: write` and the default GitHub token.
-- It does not check out PR code or fetch runtime IAM data or dependencies.
+- It does not check out PR code, launch processes, or evaluate PR content as
+  code.
+- It does not fetch IAM data or dependencies at runtime.
 - `dist/index.js` is committed so the shipped JavaScript can be reviewed.
 - Release tags are GPG-signed.
 - Release bundles are rebuilt on a GitHub-hosted Ubuntu runner and receive a

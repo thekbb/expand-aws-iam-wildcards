@@ -332,6 +332,45 @@ describe('runAction', () => {
     );
   });
 
+  it('escapes pull-request filenames before writing them to workflow logs', async () => {
+    githubMocks.context.payload = {
+      pull_request: {
+        number: 9000,
+        head: {
+          sha: 'badc0de',
+        },
+      },
+    };
+    actionMocks.processFiles.mockReturnValue({
+      comments: [{ path: 'policy.tf', line: 10, body: 'comment body' }],
+      stats: {
+        filesMatched: 1,
+        fileAnalysis: analyzedFiles(1),
+        wildcardsFound: 1,
+        blocksCreated: 1,
+        actionsExpanded: 1,
+      },
+      truncatedComments: [{
+        file: 'policy.tf\n::warning::not-a-command',
+        line: 10,
+        originalActions: ['s3:*'],
+        expandedActions: ['s3:GetObject'],
+        renderedActionsCount: 0,
+      }],
+    });
+
+    await runAction();
+
+    expect(coreMocks.info).toHaveBeenCalledWith(
+      [
+        'Full IAM expansion for policy.tf\\n::warning::not-a-command:10',
+        'Rendered 0 of 1 action(s) in the PR comment.',
+        'Wildcard patterns: s3:*',
+        '- s3:GetObject',
+      ].join('\n'),
+    );
+  });
+
   it('syncs empty comments when analyzed files contain no IAM wildcards', async () => {
     githubMocks.context.payload = {
       pull_request: {
