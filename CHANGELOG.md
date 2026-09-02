@@ -7,17 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
-### Security
+### Changed
 
-- Keep pull-request content on data-only paths and escape filenames written to workflow logs
+- Refresh the bundled AWS IAM action catalog
+- Reorganize the README around setup, scanning boundaries, troubleshooting,
+  version pinning, and release verification
 
 ### Fixed
 
-- Detect question-mark-only IAM action wildcards such as `sqs:?etQueueAttributes`
+- Detect IAM action patterns that use `?` without `*`, such as
+  `sqs:?etQueueAttributes`
+- Accept release-specific verification run names while still checking the
+  workflow path, event, tag, and commit before publication
 
-### Changed
+### Security
 
-- Update IAM action data
+- Keep pull-request content on parsing and GitHub API paths by preventing
+  process execution and code-evaluation APIs in the action runtime
+- Escape pull-request filenames before writing them to workflow logs
+- Record pinned npm install-script approvals for `esbuild@0.28.0` and
+  `fsevents@2.3.3`
 
 ## [2.0.0] - 2026-08-23
 

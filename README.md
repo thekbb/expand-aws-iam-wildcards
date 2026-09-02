@@ -37,7 +37,7 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: thekbb/expand-aws-iam-wildcards@v2.0.0
+      - uses: thekbb/expand-aws-iam-wildcards@v2.1.0
 ```
 
 No checkout step or repository secret is needed. Use `pull_request`, not
@@ -108,7 +108,7 @@ This is not a policy parser. It does not:
 ### Terraform only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@v2.0.0
+- uses: thekbb/expand-aws-iam-wildcards@v2.1.0
   with:
     file-patterns: '**/*.tf,**/*.tf.json'
 ```
@@ -116,7 +116,7 @@ This is not a policy parser. It does not:
 ### CloudFormation only
 
 ```yaml
-- uses: thekbb/expand-aws-iam-wildcards@v2.0.0
+- uses: thekbb/expand-aws-iam-wildcards@v2.1.0
   with:
     file-patterns: '**/*.yaml,**/*.yml,**/*.json'
 ```
@@ -148,7 +148,7 @@ action list is written to the workflow run logs.
 
 ## Version pinning
 
-For most repositories, use an exact semantic release such as `@v2.0.0` and
+For most repositories, use an exact semantic release such as `@v2.1.0` and
 enable Dependabot for GitHub Actions. Releases in this repository are
 [immutable][immutable-releases] starting with `v1.2.1`, while semantic version
 references remain eligible for [Dependabot alerts and updates][dependabot-alerts].
@@ -202,7 +202,7 @@ release commit, immutable release, and `dist/index.js` build attestation:
 ```bash
 gpg --import keys/release-signing-key.asc
 gh auth status
-./verify-release.sh --tag v2.0.0
+./verify-release.sh --tag v2.1.0
 ```
 
 The approved release-key fingerprint is:

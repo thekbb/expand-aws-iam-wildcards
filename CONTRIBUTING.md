@@ -201,7 +201,7 @@ branch do not conflict with existing release state.
 Set the semantic version without a leading `v`, then run the release command:
 
 ```bash
-VERSION=2.0.0
+VERSION=2.1.0
 npm run release -- "$VERSION"
 ```
 
