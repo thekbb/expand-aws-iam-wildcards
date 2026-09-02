@@ -15,6 +15,20 @@ instead of opening a public issue.
 
 We'll respond within 48 hours and work with you to understand and address the issue.
 
+## Pull Request Trust Boundary
+
+Pull-request filenames and diff text are untrusted data. The action reads them
+through the GitHub API; it does not check out the pull-request branch, invoke a
+shell or subprocess, or evaluate repository content as code. The scanner only
+recognizes IAM-like strings on added diff lines. Filenames are used for glob
+matching and GitHub review-comment locations, and are escaped before appearing
+in workflow logs.
+
+Lint rules prevent production code under `src/` from importing Node.js process
+execution or virtual-machine modules and reject string-evaluation APIs. Keep the
+action on the `pull_request` event and do not add workflow steps that interpolate
+pull-request fields into shell scripts.
+
 ## Review Comment Ownership
 
 Comment updates and deletion require both a recognized action comment shape

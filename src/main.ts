@@ -20,6 +20,10 @@ function getWorkflowRunUrl(owner: string, repo: string): string | undefined {
   return `${serverUrl}/${owner}/${repo}/actions/runs/${runId}`;
 }
 
+function escapeLogData(value: string): string {
+  return JSON.stringify(value).slice(1, -1);
+}
+
 function logTruncatedComments(
   truncatedComments: readonly TruncatedComment[],
   workflowRunUrl?: string,
@@ -35,7 +39,7 @@ function logTruncatedComments(
 
   for (const truncatedComment of truncatedComments) {
     core.info([
-      `Full IAM expansion for ${truncatedComment.file}:${truncatedComment.line}`,
+      `Full IAM expansion for ${escapeLogData(truncatedComment.file)}:${truncatedComment.line}`,
       `Rendered ${truncatedComment.renderedActionsCount} of ${truncatedComment.expandedActions.length} action(s) in the PR comment.`,
       `Wildcard patterns: ${truncatedComment.originalActions.join(', ')}`,
       ...truncatedComment.expandedActions.map((action) => `- ${action}`),
