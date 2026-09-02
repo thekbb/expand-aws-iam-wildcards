@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Detect question-mark-only IAM action wildcards such as `sqs:?etQueueAttributes`
 
+### Changed
+
+- Update IAM action data
+
 ## [2.0.0] - 2026-08-23
 
 ### Fixed
