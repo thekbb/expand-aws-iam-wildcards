@@ -98,11 +98,11 @@ jobs:
           title: Prepare v${{ inputs.version }} release
           commit-message: Prepare v${{ inputs.version }} release
           body: |
-            Uses locked IAM data ${{ steps.iam_data.outputs.version }} with
-            ${{ steps.iam_data.outputs.action_count }} actions across
-            ${{ steps.iam_data.outputs.service_count }} services, generates the
-            release bundle on Ubuntu, and updates package metadata for
-            v${{ inputs.version }}.
+            Uses locked [`@cloud-copilot/iam-data@${{ steps.iam_data.outputs.version }}`](https://www.npmjs.com/package/@cloud-copilot/iam-data/v/${{ steps.iam_data.outputs.version }}) with
+            `${{ steps.iam_data.outputs.action_count }}` actions across
+            `${{ steps.iam_data.outputs.service_count }}` services, generates
+            the release bundle on Ubuntu, and updates package metadata for
+            `v${{ inputs.version }}`.
           add-paths: |
             CHANGELOG.md
             dist/index.js
