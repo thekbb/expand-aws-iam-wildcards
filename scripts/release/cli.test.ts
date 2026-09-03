@@ -8,8 +8,8 @@ describe('buildReleaseNames', () => {
       branch: 'release-candidate/v1.3.0',
       majorTag: 'v1',
       prepareRunName: 'Prepare v1.3.0',
+      releaseRunName: 'Release v1.3.0',
       tag: 'v1.3.0',
-      verifyRunName: 'Verify v1.3.0',
     });
   });
 });

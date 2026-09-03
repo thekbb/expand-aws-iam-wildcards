@@ -43,12 +43,16 @@ exit "\${VERIFY_STATUS:-0}"
 }
 
 describe('release tag verifier', () => {
-  it('accepts an annotated tag signed by the approved release key', () => {
+  it('accepts an annotated version tag signed by the approved release key', () => {
     const result = verifyTag();
-    const majorResult = verifyTag({ tag: 'v2' });
 
     expect(result.status).toBe(0);
     expect(result.stdout).toContain(`release signing key ${approvedFingerprint}`);
+  });
+
+  it('accepts an annotated major tag signed by the approved release key', () => {
+    const majorResult = verifyTag({ tag: 'v2' });
+
     expect(majorResult.status).toBe(0);
   });
 

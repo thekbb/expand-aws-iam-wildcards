@@ -1,5 +1,5 @@
-name: Verify Draft Release
-run-name: Verify ${{ inputs.tag }}
+name: Verify and Publish Release
+run-name: Release ${{ inputs.tag }}
 
 on:
   workflow_dispatch:
@@ -9,26 +9,20 @@ on:
         required: true
         type: string
 
-permissions:
-  contents: read
-  id-token: write
-  attestations: write
+permissions: {}
 
 concurrency:
-  group: verify-release-${{ inputs.tag }}
+  group: release-${{ inputs.tag }}
   cancel-in-progress: false
 
 jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    environment:
-      name: automation
-    outputs:
-      tag: ${{ steps.meta.outputs.tag }}
-      verified_ref: ${{ steps.meta.outputs.verified_ref }}
-      verified_run_id: ${{ steps.meta.outputs.verified_run_id }}
-      verified_sha: ${{ steps.meta.outputs.verified_sha }}
+    permissions:
+      attestations: write
+      contents: read
+      id-token: write
     steps:
       - name: Validate release tag input and workflow ref
         env:
@@ -47,21 +41,6 @@ jobs:
             exit 1
           fi
 
-      - name: Record verified release metadata
-        id: meta
-        env:
-          TAG: ${{ inputs.tag }}
-          VERIFIED_REF: ${{ github.ref }}
-          VERIFIED_RUN_ID: ${{ github.run_id }}
-          VERIFIED_SHA: ${{ github.sha }}
-        run: |
-          {
-            echo "tag=$TAG"
-            echo "verified_ref=$VERIFIED_REF"
-            echo "verified_run_id=$VERIFIED_RUN_ID"
-            echo "verified_sha=$VERIFIED_SHA"
-          } >> "$GITHUB_OUTPUT"
-
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -72,6 +51,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.tag }}
+          WORKFLOW_SHA: ${{ github.sha }}
         run: |
           git fetch --no-tags origin main:refs/remotes/origin/main
 
@@ -85,8 +65,19 @@ jobs:
             exit 1
           fi
 
+          if [[ "$tag_commit" != "$WORKFLOW_SHA" ]]; then
+            echo "Expected $TAG commit $tag_commit to match workflow SHA $WORKFLOW_SHA."
+            exit 1
+          fi
+
           if ! git merge-base --is-ancestor "$tag_commit" origin/main; then
             echo "Expected $TAG commit $tag_commit to be reachable from origin/main."
+            exit 1
+          fi
+
+          if ! git diff --quiet "$tag_commit" origin/main -- .github/workflows; then
+            echo "Expected $TAG workflow files to match origin/main."
+            echo "GitHub's workflow token cannot publish a release for a tag with workflow changes outside main."
             exit 1
           fi
 
@@ -94,7 +85,7 @@ jobs:
 
       - name: Ensure a draft release exists for the requested tag
         env:
-          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
+          GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.tag }}
         run: |
           is_draft="$(gh release view "$TAG" --json isDraft --jq '.isDraft')"
@@ -152,19 +143,102 @@ jobs:
         with:
           subject-path: dist/index.js
 
-      - name: Verify generated build provenance attestation
+  publish:
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: automation
+    permissions:
+      attestations: read
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ inputs.tag }}
+
+      - name: Verify release before publishing
         env:
-          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
+          GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.tag }}
-          VERIFIED_SHA: ${{ steps.meta.outputs.verified_sha }}
+          WORKFLOW_REF: ${{ github.ref }}
+          WORKFLOW_SHA: ${{ github.sha }}
         run: |
+          if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Expected tag input like v1.2.3."
+            exit 1
+          fi
+
+          expected_ref="refs/tags/${TAG}"
+          if [[ "$WORKFLOW_REF" != "$expected_ref" ]]; then
+            echo "Expected workflow ref $expected_ref, got: $WORKFLOW_REF"
+            exit 1
+          fi
+
+          if [[ ! "$WORKFLOW_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Missing or invalid workflow SHA: $WORKFLOW_SHA"
+            exit 1
+          fi
+
+          git fetch --no-tags origin main:refs/remotes/origin/main
+
+          gpg --import keys/release-signing-key.asc
+          bash scripts/verify-release-tag.sh . "$TAG"
+
+          tag_commit="$(git rev-parse "$TAG^{commit}")"
+          head_commit="$(git rev-parse HEAD)"
+          if [[ "$tag_commit" != "$head_commit" ]]; then
+            echo "Expected checked out commit $head_commit to match $TAG commit $tag_commit."
+            exit 1
+          fi
+
+          if [[ "$tag_commit" != "$WORKFLOW_SHA" ]]; then
+            echo "Expected $TAG commit $tag_commit to match workflow SHA $WORKFLOW_SHA."
+            exit 1
+          fi
+
+          if ! git merge-base --is-ancestor "$tag_commit" origin/main; then
+            echo "Expected $TAG commit $tag_commit to be reachable from origin/main."
+            exit 1
+          fi
+
+          if ! git diff --quiet "$tag_commit" origin/main -- .github/workflows; then
+            echo "Expected $TAG workflow files to match origin/main."
+            echo "GitHub's workflow token cannot publish a release for a tag with workflow changes outside main."
+            exit 1
+          fi
+
+          bash scripts/verify-github-commit.sh "$GITHUB_REPOSITORY" "$tag_commit"
+
+          expected_version="${TAG#v}"
+          package_version="$(node -p "require('./package.json').version")"
+          lockfile_version="$(node -p "require('./package-lock.json').version")"
+
+          if [[ "$package_version" != "$expected_version" ]]; then
+            echo "Expected package.json version $expected_version, got $package_version."
+            exit 1
+          fi
+
+          if [[ "$lockfile_version" != "$expected_version" ]]; then
+            echo "Expected package-lock.json version $expected_version, got $lockfile_version."
+            exit 1
+          fi
+
+          is_draft="$(gh release view "$TAG" --json isDraft --jq '.isDraft')"
+          if [[ "$is_draft" != "true" ]]; then
+            echo "Expected tag $TAG to still have a draft release before publishing."
+            exit 1
+          fi
+
           for _ in {1..6}; do
             if gh attestation verify dist/index.js \
               --repo "${GITHUB_REPOSITORY}" \
               --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/verify-draft-release.yml" \
-              --signer-digest "$VERIFIED_SHA" \
-              --source-ref "refs/tags/${TAG}" \
-              --source-digest "$VERIFIED_SHA" \
+              --signer-digest "$WORKFLOW_SHA" \
+              --source-ref "$expected_ref" \
+              --source-digest "$WORKFLOW_SHA" \
               --deny-self-hosted-runners; then
               exit 0
             fi
@@ -173,21 +247,34 @@ jobs:
             sleep 10
           done
 
-          echo "Failed to verify generated artifact attestation for dist/index.js."
+          echo "Failed to verify artifact attestation for dist/index.js."
           exit 1
 
-      - name: Dispatch the publish workflow
+      - name: Publish the verified draft release
         env:
-          GH_TOKEN: ${{ secrets.IAM_UPDATE_PAT }}
-          TAG: ${{ steps.meta.outputs.tag }}
-          VERIFIED_REF: ${{ steps.meta.outputs.verified_ref }}
-          VERIFIED_RUN_ID: ${{ steps.meta.outputs.verified_run_id }}
-          VERIFIED_SHA: ${{ steps.meta.outputs.verified_sha }}
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: gh release edit "$TAG" --draft=false
+
+      - name: Verify published release is immutable
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
         run: |
-          gh api "repos/${{ github.repository }}/dispatches" \
-            --method POST \
-            -f event_type='publish_verified_release' \
-            --field "client_payload[tag]=$TAG" \
-            --field "client_payload[verified_ref]=$VERIFIED_REF" \
-            --field "client_payload[verified_run_id]=$VERIFIED_RUN_ID" \
-            --field "client_payload[verified_sha]=$VERIFIED_SHA"
+          for attempt in 1 2 3 4 5; do
+            is_draft="$(gh release view "$TAG" --json isDraft --jq '.isDraft')"
+            is_immutable="$(gh release view "$TAG" --json isImmutable --jq '.isImmutable')"
+
+            if [[ "$is_draft" == "false" && "$is_immutable" == "true" ]]; then
+              exit 0
+            fi
+
+            if [[ "$attempt" -lt 5 ]]; then
+              sleep 2
+            fi
+          done
+
+          echo "Published release $TAG is not immutable."
+          echo "Expected isDraft=false and isImmutable=true after publishing."
+          echo "Enable GitHub release immutability for this repository before publishing releases."
+          exit 1

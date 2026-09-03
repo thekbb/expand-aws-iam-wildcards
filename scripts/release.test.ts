@@ -52,7 +52,6 @@ function continueResponses({
   changelog = '## [1.3.0] - 2026-07-06\n\n[1.3.0]: https://example.test/compare/v1.2.7...v1.3.0\n',
   commitSignatureValid = true,
   draftReleaseExists = false,
-  immutableReleaseAfterVerify = true,
   localTagCommit,
   lockfileVersion = '1.3.0',
   majorTagSignatureValid = true,
@@ -62,11 +61,11 @@ function continueResponses({
   releaseAlreadyPublished = false,
   remoteTagCommit,
   versionTagSignatureValid = true,
+  workflowFilesMatch = true,
 }: {
   changelog?: string;
   commitSignatureValid?: boolean;
   draftReleaseExists?: boolean;
-  immutableReleaseAfterVerify?: boolean;
   localTagCommit?: string;
   lockfileVersion?: string;
   majorTagSignatureValid?: boolean;
@@ -76,14 +75,10 @@ function continueResponses({
   releaseAlreadyPublished?: boolean;
   remoteTagCommit?: string;
   versionTagSignatureValid?: boolean;
+  workflowFilesMatch?: boolean;
 } = {}): Map<string, CommandResult[]> {
   const localTagExists = localTagCommit !== undefined;
   const remoteTagExists = remoteTagCommit !== undefined;
-  const releaseViewsAfterVerify = immutableReleaseAfterVerify
-    ? [result('{"isDraft":false,"isImmutable":true,"tagName":"v1.3.0","url":"https://example.test/release"}')]
-    : Array.from({ length: 60 }, () =>
-        result('{"isDraft":true,"isImmutable":false,"tagName":"v1.3.0","url":"https://example.test/release"}'),
-      );
 
   const responses = new Map<string, CommandResult[]>([
     ['which git', [result()]],
@@ -101,6 +96,10 @@ function continueResponses({
       [result(`[{"state":"MERGED","mergeCommit":{"oid":"${releaseSha}"}}]`)],
     ],
     [`git merge-base --is-ancestor ${releaseSha} origin/main`, [result()]],
+    [
+      `git diff --quiet ${releaseSha} origin/main -- .github/workflows`,
+      workflowFilesMatch ? [result(), result()] : [result('', 1)],
+    ],
     [
       commitSignatureCommand(releaseSha),
       [commitSignatureValid ? result() : result('', 1)],
@@ -127,7 +126,6 @@ function continueResponses({
         releaseAlreadyPublished
           ? result('{"isDraft":false,"isImmutable":true,"tagName":"v1.3.0","url":"https://example.test/release"}')
           : result('{"isDraft":true,"isImmutable":false,"tagName":"v1.3.0","url":"https://example.test/release"}'),
-        ...releaseViewsAfterVerify,
       ],
     ],
     ['./verify-release.sh --tag v1.3.0', [result()]],
@@ -169,7 +167,7 @@ function continueResponses({
   if (!releaseAlreadyPublished) {
     responses.set(
       'gh run list --workflow verify-draft-release.yml --event workflow_dispatch --limit 50 --json databaseId,displayTitle --branch v1.3.0',
-      [result('[]'), result('[{"databaseId":456,"displayTitle":"Verify v1.3.0"}]')],
+      [result('[]'), result('[{"databaseId":456,"displayTitle":"Release v1.3.0"}]')],
     );
     responses.set('gh workflow run verify-draft-release.yml --ref v1.3.0 -f tag=v1.3.0', [result()]);
     responses.set('gh run watch 456 --exit-status', [result()]);
@@ -651,6 +649,26 @@ describe('runReleaseCli', () => {
     expect(calls).not.toContain(`git tag -s v1.3.0 ${releaseSha} -m v1.3.0`);
   });
 
+  it('does not create a release tag when workflow files differ from main', () => {
+    const errors: string[] = [];
+    const { calls, runtime } = createRuntime(
+      continueResponses({ workflowFilesMatch: false }),
+    );
+
+    const exitCode = runReleaseCli({
+      argv: ['node', 'release.ts', '1.3.0', '--continue'],
+      runtime,
+      stdout: runtime.stdout ?? console,
+      stderr: { error: (message: string) => errors.push(message) },
+    });
+
+    expect(exitCode).toBe(1);
+    expect(errors).toEqual([
+      `error: workflow files at release commit ${releaseSha} do not match origin/main`,
+    ]);
+    expect(calls).not.toContain(`git tag -s v1.3.0 ${releaseSha} -m v1.3.0`);
+  });
+
   it('continues a release when the version tag and immutable release already exist', () => {
     const errors: string[] = [];
     const { calls, output, runtime } = createRuntime(
@@ -844,21 +862,6 @@ describe('runReleaseCli', () => {
 
     expect(exitCode).toBe(1);
     expect(errors).toEqual([`error: CHANGELOG.md at ${releaseSha} is missing the 1.3.0 compare link`]);
-  });
-
-  it('rejects a publish workflow that does not make the release immutable', () => {
-    const errors: string[] = [];
-    const { runtime } = createRuntime(continueResponses({ immutableReleaseAfterVerify: false }));
-
-    const exitCode = runReleaseCli({
-      argv: ['node', 'release.ts', '1.3.0', '--continue'],
-      runtime,
-      stdout: runtime.stdout ?? console,
-      stderr: { error: (message: string) => errors.push(message) },
-    });
-
-    expect(exitCode).toBe(1);
-    expect(errors).toEqual(['error: release v1.3.0 was not published as immutable; inspect Publish Verified Release runs']);
   });
 
   it('rejects a moved major tag that does not resolve to the release commit', () => {

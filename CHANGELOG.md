@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Changed
+
+- Combine release verification and publication into one workflow using
+  job-scoped GitHub tokens, removing repository dispatch, cross-workflow run
+  polling, and the publication PAT
+
 ### Fixed
 
 - Remove unsupported Unicode asterisk normalization so expansion follows AWS
