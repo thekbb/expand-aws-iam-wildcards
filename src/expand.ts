@@ -4,13 +4,9 @@ export function expandIamAction(
   pattern: string,
   iamActions: readonly string[] = IAM_ACTIONS,
 ): string[] {
-  const normalized = pattern
-    .trim()
-    .replace(/\u2217/g, '*')  // ∗ (unicode asterisk operator)
-    .replace(/\uFF0A/g, '*')  // ＊ (fullwidth asterisk)
-    .replace(/\u204E/g, '*'); // ⁎ (low asterisk)
+  const trimmedPattern = pattern.trim();
   // Escape regex special chars except * and ?, then convert wildcards
-  const regexPattern = normalized
+  const regexPattern = trimmedPattern
     .replace(/[.+^${}()|[\]\\]/g, '\\$&')
     .replace(/\*/g, '.*')
     .replace(/\?/g, '.');
