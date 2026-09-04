@@ -251,6 +251,11 @@ After it is merged, use `--continue`. Existing matching tags, draft releases,
 and immutable releases are recognized so the command can continue from the
 latest completed checkpoint.
 
+If completing a failed release requires a source or workflow change, do not
+move its version tag. Merge the fix and release the next patch version instead.
+The failed exact version remains unpublished, and the signed major tag stays on
+the latest successfully published release.
+
 Do not manually bypass a failed signature, ancestry, metadata, attestation, or
 immutability check. Fix the reported state and rerun the command. Never rewrite
 an exact semantic version tag or immutable release.

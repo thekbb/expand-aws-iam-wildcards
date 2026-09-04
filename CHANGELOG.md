@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Fixed
+
+- Move draft release validation to the write-scoped publication job,
+  immediately before the release is published
+
 ## [2.1.1] - 2026-09-04
 
 ### Changed
