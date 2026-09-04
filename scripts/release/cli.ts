@@ -4,8 +4,8 @@ export interface ReleaseNames {
   branch: string;
   majorTag: string;
   prepareRunName: string;
+  releaseRunName: string;
   tag: string;
-  verifyRunName: string;
 }
 
 export interface ParsedReleaseArgs {
@@ -42,8 +42,8 @@ export function buildReleaseNames(version: string): ReleaseNames {
     branch: `release-candidate/${tag}`,
     majorTag,
     prepareRunName: `Prepare ${tag}`,
+    releaseRunName: `Release ${tag}`,
     tag,
-    verifyRunName: `Verify ${tag}`,
   };
 }
 

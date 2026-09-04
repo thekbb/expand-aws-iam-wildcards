@@ -222,12 +222,20 @@ npm run release -- "$VERSION" --continue
 
 The continuation synchronizes local `main`, resolves and verifies the exact
 release-candidate merge commit, creates the signed version tag, creates the
-draft release, and dispatches `Verify Draft Release`. The hosted workflows
-rebuild and compare the bundle, verify the commit and tag signatures, attest
-`dist/index.js`, publish the release, and confirm it is immutable. The command
-then runs the standalone verifier, moves the signed major tag with
+draft release, and dispatches `Verify and Publish Release`. Its verification
+job has read-only source access, rebuilds and compares the bundle, verifies the
+commit and tag signatures, and attests `dist/index.js`. A dependent publication
+job repeats the release-subject checks, verifies the attestation, publishes
+with its job-scoped `GITHUB_TOKEN`, and confirms the release is immutable. The
+command then runs the standalone verifier, moves the signed major tag with
 force-with-lease, verifies its target, and prints the supported consumer
 references.
+
+The release commit's `.github/workflows` tree must match current `main`. The
+release command checks this before creating the version tag, and the hosted
+workflow checks it again before publishing. GitHub does not allow its workflow
+token to update a release whose target contains workflow changes outside the
+default branch.
 
 If the changelog was finalized before running release preparation, use:
 

@@ -25,7 +25,7 @@ export interface GitHubClient {
   authStatus: () => void;
   createDraftRelease: (tag: string) => void;
   dispatchPrepareRelease: (version: string, finalizeChangelog: boolean) => void;
-  dispatchVerifyDraftRelease: (tag: string) => void;
+  dispatchReleaseWorkflow: (tag: string) => void;
   firstPullRequest: (branch: string, fields: string) => PullRequestSummary | undefined;
   latestWorkflowRunId: (workflow: string, runName: string, branch?: string) => string;
   requireAvailable: () => void;
@@ -66,7 +66,7 @@ export function createGitHubClient(runtime: ReleaseRuntime): GitHubClient {
         '-f',
         `finalize_changelog=${String(finalizeChangelog)}`,
       ]),
-    dispatchVerifyDraftRelease: (tag) =>
+    dispatchReleaseWorkflow: (tag) =>
       runChecked(runtime, 'gh', ['workflow', 'run', 'verify-draft-release.yml', '--ref', tag, '-f', `tag=${tag}`]),
     firstPullRequest: (branch, fields) => {
       const pullRequests = JSON.parse(

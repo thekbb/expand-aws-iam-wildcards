@@ -174,6 +174,8 @@ function ensureVersionTag({ git, runtime }: ReleaseServices, args: ParsedRelease
     return;
   }
 
+  git.assertWorkflowFilesMatchOriginMain(releaseSha);
+
   if (!git.hasLocalTag(args.names.tag)) {
     git.createSignedTag(args.names.tag, releaseSha);
   }
@@ -198,20 +200,11 @@ function ensureDraftRelease({ github, runtime }: ReleaseServices, args: ParsedRe
   runtime.stdout.log(JSON.stringify(github.viewRelease(args.names.tag, 'isDraft,tagName,url')));
 }
 
-function waitForPublishedRelease({ github, runtime }: ReleaseServices, tag: string): boolean {
-  for (let attempt = 0; attempt < 60; attempt += 1) {
-    const release = github.viewRelease(tag);
-    if (release?.isDraft === false && release.isImmutable === true) {
-      return true;
-    }
-
-    runtime.sleep(5_000);
-  }
-
-  return false;
-}
-
-function verifyAndPublishRelease(services: ReleaseServices, args: ParsedReleaseArgs): void {
+function verifyAndPublishRelease(
+  services: ReleaseServices,
+  args: ParsedReleaseArgs,
+  releaseSha: string,
+): void {
   const { github, runtime } = services;
   const release = github.viewRelease(args.names.tag);
   if (release?.isDraft === false && release.isImmutable === true) {
@@ -219,24 +212,21 @@ function verifyAndPublishRelease(services: ReleaseServices, args: ParsedReleaseA
     return;
   }
 
-  runtime.stdout.log(`Dispatching Verify Draft Release for ${args.names.tag}`);
+  services.git.assertWorkflowFilesMatchOriginMain(releaseSha);
 
-  const previousRunId = github.latestWorkflowRunId('verify-draft-release.yml', args.names.verifyRunName, args.names.tag);
-  github.dispatchVerifyDraftRelease(args.names.tag);
+  runtime.stdout.log(`Dispatching Verify and Publish Release for ${args.names.tag}`);
+
+  const previousRunId = github.latestWorkflowRunId('verify-draft-release.yml', args.names.releaseRunName, args.names.tag);
+  github.dispatchReleaseWorkflow(args.names.tag);
   const runId = findNewWorkflowRun(
     services,
     'verify-draft-release.yml',
-    args.names.verifyRunName,
+    args.names.releaseRunName,
     previousRunId,
     args.names.tag,
   );
 
   github.watchRun(runId);
-
-  runtime.stdout.log(`Waiting for ${args.names.tag} to be published and immutable`);
-  if (!waitForPublishedRelease(services, args.names.tag)) {
-    throw new Error(`release ${args.names.tag} was not published as immutable; inspect Publish Verified Release runs`);
-  }
 }
 
 function moveMajorTag({ git }: ReleaseServices, args: ParsedReleaseArgs, releaseSha: string): void {
@@ -304,7 +294,7 @@ function continueRelease(services: ReleaseServices, args: ParsedReleaseArgs): vo
 
   ensureVersionTag(services, args, releaseSha);
   ensureDraftRelease(services, args);
-  verifyAndPublishRelease(services, args);
+  verifyAndPublishRelease(services, args, releaseSha);
 
   runChecked(runtime, './verify-release.sh', ['--tag', args.names.tag], { stdio: 'inherit' });
   moveMajorTag(services, args, releaseSha);

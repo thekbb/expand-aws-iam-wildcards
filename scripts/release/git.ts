@@ -3,6 +3,7 @@ import { type ReleaseRuntime, requireCommand, runChecked, runText } from './comm
 export interface GitClient {
   assertReleaseCommitOnOriginMain: (releaseSha: string) => void;
   assertSigningKeyAvailable: () => void;
+  assertWorkflowFilesMatchOriginMain: (releaseSha: string) => void;
   createOrReplaceSignedTag: (tag: string, target: string) => void;
   createSignedTag: (tag: string, target: string) => void;
   currentBranch: () => string;
@@ -42,6 +43,19 @@ export function createGitClient(runtime: ReleaseRuntime): GitClient {
       }
 
       runChecked(runtime, 'gpg', ['--list-secret-keys', signingKey]);
+    },
+    assertWorkflowFilesMatchOriginMain: (releaseSha) => {
+      const result = runtime.run('git', [
+        'diff',
+        '--quiet',
+        releaseSha,
+        'origin/main',
+        '--',
+        '.github/workflows',
+      ]);
+      if (result.status !== 0) {
+        throw new Error(`workflow files at release commit ${releaseSha} do not match origin/main`);
+      }
     },
     createOrReplaceSignedTag: (tag, target) => runChecked(runtime, 'git', ['tag', '-s', '-f', tag, target, '-m', tag]),
     createSignedTag: (tag, target) => runChecked(runtime, 'git', ['tag', '-s', tag, target, '-m', tag]),
