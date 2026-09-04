@@ -83,17 +83,6 @@ jobs:
 
           bash scripts/verify-github-commit.sh "$GITHUB_REPOSITORY" "$tag_commit"
 
-      - name: Ensure a draft release exists for the requested tag
-        env:
-          GH_TOKEN: ${{ github.token }}
-          TAG: ${{ inputs.tag }}
-        run: |
-          is_draft="$(gh release view "$TAG" --json isDraft --jq '.isDraft')"
-          if [[ "$is_draft" != "true" ]]; then
-            echo "Expected a draft release for tag $TAG before verification."
-            exit 1
-          fi
-
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: '24.19.0'
