@@ -59150,13 +59150,9 @@ const IAM_ACTIONS = [
 ;// CONCATENATED MODULE: ./.build/workspace/src/expand.ts
 
 function expandIamAction(pattern, iamActions = IAM_ACTIONS) {
-    const normalized = pattern
-        .trim()
-        .replace(/\u2217/g, '*') // ∗ (unicode asterisk operator)
-        .replace(/\uFF0A/g, '*') // ＊ (fullwidth asterisk)
-        .replace(/\u204E/g, '*'); // ⁎ (low asterisk)
+    const trimmedPattern = pattern.trim();
     // Escape regex special chars except * and ?, then convert wildcards
-    const regexPattern = normalized
+    const regexPattern = trimmedPattern
         .replace(/[.+^${}()|[\]\\]/g, '\\$&')
         .replace(/\*/g, '.*')
         .replace(/\?/g, '.');
