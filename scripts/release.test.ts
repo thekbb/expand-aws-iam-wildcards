@@ -158,9 +158,8 @@ function continueResponses({
   }
 
   if (!releaseAlreadyPublished && !draftReleaseExists) {
-    responses.set('gh release create v1.3.0 --draft --verify-tag --generate-notes', [result()]);
-    responses.set('gh release view v1.3.0 --json isDraft,tagName,url', [
-      result('{"isDraft":true,"tagName":"v1.3.0"}'),
+    responses.set('gh release create v1.3.0 --draft --verify-tag --generate-notes', [
+      result('https://example.test/release\n'),
     ]);
   }
 
@@ -617,6 +616,7 @@ describe('runReleaseCli', () => {
     expect(calls).toContain(
       'git push --force-with-lease=refs/tags/v1:babecafebabecafebabecafebabecafebabecafe origin refs/tags/v1',
     );
+    expect(output.join('\n')).toContain('Draft release ready: https://example.test/release');
     expect(output.join('\n')).toContain('Release complete:');
     expect(output.join('\n')).toContain(
       'preferred: thekbb/expand-aws-iam-wildcards@v1.3.0',
@@ -744,7 +744,7 @@ describe('runReleaseCli', () => {
     expect(exitCode).toBe(0);
     expect(errors).toEqual([]);
     expect(calls).not.toContain('gh release create v1.3.0 --draft --verify-tag --generate-notes');
-    expect(output.join('\n')).toContain('Draft release already exists for v1.3.0');
+    expect(output.join('\n')).toContain('Draft release already exists: https://example.test/release');
   });
 
   it('rejects an existing remote release tag that points at a different commit', () => {
