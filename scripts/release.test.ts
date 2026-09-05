@@ -158,9 +158,8 @@ function continueResponses({
   }
 
   if (!releaseAlreadyPublished && !draftReleaseExists) {
-    responses.set('gh release create v1.3.0 --draft --verify-tag --generate-notes', [result()]);
-    responses.set('gh release view v1.3.0 --json isDraft,tagName,url', [
-      result('{"isDraft":true,"tagName":"v1.3.0","url":"https://example.test/release"}'),
+    responses.set('gh release create v1.3.0 --draft --verify-tag --generate-notes', [
+      result('https://example.test/release\n'),
     ]);
   }
 

@@ -15,7 +15,7 @@ export interface ReleaseView {
   isDraft: boolean;
   isImmutable?: boolean;
   tagName: string;
-  url?: string;
+  url: string;
 }
 
 const RELEASE_REPOSITORY = 'thekbb/expand-aws-iam-wildcards';
@@ -23,13 +23,13 @@ const RELEASE_REPOSITORY = 'thekbb/expand-aws-iam-wildcards';
 export interface GitHubClient {
   assertReleaseCommitSignature: (sha: string) => void;
   authStatus: () => void;
-  createDraftRelease: (tag: string) => void;
+  createDraftRelease: (tag: string) => string;
   dispatchPrepareRelease: (version: string, finalizeChangelog: boolean) => void;
   dispatchReleaseWorkflow: (tag: string) => void;
   firstPullRequest: (branch: string, fields: string) => PullRequestSummary | undefined;
   latestWorkflowRunId: (workflow: string, runName: string, branch?: string) => string;
   requireAvailable: () => void;
-  viewRelease: (tag: string, fields?: string) => ReleaseView | undefined;
+  viewRelease: (tag: string) => ReleaseView | undefined;
   watchRun: (runId: string) => void;
 }
 
@@ -55,7 +55,8 @@ export function createGitHubClient(runtime: ReleaseRuntime): GitHubClient {
         sha,
       ]),
     authStatus: () => runChecked(runtime, 'gh', ['auth', 'status']),
-    createDraftRelease: (tag) => runChecked(runtime, 'gh', ['release', 'create', tag, '--draft', '--verify-tag', '--generate-notes']),
+    createDraftRelease: (tag) =>
+      runText(runtime, 'gh', ['release', 'create', tag, '--draft', '--verify-tag', '--generate-notes']),
     dispatchPrepareRelease: (version, finalizeChangelog) =>
       runChecked(runtime, 'gh', [
         'workflow',
@@ -89,8 +90,8 @@ export function createGitHubClient(runtime: ReleaseRuntime): GitHubClient {
     latestWorkflowRunId: (workflow, runName, branch) =>
       String(listWorkflowRuns(runtime, workflow, branch).find((run) => run.displayTitle === runName)?.databaseId ?? ''),
     requireAvailable: () => requireCommand(runtime, 'gh'),
-    viewRelease: (tag, fields = 'isDraft,isImmutable,tagName,url') => {
-      const result = runtime.run('gh', ['release', 'view', tag, '--json', fields]);
+    viewRelease: (tag) => {
+      const result = runtime.run('gh', ['release', 'view', tag, '--json', 'isDraft,isImmutable,tagName,url']);
       if (result.status !== 0) {
         return undefined;
       }
