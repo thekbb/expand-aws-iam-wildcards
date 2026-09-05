@@ -188,16 +188,16 @@ function ensureDraftRelease({ github, runtime }: ReleaseServices, args: ParsedRe
   const release = github.viewRelease(args.names.tag);
   if (release !== undefined) {
     if (release.isDraft) {
-      runtime.stdout.log(`Draft release already exists for ${args.names.tag}`);
+      runtime.stdout.log(`Draft release already exists: ${release.url ?? release.tagName}`);
     } else {
-      runtime.stdout.log(`Release already exists for ${args.names.tag}`);
+      runtime.stdout.log(`Release already exists: ${release.url ?? release.tagName}`);
     }
-    runtime.stdout.log(JSON.stringify(release));
     return;
   }
 
   github.createDraftRelease(args.names.tag);
-  runtime.stdout.log(JSON.stringify(github.viewRelease(args.names.tag, 'isDraft,tagName,url')));
+  const createdRelease = github.viewRelease(args.names.tag, 'isDraft,tagName,url');
+  runtime.stdout.log(`Draft release ready: ${createdRelease?.url ?? createdRelease?.tagName ?? args.names.tag}`);
 }
 
 function verifyAndPublishRelease(

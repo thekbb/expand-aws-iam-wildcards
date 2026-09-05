@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Changed
+
+- Replace raw draft-release JSON output in the release command with a friendly status
+  and release URL
+
 ## [2.1.3] - 2026-09-04
 
 ### Fixed
