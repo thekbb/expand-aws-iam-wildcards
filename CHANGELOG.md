@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Show the release preparation PR URL directly above the prompt to continue after merging
+
+## [2.2.0] - 2026-09-22
+
+### Changed
+
 - Update the bundled AWS IAM action catalog
 - Replace raw draft-release JSON output in the release command with a friendly status
   and release URL
@@ -322,7 +328,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add initial release
 
 <!-- markdownlint-disable-next-line MD053 -->
-[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.1.3...HEAD
+[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.1.3...v2.2.0
 [2.1.3]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.1.1...v2.1.3
 [2.1.1]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.0.0...v2.1.0
