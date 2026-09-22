@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Update the bundled AWS IAM action catalog
 - Replace raw draft-release JSON output in the release command with a friendly status
   and release URL
 
