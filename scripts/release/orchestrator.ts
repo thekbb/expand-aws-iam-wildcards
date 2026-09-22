@@ -150,7 +150,7 @@ Release state:
     return;
   }
 
-  runtime.promptEnter('Press Enter after the release preparation PR is merged, or Ctrl-C to resume later with --continue. ');
+  runtime.promptEnter(`\nReview and merge the release preparation PR:\n${prUrl}\n\nPress Enter after merging, or Ctrl-C to resume later with --continue. `);
   continueRelease(services, args);
 }
 
