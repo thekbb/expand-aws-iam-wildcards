@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Changed
+
+- Show the release preparation PR URL directly above the prompt to continue after merging
+
 ## [2.2.0] - 2026-09-22
 
 ### Changed
