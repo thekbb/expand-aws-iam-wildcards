@@ -63,6 +63,36 @@ temporarily, executes the entry declared by `action.yml` with a synthetic
 non-PR event, then exercises the compiled review lifecycle against a stateful
 local GitHub API fixture. It cleans up without changing `dist/`.
 
+## Updating Workflow Dependencies
+
+Use exact semantic version tags (for example, `actions/checkout@v7.0.1`) in
+workflow `uses:` references. GitHub runs the commits recorded in
+`.github/workflows/actions.lock`, including transitive action dependencies.
+
+Install the GitHub CLI extension with an authenticated `gh`:
+
+```bash
+gh extension install github/gh-actions-lock --pin v0.4.1
+```
+
+After adding, removing, or changing a workflow or action reference, regenerate
+and verify the lockfile from the repository root:
+
+```bash
+gh actions-lock
+gh actions-lock --verify
+```
+
+Review and commit the generated lockfile with the workflow changes; do not edit
+it by hand. `gh actions-lock --verify-local` provides an offline coverage check,
+while `--verify` also verifies the locked commits against upstream repositories.
+The Workflow Lint workflow runs `--verify` on pull requests and pushes to `main`.
+The existing Dependabot GitHub Actions configuration updates action versions and
+their lockfile entries together.
+
+See GitHub's [workflow lockfile documentation](https://docs.github.com/en/actions/how-tos/secure-your-work/lock-workflow-dependencies)
+for details.
+
 ## Pull Requests
 
 1. Fork the repo and create a branch from `main`
