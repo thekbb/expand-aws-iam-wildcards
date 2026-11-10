@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Refresh the bundled AWS IAM action catalog to `@cloud-copilot/iam-data@0.21.202610021`
+- Update npm and GitHub Actions dependencies
+- Use exact semantic version tags for workflow actions with a generated lockfile
+  that pins direct and transitive action dependencies, verified in CI
 - Show the release preparation PR URL directly above the prompt to continue after merging
 
 ## [2.2.0] - 2026-09-22
