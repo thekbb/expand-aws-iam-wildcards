@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+## [2.3.0] - 2026-11-10
+
 ### Changed
 
 - Refresh the bundled AWS IAM action catalog to `@cloud-copilot/iam-data@0.21.202610021`
@@ -332,7 +334,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add initial release
 
 <!-- markdownlint-disable-next-line MD053 -->
-[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.3.0...HEAD
+[2.3.0]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.1.3...v2.2.0
 [2.1.3]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.1.1...v2.1.3
 [2.1.1]: https://github.com/thekbb/expand-aws-iam-wildcards/compare/v2.1.0...v2.1.1
