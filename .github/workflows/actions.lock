@@ -21,7 +21,7 @@ workflows:
         - 'actions/setup-node@v7.1.0'
     '.github/workflows/workflow-lint.yml':
         - 'actions/checkout@v7.0.1'
-        - 'reviewdog/action-actionlint@v1.78.1'
+        - 'reviewdog/action-actionlint@v1.83.0'
         - 'zizmorcore/zizmor-action@v0.8.0'
 dependencies:
     'actions/attest@v4.2.2':
@@ -66,9 +66,9 @@ dependencies:
         commit: 'sha1-5f6978faf089d4d20b00c7766989d076bb2fc7f1'
         owner_id: 18365890
         repo_id: 197176365
-    'reviewdog/action-actionlint@v1.78.1':
-        ref: 'v1.78.1'
-        commit: 'sha1-13465d022aa41c282f730be17574b5ce692d0186'
+    'reviewdog/action-actionlint@v1.83.0':
+        ref: 'v1.83.0'
+        commit: 'sha1-a7d35aaf8c309203a4ae861d32b7bd490baa7bf3'
         owner_id: 48765237
         repo_id: 385059686
     'zizmorcore/zizmor-action@v0.8.0':
